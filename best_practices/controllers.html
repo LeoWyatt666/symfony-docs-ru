@@ -1,0 +1,517 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Контроллеры &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="best_practices doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Контроллеры</a><ul>
+<li><a class="reference internal" href="#id2">Именование действий контроллера</a></li>
+<li><a class="reference internal" href="#id3">Конфигурация маршрутизации</a></li>
+<li><a class="reference internal" href="#id4">Конфигурация шаблонов</a></li>
+<li><a class="reference internal" href="#id5">Как выглядит контроллер</a></li>
+<li><a class="reference internal" href="#id6">Вызов сервисов</a></li>
+<li><a class="reference internal" href="#paramconverter">Использование ParamConverter</a><ul>
+<li><a class="reference internal" href="#id7">Когда всё становится более продвинутым</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">Пред- и пост- якоря</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Контроллеры</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>Контроллеры<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Symfony следует философии <em>&quot;худых контроллеров и толстых моделей&quot;</em>. Это
+означает, что контроллеры должны содержать только тонкий слой <em>склеивающего
+кода</em>, необходимого для координации разных частей приложения.</p>
+<p>Ваши методы контроллера должны просто вызывать другие сервисы, запускать при
+необходимости какие-то события и потом возвращать ответ, но они не должны содержать
+какой-либо настоящей бизнес-логики. Если же она есть, извлеките её из контроллера
+и поместите в сервис.</p>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Сделайте так, чтобы ваш контроллер расширял базовый контроллер <tt class="docutils literal"><code>AbstractController</code></tt>,
+предоставленный Symfony, и используйте аннотации для конфигурации маршрутизации,
+кеширования и безопасности везде, где это возможно.</p>
+</div></div>
+<p>Объединение контроллеров с основоположным фреймворком позволяет вам использовать
+все его функции и повышает вашу продкутивность.</p>
+<p>И так как ваши контроллеры должны быть &quot;худыми&quot; и содержать не более, чем
+пару строк <em>склеивающего кода</em>, часы, потраченные на их отделение от вашего
+фреймворка не принесёт вам пользы. Количество <em>потраченного</em> времени не стоит
+выгоды.</p>
+<p>В дополнение, использоваие аннотаций для маршрутизации, кеширования и безопасности
+облегчает конфигурацию. Вам не нужно просматривать десятки файлов, созданных в разных
+форматах (YAML, XML, PHP): вся конфигурация именно там, где вам надо и использует
+только один формат.</p>
+<p>В общем, это означает, что вы должны активно разделять вашу бизнес-логику и фреймворк
+и в то же время активно объёдинять ваши контроллеры и маршрутизацию <em>с</em> фреймворком,
+чтобы выжать из него по максимуму.</p>
+<div class="section" id="id2">
+<h2>Именование действий контроллера<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Не добавляйте к методам действий контроллера суффикс <tt class="docutils literal"><code>Action</code></tt>.</p>
+</div></div>
+<p>Первые версии Symfony требовали, чтобы имена методов заканчивались на <tt class="docutils literal"><code>Action</code></tt>
+(например, <tt class="docutils literal"><code>newAction()</code></tt>, <tt class="docutils literal"><code>showAction()</code></tt>). Этот суффикс стал необязательным,
+когда были представлены аннотации для контроллеров. В современных приложениях
+Symfony этот суффикс не требуется и не рекомендуется, так что вы можете смело его
+удалить.</p>
+</div>
+<div class="section" id="id3">
+<h2>Конфигурация маршрутизации<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Чтобы загрузить маршруты, определённые как аннотации, в ваших контроллерах,
+добавьте следующую конфигурацию к главному файлу коннфигурации маршрутизации:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/routes.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">контроллеры</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="s">&#39;../src/Controller/&#39;</span>
+    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">annotation</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Эта конфигурация загрузит аннотации из любого контроллера, который хранится внутри
+каталога <tt class="docutils literal"><code>src/Controller/</code></tt> и даже из его подкаталогов. Так что если ваше
+приложение определяет много контроллеров, абсолютно нормально реорганизовать их в
+подкаталоги:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&lt;your-project&gt;/
+├─ ...
+└─ src/
+   ├─ ...
+   └─ Controller/
+      ├─ DefaultController.php
+      ├─ ...
+      ├─ Api/
+      │  ├─ ...
+      │  └─ ...
+      └─ Backend/
+         ├─ ...
+         └─ ...
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id4">
+<h2>Конфигурация шаблонов<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Не используйте аннотацию <tt class="docutils literal"><code>&#64;Template</code></tt> для конфигурации шаблона,
+используемого контроллером.</p>
+</div></div>
+<p>Аннотация <tt class="docutils literal"><code>&#64;Template</code></tt> полезна, но также задействует некоторую магию. Мы
+не думаем, что её преимущества стоят магии, поэтому рекомендуем её не использовать.</p>
+<p>В большинстве времени, <tt class="docutils literal"><code>&#64;Template</code></tt> используется без параметров, что усложняет
+понимание того, какой шаблон отображается. Он также делает для новичков менее
+очевидным тот факт,что контроллер должен всегда возвращать объект Response (кроме
+случаев, когда вы используете уровень просмотра).</p>
+</div>
+<div class="section" id="id5">
+<h2>Как выглядит контроллер<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Учитывая всё это, вот пример того, как должен выглядеть контроллер для домашней
+страницы нашего приложения:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Entity\Post</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\AbstractController</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">DefaultController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Route(&quot;/&quot;, name=&quot;homepage&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$posts</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Post</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">findLatest</span><span class="p">();</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;default/index.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">&#39;posts&#39;</span> <span class="o">=&gt;</span> <span class="nv">$posts</span><span class="p">,</span>
+        <span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id6">
+<h2>Вызов сервисов<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Если вы расширяете базовый класс <tt class="docutils literal"><code>AbstractController</code></tt>, вы не можете получить доступ к
+сервисам напрямую из контейнера через <tt class="docutils literal"><code>$this-&gt;container-&gt;get()</code></tt> или <tt class="docutils literal"><code>$this-&gt;get()</code></tt>. Но
+вместо этого, вам нужно использовать внедрение зависимости, чтобы вызвать сервисы: легче всего
+это сделать через <a class="reference internal" href="..\controller.html#controller-accessing-services"><span>типизирование аргументов матода действия</span></a>:</p>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Не используйте <tt class="docutils literal"><code>$this-&gt;get()</code></tt> или <tt class="docutils literal"><code>$this-&gt;container-&gt;get()</code></tt>, чтобы вызвать
+сервисы из контейнера. Вместо этого используйте внедрение зависимости.</p>
+</div></div>
+<p>Не вызывая сервисы напрямую из контейнера, вы делаете ваши сервисы <em>приватными</em>,
+что имеет <a class="reference internal" href="..\service_container\alias_private.html#services-why-private"><span>несколько преимуществ</span></a>.</p>
+</div>
+<div class="section" id="paramconverter">
+<span id="best-practices-paramconverter-ru"></span><h2>Использование ParamConverter<a class="headerlink" href="#paramconverter" title="Permalink to this headline">¶</a></h2>
+<p>Если вы используете Doctrine, то вы можете <em>опционально</em> использовать
+<a class="reference external" href="https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/converters.html">ParamConverter</a> для автиматического запроса всей страницы и передачи её
+в качестве аргумента вашему контроллеру.</p>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Используйте фокус с ParamConverter, чтобы автоматически запросить
+сущности Doctrine, когда это просто и удобно.</p>
+</div></div>
+<p>Например:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Entity\Post</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @Route(&quot;/{id}&quot;, name=&quot;admin_post_show&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nx">Post</span> <span class="nv">$post</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$deleteForm</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createDeleteForm</span><span class="p">(</span><span class="nv">$post</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;admin/post/show.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span>
+        <span class="s1">&#39;post&#39;</span> <span class="o">=&gt;</span> <span class="nv">$post</span><span class="p">,</span>
+        <span class="s1">&#39;delete_form&#39;</span> <span class="o">=&gt;</span> <span class="nv">$deleteForm</span><span class="o">-&gt;</span><span class="na">createView</span><span class="p">(),</span>
+    <span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Обычно, вы ожидаете аргумент <tt class="docutils literal"><code>$id</code></tt> к <tt class="docutils literal"><code>show()</code></tt>. Вместо этого, создав новый
+аргумент (<tt class="docutils literal"><code>$post</code></tt>) и типизировав его классом <tt class="docutils literal"><code>Post</code></tt> (который является
+сущностью Doctrine), ParamConverter автоматически запрашивает объект, свойство
+<tt class="docutils literal"><code>$id</code></tt> которого совпадает со значением <tt class="docutils literal"><code>{id}</code></tt>. Он также отобразит страницу 404,
+если <tt class="docutils literal"><code>Post</code></tt> не может быть найден.</p>
+<div class="section" id="id7">
+<h3>Когда всё становится более продвинутым<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Вышеописанный пример работает без конфигурации, так как имя заполнителя <tt class="docutils literal"><code>{id}</code></tt>
+совпадает с именем свойства сущности. Если это не так, или если у вас более
+сложная логика, то легче будет просто запросить сущность вручную. В нашм приложении,
+у нас складывается такая ситуация в <tt class="docutils literal"><code>CommentController</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">/**</span>
+<span class="sd"> * @Route(&quot;/comment/{postSlug}/new&quot;, name=&quot;comment_new&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">new</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nv">$postSlug</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$post</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Post</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">findOneBy</span><span class="p">([</span><span class="s1">&#39;slug&#39;</span> <span class="o">=&gt;</span> <span class="nv">$postSlug</span><span class="p">]);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$post</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createNotFoundException</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы также можете использовать конфигурацию <tt class="docutils literal"><code>&#64;ParamConverter</code></tt>, которая безагранично
+гибкая:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Entity\Post</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @Route(&quot;/comment/{postSlug}/new&quot;, name=&quot;comment_new&quot;)</span>
+<span class="sd"> * @ParamConverter(&quot;post&quot;, options={&quot;mapping&quot;={&quot;postSlug&quot;=&quot;slug&quot;}})</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">new</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">Post</span> <span class="nv">$post</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Суть в этом: шорткат ParamConverter идеален для простых ситуаций. Но вам не
+стоит забывать, что запрос сущностей напрямую тоже очень прост.</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>Пред- и пост- якоря<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>Если вам нужно выполнить некоторый код до или после выполнения ваших контроллеров,
+вы можете использовать компонент EventDispatcher, чтобы
+<a class="reference internal" href="..\event_dispatcher\before_after_filters.html"><em>установить фильтры до и после</em></a>.</p>
+<hr class="docutils">
+<p>Далее: <a class="reference internal" href="templates.html"><em>Templates</em></a></p>
+</div>
+</div>
+
+
+            
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        
+    
+
+
+
+  </body>
+</body></html>

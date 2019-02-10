@@ -1,0 +1,538 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как сконфигурировать сервис с помощью конфигуратора &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Service Container" href="..\service_container.html">
+    <link rel="next" title="How to Debug the Service Container &amp; List Services" href="debug.html">
+    <link rel="prev" title="How to Configure a Service with a Configurator" href="configurators.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="service_container doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как сконфигурировать сервис с помощью конфигуратора</a><ul>
+<li><a class="reference internal" href="#id2">Исползование конфигуратора</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\service_container.html">Service Container</a></li>
+                
+                <li class="active">Как сконфигурировать сервис с помощью конфигуратора</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как сконфигурировать сервис с помощью конфигуратора<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p><em>Конфигуратор сервиса</em> - это функция сервис-контейнера, которая позволяет вам
+использовать вызываемое, чтобы сконфигурировать сервис после его инстанциирования.</p>
+<p>Конфигуратор сервиса может быть использован, к примеру, когда у вас есть
+сервис, который требует сложной установки, основанной на настройках конфигурации,
+исходящих из разных источников или сервисов. Используя внешний конфигуратор,
+вы можете поддерживать реализацию сервиса в чистоте и держать её отдельно
+от других объектов, которые предоставляют необходимую конфигурацию.</p>
+<p>Ещё один пример использования - когда у вас есть множество объектов,
+которые совместно используют общую конфигурацию, или которые должны
+быть похожим образом сконфигурированы во время прогона.</p>
+<p>Например, представьте, что у вас есть приложение, где вы оправляtnt разные
+виды электронных писем пользователям. Письма пропускаются через различные
+программы форматирования, которые могут быть включены или нет, в зависимости
+от некоторых динамических установок приложения. Вы начинаете определять класс
+<tt class="docutils literal"><code>NewsletterManager</code></tt> таким образом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Mail/NewsletterManager.php</span>
+<span class="k">namespace</span> <span class="nx">AppBundle\Mail</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">NewsletterManager</span> <span class="k">implements</span> <span class="nx">EmailFormatterAwareInterface</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$enabledFormatters</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setEnabledFormatters</span><span class="p">(</span><span class="k">array</span> <span class="nv">$enabledFormatters</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">enabledFormatters</span> <span class="o">=</span> <span class="nv">$enabledFormatters</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>а также класс <tt class="docutils literal"><code>GreetingCardManager</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Mail/GreetingCardManager.php</span>
+<span class="k">namespace</span> <span class="nx">AppBundle\Mail</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">GreetingCardManager</span> <span class="k">implements</span> <span class="nx">EmailFormatterAwareInterface</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$enabledFormatters</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setEnabledFormatters</span><span class="p">(</span><span class="k">array</span> <span class="nv">$enabledFormatters</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">enabledFormatters</span> <span class="o">=</span> <span class="nv">$enabledFormatters</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Как упоминалось ранее, целью являетя установить программы форматирования во
+время прогона, в зависимости от настроек приложения. Чтобы сделать это, у вас
+также есть класс <tt class="docutils literal"><code>EmailFormatterManager</code></tt>, который отвечает за загрузку и
+валидацию программ форматирования, включённых в приложении:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Mail/EmailFormatterManager.php</span>
+<span class="k">namespace</span> <span class="nx">AppBundle\Mail</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">EmailFormatterManager</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getEnabledFormatters</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// код для конфигурации того, какие программы форматирования использовать</span>
+        <span class="nv">$enabledFormatters</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+
+        <span class="c1">// ...</span>
+
+        <span class="k">return</span> <span class="nv">$enabledFormatters</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вашей целью является избежать объединения <tt class="docutils literal"><code>NewsletterManager</code></tt> и
+<tt class="docutils literal"><code>GreetingCardManager</code></tt> с <tt class="docutils literal"><code>EmailFormatterManager</code></tt>, то вы можете захотеть
+создать класс конфигуратора для конфигурирования этих экземпляров:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Mail/EmailConfigurator.php</span>
+<span class="k">namespace</span> <span class="nx">AppBundle\Mail</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">EmailConfigurator</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$formatterManager</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">EmailFormatterManager</span> <span class="nv">$formatterManager</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">formatterManager</span> <span class="o">=</span> <span class="nv">$formatterManager</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configure</span><span class="p">(</span><span class="nx">EmailFormatterAwareInterface</span> <span class="nv">$emailManager</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$emailManager</span><span class="o">-&gt;</span><span class="na">setEnabledFormatters</span><span class="p">(</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">formatterManager</span><span class="o">-&gt;</span><span class="na">getEnabledFormatters</span><span class="p">()</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Работа <tt class="docutils literal"><code>EmailConfigurator</code></tt> - внедрять включённые программы форматирования
+в <tt class="docutils literal"><code>NewsletterManager</code></tt> и <tt class="docutils literal"><code>GreetingCardManager</code></tt>, потому что они не знают,
+откуда появились включённые программы форматирования. С другой стороны,
+<tt class="docutils literal"><code>EmailFormatterManager</code></tt> содержит данные о включенных программах форматирования
+и о том, как их загружать, поддерживая единый принцип ответственности.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">В то время, как этот пример использует метод PHP-класса, конфигураторы могут
+быть любым PHP-вызываемым, включая функции, статические методы и методы сервисов.</p>
+</div></div>
+<div class="section" id="id2">
+<h2>Исползование конфигуратора<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Вы можете сконфигурировать конфигуратор сервиса, используя опцию <tt class="docutils literal"><code>configurator</code></tt>. Если вы
+используете <a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>конфигурацию services.yml по умолчанию</span></a>,
+то все классы уже загружены как сервисы. Всё, что вам нужно сделать, это точно определить <tt class="docutils literal"><code>configurator</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/services.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="c1"># Регистрирует все 4 класса как сервисы, включая AppBundle\Mail\EmailConfigurator</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="s">&#39;../../src/AppBundle/*&#39;</span>
+        <span class="c1"># ...</span>
+
+    <span class="c1"># переопределить сервисы, чтобы установить конфигуратор</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Mail\NewsletterManager</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">configurator</span><span class="p p-Indicator">:</span> <span class="s">&#39;AppBundle\Mail\EmailConfigurator:configure&#39;</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Mail\GreetingCardManager</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">configurator</span><span class="p p-Indicator">:</span> <span class="s">&#39;AppBundle\Mail\EmailConfigurator:configure&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&lt;!-- app/config/services.xml --&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;container xmlns=&quot;http://symfony.com/schema/dic/services&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://symfony.com/schema/dic/services
+        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;&gt;
+
+    &lt;services&gt;
+        &lt;prototype namespace=&quot;AppBundle\&quot; resource=&quot;../../src/AppBundle/*&quot; ... /&gt;
+
+        &lt;service id=&quot;AppBundle\Mail\NewsletterManager&quot;&gt;
+            &lt;configurator service=&quot;AppBundle\Mail\EmailConfigurator&quot; method=&quot;configure&quot; /&gt;
+        &lt;/service&gt;
+
+        &lt;service id=&quot;AppBundle\Mail\GreetingCardManager&quot;&gt;
+            &lt;configurator service=&quot;AppBundle\Mail\EmailConfigurator&quot; method=&quot;configure&quot; /&gt;
+        &lt;/service&gt;
+    &lt;/services&gt;
+&lt;/container&gt;
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/services.php</span>
+<span class="k">use</span> <span class="nx">AppBundle\Mail\EmailConfigurator</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AppBundle\Mail\EmailFormatterManager</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AppBundle\Mail\GreetingCardManager</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AppBundle\Mail\NewsletterManager</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Reference</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">EmailFormatterManager</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">EmailConfigurator</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">NewsletterManager</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setConfigurator</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="nx">EmailConfigurator</span><span class="o">::</span><span class="na">class</span><span class="p">),</span> <span class="s1">&#39;configure&#39;</span><span class="p">));</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">GreetingCardManager</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setConfigurator</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="nx">EmailConfigurator</span><span class="o">::</span><span class="na">class</span><span class="p">),</span> <span class="s1">&#39;configure&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 3.2: </span>Синтаксис <tt class="docutils literal"><code>service_id:method_name</code></tt> для конфигурации формата YAML был представлен
+в Symfony 3.2.</p>
+<p>Традиционный синтаксис конфигуратора в YAML-файлах использовал массив, чтобы
+определить id сервиса и имя метода:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">app.newsletter_manager</span><span class="p p-Indicator">:</span>
+    <span class="c1"># новый синтаксис</span>
+    <span class="l l-Scalar l-Scalar-Plain">configurator</span><span class="p p-Indicator">:</span> <span class="s">&#39;AppBundle\Mail\EmailConfigurator:configure&#39;</span>
+    <span class="c1"># старый синтаксис</span>
+    <span class="l l-Scalar l-Scalar-Plain">configurator</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;@AppBundle\Mail\EmailConfigurator&#39;</span><span class="p p-Indicator">,</span> <span class="nv">configure</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<p>Вот и всё! При запрашивании сервиса <tt class="docutils literal"><code>AppBundle\Mail\NewsletterManager</code></tt> или
+<tt class="docutils literal"><code>AppBundle\Mail\GreetingCardManager</code></tt>, созданный экземпляр вначале будет передан
+в метод <tt class="docutils literal"><code>EmailConfigurator::configure()</code></tt>.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="configurators.html">« How to Configure a Service with a Configurator</a>
+                <span class="separator">|</span>
+                <a href="debug.html">How to Debug the Service Container &amp; List Services »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

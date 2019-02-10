@@ -1,0 +1,485 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Встроенные события Symfony &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="reference doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Встроенные события Symfony</a><ul>
+<li><a class="reference internal" href="#id1">События ядра</a><ul>
+<li><a class="reference internal" href="#kernel-request"><tt class="docutils literal"><code>kernel.request</code></tt></a></li>
+<li><a class="reference internal" href="#kernel-controller">kernel.controller</a></li>
+<li><a class="reference internal" href="#kernel-view">kernel.view</a></li>
+<li><a class="reference internal" href="#kernel-response">kernel.response</a></li>
+<li><a class="reference internal" href="#kernel-finish-request">kernel.finish_request</a></li>
+<li><a class="reference internal" href="#kernel-terminate">kernel.terminate</a></li>
+<li><a class="reference internal" href="#kernel-exception">kernel.exception</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Встроенные события Symfony</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="symfony">
+<h1>Встроенные события Symfony<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h1>
+<p>Во время обработки HTTP запроса, фреймворк Symfony (или любого приложения,
+использующего <a class="reference internal" href="..\components\http_kernel.html"><em>компонент HttpKernel</em></a>) запускает
+какие-то <a class="reference internal" href="..\event_dispatcher.html"><em>события</em></a>, которые вы можете использовать,
+чтобы изменять то, как обрабатывается запрос.</p>
+<div class="section" id="id1">
+<h2>События ядра<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Каждое событие, выполненное компонентом HttpKernel - это подкласс
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Event/KernelEvent.html" title="Symfony\Component\HttpKernel\Event\KernelEvent">KernelEvent</a></code></tt>, который
+предоставляет следующую информацию:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Event/KernelEvent.html#method_getRequestType" title="Symfony\Component\HttpKernel\Event\KernelEvent::getRequestType()">getRequestType()</a></code></tt></dt>
+<dd>Возвращает <em>тип</em> запроса (<tt class="docutils literal"><code>HttpKernelInterface::MASTER_REQUEST</code></tt>
+или <tt class="docutils literal"><code>HttpKernelInterface::SUB_REQUEST</code></tt>).</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Event/KernelEvent.html#method_getKernel" title="Symfony\Component\HttpKernel\Event\KernelEvent::getKernel()">getKernel()</a></code></tt></dt>
+<dd>Возвращает Ядро, обрабатывающее запрос.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Event/KernelEvent.html#method_getRequest" title="Symfony\Component\HttpKernel\Event\KernelEvent::getRequest()">getRequest()</a></code></tt></dt>
+<dd>Возвращает текущий обрабатываемый <tt class="docutils literal"><code>Request</code></tt>.</dd>
+</dl>
+<div class="section" id="kernel-request">
+<span id="kernel-core-request"></span><h3><tt class="docutils literal"><code>kernel.request</code></tt><a class="headerlink" href="#kernel-request" title="Permalink to this headline">¶</a></h3>
+<p><strong>Класс события</strong>: <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Event/GetResponseEvent.html" title="Symfony\Component\HttpKernel\Event\GetResponseEvent">GetResponseEvent</a></code></tt></p>
+<p>Это событие диспетчеризируется Symfony очень рано, до определения контроллера.
+Полезен для добавления информации к Запросу или возвращения Ответа раньше,
+чтобы остановить обработку запроса.</p>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Простите больше о <a class="reference internal" href="..\components\http_kernel.html#component-http-kernel-kernel-request"><span>событии kernel.request</span></a>.</div></div>
+<p>Выполните эту команду, чтобы узнать, какие слушатели зарегистрированы для этого
+события и их приоритетность:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console debug:event-dispatcher kernel.request
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="kernel-controller">
+<h3>kernel.controller<a class="headerlink" href="#kernel-controller" title="Permalink to this headline">¶</a></h3>
+<p><strong>Класс события</strong>: <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Event/FilterControllerEvent.html" title="Symfony\Component\HttpKernel\Event\FilterControllerEvent">FilterControllerEvent</a></code></tt></p>
+<p>Это событие запсукается после того, как выплняемый контроллер был разрешён, но
+до того, как он был выполнен. Полезно для инициализации вещей, необходимых
+позже контроллеру, вроде <a class="reference external" href="https://symfony.com/doc/master/bundles/SensioFrameworkExtraBundle/annotations/converters.html">преобразователей param</a>, и даже для изменения
+контроллера полностью:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Event\FilterControllerEvent</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">onKernelController</span><span class="p">(</span><span class="nx">FilterControllerEvent</span> <span class="nv">$event</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="c1">// the controller can be changed to any PHP callable</span>
+    <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setController</span><span class="p">(</span><span class="nv">$myCustomController</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Прочтите больше о <a class="reference internal" href="..\components\http_kernel.html#component-http-kernel-kernel-controller"><span>событии kernel.controller</span></a>.</div></div>
+<p>Выполните эту команду, чтобы узнать, какие слушатели зарегистрированы для этого
+события и их приоритетность:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console debug:event-dispatcher kernel.controller
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="kernel-view">
+<h3>kernel.view<a class="headerlink" href="#kernel-view" title="Permalink to this headline">¶</a></h3>
+<p><strong>Класс события</strong>: <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Event/GetResponseForControllerResultEvent.html" title="Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent">GetResponseForControllerResultEvent</a></code></tt></p>
+<p>Это событие запускается после того, как контроллер был выполнен, но <em>только</em>,
+если контроллер <em>не</em> возвращает объект <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Response.html" title="Symfony\Component\HttpFoundation\Response">Response</a></code></tt>.
+Полезно для преобразования возвращённого значения (например, строки с некоторым
+HTML содержанием) в объект <tt class="docutils literal"><code>Response</code></tt>, необходимый Symfony:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">onKernelView</span><span class="p">(</span><span class="nx">GetResponseForControllerResultEvent</span> <span class="nv">$event</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$val</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getControllerResult</span><span class="p">();</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">();</span>
+
+    <span class="c1">// ... как-то настроить Ответ из возвратного значения</span>
+
+    <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setResponse</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Прочтите больще о <a class="reference internal" href="..\components\http_kernel.html#component-http-kernel-kernel-view"><span>событии kernel.view</span></a>.</div></div>
+</div>
+<div class="section" id="kernel-response">
+<h3>kernel.response<a class="headerlink" href="#kernel-response" title="Permalink to this headline">¶</a></h3>
+<p><strong>Класс события</strong>: <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Event/FilterResponseEvent.html" title="Symfony\Component\HttpKernel\Event\FilterResponseEvent">FilterResponseEvent</a></code></tt></p>
+<p>Это событие запускается после того, как контроллер или любой слушатель <tt class="docutils literal"><code>kernel.view</code></tt>
+возвращает объект <tt class="docutils literal"><code>Response</code></tt>. Полезно для изменения или замены ответа до его отправки
+обратно (например, добавлять / изменять HTTP заголовки, добавлять cookie и т.д.):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">onKernelResponse</span><span class="p">(</span><span class="nx">FilterResponseEvent</span> <span class="nv">$event</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getResponse</span><span class="p">();</span>
+
+    <span class="c1">// ... изменить объект ответа</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Прочтите больще о <a class="reference internal" href="..\components\http_kernel.html#component-http-kernel-kernel-response"><span>событии kernel.response</span></a>.</div></div>
+<p>Выполните эту команду, чтобы узнать, какие слушатели зарегистрированы для этого
+события и их приоритетность:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console debug:event-dispatcher kernel.response
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="kernel-finish-request">
+<h3>kernel.finish_request<a class="headerlink" href="#kernel-finish-request" title="Permalink to this headline">¶</a></h3>
+<p><strong>Класс события</strong>: <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Event/FinishRequestEvent.html" title="Symfony\Component\HttpKernel\Event\FinishRequestEvent">FinishRequestEvent</a></code></tt></p>
+<p>Это событие выполняется после того, как был закончен
+<a class="reference internal" href="..\components\http_kernel.html#http-kernel-sub-requests"><span>подзапрос</span></a>. Оно полезно для сброса
+глобального состояния приложения (например, слушатель переводчика сбрасывает
+локаль переводчика по одному из родительских запросов):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">onKernelFinishRequest</span><span class="p">(</span><span class="nx">FinishRequestEvent</span> <span class="nv">$event</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">null</span> <span class="o">===</span> <span class="nv">$parentRequest</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">requestStack</span><span class="o">-&gt;</span><span class="na">getParentRequest</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">//сбросить локаль подзапроса в локаль родительского запроса</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setLocale</span><span class="p">(</span><span class="nv">$parentRequest</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Выполните эту команду, чтобы узнать, какие слушатели зарегистрированы для этого
+события и их приоритетность:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console debug:event-dispatcher kernel.finish_request
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="kernel-terminate">
+<h3>kernel.terminate<a class="headerlink" href="#kernel-terminate" title="Permalink to this headline">¶</a></h3>
+<p><strong>Класс события</strong>: <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Event/PostResponseEvent.html" title="Symfony\Component\HttpKernel\Event\PostResponseEvent">PostResponseEvent</a></code></tt></p>
+<p>Это событие выполняется после того, как был отправлен ответ (после выполнения
+метода <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/HttpKernel.html#method_handle" title="Symfony\Component\HttpKernel\HttpKernel::handle()">handle()</a></code></tt> method).
+Оно полезно для выполнения медленных или сложных задач, которые не должны быть
+выполнены для отправки ответа (например, отправка писем).</p>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Прочтите больше о <a class="reference internal" href="..\components\http_kernel.html#component-http-kernel-kernel-terminate"><span>событии kernel.terminate</span></a>.</div></div>
+<p>Выполните эту команду, чтобы узнать, какие слушатели зарегистрированы для этого
+события и их приоритетность:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console debug:event-dispatcher kernel.terminate
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="kernel-exception">
+<span id="kernel-kernel-exception-ru"></span><h3>kernel.exception<a class="headerlink" href="#kernel-exception" title="Permalink to this headline">¶</a></h3>
+<p><strong>Класс события</strong>: <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Event/GetResponseForExceptionEvent.html" title="Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent">GetResponseForExceptionEvent</a></code></tt></p>
+<p>Это событие выполняется как только вознкает ошибка во время обработки HTTP запроса.
+Оно полезно для восстановления после ошибо или изменения деталей исключений, отправленных
+в качестве ответа:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">onKernelException</span><span class="p">(</span><span class="nx">GetResponseForExceptionEvent</span> <span class="nv">$event</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$exception</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getException</span><span class="p">();</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">();</span>
+    <span class="c1">// настроейте объект Ответ, основываясь на пойманном исключении</span>
+    <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setResponse</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+
+    <span class="c1">// вы можете, как вариант, установить новое Исключение</span>
+    <span class="c1">// $exception = new \Exception(&#39;Some special exception&#39;);</span>
+    <span class="c1">// $event-&gt;setException($exception);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">TwigBundle регистрирует <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/EventListener/ExceptionListener.html" title="Symfony\Component\HttpKernel\EventListener\ExceptionListener">ExceptionListener</a></code></tt>,
+который пересылает <tt class="docutils literal"><code>Request</code></tt> заданному контроллеру, определённому параметром
+<tt class="docutils literal"><code>exception_listener.controller</code></tt>.</p>
+</div></div>
+<p>Symfony использует следующую логику для определения HTTP статус-кода
+ответа:</p>
+<ul class="simple">
+<li>Если <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Response.html#method_isClientError" title="Symfony\Component\HttpFoundation\Response::isClientError()">isClientError()</a></code></tt>,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Response.html#method_isServerError" title="Symfony\Component\HttpFoundation\Response::isServerError()">isServerError()</a></code></tt> или
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Response.html#method_isRedirect" title="Symfony\Component\HttpFoundation\Response::isRedirect()">isRedirect()</a></code></tt> - true,
+то в вашем объекте <tt class="docutils literal"><code>Response</code></tt> используется статус-код;</li>
+<li>Если исходное исключение реализует
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Exception/HttpExceptionInterface.html" title="Symfony\Component\HttpKernel\Exception\HttpExceptionInterface">HttpExceptionInterface</a></code></tt>,
+то в исключении вызывается и используется <tt class="docutils literal"><code>getStatusCode()</code></tt> (также добавляются
+заголовки из <tt class="docutils literal"><code>getHeaders()</code></tt>);</li>
+<li>Если не совпадает ничего из вышеперечисленного, то используется статус-код 500.</li>
+</ul>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p>Если вы хотите перезаписать статус-код ответа исключения, что не стоит делать
+без весомой причины, вначале вызовите <tt class="docutils literal"><code>GetResponseForExceptionEvent::allowSuccessfulResponse()</code></tt>,
+а потом установите статус-код в ответе:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">allowSuccessfulResponse</span><span class="p">();</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s1">&#39;No Content&#39;</span><span class="p">,</span> <span class="mi">204</span><span class="p">);</span>
+<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setResponse</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p class="last">Статус-код, отправленный клиенту в примере выше, будет <tt class="docutils literal"><code>204</code></tt>. Если опустить
+<tt class="docutils literal"><code>$event-&gt;allowSuccessfulResponse()</code></tt>, тогда ядро установит необходимый статус-код,
+основываясь на типе вызванного исключения.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Прочтите больше о <a class="reference internal" href="..\components\http_kernel.html#component-http-kernel-kernel-exception"><span>событии kernel.exception</span></a>.</div></div>
+<p>Выполните эту команду, чтобы узнать, какие слушатели зарегистрированы для этого
+события и их приоритетность:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console debug:event-dispatcher kernel.exception
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

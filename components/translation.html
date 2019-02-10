@@ -1,0 +1,480 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент Translation &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="Как устанавливать и использовать компоненты Symfony" href="using_components-ru.html">
+    <link rel="prev" title="Компонент Templating" href="templating-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент Translation</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#id2">Построение переводчика</a><ul>
+<li><a class="reference internal" href="#id3">Конфигурация</a></li>
+<li><a class="reference internal" href="#component-translator-message-catalogs-ru">Загрузка каталогов сообщений</a><ul>
+<li><a class="reference internal" href="#arrayloader">Загрузка сообщений с помощью <tt class="docutils literal"><code>ArrayLoader</code></tt></a></li>
+<li><a class="reference internal" href="#id5">Загрузка сообщений с помощью загрузчиков файлов</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">Процесс перевода</a><ul>
+<li><a class="reference internal" href="#components-fallback-locales-ru">Резеврные локали</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-message-domains-ru">Использования доменов сообщений</a></li>
+<li><a class="reference internal" href="#id9">Использование</a></li>
+<li><a class="reference internal" href="#id10">Узнать больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент Translation</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="translation">
+<span id="index-0"></span><h1>Компонент Translation<a class="headerlink" href="#translation" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Компонент Translation предоставляет инструменты для интернационализации
+вашего приложения.</div></blockquote>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/translation
+</pre></div>
+</td></tr></table></div></div>
+<p>Также вы можете клонировать репозиторий <a class="reference external" href="https://github.com/symfony/translation">https://github.com/symfony/translation</a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Эта статья объясняет как использовать функции Translation как независимого
+компонента в любом приложении PHP. Прочитайте статью <a class="reference internal" href="..\translation.html"><em>Translations</em></a> для
+понимания как интернационализировать и управлять локалями пользователя в приложениях
+Symfony.</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Построение переводчика<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Главная точка доступа компонента Translation -
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Translator.html" title="Symfony\Component\Translation\Translator">Translator</a></code></tt>. До того, как вы сможете
+его использовать, вам нужно его сконфигурировать и загрузить сообщения для
+перевод (называемые <em>каталогами сообщений</em>).</p>
+<div class="section" id="id3">
+<h3>Конфигурация<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Конструктор класса <tt class="docutils literal"><code>Translator</code></tt> требует одного аргумента: локали:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Translation\Translator</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Translation\MessageSelector</span><span class="p">;</span>
+
+<span class="nv">$translator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Translator</span><span class="p">(</span><span class="s1">&#39;fr_FR&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Локаль, установленная здесь, это локаль для использования по умолчаню.
+Вы можете переопределить эту локаль при переводе строк.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Термин <em>локаль</em> грубо говоря относится к языку и стране пользователя. Это
+может быть любая строка, которую исползует ваше приложение для работы с
+переводами и другими различиями форматов (например, формат валюты). Рекомендуется
+использовать код <em>языка</em> <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1</a>, потом нижнее подчёркивание (<tt class="docutils literal"><code>_</code></tt>), потом
+код <em>страны</em> (например, <tt class="docutils literal"><code>fr_FR</code></tt> для французского / Франции).</p>
+</div></div>
+</div>
+<div class="section" id="component-translator-message-catalogs-ru">
+<span id="id4"></span><h3>Загрузка каталогов сообщений<a class="headerlink" href="#component-translator-message-catalogs-ru" title="Permalink to this headline">¶</a></h3>
+<p>Сообщения хранятся в каталогах сообщений внутри класса <tt class="docutils literal"><code>Translator</code></tt>. Каталог
+сообщений является чем-то вроде словаря переводов для конкретной локали.</p>
+<p>Компонент Перевод использует классы Загрузчика для загрузки каталогов. Вы можете
+загружать несколько источников для одной локали, которые потом можно комбинировать
+в один каталог.</p>
+<p>Компонент поставляется с некоторыми Загрузчиками по умолчанию и вы можете
+также создавать ваш собственный Загрузчик. Загрузчики по умолчанию:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Loader/ArrayLoader.html" title="Symfony\Component\Translation\Loader\ArrayLoader">ArrayLoader</a></code></tt> - для загрузки
+каталогов из PHP массивов.</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Loader/CsvFileLoader.html" title="Symfony\Component\Translation\Loader\CsvFileLoader">CsvFileLoader</a></code></tt> - для загрузки
+каталогов из CSV файлов.</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Loader/IcuDatFileLoader.html" title="Symfony\Component\Translation\Loader\IcuDatFileLoader">IcuDatFileLoader</a></code></tt> - для загрузки
+каталогов из пакетов источников.</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Loader/IcuResFileLoader.html" title="Symfony\Component\Translation\Loader\IcuResFileLoader">IcuResFileLoader</a></code></tt> - для загрузки
+каталогов из пакетов источников.</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Loader/IniFileLoader.html" title="Symfony\Component\Translation\Loader\IniFileLoader">IniFileLoader</a></code></tt> - для загрузки
+каталогов из ini файлов.</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Loader/MoFileLoader.html" title="Symfony\Component\Translation\Loader\MoFileLoader">MoFileLoader</a></code></tt> - для загрузки
+каталогов из gettext файлов.</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Loader/PhpFileLoader.html" title="Symfony\Component\Translation\Loader\PhpFileLoader">PhpFileLoader</a></code></tt> - для загрузки
+каталогов из PHP файлов.</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Loader/PoFileLoader.html" title="Symfony\Component\Translation\Loader\PoFileLoader">PoFileLoader</a></code></tt> - для загрузки
+каталогов из gettext файлов.</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Loader/QtFileLoader.html" title="Symfony\Component\Translation\Loader\QtFileLoader">QtFileLoader</a></code></tt> - для загрузки
+каталогов из QT XML файлов.</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Loader/XliffFileLoader.html" title="Symfony\Component\Translation\Loader\XliffFileLoader">XliffFileLoader</a></code></tt> - для загрузки
+каталогов из Xliff файлов.</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Loader/JsonFileLoader.html" title="Symfony\Component\Translation\Loader\JsonFileLoader">JsonFileLoader</a></code></tt> - для загрузки
+каталогов из JSON файлов</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Loader/YamlFileLoader.html" title="Symfony\Component\Translation\Loader\YamlFileLoader">YamlFileLoader</a></code></tt> - для загрузки
+каталогов из Yaml файлов (требует <a class="reference internal" href="yaml.html"><em>компонент Yaml</em></a>).</li>
+</ul>
+<p>Все загрузчики файлов требуют <a class="reference internal" href="config.html"><em>компонент Config</em></a>.</p>
+<p>Вы можете также <a class="reference internal" href="translation\custom_formats.html"><em>создать ваш собственный загрузчик</em></a>,
+в случае, если формат ещё не поддерживается ни одним из загрузчиков по умолчанию.</p>
+<p>Вначале, вам нужно добавить один или более загрузчиков в <tt class="docutils literal"><code>Translator</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$translator</span><span class="o">-&gt;</span><span class="na">addLoader</span><span class="p">(</span><span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ArrayLoader</span><span class="p">());</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Первый аргумент - это имя, на которое может ссылаться загрзучик в переводчике,
+а второй аргумент - экземпляр самого загрузчика. После этог, вы можете добавлять
+ваши источники, используя правильный загрузчик.</p>
+<div class="section" id="arrayloader">
+<h4>Загрузка сообщений с помощью <tt class="docutils literal"><code>ArrayLoader</code></tt><a class="headerlink" href="#arrayloader" title="Permalink to this headline">¶</a></h4>
+<p>Загрузка сообщений может производиться путём вызова
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Translator.html#method_addResource" title="Symfony\Component\Translation\Translator::addResource()">addResource()</a></code></tt>. Первый аргумент
+- имя загрузчика (это был первый аргумент метода <tt class="docutils literal"><code>addLoader()</code></tt>), второй - источник,
+а третий - локаль:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$translator</span><span class="o">-&gt;</span><span class="na">addResource</span><span class="p">(</span><span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;Hello World!&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Bonjour&#39;</span><span class="p">,</span>
+<span class="p">),</span> <span class="s1">&#39;fr_FR&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id5">
+<h4>Загрузка сообщений с помощью загрузчиков файлов<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>Если вы используете один из загрузчиков файлов, вам нужно также использовать
+метод <tt class="docutils literal"><code>addResource()</code></tt>. Единственное различие - вам нужно использовать имя файла
+как второй аргумент файла источника, а не массива:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$translator</span><span class="o">-&gt;</span><span class="na">addLoader</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">YamlFileLoader</span><span class="p">());</span>
+<span class="nv">$translator</span><span class="o">-&gt;</span><span class="na">addResource</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;path/to/messages.fr.yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;fr_FR&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>Процесс перевода<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Для того, чтобы на самом деле перевести сообщение, Переводчик использует
+простой процесс:</p>
+<ul class="simple">
+<li>Каталог переведенных сообщений загружается из источника переводов, определённого
+для <tt class="docutils literal"><code>locale</code></tt> (например, <tt class="docutils literal"><code>fr_FR</code></tt>). Собщения из <a class="reference internal" href="translation.html#components-fallback-locales"><span>Fallback Locales</span></a>
+также загружаются и добавляются в каталог, если они ещё не существуют. Конечный результат
+- большой &quot;словарь&quot; переводов;</li>
+<li>Если сообщение расположено в каталоге, возвращается перевод. Если нет -
+переводчик возвращает исходное сообщение.</li>
+</ul>
+<p>Вы начинаете этот процесс, вызывая
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Translator.html#method_trans" title="Symfony\Component\Translation\Translator::trans()">trans()</a></code></tt> или
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Translator.html#method_transChoice" title="Symfony\Component\Translation\Translator::transChoice()">transChoice()</a></code></tt>. Далее, Переводчик
+ищет точно такую же строку внутри соответствующего каталога сообщений и возвращает её
+(если она существует).</p>
+<div class="section" id="components-fallback-locales-ru">
+<span id="id7"></span><h3>Резеврные локали<a class="headerlink" href="#components-fallback-locales-ru" title="Permalink to this headline">¶</a></h3>
+<p>Если сообщения нет в каталоге определённой локали, переводчик будет искать
+в одном или нескольких каталогах резервных локалей. Например, представьте,
+что вы пытаетесь перевести на локаль <tt class="docutils literal"><code>fr_FR</code></tt>:</p>
+<ol class="arabic simple">
+<li>Вначале переводчик ищет перевод в локали <tt class="docutils literal"><code>fr_FR</code></tt>;</li>
+<li>Если он не был найден, переводчик ищет перевод в локали <tt class="docutils literal"><code>fr</code></tt>;</li>
+<li>Если он всё равно не был найден, переводчик использует одну или несколько
+резервных локалей ясно установленных в переводчике.</li>
+</ol>
+<p>Для (3), резервные локали можно установить, вызвав
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Translator.html#method_setFallbackLocales" title="Symfony\Component\Translation\Translator::setFallbackLocales()">setFallbackLocales()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$translator</span><span class="o">-&gt;</span><span class="na">setFallbackLocales</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="using-message-domains-ru">
+<span id="id8"></span><h2>Использования доменов сообщений<a class="headerlink" href="#using-message-domains-ru" title="Permalink to this headline">¶</a></h2>
+<p>Как вы видели, файлы сообщений систематизируются в разные локали, которые
+они переводят. Файлы сообщений также могут быть организованы больше - в
+&quot;домены&quot;.</p>
+<p>Домен указывается в четвёртом аргументе метода <tt class="docutils literal"><code>addResource()</code></tt>. Домен
+по умолчанию - <tt class="docutils literal"><code>messages</code></tt>. Например, представьте, что в целях систематизации,
+переводы были разделены на три разных домена: <tt class="docutils literal"><code>messages</code></tt>, <tt class="docutils literal"><code>admin</code></tt> и <tt class="docutils literal"><code>navigation</code></tt>.
+Французский перевод будет загружаться так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$translator</span><span class="o">-&gt;</span><span class="na">addLoader</span><span class="p">(</span><span class="s1">&#39;xlf&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">XliffFileLoader</span><span class="p">());</span>
+
+<span class="nv">$translator</span><span class="o">-&gt;</span><span class="na">addResource</span><span class="p">(</span><span class="s1">&#39;xlf&#39;</span><span class="p">,</span> <span class="s1">&#39;messages.fr.xlf&#39;</span><span class="p">,</span> <span class="s1">&#39;fr_FR&#39;</span><span class="p">);</span>
+<span class="nv">$translator</span><span class="o">-&gt;</span><span class="na">addResource</span><span class="p">(</span><span class="s1">&#39;xlf&#39;</span><span class="p">,</span> <span class="s1">&#39;admin.fr.xlf&#39;</span><span class="p">,</span> <span class="s1">&#39;fr_FR&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">);</span>
+<span class="nv">$translator</span><span class="o">-&gt;</span><span class="na">addResource</span><span class="p">(</span>
+    <span class="s1">&#39;xlf&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;navigation.fr.xlf&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;fr_FR&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;navigation&#39;</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>При переводе строк, которые находятся не в домене по умолчанию (<tt class="docutils literal"><code>messages</code></tt>),
+вы должны указать домаен в качестве третьего аргумента <tt class="docutils literal"><code>trans()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$translator</span><span class="o">-&gt;</span><span class="na">trans</span><span class="p">(</span><span class="s1">&#39;Symfony is great&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(),</span> <span class="s1">&#39;admin&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Symfony теперь будет искать сообщение в домене <tt class="docutils literal"><code>admin</code></tt> указанной локали.</p>
+</div>
+<div class="section" id="id9">
+<h2>Использование<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>Чтобы узнать, как использвать компонент Перевод, см. <a class="reference internal" href="translation\usage.html"><em>Using the Translator</em></a>.</p>
+</div>
+<div class="section" id="id10">
+<h2>Узнать больше<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="translation\custom_formats.html">Adding Custom Format Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation/custom_formats-ru.html">Добавление поддержки пользовательского формата</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation\usage.html">Using the Translator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation/usage-ru.html">Использование Translator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\translation.html">Translations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\translation\debug.html">How to Find Missing or Unused Translation Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../translation/debug-ru.html">Как найти отсутствующие или неиспользованные сообщения перевода</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\translation\lint.html">How to Find Errors in Translation Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../translation/lint-ru.html">Как находить ошибки в файлах перевода</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\translation\locale.html">How to Work with the User's Locale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../translation/locale-ru.html">Как работать с локалью пользователя</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\validation\translations.html">How to Translate Validation Constraint Messages</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="templating-ru.html">« Компонент Templating</a>
+                <span class="separator">|</span>
+                <a href="using_components-ru.html">Как устанавливать и использовать компоненты Symfony »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

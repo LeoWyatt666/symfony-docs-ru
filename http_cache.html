@@ -1,0 +1,610 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>HTTP кеширование &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="_static/" type="text/css">
+    <link rel="stylesheet" href="_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="index.html">
+
+<link rel="stylesheet" href="_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="http_cache-r doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\index.html">
+                    <img src="..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">HTTP кеширование</a><ul>
+<li><a class="reference internal" href="#id1">Кеширование на плечах титанов</a></li>
+<li><a class="reference internal" href="#gateway-caches-ru">Кеширование при помощи кеширующего шлюза</a><ul>
+<li><a class="reference internal" href="#symfony">Обратный прокси Symfony</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#http-cache-introduction-ru">Делаем ваши ответы HTTP-кешируемыми</a><ul>
+<li><a class="reference internal" href="#http-cache-expiration-intro-ru">Кеширование срока хранения</a></li>
+<li><a class="reference internal" href="#http-cache-validation-intro-ru">Кеширование валидации</a></li>
+<li><a class="reference internal" href="#get-head">Безопасные методы: Кеширование только запросов GET или HEAD</a></li>
+<li><a class="reference internal" href="#index-7">Другие методы ответа</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7">Аннуляция кеша</a></li>
+<li><a class="reference internal" href="#edge-side-includes-esi">Использование Edge Side Includes (ESI)</a></li>
+<li><a class="reference internal" href="#id8">Заключение</a></li>
+<li><a class="reference internal" href="#id9">Узнать больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="index.html">Документация</a></li>
+                
+                <li class="active">HTTP кеширование</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="http">
+<span id="index-0"></span><h1>HTTP кеширование<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h1>
+<p>Природа насыщенных веб-приложений подразумевает, что они динамические.
+Вне зависимости от того, насколько эффективно ваше приложение, каждый запрос будет
+содержать больше работы, чем обслуживание статического файла. Обычно это нормально,
+но когда вам нужно, чтобы ваши запросы были молниеносно быстрыми, вам понадобится
+HTTP-кешироваие.</p>
+<div class="section" id="id1">
+<h2>Кеширование на плечах титанов<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>C HTTP-кешированием, вы можете кешировать страницы целиком (т.е. ответ), и затем, в обход приложения,
+отдавать кэшированные данные для каждого запроса. Конечно же, это не всегда возможно применить
+для очень динамичных сайтов, или всё же возможно? С помощью <a class="reference internal" href="http_cache\esi.html"><em>Edge Side Includes (ESI)</em></a>
+вы можете использовать силу HTTP-кеширования только для <em>фрагментов</em> вашего сайта.</p>
+<p>Система кеширования Symfony отличается от других, так как она полагается на простоту
+и мощь HTTP-кеширования, как это определено в спецификации <a class="reference external" href="https://tools.ietf.org/html/rfc7234">RFC 7234 - Кеширование</a>.
+Вместо того, чтобы изобретать кеширование заново, Symfony пользуется стандартом,
+который определяет базовые коммуникации в Web. Как только вы поймёте основополагающие
+модели HTTP валидации и истечения срока кэша, вы будете готовы к управлению системой
+кеширования Symfony.</p>
+<p>Так как HTTP-кеширование используется не только Symfony, существует множество статей
+по данной теме. Если вы новичок в HTTP-кешировании, <em>настоятельно</em> рекомендуем вам прочитать
+статью  Райана Томайко <a class="reference external" href="http://2ndscale.com/writings/things-caches-do">Вещи, которые делают кеши</a> . Другим исчерпывающим источником
+является <a class="reference external" href="http://www.mnot.net/cache_docs/">Учебное пособие по кешу</a> от  Марка Ноттингема.</p>
+</div>
+<div class="section" id="gateway-caches-ru">
+<span id="index-1"></span><span id="id2"></span><h2>Кеширование при помощи кеширующего шлюза<a class="headerlink" href="#gateway-caches-ru" title="Permalink to this headline">¶</a></h2>
+<p>При HTTP-кешировании, <em>кеш</em> полностью отделён от вашего приложения и располагается
+между вашим приложением и клиентом, выполняющим запрос.</p>
+<p>Работа кеша заключается в приёме запросов от клиента, и их передаче вашему приложению.
+Кеш также будет получать ответ от вашего приложения и перенаправлять его клиенту.
+Кеш является «посредником» в клиент-серверных коммуникациях между клиентом и вашим
+приложением.</p>
+<p>По пути, кеш будет сохранять каждый ответ, который полагает &quot;кешируемым&quot;
+(см. <a class="reference internal" href="http_cache.html#http-cache-introduction"><span>Вступление в HTTP кэширование</span></a>). Если этот
+же ресурс будет запрошен ещё раз, кеш отправит сохранённый (кешированный) ответ
+клиенту, полностью игнорируя ваше приложение.</p>
+<p>Этот тип кeширования известен под именем &quot;кeширующего HTTP шлюза&quot;. Существует
+много кeшеров такого типа, например: <a class="reference external" href="https://www.varnish-cache.org/">Varnish</a>, <a class="reference external" href="http://wiki.squid-cache.org/SquidFaq/ReverseProxy">Squid в режиме обратного прокси</a>,
+а также обратный прокси Symfony.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Кеширующие шлюзы иногда называются кешами обратного прокси, суррогатными
+кешами или даже HTTP-акселераторами.</p>
+</div></div>
+<span class="target" id="index-2"></span><div class="section" id="symfony">
+<span id="symfony2-reverse-proxy-ru"></span><h3>Обратный прокси Symfony<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h3>
+<p>Symfony содержит обратный прокси (также называемый кеширующим шлюзом), написанный на PHP.
+<a class="reference internal" href="http_cache.html#http-cache-symfony-versus-varnish"><span>Это кеш обратного прокси с неполным функционалом вроде Varnish</span></a>,
+однако это отличный способ начать.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Чтобы узнать детали о настройке Varnish, см. <a class="reference internal" href="http_cache\varnish.html"><em>How to Use Varnish to Speed up my Website</em></a>.</p>
+</div></div>
+<p>Чтобы включить прокси, для начала создайте кеширующее ядро:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/CacheKernel.php</span>
+<span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CacheKernel</span> <span class="k">extends</span> <span class="nx">HttpCache</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Измените код вашего фронт контроллера, чтобы обернуть ядро по умолчанию в
+кеширующее ядро:</p>
+<div class="literal-block"><div class="highlight-diff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span>// public/index.php
+
+use App\Kernel;
+<span class="gi">+ use App\CacheKernel;</span>
+
+// ...
+$kernel = new Kernel($_SERVER[&#39;APP_ENV&#39;] ?? &#39;dev&#39;, $_SERVER[&#39;APP_DEBUG&#39;] ?? (&#39;prod&#39; !== ($_SERVER[&#39;APP_ENV&#39;] ?? &#39;dev&#39;)));
+
+<span class="gi">+ // Обернуть ядро по умолчанию в кеширующее CacheKernel</span>
+<span class="gi">+ $kernel = new CacheKernel($kernel);</span>
+
+$request = Request::createFromGlobals();
+// ...
+</pre></div>
+</td></tr></table></div></div>
+<p>Кеширующее ядро немедленно начнет действовать как обратный прокси: кешировать
+ответы из вашего приложения и возвращать их клиенту.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Если вы используете опцию <a class="reference internal" href="reference\configuration\framework.html#configuration-framework-http-method-override"><span>framework.http_method_override</span></a>
+для прочтения HTTP-метода из параметра <tt class="docutils literal"><code>_method</code></tt>, см. ссылку выше для того,
+чтобы узнать, какие настройки вам стоит сделать.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Кеширующее ядро имеет особый метод <tt class="docutils literal"><code>getLog()</code></tt> , который возвращает строковое
+представление того, что происходит на кэширующем уровне. В окружении разработки
+вы можете использовать его для отладки и валидации вашей стратегии кеширования:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">error_log</span><span class="p">(</span><span class="nv">$kernel</span><span class="o">-&gt;</span><span class="na">getLog</span><span class="p">());</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<p>Объект <tt class="docutils literal"><code>CacheKernel</code></tt> имеет разумную конфигурацию по умолчанию, но вы можете
+хорошо настроить его с помощью набора опций, переопределив метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/FrameworkBundle/HttpCache/HttpCache.html#method_getOptions" title="Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache::getOptions()">getOptions()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/CacheKernel.php</span>
+<span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CacheKernel</span> <span class="k">extends</span> <span class="nx">HttpCache</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">getOptions</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;default_ttl&#39;</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="c1">// ...</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Чтобы увидеть весь список опций и их значения, см.
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/HttpCache/HttpCache.html#method___construct" title="Symfony\Component\HttpKernel\HttpCache\HttpCache::__construct()">Документацию HttpCache::__construct()</a></code></tt>.</p>
+<p>Когда вы находитесь в режиме отладки (второй аргумент конструктора <tt class="docutils literal"><code>Kernel</code></tt> в
+фронт контроллере - <tt class="docutils literal"><code>true</code></tt>), Symfony автоматически добавляет к ответу заглоовок
+<tt class="docutils literal"><code>X-Symfony-Cache</code></tt>. Используйте это, чтобы получить информацию об удачном и
+неудачном кешировании.</p>
+<div class="admonition-wrapper" id="http-cache-symfony-versus-varnish-ru">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Смена одного обратного прокси на другой</p>
+<p>Обратный прокси Symfony – это отличный инструмент для разработки или
+же выгрузки вашего сайта на виртуальный общий хостинг, где вы не можете
+установить ничего, кроме PHP кода. Однако, прокси на PHP никогда не будет
+быстрее прокси на С.</p>
+<p class="last">К счастью, так как все обратные прокси одинаковы по эффективности, вы должны
+имеь возможность перейти на что-то более совершенное вроде Varnish без каких-
+либо проблем. См. <a class="reference internal" href="http_cache\varnish.html"><em>Как использовать Varnish</em></a>.</p>
+</div></div>
+</div>
+</div>
+<div class="section" id="http-cache-introduction-ru">
+<span id="index-3"></span><span id="id3"></span><h2>Делаем ваши ответы HTTP-кешируемыми<a class="headerlink" href="#http-cache-introduction-ru" title="Permalink to this headline">¶</a></h2>
+<p>Как только вы добавить кеш обратного прокси (например, как обратный прокси Symfony или
+Varnish), вы готовы кешировать ваши ответы. Чтобы сделать это, вам нужно <em>сообщить</em>
+вашему кешу, <em>какие</em> ответы являются кешируемыми и на какое время. Это делается
+путем установки заголовков кеша в ответе.</p>
+<p>HTTP определяет четыре заголовка ответакеша, которые вы можете активировать:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>Cache-Control</code></tt></li>
+<li><tt class="docutils literal"><code>Expires</code></tt></li>
+<li><tt class="docutils literal"><code>ETag</code></tt></li>
+<li><tt class="docutils literal"><code>Last-Modified</code></tt></li>
+</ul>
+<p>Эти четыре заголовка  используются для того, чтобы помочь вам кешировать ваши ответы
+с помощью <em>двух</em> разных моделей:</p>
+<span id="http-expiration-validation-ru"></span><ol class="arabic simple" id="http-expiration-and-validation-ru">
+<li><a class="reference internal" href="http_cache.html#http-cache-expiration-intro"><span>Кеширование Expiration (окончания срока действия)</span></a>
+Используется, чтобы кешировать весь ваш ответ на определенное количество времени (например,
+24 часа). Просто, однако девалидация кеша более сложная.</li>
+<li><a class="reference internal" href="http_cache.html#http-cache-validation-intro"><span>Кешировани Validation (валидации)</span></a>
+Более сложная модель: используется, чтобы кешировать ваш ответ, но позволяет вам динамически
+инвалидировать его, как только ваш контент изменяется.</li>
+</ol>
+<div class="admonition-wrapper">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Читаем спецификацию HTTP</p>
+<p>Все HTTP-заголовки, о которых вы будете читать, изобретены <em>не</em> Symfony! Они
+являются частью спецификации HTTP? которая используется сайтами по всей сети.
+Чтобы погрузиться в HTTP-кеширование, посмотрите документы <a class="reference external" href="https://tools.ietf.org/html/rfc7234">RFC 7234 - Кеширование</a>
+и <a class="reference external" href="https://tools.ietf.org/html/rfc7232">RFC 7232 - Условные запросы</a>.</p>
+<p class="last">Вам, как веб разработчику, настоятельно рекомендуется прочитать эту спецификацию.
+Её простота и сила, даже спустя более, чем десять лет после её написания, бесценны.
+Не бойтесь внешнего вида спецификации - её содержание много лучше, чем её обложка!</p>
+</div></div>
+<div class="section" id="http-cache-expiration-intro-ru">
+<span id="index-4"></span><span id="id4"></span><h3>Кеширование срока хранения<a class="headerlink" href="#http-cache-expiration-intro-ru" title="Permalink to this headline">¶</a></h3>
+<p><em>Самый простой</em> способ кешировать ответ - это кешировать его на определенное количество
+времени:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Controller/BlogController.php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// создайте объект Response любым способом, например, отобразите шаблон</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;blog/index.html.twig&#39;</span><span class="p">,</span> <span class="p">[]);</span>
+
+    <span class="c1">// кешировать на 3600 секунд</span>
+    <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setSharedMaxAge</span><span class="p">(</span><span class="mi">3600</span><span class="p">);</span>
+
+    <span class="c1">// (необязательно) установите пользовательскую директиву</span>
+    <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">addCacheControlDirective</span><span class="p">(</span><span class="s1">&#39;must-revalidate&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Благодаря этому новому коду, ваш HTTP-ответ будет иметь следующий заголовок:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>Cache-Control: public, s-maxage=3600, must-revalidate
+</pre></div>
+</td></tr></table></div></div>
+<p>Он сообщает вашему обратному прокси HTTP кешировать этот ответ на 3600 секунд. Если
+<em>кто-либо</em> запросит этот URL опять раньше, чем через 3600 секунд, ваше приложение
+вообще <em>не</em> не будеть задействовано. Если вы используете обратный прокси Symfony,
+посмотрите на заголовок <tt class="docutils literal"><code>X-Symfony-Cache</code></tt>, для отладки информации о попаданиях
+и промахах кеша.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">URI запроса используется в качестве ключа кеша (разве что вы
+<a class="reference internal" href="http_cache\cache_vary.html"><em>варьируете</em></a>).</p>
+</div></div>
+<p>Это <em>очень</em> производительно и легко использовать. Однако <em>девалидация</em> кеша не
+поддерживается. Если ваш контент изменится, вам нужно будет подождать до тех пор,
+пока срок действия вашего кеша не закончится для того, чтобы страница обновилась.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">На самом деле, вы <em>можете</em> вручную инвалидировать ваш кеш, но это не ялвяется
+частью спецификации HTTP-кеширования. См. <a class="reference internal" href="http_cache\cache_invalidation.html#http-cache-invalidation"><span>Девалидация HTTP-кеша</span></a>.</p>
+</div></div>
+<p>Если вам нужно установить заголовки кеша для многих разных действий контроллера,
+посмотрите <a class="reference external" href="http://foshttpcachebundle.readthedocs.org/">FOSHttpCacheBundle</a>. Он предоставляет способ определять заголовки
+кеша, основываясь на образец URL и другие свойства запроса.</p>
+<p>В конце-концов, для более детальной информации об окончании срока действия кеша,
+см. <a class="reference internal" href="http_cache\expiration.html"><em>HTTP Cache Expiration</em></a>.</p>
+</div>
+<div class="section" id="http-cache-validation-intro-ru">
+<span id="id5"></span><h3>Кеширование валидации<a class="headerlink" href="#http-cache-validation-intro-ru" title="Permalink to this headline">¶</a></h3>
+<p id="index-5">С кешированием с окончанием срока действия, вам просто нужно сказать &quot;кешировать на
+3600 секунд!&quot;. Но, когда кто-то обновляет кешированный контент, вы не сможете увидеть
+его до тех пор, пока не истечет срок действия кеша.</p>
+<p>Если вам нужно увидеть обновленный контент <em>сразу же</em>, вам нужно либо
+<a class="reference internal" href="http_cache\cache_invalidation.html#http-cache-invalidation"><span>аннулировать</span></a> ваш кеш <em>или</em> использовать
+модель кеширования валидации.</p>
+<p>Чтобы узнать больше, см. <a class="reference internal" href="http_cache\validation.html"><em>HTTP Cache Validation</em></a>.</p>
+</div>
+<div class="section" id="get-head">
+<span id="index-6"></span><h3>Безопасные методы: Кеширование только запросов GET или HEAD<a class="headerlink" href="#get-head" title="Permalink to this headline">¶</a></h3>
+<p>HTTP кэширование работает лишь для &quot;безопасных&quot; HTTP методов (таких как GET и HEAD).
+Это означает 2 вещи:</p>
+<ul class="simple">
+<li>Не пытайтесь кешировать запросы PUT или DELETE. Это не сработает, и по хорошей
+причине. Эти методы не должны быть использованы при изменении состояния вашего
+приложения (например, удалении поста блога). Их кеширование будет предотвращать некоторые
+запросы от попадания и изменения вашего приложения.</li>
+<li>Вам <em>никогда</em> не стоит изменять состояние вашего приложение (например, обновлять
+пост блога), во время ответа на запрос GET или HEAD. Если эти запросы будут
+кешированы, будущие запросы могут никогда не попасть на ваш сервер.</li>
+</ul>
+</div>
+<div class="section" id="index-7">
+<span id="id6"></span><h3>Другие методы ответа<a class="headerlink" href="#index-7" title="Permalink to this headline">¶</a></h3>
+<p>Класс Response содержит также множество других методов, относящихся к кешу. Вот
+самые полезные из них:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// помечает ответ как &quot;просроченный&quot;</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">expire</span><span class="p">();</span>
+
+<span class="c1">// форсирует возврат ответа 304 без контента</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setNotModified</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В дополнение к этому, все основные HTTP заголовки, относящиеся к кешу, могут
+быть установлены при помощи одного метода <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Response.html#method_setCache" title="Symfony\Component\HttpFoundation\Response::setCache()">setCache()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// устанавливает заголовки для кэширования одним вызовом</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setCache</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;etag&#39;</span>          <span class="o">=&gt;</span> <span class="nv">$etag</span><span class="p">,</span>
+    <span class="s1">&#39;last_modified&#39;</span> <span class="o">=&gt;</span> <span class="nv">$date</span><span class="p">,</span>
+    <span class="s1">&#39;max_age&#39;</span>       <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s1">&#39;s_maxage&#39;</span>      <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s1">&#39;public&#39;</span>        <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="c1">// &#39;private&#39;    =&gt; true,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>Аннуляция кеша<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>Аннуляция кеша <em>не</em> является частью HTTP-спецификации. Однако, она может быть
+очень ползеной для удаления различных записей HTTP-кеша, как только какой-либо
+контект вашего сайта обновляется.</p>
+<p>Чтобы узнать больше, см. <a class="reference internal" href="http_cache\cache_invalidation.html"><em>Аннуляция кеша</em></a>.</p>
+</div>
+<div class="section" id="edge-side-includes-esi">
+<h2>Использование Edge Side Includes (ESI)<a class="headerlink" href="#edge-side-includes-esi" title="Permalink to this headline">¶</a></h2>
+<p>Когда на странице присутствуют динамические части, вам не удастся кешировать
+целые страницы, а придется это делать по частям. Читайте  <a class="reference internal" href="http_cache\esi.html"><em>Working with Edge Side Includes</em></a>,
+чтобы узнать, как сконфигурировать разные стратегии кеширования для определенных
+частей вашей страницы.</p>
+</div>
+<div class="section" id="id8">
+<h2>Заключение<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>Symfony создан таким образом, чтобы следовать проверенным «правилам движения» в
+HTTP. Кеширование - не исключение. Овладение системой кеширования Symfony,
+подразумевает близкое знакомство с моделями кэширования HTTP и их эффективное
+использование. Это означает, что вместо того, чтобы полагаться только на документацию
+Symfony и примеры кода, вы получаете доступ к целому миру знаний, относящихся к
+кешированию в HTTP и кеширующим шлюзам, таким как Varnish.</p>
+</div>
+<div class="section" id="id9">
+<h2>Узнать больше<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="http_cache\cache_invalidation.html">Cache Invalidation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_cache/cache_invalidation-ru.html">Инвалидация кеша</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_cache\cache_vary.html">Varying the Response for HTTP Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_cache/cache_vary-ru.html">Варьирование ответа для HTTP-кеша</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_cache\esi.html">Working with Edge Side Includes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_cache/esi-ru.html">Работа с включениями крайней стороны</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_cache\expiration.html">HTTP Cache Expiration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_cache/expiration-ru.html">Окочание действия HTTP-кеша</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_cache\form_csrf_caching.html">Caching Pages that Contain CSRF Protected Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_cache/form_csrf_caching-ru.html">Кеширование страниц, содержащих CSRF-защищённые формы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_cache\validation.html">HTTP Cache Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_cache/validation-ru.html">Валидация HTTP-кеша</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_cache\varnish.html">How to Use Varnish to Speed up my Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_cache/varnish-ru.html">Как использовать Varnish для ускорения моего сайта</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

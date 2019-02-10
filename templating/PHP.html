@@ -1,0 +1,698 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как использовать PHP для шаблонов вместо Twig &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Creating and Using Templates" href="..\templating.html">
+    <link rel="next" title="How to Access the User, Request, Session &amp; more in Twig via the app Variable" href="app_variable.html">
+    <link rel="prev" title="How to Use PHP instead of Twig for Templates" href="PHP.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="templating doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как использовать PHP для шаблонов вместо Twig</a><ul>
+<li><a class="reference internal" href="#php">Отображение PHP-шаблонов</a></li>
+<li><a class="reference internal" href="#index-1">Украшение шаблонов</a></li>
+<li><a class="reference internal" href="#index-2">Работа со слотами</a></li>
+<li><a class="reference internal" href="#index-3">Включение других шаблонов</a></li>
+<li><a class="reference internal" href="#index-4">Встраивание других контроллеров</a></li>
+<li><a class="reference internal" href="#index-5">Использование помощников в шаблонах</a><ul>
+<li><a class="reference internal" href="#id6">Создание ссылок между страницами</a></li>
+<li><a class="reference internal" href="#java">Использование ресурсов: изображений, Java-скриптов и таблиц стилей</a></li>
+<li><a class="reference internal" href="#id7">Профилирование шаблонов</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">Экранирование вывода</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\getting_started\index.html">Getting Started</a></li>
+                
+                <li><a href="..\setup.html">Installing &amp; Setting up the Symfony Framework</a></li>
+                
+                <li><a href="..\page_creation.html">Create your First Page in Symfony</a></li>
+                
+                <li><a href="..\routing.html">Routing</a></li>
+                
+                <li><a href="..\controller.html">Controller</a></li>
+                
+                <li><a href="..\templating.html">Creating and Using Templates</a></li>
+                
+                <li class="active">Как использовать PHP для шаблонов вместо Twig</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="php-twig">
+<span id="index-0"></span><h1>Как использовать PHP для шаблонов вместо Twig<a class="headerlink" href="#php-twig" title="Permalink to this headline">¶</a></h1>
+<p>По умолчанию, в качестве движка шаблонов, Symfony использует Twig, но вы всё равно
+можете использовать чистый PHP-код по желанию. Оба механизма шаблонов одинаково
+поддерживаются в Symfony. Symfony добавляет к PHP некоторые приятные функции, чтобы
+написание PHP-шаблонов стало более мощным.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если вы выберете <em>не</em> использовать Twig и отключите его, вам понадобится
+реализовать ваш собственный обработчик исключений через событие <tt class="docutils literal"><code>kernel.exception</code></tt>.</p>
+</div></div>
+<div class="section" id="php">
+<h2>Отображение PHP-шаблонов<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h2>
+<p>Если вы хотите использовать механизм PHP-шаблонов, то для начала убедитесь в том, что
+вы включили его в файле конфигурации вашего приложения:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/config.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">framework</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+    <span class="l l-Scalar l-Scalar-Plain">templating</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">engines</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;twig&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;php&#39;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/config.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:framework=</span><span class="s">&quot;http://symfony.com/schema/dic/symfony&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/symfony</span>
+<span class="s">        http://symfony.com/schema/dic/symfony/symfony-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;framework:config&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+        <span class="nt">&lt;framework:templating&gt;</span>
+            <span class="nt">&lt;framework:engine</span> <span class="na">id=</span><span class="s">&quot;twig&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;framework:engine</span> <span class="na">id=</span><span class="s">&quot;php&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/framework:templating&gt;</span>
+    <span class="nt">&lt;/framework:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;framework&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+    <span class="s1">&#39;templating&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;engines&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;twig&#39;</span><span class="p">,</span> <span class="s1">&#39;php&#39;</span><span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Тепер вы можете отправлять шаблон PHP вместо шаблона Twig просто используя расширение
+<tt class="docutils literal"><code>.php</code></tt> вместо <tt class="docutils literal"><code>.twig</code></tt> в имени шаблона. Контроллер ниже отображает шаблон
+<tt class="docutils literal"><code>index.html.php</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Controller/HelloController.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span>
+        <span class="s1">&#39;AppBundle:Hello:index.html.php&#39;</span><span class="p">,</span>
+        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">)</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы также можете использовать шорткат <a class="reference external" href="https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/view">&#64;Template</a> чтобы отобразить шаблон по
+умолчанию <tt class="docutils literal"><code>AppBundle:Hello:index.html.php</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Controller/HelloController.php</span>
+<span class="k">use</span> <span class="nx">Sensio\Bundle\FrameworkExtraBundle\Configuration\Template</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @Template(engine=&quot;php&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p>Включение шаблонов <tt class="docutils literal"><code>php</code></tt> и <tt class="docutils literal"><code>twig</code></tt> одновременно допускается, но это приведёт к
+ненужному побочному эффекту в вашем приложении: нотация <tt class="docutils literal"><code>&#64;</code></tt> для пространства имён
+Twig больше не будет поддерживаться для метода <tt class="docutils literal"><code>render()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="c1">// шаблоны пространста имён больше не будут работать в контроллерах</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;@App/Default/index.html.twig&#39;</span><span class="p">);</span>
+
+    <span class="c1">// вы должны использоват традиционную нотацию шаблона</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;AppBundle:Default:index.html.twig&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="last highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# внутри шаблона Twig, шаблоны пространства имён работают ожидаемо #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="s1">&#39;@App/Default/index.html.twig&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="c">{# традиционная нотация шаблона также будет работать #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="s1">&#39;AppBundle:Default:index.html.twig&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+</div>
+<div class="section" id="index-1">
+<span id="id1"></span><h2>Украшение шаблонов<a class="headerlink" href="#index-1" title="Permalink to this headline">¶</a></h2>
+<p>Зачастую, шаблоны в проекте используют общие элементы, как то известные заголовок
+и нижний колонтитул (футер). В Symfony эта проблема рассматривается по-другому:
+один шаблон может быть украшен другим.</p>
+<p>Щаблон <tt class="docutils literal"><code>index.html.php</code></tt> украшен шаблоном <tt class="docutils literal"><code>layout.html.php</code></tt>, благодаря вызову
+<tt class="docutils literal"><code>extend()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/Resources/views/Hello/index.html.php --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">extend</span><span class="p">(</span><span class="s1">&#39;AppBundle::layout.html.php&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+
+Hello <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$name</span> <span class="cp">?&gt;</span>!
+</pre></div>
+</td></tr></table></div></div>
+<p>Нотация <tt class="docutils literal"><code>AppBundle::layout.html.php</code></tt> звучит знакомо, не правда ли? Это та же
+нотация, которая используется для ссылки на шаблон. Часть <tt class="docutils literal"><code>::</code></tt> просто означает,
+что элемент контроллера пуст, так что соответствующий файл напрямую хранится под
+<tt class="docutils literal"><code>views/</code></tt>.</p>
+<p>Теперь, посмотрите на файл <tt class="docutils literal"><code>layout.html.php</code></tt>:</p>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/Resources/views/layout.html.php --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">extend</span><span class="p">(</span><span class="s1">&#39;::base.html.php&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Привет, приложение<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s1">&#39;_content&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Макет сам по себе украшен другим (<tt class="docutils literal"><code>::base.html.php</code></tt>). Symfony поддерживает
+множественные уровни украшения: макет может сам по себе быть украшен другим.
+Когда часть пакета имени шаблона пуста, просмотры ищутся в каталоге
+<tt class="docutils literal"><code>app/Resources/views/</code></tt>. этот каталог хранит глобальные просмотры всего вашего
+проекта:</p>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/Resources/views/base.html.php --&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello Application&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s1">&#39;_content&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Для обоих макетов, выражение <tt class="docutils literal"><code>$view['slots']-&gt;output('_content')</code></tt> заменяется
+содержанием дочернего шаблона, <tt class="docutils literal"><code>index.html.php</code></tt> и <tt class="docutils literal"><code>layout.html.php</code></tt> соответственно
+(больше о слотах в следующем разделе).</p>
+<p>Как вы видите, Symfony предоставляет методы для загадочного объекта <tt class="docutils literal"><code>$view</code></tt>. В
+шаблоне, переменная <tt class="docutils literal"><code>$view</code></tt> всегда доступна и ссылается на специальный объект,
+который предоставляет кучу методов, которые заставляют шаблонизатор двигаться.</p>
+</div>
+<div class="section" id="index-2">
+<span id="id2"></span><h2>Работа со слотами<a class="headerlink" href="#index-2" title="Permalink to this headline">¶</a></h2>
+<p>Слот - это отрезок кода, определённый в шаблоне, и используемый повторно в любом
+макете, украшающим шаблон. В шаблоне <tt class="docutils literal"><code>index.html.php</code></tt>, определите слот <tt class="docutils literal"><code>title</code></tt>:</p>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/Resources/views/Hello/index.html.php --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">extend</span><span class="p">(</span><span class="s1">&#39;AppBundle::layout.html.php&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello World Application&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+
+Hello <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$name</span> <span class="cp">?&gt;</span>!
+</pre></div>
+</td></tr></table></div></div>
+<p>Базовый макет уже имеет код для вывода названия в заголовке:</p>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/Resources/views/base.html.php --&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello Application&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Методы <tt class="docutils literal"><code>output()</code></tt> вставляет содержимое слота и опционально берёт значение по умолчанию,
+если слот не определён. А <tt class="docutils literal"><code>_content</code></tt> - это просто специальный слот, который содержит
+отображённый дочерний шаблон.</p>
+<p>Лля больших слотов также существует расширенный синтаксис:</p>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+    Some large amount of HTML
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">stop</span><span class="p">()</span> <span class="cp">?&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="index-3">
+<span id="id3"></span><h2>Включение других шаблонов<a class="headerlink" href="#index-3" title="Permalink to this headline">¶</a></h2>
+<p>Лучшим способом поделиться отрезком кода является определение шаблона, который
+потом может быть включён в другие шаблоны.</p>
+<p>Создайте шаблон <tt class="docutils literal"><code>hello.html.php</code></tt>:</p>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/Resources/views/Hello/hello.html.php --&gt;</span>
+Hello <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$name</span> <span class="cp">?&gt;</span>!
+</pre></div>
+</td></tr></table></div></div>
+<p>И измените шаблон <tt class="docutils literal"><code>index.html.php</code></tt> так, чтобы он включал его:</p>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/Resources/views/Hello/index.html.php --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">extend</span><span class="p">(</span><span class="s1">&#39;AppBundle::layout.html.php&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;AppBundle:Hello:hello.html.php&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">))</span> <span class="cp">?&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code>render()</code></tt> оценивает и возвращает содержимое другого шаблона (это
+точно такой же метод, как тот, что используется в контроллере).</p>
+</div>
+<div class="section" id="index-4">
+<span id="id4"></span><h2>Встраивание других контроллеров<a class="headerlink" href="#index-4" title="Permalink to this headline">¶</a></h2>
+<p>Но что, если вы хотите встроить результат другого контроллера в вашем шаблоне?
+Это очень удобно при работе с Ajax, или когда встроенный шаблон требует некоторые
+переменные, недоступные в основном в шаблоне.</p>
+<p>Если вы создадите действие <tt class="docutils literal"><code>fancy</code></tt> и захотите включить его в шаблон <tt class="docutils literal"><code>index.html.php</code></tt>,
+просто используйте следующий код:</p>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/Resources/views/Hello/index.html.php --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;actions&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span>
+    <span class="k">new</span> <span class="nx">\Symfony\Component\HttpKernel\Controller\ControllerReference</span><span class="p">(</span><span class="s1">&#39;AppBundle:Hello:fancy&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;name&#39;</span>  <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span>
+    <span class="p">))</span>
+<span class="p">)</span> <span class="cp">?&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Здесь, строка <tt class="docutils literal"><code>AppBundle:Hello:fancy</code></tt> ссылается на действие <tt class="docutils literal"><code>fancy</code></tt> контроллера
+<tt class="docutils literal"><code>Hello</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Controller/HelloController.php</span>
+
+<span class="k">class</span> <span class="nc">HelloController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">fancyAction</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$color</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// создайте некоторый объект, основанный на переменной $color</span>
+        <span class="nv">$object</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;AppBundle:Hello:fancy.html.php&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;name&#39;</span>   <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">,</span>
+            <span class="s1">&#39;object&#39;</span> <span class="o">=&gt;</span> <span class="nv">$object</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Но где определяется элемент массива <tt class="docutils literal"><code>$view['actions']</code></tt>? Как и <tt class="docutils literal"><code>$view['slots']</code></tt>,
+он называется помощником шаблона, и следующий раздел расскажет вам больше об этом.</p>
+</div>
+<div class="section" id="index-5">
+<span id="id5"></span><h2>Использование помощников в шаблонах<a class="headerlink" href="#index-5" title="Permalink to this headline">¶</a></h2>
+<p>Система шаблонизации Symfony может быть легко расширена посредоством использования помощников.
+Помощники - это PHP-объекты, которые предоставляют функции, полезные в контексте шаблонов.
+<tt class="docutils literal"><code>actions</code></tt> и <tt class="docutils literal"><code>slots</code></tt> - это два встроенных помощника Symfony.</p>
+<div class="section" id="id6">
+<h3>Создание ссылок между страницами<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Говоря о веб-приложениях, нельзя не говорить о создании ссылок между страницами.
+Вместо того, чтобы жёстко кодировать URL в шаблонах, помощник <tt class="docutils literal"><code>router</code></tt> знает,
+как сгенерировать URL, основываясь на конфигурации маршрутизации. Таким образом,
+все ваши URL могут быть с лёгкостью обновлены путём изменения конфигурации:</p>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;router&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">path</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Thomas&#39;</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="p">&gt;</span>
+    Поздоровайтесь с Томасом!
+<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code>path()</code></tt> берёт имя маршрута и массив параметров в качестве аргументов.
+Имя маршрута - это основной ключ, под которым ссылаются на маршруты, а параметры
+- это значения заполнителей, определённые в модели маршрута:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># src/AppBundle/Resources/config/routing.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">hello</span><span class="p p-Indicator">:</span> <span class="c1"># The route name</span>
+    <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">/hello/{name}</span>
+    <span class="l l-Scalar l-Scalar-Plain">defaults</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">_controller</span><span class="p p-Indicator">:</span> <span class="nv">AppBundle</span><span class="p p-Indicator">:</span><span class="nv">Hello</span><span class="p p-Indicator">:</span><span class="nv">index</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="java">
+<h3>Использование ресурсов: изображений, Java-скриптов и таблиц стилей<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h3>
+<p>Чем был бы Интернет без изображений, Java-скриптов и таблиц стилей? Symfony
+предоставляет тег <tt class="docutils literal"><code>assets</code></tt> для того, чтобы с лёгкостью с ними справляться:</p>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;assets&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;css/blog.css&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="s">&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="p">/&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;assets&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;images/logo.png&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="s">&quot;</span> <span class="p">/&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Главной целью помощника <tt class="docutils literal"><code>assets</code></tt> является сделать ваше приложение более портативным.
+Благодаря этому помощнику, вы можете перемещать корневой каталог вашего приложения в
+любое место под вашим корневым веб-каталогом, не изменяя ничего в коде вашего шаблона.</p>
+</div>
+<div class="section" id="id7">
+<h3>Профилирование шаблонов<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Используя помощник <tt class="docutils literal"><code>stopwatch</code></tt>, вы можете засекать части вашего шаблона и отображать их
+во временной шкале WebProfilerBundle:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;stopwatch&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">... вещи, которые засекаются</span>
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;stopwatch&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">stop</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если вы используете одно и то же имя более одного раза в вашем шаблоне, то
+времена будут сгруппированы на одной линии временной шкалы.</p>
+</div></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>Экранирование вывода<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>При использовании PHP-шаблонов, экранируйте переменные, когда они отображены
+пользователю:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">escape</span><span class="p">(</span><span class="nv">$var</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p>По умолчанию, метод <tt class="docutils literal"><code>escape()</code></tt> предполагает, что переменная выводится в рамках
+контекста HTML. Второй аргумент позволяет вам изменять контекст. Например, чтобы
+вывести что-то в Java-скрипте, используйте контекст <tt class="docutils literal"><code>js</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">escape</span><span class="p">(</span><span class="nv">$var</span><span class="p">,</span> <span class="s1">&#39;js&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="PHP.html">« How to Use PHP instead of Twig for Templates</a>
+                <span class="separator">|</span>
+                <a href="app_variable.html">How to Access the User, Request, Session &amp; more in Twig via the app Variable »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

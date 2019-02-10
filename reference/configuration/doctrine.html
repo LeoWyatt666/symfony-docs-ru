@@ -1,0 +1,1332 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Конфигурация DoctrineBundle (&#34;doctrine&#34;) &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="reference doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Конфигурация DoctrineBundle (&quot;doctrine&quot;)</a><ul>
+<li><a class="reference internal" href="#id1">Полная конфигурация по умолчанию</a></li>
+<li><a class="reference internal" href="#doctrine-dbal">Конфигурация Doctrine DBAL</a></li>
+<li><a class="reference internal" href="#doctrine-orm">Конфигурация Doctrine ORM</a><ul>
+<li><a class="reference internal" href="#id2">Сокращённый синтаксис конфигурации</a></li>
+<li><a class="reference internal" href="#id3">Кеширующие драйверы</a></li>
+<li><a class="reference internal" href="#id4">Конфигурация отображения</a><ul>
+<li><a class="reference internal" href="#type">type</a></li>
+<li><a class="reference internal" href="#dir">dir</a></li>
+<li><a class="reference internal" href="#prefix">prefix</a></li>
+<li><a class="reference internal" href="#alias">alias</a></li>
+<li><a class="reference internal" href="#is-bundle">is_bundle</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">Пользовательские сущности отображения в пакете</a></li>
+<li><a class="reference internal" href="#id6">Отображение сущностей вне пакета</a><ul>
+<li><a class="reference internal" href="#id7">Определение формата конфигурации отображения</a></li>
+<li><a class="reference internal" href="#id8">Значение Dir по умолчанию</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li class="active">Конфигурация DoctrineBundle (&quot;doctrine&quot;)</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="doctrinebundle-doctrine">
+<span id="index-0"></span><h1>Конфигурация DoctrineBundle (&quot;doctrine&quot;)<a class="headerlink" href="#doctrinebundle-doctrine" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>Полная конфигурация по умолчанию<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/doctrine.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">doctrine</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">dbal</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">default_connection</span><span class="p p-Indicator">:</span>   <span class="l l-Scalar l-Scalar-Plain">default</span>
+        <span class="l l-Scalar l-Scalar-Plain">types</span><span class="p p-Indicator">:</span>
+            <span class="c1"># Коллекция пользовательских типов</span>
+            <span class="c1"># Пример</span>
+            <span class="l l-Scalar l-Scalar-Plain">some_custom_type</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">class</span><span class="p p-Indicator">:</span>                <span class="l l-Scalar l-Scalar-Plain">App\DBAL\MyCustomType</span>
+                <span class="l l-Scalar l-Scalar-Plain">commented</span><span class="p p-Indicator">:</span>            <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+        <span class="l l-Scalar l-Scalar-Plain">connections</span><span class="p p-Indicator">:</span>
+            <span class="c1"># Коллекция разноименованных соединений (например, default, conn2, и др.)</span>
+            <span class="l l-Scalar l-Scalar-Plain">default</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">dbname</span><span class="p p-Indicator">:</span>               <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+                <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">user</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">root</span>
+                <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="c1"># набор символов БД</span>
+                <span class="l l-Scalar l-Scalar-Plain">charset</span><span class="p p-Indicator">:</span>              <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="c1"># набор символов и сравнение таблиц. Не наследуется из БД</span>
+                <span class="l l-Scalar l-Scalar-Plain">default_table_options</span><span class="p p-Indicator">:</span>
+                    <span class="l l-Scalar l-Scalar-Plain">charset</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">~</span>
+                    <span class="l l-Scalar l-Scalar-Plain">collate</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">memory</span><span class="p p-Indicator">:</span>               <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                <span class="c1"># unix сокет для использования в MySQL</span>
+                <span class="l l-Scalar l-Scalar-Plain">unix_socket</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                <span class="c1"># Можно использовать как постоянное соединение для драйвера ibm_db2</span>
+                <span class="l l-Scalar l-Scalar-Plain">persistent</span><span class="p p-Indicator">:</span>           <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                <span class="c1"># Протокол для использования для драйвера ibm_db2 (по умолчанию - TCPIP, если опущено)</span>
+                <span class="l l-Scalar l-Scalar-Plain">protocol</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                <span class="c1"># Можно использовать dbname в качестве имени сервиса вместо SID для Oracle</span>
+                <span class="l l-Scalar l-Scalar-Plain">service</span><span class="p p-Indicator">:</span>              <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                <span class="c1"># Режим сессии дляиспользования для драйвера oci8</span>
+                <span class="l l-Scalar l-Scalar-Plain">sessionMode</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                <span class="c1"># Можно использовать пулированный сервер с драйвером oci8</span>
+                <span class="l l-Scalar l-Scalar-Plain">pooled</span><span class="p p-Indicator">:</span>               <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                <span class="c1"># Конфигурирование MultipleActiveResultSets для драйвера pdo_sqlsrv</span>
+                <span class="l l-Scalar l-Scalar-Plain">MultipleActiveResultSets</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">driver</span><span class="p p-Indicator">:</span>               <span class="l l-Scalar l-Scalar-Plain">pdo_mysql</span>
+                <span class="l l-Scalar l-Scalar-Plain">platform_service</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                <span class="c1"># версия вашего двигателя БД</span>
+                <span class="l l-Scalar l-Scalar-Plain">server_version</span><span class="p p-Indicator">:</span>       <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                <span class="c1"># если true, то запросы логируются в канал monolog &#39;doctrine&#39;</span>
+                <span class="l l-Scalar l-Scalar-Plain">logging</span><span class="p p-Indicator">:</span>              <span class="s">&#39;%kernel.debug%&#39;</span>
+                <span class="l l-Scalar l-Scalar-Plain">profiling</span><span class="p p-Indicator">:</span>            <span class="s">&#39;%kernel.debug%&#39;</span>
+                <span class="l l-Scalar l-Scalar-Plain">driver_class</span><span class="p p-Indicator">:</span>         <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">wrapper_class</span><span class="p p-Indicator">:</span>        <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="c1"># опция DBAL keepSlave</span>
+                <span class="l l-Scalar l-Scalar-Plain">keep_slave</span><span class="p p-Indicator">:</span>           <span class="l l-Scalar l-Scalar-Plain">false</span>
+                <span class="l l-Scalar l-Scalar-Plain">options</span><span class="p p-Indicator">:</span>
+                    <span class="c1"># массив опций</span>
+                    <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span>                  <span class="p p-Indicator">[]</span>
+                <span class="l l-Scalar l-Scalar-Plain">mapping_types</span><span class="p p-Indicator">:</span>
+                    <span class="c1"># массив типов отображений</span>
+                    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span>                 <span class="p p-Indicator">[]</span>
+
+                <span class="c1"># Если определ1н, только таблицы, чьи названия совпадают с этим регулярным выражением</span>
+                <span class="c1"># обрабатываются инструментом схемы (в этом примере, любые названия таблиц, не начинающиеся с `wp_`)</span>
+                <span class="c1">#schema_filter:               &#39;/^(?!wp_)/&#39;</span>
+
+                <span class="l l-Scalar l-Scalar-Plain">slaves</span><span class="p p-Indicator">:</span>
+
+                    <span class="c1"># коллекция соединений, названных slave (например, slave1, slave2)</span>
+                    <span class="l l-Scalar l-Scalar-Plain">slave1</span><span class="p p-Indicator">:</span>
+                        <span class="l l-Scalar l-Scalar-Plain">dbname</span><span class="p p-Indicator">:</span>               <span class="l l-Scalar l-Scalar-Plain">~</span>
+                        <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+                        <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">~</span>
+                        <span class="l l-Scalar l-Scalar-Plain">user</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">root</span>
+                        <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">~</span>
+                        <span class="l l-Scalar l-Scalar-Plain">charset</span><span class="p p-Indicator">:</span>              <span class="l l-Scalar l-Scalar-Plain">~</span>
+                        <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">~</span>
+                        <span class="l l-Scalar l-Scalar-Plain">memory</span><span class="p p-Indicator">:</span>               <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                        <span class="c1"># Сокет unix для использования с MySQL</span>
+                        <span class="l l-Scalar l-Scalar-Plain">unix_socket</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                        <span class="c1"># Можно использовать как постоянное соединение для драйвера ibm_db2</span>
+                        <span class="l l-Scalar l-Scalar-Plain">persistent</span><span class="p p-Indicator">:</span>           <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                        <span class="c1"># Протокол для использования для драйвера ibm_db2 (по умолчанию - TCPIP, если опущено)</span>
+                        <span class="l l-Scalar l-Scalar-Plain">protocol</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                        <span class="c1"># Можно использовать dbname в качестве имени сервиса вместо SID для Oracle</span>
+                        <span class="l l-Scalar l-Scalar-Plain">service</span><span class="p p-Indicator">:</span>              <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                        <span class="c1"># Режим сессии дляиспользования для драйвера oci8</span>
+                        <span class="l l-Scalar l-Scalar-Plain">sessionMode</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                        <span class="c1"># Можно использовать пулированный сервер с драйвером oci8</span>
+                        <span class="l l-Scalar l-Scalar-Plain">pooled</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                        <span class="c1"># Конфигурирование MultipleActiveResultSets для драйвера pdo_sqlsrv</span>
+                        <span class="l l-Scalar l-Scalar-Plain">MultipleActiveResultSets</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">orm</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">default_entity_manager</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">~</span>
+        <span class="l l-Scalar l-Scalar-Plain">auto_generate_proxy_classes</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="l l-Scalar l-Scalar-Plain">proxy_dir</span><span class="p p-Indicator">:</span>            <span class="s">&#39;%kernel.cache_dir%/doctrine/orm/Proxies&#39;</span>
+        <span class="l l-Scalar l-Scalar-Plain">proxy_namespace</span><span class="p p-Indicator">:</span>      <span class="l l-Scalar l-Scalar-Plain">Proxies</span>
+        <span class="c1"># искать класс &quot;ResolveTargetEntityListener&quot; для статьи об этом</span>
+        <span class="l l-Scalar l-Scalar-Plain">resolve_target_entities</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[]</span>
+        <span class="l l-Scalar l-Scalar-Plain">entity_managers</span><span class="p p-Indicator">:</span>
+            <span class="c1"># Коллекция разноназванных менеджеров сущностей (например, some_em, another_em)</span>
+            <span class="l l-Scalar l-Scalar-Plain">some_em</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">query_cache_driver</span><span class="p p-Indicator">:</span>
+                    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">array</span> <span class="c1"># Required</span>
+                    <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">~</span>
+                    <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">~</span>
+                    <span class="l l-Scalar l-Scalar-Plain">instance_class</span><span class="p p-Indicator">:</span>       <span class="l l-Scalar l-Scalar-Plain">~</span>
+                    <span class="l l-Scalar l-Scalar-Plain">class</span><span class="p p-Indicator">:</span>                <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">metadata_cache_driver</span><span class="p p-Indicator">:</span>
+                    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">array</span> <span class="c1"># Required</span>
+                    <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">~</span>
+                    <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">~</span>
+                    <span class="l l-Scalar l-Scalar-Plain">instance_class</span><span class="p p-Indicator">:</span>       <span class="l l-Scalar l-Scalar-Plain">~</span>
+                    <span class="l l-Scalar l-Scalar-Plain">class</span><span class="p p-Indicator">:</span>                <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">result_cache_driver</span><span class="p p-Indicator">:</span>
+                    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">array</span> <span class="c1"># Required</span>
+                    <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">~</span>
+                    <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">~</span>
+                    <span class="l l-Scalar l-Scalar-Plain">instance_class</span><span class="p p-Indicator">:</span>       <span class="l l-Scalar l-Scalar-Plain">~</span>
+                    <span class="l l-Scalar l-Scalar-Plain">class</span><span class="p p-Indicator">:</span>                <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">connection</span><span class="p p-Indicator">:</span>           <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">class_metadata_factory_name</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">Doctrine\ORM\Mapping\ClassMetadataFactory</span>
+                <span class="l l-Scalar l-Scalar-Plain">default_repository_class</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">Doctrine\ORM\EntityRepository</span>
+                <span class="l l-Scalar l-Scalar-Plain">auto_mapping</span><span class="p p-Indicator">:</span>         <span class="l l-Scalar l-Scalar-Plain">false</span>
+                <span class="l l-Scalar l-Scalar-Plain">hydrators</span><span class="p p-Indicator">:</span>
+
+                    <span class="c1"># Массив имён-гидраторов</span>
+                    <span class="l l-Scalar l-Scalar-Plain">hydrator_name</span><span class="p p-Indicator">:</span>                 <span class="p p-Indicator">[]</span>
+                <span class="l l-Scalar l-Scalar-Plain">mappings</span><span class="p p-Indicator">:</span>
+                    <span class="c1"># Массив отображений, которые могут быть именем пакета или чем-то другим</span>
+                    <span class="l l-Scalar l-Scalar-Plain">mapping_name</span><span class="p p-Indicator">:</span>
+                        <span class="l l-Scalar l-Scalar-Plain">mapping</span><span class="p p-Indicator">:</span>              <span class="l l-Scalar l-Scalar-Plain">true</span>
+                        <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">~</span>
+                        <span class="l l-Scalar l-Scalar-Plain">dir</span><span class="p p-Indicator">:</span>                  <span class="l l-Scalar l-Scalar-Plain">~</span>
+                        <span class="l l-Scalar l-Scalar-Plain">alias</span><span class="p p-Indicator">:</span>                <span class="l l-Scalar l-Scalar-Plain">~</span>
+                        <span class="l l-Scalar l-Scalar-Plain">prefix</span><span class="p p-Indicator">:</span>               <span class="l l-Scalar l-Scalar-Plain">~</span>
+                        <span class="l l-Scalar l-Scalar-Plain">is_bundle</span><span class="p p-Indicator">:</span>            <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">dql</span><span class="p p-Indicator">:</span>
+                    <span class="c1"># коллекция функций строки</span>
+                    <span class="l l-Scalar l-Scalar-Plain">string_functions</span><span class="p p-Indicator">:</span>
+                        <span class="c1"># пример</span>
+                        <span class="c1"># test_string: App\DQL\StringFunction</span>
+
+                    <span class="c1"># коллекция числовых функций</span>
+                    <span class="l l-Scalar l-Scalar-Plain">numeric_functions</span><span class="p p-Indicator">:</span>
+                        <span class="c1"># пример</span>
+                        <span class="c1"># test_numeric: App\DQL\NumericFunction</span>
+
+                    <span class="c1"># колекция дата-временных функций</span>
+                    <span class="l l-Scalar l-Scalar-Plain">datetime_functions</span><span class="p p-Indicator">:</span>
+                        <span class="c1"># пример</span>
+                        <span class="c1"># test_datetime: App\DQL\DatetimeFunction</span>
+
+                <span class="c1"># Зарегистрировать фильтры SQL в менеджере сущностей</span>
+                <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+                    <span class="c1"># Массив фильтров</span>
+                    <span class="l l-Scalar l-Scalar-Plain">some_filter</span><span class="p p-Indicator">:</span>
+                        <span class="l l-Scalar l-Scalar-Plain">class</span><span class="p p-Indicator">:</span>                <span class="l l-Scalar l-Scalar-Plain">~</span> <span class="c1"># Required</span>
+                        <span class="l l-Scalar l-Scalar-Plain">enabled</span><span class="p p-Indicator">:</span>              <span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/doctrine.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:doctrine=</span><span class="s">&quot;http://symfony.com/schema/dic/doctrine&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/doctrine</span>
+<span class="s">        http://symfony.com/schema/dic/doctrine/doctrine-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;doctrine:config&gt;</span>
+        <span class="nt">&lt;doctrine:dbal</span> <span class="na">default-connection=</span><span class="s">&quot;default&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;doctrine:connection</span>
+                <span class="na">name=</span><span class="s">&quot;default&quot;</span>
+                <span class="na">dbname=</span><span class="s">&quot;database&quot;</span>
+                <span class="na">host=</span><span class="s">&quot;localhost&quot;</span>
+                <span class="na">port=</span><span class="s">&quot;1234&quot;</span>
+                <span class="na">user=</span><span class="s">&quot;user&quot;</span>
+                <span class="na">password=</span><span class="s">&quot;secret&quot;</span>
+                <span class="na">driver=</span><span class="s">&quot;pdo_mysql&quot;</span>
+                <span class="na">driver-class=</span><span class="s">&quot;App\DBAL\MyDatabaseDriver&quot;</span>
+                <span class="na">path=</span><span class="s">&quot;%kernel.project_dir%/var/data/data.sqlite&quot;</span>
+                <span class="na">memory=</span><span class="s">&quot;true&quot;</span>
+                <span class="na">unix-socket=</span><span class="s">&quot;/tmp/mysql.sock&quot;</span>
+                <span class="na">wrapper-class=</span><span class="s">&quot;App\DBAL\MyConnectionWrapper&quot;</span>
+                <span class="na">charset=</span><span class="s">&quot;UTF8&quot;</span>
+                <span class="na">logging=</span><span class="s">&quot;%kernel.debug%&quot;</span>
+                <span class="na">platform-service=</span><span class="s">&quot;App\DBAL\MyDatabasePlatformService&quot;</span>
+                <span class="na">server-version=</span><span class="s">&quot;5.6&quot;</span>
+                <span class="na">keep-slave=</span><span class="s">&quot;false&quot;</span>
+            <span class="nt">&gt;</span>
+                <span class="nt">&lt;doctrine:option</span> <span class="na">key=</span><span class="s">&quot;foo&quot;</span><span class="nt">&gt;</span>bar<span class="nt">&lt;/doctrine:option&gt;</span>
+                <span class="nt">&lt;doctrine:mapping-type</span> <span class="na">name=</span><span class="s">&quot;enum&quot;</span><span class="nt">&gt;</span>string<span class="nt">&lt;/doctrine:mapping-type&gt;</span>
+            <span class="nt">&lt;/doctrine:connection&gt;</span>
+            <span class="nt">&lt;doctrine:connection</span> <span class="na">name=</span><span class="s">&quot;conn1&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;doctrine:type</span> <span class="na">name=</span><span class="s">&quot;custom&quot;</span><span class="nt">&gt;</span>App\DBAL\MyCustomType<span class="nt">&lt;/doctrine:type&gt;</span>
+        <span class="nt">&lt;/doctrine:dbal&gt;</span>
+
+        <span class="nt">&lt;doctrine:orm</span>
+            <span class="na">default-entity-manager=</span><span class="s">&quot;default&quot;</span>
+            <span class="na">auto-generate-proxy-classes=</span><span class="s">&quot;false&quot;</span>
+            <span class="na">proxy-namespace=</span><span class="s">&quot;Proxies&quot;</span>
+            <span class="na">proxy-dir=</span><span class="s">&quot;%kernel.cache_dir%/doctrine/orm/Proxies&quot;</span>
+        <span class="nt">&gt;</span>
+            <span class="nt">&lt;doctrine:entity-manager</span>
+                <span class="na">name=</span><span class="s">&quot;default&quot;</span>
+                <span class="na">query-cache-driver=</span><span class="s">&quot;array&quot;</span>
+                <span class="na">result-cache-driver=</span><span class="s">&quot;array&quot;</span>
+                <span class="na">connection=</span><span class="s">&quot;conn1&quot;</span>
+                <span class="na">class-metadata-factory-name=</span><span class="s">&quot;Doctrine\ORM\Mapping\ClassMetadataFactory&quot;</span>
+            <span class="nt">&gt;</span>
+                <span class="nt">&lt;doctrine:metadata-cache-driver</span>
+                    <span class="na">type=</span><span class="s">&quot;memcache&quot;</span>
+                    <span class="na">host=</span><span class="s">&quot;localhost&quot;</span>
+                    <span class="na">port=</span><span class="s">&quot;11211&quot;</span>
+                    <span class="na">instance-class=</span><span class="s">&quot;Memcache&quot;</span>
+                    <span class="na">class=</span><span class="s">&quot;Doctrine\Common\Cache\MemcacheCache&quot;</span>
+                <span class="nt">/&gt;</span>
+
+                <span class="nt">&lt;doctrine:mapping</span> <span class="na">name=</span><span class="s">&quot;AcmeHelloBundle&quot;</span> <span class="nt">/&gt;</span>
+
+                <span class="nt">&lt;doctrine:dql&gt;</span>
+                    <span class="nt">&lt;doctrine:string-function</span> <span class="na">name=</span><span class="s">&quot;test_string&quot;</span><span class="nt">&gt;</span>
+                        App\DQL\StringFunction
+                    <span class="nt">&lt;/doctrine:string-function&gt;</span>
+
+                    <span class="nt">&lt;doctrine:numeric-function</span> <span class="na">name=</span><span class="s">&quot;test_numeric&quot;</span><span class="nt">&gt;</span>
+                        App\DQL\NumericFunction
+                    <span class="nt">&lt;/doctrine:numeric-function&gt;</span>
+
+                    <span class="nt">&lt;doctrine:datetime-function</span> <span class="na">name=</span><span class="s">&quot;test_datetime&quot;</span><span class="nt">&gt;</span>
+                        App\DQL\DatetimeFunction
+                    <span class="nt">&lt;/doctrine:datetime-function&gt;</span>
+                <span class="nt">&lt;/doctrine:dql&gt;</span>
+            <span class="nt">&lt;/doctrine:entity-manager&gt;</span>
+
+            <span class="nt">&lt;doctrine:entity-manager</span> <span class="na">name=</span><span class="s">&quot;em2&quot;</span> <span class="na">connection=</span><span class="s">&quot;conn2&quot;</span> <span class="na">metadata-cache-driver=</span><span class="s">&quot;apc&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;doctrine:mapping</span>
+                    <span class="na">name=</span><span class="s">&quot;DoctrineExtensions&quot;</span>
+                    <span class="na">type=</span><span class="s">&quot;xml&quot;</span>
+                    <span class="na">dir=</span><span class="s">&quot;%kernel.project_dir%/vendor/gedmo/doctrine-extensions/lib/DoctrineExtensions/Entity&quot;</span>
+                    <span class="na">prefix=</span><span class="s">&quot;DoctrineExtensions\Entity&quot;</span>
+                    <span class="na">alias=</span><span class="s">&quot;DExt&quot;</span>
+                <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/doctrine:entity-manager&gt;</span>
+        <span class="nt">&lt;/doctrine:orm&gt;</span>
+    <span class="nt">&lt;/doctrine:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="doctrine-dbal">
+<span id="reference-dbal-configuration-ru"></span><span id="index-1"></span><h2>Конфигурация Doctrine DBAL<a class="headerlink" href="#doctrine-dbal" title="Permalink to this headline">¶</a></h2>
+<p>DoctrineBundle поддерживает все параметры, которые принимают драйверы
+Doctrine по умолчанию, конвертированны в стандарты именования XML или YAML,
+которые внедряет Symfony. См. <a class="reference external" href="http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html">документацию DBAL</a>, чтобы узнать больше.
+Следующий блок показывает все возможные ключи конфигурации:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">doctrine</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">dbal</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">dbname</span><span class="p p-Indicator">:</span>               <span class="l l-Scalar l-Scalar-Plain">database</span>
+        <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+        <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">1234</span>
+        <span class="l l-Scalar l-Scalar-Plain">user</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">user</span>
+        <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">secret</span>
+        <span class="l l-Scalar l-Scalar-Plain">driver</span><span class="p p-Indicator">:</span>               <span class="l l-Scalar l-Scalar-Plain">pdo_mysql</span>
+        <span class="c1"># если указана опция url, она переопределить конфигурацию выше</span>
+        <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span>                  <span class="l l-Scalar l-Scalar-Plain">mysql://db_user:<a href="..\..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="47232518372634343028352307767570697769776976">[email&#160;protected]</a>:3306/db_name</span>
+        <span class="c1"># опция DBAL driverClass</span>
+        <span class="l l-Scalar l-Scalar-Plain">driver_class</span><span class="p p-Indicator">:</span>         <span class="l l-Scalar l-Scalar-Plain">App\DBAL\MyDatabaseDriver</span>
+        <span class="c1"># оцпия DBAL driverOptions</span>
+        <span class="l l-Scalar l-Scalar-Plain">options</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">foo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
+        <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>                 <span class="s">&#39;%kernel.project_dir%/var/data/data.sqlite&#39;</span>
+        <span class="l l-Scalar l-Scalar-Plain">memory</span><span class="p p-Indicator">:</span>               <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="l l-Scalar l-Scalar-Plain">unix_socket</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">/tmp/mysql.sock</span>
+        <span class="c1"># опция DBAL wrapperClass</span>
+        <span class="l l-Scalar l-Scalar-Plain">wrapper_class</span><span class="p p-Indicator">:</span>        <span class="l l-Scalar l-Scalar-Plain">App\DBAL\MyConnectionWrapper</span>
+        <span class="l l-Scalar l-Scalar-Plain">charset</span><span class="p p-Indicator">:</span>              <span class="l l-Scalar l-Scalar-Plain">UTF8</span>
+        <span class="l l-Scalar l-Scalar-Plain">logging</span><span class="p p-Indicator">:</span>              <span class="s">&#39;%kernel.debug%&#39;</span>
+        <span class="l l-Scalar l-Scalar-Plain">platform_service</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">App\DBAL\MyDatabasePlatformService</span>
+        <span class="l l-Scalar l-Scalar-Plain">server_version</span><span class="p p-Indicator">:</span>       <span class="l l-Scalar l-Scalar-Plain">5.6</span>
+        <span class="l l-Scalar l-Scalar-Plain">mapping_types</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">enum</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+        <span class="l l-Scalar l-Scalar-Plain">types</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">custom</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">App\DBAL\MyCustomType</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:doctrine=</span><span class="s">&quot;http://symfony.com/schema/dic/doctrine&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/doctrine</span>
+<span class="s">        http://symfony.com/schema/dic/doctrine/doctrine-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;doctrine:config&gt;</span>
+        <span class="nt">&lt;doctrine:dbal</span>
+            <span class="na">name=</span><span class="s">&quot;default&quot;</span>
+            <span class="na">dbname=</span><span class="s">&quot;database&quot;</span>
+            <span class="na">host=</span><span class="s">&quot;localhost&quot;</span>
+            <span class="na">port=</span><span class="s">&quot;1234&quot;</span>
+            <span class="na">user=</span><span class="s">&quot;user&quot;</span>
+            <span class="na">password=</span><span class="s">&quot;secret&quot;</span>
+            <span class="na">driver=</span><span class="s">&quot;pdo_mysql&quot;</span>
+            <span class="na">driver-class=</span><span class="s">&quot;App\DBAL\MyDatabaseDriver&quot;</span>
+            <span class="na">path=</span><span class="s">&quot;%kernel.project_dir%/var/data/data.sqlite&quot;</span>
+            <span class="na">memory=</span><span class="s">&quot;true&quot;</span>
+            <span class="na">unix-socket=</span><span class="s">&quot;/tmp/mysql.sock&quot;</span>
+            <span class="na">wrapper-class=</span><span class="s">&quot;App\DBAL\MyConnectionWrapper&quot;</span>
+            <span class="na">charset=</span><span class="s">&quot;UTF8&quot;</span>
+            <span class="na">logging=</span><span class="s">&quot;%kernel.debug%&quot;</span>
+            <span class="na">platform-service=</span><span class="s">&quot;App\DBAL\MyDatabasePlatformService&quot;</span>
+            <span class="na">server-version=</span><span class="s">&quot;5.6&quot;</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;doctrine:option</span> <span class="na">key=</span><span class="s">&quot;foo&quot;</span><span class="nt">&gt;</span>bar<span class="nt">&lt;/doctrine:option&gt;</span>
+            <span class="nt">&lt;doctrine:mapping-type</span> <span class="na">name=</span><span class="s">&quot;enum&quot;</span><span class="nt">&gt;</span>string<span class="nt">&lt;/doctrine:mapping-type&gt;</span>
+            <span class="nt">&lt;doctrine:type</span> <span class="na">name=</span><span class="s">&quot;custom&quot;</span><span class="nt">&gt;</span>App\DBAL\MyCustomType<span class="nt">&lt;/doctrine:type&gt;</span>
+        <span class="nt">&lt;/doctrine:dbal&gt;</span>
+    <span class="nt">&lt;/doctrine:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p>Опция <tt class="docutils literal"><code>server_version</code></tt> была добавлена в Doctrine DBAL 2.5, который используется
+DoctrineBundle 1.3. Значение этой опции должно совпадать с вашей версией сервера
+БД (используйте команду <tt class="docutils literal"><code>postgres -V</code></tt> или <tt class="docutils literal"><code>psql -V</code></tt>, чтобы найти вашу версию
+PostgreSQL, и <tt class="docutils literal"><code>mysql -V</code></tt>, чтобы получить вашу версию MySQL).</p>
+<p class="last">Если вы не хотите определять эту опцию и вы ещё не создали вашу БД, то
+вы можете получить ошибки <tt class="docutils literal"><code>PDOException</code></tt>, так как Doctrine будет пробовать
+угадать версию сервера БД автоматически, а они не доступны.</p>
+</div></div>
+<p>Если вы хотите сконфигурировать несколько соединений в YAML, поместите их
+под ключом <tt class="docutils literal"><code>connections</code></tt> и дайте им уникальные имена:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">doctrine</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">dbal</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">default_connection</span><span class="p p-Indicator">:</span>       <span class="l l-Scalar l-Scalar-Plain">default</span>
+        <span class="l l-Scalar l-Scalar-Plain">connections</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">default</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">dbname</span><span class="p p-Indicator">:</span>           <span class="l l-Scalar l-Scalar-Plain">Symfony</span>
+                <span class="l l-Scalar l-Scalar-Plain">user</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">root</span>
+                <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span>         <span class="l l-Scalar l-Scalar-Plain">null</span>
+                <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+                <span class="l l-Scalar l-Scalar-Plain">server_version</span><span class="p p-Indicator">:</span>   <span class="l l-Scalar l-Scalar-Plain">5.6</span>
+            <span class="l l-Scalar l-Scalar-Plain">customer</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">dbname</span><span class="p p-Indicator">:</span>           <span class="l l-Scalar l-Scalar-Plain">customer</span>
+                <span class="l l-Scalar l-Scalar-Plain">user</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">root</span>
+                <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span>         <span class="l l-Scalar l-Scalar-Plain">null</span>
+                <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+                <span class="l l-Scalar l-Scalar-Plain">server_version</span><span class="p p-Indicator">:</span>   <span class="l l-Scalar l-Scalar-Plain">5.7</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Сервис <tt class="docutils literal"><code>database_connection</code></tt> всегда ссылатся на соединение <em>по умолчанию</em>,
+которое является первым определённым или сконфигурированным через параметр
+<tt class="docutils literal"><code>default_connection</code></tt>.</p>
+<p>Каждое соединение также доступно через сервис <tt class="docutils literal"><code>doctrine.dbal.[name]_connection</code></tt>,
+где <tt class="docutils literal"><code>[name]</code></tt> - это имя соединения.</p>
+</div>
+<div class="section" id="doctrine-orm">
+<h2>Конфигурация Doctrine ORM<a class="headerlink" href="#doctrine-orm" title="Permalink to this headline">¶</a></h2>
+<p>Следующий пример конфигурации отображает все значения конфигурации по умолчанию,
+которые разрешает ORM:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">doctrine</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">orm</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">auto_mapping</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="c1"># стандартное распределение переопределяет это как true при отладке и как false в других случаях</span>
+        <span class="l l-Scalar l-Scalar-Plain">auto_generate_proxy_classes</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="l l-Scalar l-Scalar-Plain">proxy_namespace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Proxies</span>
+        <span class="l l-Scalar l-Scalar-Plain">proxy_dir</span><span class="p p-Indicator">:</span> <span class="s">&#39;%kernel.cache_dir%/doctrine/orm/Proxies&#39;</span>
+        <span class="l l-Scalar l-Scalar-Plain">default_entity_manager</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
+        <span class="l l-Scalar l-Scalar-Plain">metadata_cache_driver</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">array</span>
+        <span class="l l-Scalar l-Scalar-Plain">query_cache_driver</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">array</span>
+        <span class="l l-Scalar l-Scalar-Plain">result_cache_driver</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">array</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Существует множеств других опций конфигурации, которые вы можете использовать
+для перезаписи определённых классов, но они нужны только для очень продвинутых
+случаев использования.</p>
+<div class="section" id="id2">
+<h3>Сокращённый синтаксис конфигурации<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Когда вы используете только одного менеджера сущностей, все доступные опции
+конфигурации могут быть размещены прямо под уровнем конфигурации <tt class="docutils literal"><code>doctrine.orm</code></tt>.</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">doctrine</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">orm</span><span class="p p-Indicator">:</span>
+        <span class="c1"># ...</span>
+        <span class="l l-Scalar l-Scalar-Plain">query_cache_driver</span><span class="p p-Indicator">:</span>
+           <span class="c1"># ...</span>
+        <span class="l l-Scalar l-Scalar-Plain">metadata_cache_driver</span><span class="p p-Indicator">:</span>
+            <span class="c1"># ...</span>
+        <span class="l l-Scalar l-Scalar-Plain">result_cache_driver</span><span class="p p-Indicator">:</span>
+            <span class="c1"># ...</span>
+        <span class="l l-Scalar l-Scalar-Plain">connection</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+        <span class="l l-Scalar l-Scalar-Plain">class_metadata_factory_name</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">Doctrine\ORM\Mapping\ClassMetadataFactory</span>
+        <span class="l l-Scalar l-Scalar-Plain">default_repository_class</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">Doctrine\ORM\EntityRepository</span>
+        <span class="l l-Scalar l-Scalar-Plain">auto_mapping</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="l l-Scalar l-Scalar-Plain">hydrators</span><span class="p p-Indicator">:</span>
+            <span class="c1"># ...</span>
+        <span class="l l-Scalar l-Scalar-Plain">mappings</span><span class="p p-Indicator">:</span>
+            <span class="c1"># ...</span>
+        <span class="l l-Scalar l-Scalar-Plain">dql</span><span class="p p-Indicator">:</span>
+            <span class="c1"># ...</span>
+        <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+            <span class="c1"># ...</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Эта сокращённая версия часто используется в других разделах документации.
+Помните, что вы не можете использовать оба синтаксиса одновременно.</p>
+</div>
+<div class="section" id="id3">
+<h3>Кеширующие драйверы<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Встроенные типы кеширующих драйверов: <tt class="docutils literal"><code>array</code></tt>, <tt class="docutils literal"><code>apc</code></tt>, <tt class="docutils literal"><code>apcu</code></tt>,
+<tt class="docutils literal"><code>memcache</code></tt>, <tt class="docutils literal"><code>memcached</code></tt>, <tt class="docutils literal"><code>redis</code></tt>, <tt class="docutils literal"><code>wincache</code></tt>, <tt class="docutils literal"><code>zenddata</code></tt> и <tt class="docutils literal"><code>xcache</code></tt>.
+Существует специальный тип под названием <tt class="docutils literal"><code>service</code></tt>, который позволяет вам
+определять ID вашего собственного кеширующего сервиса.</p>
+<p>Следующий пример демонстрирует обзор кеширующих конфигураций:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">doctrine</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">orm</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">auto_mapping</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="c1"># каждый тип кеширующего драйвера определяет собственные опции конфигурации</span>
+        <span class="l l-Scalar l-Scalar-Plain">metadata_cache_driver</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">apc</span>
+        <span class="l l-Scalar l-Scalar-Plain">result_cache_driver</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">memcache</span>
+            <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+            <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">11211</span>
+            <span class="l l-Scalar l-Scalar-Plain">instance_class</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Memcache</span>
+        <span class="c1"># тип &#39;service&#39; требует определения и опции &#39;id&#39;</span>
+        <span class="l l-Scalar l-Scalar-Plain">query_cache_driver</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">service</span>
+            <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">App\ORM\MyCacheService</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id4">
+<h3>Конфигурация отображения<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Ясное определение всех отображённых сущностей - это единственная нужная
+конфигурация для ORM и есть несколько опций конфигурации, которые вы можете
+контролировать.  Существуют следующие опции конфигурации для отображения:</p>
+<div class="section" id="type">
+<h4>type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h4>
+<p>Одна из <tt class="docutils literal"><code>annotation</code></tt> (значение по умолчанию), <tt class="docutils literal"><code>xml</code></tt>, <tt class="docutils literal"><code>yml</code></tt>, <tt class="docutils literal"><code>php</code></tt> или
+<tt class="docutils literal"><code>staticphp</code></tt>. Указывает, какой тип метаданных использует ваше отображение.</p>
+</div>
+<div class="section" id="dir">
+<h4>dir<a class="headerlink" href="#dir" title="Permalink to this headline">¶</a></h4>
+<p>Абсолютный путь к отображению или файлам сущностей (в зависимости от драйвера).</p>
+</div>
+<div class="section" id="prefix">
+<h4>prefix<a class="headerlink" href="#prefix" title="Permalink to this headline">¶</a></h4>
+<p>Общий префикс пространства имён, который имеют все сущности отображения. Этот
+префикс не должен конфликовать с префиксами других определённых отображений, иначе
+некоторые из ваших сущностей не смогут быть найдены Doctrine.</p>
+</div>
+<div class="section" id="alias">
+<h4>alias<a class="headerlink" href="#alias" title="Permalink to this headline">¶</a></h4>
+<p>Doctrine предоставляет более простоей способ написания дополнительных имён для сущностей
+пространства имён, более короткие именя для использования с запросами DQL или для доступа
+к Хранилищу.</p>
+</div>
+<div class="section" id="is-bundle">
+<h4>is_bundle<a class="headerlink" href="#is-bundle" title="Permalink to this headline">¶</a></h4>
+<p>Эта опция по умолчанию <tt class="docutils literal"><code>false</code></tt> и считается опцией наследования. Она была полезна
+только в предыдущих версиях Symfony, когда рекомендовалось использовать пакеты для
+организации кода приложения.</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>Пользовательские сущности отображения в пакете<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Функция Doctrine <tt class="docutils literal"><code>auto_mapping</code></tt> загружает конфигурацию аннотации из каталога
+<tt class="docutils literal"><code>Entity/</code></tt> каждого пакета <em>и</em> ищет другие форматы (например, YAML, XML) в каталоге
+<tt class="docutils literal"><code>Resources/config/doctrine</code></tt>.</p>
+<p>Если вы храните метаданные где-то ещё в вашем пакете, то вы можете определить
+ваше собственное отображеие, где вы скажите Doctrine <em>где</em> именно искать, вместе
+с некоторой другой конфигурацией.</p>
+<p>Если вы используете конфигурацию <tt class="docutils literal"><code>auto_mapping</code></tt>, то вам просто надо перезаписать
+нужные вам конфигурации. В этом случае, важно, чтобы ключ конфигураций отображения
+совпадал с именем пакета.</p>
+<p>Например, представьте, что вы решили хранить вашу конфигурацию <tt class="docutils literal"><code>XML</code></tt> для
+сущностей <tt class="docutils literal"><code>AppBundle</code></tt> в каталоге <tt class="docutils literal"><code>&#64;AppBundle/SomeResources/config/doctrine</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">doctrine</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+    <span class="l l-Scalar l-Scalar-Plain">orm</span><span class="p p-Indicator">:</span>
+        <span class="c1"># ...</span>
+        <span class="l l-Scalar l-Scalar-Plain">auto_mapping</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="l l-Scalar l-Scalar-Plain">mappings</span><span class="p p-Indicator">:</span>
+            <span class="c1"># ...</span>
+            <span class="l l-Scalar l-Scalar-Plain">AppBundle</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">xml</span>
+                <span class="l l-Scalar l-Scalar-Plain">dir</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SomeResources/config/doctrine</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; charset=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:doctrine=</span><span class="s">&quot;http://symfony.com/schema/dic/doctrine&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;doctrine:config&gt;</span>
+        <span class="nt">&lt;doctrine:orm</span> <span class="na">auto-mapping=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;mapping</span> <span class="na">name=</span><span class="s">&quot;AppBundle&quot;</span> <span class="na">dir=</span><span class="s">&quot;SomeResources/config/doctrine&quot;</span> <span class="na">type=</span><span class="s">&quot;xml&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/doctrine:orm&gt;</span>
+    <span class="nt">&lt;/doctrine:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;doctrine&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;orm&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;auto_mapping&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s1">&#39;mappings&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;AppBundle&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;dir&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;SomeResources/config/doctrine&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;xml&#39;</span><span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Отображение сущностей вне пакета<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Например, следующий код ищет классы сущности в пространстве имён <tt class="docutils literal"><code>Entity</code></tt>
+в каталоге <tt class="docutils literal"><code>src/Entity</code></tt> и предоставляет им дополнительное имя <tt class="docutils literal"><code>App</code></tt> (чтобы
+вы могли писать вещи вроде <tt class="docutils literal"><code>App:Post</code></tt>):</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">doctrine</span><span class="p p-Indicator">:</span>
+        <span class="c1"># ...</span>
+        <span class="l l-Scalar l-Scalar-Plain">orm</span><span class="p p-Indicator">:</span>
+            <span class="c1"># ...</span>
+            <span class="l l-Scalar l-Scalar-Plain">mappings</span><span class="p p-Indicator">:</span>
+                <span class="c1"># ...</span>
+                <span class="l l-Scalar l-Scalar-Plain">SomeEntityNamespace</span><span class="p p-Indicator">:</span>
+                    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">annotation</span>
+                    <span class="l l-Scalar l-Scalar-Plain">dir</span><span class="p p-Indicator">:</span> <span class="s">&#39;%kernel.project_dir%/src/Entity&#39;</span>
+                    <span class="l l-Scalar l-Scalar-Plain">is_bundle</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+                    <span class="l l-Scalar l-Scalar-Plain">prefix</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">App\Entity</span>
+                    <span class="l l-Scalar l-Scalar-Plain">alias</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">App</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; charset=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:doctrine=</span><span class="s">&quot;http://symfony.com/schema/dic/doctrine&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;doctrine:config&gt;</span>
+        <span class="nt">&lt;doctrine:orm&gt;</span>
+            <span class="nt">&lt;mapping</span> <span class="na">name=</span><span class="s">&quot;SomeEntityNamespace&quot;</span>
+                <span class="na">type=</span><span class="s">&quot;annotation&quot;</span>
+                <span class="na">dir=</span><span class="s">&quot;%kernel.project_dir%/src/Entity&quot;</span>
+                <span class="na">is-bundle=</span><span class="s">&quot;false&quot;</span>
+                <span class="na">prefix=</span><span class="s">&quot;App\Entity&quot;</span>
+                <span class="na">alias=</span><span class="s">&quot;App&quot;</span>
+            <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/doctrine:orm&gt;</span>
+    <span class="nt">&lt;/doctrine:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;doctrine&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;orm&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;auto_mapping&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s1">&#39;mappings&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;SomeEntityNamespace&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;type&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;annotation&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;dir&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;%kernel.project_dir%/src/Entity&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;is_bundle&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+                <span class="s1">&#39;prefix&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;App\Entity&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;alias&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;App&#39;</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h4>Определение формата конфигурации отображения<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>Если <tt class="docutils literal"><code>type</code></tt> конфигурации пакета не установлен, то DoctrineBundle будет
+пытаться определить правильный формат конфигурации отображения для пакета.</p>
+<p>DoctrineBundle будет искать файлы, совпадающие с <tt class="docutils literal"><code>*.orm.[FORMAT]</code></tt> (например,
+<tt class="docutils literal"><code>Post.orm.yaml</code></tt>) в сконфигурированном <tt class="docutils literal"><code>dir</code></tt> вашего отображения (если вы отображаете
+пакет, то <tt class="docutils literal"><code>dir</code></tt> относителен к каталогу пакета).</p>
+<p>Пакет ищет файлы (в этом порядке) XML, YAML и PHP. Используя функцию
+<tt class="docutils literal"><code>auto_mapping</code></tt>, каждый пакетможет иметь только один формат конфигурации.
+Пакет остановится как только найдёт его.</p>
+<p>Если определить формат конфигурации для пакета было невозможно, то
+DoctrineBundle проверит наличие папки <tt class="docutils literal"><code>Entity</code></tt> в корневом каталоге
+пакета. Если папка не существует, Doctrine будет использовать драйвер
+аннотаций.</p>
+</div>
+<div class="section" id="id8">
+<h4>Значение Dir по умолчанию<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>Если <tt class="docutils literal"><code>dir</code></tt> не указан, тогда его значение по умолчанию зависит от того,
+какой драйвер конфигурации используется. Для драйверов, полагающихся на
+PHP-файлы (аннотация, staticphp) он будет <tt class="docutils literal"><code>[Bundle]/Entity</code></tt>. Для драйверов,
+использующих файлы конфигурации (XML, YAML, ...) он будет <tt class="docutils literal"><code>[Bundle]/Resources/config/doctrine</code></tt>.</p>
+<p>Если конфигурация <tt class="docutils literal"><code>dir</code></tt> установлена, а конфигурация <tt class="docutils literal"><code>is_bundle</code></tt> -
+<tt class="docutils literal"><code>true</code></tt>, то DoctrineBundle добавит к конфигурации <tt class="docutils literal"><code>dir</code></tt> префикс в виде
+пути пакета.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  <script data-cfasync="false" src="..\..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script></body>
+</body></html>

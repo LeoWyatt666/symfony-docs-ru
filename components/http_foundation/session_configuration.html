@@ -1,0 +1,535 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Конфигурация сессий и обработчики сохранений &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+    <link rel="up" title="The HttpFoundation Component" href="..\http_foundation.html">
+    <link rel="next" title="Integrating with Legacy Sessions" href="session_php_bridge.html">
+    <link rel="prev" title="Configuring Sessions and Save Handlers" href="session_configuration.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Конфигурация сессий и обработчики сохранений</a><ul>
+<li><a class="reference internal" href="#id2">Обработчики сохранений</a><ul>
+<li><a class="reference internal" href="#php">Оргинальные PHP обработчики сохранений</a></li>
+<li><a class="reference internal" href="#id3">Пользовательские обработчики сохранений</a></li>
+<li><a class="reference internal" href="#id4">Мигрирование между обработчиками сохранений</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">Конфигурация PHP сессий</a></li>
+<li><a class="reference internal" href="#id6">Время жизни куки сессии</a></li>
+<li><a class="reference internal" href="#id7">Конфигурация сбора мусора</a></li>
+<li><a class="reference internal" href="#id8">Время жизни сессии</a></li>
+<li><a class="reference internal" href="#id9">Время простоя сессии/Постоянное соединение</a></li>
+<li><a class="reference internal" href="#id10">Лимитирование кеша сессии</a></li>
+<li><a class="reference internal" href="#id11">Метаданные сессии</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li><a href="..\index.html">The Components</a></li>
+                
+                <li><a href="..\http_foundation.html">The HttpFoundation Component</a></li>
+                
+                <li class="active">Конфигурация сессий и обработчики сохранений</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Конфигурация сессий и обработчики сохранений<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Этот раздел рассказывать о том, как конфигурирвать управление сессиями и
+настраивать его под ваши потребности. Эта документация охватывает обработчики
+сохранений, которые хранят и извлекают данные сессии и конфигурацию поведения
+сессии.</p>
+<div class="section" id="id2">
+<h2>Обработчики сохранений<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Рабочий процесс PHP сессии имеет 6 возможных операций, которые могут произойти.
+Нормальная сессия следует <tt class="docutils literal"><code>open</code></tt>, <tt class="docutils literal"><code>read</code></tt>, <tt class="docutils literal"><code>write</code></tt> и <tt class="docutils literal"><code>close</code></tt>, с возможными
+<tt class="docutils literal"><code>destroy</code></tt> и <tt class="docutils literal"><code>gc</code></tt> (сбор мусора, который приведёт к истечению срока действия
+всех старых сессий: <tt class="docutils literal"><code>gc</code></tt> вызывается рандомно в соответствии с конфигурацией PHP,
+и в случае его вызова, он активизируется после операции <tt class="docutils literal"><code>open</code></tt>). Вы можете прочитать
+больше об этом здесь <a class="reference external" href="https://php.net/session.customhandler">php.net/session.customhandler</a></p>
+<div class="section" id="php">
+<h3>Оргинальные PHP обработчики сохранений<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h3>
+<p>Так называемые оригинальные обработчики - это обработчики сохранений, которые
+либо компилируются в PHP, либо предоставляются PHP расширениями, вроде PHP-Sqlite,
+PHP-Memcached и т.д.</p>
+<p>Все оригинальные обработчики сохранений внутренние в PHP и поэтому не имеют публичного
+API. Они должны быть сконфигурированы директивами <tt class="docutils literal"><code>php.ini</code></tt>, обычно <tt class="docutils literal"><code>session.save_path</code></tt>
+и потенциально другими директивами, связанными с драйверами. Конкретные детали можно
+найти в блоке документов метода <tt class="docutils literal"><code>setOptions()</code></tt> каждого класса. Например, предоставленный
+расширением Memcached может быть найден тут <a class="reference external" href="https://php.net/memcached.setoption">php.net/memcached.setoption</a></p>
+<p>В то время, как оригинальные обработчики могут быть активированы
+напрямую с использованием <tt class="docutils literal"><code>ini_set('session.save_handler', $name);</code></tt>,
+Symfony предоставляет удобный способ активировать их так же, как активируются
+пользовательские обработчики.</p>
+<p>Symfony предоставляет драйверы для следующего обработчика сохранений в качестве примера:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/Handler/NativeFileSessionHandler.html" title="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler">NativeFileSessionHandler</a></code></tt></li>
+</ul>
+<p>Пример использования:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Session\Session</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler</span><span class="p">;</span>
+
+<span class="nv">$sessionStorage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NativeSessionStorage</span><span class="p">(</span><span class="k">array</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">NativeFileSessionHandler</span><span class="p">());</span>
+<span class="nv">$session</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Session</span><span class="p">(</span><span class="nv">$sessionStorage</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">За исключением обработчика <tt class="docutils literal"><code>files</code></tt>, который встроен в PHP и всегда доступен,
+доступность других обработчиков зависит от активных во время среды выполнения
+PHP расширений.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Оригинальные обработчики сохранений предоставляют быстрое решение для хранения
+сессий, однако в сложных системах, где вам нужно больше контроля, пользовательские
+обработчики сохранений могут предоставить больше свободы и гибкости. Symfony
+предоставляет несколько реализаций, которые вы можете настраивать так, как вам
+нужно.</p>
+</div></div>
+</div>
+<div class="section" id="id3">
+<h3>Пользовательские обработчики сохранений<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Пользовательские обработчики - это те, которые полностью заменяют встроенные в
+PHP обработчики сохранений сессий, предоставляя шесть функций обратного вызова,
+которые PHP вызывает внутренне в разнные моменты рабочего процесса сессии.</p>
+<p>Компонент Symfony HttpFoundation предоставляет несколько по умолчанию, и они
+могут служить примером в случае, если вы захотите написать собственные.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/Handler/PdoSessionHandler.html" title="Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler">PdoSessionHandler</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/Handler/MemcachedSessionHandler.html" title="Symfony\Component\HttpFoundation\Session\Storage\Handler\MemcachedSessionHandler">MemcachedSessionHandler</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/Handler/MigratingSessionHandler.html" title="Symfony\Component\HttpFoundation\Session\Storage\Handler\MigratingSessionHandler">MigratingSessionHandler</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/Handler/RedisSessionHandler.html" title="Symfony\Component\HttpFoundation\Session\Storage\Handler\RedisSessionHandler">RedisSessionHandler</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/Handler/MongoDbSessionHandler.html" title="Symfony\Component\HttpFoundation\Session\Storage\Handler\MongoDbSessionHandler">MongoDbSessionHandler</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/Handler/NullSessionHandler.html" title="Symfony\Component\HttpFoundation\Session\Storage\Handler\NullSessionHandler">NullSessionHandler</a></code></tt></li>
+</ul>
+<p>Пример использования:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Session\Session</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler</span><span class="p">;</span>
+
+<span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\PDO</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+<span class="nv">$sessionStorage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NativeSessionStorage</span><span class="p">(</span><span class="k">array</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">PdoSessionHandler</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">));</span>
+<span class="nv">$session</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Session</span><span class="p">(</span><span class="nv">$sessionStorage</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id4">
+<h3>Мигрирование между обработчиками сохранений<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Класс <tt class="docutils literal"><code>MigratingSessionHandler</code></tt> был представлен в Symfony 4.1.</p>
+</div>
+<p>Если ваше приложение изменяет то, как хранятся сессии, используйе
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/Handler/MigratingSessionHandler.html" title="Symfony\Component\HttpFoundation\Session\Storage\Handler\MigratingSessionHandler">MigratingSessionHandler</a></code></tt>,
+чтобы мигрировать между старыми и новыми обработчиками сохранений, не теряя данные
+сессии.</p>
+<p>Вот рекомендуемый процесс работы миграции:</p>
+<ol class="arabic">
+<li><p class="first">Переключитесь на мигрирующий обработчик, в то время как ваш новый обработчик
+будет доступен только для записи. Старый обработчик ведёт себя как обычно, а
+сессии записываются в новый:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$sessionStorage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MigratingSessionHandler</span><span class="p">(</span><span class="nv">$oldSessionStorage</span><span class="p">,</span> <span class="nv">$newSessionStorage</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><p class="first">После этапа сбора мусора в вашей сессии, верифицируйте верность данных в новом обработчике.</p>
+</li>
+<li><p class="first">Обновите мигрирующий обработчик, чтобы он использовал старый только для записи, чтобы
+теперь сессии читались из нового обработчика. Этот шаг позволяет упрощённые откаты:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$sessionStorage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MigratingSessionHandler</span><span class="p">(</span><span class="nv">$newSessionStorage</span><span class="p">,</span> <span class="nv">$oldSessionStorage</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><p class="first">После верификации того, что сесси в вашем приложении работают, перейдите с мигрирующего
+обработчика на новый обработчик.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Конфигурация PHP сессий<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/NativeSessionStorage.html" title="Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage">NativeSessionStorage</a></code></tt>
+может сконфигурировать бльшинство директив конфигурации <tt class="docutils literal"><code>php.ini</code></tt>, которые задокументированы
+в <a class="reference external" href="https://php.net/session.configuration">php.net/session.configuration</a>.</p>
+<p>Чтобы сконфигурировать эти настройки, передайте ключи (опустив начальную часть ключа
+<tt class="docutils literal"><code>session.</code></tt>) в качестве массива ключ-значение аргументу конструктора <tt class="docutils literal"><code>$options</code></tt>.
+Или установите их через метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/NativeSessionStorage.html#method_setOptions" title="Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage::setOptions()">setOptions()</a></code></tt>.</p>
+<p>Ради ясности, некоторые ключевые опции разъясняются в этой документации.</p>
+</div>
+<div class="section" id="id6">
+<h2>Время жизни куки сессии<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>По соображениям безопасности, токены сессии обычно рекомендуется отправлять в куки сессии.
+Вы можете сконфигурировать время жизни куки сессий, указав время жизни (в секундах),
+используя ключ <tt class="docutils literal"><code>cookie_lifetime</code></tt> в аргументе конструктора <tt class="docutils literal"><code>$options</code></tt> в
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/NativeSessionStorage.html" title="Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage">NativeSessionStorage</a></code></tt>.</p>
+<p>Установка <tt class="docutils literal"><code>cookie_lifetime</code></tt>, как <tt class="docutils literal"><code>0</code></tt> приведет к тому, что куки будет жить только
+пока браузер будет открыт. Обычно, <tt class="docutils literal"><code>cookie_lifetime</code></tt> устанавливается в достаточно
+большом количестве дней, недель или месяцев. Нередко также время жизни куки устанавливается
+в год или больше, в зависимости от приложения.</p>
+<p>Так как куки сессии - это всего лишь токены клиентской стороны, они менее важны
+в контролировании мелких деталей ваших настроек безопасности, которые по умолчанию
+могут быть безопасно контролированы только с серверской стороны.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Настройка <tt class="docutils literal"><code>cookie_lifetime</code></tt> - это количество секунд, которое должен жить куки,
+а не временная отметка Unix. Результирующий куки сесси будет иметь отметку истечения
+срока действия <tt class="docutils literal"><code>time()</code></tt> + <tt class="docutils literal"><code>cookie_lifetime</code></tt>, где кремя - токен от сервера.</p>
+</div></div>
+</div>
+<div class="section" id="id7">
+<h2>Конфигурация сбора мусора<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>Когда сессия открывается, PHP рандомно вызывает обработчик <tt class="docutils literal"><code>gc</code></tt> в соответствии
+с вероятностью, установленной <tt class="docutils literal"><code>session.gc_probability</code></tt> / <tt class="docutils literal"><code>session.gc_divisor</code></tt>.
+Например, если они установлены, как <tt class="docutils literal"><code>5/100</code></tt> соответственно, это будет означать
+вероятность 5%. Таким же образом, <tt class="docutils literal"><code>3/4</code></tt> будет означать 3 из 4 шансов вызова, т.е.
+75%.</p>
+<p>Если активируется обработчик сбора мусора, PHP передаст значение, сохранённое в
+директиве <tt class="docutils literal"><code>php.ini</code></tt> <tt class="docutils literal"><code>session.gc_maxlifetime</code></tt>. Значение в этом контексте в том,
+что любая сохранённая сессия, которая была сохранена ране, чем <tt class="docutils literal"><code>gc_maxlifetime</code></tt>,
+должна быть удалена. Это позволяет утилизировать записи в зависимости от времени
+простоя.</p>
+<p>Однако, некоторые ОС (например, Debian) проводят собственную обработку сессий,
+и устанавливают переменную <tt class="docutils literal"><code>session.gc_probability</code></tt>, как <tt class="docutils literal"><code>0</code></tt>, чтобы остановить
+PHP от сбора мусора. Поэтому теперь Symfony перезаписывает это значение, как <tt class="docutils literal"><code>1</code></tt>.</p>
+<p>Если вы хотите использовать оргинальное значение, установленное в вашем <tt class="docutils literal"><code>php.ini</code></tt>,
+добавьте следующую конфигурацию:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/framework.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">framework</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">session</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">gc_probability</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">null</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы можете сконфигурировать эти настройки, передав <tt class="docutils literal"><code>gc_probability</code></tt>, <tt class="docutils literal"><code>gc_divisor</code></tt>
+и <tt class="docutils literal"><code>gc_maxlifetime</code></tt> в массиве конструктору
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/NativeSessionStorage.html" title="Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage">NativeSessionStorage</a></code></tt>
+или методу <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/NativeSessionStorage.html#method_setOptions" title="Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage::setOptions()">setOptions()</a></code></tt>.</p>
+</div>
+<div class="section" id="id8">
+<h2>Время жизни сессии<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>Когда создаётся новая сессия, что значит, что Symfony выпускает новый куки
+сессии клиенту, куки будет отмечен временем истечения действия. Оно рассчитывается
+путём сложения значения конфигурации прогона PHP в <tt class="docutils literal"><code>session.cookie_lifetime</code></tt> с
+текущим временем сервера.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p>PHP будет выпускать куки только единожды. Ожидается, что клиент будет хранить
+этот куки всё время жизни. Новый куки будет выпущен только после разрушения сессии,
+удаления куки браузера или регенерации ID сесси, используя методы <tt class="docutils literal"><code>migrate()</code></tt> или
+<tt class="docutils literal"><code>invalidate()</code></tt> класса <tt class="docutils literal"><code>Session</code></tt>.</p>
+<p class="last">Изначальное время жизни куки может быть установлено путём конфигурации
+<tt class="docutils literal"><code>NativeSessionStorage</code></tt>, используя метод <tt class="docutils literal"><code>setOptions(array('cookie_lifetime' =&gt; 1234))</code></tt>.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Время жизни куки <tt class="docutils literal"><code>0</code></tt> означает, что срок действия куки истекает при закрытии бразура.</p>
+</div></div>
+</div>
+<div class="section" id="id9">
+<h2>Время простоя сессии/Постоянное соединение<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>Часто возникают обстоятельства, в которым вы можете захотеть защитить или
+минимизировать неавторизованное использование сессии, когда пользователь
+отходит от терминала, оставаясь в системе, уничтожив сессию после определённого
+времени простоя. Например, для банковских приложений распространено выполнять
+выход пользователя через 5-10 минут бездействия. Установка времени жизни куки
+здесь неправильна, так как она может быть изменена клиентом, поэтому нам нужно
+установить срок истечения на серверской стороне. Самым простым способом реализации
+этого является сбор мусора, с достаточно высокой частотой. <tt class="docutils literal"><code>cookie_lifetime</code></tt> будет
+установлено в достаточно высоком хначении, а сбор мусора <tt class="docutils literal"><code>gc_maxlifetime</code></tt> будет
+установлен для уничтожения сессий после любого желаемого времени простоя.</p>
+<p>Другой вариант - конкретно проверять, не истекла ли сессия после её начала.
+Сессия может быть разрушена по требованию. Этот метод обработки может позволить
+интеграцию истечения срока сессии в опыт пользователя, например, путём отображения
+сообщения.</p>
+<p>Symfony записывает базовые метаданные о каждой сессии, чтобы предоставить
+вам полную свободу в этой сфере.</p>
+</div>
+<div class="section" id="id10">
+<h2>Лимитирование кеша сессии<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>Чтобы избежать отображения пользователям устаревших данных, часто источники, включенные
+сессией, отправляются с заголовками, отключающими кеширование. Для этих целей PHP сессии
+имеют опцию <tt class="docutils literal"><code>sessions.cache_limiter</code></tt>, которая определяет, какие заголовки будут отправлены
+с ответом при запуске сессии.</p>
+<p>При построении,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/NativeSessionStorage.html" title="Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage">NativeSessionStorage</a></code></tt>
+устанавливает эту глобальную опцию, как <tt class="docutils literal"><code>&quot;&quot;</code></tt> (не отправлять заголовки) в случае, если
+разработчик хочет использовать объект <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Response.html" title="Symfony\Component\HttpFoundation\Response">Response</a></code></tt>
+для управления заголовками ответов.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p>Если вы полагаетесь на PHP сессии в обработке HTTP кеширования, вы <em>должны</em> вручную
+установить опцию <tt class="docutils literal"><code>cache_limiter</code></tt> в
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/NativeSessionStorage.html" title="Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage">NativeSessionStorage</a></code></tt>,
+как непустое значение.</p>
+<p>Например, вы можете установить её как значение PHP по умолчанию, во время построения:</p>
+<p>Example usage:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage</span><span class="p">;</span>
+
+<span class="nv">$options</span><span class="p">[</span><span class="s1">&#39;cache_limiter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">session_cache_limiter</span><span class="p">();</span>
+<span class="nv">$sessionStorage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NativeSessionStorage</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+</div>
+<div class="section" id="id11">
+<h2>Метаданные сессии<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>Сессии декорируются некоторыми базовыми метаданными для включения тщательного
+контроля настроек безопасноти. Объект сессии имеет геттер для метаданных,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_getMetadataBag" title="Symfony\Component\HttpFoundation\Session\Session::getMetadataBag()">getMetadataBag()</a></code></tt>, который
+отображает экземпляр <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/MetadataBag.html" title="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">MetadataBag</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getMetadataBag</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getCreated</span><span class="p">();</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getMetadataBag</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLastUsed</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Оба метода возвращают временную отметку Unix (относящуюся к серверу).</p>
+<p>Эти метаданные могут быть использованы для ясного истечения сессии при доступе, например:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$session</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getMetadataBag</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLastUsed</span><span class="p">()</span> <span class="o">&gt;</span> <span class="nv">$maxIdleTime</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$session</span><span class="o">-&gt;</span><span class="na">invalidate</span><span class="p">();</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nx">SessionExpired</span><span class="p">();</span> <span class="c1">// перенаправление на страницу истекшей сессии</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Также возможно сказать, какое <tt class="docutils literal"><code>cookie_lifetime</code></tt> было установлено для конкретного
+куки, прочтя метод <tt class="docutils literal"><code>getLifetime()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getMetadataBag</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLifetime</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Время истечения куки может быть определено путём сложения созданной
+временной отметки и времени жизни.
+The expiry time of the cookie can be determined by adding the created
+timestamp and the lifetime.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="session_configuration.html">« Configuring Sessions and Save Handlers</a>
+                <span class="separator">|</span>
+                <a href="session_php_bridge.html">Integrating with Legacy Sessions »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

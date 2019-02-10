@@ -1,0 +1,570 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Отправление патча &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="contributing doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Отправление патча</a><ul>
+<li><a class="reference internal" href="#id2">Шаг 1: Настройте ваше окружение</a><ul>
+<li><a class="reference internal" href="#id3">Установите стек программного обеспечения</a></li>
+<li><a class="reference internal" href="#git">Сконфигурируйте Git</a></li>
+<li><a class="reference internal" href="#symfony">Получите исходный код Symfony</a></li>
+<li><a class="reference internal" href="#id4">Проверьте успешность текущих тестов</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">Шаг 2: Работайте над вашим патчем</a><ul>
+<li><a class="reference internal" href="#id6">Лицензия</a></li>
+<li><a class="reference internal" href="#id7">Выберите правильную ветку</a></li>
+<li><a class="reference internal" href="#id8">Создайте ветку темы</a></li>
+<li><a class="reference internal" href="#id9">Используйте свою ветку в существующем проекте</a></li>
+<li><a class="reference internal" href="#id10">Работайте над вашим патчем</a></li>
+<li><a class="reference internal" href="#id11">Подготовьте патч к отправке</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id12">Шаг 3: Отправьте ваш патч</a><ul>
+<li><a class="reference internal" href="#id13">Перебазируйте ваш патч</a></li>
+<li><a class="reference internal" href="#contributing-code-pull-request-ru">Сделайте запрос на включение</a></li>
+<li><a class="reference internal" href="#id15">Переработайте ваш патч</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li class="active">Отправление патча</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>Отправление патча<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Патчи являются наилучшим способом предоставить исправление бага или предложить
+улучшения в Symfony.</p>
+<div class="section" id="id2">
+<h2>Шаг 1: Настройте ваше окружение<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>Установите стек программного обеспечения<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Перед тем, как работать над Symfony, настройте дружественное окружение со
+следующим ПО:</p>
+<ul class="simple">
+<li>Git;</li>
+<li>PHP версии 5.5.9 или выше.</li>
+</ul>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">До Symfony 2.7, минимально требуемой версией PHP была 5.3.3. До Symfony 3.0
+- 5.3.9. Пожалуйста, помните об этом, если вы работаете над исправлением бага
+для более ранних версий Symfony.</p>
+</div></div>
+</div>
+<div class="section" id="git">
+<h3>Сконфигурируйте Git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h3>
+<p>Настройте вашу информацию пользователя с настоящим именем и рабочим адресом
+электронной почты:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
+<span class="gp">$</span> git config --global user.email <a href="..\..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="5b22342e1b3e233a362b373e75383436">[email&#160;protected]</a>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если вы новичок в Git, то мы очень рекомендуем вам прочитать отличную
+бесплатную книгу <a class="reference external" href="https://git-scm.com/book">ProGit</a>.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если ваш IDE создаёт файлы конфигурации внутри каталога проекта, то
+вы можете использовать глобальный файл <tt class="docutils literal"><code>.gitignore</code></tt> (для всех проектов),
+или файл <tt class="docutils literal"><code>.git/info/exclude</code></tt> (по-проектно), чтобы игнорировать их. См.
+<a class="reference external" href="https://help.github.com/articles/ignoring-files">документацию GitHub</a>.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Пользователи Windows: при установке Git, установщик спросит вас, что делать
+с окончаниями строчек и педложит заменить все LF на CRLF. Это неправильная
+настройка, если вы хотите делать вклады в Symfony! Выбрать метод &quot;оставить
+как есть&quot; - ваш лучший выбор, так как Git преобразует ваши протяжки строк
+в те, что находятся в хранилище. Если вы уже установили Git, то вы можете
+проверить значение этой настройки, напечатав:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> git config core.autocrlf
+</pre></div>
+</td></tr></table></div></div>
+<p>Это вернёт &quot;false&quot;, &quot;input&quot; или &quot;true&quot;; &quot;true&quot; и &quot;false&quot; будут неправильными
+значениями. Измените его на &quot;input&quot; напечатав:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> git config --global core.autocrlf input
+</pre></div>
+</td></tr></table></div></div>
+<p class="last">Замените --global на --local, если вы хотите установить его только
+для активного хранилища</p>
+</div></div>
+</div>
+<div class="section" id="symfony">
+<h3>Получите исходный код Symfony<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h3>
+<p>Получите исходный код Symfony:</p>
+<ul class="simple">
+<li>Создайте аккаунт <a class="reference external" href="https://github.com/join">GitHub</a> и зайдите в него;</li>
+<li>Разветвите <a class="reference external" href="https://github.com/symfony/symfony">хранилище Symfony</a> (нажмите кнопку &quot;Создать новую ветку&quot;);</li>
+<li>После окончания &quot;действия разветвления&quot;, клонируйте вашу ветку локально
+(это создаст каталог <tt class="docutils literal"><code>symfony</code></tt>):</li>
+</ul>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> git clone <a href="..\..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="8bece2ffcbece2ffe3fee9a5e8e4e6">[email&#160;protected]</a>:USERNAME/symfony.git
+</pre></div>
+</td></tr></table></div></div>
+<ul class="simple">
+<li>Добавьте целевое хранилище в качестве удалённого:</li>
+</ul>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> symfony
+<span class="gp">$</span> git remote add upstream git://github.com/symfony/symfony.git
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id4">
+<h3>Проверьте успешность текущих тестов<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Теперь, когда Symfony установлена, проверьте, чтобы все модульные тесты
+были успешными в вашем окружении, как это сделаеть объясняется в соответствующем
+<a class="reference internal" href="tests.html"><em>документе</em></a>.</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Шаг 2: Работайте над вашим патчем<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>Лицензия<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>До того, как вы начнёте, вы должны знать, что все патчи, которые вы отправите,
+должны быть выпущены под <em>лицензией MIT</em>, кроме случаев, когда другое ясно
+указано в ваших фиксациях.</p>
+</div>
+<div class="section" id="id7">
+<h3>Выберите правильную ветку<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>До начала работы над патчем, вам нужно определить, на какой ветке вам
+надо работать:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>2.7</code></tt>, если вы исправляете баг существующей функции, или хотите сделать
+изменение, которое подпадает под <a class="reference internal" href="maintenance.html"><em>сприсок приемлемых изменений в версиях патчей</em></a> (возможно вам придётся выбрать старшую ветку,
+если вы исправляете функцию, представленную в более поздней версии);</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><code>master</code></tt>, если вы добавляете новую функцию.</li>
+</ul>
+</div></blockquote>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Все исправления багов, слияющиеся с ветками содержания, также регулярно
+слияются с более поздними ветками. Например, если вы отправите патч для
+ветки <tt class="docutils literal"><code>2.7</code></tt>, то он также будет применён базовой командой к ветке <tt class="docutils literal"><code>master</code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="id8">
+<h3>Создайте ветку темы<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Каждый раз, когда вы хотите работать над патчем для бака или улучшением, создавайте
+ветку темы:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> git checkout -b BRANCH_NAME master
+</pre></div>
+</td></tr></table></div></div>
+<p>Или, если вы хотите предоставить исправление для ветки <tt class="docutils literal"><code>2.7</code></tt>, для начала
+отследите ветку <tt class="docutils literal"><code>2.7</code></tt> локально:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> git checkout -t origin/2.7
+</pre></div>
+</td></tr></table></div></div>
+<p>Далее, создайте новую ветку вне ветки  <tt class="docutils literal"><code>2.7</code></tt>, чтобы работать над испарвлением:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> git checkout -b BRANCH_NAME <span class="m">2</span>.7
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Используйте описательное имя для вашей ветки (<tt class="docutils literal"><code>ticket_XXX</code></tt>, где <tt class="docutils literal"><code>XXX</code></tt> -
+номер билета, что является хорошим соглашением для исправлений багов).</p>
+</div></div>
+<p>Вышенаписанные команды проверки автоматически переключают код на новосозданную
+ветку (проверьте ветку, на которой вы работаете, с помощью <tt class="docutils literal"><code>git branch</code></tt>).</p>
+</div>
+<div class="section" id="id9">
+<h3>Используйте свою ветку в существующем проекте<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Если вы хотите протестировать ваш код в существующем проекте, использующем
+<tt class="docutils literal"><code>symfony/symfony</code></tt> или компоненты Symfony, вы можете использовать утилиту
+<tt class="docutils literal"><code>link</code></tt>, предоставленную в хранилище Git, которое вы клонировали ранее.
+Этот инструмент сканирует каталог <tt class="docutils literal"><code>vendor/</code></tt> вашего проекта, находит пакеты
+Symfony, которые он использунт, и заменяет их символьными ссылками на те, что
+находятся в хранилище Git.</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php link /path/to/your/project
+</pre></div>
+</td></tr></table></div></div>
+<p>До выполнения команды <tt class="docutils literal"><code>link</code></tt>, убедитесь, что зависимости проекта, который вы
+хотите отладить, установлены, запустив внутри него <tt class="docutils literal"><code>composer install</code></tt>.</p>
+</div>
+<div class="section" id="id10">
+<h3>Работайте над вашим патчем<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Работайте и фиксируйте код столько, сколько хотите; но помните следующее:</p>
+<ul class="simple">
+<li>Прочтите о <a class="reference internal" href="conventions.html"><em>соглашениях</em></a> Symfony и следуйте
+<a class="reference internal" href="standards.html"><em>стандартам</em></a> наисания кода (используйте <tt class="docutils literal"><code>git diff --check</code></tt>,
+чтобы проверить закрывающие пробелы -- а также прочтите совет ниже);</li>
+<li>Добавьте модульные тесты, чтобы доказать, что баг исправлен, или что
+новая функция действительно работает;</li>
+<li>Сильно постарайтесь на нарушить обратную совместимость (если вам необходимо
+это сделать, попробуйте предоставить уровень совместимости, чтобы поддержать
+старый метод) -- патчи, которые нарушают ОС, имеют меньше шансов на слияние;</li>
+<li>Делайте фиксацию малых и логически разных изменений (используйте мощность
+<tt class="docutils literal"><code>git rebase</code></tt>, чтобы иметь чистую и логичную историю);</li>
+<li>Никогда не исправляйте стандарты кодирования в уже существующем коде, так
+как это усложняет отзыв на код;</li>
+<li>Пишите хорошие сообщения фиксации (см. совет ниже).</li>
+</ul>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>При отправке запросов на включение, <a class="reference external" href="https://fabbot.io">fabbot</a> проверяет ваш код на
+рапространённые опечатки и верифицирует, что вы используете стандарты
+кодирования PHP, оределённые в <a class="reference external" href="https://www.php-fig.org/psr/psr-1/">PSR-1</a> и <a class="reference external" href="https://www.php-fig.org/psr/psr-2/">PSR-2</a>.</p>
+<p class="last">Статус публикауется под описанием запроса на включение с кратким изложением
+любых обнаруженных проблем или неудач построения Travis CI.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Хорошее сообщение фиксации состоит из краткого изложения (первая строчка),
+за необязательно следует пустая строчка и более детальное описание. Краткое
+изложение должно начинаться с Компонента, над которым вы работаете, в квадратных
+скобках (<tt class="docutils literal"><code>[DependencyInjection]</code></tt>, <tt class="docutils literal"><code>[FrameworkBundle]</code></tt>, ...). Используйте
+глагол (<tt class="docutils literal"><code>fixed ...</code></tt>, <tt class="docutils literal"><code>added ...</code></tt>, ...), чтобы начать изложение, и не добавляйте
+точку в конце.</p>
+</div></div>
+</div>
+<div class="section" id="id11">
+<h3>Подготовьте патч к отправке<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>Когда ваш патч не касается исправления бага (когда вы добавляете новую функцию,
+или меняете существующую, например), он должен таже включать в себя следующее:</p>
+<ul class="simple">
+<li>Объяснение изменений в соответствующем(их) файле(ах) <tt class="docutils literal"><code>CHANGELOG</code></tt> (префикс
+<tt class="docutils literal"><code>[BC BREAK]</code></tt> или <tt class="docutils literal"><code>[DEPRECATION]</code></tt> должен быть использован при необходимости);</li>
+<li>Объяснение того, как обновить существующее приложение в соответствующем(их)
+файле(ах) <tt class="docutils literal"><code>UPGRADE</code></tt>, если изменения нарушают обратную совместимость, или
+если вы указываете устаревшим что-то, что точно нарушит ОС.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>Шаг 3: Отправьте ваш патч<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>Когда вы почувствуете, что ваш патч готов к отправке, следуйте этим
+шагам.</p>
+<div class="section" id="id13">
+<h3>Перебазируйте ваш патч<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>До отправки вашего патча, обновите вашу ветку (необходимо, если ваши
+изменения заняли много времени):</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> git checkout master
+<span class="gp">$</span> git fetch upstream
+<span class="gp">$</span> git merge upstream/master
+<span class="gp">$</span> git checkout BRANCH_NAME
+<span class="gp">$</span> git rebase master
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Замените <tt class="docutils literal"><code>master</code></tt> веткой, выбранной ранее (например, <tt class="docutils literal"><code>2.7</code></tt>), если
+вы работаете над исправлением бага</p>
+</div></div>
+<p>Выполняя команду <tt class="docutils literal"><code>rebase</code></tt>, вам может понадобиться исправить конфликты слияния.
+<tt class="docutils literal"><code>git status</code></tt> покажет вам <em>разъединённые</em> файлы. Решите все конфликты, потом
+продолжайте с перебазированием:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> git add ... # add resolved files
+<span class="gp">$</span> git rebase --continue
+</pre></div>
+</td></tr></table></div></div>
+<p>Проверьте, чтобы все тесты оставались успешными, и отправьте вашу ветку
+удалённо:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> git push --force origin BRANCH_NAME
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="contributing-code-pull-request-ru">
+<span id="id14"></span><h3>Сделайте запрос на включение<a class="headerlink" href="#contributing-code-pull-request-ru" title="Permalink to this headline">¶</a></h3>
+<p>Теперь вы можете сделать запрос на включение в хранилиже <tt class="docutils literal"><code>symfony/symfony</code></tt> GitHub.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Позаботьтесь о том, чтобы направить ваш запрос на включении к <tt class="docutils literal"><code>symfony:2.7</code></tt>,
+если вы хотите, чтобы базовая команда включила исправление, основанное на
+ветке <tt class="docutils literal"><code>2.7</code></tt>.</p>
+</div></div>
+<p>Чтобы облегчить работу базовой команды, всегда включайте изменённые компоненты в
+ваше сообщение о запросе на включение, как в:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>[Yaml] кое-что исправлено
+[Form] [Validator] [FrameworkBundle] кое-что добавлено
+</pre></div>
+</td></tr></table></div></div>
+<p>Описание запроса на включение по умолчанию содержит таблицу, которую вы должны
+заполнить соответствующими ответами. Это гарантирует, что вкладчики будут
+рассмотрены без ненужных циклов отзыва, и что ваши вклады могут быть включены
+в Symfony максимально быстро.</p>
+<p>Некоторые ответы на вопросы вызывают больше требований:</p>
+<ul class="simple">
+<li>Если вы отвечаете &quot;да&quot; на &quot;Исправление бага?&quot;, проверьте, указан ли уже
+баг в проблемах Symfony и сошлитесь на него в &quot;Исправленных билетах&quot;;</li>
+<li>Если вы отвечаете &quot;да&quot; на &quot;Новая функция?&quot;, вы должны отправить запрос на
+включение в документацию и сослаться на него в разделе &quot;Документы ЗВ&quot;;</li>
+<li>Если вы отвечаете &quot;да&quot; на &quot;Наружения ОС?&quot;, то патч должен содержать обновления
+соответствующих файлов <tt class="docutils literal"><code>CHANGELOG</code></tt> и <tt class="docutils literal"><code>UPGRADE</code></tt>;</li>
+<li>Если вы отвечаете &quot;да&quot; на &quot;Депрекации?&quot;, то патч должен содержать обновления
+соотвтетсвующих файлов <tt class="docutils literal"><code>CHANGELOG</code></tt> и <tt class="docutils literal"><code>UPGRADE</code></tt>;</li>
+<li>Если вы отвечаете &quot;нет&quot; на &quot;Успешны ли тесты?&quot;, то вы должны добавить их
+в список дел с действиями, которые должны быть выполнены, чтобы исправить
+тесты;</li>
+<li>Если &quot;лицензия&quot; не MIT, то просто не отправляйте запрос на включение, так
+как он всё равно не будет принят.</li>
+</ul>
+<p>Если ваш патч не отвечает некоторым из предыдущих требований, создайте список
+дел и добавьте соответствующие объекты:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>- [ ] исправить тесты, так как они ещё не были обновлены
+- [ ] отправить изменения документации
+- [ ] задокументировать наружения ОС
+</pre></div>
+</td></tr></table></div></div>
+<p>Если код ещё не закончен потому что у вас нет на это времени, или потому что
+вы хотите раннюю рецензию на вашу работу, добавьте объект в список дел:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>- [ ] закончить код
+- [ ] собрать отзывы на мои изменения
+</pre></div>
+</td></tr></table></div></div>
+<p>Пока у вас есть объекты в списке дел, пожалуйста, используйте в вашеем
+запросе на включение префикс &quot;[РВП]&quot;.</p>
+<p>В описании запроса на включение, предоставьте максимальное количество деталей
+о ваших изменениях (смело добавляйте примеры кода для наглядного примера). Если
+ваш запрос на включение касается добавления новой функции или изменения существующей,
+обоснуйте изменения. Описание ЗВ помогает рассмотрению кода и служит справочником,
+когда код слияется (описание ЗВ и все связаные с ним комментарии являются частью
+сообщения о слиянии).</p>
+<p>Кроме этого &quot;кода&quot; запроса на включение, вы также должны отправить ЗВ в
+<a class="reference external" href="https://github.com/symfony/symfony-docs">хранилище документации</a>, чтобы обновить документацию, если это правильно.</p>
+</div>
+<div class="section" id="id15">
+<h3>Переработайте ваш патч<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>Основываясь на отзыве о ЗВ, вам может понадобиться переработать ваш патч.
+До повторной отправки, перебазируйте с помощью <tt class="docutils literal"><code>upstream/master</code></tt> или
+<tt class="docutils literal"><code>upstream/2.7</code></tt>, не объединяйте; и принудительно отправьте в исходник:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> git rebase -f upstream/master
+<span class="gp">$</span> git push --force origin BRANCH_NAME
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Когда вы делаете <tt class="docutils literal"><code>push --force</code></tt>, всегда ясно указывайте имя ветки,
+чтобы избежать нарушения других веток в хранилище (<tt class="docutils literal"><code>--force</code></tt> говорит
+Git, что вы хотите сильно всё изменте, так что делайте это осторожно).</p>
+</div></div>
+<p>Раньше модераторы просили вас &quot;сжать&quot; ваши комментарии. Это значит, что вы
+преобразуете много отправок в одну. Сегодня это больше не нужно, так как
+проект Symfony использует инструмент с закрытым исходным кодом, который
+автоматически сжимает все отправки перед слиянием.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  <script data-cfasync="false" src="..\..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script></body>
+</body></html>

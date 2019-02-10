@@ -1,0 +1,588 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как настроить фильтры &#34;до&#34; и &#34;после&#34; &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The EventDispatcher Component" href="..\components\event_dispatcher.html">
+    <link rel="next" title="Как настроить поведение метода, не используя наследование" href="method_behavior-ru.html">
+    <link rel="prev" title="The Traceable Event Dispatcher" href="..\components\event_dispatcher\traceable_dispatcher.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="event_dispatcher doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как настроить фильтры &quot;до&quot; и &quot;после&quot;</a><ul>
+<li><a class="reference internal" href="#id2">Пример валидации токена</a></li>
+<li><a class="reference internal" href="#kernel-controller">Фильтры &quot;до&quot; с событием <tt class="docutils literal"><code>kernel.controller</code></tt></a><ul>
+<li><a class="reference internal" href="#id3">Тегируйте контроллеры для проверки</a></li>
+<li><a class="reference internal" href="#id4">Создаие подписчика событий</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#kernel-response">Фильтры &quot;после&quot; с событием <tt class="docutils literal"><code>kernel.response</code></tt></a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\components\index.html">The Components</a></li>
+                
+                <li><a href="..\components\event_dispatcher.html">The EventDispatcher Component</a></li>
+                
+                <li class="active">Как настроить фильтры &quot;до&quot; и &quot;после&quot;</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как настроить фильтры &quot;до&quot; и &quot;после&quot;<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>В разработке веб-приложений достаточно часто бывают такие ситуации, когда некоторую
+логику нужно выполнить прямо до или сразу после ваших действий контроллера, в виде
+фильтров или крючков.</p>
+<p>Некоторые веб-фреймворки определяют методы вроде <tt class="docutils literal"><code>preExecute()</code></tt> и
+<tt class="docutils literal"><code>postExecute()</code></tt>, но в Symfony такого нет. Хорошая новость заключается в
+том, что для вмешательства в процесс Запрос -&gt; Ответ существует способ лучше,
+с использованием <a class="reference internal" href="..\components\event_dispatcher.html"><em>компонента EventDispatcher</em></a>.</p>
+<div class="section" id="id2">
+<h2>Пример валидации токена<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Представьте, что вам нужно разработать API, в котором некоторые контроллеры
+публичны, а некоторые ограничены одним или несколькими клиентами. Для таких
+приватных функций вы можете предоставить вашим клиентам токен для их идентификации.</p>
+<p>Итак, перед тем, как выполнять действие вашего контроллера, вам нужно проверить,
+ограничено ли оно. Если нет, то вам нужно валидировать предоставленный токен.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Пожалуйста отметьте, что для простоты этого рецепта, токены будут определены
+в конфигурации, и не будут использованы ни установка ни аутентификация БД
+через компонент Безопасности.</p>
+</div></div>
+</div>
+<div class="section" id="kernel-controller">
+<h2>Фильтры &quot;до&quot; с событием <tt class="docutils literal"><code>kernel.controller</code></tt><a class="headerlink" href="#kernel-controller" title="Permalink to this headline">¶</a></h2>
+<p>Для начала, определите некоторую конфигурацию токена в качестве параметров:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/services.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">tokens</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">client1</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">pass1</span>
+        <span class="l l-Scalar l-Scalar-Plain">client2</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">pass2</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;parameters&gt;</span>
+        <span class="nt">&lt;parameter</span> <span class="na">key=</span><span class="s">&quot;tokens&quot;</span> <span class="na">type=</span><span class="s">&quot;collection&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;parameter</span> <span class="na">key=</span><span class="s">&quot;client1&quot;</span><span class="nt">&gt;</span>pass1<span class="nt">&lt;/parameter&gt;</span>
+            <span class="nt">&lt;parameter</span> <span class="na">key=</span><span class="s">&quot;client2&quot;</span><span class="nt">&gt;</span>pass2<span class="nt">&lt;/parameter&gt;</span>
+        <span class="nt">&lt;/parameter&gt;</span>
+    <span class="nt">&lt;/parameters&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/services.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">&#39;tokens&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;client1&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;pass1&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;client2&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;pass2&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>Тегируйте контроллеры для проверки<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Слушатель <tt class="docutils literal"><code>kernel.controller</code></tt> (он же <tt class="docutils literal"><code>KernelEvents::CONTROLLER</code></tt>) получает
+уведомления на <em>каждый</em> запрос, прямо перед тем, как выполняется контроллер. Так
+что для начала, вам нужно каким-то образом указать, нужна ли валидация токена
+контроллеру, совпадающему с запросом.</p>
+<p>Простым и чистым путём будет создать пустой интерфейс и заставить контроллера
+реализовать его:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+
+<span class="k">interface</span> <span class="nx">TokenAuthenticatedController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Контроллер, реализующий этот интерфейс, выглядит просто так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Controller\TokenAuthenticatedController</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\Controller</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">FooController</span> <span class="k">extends</span> <span class="nx">Controller</span> <span class="k">implements</span> <span class="nx">TokenAuthenticatedController</span>
+<span class="p">{</span>
+    <span class="c1">// Действие, требующее аутентификации</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">bar</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id4">
+<h3>Создаие подписчика событий<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Далее, вам нужно будет создать подписчика событий, который будет содержать
+логику, которую вы хотите выполнить перед вашими контроллерами. Если вы не
+знакомы с подписчиками событий, вы можете узнать о них больше в <a class="reference internal" href="..\event_dispatcher.html"><em>Events and Event Listeners</em></a>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/EventSubscriber/TokenSubscriber.php</span>
+<span class="k">namespace</span> <span class="nx">App\EventSubscriber</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Controller\TokenAuthenticatedController</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Event\FilterControllerEvent</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\EventDispatcher\EventSubscriberInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\KernelEvents</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">TokenSubscriber</span> <span class="k">implements</span> <span class="nx">EventSubscriberInterface</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$tokens</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$tokens</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tokens</span> <span class="o">=</span> <span class="nv">$tokens</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">onKernelController</span><span class="p">(</span><span class="nx">FilterControllerEvent</span> <span class="nv">$event</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$controller</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getController</span><span class="p">();</span>
+
+        <span class="cm">/*</span>
+<span class="cm">         * переданный $controller может быть либо классом, либо Closure.</span>
+<span class="cm">         * Это необычно для Symfony, но может случаться.</span>
+<span class="cm">         * Если это класс, то он представлен в формате массива</span>
+<span class="cm">         */</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">is_array</span><span class="p">(</span><span class="nv">$controller</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$controller</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="nx">instanceof</span> <span class="nx">TokenAuthenticatedController</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$token</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getRequest</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">query</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$token</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tokens</span><span class="p">))</span> <span class="p">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="nx">AccessDeniedHttpException</span><span class="p">(</span><span class="s1">&#39;This action needs a valid token!&#39;</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getSubscribedEvents</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="nx">KernelEvents</span><span class="o">::</span><span class="na">CONTROLLER</span> <span class="o">=&gt;</span> <span class="s1">&#39;onKernelController&#39;</span><span class="p">,</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и всё! Ваш файл <tt class="docutils literal"><code>services.yaml</code></tt> должен быть уже установлен для загрузки сервисов
+из каталога <tt class="docutils literal"><code>EventSubscriber</code></tt>. Symfony заботится об остальном. Ваш метод
+<tt class="docutils literal"><code>TokenSubscriber</code></tt> <tt class="docutils literal"><code>onKernelController()</code></tt> будет выполнен при каждом запросе.
+Если контроллер, который должен быть вот-вот выполнен, реализует токен
+<tt class="docutils literal"><code>TokenAuthenticatedController</code></tt>, то применяется аутентификация токена. Это позволяет
+вам иметь фильтр &quot;до&quot; в любом желаемом вами контроллере.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если ваш подписчик <em>не</em> вызывается при каждом запросе, перепроверьте,
+<a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>загружаете ли вы сервисы</span></a> из
+каталога <tt class="docutils literal"><code>EventSubscriber</code></tt> и включена ли <a class="reference internal" href="..\service_container.html#services-autoconfigure"><span>автоконфигурация</span></a>.
+Вы также можете вручную добавить тег <tt class="docutils literal"><code>kernel.event_subscriber</code></tt>.</p>
+</div></div>
+</div>
+</div>
+<div class="section" id="kernel-response">
+<h2>Фильтры &quot;после&quot; с событием <tt class="docutils literal"><code>kernel.response</code></tt><a class="headerlink" href="#kernel-response" title="Permalink to this headline">¶</a></h2>
+<p>В дополнение к &quot;крючку&quot;, который выполняется <em>перед</em> вашим контроллером, вы
+также можете добавить крючок, который будет выполняться <em>после</em> его. Для этого
+примера, представьте, что вы хотите добавить хеш sha1 (с солью, использующей
+этот токен) ко всем ответам, которые прошли аутентификацию этого токена.</p>
+<p>Ещё одно основное событие Symfony, по имени <tt class="docutils literal"><code>kernel.response</code></tt> (оно же <tt class="docutils literal"><code>KernelEvents::RESPONSE</code></tt>) -
+уведомляется при каждом запросе, но после того, как контроллер возвращает объект
+Response. Создание слушателя &quot;после&quot; так же легко, как создание класса слушателя и
+регистрирование его в качестве сервиса в этом событии.</p>
+<p>Например, возьмите <tt class="docutils literal"><code>TokenSubscriber</code></tt> из предыдущего примера и для начала
+запишите токен аутентификации внутри атрибутов запроса. Это будет служить базовой
+отметкой того, что этот запрос прошёл аутентификацию токена:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">onKernelController</span><span class="p">(</span><span class="nx">FilterControllerEvent</span> <span class="nv">$event</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$controller</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="nx">instanceof</span> <span class="nx">TokenAuthenticatedController</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$token</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getRequest</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">query</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$token</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tokens</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">AccessDeniedHttpException</span><span class="p">(</span><span class="s1">&#39;This action needs a valid token!&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// отметьте запрос как такой, что прошёл аутентификацию токена</span>
+        <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getRequest</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;auth_token&#39;</span><span class="p">,</span> <span class="nv">$token</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, сконфигурируйте подписчика так, чтобы он слушал другое событие, и добавьте
+<tt class="docutils literal"><code>onKernelResponse()</code></tt>. Он будет искать отметку <tt class="docutils literal"><code>auth_token</code></tt> в объекте запроса и
+устанавливать пользовательский заголовок в ответе, если она будет найдена:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// добавьте новое утверждение использования наверху в вашем файле</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Event\FilterResponseEvent</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">onKernelResponse</span><span class="p">(</span><span class="nx">FilterResponseEvent</span> <span class="nv">$event</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// проверьте, отметил ли onKernelController это как токен запроса &quot;auth&#39;ed&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$token</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getRequest</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;auth_token&#39;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getResponse</span><span class="p">();</span>
+
+    <span class="c1">// создайте хеш и установите его, как заголовок ответа</span>
+    <span class="nv">$hash</span> <span class="o">=</span> <span class="nb">sha1</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getContent</span><span class="p">()</span><span class="o">.</span><span class="nv">$token</span><span class="p">);</span>
+    <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;X-CONTENT-HASH&#39;</span><span class="p">,</span> <span class="nv">$hash</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getSubscribedEvents</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+        <span class="nx">KernelEvents</span><span class="o">::</span><span class="na">CONTROLLER</span> <span class="o">=&gt;</span> <span class="s1">&#39;onKernelController&#39;</span><span class="p">,</span>
+        <span class="nx">KernelEvents</span><span class="o">::</span><span class="na">RESPONSE</span> <span class="o">=&gt;</span> <span class="s1">&#39;onKernelResponse&#39;</span><span class="p">,</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и всё! <tt class="docutils literal"><code>TokenSubscriber``теперь будет уведомлён перед тем, как будет
+выполнен каждый контроллер (``onKernelController()</code></tt>) и после того, как каждый
+контроллер вернёт ответ (<tt class="docutils literal"><code>onKernelResponse()</code></tt>). Заставляя конкретные контроллеры
+реализовывать интерфейс <tt class="docutils literal"><code>TokenAuthenticatedController</code></tt>, ваш слушатель знает,
+с какими контроллерами ему нужно работать. А сохраняя значение в пакете запроса
+&quot;атрибуты&quot;, метод <tt class="docutils literal"><code>onKernelResponse()</code></tt> знает, что нужно добавить дополнительный
+заголовок. Повеселитесь!</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="..\components\event_dispatcher\traceable_dispatcher.html">« The Traceable Event Dispatcher</a>
+                <span class="separator">|</span>
+                <a href="method_behavior-ru.html">Как настроить поведение метода, не используя наследование »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

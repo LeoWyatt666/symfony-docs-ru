@@ -1,0 +1,590 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>События и слушатели событий &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="_static/" type="text/css">
+    <link rel="stylesheet" href="_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="index.html">
+
+<link rel="stylesheet" href="_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="event_dispatcher-r doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\index.html">
+                    <img src="..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">События и слушатели событий</a><ul>
+<li><a class="reference internal" href="#id2">Создание приёмника событий</a></li>
+<li><a class="reference internal" href="#events-subscriber-ru">Создание подписчика событий</a></li>
+<li><a class="reference internal" href="#id4">События запросов, проверка типов</a></li>
+<li><a class="reference internal" href="#events-or-subscribers-ru">Приёмники или абоненты</a></li>
+<li><a class="reference internal" href="#id6">Отладка приёмников событий</a></li>
+<li><a class="reference internal" href="#id7">Узнать больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="index.html">Документация</a></li>
+                
+                <li class="active">События и слушатели событий</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>События и слушатели событий<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Во время выполнения приложения Symfony, запускается множество уведомлений
+событий. Ваше приложение может принимать эти уведомления и отвечать на них,
+путем выполнения какой-либо части кода.</p>
+<p>Symfony вызывает несколько <a class="reference internal" href="reference\events.html"><em>событий, связанных с ядром</em></a>, при
+обработке HTTP-запроса. Сторонние пакеты могут также запускать события, и вы даже можете
+запустить <a class="reference internal" href="components\event_dispatcher.html"><em>пользовательские события</em></a> из вашего
+собственного кода.</p>
+<p>Все примеры, показанные в этой статье, используют одно и то же событие
+<tt class="docutils literal"><code>KernelEvents::EXCEPTION</code></tt> в целях последовательности. В вашем приложении
+вы можете использовать любое событие и даже смешивать некоторые из них в
+одном абоненте.</p>
+<div class="section" id="id2">
+<h2>Создание приёмника событий<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Самым распространённым способом принять событие является его регистрация в
+<strong>приёмнике событий</strong>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/EventListener/ExceptionListener.php</span>
+<span class="k">namespace</span> <span class="nx">App\EventListener</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Exception\HttpExceptionInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ExceptionListener</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">onKernelException</span><span class="p">(</span><span class="nx">GetResponseForExceptionEvent</span> <span class="nv">$event</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Вы получаете объект исключения из полученного события</span>
+        <span class="nv">$exception</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getException</span><span class="p">();</span>
+        <span class="nv">$message</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span>
+            <span class="s1">&#39;My Error says: %s with code: %s&#39;</span><span class="p">,</span>
+            <span class="nv">$exception</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">(),</span>
+            <span class="nv">$exception</span><span class="o">-&gt;</span><span class="na">getCode</span><span class="p">()</span>
+        <span class="p">);</span>
+
+        <span class="c1">// Настройте ваш объект ответа, чтобы он отображал детали исключений</span>
+        <span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">();</span>
+        <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
+
+        <span class="c1">// HttpExceptionInterface - это специальный тип исключения, который</span>
+        <span class="c1">// содержит статус кода и детали заголовка</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$exception</span> <span class="nx">instanceof</span> <span class="nx">HttpExceptionInterface</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="nv">$exception</span><span class="o">-&gt;</span><span class="na">getStatusCode</span><span class="p">());</span>
+            <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">replace</span><span class="p">(</span><span class="nv">$exception</span><span class="o">-&gt;</span><span class="na">getHeaders</span><span class="p">());</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="nx">Response</span><span class="o">::</span><span class="na">HTTP_INTERNAL_SERVER_ERROR</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Отправляет изменённый объект ответа событию</span>
+        <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setResponse</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Каждое событие получает немного разные типы объекта <tt class="docutils literal"><code>$event</code></tt>. Для события
+<tt class="docutils literal"><code>kernel.exception</code></tt> - это <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Event/GetResponseForExceptionEvent.html" title="Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent">GetResponseForExceptionEvent</a></code></tt>.
+Смотрите <a class="reference internal" href="reference\events.html"><em>справочник событий Symfony</em></a>, чтобы увидеть,
+какой тип объекта предоставляет каждое из них.</p>
+</div></div>
+<p>Теперь, когда класс создан, вам просто нужно зарегистрировать его в качестве
+сервиса и уведомить Symfony, что он &quot;приёмник&quot; события <tt class="docutils literal"><code>kernel.exception</code></tt>,
+путём использования специального &quot;тега&quot;:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/services.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\EventListener\ExceptionListener</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">kernel.event_listener</span><span class="p p-Indicator">,</span> <span class="nv">event</span><span class="p p-Indicator">:</span> <span class="nv">kernel.exception</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\EventListener\ExceptionListener&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;kernel.event_listener&quot;</span> <span class="na">event=</span><span class="s">&quot;kernel.exception&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/services.php</span>
+<span class="k">use</span> <span class="nx">App\EventListener\ExceptionListener</span><span class="p">;</span>
+
+<span class="nv">$container</span>
+    <span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">ExceptionListener</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;kernel.event_listener&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;event&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;kernel.exception&#39;</span><span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Symfony следует этой логике, чтобы решить, какой метод выполнить внутри
+класса слушателя событий:</p>
+<ol class="arabic simple">
+<li>Если тег <tt class="docutils literal"><code>kernel.event_listener</code></tt> определяет атрибут <tt class="docutils literal"><code>method</code></tt>, то это имя
+метода, который нужно выполнить;</li>
+<li>Если не определён атрибут <tt class="docutils literal"><code>method</code></tt>, попробуйте выполнить метод, имя которого
+состоит из <tt class="docutils literal"><code>on</code></tt> + &quot;имя события camel-case&quot; (например, метод``onKernelException()``
+для события <tt class="docutils literal"><code>kernel.exception</code></tt>);</li>
+<li>Если этот метод тоже не определён, попробуйте выполнить волшебный метод
+<tt class="docutils literal"><code>__invoke()</code></tt> (который делает слушатели событий вызываемыми);</li>
+<li>Если метод <tt class="docutils literal"><code>_invoke()</code></tt> тоже не определён, вызовите исключение.</li>
+</ol>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Поддержка метода <tt class="docutils literal"><code>__invoke()</code></tt> для создания вызываемого слушателя событий была
+представлена в Symfony 4.1.</p>
+</div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Существует необязательный атрибут для тега <tt class="docutils literal"><code>kernel.event_listener</code></tt> под
+названием <tt class="docutils literal"><code>priority</code></tt>, который по умолчанию равняется <tt class="docutils literal"><code>0</code></tt> и контролирует
+порядок выполнения слушателей (чем выше приоритет, тем раньше выполняется
+слушатель). Это полезно,когда вам нужно гарантировать, что один слушатель
+будет выполнен перед другим. Приоритеы внутренних слушателей Symfony обычно
+колеблются в диапазоне от <tt class="docutils literal"><code>-255``до ``255</code></tt>, но ваши собственные слушатели
+могут использовать любое положительное или отрицательное целое число.</p>
+</div></div>
+</div>
+<div class="section" id="events-subscriber-ru">
+<span id="id3"></span><h2>Создание подписчика событий<a class="headerlink" href="#events-subscriber-ru" title="Permalink to this headline">¶</a></h2>
+<p>Еще одним способом принимать события является <strong>подписчик событий</strong> - класс, который
+определяет один или более методов, которые принимают одно или более событий. Главное
+отличие от приёмника событий заключется в том, что абоненты всегда знают, какие
+события они принимают.</p>
+<p>В данном подписчике, разные методы могут принимать одно и то же событие. Порядок, в
+котором выполняются методы, определяется параметром <tt class="docutils literal"><code>priority</code></tt> каждого метода
+(чем выше приоритет, тем раньше вызывается метод). Чтобы узнать больше о подписчиках
+событий, см. <a class="reference internal" href="components\event_dispatcher.html"><em>Диспетчер событий</em></a>.</p>
+<p>Следующий пример иллюстрирует подписчика событий, который определяет несколько методов,
+которые принимают одно и то же событие <tt class="docutils literal"><code>kernel.exception</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/EventSubscriber/ExceptionSubscriber.php</span>
+<span class="k">namespace</span> <span class="nx">App\EventSubscriber</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\EventDispatcher\EventSubscriberInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\KernelEvents</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ExceptionSubscriber</span> <span class="k">implements</span> <span class="nx">EventSubscriberInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getSubscribedEvents</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// вернуть подписанные события, их методы и приоритеты</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+           <span class="nx">KernelEvents</span><span class="o">::</span><span class="na">EXCEPTION</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+               <span class="k">array</span><span class="p">(</span><span class="s1">&#39;processException&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+               <span class="k">array</span><span class="p">(</span><span class="s1">&#39;logException&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+               <span class="k">array</span><span class="p">(</span><span class="s1">&#39;notifyException&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">),</span>
+           <span class="p">)</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">processException</span><span class="p">(</span><span class="nx">GetResponseForExceptionEvent</span> <span class="nv">$event</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">logException</span><span class="p">(</span><span class="nx">GetResponseForExceptionEvent</span> <span class="nv">$event</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">notifyException</span><span class="p">(</span><span class="nx">GetResponseForExceptionEvent</span> <span class="nv">$event</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и все! Ваш файл <tt class="docutils literal"><code>services.yaml</code></tt> должен уже быть настроен так, чтобы загружать
+сервисы из каталога <tt class="docutils literal"><code>EventSubscriber</code></tt>. Об остальном позаботится Symfony.</p>
+<div class="admonition-wrapper" id="ref-event-subscriber-configuration-ru">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если ваши методы <em>не</em> вызываются, когда есть исключение, перепроверьте, что
+вы <a class="reference internal" href="service_container.html#service-container-services-load-example"><span>загружаете сервисы</span></a> из
+каталога <tt class="docutils literal"><code>EventSubscriber</code></tt> и активировали <a class="reference internal" href="service_container.html#services-autoconfigure"><span>автоконфигурацию</span></a>.
+Вы также можете вручную добавить тег <tt class="docutils literal"><code>kernel.event_subscriber</code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="id4">
+<h2>События запросов, проверка типов<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Одна страница может делать несколько запросов (один главный и множество под-запросов
+- обычно с помощью <tt class="xref doc docutils literal"><code>внедрения контроллеров &lt;/templating/embedding_controllers?</code></tt>).
+Для главных событий Symfony, вам может понадобиться проверить, относится ли событие к
+&quot;главному&quot; запросу или &quot;под-запросу&quot;:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/EventListener/RequestListener.php</span>
+<span class="k">namespace</span> <span class="nx">App\EventListener</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Event\GetResponseEvent</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\HttpKernel</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\HttpKernelInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">RequestListener</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">onKernelRequest</span><span class="p">(</span><span class="nx">GetResponseEvent</span> <span class="nv">$event</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">isMasterRequest</span><span class="p">())</span> <span class="p">{</span>
+            <span class="c1">// не делать ничего, если это не запрос главного абонента</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Некоторые вещи, как то проверка информации в <em>настоящем</em> запросе, могут не
+понадобиться в приёмниках под-запросов.</p>
+</div>
+<div class="section" id="events-or-subscribers-ru">
+<span id="id5"></span><h2>Приёмники или абоненты<a class="headerlink" href="#events-or-subscribers-ru" title="Permalink to this headline">¶</a></h2>
+<p>Приёмники и абоненты могут быть использованы в одном и том же приложении невнятно.
+Решение использовать что-либо из них, обычно является делом личного вкуса. Однако,
+существуют некоторые небольшие преимущества у каждого из них:</p>
+<ul class="simple">
+<li><strong>Абонентов проще использовать повторно</strong> так как знание событий хранится в
+классе, а не в определении сервиса. Это то, почему Symfony использует абонентов
+изнутри;</li>
+<li><strong>Приёмники более гибкие</strong> так как пакеты могут активировать или деактивировать
+каждый из них, в зависимости от значений конфигурации.</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>Отладка приёмников событий<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Вы можете узнать, какие приёмники зарегистрированы в диспетчере событий,
+используя консоль. Чтобы показать все события и их приёмники, выполните:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console debug:event-dispatcher
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы можете получить зарегистрированные приёмники для конкретного события,
+указав его имя:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console debug:event-dispatcher kernel.exception
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id7">
+<h2>Узнать больше<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="event_dispatcher\before_after_filters.html">How to Set Up Before and After Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_dispatcher\method_behavior.html">How to Customize a Method Behavior without Using Inheritance</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

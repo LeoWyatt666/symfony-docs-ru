@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Понимание того, как работают вместе фронт контроллер, ядро и окружения &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Configuring Symfony (and Environments)" href="..\configuration.html">
+    <link rel="next" title="Building your own Framework with the MicroKernelTrait" href="micro_kernel_trait.html">
+    <link rel="prev" title="Understanding how the Front Controller, Kernel and Environments Work together" href="front_controllers_and_kernel.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="configuration doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Понимание того, как работают вместе фронт контроллер, ядро и окружения</a><ul>
+<li><a class="reference internal" href="#id2">Фронт контроллер</a></li>
+<li><a class="reference internal" href="#kernel">Класс Kernel</a></li>
+<li><a class="reference internal" href="#id3">Окружения</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\getting_started\index.html">Getting Started</a></li>
+                
+                <li><a href="..\setup.html">Installing &amp; Setting up the Symfony Framework</a></li>
+                
+                <li><a href="..\page_creation.html">Create your First Page in Symfony</a></li>
+                
+                <li><a href="..\routing.html">Routing</a></li>
+                
+                <li><a href="..\controller.html">Controller</a></li>
+                
+                <li><a href="..\templating.html">Creating and Using Templates</a></li>
+                
+                <li><a href="..\configuration.html">Configuring Symfony (and Environments)</a></li>
+                
+                <li class="active">Понимание того, как работают вместе фронт контроллер, ядро и окружения</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Понимание того, как работают вместе фронт контроллер, ядро и окружения<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Раздел <a class="reference internal" href="environments.html"><em>How to Master and Create new Environments</em></a> объяснял основы того, как Symfony
+использует окружения для запуска вашего приложения с разными настройками
+конфигурации. Этот раздел расскажет немного больше о том, что случается, когда
+ваше приложение самозагружается. Чтобы подключиться к этому процессу, вам нужно
+понять три части, работающие вместе:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%95%D0%B4%D0%B8%D0%BD%D0%B0%D1%8F_%D1%82%D0%BE%D1%87%D0%BA%D0%B0_%D0%B2%D1%85%D0%BE%D0%B4%D0%B0_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)">Фронт контроллер</a></li>
+<li><a class="reference internal" href="#kernel">Класс Kernel</a></li>
+<li><a class="reference internal" href="#id3">Окружения</a></li>
+</ul>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p>Обычно вам не понадобится определять ваш собственный фронт контроллер
+или класс <tt class="docutils literal"><code>Kernel</code></tt>, так как Symfony предоставляет благоразумные
+реализации по умолчанию.</p>
+<p class="last">Эта статья предоставлена для того, чтобы объяснить, что происходит
+за кулисами.</p>
+</div></div>
+<div class="section" id="id2">
+<h2>Фронт контроллер<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%95%D0%B4%D0%B8%D0%BD%D0%B0%D1%8F_%D1%82%D0%BE%D1%87%D0%BA%D0%B0_%D0%B2%D1%85%D0%BE%D0%B4%D0%B0_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)">Фронт контроллер</a> - это схема; он является разделом кода, через
+который проходят <em>все</em> запросы, обслуживаемые приложением.</p>
+<p>В Скелетоне Symfony эту роль перенимает файл <tt class="docutils literal"><code>index.php</code></tt> в каталоге
+<tt class="docutils literal"><code>public/</code></tt>. Этот PHP-скрипт выполняется самым первым при обработке запроса.</p>
+<p>Главной целью фронт контроллера является создание экземпляра <tt class="docutils literal"><code>Kernel</code></tt>
+(больше об этом через секунду) для обработки запроса и возвращения результирующего
+ответа в браузер.</p>
+<p>Так как маршрут каждого запроса проложен через него, фронт контроллер может
+быть использован для выполнения глобальной инициализации до установки ядра или
+<a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%94%D0%B5%D0%BA%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)">декорирования</a> его с помощью дополнительных функций. Примеры включают в себ:</p>
+<ul class="simple">
+<li>Конфигурацию автозагрузчика или добавление дополнительных механизмов автозагрузки;</li>
+<li>Добавление HTTP-уровня кеширования, обернув ядро экземпляром
+<a class="reference internal" href="..\http_cache.html#symfony-gateway-cache"><span>HttpCache</span></a>;</li>
+<li>Подключение <a class="reference internal" href="..\components\debug.html"><em>Компонента Отладки</em></a>.</li>
+</ul>
+<p>Вы можете выбрать используемый фронт-контроллер, добавив его в URL:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>http://localhost/index.php/some/path/...
+</pre></div>
+</td></tr></table></div></div>
+<p>Как вы можете увидеть, этот URL содержит PHP-скрипт, который будет использован
+как фронт-контроллер. Вы можете использовать это, чтобы легко переключаться
+на пользовательский фронт-контроллер, расположенный в каталоге <tt class="docutils literal"><code>public/</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Вам почти никогда не стоит отображать фронт-контроллер в URL. Это достигается
+путём конфигурирования веб-сервера, как показано в <a class="reference internal" href="..\setup\web_server_configuration.html"><em>Configuring a Web Server</em></a>.</div></div>
+<p>Формально, скрипт <tt class="docutils literal"><code>bin/console</code></tt>, используемый при запуске Symfony в командной строке,
+- это тоже фронт контроллер, только используемый не для сети, а для запросов командной
+строки.</p>
+</div>
+<div class="section" id="kernel">
+<h2>Класс Kernel<a class="headerlink" href="#kernel" title="Permalink to this headline">¶</a></h2>
+<p>Класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Kernel.html" title="Symfony\Component\HttpKernel\Kernel">Kernel</a></code></tt> - это ядро Symfony.
+Он отвечает за пакеты, используемые вашим приложением, и предоставляет им
+конфигурацию приложения. Он создаёт сервис-контейнер до обслуживания запросов
+в своём методе <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/HttpKernelInterface.html#method_handle" title="Symfony\Component\HttpKernel\HttpKernelInterface::handle()">handle()</a></code></tt>.</p>
+<p>Ядро, используемое в приложениях Symfony расширяется из <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Kernel.html" title="Symfony\Component\HttpKernel\Kernel">Kernel</a></code></tt>
+и использует <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/FrameworkBundle/Kernel/MicroKernelTrait.html" title="Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait">MicroKernelTrait</a></code></tt>.
+Класс <tt class="docutils literal"><code>Kernel</code></tt> оставляет некоторые методы из <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/KernelInterface.html" title="Symfony\Component\HttpKernel\KernelInterface">KernelInterface</a></code></tt>
+нереализованными, а <tt class="docutils literal"><code>MicroKernelTrait</code></tt> определяет несколько абстрактных методов,
+так что вы должны реализовать их все:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/KernelInterface.html#method_registerBundles" title="Symfony\Component\HttpKernel\KernelInterface::registerBundles()">registerBundles()</a></code></tt></dt>
+<dd>Должен вернуть массив всех необходимых для запуска приложения пакетов.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/FrameworkBundle/Kernel/MicroKernelTrait.html#method_configureRoutes" title="Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait::configureRoutes()">configureRoutes()</a></code></tt></dt>
+<dd>Добавляет индивидуальные маршруты или коллекции маршрутов в приложение
+(например, загрузку маршрутов, определённых в некотором файле конфигурации).</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/FrameworkBundle/Kernel/MicroKernelTrait.html#method_configureContainer" title="Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait::configureContainer()">configureContainer()</a></code></tt></dt>
+<dd>Хагружает конфигурацию приложения из файлов конфигурации или используя метод
+<tt class="docutils literal"><code>loadFromExtension()</code></tt> и может также регистрировать новые параметры контейнера
+и сервисы.</dd>
+</dl>
+<p>Чтобы заполнить эти (небольшие) пробелы, ваше приложение должно создать
+подкласс Kernel и реализовать эти методы. Результирующий класс по договёрности
+называется <tt class="docutils literal"><code>AppKernel</code></tt>.</p>
+<p>Этот класс использует имя окружения, которое передаётся методу ядра
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Kernel.html#method___construct" title="Symfony\Component\HttpKernel\Kernel::__construct()">constructor</a></code></tt> и которое
+доступно через <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Kernel.html#method_getEnvironment" title="Symfony\Component\HttpKernel\Kernel::getEnvironment()">getEnvironment()</a></code></tt>, чтобы
+решить, какие пакеты создавать. Логика для этого находится в <tt class="docutils literal"><code>registerBundles()</code></tt>.</p>
+<p>Вы, конечно же, вольны создавать ваши собственные альтернативные или дополнительные
+варианты <tt class="docutils literal"><code>Kernel</code></tt>. Всё, что вам нужно - это адаптировать (или добавить новый)
+ваш фронт контроллер, чтобы воспользоваться новым ядром.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Имя и местоположение <tt class="docutils literal"><code>Kernel</code></tt> не фиксированы. При добавлении
+<a class="reference internal" href="multiple_kernels.html"><em>нескольких ядер в одно приложение</em></a>,
+может иметь смысл добавить дополнительные подкаталоги, например, <tt class="docutils literal"><code>app/admin/AdminKernel.php</code></tt>
+и <tt class="docutils literal"><code>app/api/ApiKernel.php</code></tt>. Имеет значение только то, чтобы ваш фронт-контроллер мог создать
+экземпляр правильного ядра.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal"><code>Kernel</code></tt> можно использовать для большего, например, для
+<a class="reference internal" href="override_dir_structure.html"><em>переопределения структуры каталога по умолчанию</em></a>.
+Но высока вероятность того, что вам не понадобится изменять такие вещи
+на лету, имея несколько реализаций <tt class="docutils literal"><code>Kernel</code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="id3">
+<h2>Окружения<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Как было отмечено только что, <tt class="docutils literal"><code>Kernel</code></tt> должен реализовать другой метод -
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/FrameworkBundle/Kernel/MicroKernelTrait.html#method_configureContainer" title="Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait::configureContainer()">configureContainer()</a></code></tt>.
+Этот метод отвечает за загрузку конфигурации приложения из правильного
+<em>окружения</em>.</p>
+<p>Окружения подробно описывались в <a class="reference internal" href="environments.html"><em>предыдущей статье</em></a>,
+и вы наверное помните, что Symfony по умолчанию использует три: <tt class="docutils literal"><code>dev</code></tt>,
+<tt class="docutils literal"><code>prod</code></tt> и <tt class="docutils literal"><code>test</code></tt>.</p>
+<p>По факту, эти имена - не более, чем строки, переданные из фронт контроллера
+в конструктор <tt class="docutils literal"><code>Kernel</code></tt>. Это имя может потом быть использовано в методе
+<tt class="docutils literal"><code>configureContainer()</code></tt>, чтобы решить, какие файлы конфигурации стоит загружать.</p>
+<p>Класс Symfony <tt class="docutils literal"><code>Kernel</code></tt> по умолчанию реализует этот метод загружая вначале файлы
+конфигурации, найденные в <tt class="docutils literal"><code>config/packages/*</code></tt>, а потом файлы, найденные в
+<tt class="docutils literal"><code>config/packages/ENVIRONMENT_NAME/</code></tt>. Вы, конечно же, вольны реализовывать
+этот метод по-другому, если вам нужен более утончённый способ загрузки вашей конфигурации.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="front_controllers_and_kernel.html">« Understanding how the Front Controller, Kernel and Environments Work together</a>
+                <span class="separator">|</span>
+                <a href="micro_kernel_trait.html">Building your own Framework with the MicroKernelTrait »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

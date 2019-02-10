@@ -1,0 +1,719 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Аутентификация &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+    <link rel="up" title="The Security Component" href="..\security.html">
+    <link rel="next" title="Authorization" href="authorization.html">
+    <link rel="prev" title="Authentication" href="authentication.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Аутентификация</a><ul>
+<li><a class="reference internal" href="#id2">Менеджер аутентификации</a></li>
+<li><a class="reference internal" href="#authentication-providers">Поставщики аутентификации</a><ul>
+<li><a class="reference internal" href="#id4">Аутентификация пользователей по имени и паролю</a></li>
+<li><a class="reference internal" href="#id5">Фабрика кодировщиков паролей</a></li>
+<li><a class="reference internal" href="#id6">Создание пользовательского кодировщика паролей</a></li>
+<li><a class="reference internal" href="#id7">Использование кодировщиков паролей</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">События аутентификации</a><ul>
+<li><a class="reference internal" href="#id9">События удачной и неудачной аутентификации</a></li>
+<li><a class="reference internal" href="#id10">События безопасности</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li><a href="..\index.html">The Components</a></li>
+                
+                <li><a href="../index-ru.html">The Components</a></li>
+                
+                <li><a href="..\security.html">The Security Component</a></li>
+                
+                <li class="active">Аутентификация</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Аутентификация<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Когда запрос указывает на безопасную область, а один из слушателей из карты
+брандмауэра может извлечь личные данные пользователя из текущего объекта
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Request.html" title="Symfony\Component\HttpFoundation\Request">Request</a></code></tt>, он должен создать токен,
+содержащий менеджера аутентификации, чтобы валидировать данный токен и вернуть
+<em>аутентифицированный</em> токен, если предоставленные данные были определены валидными.
+Слушатель потом должен сохранить аутентифицированный токен, используя
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Token/Storage/TokenStorageInterface.html" title="Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface">хранилище токенов</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Security\Http\Firewall\ListenerInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Event\GetResponseEvent</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">SomeAuthenticationListener</span> <span class="k">implements</span> <span class="nx">ListenerInterface</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @var TokenStorageInterface</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$tokenStorage</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var AuthenticationManagerInterface</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$authenticationManager</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var string Uniquely identifies the secured area</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$providerKey</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">handle</span><span class="p">(</span><span class="nx">GetResponseEvent</span> <span class="nv">$event</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$request</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getRequest</span><span class="p">();</span>
+
+        <span class="nv">$username</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+        <span class="nv">$password</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+        <span class="nv">$unauthenticatedToken</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UsernamePasswordToken</span><span class="p">(</span>
+            <span class="nv">$username</span><span class="p">,</span>
+            <span class="nv">$password</span><span class="p">,</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">providerKey</span>
+        <span class="p">);</span>
+
+        <span class="nv">$authenticatedToken</span> <span class="o">=</span> <span class="nv">$this</span>
+            <span class="o">-&gt;</span><span class="na">authenticationManager</span>
+            <span class="o">-&gt;</span><span class="na">authenticate</span><span class="p">(</span><span class="nv">$unauthenticatedToken</span><span class="p">);</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tokenStorage</span><span class="o">-&gt;</span><span class="na">setToken</span><span class="p">(</span><span class="nv">$authenticatedToken</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Токен может быть любым классом, если он реализует
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Token/TokenInterface.html" title="Symfony\Component\Security\Core\Authentication\Token\TokenInterface">TokenInterface</a></code></tt>.</p>
+</div></div>
+<div class="section" id="id2">
+<h2>Менеджер аутентификации<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Менеджер аутентификации по умолчанию является экземпляром
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/AuthenticationProviderManager.html" title="Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager">AuthenticationProviderManager</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\AuthenticationException</span><span class="p">;</span>
+
+<span class="c1">// экземпляры Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface</span>
+<span class="nv">$providers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+
+<span class="nv">$authenticationManager</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AuthenticationProviderManager</span><span class="p">(</span><span class="nv">$providers</span><span class="p">);</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$authenticatedToken</span> <span class="o">=</span> <span class="nv">$authenticationManager</span>
+        <span class="o">-&gt;</span><span class="na">authenticate</span><span class="p">(</span><span class="nv">$unauthenticatedToken</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">AuthenticationException</span> <span class="nv">$exception</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// аутентификация неудачна</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>При инстанциировании, <tt class="docutils literal"><code>AuthenticationProviderManager</code></tt> получает несколько
+поставщиков аутентификации, каждый из которых поддерживает разные виды токенов.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вы можете конечно же написать собственный менеджер аутентификации, только
+он должен реализовывать
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/AuthenticationManagerInterface.html" title="Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface">AuthenticationManagerInterface</a></code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="authentication-providers">
+<span id="id3"></span><h2>Поставщики аутентификации<a class="headerlink" href="#authentication-providers" title="Permalink to this headline">¶</a></h2>
+<p>Каждый поставщик (так как он реализует
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Provider/AuthenticationProviderInterface.html" title="Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface">AuthenticationProviderInterface</a></code></tt>)
+имеет метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Provider/AuthenticationProviderInterface.html#method_supports" title="Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface::supports()">supports()</a></code></tt>,
+по которому <tt class="docutils literal"><code>AuthenticationProviderManager</code></tt> может определить, поддерживается
+ли данный токен. Если это так, то менеджер вызывает метод поставщика
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Provider/AuthenticationProviderInterface.html#method_authenticate" title="Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface::authenticate()">authenticate()</a></code></tt>.
+Этот метод должен вернуть аутнетифицированный токен или вызвать
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Exception/AuthenticationException.html" title="Symfony\Component\Security\Core\Exception\AuthenticationException">AuthenticationException</a></code></tt>
+(или любое другео исключение, расширяющее его).</p>
+<div class="section" id="id4">
+<h3>Аутентификация пользователей по имени и паролю<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Поставщик аутентификации будет пытаться аутентифицировать пользователя,
+основываясь на предоставленных личных данных. Обычно это имя пользователя
+и пароль. Большинство веб-приложений хранят свои имена пользоваталей и хеш
+пользовательского пароля, в сочетании с рандомно сгенерированной солью. Это
+означает, что среднестатистическая аутентификация будет состоять из извлечения
+соли и хешированного пароля из хранилища данных пользователей, хеширования
+пароля, только что предоставленного пользователем (например, используя форму
+входа) с солью и их сравнения для определения валидности заданного пароля.</p>
+<p>Этот функционал предоставлен <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Provider/DaoAuthenticationProvider.html" title="Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider">DaoAuthenticationProvider</a></code></tt>.
+Он извлекает данные пользователя из:class:<cite>Symfony\Component\Security\Core\User\UserProviderInterface</cite>,
+использует <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Encoder/PasswordEncoderInterface.html" title="Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface">PasswordEncoderInterface</a></code></tt>
+для создания хеша пароля и возвращает аутентифицированный токен, если пароль валиден:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\UserChecker</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\InMemoryUserProvider</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Encoder\EncoderFactory</span><span class="p">;</span>
+
+<span class="nv">$userProvider</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">InMemoryUserProvider</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;admin&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="c1">// пароль &quot;foo&quot;</span>
+            <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;5FZ2Z8QIkA7UTZ4BYkoC+GsReLf569mSKDsfods6LYQ8t+a8EW9oaircfMpmaLbPBh4FOBiiFyLfuZmTSUwzZg==&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;roles&#39;</span>    <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ROLE_ADMIN&#39;</span><span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">// для дополнительных проверок: подключен/закрыт/истёк ли срок действия аккаунта</span>
+<span class="nv">$userChecker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UserChecker</span><span class="p">();</span>
+
+<span class="c1">// массив кодировщиков паролей (см. ниже)</span>
+<span class="nv">$encoderFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EncoderFactory</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+
+<span class="nv">$daoProvider</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DaoAuthenticationProvider</span><span class="p">(</span>
+    <span class="nv">$userProvider</span><span class="p">,</span>
+    <span class="nv">$userChecker</span><span class="p">,</span>
+    <span class="s1">&#39;secured_area&#39;</span><span class="p">,</span>
+    <span class="nv">$encoderFactory</span>
+<span class="p">);</span>
+
+<span class="nv">$daoProvider</span><span class="o">-&gt;</span><span class="na">authenticate</span><span class="p">(</span><span class="nv">$unauthenticatedToken</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Пример выше демонстрирует использование поставщика пользователей &quot;оперативной
+памяти&quot;, но вы можете использовать любого другого поставщика пользователей,
+если он реализует <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/User/UserProviderInterface Также возможно позволить нескольким поставщикам пользователей найти данные пользователя, используя :class:`Symfony/Component/Security/Core/User/ChainUserProvider.html" title="Symfony\Component\Security\Core\User\UserProviderInterface Также возможно позволить нескольким поставщикам пользователей найти данные пользователя, используя :class:`Symfony\Component\Security\Core\User\ChainUserProvider">ChainUserProvider</a></code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="id5">
+<h3>Фабрика кодировщиков паролей<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Provider/DaoAuthenticationProvider.html" title="Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider">DaoAuthenticationProvider</a></code></tt>
+использует фабрику кодировщиков для создания кодировщика паролей для заданного
+типа пользователя. Это позволяет вам использовать разные стратегии шифрования
+для разных типов пользователей. По умолчанию,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Encoder/EncoderFactory.html" title="Symfony\Component\Security\Core\Encoder\EncoderFactory">EncoderFactory</a></code></tt> получает
+массив кодировщиков:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Acme\Entity\LegacyUser</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Encoder\EncoderFactory</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\User</span><span class="p">;</span>
+
+<span class="nv">$defaultEncoder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MessageDigestPasswordEncoder</span><span class="p">(</span><span class="s1">&#39;sha512&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="mi">5000</span><span class="p">);</span>
+<span class="nv">$weakEncoder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MessageDigestPasswordEncoder</span><span class="p">(</span><span class="s1">&#39;md5&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="nv">$encoders</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="nx">User</span><span class="o">::</span><span class="na">class</span>       <span class="o">=&gt;</span> <span class="nv">$defaultEncoder</span><span class="p">,</span>
+    <span class="nx">LegacyUser</span><span class="o">::</span><span class="na">class</span> <span class="o">=&gt;</span> <span class="nv">$weakEncoder</span><span class="p">,</span>
+    <span class="c1">// ...</span>
+<span class="p">);</span>
+<span class="nv">$encoderFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EncoderFactory</span><span class="p">(</span><span class="nv">$encoders</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Каждый кодировщик должен реализовывать
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Encoder/PasswordEncoderInterface.html" title="Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface">PasswordEncoderInterface</a></code></tt>
+или быть массивом с <tt class="docutils literal"><code>class</code></tt> и ключом <tt class="docutils literal"><code>arguments</code></tt>, который позволяется
+фабрике кодировщиков конструировать кодировщик только по необходимости.</p>
+</div>
+<div class="section" id="id6">
+<h3>Создание пользовательского кодировщика паролей<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Существует множество встроенных кодировщиков паролей. Но если вам нужно создать
+собственный, он должен следовать таким правилам:</p>
+<ol class="arabic">
+<li><p class="first">Класс должен реализовывать <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Encoder/PasswordEncoderInterface.html" title="Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface">PasswordEncoderInterface</a></code></tt>;</p>
+</li>
+<li><p class="first">Реализация
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Encoder/PasswordEncoderInterface.html#method_encodePassword" title="Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface::encodePassword()">encodePassword()</a></code></tt>
+и
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Encoder/PasswordEncoderInterface.html#method_isPasswordValid" title="Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface::isPasswordValid()">isPasswordValid()</a></code></tt>
+должна вначале убедиться, что пароль не слишком длинный, т.е. длина пароля не превышает 4096
+символов. Это из соображений безопасности (см. <a class="reference external" href="https://symfony.com/blog/cve-2013-5750-security-issue-in-fosuserbundle-login-form">CVE-2013-5750</a>), и вы можете использовать метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Encoder/BasePasswordEncoder.html#method_isPasswordTooLong" title="Symfony\Component\Security\Core\Encoder\BasePasswordEncoder::isPasswordTooLong()">isPasswordTooLong()</a></code></tt>
+для такой проверки:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Encoder\BasePasswordEncoder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\BadCredentialsException</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">FoobarEncoder</span> <span class="k">extends</span> <span class="nx">BasePasswordEncoder</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">encodePassword</span><span class="p">(</span><span class="nv">$raw</span><span class="p">,</span> <span class="nv">$salt</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">isPasswordTooLong</span><span class="p">(</span><span class="nv">$raw</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">BadCredentialsException</span><span class="p">(</span><span class="s1">&#39;Invalid password.&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">isPasswordValid</span><span class="p">(</span><span class="nv">$encoded</span><span class="p">,</span> <span class="nv">$raw</span><span class="p">,</span> <span class="nv">$salt</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">isPasswordTooLong</span><span class="p">(</span><span class="nv">$raw</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ol>
+</div>
+<div class="section" id="id7">
+<h3>Использование кодировщиков паролей<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Когда метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Encoder/EncoderFactory.html#method_getEncoder" title="Symfony\Component\Security\Core\Encoder\EncoderFactory::getEncoder()">getEncoder()</a></code></tt>
+фабрики кодировщиков паролей вызывается с объектом пользователя в качестве
+первого аргумента, он будет возвращать кодировщик типа
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Encoder/PasswordEncoderInterface.html" title="Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface">PasswordEncoderInterface</a></code></tt>,
+который должен быть использован для шифрованя пароля пользователя:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// экземпляр Acme\Entity\LegacyUser</span>
+<span class="nv">$user</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="c1">// отправленный пароль, например, при регистрации</span>
+<span class="nv">$plainPassword</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="nv">$encoder</span> <span class="o">=</span> <span class="nv">$encoderFactory</span><span class="o">-&gt;</span><span class="na">getEncoder</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+
+<span class="c1">// возвращает $weakEncoder (см. выше)</span>
+<span class="nv">$encodedPassword</span> <span class="o">=</span> <span class="nv">$encoder</span><span class="o">-&gt;</span><span class="na">encodePassword</span><span class="p">(</span><span class="nv">$plainPassword</span><span class="p">,</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getSalt</span><span class="p">());</span>
+
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">setPassword</span><span class="p">(</span><span class="nv">$encodedPassword</span><span class="p">);</span>
+
+<span class="c1">// ... сохраните пользователя</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, когда вы хотите проверить, является ли отправленный пароль (например,
+при попытке входа в систему) правильным, вы можете использовать:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// извлечь Acme\Entity\LegacyUser</span>
+<span class="nv">$user</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="c1">// отпавленный пароль, например, из формы входа</span>
+<span class="nv">$plainPassword</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="nv">$validPassword</span> <span class="o">=</span> <span class="nv">$encoder</span><span class="o">-&gt;</span><span class="na">isPasswordValid</span><span class="p">(</span>
+    <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getPassword</span><span class="p">(),</span> <span class="c1">// зашифрованный пароль</span>
+    <span class="nv">$plainPassword</span><span class="p">,</span>       <span class="c1">// отправленный пароль</span>
+    <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getSalt</span><span class="p">()</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>События аутентификации<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>Компонент безопасности предоставляет 4 связанных с аутентификацией события:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%">
+<col width="31%">
+<col width="50%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Газвание</th>
+<th class="head">Константа события</th>
+<th class="head">Аргумент, переданный слушателю</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>security.authentication.success</td>
+<td><tt class="docutils literal"><code>AuthenticationEvents::AUTHENTICATION_SUCCESS</code></tt></td>
+<td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Event/AuthenticationEvent.html" title="Symfony\Component\Security\Core\Event\AuthenticationEvent">AuthenticationEvent</a></code></tt></td>
+</tr>
+<tr class="row-odd"><td>security.authentication.failure</td>
+<td><tt class="docutils literal"><code>AuthenticationEvents::AUTHENTICATION_FAILURE</code></tt></td>
+<td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Event/AuthenticationFailureEvent.html" title="Symfony\Component\Security\Core\Event\AuthenticationFailureEvent">AuthenticationFailureEvent</a></code></tt></td>
+</tr>
+<tr class="row-even"><td>security.interactive_login</td>
+<td><tt class="docutils literal"><code>SecurityEvents::INTERACTIVE_LOGIN</code></tt></td>
+<td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Http/Event/InteractiveLoginEvent.html" title="Symfony\Component\Security\Http\Event\InteractiveLoginEvent">InteractiveLoginEvent</a></code></tt></td>
+</tr>
+<tr class="row-odd"><td>security.switch_user</td>
+<td><tt class="docutils literal"><code>SecurityEvents::SWITCH_USER</code></tt></td>
+<td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Http/Event/SwitchUserEvent.html" title="Symfony\Component\Security\Http\Event\SwitchUserEvent">SwitchUserEvent</a></code></tt></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id9">
+<h3>События удачной и неудачной аутентификации<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Когда поставщик аутентифицирует пользователя, запускается событие
+<tt class="docutils literal"><code>security.authentication.success</code></tt>. Но будьте осторожны - это событие будет
+запускаться, к примеру, при <em>каждом</em> запросе, если у вас аутентификация основывается
+на сессии. См. <tt class="docutils literal"><code>security.interactive_login</code></tt> ниже, если вам нужно сделать что-то,
+когда пользователь <em>действительно</em> выполняет вход.</p>
+<p>Когда поставщик пробует выполнть аутентификацию, но терпит неудачу (т.е. вызывает
+<tt class="docutils literal"><code>AuthenticationException</code></tt>), запускается событие <tt class="docutils literal"><code>security.authentication.failure</code></tt>.
+Вы можете слушать например событие <tt class="docutils literal"><code>security.authentication.failure</code></tt> для того, чтобы
+вести логи неудачных попыток входа.</p>
+</div>
+<div class="section" id="id10">
+<h3>События безопасности<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Событие <tt class="docutils literal"><code>security.interactive_login</code></tt> вызывается после того, как пользователь
+выполнил активный вход на ваш сайт. Важно отличать это действие от неинтерактивных
+методов аутентификации вроде:</p>
+<ul class="simple">
+<li>аутентификация, основанная на вашей сессии</li>
+<li>аутентификация, используя базовый HTTP заголовок.</li>
+</ul>
+<p>Вы можете слушать событие <tt class="docutils literal"><code>security.interactive_login</code></tt>, например, чтобы отображать
+вашему пользователю приветственное флеш-собщение каждый раз, когда он выполняет вход.</p>
+<p>Событие <tt class="docutils literal"><code>security.switch_user</code></tt> запускается каждый раз, когда вы активируете слушателя
+брандмауэра <tt class="docutils literal"><code>switch_user</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Чтобы узнать больше о переключении пользователей, см.
+<a class="reference internal" href="..\..\security\impersonating_user.html"><em>How to Impersonate a User</em></a>.</div></div>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="authentication.html">« Authentication</a>
+                <span class="separator">|</span>
+                <a href="authorization.html">Authorization »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

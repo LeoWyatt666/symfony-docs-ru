@@ -1,0 +1,752 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Collection &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="reference doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Collection</a><ul>
+<li><a class="reference internal" href="#id1">Базовое применение</a><ul>
+<li><a class="reference internal" href="#id2">Наличие и отсутствие полей</a></li>
+<li><a class="reference internal" href="#id3">Обязательные и необязательные ограничения поля</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4">Опции</a><ul>
+<li><a class="reference internal" href="#fields">fields</a></li>
+<li><a class="reference internal" href="#allowextrafields">allowExtraFields</a></li>
+<li><a class="reference internal" href="#extrafieldsmessage">extraFieldsMessage</a></li>
+<li><a class="reference internal" href="#allowmissingfields">allowMissingFields</a></li>
+<li><a class="reference internal" href="#missingfieldsmessage">missingFieldsMessage</a></li>
+<li><a class="reference internal" href="#payload">payload</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li class="active">Collection</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="collection">
+<h1>Collection<a class="headerlink" href="#collection" title="Permalink to this headline">¶</a></h1>
+<p>Это ограничение используется, когда основоположные данные являются коллекцией
+(т.е. массивом или объектом, реализующим <tt class="docutils literal"><code>Traversable</code></tt> и <tt class="docutils literal"><code>ArrayAccess</code></tt>),
+но вы хотите валидировать разные ключи этой коллекции разными способами. Например,
+вы можете валидировать ключ <tt class="docutils literal"><code>email</code></tt>, используя ограничение <tt class="docutils literal"><code>Email</code></tt>, а ключ
+коллекции <tt class="docutils literal"><code>inventory</code></tt> с огранчением <tt class="docutils literal"><code>Range</code></tt>.</p>
+<p>Это ограничение также может убедиться в том, что определённые ключи коллекции
+присутствуют, и что отсутствуют лишние ключи.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%">
+<col width="82%">
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Применяется к</td>
+<td><a class="reference internal" href="..\..\validation.html#validation-property-target"><span>свойству или методу</span></a></td>
+</tr>
+<tr class="row-even"><td>Опции</td>
+<td><ul class="first last simple">
+<li><a class="reference internal" href="#fields">fields</a></li>
+<li><a class="reference internal" href="#allowextrafields">allowExtraFields</a></li>
+<li><a class="reference internal" href="#extrafieldsmessage">extraFieldsMessage</a></li>
+<li><a class="reference internal" href="#allowmissingfields">allowMissingFields</a></li>
+<li><a class="reference internal" href="#missingfieldsmessage">missingFieldsMessage</a></li>
+<li><a class="reference internal" href="#payload">payload</a></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>Класс</td>
+<td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Validator/Constraints/Collection.html" title="Symfony\Component\Validator\Constraints\Collection">Collection</a></code></tt></td>
+</tr>
+<tr class="row-even"><td>Валидатор</td>
+<td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Validator/Constraints/CollectionValidator.html" title="Symfony\Component\Validator\Constraints\CollectionValidator">CollectionValidator</a></code></tt></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>Базовое применение<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Ограничение <tt class="docutils literal"><code>Collection</code></tt> позволяет вам валидировать разные ключи
+коллекции по-отдельности. Рассмотрите следующий пример:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Author.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Author</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$profileData</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;personal_email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;short_bio&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span>
+    <span class="p">);</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setProfileData</span><span class="p">(</span><span class="nv">$key</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">profileData</span><span class="p">[</span><span class="nv">$key</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Чтобы валидировать то, что элемент <tt class="docutils literal"><code>personal_email</code></tt> свойства массива
+<tt class="docutils literal"><code>profileData</code></tt> является валидным адресом электронной почты, и что элемент
+<tt class="docutils literal"><code>short_bio</code></tt> не пустой, но при этом не превышает 100 символов в длину, вам
+нужно сделать следующее:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Author.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Author</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Assert\Collection(</span>
+<span class="sd">     *     fields = {</span>
+<span class="sd">     *         &quot;personal_email&quot; = @Assert\Email,</span>
+<span class="sd">     *         &quot;short_bio&quot; = {</span>
+<span class="sd">     *             @Assert\NotBlank(),</span>
+<span class="sd">     *             @Assert\Length(</span>
+<span class="sd">     *                 max = 100,</span>
+<span class="sd">     *                 maxMessage = &quot;Your short bio is too long!&quot;</span>
+<span class="sd">     *             )</span>
+<span class="sd">     *         }</span>
+<span class="sd">     *     },</span>
+<span class="sd">     *     allowMissingFields = true</span>
+<span class="sd">     * )</span>
+<span class="sd">     */</span>
+     <span class="k">protected</span> <span class="nv">$profileData</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+         <span class="s1">&#39;personal_email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;short_bio&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span>
+     <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/validator/validation.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">App\Entity\Author</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">properties</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">profileData</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Collection</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">fields</span><span class="p p-Indicator">:</span>
+                    <span class="l l-Scalar l-Scalar-Plain">personal_email</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Email</span>
+                    <span class="l l-Scalar l-Scalar-Plain">short_bio</span><span class="p p-Indicator">:</span>
+                        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">NotBlank</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+                        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Length</span><span class="p p-Indicator">:</span>
+                            <span class="l l-Scalar l-Scalar-Plain">max</span><span class="p p-Indicator">:</span>   <span class="l l-Scalar l-Scalar-Plain">100</span>
+                            <span class="l l-Scalar l-Scalar-Plain">maxMessage</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Your short bio is too long!</span>
+                <span class="l l-Scalar l-Scalar-Plain">allowMissingFields</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/validator/validation.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;constraint-mapping</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;App\Entity\Author&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;profileData&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Collection&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;fields&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;value</span> <span class="na">key=</span><span class="s">&quot;personal_email&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Email&quot;</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;value</span> <span class="na">key=</span><span class="s">&quot;short_bio&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;NotBlank&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Length&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;max&quot;</span><span class="nt">&gt;</span>100<span class="nt">&lt;/option&gt;</span>
+                            <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;maxMessage&quot;</span><span class="nt">&gt;</span>Your short bio is too long!<span class="nt">&lt;/option&gt;</span>
+                        <span class="nt">&lt;/constraint&gt;</span>
+                    <span class="nt">&lt;/value&gt;</span>
+                <span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;allowMissingFields&quot;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;/constraint&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/class&gt;</span>
+<span class="nt">&lt;/constraint-mapping&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Author.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Mapping\ClassMetadata</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Author</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">loadValidatorMetadata</span><span class="p">(</span><span class="nx">ClassMetadata</span> <span class="nv">$metadata</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$metadata</span><span class="o">-&gt;</span><span class="na">addPropertyConstraint</span><span class="p">(</span><span class="s1">&#39;profileData&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Assert\Collection</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;fields&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;personal_email&#39;</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">Assert\Email</span><span class="p">(),</span>
+                <span class="s1">&#39;short_bio&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                    <span class="k">new</span> <span class="nx">Assert\NotBlank</span><span class="p">(),</span>
+                    <span class="k">new</span> <span class="nx">Assert\Length</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+                        <span class="s1">&#39;max&#39;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span>
+                        <span class="s1">&#39;maxMessage&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Your short bio is too long!&#39;</span><span class="p">,</span>
+                    <span class="p">)),</span>
+                <span class="p">),</span>
+            <span class="p">),</span>
+            <span class="s1">&#39;allowMissingFields&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Наличие и отсутствие полей<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>По умолчанию, это ограничение валидирует больше, чем просто факт передачи
+индивидуальными полями коллекции приписанных им ограничений. На самом деле,
+если любой ключ коллекции отсутствует, или если в коллекции есть нераспознанные
+ключи, будут вызваны ошибки валидации.</p>
+<p>Если вы хотите разрешить отсутствие ключей в коллекции, или вы хотите позволить
+&quot;дополнительные&quot; ключи в коллекции, то вы можете соответственно изменить опции
+<a class="reference internal" href="#allowmissingfields">allowMissingFields</a> и <a class="reference internal" href="#allowextrafields">allowExtraFields</a>. В примере выше, опция <tt class="docutils literal"><code>allowMissingFields</code></tt>
+была установлена, как &quot;true&quot;, что означает, что если бы в свойстве <tt class="docutils literal"><code>$personalData</code></tt>
+отсутствовал элемент <tt class="docutils literal"><code>personal_email</code></tt> или <tt class="docutils literal"><code>short_bio</code></tt>, то ошибки валидации бы
+не произошло.</p>
+</div>
+<div class="section" id="id3">
+<h3>Обязательные и необязательные ограничения поля<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Ограничения полей в коллекции можно обернуть в ограничение <tt class="docutils literal"><code>Required</code></tt> или
+<tt class="docutils literal"><code>Optional</code></tt>, чтобы контролировать, должны ли они быть применены всегда
+(<tt class="docutils literal"><code>Required</code></tt>), или только при наличии поля (<tt class="docutils literal"><code>Optional</code></tt>).</p>
+<p>Например, если вы хотите требовать, чтобы поле <tt class="docutils literal"><code>personal_email</code></tt> массива
+<tt class="docutils literal"><code>profileData</code></tt> не было пустым и являлось валидным адресом электронной почты,
+а поле <tt class="docutils literal"><code>alternate_email</code></tt> было необязательным, но являлось валидным адресом
+электронной почты в случае его заполнения, вы можете сделать следующее:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Author.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Author</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Assert\Collection(</span>
+<span class="sd">     *     fields={</span>
+<span class="sd">     *         &quot;personal_email&quot;  = @Assert\Required({@Assert\NotBlank, @Assert\Email}),</span>
+<span class="sd">     *         &quot;alternate_email&quot; = @Assert\Optional(@Assert\Email)</span>
+<span class="sd">     *     }</span>
+<span class="sd">     * )</span>
+<span class="sd">     */</span>
+     <span class="k">protected</span> <span class="nv">$profileData</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;personal_email&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/validator/validation.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">App\Entity\Author</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">properties</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">profile_data</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Collection</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">fields</span><span class="p p-Indicator">:</span>
+                    <span class="l l-Scalar l-Scalar-Plain">personal_email</span><span class="p p-Indicator">:</span>
+                        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Required</span><span class="p p-Indicator">:</span>
+                            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">NotBlank</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+                            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Email</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+                    <span class="l l-Scalar l-Scalar-Plain">alternate_email</span><span class="p p-Indicator">:</span>
+                        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Optional</span><span class="p p-Indicator">:</span>
+                            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Email</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/validator/validation.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;constraint-mapping</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;App\Entity\Author&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;profile_data&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Collection&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;fields&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;value</span> <span class="na">key=</span><span class="s">&quot;personal_email&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Required&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;NotBlank&quot;</span> <span class="nt">/&gt;</span>
+                            <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Email&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/constraint&gt;</span>
+                    <span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;value</span> <span class="na">key=</span><span class="s">&quot;alternate_email&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Optional&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Email&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/constraint&gt;</span>
+                    <span class="nt">&lt;/value&gt;</span>
+                <span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;/constraint&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/class&gt;</span>
+<span class="nt">&lt;/constraint-mapping&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Author.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Mapping\ClassMetadata</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Author</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$profileData</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;personal_email&#39;</span><span class="p">);</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">loadValidatorMetadata</span><span class="p">(</span><span class="nx">ClassMetadata</span> <span class="nv">$metadata</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$metadata</span><span class="o">-&gt;</span><span class="na">addPropertyConstraint</span><span class="p">(</span><span class="s1">&#39;profileData&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Assert\Collection</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;fields&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;personal_email&#39;</span>  <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">Assert\Required</span><span class="p">(</span>
+                    <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">Assert\NotBlank</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">Assert\Email</span><span class="p">())</span>
+                <span class="p">),</span>
+                <span class="s1">&#39;alternate_email&#39;</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">Assert\Optional</span><span class="p">(</span><span class="k">new</span> <span class="nx">Assert\Email</span><span class="p">()),</span>
+            <span class="p">),</span>
+        <span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Даже если <tt class="docutils literal"><code>allowMissingFields</code></tt> не установлен, как &quot;true&quot;, вы теперь можете
+полностью опустить свойство <tt class="docutils literal"><code>alternate_email</code></tt> из массива <tt class="docutils literal"><code>profileData</code></tt>, так
+как оно <tt class="docutils literal"><code>Optional</code></tt>. Однакое, если поле <tt class="docutils literal"><code>personal_email</code></tt> не существует в массиве,
+то ограничение <tt class="docutils literal"><code>NotBlank</code></tt> всё равно будет применено (так как оно обёрнуто в
+<tt class="docutils literal"><code>Required</code></tt>) и вы получите нарушение ограничения.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Опции<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fields">
+<h3>fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> [<a class="reference internal" href="..\..\validation.html#validation-default-option"><span>default option</span></a>]</p>
+<p>This option is required and is an associative array defining all of the
+keys in the collection and, for each key, exactly which validator(s) should
+be executed against that element of the collection.</p>
+</div>
+<div class="section" id="allowextrafields">
+<h3>allowExtraFields<a class="headerlink" href="#allowextrafields" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: false</p>
+<p>Если эта опция установлена, как <tt class="docutils literal"><code>false</code></tt>, а основоположная коллекция содержит
+один или более элементов, не включённых в опцию <a class="reference internal" href="#fields">fields</a>, будет возвращена
+ошибка валидации. Если установлена, как <tt class="docutils literal"><code>true</code></tt>, дополнительные поля допустимы.</p>
+</div>
+<div class="section" id="extrafieldsmessage">
+<h3>extraFieldsMessage<a class="headerlink" href="#extrafieldsmessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Это поле не ожидалось.</code></tt></p>
+<p>Сообщение, отображаемое, если <a class="reference internal" href="#allowextrafields">allowExtraFields</a> - &quot;false&quot;, и обнаружено
+дополнительное поле.</p>
+</div>
+<div class="section" id="allowmissingfields">
+<h3>allowMissingFields<a class="headerlink" href="#allowmissingfields" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: false</p>
+<p>Если эта опция установлена, как <tt class="docutils literal"><code>false</code></tt>, и одно или более полей из опции
+<a class="reference internal" href="#fields">fields</a> отсутствуют в освноположной коллекции, будет возвращена ошибка
+валидации. Если установленка, как <tt class="docutils literal"><code>true</code></tt>, то отсутствие некоторых полей
+опции <a class="reference internal" href="#fields">fields</a> в основоположной коллекции допускается.</p>
+</div>
+<div class="section" id="missingfieldsmessage">
+<h3>missingFieldsMessage<a class="headerlink" href="#missingfieldsmessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Это поле потсутствует.</code></tt></p>
+<p>Сообщение, отображаемое, если <a class="reference internal" href="#allowmissingfields">allowMissingFields</a> - &quot;false&quot;, и одно или
+более полей отсутствуют в основоположной коллекции.</p>
+</div>
+<div class="section" id="payload">
+<h3>payload<a class="headerlink" href="#payload" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>mixed</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>This option can be used to attach arbitrary domain-specific data to a constraint.
+The configured payload is not used by the Validator component, but its processing
+is completely up to you.</p>
+<p>For example, you may want to use
+<a class="reference internal" href="..\..\validation\severity.html"><em>several error levels</em></a> to present failed
+constraints differently in the front-end depending on the severity of the
+error.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

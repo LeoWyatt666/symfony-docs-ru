@@ -1,0 +1,1244 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Формы &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="_static/" type="text/css">
+    <link rel="stylesheet" href="_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="index.html">
+
+<link rel="stylesheet" href="_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="forms-r doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\index.html">
+                    <img src="..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Формы</a><ul>
+<li><a class="reference internal" href="#id2">Установка</a></li>
+<li><a class="reference internal" href="#index-1">Создание простой формы</a><ul>
+<li><a class="reference internal" href="#index-2">Создание формы</a></li>
+<li><a class="reference internal" href="#index-3">Отображение формы</a></li>
+<li><a class="reference internal" href="#form-handling-form-submissions-ru">Эксплуатация отправки форм</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forms-form-validation-ru">Валидация форм</a></li>
+<li><a class="reference internal" href="#forms-type-reference-ru">Встроенные типы полей</a><ul>
+<li><a class="reference internal" href="#text-fields">Text Fields</a></li>
+<li><a class="reference internal" href="#choice-fields">Choice Fields</a></li>
+<li><a class="reference internal" href="#date-and-time-fields">Date and Time Fields</a></li>
+<li><a class="reference internal" href="#other-fields">Other Fields</a></li>
+<li><a class="reference internal" href="#field-groups">Field Groups</a></li>
+<li><a class="reference internal" href="#hidden-fields">Hidden Fields</a></li>
+<li><a class="reference internal" href="#buttons">Buttons</a></li>
+<li><a class="reference internal" href="#base-fields">Base Fields</a></li>
+<li><a class="reference internal" href="#index-7">Опции типов полей</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forms-field-guessing-ru">Определение типов полей</a><ul>
+<li><a class="reference internal" href="#index-9">Определение опций типов полей</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#form-creating-form-classes-ru">Создание классов форм</a></li>
+<li><a class="reference internal" href="#id13">Заключение</a></li>
+<li><a class="reference internal" href="#id14">Узнать больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="index.html">Документация</a></li>
+                
+                <li class="active">Формы</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Формы<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Работа с формами - одна из наиболее типичных и испытывающих задач для web-разработчика.
+Symfony включает в себя компонент для работы с Формами, который облегчает работу с
+ними. В этой главе вы создадите сложную форму с нуля, и в процессе узнаете о наиболее
+важных особенностях библиотеки форм.</p>
+<div class="section" id="id2">
+<h2>Установка<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>В приложениях, использующих <a class="reference internal" href="setup\flex.html"><em>Symfony Flex</em></a>, запустите эту команду, чтобы
+установить функцию формы перед её использованием:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require form
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Компонент Symfony для работы с формами - это независимая библиотека, которая
+может быть использована вне проектов Symfony. Подробности ищите по ссылке
+<a class="reference internal" href="components\form.html"><em>Компонент по работе с формами</em></a> на GitHub.</p>
+</div></div>
+</div>
+<div class="section" id="index-1">
+<span id="id3"></span><h2>Создание простой формы<a class="headerlink" href="#index-1" title="Permalink to this headline">¶</a></h2>
+<p>Предположим, что вы работаете над простым приложением - списком задач,
+которое будет отображать некоторые &quot;задачи&quot;. Поскольку вашим пользователям
+будет необходимо создавать и редактировать задачи, вам потребуется создать
+форму. Но, прежде чем начать, сфокусируйтесь на базовом классе <tt class="docutils literal"><code>Task</code></tt>, который
+представляет и хранит данные для одной задачи:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Task.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Task</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$task</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$dueDate</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getTask</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">task</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setTask</span><span class="p">(</span><span class="nv">$task</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">task</span> <span class="o">=</span> <span class="nv">$task</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getDueDate</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">dueDate</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setDueDate</span><span class="p">(</span><span class="nx">\DateTime</span> <span class="nv">$dueDate</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">dueDate</span> <span class="o">=</span> <span class="nv">$dueDate</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Этот класс представляет собой обычный PHP-объект, так как на данный момент он не
+имеет ничего общего с Symfony или какой-либо другой библиотекой. Это обычный
+PHP-объект, который выполняет задачу непосредственно внутри <em>вашего</em> приложения (т.е.
+необходимость представления задачи в вашем приложении). Конечно же, к концу этой
+главы вы будете иметь возможность отправлять данные для экземпляра <tt class="docutils literal"><code>Task</code></tt> (посредством
+HTML-формы), валидировать её данные и сохранять их в базу данных.</p>
+<div class="section" id="index-2">
+<span id="id4"></span><h3>Создание формы<a class="headerlink" href="#index-2" title="Permalink to this headline">¶</a></h3>
+<p>Теперь, когда вы создали класс <tt class="docutils literal"><code>Task</code></tt>, следующим шагом будет создание
+и отображение самой HTML-формы. В Symfony это выполняется посредством
+создания объекта формы, а потом отображения его в шаблоне. Сейчас это все
+можно сделать в контроллере:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Controller/DefaultController.php</span>
+<span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Entity\Task</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\Controller</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\DateType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\SubmitType</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">DefaultController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">new</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//  создаёт задачу и задаёт в ней фиктивные данные для этого примера</span>
+        <span class="nv">$task</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Task</span><span class="p">();</span>
+        <span class="nv">$task</span><span class="o">-&gt;</span><span class="na">setTask</span><span class="p">(</span><span class="s1">&#39;Write a blog post&#39;</span><span class="p">);</span>
+        <span class="nv">$task</span><span class="o">-&gt;</span><span class="na">setDueDate</span><span class="p">(</span><span class="k">new</span> <span class="nx">\DateTime</span><span class="p">(</span><span class="s1">&#39;tomorrow&#39;</span><span class="p">));</span>
+
+        <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createFormBuilder</span><span class="p">(</span><span class="nv">$task</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;task&#39;</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;dueDate&#39;</span><span class="p">,</span> <span class="nx">DateType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;save&#39;</span><span class="p">,</span> <span class="nx">SubmitType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Create Task&#39;</span><span class="p">))</span>
+            <span class="o">-&gt;</span><span class="na">getForm</span><span class="p">();</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;default/new.html.twig&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;form&#39;</span> <span class="o">=&gt;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">createView</span><span class="p">(),</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Этот пример показывает, как создать вашу форму непосредственно в коде
+вашего контроллера. Позднее, в секции &quot;:ref:` Создание классов форм &lt;form-creating-form-classes&gt;`&quot;
+вы узнаете, как создавать формы в отдельных классах, что является более
+предпочтительным вариантом, и сделает ваши формы доступными для повторного
+использования.</p>
+</div></div>
+<p>Создание формы требует относительно немного кода, так как объекты форм в Symfony
+создаются при помощи конструктора форм - &quot;form builder&quot;. Цель конструктора форм
+– позволить вам писать простые «рецепты» форм, и брать всю сложную работу по
+построению форм на себя.</p>
+<p>В этом примере вы добавили два поля в вашу форму - <tt class="docutils literal"><code>task</code></tt> и <tt class="docutils literal"><code>dueDate</code></tt>,
+соответствующие полям <tt class="docutils literal"><code>task</code></tt> и <tt class="docutils literal"><code>dueDate</code></tt> класса <tt class="docutils literal"><code>Task</code></tt>. Вы также указали каждому
+полю их «типы» (например <tt class="docutils literal"><code>TextType</code></tt> и <tt class="docutils literal"><code>DateType</code></tt>), представленные
+именем класса. Кроме всего, они определяют какой HTML тег(и) будет отображен
+для этого поля.</p>
+<p>В заключение, вы добавили кнопку отправки со специальным ярлыком для отправки формы
+серверу.</p>
+<p>Symfony имеет много встроенных типов, которые будут вскоре описаны
+(см. <a class="reference internal" href="forms.html#forms-type-reference"><span>Типы встроенных полей</span></a>).</p>
+</div>
+<div class="section" id="index-3">
+<span id="id5"></span><h3>Отображение формы<a class="headerlink" href="#index-3" title="Permalink to this headline">¶</a></h3>
+<p>Теперь, когда форма создана, следующим шагом будет её отображение. Это можно
+сделать передав специальный объект формы &quot; view&quot; в ваш шаблон (обратите внимание
+на <tt class="docutils literal"><code>$form-&gt;createView()</code></tt> в контроллере выше) и использовав ряд функций-помощников:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# templates/default/new.html.twig #}</span>
+<span class="cp">{{</span> <span class="nv">form_start</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span>
+<span class="cp">{{</span> <span class="nv">form_widget</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span>
+<span class="cp">{{</span> <span class="nv">form_end</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- templates/default/new.html.php --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span><span class="nv">$form</span><span class="p">)</span> <span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">widget</span><span class="p">(</span><span class="nv">$form</span><span class="p">)</span> <span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">(</span><span class="nv">$form</span><span class="p">)</span> <span class="cp">?&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<img alt="_images/simple-form.png" class="align-center" src="_images\simple-form.png">
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">В этом примере предполагается, что вы отправляете форму на запрос «POST»
+и по тому же URL, по которому она была отображена. Позже вы узнаете, как
+изменить метод запроса и целевой URL формы.</p>
+</div></div>
+<p>Вот и все! Эти три строчки необходимы для отображения готовой формы:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>form_start(form)</code></tt></dt>
+<dd>Отображает стартовый тег формы, включая правильный атрибут enctype во
+время использования файла загрузки.</dd>
+<dt><tt class="docutils literal"><code>form_widget(form)</code></tt></dt>
+<dd>Отображает все поля, которые включают в себя сам элемент поля, ярлык и
+любые сообщения ошибки валидации для поля.</dd>
+<dt><tt class="docutils literal"><code>form_end(form)</code></tt></dt>
+<dd>Отображает конечный тег формы и все поля, которые еще не были отображены, в
+случае, если вы отображали каждое поле самостоятельно. Это полезно для отображения
+скрытых полей и использования преимуществ автоматической
+<a class="reference internal" href="security\csrf.html"><em>защиты CSRF</em></a>.</dd>
+</dl>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Как бы легко это не было, форма (пока) не гибкая. Обычно вам понадобится
+отображать каждое поле формы отдельно, чтобы вы могли контролировать внешний
+вид формы. Вы узнаете, как это делать в разделе
+&quot;<a class="reference internal" href="form\rendering.html"><em>Отображение формы в шаблоне</em></a>&quot;.</div></div>
+<p>Прежде чем двигаться дальше, обратите внимание на то, как отображенное поле
+ввода  <tt class="docutils literal"><code>task</code></tt>, имеет значение поля <tt class="docutils literal"><code>task</code></tt> объекта  <tt class="docutils literal"><code>$task</code></tt> (например,
+&quot;Write a blog post&quot; – написать пост в блог). Это - первая задача формы:
+получить данные от объекта и перевести их в формат, подходящий для их
+последующего отображения в HTML форме.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Система форм достаточно умна, чтобы получить доступ к значению защищённого
+поля <tt class="docutils literal"><code>task</code></tt> через методы  <tt class="docutils literal"><code>getTask()</code></tt> и <tt class="docutils literal"><code>setTask()</code></tt> класса Task. Если
+поле не публичное, оно <em>должно</em> иметь &quot;геттер&quot; и &quot;сеттер&quot; методы для того,
+чтобы компонент Form мог получать и передавать данные в свойство. Для булевых
+свойств вы также можете использовать метод &quot;isser&quot; или “hasser” (например,
+<tt class="docutils literal"><code>isPublished()</code></tt> или <tt class="docutils literal"><code>hasReminder()</code></tt>) вместо геттера (например,
+<tt class="docutils literal"><code>getPublished()</code></tt> or <tt class="docutils literal"><code>getReminder()</code></tt>).</p>
+</div></div>
+</div>
+<div class="section" id="form-handling-form-submissions-ru">
+<span id="index-4"></span><span id="id6"></span><h3>Эксплуатация отправки форм<a class="headerlink" href="#form-handling-form-submissions-ru" title="Permalink to this headline">¶</a></h3>
+<p>По умолчанию, форма отправит запрос POST обратно к тому же самому контроллеру,
+который его отображает.</p>
+<p>Второй обязанностью форм является перевод данных, отправленных пользователем, в
+свойства объекта. Для того, чтобы это произошло, отправленные пользовтелем данные
+должны быть вписаны в объект Form. Добавьте в контроллер следующую функциональность:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">new</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// просто установите новый объект $task (удалите фиктивные данные)</span>
+    <span class="nv">$task</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Task</span><span class="p">();</span>
+
+    <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createFormBuilder</span><span class="p">(</span><span class="nv">$task</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;task&#39;</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;dueDate&#39;</span><span class="p">,</span> <span class="nx">DateType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;save&#39;</span><span class="p">,</span> <span class="nx">SubmitType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Create Task&#39;</span><span class="p">))</span>
+        <span class="o">-&gt;</span><span class="na">getForm</span><span class="p">();</span>
+
+    <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">handleRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isSubmitted</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">())</span> <span class="p">{</span>
+        <span class="c1">// $form-&gt;getData() holds the submitted values</span>
+        <span class="c1">// но первоначальная переменная `$task` тоже была обновлена</span>
+        <span class="nv">$task</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
+
+        <span class="c1">// ... . выполните действия, такие как сохранение задачи в базе данных</span>
+        <span class="c1">// например, если Task является сущностью Doctrine, сохраните его!</span>
+        <span class="c1">// $em = $this-&gt;getDoctrine()-&gt;getManager();</span>
+        <span class="c1">// $em-&gt;persist($task);</span>
+        <span class="c1">// $em-&gt;flush();</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">redirectToRoute</span><span class="p">(</span><span class="s1">&#39;task_success&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;default/new.html.twig&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;form&#39;</span> <span class="o">=&gt;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">createView</span><span class="p">(),</span>
+    <span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Помните, что метод <tt class="docutils literal"><code>createView()</code></tt> должен быть вызван <em>после</em> <tt class="docutils literal"><code>handleRequest()</code></tt>.
+Иначе изменения сделанные в <tt class="docutils literal"><code>*_SUBMIT</code></tt>, не будут применены к отображению
+(как ошибки валидации).</p>
+</div></div>
+<p>Этот контроллер следует типичному сценарию по обработке форм и имеет три возможных пути:</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>При первичной загрузке страницы в браузере, форма просто создается и отображается.</dt>
+<dd><p class="first last"><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/handleRequest() Symfony/Component/Form/FormInterface.html#method_handleRequest" title="handleRequest() Symfony\Component\Form\FormInterface::handleRequest()">handleRequest()</a></code></tt>
+понимает, что форма не была отправлена и ничего не делает.
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/isSubmitted() Symfony/Component/Form/FormInterface.html#method_isSubmitted" title="isSubmitted() Symfony\Component\Form\FormInterface::isSubmitted()">isSubmitted()</a></code></tt>
+возвращает <tt class="docutils literal"><code>false</code></tt>, если форма не была отправлена;</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Когда пользователь отправляет форму, <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/handleRquest() Symfony/Component/Form/FormInterface.html#method_handleRequest" title="handleRquest() Symfony\Component\Form\FormInterface::handleRequest()">handleRequest()</a></code></tt>
+понимает это, и немедленно вписывает отправленные данные обратно в <tt class="docutils literal"><code>task</code></tt> и
+свойства <tt class="docutils literal"><code>dueDate</code></tt> объекта <tt class="docutils literal"><code>$task</code></tt>. Потом этот объект утверждается. Если
+он недействителен (валидация будет рассмотрена в следующей секции)
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/isValid() Symfony/Component/Form/FormInterface.html#method_isValid" title="isValid() Symfony\Component\Form\FormInterface::isValid()">isValid()</a></code></tt> возвращает
+<tt class="docutils literal"><code>false</code></tt>, и форма отображается со всеми ошибками валидации;</p>
+</li>
+<li><p class="first">Когда пользователь отправляет форму с действительными данными, отправленные
+данные, опять же, вписываются в форму, но в этот раз
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/isValid Symfony/Component/Form/FormInterface.html#method_isValid" title="isValid Symfony\Component\Form\FormInterface::isValid()">isValid()</a></code></tt> возвращает
+<tt class="docutils literal"><code>true</code></tt>. Теперь у вас есть возможность выполнить некоторые действия используя
+объект <tt class="docutils literal"><code>$task</code></tt> (например, отображение его в БД), перед тем, как перенаправлять
+пользователя на другую страницу (например, страницу «Спасибо» или «Успех»).</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Перенаправление пользователя после успешной отправки формы предотвращает
+повторную отправку этих же данных, если пользователь обновит страницу.</p>
+</div></div>
+</li>
+</ol>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Если вам нужно больше контроля над тем, когда именно будет отправлена ваша
+форма, или какие данные передаются в нее, вы можете использовать
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/submit() Symfony/Component/Form/FormInterface.html#method_submit" title="submit() Symfony\Component\Form\FormInterface::submit()">submit()</a></code></tt>. Читайте
+больше об этом в  <span class="xref std std-ref">Прямая отправка формы</span>.</div></div>
+</div>
+</div>
+<div class="section" id="forms-form-validation-ru">
+<span id="index-5"></span><span id="id7"></span><h2>Валидация форм<a class="headerlink" href="#forms-form-validation-ru" title="Permalink to this headline">¶</a></h2>
+<p>В предыдущей секции вы узнали, как форма может быть отправлена с валидными
+или не валидными данными. В Symfony валидация применяется к объекту, лежащему
+в основе формы (например, <tt class="docutils literal"><code>Task</code></tt>). Другими словами, вопрос не в том, валидна
+ли «форма», а валиден ли объект <tt class="docutils literal"><code>$task</code></tt>, после того как форма передала ему
+отправленные данные. Вызов метода <tt class="docutils literal"><code>$form-&gt;isValid()</code></tt> – это сокращение, которое
+спрашивает объект <tt class="docutils literal"><code>$task</code></tt> валидны ваши данные или нет.</p>
+<p>До использования валидации, добавьте её поддержку в ваше приложение:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require validator
+</pre></div>
+</td></tr></table></div></div>
+<p>Валидация выполняется посредством добавления набора правил (называемых ограничениями)
+к классу. Для того, чтобы увидеть это в действии, добавьте ограничения валидации так,
+чтобы поле <tt class="docutils literal"><code>task</code></tt> не могло быть пустым, а поле <tt class="docutils literal"><code>dueDate</code></tt>  не могло быть пустым
+и содержало валидный объект DateTime.</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Task.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Task</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Assert\NotBlank()</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="nv">$task</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @Assert\NotBlank()</span>
+<span class="sd">     * @Assert\Type(&quot;\DateTime&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$dueDate</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/validation.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">App\Entity\Task</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">properties</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">task</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">NotBlank</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+        <span class="l l-Scalar l-Scalar-Plain">dueDate</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">NotBlank</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">\DateTime</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/validation.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;constraint-mapping</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping</span>
+<span class="s">        http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;App\Entity\Task&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;task&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;NotBlank&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;dueDate&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;NotBlank&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Type&quot;</span><span class="nt">&gt;</span>\DateTime<span class="nt">&lt;/constraint&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/class&gt;</span>
+<span class="nt">&lt;/constraint-mapping&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Task.php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Mapping\ClassMetadata</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints\NotBlank</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints\Type</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Task</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">loadValidatorMetadata</span><span class="p">(</span><span class="nx">ClassMetadata</span> <span class="nv">$metadata</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$metadata</span><span class="o">-&gt;</span><span class="na">addPropertyConstraint</span><span class="p">(</span><span class="s1">&#39;task&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">NotBlank</span><span class="p">());</span>
+
+        <span class="nv">$metadata</span><span class="o">-&gt;</span><span class="na">addPropertyConstraint</span><span class="p">(</span><span class="s1">&#39;dueDate&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">NotBlank</span><span class="p">());</span>
+        <span class="nv">$metadata</span><span class="o">-&gt;</span><span class="na">addPropertyConstraint</span><span class="p">(</span>
+            <span class="s1">&#39;dueDate&#39;</span><span class="p">,</span>
+            <span class="k">new</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">\DateTime</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Это всё! Если вы повторно отправите форму с ошибочными значениями, вы
+увидите, что соответствующие ошибки будут отображены в форме.</p>
+<p>Валидация - это очень мощная функция Symfony, о которой есть
+целая <a class="reference internal" href="validation.html"><em>статья</em></a></p>
+<div class="admonition-wrapper" id="forms-html5-validation-disable-ru">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Валидация HTML5</p>
+<p>Благодаря HTML5, многие браузеры могут выполнять некоторые валидационные ограничения
+со стороны клиента. Типичная валидация активируется с помощью отображения атрибута
+<tt class="docutils literal"><code>required</code></tt> для полей, которые будут обязательными к заполнению. В браузерах,
+которые поддерживают HTML5, этот атрибут будет отображать браузерное сообщение об
+ошибке, если пользователь попробует отправить форму с пустым полем.</p>
+<p>Генерированные формы максимально используют эту новую возможность, добавляя
+соответствующие HTML-атрибуты, которые активируют валидацию. Тем не менее,
+валидация клиентской стороны может быть отключена путём добавления атрибута
+<tt class="docutils literal"><code>novalidate</code></tt> к тегу <tt class="docutils literal"><code>form</code></tt> или <tt class="docutils literal"><code>formnovalidate</code></tt> к тегу submit. Это особенно
+необходимо, когда вам нужно протестировать ваши серверные ограничения валидации,
+но, к примеру, ваш браузер не даёт отправить форму с пустыми полями.</p>
+<div class="last configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# templates/default/new.html.twig #}</span>
+<span class="cp">{{</span> <span class="nv">form</span><span class="o">(</span><span class="nv">form</span><span class="o">,</span> <span class="o">{</span><span class="s1">&#39;attr&#39;</span><span class="o">:</span> <span class="o">{</span><span class="s1">&#39;novalidate&#39;</span><span class="o">:</span> <span class="s1">&#39;novalidate&#39;</span><span class="cp">}}</span>) }}
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- templates/default/new.html.php --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">form</span><span class="p">(</span><span class="nv">$form</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;attr&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;novalidate&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;novalidate&#39;</span><span class="p">),</span>
+<span class="p">))</span> <span class="cp">?&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div></div>
+</div>
+<div class="section" id="forms-type-reference-ru">
+<span id="index-6"></span><span id="id8"></span><h2>Встроенные типы полей<a class="headerlink" href="#forms-type-reference-ru" title="Permalink to this headline">¶</a></h2>
+<p>В Symfony входит большая группа стандартных типов полей, которые покрывают
+все типичные поля форм и типы данных, с которыми вы столкнётесь:</p>
+<div class="section" id="text-fields">
+<h3>Text Fields<a class="headerlink" href="#text-fields" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="reference\forms\types\text.html"><em>TextType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\textarea.html"><em>TextareaType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\email.html"><em>EmailType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\integer.html"><em>IntegerType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\money.html"><em>MoneyType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\number.html"><em>NumberType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\password.html"><em>PasswordType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\percent.html"><em>PercentType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\search.html"><em>SearchType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\url.html"><em>UrlType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\range.html"><em>RangeType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\tel.html"><em>TelType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\color.html"><em>ColorType</em></a></li>
+</ul>
+</div>
+<div class="section" id="choice-fields">
+<h3>Choice Fields<a class="headerlink" href="#choice-fields" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="reference\forms\types\choice.html"><em>ChoiceType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\entity.html"><em>EntityType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\country.html"><em>CountryType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\language.html"><em>LanguageType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\locale.html"><em>LocaleType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\timezone.html"><em>TimezoneType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\currency.html"><em>CurrencyType</em></a></li>
+</ul>
+</div>
+<div class="section" id="date-and-time-fields">
+<h3>Date and Time Fields<a class="headerlink" href="#date-and-time-fields" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="reference\forms\types\date.html"><em>DateType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\dateinterval.html"><em>DateIntervalType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\datetime.html"><em>DateTimeType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\time.html"><em>TimeType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\birthday.html"><em>BirthdayType</em></a></li>
+</ul>
+</div>
+<div class="section" id="other-fields">
+<h3>Other Fields<a class="headerlink" href="#other-fields" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="reference\forms\types\checkbox.html"><em>CheckboxType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\file.html"><em>FileType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\radio.html"><em>RadioType</em></a></li>
+</ul>
+</div>
+<div class="section" id="field-groups">
+<h3>Field Groups<a class="headerlink" href="#field-groups" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="reference\forms\types\collection.html"><em>CollectionType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\repeated.html"><em>RepeatedType</em></a></li>
+</ul>
+</div>
+<div class="section" id="hidden-fields">
+<h3>Hidden Fields<a class="headerlink" href="#hidden-fields" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="reference\forms\types\hidden.html"><em>HiddenType</em></a></li>
+</ul>
+</div>
+<div class="section" id="buttons">
+<h3>Buttons<a class="headerlink" href="#buttons" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="reference\forms\types\button.html"><em>ButtonType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\reset.html"><em>ResetType</em></a></li>
+<li><a class="reference internal" href="reference\forms\types\submit.html"><em>SubmitType</em></a></li>
+</ul>
+</div>
+<div class="section" id="base-fields">
+<h3>Base Fields<a class="headerlink" href="#base-fields" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="reference\forms\types\form.html"><em>FormType</em></a></li>
+</ul>
+<p>Вы также можете создать свои пользовательские типы полей. Эта тема раскрывается
+в статье <a class="reference internal" href="form\create_custom_field_type.html"><em>Как создавать пользовательские типы поля</em></a>.</p>
+</div>
+<div class="section" id="index-7">
+<span id="id9"></span><h3>Опции типов полей<a class="headerlink" href="#index-7" title="Permalink to this headline">¶</a></h3>
+<p>Каждый тип поля имеет некоторое число опций, которые можно использовать для
+их настройки. Например, поле <tt class="docutils literal"><code>dueDate</code></tt>  сейчас отображается как 3 селектбокса.
+Тем не менее, <a class="reference internal" href="reference\forms\types\date.html"><em>DateType</em></a> можно настроить так,
+чтобы отображался один текстбокс (где пользователь сможет ввести дату в виде строки):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;dueDate&#39;</span><span class="p">,</span> <span class="nx">DateType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;widget&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;single_text&#39;</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div></div>
+<img alt="_images/simple-form-2.png" class="align-center" src="_images\simple-form-2.png">
+<p>Каждый тип поля имеет много различных опций, которые могут быть указаны для них.
+Многие из этих опций - специфичны для конкретного типа поля и больше информации
+о каждом типе можно найти в документации.</p>
+<div class="admonition-wrapper">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Опция <tt class="docutils literal"><code>required</code></tt></p>
+<p>Наиболее типичной опцией является опция <tt class="docutils literal"><code>required</code></tt>, которая может быть
+применена для любого поля. По умолчанию, опция <tt class="docutils literal"><code>required</code></tt> установлена
+как <tt class="docutils literal"><code>true</code></tt>, что даёт возможность браузерам с поддержкой HTML5 использовать
+встроенную в них клиентскую валидацию, если поле остаётся пустым. Если вам
+не нужно такое поведение, установите опцию <tt class="docutils literal"><code>required</code></tt> как <tt class="docutils literal"><code>false</code></tt> или же
+<a class="reference internal" href="forms.html#forms-html5-validation-disable"><span>отключите валидацию HTML5</span></a>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;dueDate&#39;</span><span class="p">,</span> <span class="nx">DateType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;widget&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;single_text&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span>
+<span class="p">))</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Отметим также, что установка опции <tt class="docutils literal"><code>required</code></tt> как <tt class="docutils literal"><code>true</code></tt> <strong>не</strong>
+приведет к запуску серверной валидации. Другими словами, если пользователь
+отправляет пустое значение для поля (при помощи старого браузера или
+веб-сервиса, к примеру) оно будет считаться валидным значением , разве
+что вы используете ограничения валидации Symfony <tt class="docutils literal"><code>NotBlank</code></tt> или <tt class="docutils literal"><code>NotNull</code></tt>.</p>
+<p class="last">Другими словами, опция <tt class="docutils literal"><code>required</code></tt> «хорошая», но настощая серверная валидация
+должна использоваться <em>всегда</em>.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Опция  <tt class="docutils literal"><code>label</code></tt></p>
+<p>Ярлык для поля формы может быть установлен с помощью опции  <tt class="docutils literal"><code>label</code></tt>,
+которую можно применить к любому полю:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;dueDate&#39;</span><span class="p">,</span> <span class="nx">DateType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;widget&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;single_text&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;label&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;Due Date&#39;</span><span class="p">,</span>
+<span class="p">))</span>
+</pre></div>
+</td></tr></table></div></div>
+<p class="last">Ярлык для поля также можно установить в шаблоне, отображающем форму.
+Если вам не нужно, чтобы с вашим вводом был сязан ярлык, вы можете
+деактивировать его, установив его значение как <tt class="docutils literal"><code>false</code></tt>.</p>
+</div></div>
+</div>
+</div>
+<div class="section" id="forms-field-guessing-ru">
+<span id="index-8"></span><span id="id10"></span><h2>Определение типов полей<a class="headerlink" href="#forms-field-guessing-ru" title="Permalink to this headline">¶</a></h2>
+<p>Теперь, когда вы добавили метаданные для валидации в класс  <tt class="docutils literal"><code>Task</code></tt>, Symfony
+уже много знает о ваших полях. Если вы позволите, Symfony может предполагать
+(&quot;угадывать&quot;) тип вашего поля и устанавливать его за вас. В этом примере,
+Symfony может предположить по правилам валидации, что поле <tt class="docutils literal"><code>task</code></tt> является
+нормальным полем <tt class="docutils literal"><code>TextType</code></tt> , а поле <tt class="docutils literal"><code>dueDate</code></tt> - полем типа <tt class="docutils literal"><code>DateType</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">new</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nv">$task</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Task</span><span class="p">();</span>
+
+    <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createFormBuilder</span><span class="p">(</span><span class="nv">$task</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;task&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;dueDate&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;widget&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;single_text&#39;</span><span class="p">))</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;save&#39;</span><span class="p">,</span> <span class="nx">SubmitType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">getForm</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Автоматическое «угадывание» активируется, когда вы опускаете второй аргумент
+в методе <tt class="docutils literal"><code>add()</code></tt> (или если вы указываете для него <tt class="docutils literal"><code>null</code></tt>). Если вы передаёте
+массив опций в качестве третьего аргумента (как в случае  <tt class="docutils literal"><code>dueDate</code></tt> выше), эти
+опции применяются к &quot;угаданному&quot; полю.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Если ваша форма использует особую валидационную группу, определитель
+типов полей будет учитывать <em>все</em> ограничения валидации при определении
+типов полей (включая ограничения, которые не являются частью используемых
+валидационных групп).</p>
+</div></div>
+<div class="section" id="index-9">
+<span id="id11"></span><h3>Определение опций типов полей<a class="headerlink" href="#index-9" title="Permalink to this headline">¶</a></h3>
+<p>В дополнение к определению &quot;типа&quot; поля, Symfony также может попытаться
+определить правильные значения ряда опций поля.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Когда эти опции будут установлены, поле будет отображено с использованием
+особых HTML атрибутов, которые позволяют выполнять клиентскую HTML5 валидацию
+(например, <tt class="docutils literal"><code>Assert\Length</code></tt>). И, несмотря на то, что  вам нужно будет вручную
+добавлять правила серверной валидации, эти опции типов полей могут быть угаданы
+исходя из этой информации.</p>
+</div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>required</code></tt></dt>
+<dd>Опция <tt class="docutils literal"><code>required</code></tt> может быть определена исходя из правил валидации (т.е.
+если поле <tt class="docutils literal"><code>NotBlank</code></tt> или <tt class="docutils literal"><code>NotNull</code></tt>) или же на основании метаданных Doctrine
+(т.е. если поле <tt class="docutils literal"><code>nullable</code></tt>). Это очень полезно, так как правила клиентской
+валидации автоматически будут соответствовать правилам серверной валидации.</dd>
+<dt><tt class="docutils literal"><code>maxlength</code></tt></dt>
+<dd>Если поле текстовое, тогда атрибут опции <tt class="docutils literal"><code>maxlength</code></tt> может быть угадана по ограничениям
+валидации (если используется <tt class="docutils literal"><code>Length</code></tt> или <tt class="docutils literal"><code>Range</code></tt>) или по метаданным Doctrine
+(с помощью длины поля).</dd>
+</dl>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Эти опции полей предполагаются <em>только</em> если вы используете Symfony для
+угадывания типа поля (т.е. опускаете или передаете <tt class="docutils literal"><code>null</code></tt> в качестве второго
+аргумента <tt class="docutils literal"><code>add()</code></tt>).</p>
+</div></div>
+<p>Если вы хотите изменить одно из угаданных значений, вы можете перезаписать их,
+передавая опции в поле массива опций:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;task&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;attr&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;maxlength&#39;</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="form-creating-form-classes-ru">
+<span id="index-10"></span><span id="id12"></span><h2>Создание классов форм<a class="headerlink" href="#form-creating-form-classes-ru" title="Permalink to this headline">¶</a></h2>
+<p>Как вы уже видели, форма может быть создана и использована непосредственно в
+контроллере. Тем не менее, лучшей практикой является создание формы в
+отдельностоящем PHP-классе, который может быть использован повторно в любом
+месте вашего приложения. Создайте новый класс, который будет содержать логику
+создания формы задач:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/TaskType.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\AbstractType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormBuilderInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\SubmitType</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">TaskType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;task&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;dueDate&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;widget&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;single_text&#39;</span><span class="p">))</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;save&#39;</span><span class="p">,</span> <span class="nx">SubmitType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Этот новый класс содержит все необходимые указания для создания формы задач. Его
+можно использовать для быстрого создания объекта формы в контроллере:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Controller/DefaultController.php</span>
+<span class="k">use</span> <span class="nx">AppBundle\Form\TaskType</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">newAction</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nv">$task</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+    <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createForm</span><span class="p">(</span><span class="nx">TaskType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nv">$task</span><span class="p">);</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Размещение логики формы в отдельном классе означает, что теперь форма может
+быть легко использована повторно в любом другом месте вашего приложения. Это
+наилучший способ для создания форм, но выбор, конечно же, за вами.</p>
+<div class="admonition-wrapper" id="form-data-class-ru">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Установка <tt class="docutils literal"><code>data_class</code></tt></p>
+<p>Каждая форма должна знать имя класса, который содержит данные для неё
+(например,  <tt class="docutils literal"><code>App\Entity\Task</code></tt>). Как правило, эти данные
+предполагаются по объекту, который передаётся вторым аргументом
+<tt class="docutils literal"><code>createForm()</code></tt> (т.е. <tt class="docutils literal"><code>$task</code></tt>). Позднее, когда вы начнете встраивать
+формы, это уже не будет достаточным. Таким образом, хоть и не всегда
+необходимо, но всё же желательно ясно указывать опцию <tt class="docutils literal"><code>data_class</code></tt>,
+добавляя следующие строки в класс типа формы:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/TaskType.php</span>
+<span class="k">use</span> <span class="nx">App\Entity\Task</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\OptionsResolver\OptionsResolver</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;data_class&#39;</span> <span class="o">=&gt;</span> <span class="nx">Task</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Во время отображения форм в объектах, отображаются все поля. Любые поля
+формы, которые не существуют на отображенном объекте, будут создавать
+исключение.</p>
+<p>В случаях, когда вам понадобятся дополнительные поля в форме (например,
+чекбокс «согласны ли вы с этими условиями»), которые не будут отображены
+в базовом объекте, вам необходимо будет установить опцию  <tt class="docutils literal"><code>mapped</code></tt> как
+<tt class="docutils literal"><code>false</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Form\FormBuilderInterface</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$builder</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;task&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;dueDate&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;agreeTerms&#39;</span><span class="p">,</span> <span class="nx">CheckboxType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;mapped&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">))</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;save&#39;</span><span class="p">,</span> <span class="nx">SubmitType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Кроме того, если в форме есть какие-либо поля, не включенные в отправленные
+данные, эти поля будут явно установлены как <tt class="docutils literal"><code>null</code></tt>.</p>
+<p>Доступ к данным полям можно получить в контроллере с помощью:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;agreeTerms&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Кроме того, данные неотображенного поля также могут быть изменены напрямую:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;agreeTerms&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Имя формы автоматически генерируется из имени типа класса. Если вы хотите изменить
+его, используйте метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Form/FormFactoryInterface.html#method_createNamed" title="Symfony\Component\Form\FormFactoryInterface::createNamed()">createNamed()</a></code></tt>.
+Вы можете даже полностью подавить имя, установив его в виде пустой строки.</p>
+</div></div>
+</div>
+<div class="section" id="id13">
+<h2>Заключение<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>При построении форм, помните, что первичной целью формы является перевод данных
+из объекта (<tt class="docutils literal"><code>Task</code></tt>) в HTML-форму, чтобы пользователь мог изменять эти данные.
+Вторичная цель формы - брать данные, отправленные пользователем, и повторно
+применять их к объекту.</p>
+<p>Можно узнать еще много информации и много <em>мощных</em> фишек в системе форм.</p>
+</div>
+<div class="section" id="id14">
+<h2>Узнать больше<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="form\action_method.html">How to Change the Action and Method of a Form</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/action_method-ru.html">Как изменить действие и метод формы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\bootstrap4.html">Bootstrap 4 Form Theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\button_based_validation.html">How to Choose Validation Groups Based on the Clicked Button</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/button_based_validation-ru.html">Как выбирать группы валидации, основанные на нажатой кнопке</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\create_custom_field_type.html">How to Create a Custom Form Field Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/create_custom_field_type-ru.html">Как создать пользовательский тип поля формы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\create_form_type_extension.html">How to Create a Form Type Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/create_form_type_extension-ru.html">Как создать расширение типа формы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\data_based_validation.html">How to Choose Validation Groups Based on the Submitted Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/data_based_validation-ru.html">Как выбирать группы валидации, основанные на отправленных данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\data_transformers.html">How to Use Data Transformers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/data_transformers-ru.html">Как использовать преобразователи данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\direct_submit.html">How to Use the submit() Function to Handle Form Submissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/direct_submit-ru.html">Как использовать функцию submit() для обработки отправки форм</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\disabling_validation.html">How to Disable the Validation of Submitted Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/disabling_validation-ru.html">Как отключить валидацию отправленных данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\dynamic_form_modification.html">How to Dynamically Modify Forms Using Form Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/dynamic_form_modification-ru.html">Как динамически модифицировать формы, используя события форм</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\embedded.html">How to Embed Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/embedded-ru.html">Как встраивать формы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\events.html">Form Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/events-ru.html">События формы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\form_collections.html">How to Embed a Collection of Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/form_collections-ru.html">Как встроить коллекцию форм</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\form_customization.html">How to Customize Form Rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/form_customization-ru.html">Как настроить отображение формы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\form_dependencies.html">How to Access Services or Config from Inside a Form</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/form_dependencies-ru.html">Как получить доступ к сервисам или конфигурации изнутри формы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\form_themes.html">How to Work with Form Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/form_themes-ru.html">Как работать с темами формы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\inherit_data_option.html">How to Reduce Code Duplication with &quot;inherit_data&quot;</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/inherit_data_option-ru.html">Как уменьшить дублирование кода с помощью &quot;inherit_data&quot;</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\multiple_buttons.html">How to Submit a Form with Multiple Buttons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/multiple_buttons-ru.html">Как отправить форму с несколькими кнопками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\rendering.html">How to Control the Rendering of a Form</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/rendering-ru.html">Как контролировать отображение в форме</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\type_guesser.html">Creating a custom Type Guesser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/type_guesser-ru.html">Создание пользовательского отгадывателя типа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\unit_testing.html">How to Unit Test your Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/unit_testing-ru.html">Как проводить модульное тестирование ваших форм</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\use_empty_data.html">How to Configure empty Data for a Form Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/use_empty_data-ru.html">Как сконфигурировать пустые данные для класса формы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\validation_group_service_resolver.html">How to Dynamically Configure Form Validation Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/validation_group_service_resolver-ru.html">Как сконфигурировать динамические группы валидации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\validation_groups.html">How to Define the Validation Groups to Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/validation_groups-ru.html">Как определить, какие группы валидации использовать</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form\without_class.html">How to Use a Form without a Data Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form/without_class-ru.html">Как использовать форму без класса данных</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="controller\upload_file.html"><em>How to Upload Files</em></a></li>
+<li><a class="reference internal" href="reference\forms\types.html"><em>Form Types Reference</em></a></li>
+<li><a class="reference internal" href="http_cache\form_csrf_caching.html"><em>Caching Pages that Contain CSRF Protected Forms</em></a></li>
+</ul>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

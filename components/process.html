@@ -1,0 +1,831 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент Process &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="Компонента PropertyAccess (доступ к свойству)" href="property_access-ru.html">
+    <link rel="prev" title="Полизаполнение Symfony / Компонент PHP 7.3" href="polyfill_php73-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент Process</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#id2">Использование</a></li>
+<li><a class="reference internal" href="#id3">Получение вывода процесса в настоящем времени</a></li>
+<li><a class="reference internal" href="#id4">Асинхронный запуск процессов</a></li>
+<li><a class="reference internal" href="#id5">Потоковая передача в стандартный ввод процесса</a><ul>
+<li><a class="reference internal" href="#php">Использование PHP потоков в качестве стандартного ввода процесса</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">Остановка процесса</a></li>
+<li><a class="reference internal" href="#id7">Выполнение PHP кода в изоляции</a></li>
+<li><a class="reference internal" href="#id8">Превышение лимита времени процесса</a></li>
+<li><a class="reference internal" href="#reference-process-signal-ru">Превышение лимита времени бездействия процесса</a></li>
+<li><a class="reference internal" href="#id10">Сигналы процесса</a></li>
+<li><a class="reference internal" href="#pid">Pid процесса</a></li>
+<li><a class="reference internal" href="#id11">Отключение вывода</a></li>
+<li><a class="reference internal" href="#id12">Поиск выполняемого бинарного PHP файла</a></li>
+<li><a class="reference internal" href="#tty">Проверка поддержки TTY</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент Process</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="process">
+<span id="index-0"></span><h1>Компонент Process<a class="headerlink" href="#process" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Компонент Process выполняет команды в подпроцессах.</div></blockquote>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/process
+</pre></div>
+</td></tr></table></div></div>
+<p>Также вы можете клонировать репозиторий <a class="reference external" href="https://github.com/symfony/process">https://github.com/symfony/process</a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Использование<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html" title="Symfony\Component\Process\Process">Process</a></code></tt> выполняет команду в подпроцессе,
+заботясь о разнице между ОС и экранированием аргументов, чтобы избежать проблем безопасности.
+Он заменяет PHP функции вроде <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.exec.php" title="exec">exec</a></code></tt>, <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.passthru.php" title="passthru">passthru</a></code></tt>, <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.shell-exec.php" title="shell_exec">shell_exec</a></code></tt>
+и <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.system.php" title="system">system</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Process\Process</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Process\Exception\ProcessFailedException</span><span class="p">;</span>
+
+<span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;ls -lsa&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+
+<span class="c1">// выполняет после окончания команды</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$process</span><span class="o">-&gt;</span><span class="na">isSuccessful</span><span class="p">())</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nx">ProcessFailedException</span><span class="p">(</span><span class="nv">$process</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">echo</span> <span class="nv">$process</span><span class="o">-&gt;</span><span class="na">getOutput</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Кроме передачи бинарной команды и её аргументов в виде строки, вы также можете
+передавать их в виде массива, что полезно при программном построении сложной
+команды:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// команды, основанные на традиционных строках</span>
+<span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;ls -lsa&#39;</span><span class="p">);</span>
+<span class="c1">// тот же пример, но с использованием массива</span>
+<span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="s1">&#39;-lsa&#39;</span><span class="p">));</span>
+<span class="c1">// массив может содержать любое количество аргументов и опций</span>
+<span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;-a&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<p>Метод <tt class="docutils literal"><code>getOutput()</code></tt> всегда возвращает все содержимое стандартного вывода команды и
+содержимое <tt class="docutils literal"><code>getErrorOutput()</code></tt> вывода ошибки. Как вариант, методы
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_getIncrementalOutput" title="Symfony\Component\Process\Process::getIncrementalOutput()">getIncrementalOutput()</a></code></tt> и
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_getIncrementalErrorOutput" title="Symfony\Component\Process\Process::getIncrementalErrorOutput()">getIncrementalErrorOutput()</a></code></tt> возваращают
+новый вывод после последнего вызова.</p>
+<p>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_clearOutput" title="Symfony\Component\Process\Process::clearOutput()">clearOutput()</a></code></tt> очищает содержание
+вывода, а <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_clearErrorOutput" title="Symfony\Component\Process\Process::clearErrorOutput()">clearErrorOutput()</a></code></tt> - содержание
+вывода ошибки.</p>
+<p>Вы можете также использовать класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html" title="Symfony\Component\Process\Process">Process</a></code></tt> с
+концепцией foreach, чтобы получить вывод во время его генерации. По умолчанию, цикл
+ждёт нового вывода до перехода к следующей итерации:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;ls -lsa&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$process</span> <span class="k">as</span> <span class="nv">$type</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$process</span><span class="o">::</span><span class="na">OUT</span> <span class="o">===</span> <span class="nv">$type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Read from stdout: &quot;</span><span class="o">.</span><span class="nv">$data</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// $process::ERR === $type</span>
+        <span class="k">echo</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Read from stderr: &quot;</span><span class="o">.</span><span class="nv">$data</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Компонент Процесс внутренне использует PHP итератор, чтобы получить вывод во
+время его генерации. Итератор демонстрируется через метод <tt class="docutils literal"><code>getIterator()</code></tt>,
+чтобы позволить настройку его поведения:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;ls -lsa&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+<span class="nv">$iterator</span> <span class="o">=</span> <span class="nv">$process</span><span class="o">-&gt;</span><span class="na">getIterator</span><span class="p">(</span><span class="nv">$process</span><span class="o">::</span><span class="na">ITER_SKIP_ERR</span> <span class="o">|</span> <span class="nv">$process</span><span class="o">::</span><span class="na">ITER_KEEP_OUTPUT</span><span class="p">);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$iterator</span> <span class="k">as</span> <span class="nv">$data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$data</span><span class="o">.</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<p>Метод <tt class="docutils literal"><code>mustRun()</code></tt> идентичен методу <tt class="docutils literal"><code>run()</code></tt>, кроме того, что он будет
+вызывать <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Exception/ProcessFailedException.html" title="Symfony\Component\Process\Exception\ProcessFailedException">ProcessFailedException</a></code></tt>,
+если процесс не мог быть выполнен успешно (т.е. процесс завершился ненулевым кодом):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Process\Exception\ProcessFailedException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Process\Process</span><span class="p">;</span>
+
+<span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;ls -lsa&#39;</span><span class="p">);</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$process</span><span class="o">-&gt;</span><span class="na">mustRun</span><span class="p">();</span>
+
+    <span class="k">echo</span> <span class="nv">$process</span><span class="o">-&gt;</span><span class="na">getOutput</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">ProcessFailedException</span> <span class="nv">$exception</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$exception</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id3">
+<h2>Получение вывода процесса в настоящем времени<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>При выполнении долгосрочной команды (вроде синхронизации файлов с удалённым
+сервером), вы можете предоставить обратную связь с конечным пользователем в
+реальном времени, передав анонимную функцию методу
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_run" title="Symfony\Component\Process\Process::run()">run()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Process\Process</span><span class="p">;</span>
+
+<span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;ls -lsa&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$type</span><span class="p">,</span> <span class="nv">$buffer</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Process</span><span class="o">::</span><span class="na">ERR</span> <span class="o">===</span> <span class="nv">$type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;ERR &gt; &#39;</span><span class="o">.</span><span class="nv">$buffer</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;OUT &gt; &#39;</span><span class="o">.</span><span class="nv">$buffer</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id4">
+<h2>Асинхронный запуск процессов<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Вы можете также начать подпроцесс,а потом запустить его асихнронно, получая вывод
+и статус вашего основного процесса, когда они вам нужны. Используйте метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_start" title="Symfony\Component\Process\Process::start()">start()</a></code></tt>, чтобы начать асинхронный процсс,
+метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_isRunning" title="Symfony\Component\Process\Process::isRunning()">isRunning()</a></code></tt>, чтобы проверить, завершён
+ли процесс, и метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_getOutput" title="Symfony\Component\Process\Process::getOutput()">getOutput()</a></code></tt>, чтобы
+получить вывод:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;ls -lsa&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nv">$process</span><span class="o">-&gt;</span><span class="na">isRunning</span><span class="p">())</span> <span class="p">{</span>
+    <span class="c1">// ожидание окончания процесса</span>
+<span class="p">}</span>
+
+<span class="k">echo</span> <span class="nv">$process</span><span class="o">-&gt;</span><span class="na">getOutput</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы можете также подождать, пока процесс завершится, если вы начали его асинхронно
+и закончили делать другие дела:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;ls -lsa&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="c1">// ... делать другие вещи</span>
+
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">wait</span><span class="p">();</span>
+
+<span class="c1">// ... делать вещи после завершения процесса</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_wait" title="Symfony\Component\Process\Process::wait()">wait()</a></code></tt> - блокирующий, что
+означает, что ваш код будет остановлен на этой строке до тех пор, пока не будет
+завершён внешний процесс.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p>Если <tt class="docutils literal"><code>Response</code></tt> отправлен <strong>до</strong> завершения дочернего процесса, то процесс
+сервера будет убит (в зависимости от вашей ОС). Это означает, что ваша задача
+будет моментально остановлена. Запуск асинхронного процсса не равняется запуску
+процесса, переживающего родительский процесс.</p>
+<p class="last">Если вы хотите, чтобы ваш процесс пережил цикл запрос / ответ, то вы
+можете воспользоваться преимуществами события <tt class="docutils literal"><code>kernel.terminate</code></tt>, и
+запустить вашу команду <strong>асинхронно</strong> внутри этого события. Имейте в виду,
+что <tt class="docutils literal"><code>kernel.terminate</code></tt> вызывает только, если выиспользуете PHP-FPM.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Также имейте в виду, что если вы это сделаете, то вышеназванный процесс
+PHP-МФП не будет доступен для обслуживания любого нового запроса до
+завершения подпроцесса. Это означает, что вы можете быстро заблокировать
+ваш МФП-пул, если вы не будете осторожны. Это то, почему обычно намного
+лучше не делать ничего мудрёного даже после отправки запроса, а вместо
+этого использвать очередь задач.</p>
+</div></div>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_wait" title="Symfony\Component\Process\Process::wait()">wait()</a></code></tt> берёт один необязательноый аргумент:
+обратный вызов, который постоянно вызывается во время работы процесса, передавая вывод и
+его тип:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;ls -lsa&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">wait</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$type</span><span class="p">,</span> <span class="nv">$buffer</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Process</span><span class="o">::</span><span class="na">ERR</span> <span class="o">===</span> <span class="nv">$type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;ERR &gt; &#39;</span><span class="o">.</span><span class="nv">$buffer</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;OUT &gt; &#39;</span><span class="o">.</span><span class="nv">$buffer</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id5">
+<h2>Потоковая передача в стандартный ввод процесса<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>До начала процесса вы можете указать его стандартный ввод, используя либо метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_setInput" title="Symfony\Component\Process\Process::setInput()">setInput()</a></code></tt>, либо 4й аргумент контруктора.
+Предоставленный ввод может быть строкой, источником потока или траверсабельным объектом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">setInput</span><span class="p">(</span><span class="s1">&#39;foobar&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Когда этот ввод будет полностью написан в стандартном вводе подпроцесса, соответствущая
+труба будет закрыта.</p>
+<p>Чтобы написать в стандартный ввод подроцесса во время его работы, компонент предоставляет
+класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/InputStream.html" title="Symfony\Component\Process\InputStream">InputStream</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$input</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">InputStream</span><span class="p">();</span>
+<span class="nv">$input</span><span class="o">-&gt;</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+
+<span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">setInput</span><span class="p">(</span><span class="nv">$input</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="c1">// ... прочитать вывод процесса или сделать что-то ещё</span>
+
+<span class="nv">$input</span><span class="o">-&gt;</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">);</span>
+<span class="nv">$input</span><span class="o">-&gt;</span><span class="na">close</span><span class="p">();</span>
+
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">wait</span><span class="p">();</span>
+
+<span class="c1">// отразит: foobar</span>
+<span class="k">echo</span> <span class="nv">$process</span><span class="o">-&gt;</span><span class="na">getOutput</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/InputStream.html#method_write" title="Symfony\Component\Process\InputStream::write()">write()</a></code></tt> принимает скалярные значения,
+источники потока или траверсабельные объекты в качестве аргумента. Как показано в примере выше,
+вам нужно ясно вызвать метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/InputStream.html#method_close" title="Symfony\Component\Process\InputStream::close()">close()</a></code></tt>, когда
+вы закончите писать в стандартный ввод подпроцесса.</p>
+<div class="section" id="php">
+<h3>Использование PHP потоков в качестве стандартного ввода процесса<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h3>
+<p>Ввод процесса может быть также определён с использованием <a class="reference external" href="https://www.php.net/manual/en/book.stream.php">PHP потоков</a>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$stream</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="s1">&#39;php://temporary&#39;</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">);</span>
+
+<span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">setInput</span><span class="p">(</span><span class="nv">$stream</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="nb">fwrite</span><span class="p">(</span><span class="nv">$stream</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+
+<span class="c1">// ... прочитать вывод процесса или сделать что-то другое</span>
+
+<span class="nb">fwrite</span><span class="p">(</span><span class="nv">$stream</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">);</span>
+<span class="nb">fclose</span><span class="p">(</span><span class="nv">$stream</span><span class="p">);</span>
+
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">wait</span><span class="p">();</span>
+
+<span class="c1">// отразит: &#39;foobar&#39;</span>
+<span class="k">echo</span> <span class="nv">$process</span><span class="o">-&gt;</span><span class="na">getOutput</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>Остановка процесса<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Любой асинхронный процесс можно остановить в любое время методом
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_stop" title="Symfony\Component\Process\Process::stop()">stop()</a></code></tt>. Этот метод берёт два аргумента:
+превышение лимита времени и сигнал. Когда лимит времени достигнут, сигнал отправляется
+текущему процессе. Сигнал по умолчанию, который отправляется процессу - <tt class="docutils literal"><code>SIGKILL</code></tt>.
+Пожалуйста, прочтите <a class="reference internal" href="process.html#reference-process-signal"><span>документацию сигнала ниже</span></a>, чтобы
+узнать больше об обработке сигнала в компоненте Процесс:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;ls -lsa&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="c1">// ... сделать что-то другое</span>
+
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">stop</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nx">SIGINT</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id7">
+<h2>Выполнение PHP кода в изоляции<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>Если вы хотите выполнить некоторый PHP код в изооляции, используйте вместо этого
+<tt class="docutils literal"><code>PhpProcess</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Process\PhpProcess</span><span class="p">;</span>
+
+<span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PhpProcess</span><span class="p">(</span><span class="s">&lt;&lt;&lt;</span><span class="dl">EOF</span><span class="s"></span>
+<span class="s">    &lt;?php echo &#39;Hello World&#39;; ?&gt;</span>
+<span class="dl">EOF</span>
+<span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id8">
+<h2>Превышение лимита времени процесса<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>Вы можете ограничивать количество времени, которое занимает выполнение процесса,
+установив истечение срока ожидания (в секундах):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Process\Process</span><span class="p">;</span>
+
+<span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;ls -lsa&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">setTimeout</span><span class="p">(</span><span class="mi">3600</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если лимит времени достигнут, то вызывается
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Exception/RuntimeException.html" title="Symfony\Component\Process\Exception\RuntimeException">RuntimeException</a></code></tt>.</p>
+<p>Для долгосрочных команд, ваша ответственность заключается в том, чтобы выполнять
+регулярно проверку превышения лимита времени:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$process</span><span class="o">-&gt;</span><span class="na">setTimeout</span><span class="p">(</span><span class="mi">3600</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nv">$condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="c1">// проверить, достигнут ли лимит времени</span>
+    <span class="nv">$process</span><span class="o">-&gt;</span><span class="na">checkTimeout</span><span class="p">();</span>
+
+    <span class="nb">usleep</span><span class="p">(</span><span class="mi">200000</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="reference-process-signal-ru">
+<span id="id9"></span><h2>Превышение лимита времени бездействия процесса<a class="headerlink" href="#reference-process-signal-ru" title="Permalink to this headline">¶</a></h2>
+<p>В отличие от превышения лимита времени в предыдущем параграфе, лимит бездействия
+процесса рассматривает только то время, которое прошло с момента последнего вывода,
+произведённого процессом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Process\Process</span><span class="p">;</span>
+
+<span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;something-with-variable-runtime&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">setTimeout</span><span class="p">(</span><span class="mi">3600</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">setIdleTimeout</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вышеописанном случае, процесс считается законченным, когда либо общее количество времени
+работы превышает 3600 секунд, либо процесс не производит никакого вывода в течение 60 секунд.</p>
+</div>
+<div class="section" id="id10">
+<h2>Сигналы процесса<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>При асинхронным запуске программы, вы можете отправлять сигналы с помощью метода
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_signal" title="Symfony\Component\Process\Process::signal()">signal()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Process\Process</span><span class="p">;</span>
+
+<span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;find / -name &quot;rabbit&quot;&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="c1">// отправит SIGKILL процессу</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">signal</span><span class="p">(</span><span class="nx">SIGKILL</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p>В связи с некоторыми ограничениями в PHP, если вы используете сигналы с
+компонентом Процесс, то вам может понадобиться добавлять к вашим командам
+префикс <a class="reference external" href="https://en.wikipedia.org/wiki/Exec_(operating_system)">exec</a>. Пожалуйста, прочтите <a class="reference external" href="https://github.com/symfony/symfony/issues/5759">Symfony Issue#5759</a> и <a class="reference external" href="https://bugs.php.net/bug.php?id=39992">PHP Bug#39992</a>,
+чтобы понять, почему так происходит.</p>
+<p class="last">POSIX сигналы недоступны на платформах Windows, пожалуйста, обратитесь
+к <a class="reference external" href="https://php.net/manual/en/pcntl.constants.php">документации PHP</a> для списка доступных сигналов.</p>
+</div></div>
+</div>
+<div class="section" id="pid">
+<h2>Pid процесса<a class="headerlink" href="#pid" title="Permalink to this headline">¶</a></h2>
+<p>Вы можете получить доступ к <a class="reference external" href="https://en.wikipedia.org/wiki/Process_identifier">pid</a> текущего процесса с помощью метода
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_getPid" title="Symfony\Component\Process\Process::getPid()">getPid()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Process\Process</span><span class="p">;</span>
+
+<span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;/usr/bin/php worker.php&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="nv">$pid</span> <span class="o">=</span> <span class="nv">$process</span><span class="o">-&gt;</span><span class="na">getPid</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">В связи с некоторыми ограничениями в PHP, если вы используете сигналы с
+компонентом Процесс, то вам может понадобиться добавлять к вашим командам
+префикс <a class="reference external" href="https://en.wikipedia.org/wiki/Exec_(operating_system)">exec</a>.  Пожалуйста, прочтите <a class="reference external" href="https://github.com/symfony/symfony/issues/5759">Symfony Issue#5759</a>, чтобы понять,
+почему так происходит.</p>
+</div></div>
+</div>
+<div class="section" id="id11">
+<h2>Отключение вывода<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>Так как стандартный вывод и вывод ошибок всегда извлекаются из основоположного процесса,
+может быть удобным отключить вывод в некоторых случаях для сохранения памяти. Используйте
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_disableOutput" title="Symfony\Component\Process\Process::disableOutput()">disableOutput()</a></code></tt> и
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_enableOutput" title="Symfony\Component\Process\Process::enableOutput()">enableOutput()</a></code></tt>, чтобы переключить эту функцию:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Process\Process</span><span class="p">;</span>
+
+<span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="s1">&#39;/usr/bin/php worker.php&#39;</span><span class="p">);</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">disableOutput</span><span class="p">();</span>
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p>Вы не можете включать или отключать вывод во время выполнения процесса.</p>
+<p>Если вы отключите вывод, вы не сможете получить доступ к <tt class="docutils literal"><code>getOutput()</code></tt>,
+<tt class="docutils literal"><code>getIncrementalOutput()</code></tt>, <tt class="docutils literal"><code>getErrorOutput()</code></tt>, <tt class="docutils literal"><code>getIncrementalErrorOutput()</code></tt> или
+<tt class="docutils literal"><code>setIdleTimeout()</code></tt>.</p>
+<p class="last">Однако, возможно передать обратный вызов методам <tt class="docutils literal"><code>start</code></tt>, <tt class="docutils literal"><code>run</code></tt> или <tt class="docutils literal"><code>mustRun</code></tt>,
+чтобы обработать процесс вывода в потоке.</p>
+</div></div>
+</div>
+<div class="section" id="id12">
+<h2>Поиск выполняемого бинарного PHP файла<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>Этот компонент также предоставляет класс утилиты под названием
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/PhpExecutableFinder.html" title="Symfony\Component\Process\PhpExecutableFinder">PhpExecutableFinder</a></code></tt>, который возвращает
+абсолютный путь выполняемого бинарного PHP файла, доступного на вашем сервере:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Process\PhpExecutableFinder</span><span class="p">;</span>
+
+<span class="nv">$phpBinaryFinder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PhpExecutableFinder</span><span class="p">();</span>
+<span class="nv">$phpBinaryPath</span> <span class="o">=</span> <span class="nv">$phpBinaryFinder</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">();</span>
+<span class="c1">// $phpBinaryPath = &#39;/usr/local/bin/php&#39; (результат будет другим на вашем компьютере)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="tty">
+<h2>Проверка поддержки TTY<a class="headerlink" href="#tty" title="Permalink to this headline">¶</a></h2>
+<p>Ещё одна функция предоставляемая этим компонентом - это метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Process/Process.html#method_isTtySupported" title="Symfony\Component\Process\Process::isTtySupported()">isTtySupported()</a></code></tt>, который возвращает
+поддерживает ли текущая операционная система <a class="reference external" href="https://ru.wikipedia.org/wiki/Tty_(Unix)">TTY</a>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Process\Process</span><span class="p">;</span>
+
+<span class="nv">$process</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">Process</span><span class="p">())</span><span class="o">-&gt;</span><span class="na">setTty</span><span class="p">(</span><span class="nx">Process</span><span class="o">::</span><span class="na">isTtySupported</span><span class="p">());</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>The <tt class="docutils literal"><code>isTtySupported()</code></tt> method was introduced in Symfony 4.1.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="polyfill_php73-ru.html">« Полизаполнение Symfony / Компонент PHP 7.3</a>
+                <span class="separator">|</span>
+                <a href="property_access-ru.html">Компонента PropertyAccess (доступ к свойству) »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

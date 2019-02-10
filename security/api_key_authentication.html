@@ -1,0 +1,1185 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как аутентифицировать пользователей с ключами API &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Security Component" href="..\components\security.html">
+    <link rel="next" title="Как реализовать защиту от CSRF" href="csrf-ru.html">
+    <link rel="prev" title="Как использовать продвинутые концепты СКД" href="acl_advanced-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="security doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как аутентифицировать пользователей с ключами API</a><ul>
+<li><a class="reference internal" href="#id1">Аутентификатор ключа API</a><ul>
+<li><a class="reference internal" href="#createtoken">1. createToken</a></li>
+<li><a class="reference internal" href="#supportstoken">2. supportsToken</a></li>
+<li><a class="reference internal" href="#authenticatetoken">3. authenticateToken</a></li>
+<li><a class="reference internal" href="#id2">Поставщик пользователя</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">Обработка неудачи аутентификации</a></li>
+<li><a class="reference internal" href="#security-api-key-config-ru">Конфигурация</a></li>
+<li><a class="reference internal" href="#security-api-key-session-ru">Хранение аутентификации в сессии</a></li>
+<li><a class="reference internal" href="#url">Аутентификация только для определённых URL</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\components\index.html">The Components</a></li>
+                
+                <li><a href="../components/index-ru.html">The Components</a></li>
+                
+                <li><a href="..\components\security.html">The Security Component</a></li>
+                
+                <li class="active">Как аутентифицировать пользователей с ключами API</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="api">
+<span id="index-0"></span><h1>Как аутентифицировать пользователей с ключами API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Посмотрите статью <a class="reference internal" href="guard_authentication.html"><em>How to Create a Custom Authentication System with Guard</em></a>, чтобы узнать о более простом
+гибком способе выполнить такие пользовательские задачи аутентификации, как эта.</p>
+</div></div>
+<p>На сегодняшний день, достаточно необычно аутентифицировать пользователя через ключ API
+(например, при разработке веб-сервиса). Ключ API предоставляется для каждого запроса и
+передаётся в качестве параметра строки запроса или через HTTP-заголовок.</p>
+<div class="section" id="id1">
+<h2>Аутентификатор ключа API<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Аутентификация пользователя на основании информации запроса должна быть проведена
+с помощью механизма предварительной аутентификации.
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Http/Authentication/SimplePreAuthenticatorInterface.html" title="Symfony\Component\Security\Http\Authentication\SimplePreAuthenticatorInterface">SimplePreAuthenticatorInterface</a></code></tt>
+позволяет вам с лёгкостью реализовывать такую схему.</p>
+<p>Ваша конкретная ситуация может отличаться, но в этом примере, токен считывается
+из параметра запроса <tt class="docutils literal"><code>apikey</code></tt>, правильное имя пользователя загружается из этого
+значение, а потом создаётся объект Пользователь:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Security/ApiKeyAuthenticator.php</span>
+<span class="k">namespace</span> <span class="nx">App\Security</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Security\ApiKeyUserProvider</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Token\TokenInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\AuthenticationException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\BadCredentialsException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\UserProviderInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Http\Authentication\SimplePreAuthenticatorInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ApiKeyAuthenticator</span> <span class="k">implements</span> <span class="nx">SimplePreAuthenticatorInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">createToken</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nv">$providerKey</span><span class="p">)</span>
+
+        <span class="c1">// искать параметр запроса apikey</span>
+        <span class="nv">$apiKey</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;apikey&#39;</span><span class="p">);</span>
+
+        <span class="c1">// или, если вы хотите использовать заголовок &quot;apikey&quot;, то сделайте что-то вроде этого:</span>
+        <span class="c1">// $apiKey = $request-&gt;headers-&gt;get(&#39;apikey&#39;);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$apiKey</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">BadCredentialsException</span><span class="p">();</span>
+
+            <span class="c1">// или, чтобы просто пропустить аутентификацию ключа api</span>
+            <span class="c1">// вернуть null;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">PreAuthenticatedToken</span><span class="p">(</span>
+            <span class="s1">&#39;anon.&#39;</span><span class="p">,</span>
+            <span class="nv">$apiKey</span><span class="p">,</span>
+            <span class="nv">$providerKey</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">supportsToken</span><span class="p">(</span><span class="nx">TokenInterface</span> <span class="nv">$token</span><span class="p">,</span> <span class="nv">$providerKey</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$token</span> <span class="nx">instanceof</span> <span class="nx">PreAuthenticatedToken</span> <span class="o">&amp;&amp;</span> <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">getProviderKey</span><span class="p">()</span> <span class="o">===</span> <span class="nv">$providerKey</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">authenticateToken</span><span class="p">(</span><span class="nx">TokenInterface</span> <span class="nv">$token</span><span class="p">,</span> <span class="nx">UserProviderInterface</span> <span class="nv">$userProvider</span><span class="p">,</span> <span class="nv">$providerKey</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$userProvider</span> <span class="nx">instanceof</span> <span class="nx">ApiKeyUserProvider</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">\InvalidArgumentException</span><span class="p">(</span>
+                <span class="nb">sprintf</span><span class="p">(</span>
+                    <span class="s1">&#39;The user provider must be an instance of ApiKeyUserProvider (%s was given).&#39;</span><span class="p">,</span>
+                    <span class="nb">get_class</span><span class="p">(</span><span class="nv">$userProvider</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$apiKey</span> <span class="o">=</span> <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">getCredentials</span><span class="p">();</span>
+        <span class="nv">$username</span> <span class="o">=</span> <span class="nv">$userProvider</span><span class="o">-&gt;</span><span class="na">getUsernameForApiKey</span><span class="p">(</span><span class="nv">$apiKey</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$username</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// ВНИМАНИЕ: это сообщение будет возвращено клиенту</span>
+            <span class="c1">// (так что не вводите здесь недоверенные сообщения / строки ошибок)</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">CustomUserMessageAuthenticationException</span><span class="p">(</span>
+                <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;API Key &quot;%s&quot; does not exist.&#39;</span><span class="p">,</span> <span class="nv">$apiKey</span><span class="p">)</span>
+            <span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$user</span> <span class="o">=</span> <span class="nv">$userProvider</span><span class="o">-&gt;</span><span class="na">loadUserByUsername</span><span class="p">(</span><span class="nv">$username</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">PreAuthenticatedToken</span><span class="p">(</span>
+            <span class="nv">$user</span><span class="p">,</span>
+            <span class="nv">$apiKey</span><span class="p">,</span>
+            <span class="nv">$providerKey</span><span class="p">,</span>
+            <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getRoles</span><span class="p">()</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Как только вы всё <a class="reference internal" href="api_key_authentication.html#security-api-key-config"><span>сконфигурируете</span></a>, вы сможете
+аутентифицировать путём добавления параметра apikey parameter в строку запроса,
+как <tt class="docutils literal"><code>http://example.com/api/foo?apikey=37b51d194a7513e45b56f6524f2d51f2</code></tt>.</p>
+<p>Процесс аутентификации имеет несколько шагов и ваша реализация скорее всего
+будет отличаться:</p>
+<div class="section" id="createtoken">
+<h3>1. createToken<a class="headerlink" href="#createtoken" title="Permalink to this headline">¶</a></h3>
+<p>На раннем этапе цикла запроса, Symfony вызывает <tt class="docutils literal"><code>createToken()</code></tt>. Ваша задача здесь
+- создать объект токена, который содержит всю информацию из запроса, которая вам нужна
+для аутентификации пользователя (например, параметр запроса <tt class="docutils literal"><code>apikey</code></tt>). Если этой информации
+нет, вызов исключения <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Exception/BadCredentialsException.html" title="Symfony\Component\Security\Core\Exception\BadCredentialsException">BadCredentialsException</a></code></tt>
+приведёт к неудаче аутентификации. Лучше вернуть <tt class="docutils literal"><code>null</code></tt> вместо того, чтобы просто
+пропускать аутентификацию, чтобы Symfony могла использовать резервный метод аутентификации,
+если он существует.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">В случае, если вы возвращаете <tt class="docutils literal"><code>null</code></tt> из вашего метода <tt class="docutils literal"><code>createToken()</code></tt>,
+Symfony передаёт этот запрос следующему проводнику аутентификации. Если вы
+не сконфигурировали никакого другого проводника, включите опцию <tt class="docutils literal"><code>anonymous</code></tt>
+в вашем брандмауэре. Таким образом, Symfony выполняет анонимного проводника
+аутентификации, и вы получите <tt class="docutils literal"><code>AnonymousToken</code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="supportstoken">
+<h3>2. supportsToken<a class="headerlink" href="#supportstoken" title="Permalink to this headline">¶</a></h3>
+<p>After Symfony calls <tt class="docutils literal"><code>createToken()</code></tt>, it will then call <tt class="docutils literal"><code>supportsToken()</code></tt>
+on your class (and any other authentication listeners) to figure out who should
+handle the token. This is just a way to allow several authentication mechanisms
+to be used for the same firewall (that way, you can for instance first try
+to authenticate the user via a certificate or an API key and fall back to
+a form login).</p>
+<p>Mostly, you just need to make sure that this method returns <tt class="docutils literal"><code>true</code></tt> for a
+token that has been created by <tt class="docutils literal"><code>createToken()</code></tt>. Your logic should probably
+look exactly like this example.</p>
+</div>
+<div class="section" id="authenticatetoken">
+<h3>3. authenticateToken<a class="headerlink" href="#authenticatetoken" title="Permalink to this headline">¶</a></h3>
+<p>Если <tt class="docutils literal"><code>supportsToken()</code></tt> возвращает <tt class="docutils literal"><code>true</code></tt>, Symfony вызовет <tt class="docutils literal"><code>authenticateToken()</code></tt>.
+Ключевым моментом является <tt class="docutils literal"><code>$userProvider</code></tt> - внешний класс, который помогает вам
+загружать информацию о пользователе. Вы узнаете больше о нём далее.</p>
+<p>В этом конкретном примере, в <tt class="docutils literal"><code>authenticateToken()</code></tt> происходит следующее:</p>
+<ol class="arabic simple">
+<li>Во-первых, вы используете <tt class="docutils literal"><code>$userProvider</code></tt> чтобы каким-то образом найти <tt class="docutils literal"><code>$username</code></tt>,
+соответствующий <tt class="docutils literal"><code>$apiKey</code></tt>;</li>
+<li>Во-вторых, вы снова используете <tt class="docutils literal"><code>$userProvider</code></tt>, чтобы загрузить или создать объект
+<tt class="docutils literal"><code>User</code></tt> для <tt class="docutils literal"><code>$username</code></tt>;</li>
+<li>Наконец, вы создаёте <em>токен аутентификации</em> (т.е. токен как минимум с одной ролью),
+который имеет правильные роли и присоединённый объект Пользователя (User).</li>
+</ol>
+<p>Целью является использование <tt class="docutils literal"><code>$apiKey</code></tt> для того, чтобы найти или создать объект <tt class="docutils literal"><code>User</code></tt>.
+<em>Как</em> вы это сделаете (например, запрос в БД) иточный класс вашего объекта <tt class="docutils literal"><code>User</code></tt> могут
+разниться. Эти отличия будут наиболее очевидны в вашем поставщике пользователя.</p>
+</div>
+<div class="section" id="id2">
+<h3>Поставщик пользователя<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code>$userProvider</code></tt> может быть любим поставщиком пользователя (см. <a class="reference internal" href="custom_provider.html"><em>How to Create a custom User Provider</em></a>).
+В этом примере, <tt class="docutils literal"><code>$apiKey</code></tt> используется, чтобы как-то найти имя пользователя для пользователя.
+Эта работа проводится в методе <tt class="docutils literal"><code>getUsernameForApiKey()</code></tt>, который полностью создаётся для этого
+случая использования (т.е. это не метод, который используется базовой системой поставщика пользователей
+Symfony).</p>
+<p><tt class="docutils literal"><code>$userProvider</code></tt> может выглядеть как-то так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Security/ApiKeyUserProvider.php</span>
+<span class="k">namespace</span> <span class="nx">App\Security</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\UserProviderInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\User</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\UserInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\UnsupportedUserException</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ApiKeyUserProvider</span> <span class="k">implements</span> <span class="nx">UserProviderInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getUsernameForApiKey</span><span class="p">(</span><span class="nv">$apiKey</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Искать имя пользователя на основании токена в БД через</span>
+        <span class="c1">// вызов API, или сделать что-то абсолютно другое</span>
+        <span class="nv">$username</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="nv">$username</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">loadUserByUsername</span><span class="p">(</span><span class="nv">$username</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span>
+            <span class="nv">$username</span><span class="p">,</span>
+            <span class="k">null</span><span class="p">,</span>
+            <span class="c1">// роли пользователя - вы можете решить определить</span>
+            <span class="c1">// их как-то динамически, основываясь на пользователе</span>
+            <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ROLE_API&#39;</span><span class="p">)</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">refreshUser</span><span class="p">(</span><span class="nx">UserInterface</span> <span class="nv">$user</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// это используется для сохранения аутентификации в сессии</span>
+        <span class="c1">// но в этом примере, токен отправляется в каждом запросе,</span>
+        <span class="c1">// так что аутентификация может быть без запоминания состояния.</span>
+        <span class="c1">// Вызов этого исключения правильный для того, чтобы сделать всё</span>
+        <span class="c1">// без запоминания состояния</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nx">UnsupportedUserException</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">supportsClass</span><span class="p">(</span><span class="nv">$class</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">User</span><span class="o">::</span><span class="na">class</span> <span class="o">===</span> <span class="nv">$class</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Далее, убедитесь, что этот класс зарегистрирован, как сервис. Если вы используете
+<a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>конфигурацию services.yaml по умолчанию</span></a>,
+то это происходит автоматически. Немного позже, вы будете ссылаться на этот сервис в
+вашей <a class="reference internal" href="api_key_authentication.html#security-api-key-config"><span>конфигурации security.yaml</span></a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Прочитайте соответствующую статью, чтобы узнать,
+<a class="reference internal" href="custom_provider.html"><em>как создать пользовательского поставщика пользователей</em></a>.</p>
+</div></div>
+<p>Логика внутри <tt class="docutils literal"><code>getUsernameForApiKey()</code></tt> может быть на ваш вкус. Вы можете как-либо
+трансформировать ключ API (например, <tt class="docutils literal"><code>37b51d</code></tt>) в имя пользователя (например, <tt class="docutils literal"><code>jondoe</code></tt>),
+поискав какую-то информацию в таблице БД &quot;токен&quot;.</p>
+<p>То же самое относится к <tt class="docutils literal"><code>loadUserByUsername()</code></tt>. В этом примере, базовый класс Symfony
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/User/User.html" title="Symfony\Component\Security\Core\User\User">User</a></code></tt> просто создаётся. Это имеет смысл,
+если вам не нужно хранить дополнительной информации о вашем объекте пользователя (например,
+<tt class="docutils literal"><code>firstName</code></tt>). Но если вам это нужно, у вас может быть ваш <em>собственный</em> класс пользователя,
+который вы создаёте и наполняете путём запросов в БД. Это позволит вам иметь пользовательские
+данные в объекте <tt class="docutils literal"><code>User</code></tt>.</p>
+<p>Наконец, просто убедитесь, что <tt class="docutils literal"><code>supportsClass()</code></tt> возвращает <tt class="docutils literal"><code>true</code></tt> для объектов
+Пользователь, с тем же классом, как и те пользователи, которых вы возвращаете в
+<tt class="docutils literal"><code>loadUserByUsername()</code></tt>.</p>
+<p>Если ваша аутентификация без запоминания состояния, как в этом примере, (т.е.
+вы ожидаете, что пользователь будет отправлять ключ API с каждым запросом, и
+поэтому вы не сохраняете логин в сессии), то вы можете просто выдать исключение
+<tt class="docutils literal"><code>UnsupportedUserException</code></tt> в <tt class="docutils literal"><code>refreshUser()</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если вы <em>хотите</em> хранить данные аутентификации в сессии так, чтобы ключ не
+надо было отправлять по каждому запросу, смотрите <a class="reference internal" href="api_key_authentication.html#security-api-key-session"><span>Storing Authentication in the Session</span></a>.</p>
+</div></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Обработка неудачи аутентификации<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Для того, чтобы ваш <tt class="docutils literal"><code>ApiKeyAuthenticator</code></tt> правильно отображал http-статус 401
+при неудаче аутентификации или неправильной аккредитации, вам понадобится реализовать
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Http/Authentication/AuthenticationFailureHandlerInterface.html" title="Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface">AuthenticationFailureHandlerInterface</a></code></tt>
+в вашем Аутентификаторе. Это предоставит метод <tt class="docutils literal"><code>onAuthenticationFailure()</code></tt>, который вы
+можете использовать для создания ошибки <tt class="docutils literal"><code>Response</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Security/ApiKeyAuthenticator.php</span>
+<span class="k">namespace</span> <span class="nx">App\Security</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\AuthenticationException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Http\Authentication\SimplePreAuthenticatorInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ApiKeyAuthenticator</span> <span class="k">implements</span> <span class="nx">SimplePreAuthenticatorInterface</span><span class="p">,</span> <span class="nx">AuthenticationFailureHandlerInterface</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">onAuthenticationFailure</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">AuthenticationException</span> <span class="nv">$exception</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span>
+            <span class="c1">// содержит информацию о том, *почему* не удалась аутентификация</span>
+            <span class="c1">// используйте это, или верните ваше собственное сообщение</span>
+            <span class="nb">strtr</span><span class="p">(</span><span class="nv">$exception</span><span class="o">-&gt;</span><span class="na">getMessageKey</span><span class="p">(),</span> <span class="nv">$exception</span><span class="o">-&gt;</span><span class="na">getMessageData</span><span class="p">()),</span>
+            <span class="mi">401</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="security-api-key-config-ru">
+<span id="id4"></span><h2>Конфигурация<a class="headerlink" href="#security-api-key-config-ru" title="Permalink to this headline">¶</a></h2>
+<p>Когда у вас будет полностью настроен <tt class="docutils literal"><code>ApiKeyAuthenticator</code></tt>, вам нужно будет зарегистрировать
+его как сервис. Если вы используете <a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>конфигурацию services.yaml по умолчанию</span></a>,
+то это случится автоматически.</p>
+<p>Последний шаг - активация вашего аутентификатора и пользовательского поставщика
+пользователей в разделе <tt class="docutils literal"><code>firewalls</code></tt> вашей конфигурации безопасности, используя
+ключи <tt class="docutils literal"><code>simple_preauth</code></tt> и <tt class="docutils literal"><code>provider</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/security.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">providers</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">api_key_user_provider</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">App\Security\ApiKeyUserProvider</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">firewalls</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">main</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">pattern</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">^/api</span>
+            <span class="l l-Scalar l-Scalar-Plain">stateless</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="l l-Scalar l-Scalar-Plain">simple_preauth</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">authenticator</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">App\Security\ApiKeyAuthenticator</span>
+            <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">api_key_user_provider</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;config&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="nt">&lt;provider</span> <span class="na">name=</span><span class="s">&quot;api_key_user_provider&quot;</span> <span class="na">id=</span><span class="s">&quot;App\Security\ApiKeyUserProvider&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;firewall</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span>
+            <span class="na">pattern=</span><span class="s">&quot;^/api&quot;</span>
+            <span class="na">stateless=</span><span class="s">&quot;true&quot;</span>
+            <span class="na">provider=</span><span class="s">&quot;api_key_user_provider&quot;</span>
+        <span class="nt">&gt;</span>
+            <span class="nt">&lt;simple-preauth</span> <span class="na">authenticator=</span><span class="s">&quot;App\Security\ApiKeyAuthenticator&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/firewall&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/security.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">App\Security\ApiKeyAuthenticator</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Security\ApiKeyUserProvider</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;providers&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;api_key_user_provider&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="nx">ApiKeyUserProvider</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;firewalls&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;main&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;pattern&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;^/api&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;stateless&#39;</span>      <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+            <span class="s1">&#39;simple_preauth&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;authenticator&#39;</span>  <span class="o">=&gt;</span> <span class="nx">ApiKeyAuthenticator</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="s1">&#39;provider&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;api_key_user_provider&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Если вы определили <tt class="docutils literal"><code>access_control</code></tt>, обязательно добавьте новую запись:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/security.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">access_control</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">path</span><span class="p p-Indicator">:</span> <span class="nv">^/api</span><span class="p p-Indicator">,</span> <span class="nv">roles</span><span class="p p-Indicator">:</span> <span class="nv">ROLE_API</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;config&gt;</span>
+        <span class="nt">&lt;rule</span> <span class="na">path=</span><span class="s">&quot;^/api&quot;</span> <span class="na">role=</span><span class="s">&quot;ROLE_API&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/security.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;access_control&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;path&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;^/api&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;role&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ROLE_API&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Вот и всё! Теперь, ваш <tt class="docutils literal"><code>ApiKeyAuthenticator</code></tt> должен вызываться в начале каждого
+запроса, после чего будет происходить ваш процесс аутентификации.</p>
+<p>Параметр конфигурации <tt class="docutils literal"><code>stateless</code></tt> предотвращает Symfony от попыток сохранить
+информацию аутентификации в сессии, что необязательно, так как клиент будет
+отправлять <tt class="docutils literal"><code>apikey</code></tt> по каждому запросу. Если вам <em>нужно</em> сохранить аутентификацию
+в сесии, то продолжайте читать!</p>
+</div>
+<div class="section" id="security-api-key-session-ru">
+<span id="id5"></span><h2>Хранение аутентификации в сессии<a class="headerlink" href="#security-api-key-session-ru" title="Permalink to this headline">¶</a></h2>
+<p>До этих пор, эта статья описывала ситуацию, где некоторый токен аутентификации
+отправляется по каждому запросу. Но в некоторых ситуациях (как в потоке OAuth),
+токен может быть отправлен только по <em>одному</em> запросу. В этом случае, вы захотите
+аутентифицировать пользователя и хранить эту аутентификацию в сессии так, чтобы
+пользователь автоматически выполнял вход в каждом последующем запросе.</p>
+<p>Чтобы это работало, для начала, удалите ключ <tt class="docutils literal"><code>stateless</code></tt> из конфигурации вашего
+брандмауэра или установите его как <tt class="docutils literal"><code>false</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/security.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">firewalls</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">secured_area</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">pattern</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">^/api</span>
+            <span class="l l-Scalar l-Scalar-Plain">stateless</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+            <span class="c1"># ...</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;config&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="nt">&lt;firewall</span> <span class="na">name=</span><span class="s">&quot;secured_area&quot;</span>
+            <span class="na">pattern=</span><span class="s">&quot;^/api&quot;</span>
+            <span class="na">stateless=</span><span class="s">&quot;false&quot;</span>
+        <span class="nt">&gt;</span>
+        <span class="nt">&lt;/firewall&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/security.php</span>
+
+<span class="c1">// ..</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;firewalls&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;secured_area&#39;</span>       <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;pattern&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;^/api&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;stateless&#39;</span>      <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+            <span class="c1">// ...</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Нессмотря на то, что токен хранится в сессии, аккредитация - в этом случае ключ API
+(т.е. <tt class="docutils literal"><code>$token-&gt;getCredentials()</code></tt>) - не хранится в сессии по причинам безопасности.
+Чтобы воспользоваться преимуществами сессии, обновите <tt class="docutils literal"><code>ApiKeyAuthenticator</code></tt>, чтобы
+увидеть, имеет ли сохранённый токен валидный объект Пользователь, который можно использовать:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Security/ApiKeyAuthenticator.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">ApiKeyAuthenticator</span> <span class="k">implements</span> <span class="nx">SimplePreAuthenticatorInterface</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">authenticateToken</span><span class="p">(</span><span class="nx">TokenInterface</span> <span class="nv">$token</span><span class="p">,</span> <span class="nx">UserProviderInterface</span> <span class="nv">$userProvider</span><span class="p">,</span> <span class="nv">$providerKey</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$userProvider</span> <span class="nx">instanceof</span> <span class="nx">ApiKeyUserProvider</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">\InvalidArgumentException</span><span class="p">(</span>
+                <span class="nb">sprintf</span><span class="p">(</span>
+                    <span class="s1">&#39;The user provider must be an instance of ApiKeyUserProvider (%s was given).&#39;</span><span class="p">,</span>
+                    <span class="nb">get_class</span><span class="p">(</span><span class="nv">$userProvider</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$apiKey</span> <span class="o">=</span> <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">getCredentials</span><span class="p">();</span>
+        <span class="nv">$username</span> <span class="o">=</span> <span class="nv">$userProvider</span><span class="o">-&gt;</span><span class="na">getUsernameForApiKey</span><span class="p">(</span><span class="nv">$apiKey</span><span class="p">);</span>
+
+        <span class="c1">// User - это сущность, которая представляет вашего пользователя</span>
+        <span class="nv">$user</span> <span class="o">=</span> <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">getUser</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$user</span> <span class="nx">instanceof</span> <span class="nx">User</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">PreAuthenticatedToken</span><span class="p">(</span>
+                <span class="nv">$user</span><span class="p">,</span>
+                <span class="nv">$apiKey</span><span class="p">,</span>
+                <span class="nv">$providerKey</span><span class="p">,</span>
+                <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getRoles</span><span class="p">()</span>
+            <span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$username</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// это сообщение будет возвращено клиенту</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">CustomUserMessageAuthenticationException</span><span class="p">(</span>
+                <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;API Key &quot;%s&quot; does not exist.&#39;</span><span class="p">,</span> <span class="nv">$apiKey</span><span class="p">)</span>
+            <span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$user</span> <span class="o">=</span> <span class="nv">$userProvider</span><span class="o">-&gt;</span><span class="na">loadUserByUsername</span><span class="p">(</span><span class="nv">$username</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">PreAuthenticatedToken</span><span class="p">(</span>
+            <span class="nv">$user</span><span class="p">,</span>
+            <span class="nv">$apiKey</span><span class="p">,</span>
+            <span class="nv">$providerKey</span><span class="p">,</span>
+            <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getRoles</span><span class="p">()</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Сохранение информации аутентификации в сесси работает так:</p>
+<ol class="arabic simple">
+<li>В конце каждого запроса, Symfony сериализирует объект токена (возвращённого из
+<tt class="docutils literal"><code>authenticateToken()</code></tt>), который также сериализирует объект <tt class="docutils literal"><code>User</code></tt> (так как
+он установлен в свойстве токена);</li>
+<li>В следующем запросе токен десериализируется и десерилизованный объект
+<tt class="docutils literal"><code>User</code></tt> передаётся функции <tt class="docutils literal"><code>refreshUser()</code></tt> поставщика пользователя.</li>
+</ol>
+<p>Второй шаг очень важен: Symfony вызывает <tt class="docutils literal"><code>refreshUser()</code></tt> и передаёт вам
+объект пользователя, который был сериализован в сессии. Если ваши пользователи
+хранятся в БД, то вы можете захотеть повторно запросить свежую версию пользователя,
+чтобы убедиться, что он не устарел. Но вне зависимости от ваших требований,
+<tt class="docutils literal"><code>refreshUser()</code></tt> теперь должен возвращать объект пользователя:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Security/ApiKeyUserProvider.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">ApiKeyUserProvider</span> <span class="k">implements</span> <span class="nx">UserProviderInterface</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">refreshUser</span><span class="p">(</span><span class="nx">UserInterface</span> <span class="nv">$user</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// $user - это User, который вы установили в токене внутри authenticateToken()</span>
+        <span class="c1">// после того, как он был десериализован из сессии</span>
+
+        <span class="c1">// вы можете использовать $user, чтобы запросить свежего пользователя у БД</span>
+        <span class="c1">// $id = $user-&gt;getId();</span>
+        <span class="c1">// используйте $id, чтобы сделать запрос</span>
+
+        <span class="c1">// если вы *не* считываете с БД и просто создаёте</span>
+        <span class="c1">// объект User (как в этом примере), вы можете просто вернуть его</span>
+        <span class="k">return</span> <span class="nv">$user</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вы также захотите убедиться, что ваш объект <tt class="docutils literal"><code>User</code></tt> сериализируется правильно.
+Если ваш объект <tt class="docutils literal"><code>User</code></tt> имеет частные свойства, PHP не может их сериализовать.
+В таком случае, вы можете получить обратно объект Пользователя, который имеет
+значение <tt class="docutils literal"><code>null</code></tt> для каждого свойства. Чтобы увидеть пример, смотрите <a class="reference internal" href="entity_provider.html"><em>How to Load Security Users from the Database (the Entity Provider)</em></a>.</p>
+</div></div>
+</div>
+<div class="section" id="url">
+<h2>Аутентификация только для определённых URL<a class="headerlink" href="#url" title="Permalink to this headline">¶</a></h2>
+<p>Эта статья предполагала, что вы хотите искать аутентификацию <tt class="docutils literal"><code>apikey</code></tt> в
+<em>каждом</em> запросе. Но в некоторых ситуациях (как в потоке OAuth), вам нужно
+на самом деле искать информацию аутентификации только тогда, когда пользователь
+достиг определённого URL (например, URL перенаправления в OAuth).</p>
+<p>К счастью, справиться в этой ситуацией легко: просто проверьте, какой текущий URL
+перед тем, как создавать токен в <tt class="docutils literal"><code>createToken()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Security/ApiKeyAuthenticator.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Http\HttpUtils</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ApiKeyAuthenticator</span> <span class="k">implements</span> <span class="nx">SimplePreAuthenticatorInterface</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$httpUtils</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">HttpUtils</span> <span class="nv">$httpUtils</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">httpUtils</span> <span class="o">=</span> <span class="nv">$httpUtils</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">createToken</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nv">$providerKey</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// установите один URL, где мы должны искать информацию авторизации</span>
+        <span class="c1">// и возвращать токен только, если мы на этом URL</span>
+        <span class="nv">$targetUrl</span> <span class="o">=</span> <span class="s1">&#39;/login/check&#39;</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getPathInfo</span><span class="p">()</span> <span class="o">!==</span> <span class="nv">$targetUrl</span><span class="p">)</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и всё! Повеселитесь!</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="acl_advanced-ru.html">« Как использовать продвинутые концепты СКД</a>
+                <span class="separator">|</span>
+                <a href="csrf-ru.html">Как реализовать защиту от CSRF »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

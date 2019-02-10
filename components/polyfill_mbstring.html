@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Полизаполнение Symfony / Компонент Mbstring &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="Полизаполнение Symfony / Компонент PHP 5.4" href="polyfill_php54-ru.html">
+    <link rel="prev" title="Полизаполнение Symfony / Компонент Intl Normalizer" href="polyfill_intl_normalizer-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Полизаполнение Symfony / Компонент Mbstring</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#id2">Использование</a><ul>
+<li><a class="reference internal" href="#id3">Предоставляемые константы</a></li>
+<li><a class="reference internal" href="#id4">Предоставляемые функции</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Полизаполнение Symfony / Компонент Mbstring</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="symfony-mbstring">
+<span id="index-0"></span><h1>Полизаполнение Symfony / Компонент Mbstring<a class="headerlink" href="#symfony-mbstring" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Этот компонент предоставляет частичную родную PHP реализацию для PHP
+расширения <tt class="docutils literal"><code>mbstring</code></tt>.</div></blockquote>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/polyfill-mbstring
+</pre></div>
+</td></tr></table></div></div>
+<p>Как вариант, вы можете клонировать хранилище <a class="reference external" href="https://github.com/symfony/polyfill-mbstring">https://github.com/symfony/polyfill-mbstring</a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Использование<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Как только этот компонент будет установлен в вашем приложении, вы можете использовать
+следующие константы и функции, независимо от того, установлено ли на вашем сервере
+<a class="reference external" href="https://secure.php.net/manual/en/book.mbstring.php">PHP расширение mbstring</a>.</p>
+<div class="section" id="id3">
+<h3>Предоставляемые константы<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><code>MB_CASE_UPPER</code></tt> (значение = <tt class="docutils literal"><code>0</code></tt>)</li>
+<li><tt class="docutils literal"><code>MB_CASE_LOWER</code></tt> (значение = <tt class="docutils literal"><code>1</code></tt>)</li>
+<li><tt class="docutils literal"><code>MB_CASE_TITLE</code></tt> (значение = <tt class="docutils literal"><code>2</code></tt>)</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>Предоставляемые функции<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-check-encoding.php" title="mb_check_encoding">mb_check_encoding</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-chr.php" title="mb_chr">mb_chr</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-convert-case.php" title="mb_convert_case">mb_convert_case</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-convert-encoding.php" title="mb_convert_encoding">mb_convert_encoding</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-convert-variables.php" title="mb_convert_variables">mb_convert_variables</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-decode-mimeheader.php" title="mb_decode_mimeheader">mb_decode_mimeheader</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-decode-numericentity.php" title="mb_decode_numericentity">mb_decode_numericentity</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-detect-encoding.php" title="mb_detect_encoding">mb_detect_encoding</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-detect-order.php" title="mb_detect_order">mb_detect_order</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-encode-mimeheader.php" title="mb_encode_mimeheader">mb_encode_mimeheader</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-encode-numericentity.php" title="mb_encode_numericentity">mb_encode_numericentity</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-encoding-aliases.php" title="mb_encoding_aliases">mb_encoding_aliases</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-get-info.php" title="mb_get_info">mb_get_info</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-http-input.php" title="mb_http_input">mb_http_input</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-http-output.php" title="mb_http_output">mb_http_output</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-internal-encoding.php" title="mb_internal_encoding">mb_internal_encoding</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-language.php" title="mb_language">mb_language</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-list-encodings.php" title="mb_list_encodings">mb_list_encodings</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-ord.php" title="mb_ord">mb_ord</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-output-handler.php" title="mb_output_handler">mb_output_handler</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-parse-str.php" title="mb_parse_str">mb_parse_str</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-scrub.php" title="mb_scrub">mb_scrub</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-stripos.php" title="mb_stripos">mb_stripos</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-stristr.php" title="mb_stristr">mb_stristr</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-strlen.php" title="mb_strlen">mb_strlen</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-strpos.php" title="mb_strpos">mb_strpos</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-strrchr.php" title="mb_strrchr">mb_strrchr</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-strrichr.php" title="mb_strrichr">mb_strrichr</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-strripos.php" title="mb_strripos">mb_strripos</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-strrpos.php" title="mb_strrpos">mb_strrpos</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-strstr.php" title="mb_strstr">mb_strstr</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-strtolower.php" title="mb_strtolower">mb_strtolower</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-strtoupper.php" title="mb_strtoupper">mb_strtoupper</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-strwidth.php" title="mb_strwidth">mb_strwidth</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-substitute-character.php" title="mb_substitute_character">mb_substitute_character</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-substr-count.php" title="mb_substr_count">mb_substr_count</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.mb-substr.php" title="mb_substr">mb_substr</a></code></tt></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="polyfill_intl_normalizer-ru.html">« Полизаполнение Symfony / Компонент Intl Normalizer</a>
+                <span class="separator">|</span>
+                <a href="polyfill_php54-ru.html">Полизаполнение Symfony / Компонент PHP 5.4 »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

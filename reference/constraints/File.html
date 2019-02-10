@@ -1,0 +1,605 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>File &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="reference doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">File</a><ul>
+<li><a class="reference internal" href="#id1">Базовое применение</a></li>
+<li><a class="reference internal" href="#id2">Опции</a><ul>
+<li><a class="reference internal" href="#maxsize">maxSize</a></li>
+<li><a class="reference internal" href="#binaryformat">binaryFormat</a></li>
+<li><a class="reference internal" href="#mimetypes">mimeTypes</a></li>
+<li><a class="reference internal" href="#maxsizemessage">maxSizeMessage</a></li>
+<li><a class="reference internal" href="#mimetypesmessage">mimeTypesMessage</a></li>
+<li><a class="reference internal" href="#disallowemptymessage">disallowEmptyMessage</a></li>
+<li><a class="reference internal" href="#notfoundmessage">notFoundMessage</a></li>
+<li><a class="reference internal" href="#notreadablemessage">notReadableMessage</a></li>
+<li><a class="reference internal" href="#uploadinisizeerrormessage">uploadIniSizeErrorMessage</a></li>
+<li><a class="reference internal" href="#uploadformsizeerrormessage">uploadFormSizeErrorMessage</a></li>
+<li><a class="reference internal" href="#uploaderrormessage">uploadErrorMessage</a></li>
+<li><a class="reference internal" href="#payload">payload</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li class="active">File</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="file">
+<h1>File<a class="headerlink" href="#file" title="Permalink to this headline">¶</a></h1>
+<p>Валидирует, что значение является валидным &quot;файлом&quot;, который может быть:</p>
+<ul class="simple">
+<li>Строкой пути (или объектом с методом <tt class="docutils literal"><code>__toString()</code></tt>) к существующему файлу;</li>
+<li>Валидным объектом <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/File/File.html" title="Symfony\Component\HttpFoundation\File\File">File</a></code></tt>
+(включая объекты класса <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/File/UploadedFile.html" title="Symfony\Component\HttpFoundation\File\UploadedFile">UploadedFile</a></code></tt>).</li>
+</ul>
+<p>Это ограничение часто используется в формах с полем формы <a class="reference internal" href="..\forms\types\file.html"><em>FileType</em></a>.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если файл, который вы валидируете, является изображением, попробуйте ограничение
+<a class="reference internal" href="Image.html"><em>Image</em></a>.</p>
+</div></div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%">
+<col width="81%">
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Применяется к</td>
+<td><a class="reference internal" href="..\..\validation.html#validation-property-target"><span>свойству или методу</span></a></td>
+</tr>
+<tr class="row-even"><td>Опции</td>
+<td><ul class="first last simple">
+<li><a class="reference internal" href="#maxsize">maxSize</a></li>
+<li><a class="reference internal" href="#binaryformat">binaryFormat</a></li>
+<li><a class="reference internal" href="#mimetypes">mimeTypes</a></li>
+<li><a class="reference internal" href="#maxsizemessage">maxSizeMessage</a></li>
+<li><a class="reference internal" href="#mimetypesmessage">mimeTypesMessage</a></li>
+<li><a class="reference internal" href="#disallowemptymessage">disallowEmptyMessage</a></li>
+<li><a class="reference internal" href="#notfoundmessage">notFoundMessage</a></li>
+<li><a class="reference internal" href="#notreadablemessage">notReadableMessage</a></li>
+<li><a class="reference internal" href="#uploadinisizeerrormessage">uploadIniSizeErrorMessage</a></li>
+<li><a class="reference internal" href="#uploadformsizeerrormessage">uploadFormSizeErrorMessage</a></li>
+<li><a class="reference internal" href="#uploaderrormessage">uploadErrorMessage</a></li>
+<li><a class="reference internal" href="#payload">payload</a></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>Класс</td>
+<td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Validator/Constraints/File.html" title="Symfony\Component\Validator\Constraints\File">File</a></code></tt></td>
+</tr>
+<tr class="row-even"><td>Валидатор</td>
+<td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Validator/Constraints/FileValidator.html" title="Symfony\Component\Validator\Constraints\FileValidator">FileValidator</a></code></tt></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>Базовое применение<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Это ограничение чаще всего используется в свойстве, которое будет отображено
+в форме в качестве поля <a class="reference internal" href="..\forms\types\file.html"><em>FileType</em></a>. Например,
+представьте, что вы создаёте форму автоура, где вы можете загрузить PDF &quot;биография&quot;
+автора. В вашей форме, свойство <tt class="docutils literal"><code>bioFile</code></tt> будет типом <tt class="docutils literal"><code>file</code></tt>. Класс <tt class="docutils literal"><code>Author</code></tt>
+можкт выглядеть следующим образом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Author.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\File\File</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Author</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$bioFile</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setBioFile</span><span class="p">(</span><span class="nx">File</span> <span class="nv">$file</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">bioFile</span> <span class="o">=</span> <span class="nv">$file</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getBioFile</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">bioFile</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Чтобы гарантировать, что объект <tt class="docutils literal"><code>bioFile</code></tt> <tt class="docutils literal"><code>File</code></tt> валиден, и что он меньше
+определённого размера файла и является валидным PDF-файлом, добавьте следующее:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Author.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Author</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Assert\File(</span>
+<span class="sd">     *     maxSize = &quot;1024k&quot;,</span>
+<span class="sd">     *     mimeTypes = {&quot;application/pdf&quot;, &quot;application/x-pdf&quot;},</span>
+<span class="sd">     *     mimeTypesMessage = &quot;Please upload a valid PDF&quot;</span>
+<span class="sd">     * )</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$bioFile</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/validator/validation.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">App\Entity\Author</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">properties</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">bioFile</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">File</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">maxSize</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1024k</span>
+                <span class="l l-Scalar l-Scalar-Plain">mimeTypes</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">application/pdf</span><span class="p p-Indicator">,</span> <span class="nv">application/x-pdf</span><span class="p p-Indicator">]</span>
+                <span class="l l-Scalar l-Scalar-Plain">mimeTypesMessage</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Please upload a valid PDF</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/validator/validation.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;constraint-mapping</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;App\Entity\Author&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;bioFile&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;File&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;maxSize&quot;</span><span class="nt">&gt;</span>1024k<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;mimeTypes&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;value&gt;</span>application/pdf<span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;value&gt;</span>application/x-pdf<span class="nt">&lt;/value&gt;</span>
+                <span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;mimeTypesMessage&quot;</span><span class="nt">&gt;</span>Please upload a valid PDF<span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;/constraint&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/class&gt;</span>
+<span class="nt">&lt;/constraint-mapping&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Author.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Mapping\ClassMetadata</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Author</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">loadValidatorMetadata</span><span class="p">(</span><span class="nx">ClassMetadata</span> <span class="nv">$metadata</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$metadata</span><span class="o">-&gt;</span><span class="na">addPropertyConstraint</span><span class="p">(</span><span class="s1">&#39;bioFile&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Assert\File</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;maxSize&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;1024k&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;mimeTypes&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;application/pdf&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;application/x-pdf&#39;</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="s1">&#39;mimeTypesMessage&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Please upload a valid PDF&#39;</span><span class="p">,</span>
+        <span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Свойство <tt class="docutils literal"><code>bioFile</code></tt> валидируется, чтобы гарантировать, что это настоящий файл.
+Его размер и mime-тип также валидируются, так как были указаны соответствующие
+опции.</p>
+</div>
+<div class="section" id="id2">
+<h2>Опции<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="maxsize">
+<h3>maxSize<a class="headerlink" href="#maxsize" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>mixed</code></tt></p>
+<p>Если опция установлена, то размер основоположного файла должен быть меньше
+этого размера файла, чтобы быть валидным. Размер файла может быть задан в одном
+из следующих форматов:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%">
+<col width="28%">
+<col width="37%">
+<col width="15%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Суффикс</th>
+<th class="head">Имя единицы</th>
+<th class="head">значение</th>
+<th class="head">напр.</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&nbsp;</td>
+<td>байт</td>
+<td>1 байт</td>
+<td>4096</td>
+</tr>
+<tr class="row-odd"><td>k</td>
+<td>килобайт</td>
+<td>1,000 байтов</td>
+<td>200k</td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td>мегабайт</td>
+<td>1,000,000 байтов</td>
+<td>2M</td>
+</tr>
+<tr class="row-odd"><td>Ki</td>
+<td>кибибайт</td>
+<td>1,024 байтов</td>
+<td>32Ki</td>
+</tr>
+<tr class="row-even"><td>Mi</td>
+<td>мебибайт</td>
+<td>1,048,576 байтов</td>
+<td>8Mi</td>
+</tr>
+</tbody>
+</table>
+<p>Чтобы узнать больше о разнице между двоичными и SI приставками, см.
+<a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D1%8B%D0%B5_%D0%BF%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B8">Двоичные приставки</a>.</p>
+</div>
+<div class="section" id="binaryformat">
+<h3>binaryFormat<a class="headerlink" href="#binaryformat" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>Когда <tt class="docutils literal"><code>true</code></tt>, то размеры будут отображены в сообщениях с единицами с
+двоичными приставками (KiB, MiB). Когда <tt class="docutils literal"><code>false</code></tt>, то размеры будут отображены
+с единицами с SI-приставками (kB, MB). Когда <tt class="docutils literal"><code>null</code></tt>, то binaryFormat будет
+угадан из значения, определённого опцией <tt class="docutils literal"><code>maxSize</code></tt>.</p>
+<p>Чтобы узнать больше о разнице между двоичными и SI приставками, см.
+<a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D1%8B%D0%B5_%D0%BF%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B8">Двоичные приставки</a>.</p>
+</div>
+<div class="section" id="mimetypes">
+<h3>mimeTypes<a class="headerlink" href="#mimetypes" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> или <tt class="docutils literal"><code>string</code></tt></p>
+<p>Если опция установлена, то валидатор проверит, чтобы mime-тип основоположного
+файла равнялся заданному mime-типу (если это строка), или существовал в коллекции
+заданных mime-типов (если это массив).</p>
+<p>Вы можете найти список существующих mime-типов на <a class="reference external" href="http://www.iana.org/assignments/media-types/index.html">сайте IANA</a>.</p>
+</div>
+<div class="section" id="maxsizemessage">
+<h3>maxSizeMessage<a class="headerlink" href="#maxsizemessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Файл слишком большой ({{ size }} {{ suffix }}). Максимальный разрешённый размер - {{ limit }} {{ suffix }}.</code></tt></p>
+<p>Отображаемое сообщеие, если файл больше, чем опция <a class="reference internal" href="#maxsize">maxSize</a>.</p>
+</div>
+<div class="section" id="mimetypesmessage">
+<h3>mimeTypesMessage<a class="headerlink" href="#mimetypesmessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Mime-тип файла не является валидным ({{ type }}). Позволенный mime-тип - {{ types }}.</code></tt></p>
+<p>Отображаемое сообщение, если mime-тип файла не является валидным в опции
+<a class="reference internal" href="#mimetypes">mimeTypes</a>.</p>
+</div>
+<div class="section" id="disallowemptymessage">
+<h3>disallowEmptyMessage<a class="headerlink" href="#disallowemptymessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Пустой файл не позволяется.</code></tt></p>
+<p>Ограничение проверяет, не пуст ли загруженный файл (т.е. 0 байтов). Если он
+пуст, то отображается это сообщение.</p>
+</div>
+<div class="section" id="notfoundmessage">
+<h3>notFoundMessage<a class="headerlink" href="#notfoundmessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Файл не был найден.</code></tt></p>
+<p>Отображаемое сообщение, если файл не мог быть найден по заданному пути. Эта
+ошибка возможна только если основоположное значение является строкой пути,
+так как объект <tt class="docutils literal"><code>File</code></tt> не может быть сконструирован с невалидным путём файла.</p>
+</div>
+<div class="section" id="notreadablemessage">
+<h3>notReadableMessage<a class="headerlink" href="#notreadablemessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Файл нечитаем.</code></tt></p>
+<p>Сообщение отображаемое, если файл существует, но PHP-функция <tt class="docutils literal"><code>is_readable()</code></tt> терпит
+неудачу при передачи пути файлу.</p>
+</div>
+<div class="section" id="uploadinisizeerrormessage">
+<h3>uploadIniSizeErrorMessage<a class="headerlink" href="#uploadinisizeerrormessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Файл слишком большой. Позволенный максимальный размер - {{ limit }} {{ suffix }}.</code></tt></p>
+<p>Отображаемое сообщение, если загруженный файл больше, чем настройка <tt class="docutils literal"><code>upload_max_filesize</code></tt>
+<tt class="docutils literal"><code>php.ini</code></tt>.</p>
+</div>
+<div class="section" id="uploadformsizeerrormessage">
+<h3>uploadFormSizeErrorMessage<a class="headerlink" href="#uploadformsizeerrormessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Файл слишком большой.</code></tt></p>
+<p>Сообщение, отображаемое, если загруженный файл больше, чем позволяет HTML
+поле ввода файла.</p>
+</div>
+<div class="section" id="uploaderrormessage">
+<h3>uploadErrorMessage<a class="headerlink" href="#uploaderrormessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Файл не мог быть загружен.</code></tt></p>
+<p>Сообщение, отображаемое, если загруженный файл не мог быть загружен по
+неизвестной причине, например, загрузка файла была неудачной, или файл
+не мог быть записан на диск.</p>
+</div>
+<div class="section" id="payload">
+<h3>payload<a class="headerlink" href="#payload" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>mixed</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>This option can be used to attach arbitrary domain-specific data to a constraint.
+The configured payload is not used by the Validator component, but its processing
+is completely up to you.</p>
+<p>For example, you may want to use
+<a class="reference internal" href="..\..\validation\severity.html"><em>several error levels</em></a> to present failed
+constraints differently in the front-end depending on the severity of the
+error.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

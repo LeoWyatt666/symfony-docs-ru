@@ -1,0 +1,762 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как сконфигурировать Monolog так, чтобы он отправлял ошибки по электронной почте &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="logging doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как сконфигурировать Monolog так, чтобы он отправлял ошибки по электронной почте</a></li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Как сконфигурировать Monolog так, чтобы он отправлял ошибки по электронной почте</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="monolog">
+<span id="index-0"></span><h1>Как сконфигурировать Monolog так, чтобы он отправлял ошибки по электронной почте<a class="headerlink" href="#monolog" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://github.com/Seldaek/monolog">Monolog</a> может быть сконфигурирован так, чтобы отправлять электронное письмо при
+возникновении ошибки в приложении. Для этого конфигурация требует несколько
+вложенных обработчиков, чтобы избегать получения слишком большого количества писем.
+Эта конфигурация на первый взгляд выглядит сложной, но каждый обработчик достаточно
+простой и ясный, если его разобрать на составляющие.</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/prod/monolog.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">monolog</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">handlers</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">mail</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span>         <span class="l l-Scalar l-Scalar-Plain">fingers_crossed</span>
+            <span class="c1"># на критическом уровне логируется 500 ошибок</span>
+            <span class="l l-Scalar l-Scalar-Plain">action_level</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">critical</span>
+            <span class="c1"># чтобы также логировать уровень 400 ошибок (но не ошибок 404):</span>
+            <span class="c1"># action_level: error</span>
+            <span class="c1"># excluded_404s:</span>
+            <span class="c1">#     - ^/</span>
+            <span class="l l-Scalar l-Scalar-Plain">handler</span><span class="p p-Indicator">:</span>      <span class="l l-Scalar l-Scalar-Plain">deduplicated</span>
+        <span class="l l-Scalar l-Scalar-Plain">deduplicated</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">deduplication</span>
+            <span class="l l-Scalar l-Scalar-Plain">handler</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">swift</span>
+        <span class="l l-Scalar l-Scalar-Plain">swift</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span>       <span class="l l-Scalar l-Scalar-Plain">swift_mailer</span>
+            <span class="l l-Scalar l-Scalar-Plain">from_email</span><span class="p p-Indicator">:</span> <span class="s">&#39;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="ea8f98988598aa8f928b879a868fc4898587">[email&#160;protected]</a>&#39;</span>
+            <span class="l l-Scalar l-Scalar-Plain">to_email</span><span class="p p-Indicator">:</span>   <span class="s">&#39;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="107562627f62507568717d607c753e737f7d">[email&#160;protected]</a>&#39;</span>
+            <span class="c1"># или список получателей</span>
+            <span class="c1"># to_email:   [&#39;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="9bfffeedaadbfee3faf6ebf7feb5f8f4f6">[email&#160;protected]</a>&#39;, &#39;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="127677642052776a737f627e773c717d7f">[email&#160;protected]</a>&#39;, ...]</span>
+            <span class="l l-Scalar l-Scalar-Plain">subject</span><span class="p p-Indicator">:</span>    <span class="s">&#39;An</span><span class="nv"> </span><span class="s">Error</span><span class="nv"> </span><span class="s">Occurred!</span><span class="nv"> </span><span class="s">%%message%%&#39;</span>
+            <span class="l l-Scalar l-Scalar-Plain">level</span><span class="p p-Indicator">:</span>      <span class="l l-Scalar l-Scalar-Plain">debug</span>
+            <span class="l l-Scalar l-Scalar-Plain">formatter</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">monolog.formatter.html</span>
+            <span class="l l-Scalar l-Scalar-Plain">content_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">text/html</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/prod/monolog.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:monolog=</span><span class="s">&quot;http://symfony.com/schema/dic/monolog&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/monolog http://symfony.com/schema/dic/monolog/monolog-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;monolog:config&gt;</span>
+        <span class="c">&lt;!--</span>
+<span class="c">        на критическом уровне логируется 500 ошибок</span>
+<span class="c">        чтобы также логировать уровень 400 ошибок (но не ошибок 404):</span>
+<span class="c">        action-level=&quot;error&quot;</span>
+<span class="c">        И добавьте эту дочь внутрь monolog:handler</span>
+<span class="c">        &lt;monolog:excluded-404&gt;^/&lt;/monolog:excluded-404&gt;</span>
+<span class="c">        --&gt;</span>
+        <span class="nt">&lt;monolog:handler</span>
+            <span class="na">name=</span><span class="s">&quot;mail&quot;</span>
+            <span class="na">type=</span><span class="s">&quot;fingers_crossed&quot;</span>
+            <span class="na">action-level=</span><span class="s">&quot;critical&quot;</span>
+            <span class="na">handler=</span><span class="s">&quot;deduplicated&quot;</span>
+        <span class="nt">/&gt;</span>
+        <span class="nt">&lt;monolog:handler</span>
+            <span class="na">name=</span><span class="s">&quot;deduplicated&quot;</span>
+            <span class="na">type=</span><span class="s">&quot;deduplication&quot;</span>
+            <span class="na">handler=</span><span class="s">&quot;swift&quot;</span>
+        <span class="nt">/&gt;</span>
+        <span class="nt">&lt;monolog:handler</span>
+            <span class="na">name=</span><span class="s">&quot;swift&quot;</span>
+            <span class="na">type=</span><span class="s">&quot;swift_mailer&quot;</span>
+            <span class="na">from-email=</span><span class="s">&quot;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="086d7a7a677a486d70696578646d266b6765">[email&#160;protected]</a>&quot;</span>
+            <span class="na">subject=</span><span class="s">&quot;An Error Occurred! %%message%%&quot;</span>
+            <span class="na">level=</span><span class="s">&quot;debug&quot;</span>
+            <span class="na">formatter=</span><span class="s">&quot;monolog.formatter.html&quot;</span>
+            <span class="na">content-type=</span><span class="s">&quot;text/html&quot;</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;monolog:to-email&gt;</span><a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="ef8a9d9d809daf8a978e829f838ac18c8082">[email&#160;protected]</a><span class="nt">&lt;/monolog:to-email&gt;</span>
+
+            <span class="c">&lt;!-- или список получателей --&gt;</span>
+            <span class="c">&lt;!--</span>
+<span class="c">            &lt;monolog:to-email&gt;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="254140531465405d44485549400b464a48">[email&#160;protected]</a>&lt;/monolog:to-email&gt;</span>
+<span class="c">            &lt;monolog:to-email&gt;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="5c38392a6e1c39243d312c3039723f3331">[email&#160;protected]</a>&lt;/monolog:to-email&gt;</span>
+<span class="c">            ...</span>
+<span class="c">            --&gt;</span>
+        <span class="nt">&lt;/monolog:handler&gt;</span>
+    <span class="nt">&lt;/monolog:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/prod/monolog.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;monolog&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;handlers&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;mail&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;type&#39;</span>         <span class="o">=&gt;</span> <span class="s1">&#39;fingers_crossed&#39;</span><span class="p">,</span>
+            <span class="c1">// на критическом уровне логируется 500 ошибок</span>
+            <span class="s1">&#39;action_level&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;critical&#39;</span><span class="p">,</span>
+            <span class="c1">// чтобы также логировать уровень 400 ошибок (но не ошибок 404):</span>
+            <span class="c1">// &#39;action_level&#39; =&gt; &#39;error&#39;,</span>
+            <span class="c1">// &#39;excluded_404s&#39; =&gt; array(</span>
+            <span class="c1">//     &#39;^/&#39;,</span>
+            <span class="c1">// ),</span>
+            <span class="s1">&#39;handler&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;deduplicated&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;deduplicated&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;type&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;deduplication&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;handler&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;swift&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;swift&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;type&#39;</span>         <span class="o">=&gt;</span> <span class="s1">&#39;swift_mailer&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;from_email&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="37524545584577524f565a475b521954585a">[email&#160;protected]</a>&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;to_email&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="4c293e3e233e0c29342d213c2029622f2321">[email&#160;protected]</a>&#39;</span><span class="p">,</span>
+            <span class="c1">// или список получателей</span>
+            <span class="c1">// &#39;to_email&#39;   =&gt; array(&#39;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="1e7a7b682f5e7b667f736e727b307d7173">[email&#160;protected]</a>&#39;, &#39;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="fe9a9b88ccbe9b869f938e929bd09d9193">[email&#160;protected]</a>&#39;, ...),</span>
+            <span class="s1">&#39;subject&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;An Error Occurred! %%message%%&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;level&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;debug&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;formatter&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;monolog.formatter.html&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;content_type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;text/html&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Обработчик <tt class="docutils literal"><code>mail</code></tt> - это обработчик <tt class="docutils literal"><code>fingers_crossed</code></tt>, что означает, что
+он запускается только, когда достигнут уровень действия, в этом случае -
+<tt class="docutils literal"><code>critical</code></tt>. Уровень <tt class="docutils literal"><code>critical</code></tt> запускается только для ошибок HTTP-кода 5xx.
+Если этот уровень достигнут единожды, обработчик <tt class="docutils literal"><code>fingers_crossed</code></tt> будет
+логировать все сообщения, не глядя на их уровень. Настройка <tt class="docutils literal"><code>handler</code></tt> означает,
+что вывод потом передаётся в обработчик <tt class="docutils literal"><code>deduplicated</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если вы хотите, чтобы и ошибки 400 и 500 уровня вызывали отправку письма,
+установите <tt class="docutils literal"><code>action_level</code></tt> в значении <tt class="docutils literal"><code>error</code></tt> вместо <tt class="docutils literal"><code>critical</code></tt>. См.
+код выше, чтобы увидеть пример.</p>
+</div></div>
+<p>Обработчик <tt class="docutils literal"><code>deduplicated</code></tt> просто хранит все сообщения для запроса, а потом
+передаёт их во вложенный обработчик за один заход, но только, если записи уникальны
+в течение заданного периода времени (по умолчанию - 60 секунд). Если записи являются
+дубликатами, то они просто сбрасываются. Добавление этого обработчика уменьшает
+объем уведомлений до управляемого уровня, особенно в сценариях критического отказа.
+Вы можете настроить временной промежуток, используя опцию <tt class="docutils literal"><code>time</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/prod/monolog.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">monolog</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">handlers</span><span class="p p-Indicator">:</span>
+        <span class="c1"># ...</span>
+        <span class="l l-Scalar l-Scalar-Plain">deduplicated</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">deduplication</span>
+            <span class="c1"># время в секундах, в течение которого удаляются дублированные записи (по умолчанию: 60)</span>
+            <span class="l l-Scalar l-Scalar-Plain">time</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+            <span class="l l-Scalar l-Scalar-Plain">handler</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">swift</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/prod/monolog.xml --&gt;</span>
+
+<span class="c">&lt;!-- время: время в секундах, в течение которого удаляются дублированные записи (по умолчанию: 60) --&gt;</span>
+<span class="nt">&lt;monolog:handler</span> <span class="na">name=</span><span class="s">&quot;deduplicated&quot;</span>
+    <span class="na">type=</span><span class="s">&quot;deduplication&quot;</span>
+    <span class="na">time=</span><span class="s">&quot;10&quot;</span>
+    <span class="na">handler=</span><span class="s">&quot;swift&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/prod/monolog.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;monolog&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;handlers&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="c1">// ...</span>
+        <span class="s1">&#39;deduplicated&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;type&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;deduplication&#39;</span><span class="p">,</span>
+            <span class="c1">// время в секундах, в течение которого удаляются дублированные записи (по умолчанию: 60)</span>
+            <span class="s1">&#39;time&#39;</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="s1">&#39;handler&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;swift&#39;</span><span class="p">,</span>
+         <span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Потом сообщения передаются обработчику <tt class="docutils literal"><code>swift</code></tt>. Это тот обработчик, который работает
+с отправкой вам письма об ошибке. Его установки просты и понятны: адреса отправителя
+и получателя, форматировщик, тип содержимого и субъект.</p>
+<p>Вы можете комбинировать эти обработчики с другими, чтобы ошибки продолжали
+логироваться на сервере, а электронные письма продолжали отправляться:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/prod/monolog.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">monolog</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">handlers</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">main</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span>         <span class="l l-Scalar l-Scalar-Plain">fingers_crossed</span>
+            <span class="l l-Scalar l-Scalar-Plain">action_level</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">critical</span>
+            <span class="l l-Scalar l-Scalar-Plain">handler</span><span class="p p-Indicator">:</span>      <span class="l l-Scalar l-Scalar-Plain">grouped</span>
+        <span class="l l-Scalar l-Scalar-Plain">grouped</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">group</span>
+            <span class="l l-Scalar l-Scalar-Plain">members</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">streamed</span><span class="p p-Indicator">,</span> <span class="nv">deduplicated</span><span class="p p-Indicator">]</span>
+        <span class="l l-Scalar l-Scalar-Plain">streamed</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">stream</span>
+            <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>  <span class="s">&#39;%kernel.logs_dir%/%kernel.environment%.log&#39;</span>
+            <span class="l l-Scalar l-Scalar-Plain">level</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">debug</span>
+        <span class="l l-Scalar l-Scalar-Plain">deduplicated</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">deduplication</span>
+            <span class="l l-Scalar l-Scalar-Plain">handler</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">swift</span>
+        <span class="l l-Scalar l-Scalar-Plain">swift</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span>       <span class="l l-Scalar l-Scalar-Plain">swift_mailer</span>
+            <span class="l l-Scalar l-Scalar-Plain">from_email</span><span class="p p-Indicator">:</span> <span class="s">&#39;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="d4b1a6a6bba694b1acb5b9a4b8b1fab7bbb9">[email&#160;protected]</a>&#39;</span>
+            <span class="l l-Scalar l-Scalar-Plain">to_email</span><span class="p p-Indicator">:</span>   <span class="s">&#39;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="f49186869b86b4918c9599849891da979b99">[email&#160;protected]</a>&#39;</span>
+            <span class="l l-Scalar l-Scalar-Plain">subject</span><span class="p p-Indicator">:</span>    <span class="s">&#39;An</span><span class="nv"> </span><span class="s">Error</span><span class="nv"> </span><span class="s">Occurred!</span><span class="nv"> </span><span class="s">%%message%%&#39;</span>
+            <span class="l l-Scalar l-Scalar-Plain">level</span><span class="p p-Indicator">:</span>      <span class="l l-Scalar l-Scalar-Plain">debug</span>
+            <span class="l l-Scalar l-Scalar-Plain">formatter</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">monolog.formatter.html</span>
+            <span class="l l-Scalar l-Scalar-Plain">content_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">text/html</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/prod/monolog.xml --&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:monolog=</span><span class="s">&quot;http://symfony.com/schema/dic/monolog&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/monolog http://symfony.com/schema/dic/monolog/monolog-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;monolog:config&gt;</span>
+        <span class="nt">&lt;monolog:handler</span>
+            <span class="na">name=</span><span class="s">&quot;main&quot;</span>
+            <span class="na">type=</span><span class="s">&quot;fingers_crossed&quot;</span>
+            <span class="na">action_level=</span><span class="s">&quot;critical&quot;</span>
+            <span class="na">handler=</span><span class="s">&quot;grouped&quot;</span>
+        <span class="nt">/&gt;</span>
+        <span class="nt">&lt;monolog:handler</span>
+            <span class="na">name=</span><span class="s">&quot;grouped&quot;</span>
+            <span class="na">type=</span><span class="s">&quot;group&quot;</span>
+        <span class="nt">&gt;</span>
+            <span class="nt">&lt;member</span> <span class="na">type=</span><span class="s">&quot;stream&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;member</span> <span class="na">type=</span><span class="s">&quot;deduplicated&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/monolog:handler&gt;</span>
+        <span class="nt">&lt;monolog:handler</span>
+            <span class="na">name=</span><span class="s">&quot;stream&quot;</span>
+            <span class="na">path=</span><span class="s">&quot;%kernel.logs_dir%/%kernel.environment%.log&quot;</span>
+            <span class="na">level=</span><span class="s">&quot;debug&quot;</span>
+        <span class="nt">/&gt;</span>
+        <span class="nt">&lt;monolog:handler</span>
+            <span class="na">name=</span><span class="s">&quot;deduplicated&quot;</span>
+            <span class="na">type=</span><span class="s">&quot;deduplication&quot;</span>
+            <span class="na">handler=</span><span class="s">&quot;swift&quot;</span>
+        <span class="nt">/&gt;</span>
+        <span class="nt">&lt;monolog:handler</span>
+            <span class="na">name=</span><span class="s">&quot;swift&quot;</span>
+            <span class="na">type=</span><span class="s">&quot;swift_mailer&quot;</span>
+            <span class="na">from-email=</span><span class="s">&quot;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="e98c9b9b869ba98c91888499858cc78a8684">[email&#160;protected]</a>&quot;</span>
+            <span class="na">subject=</span><span class="s">&quot;An Error Occurred! %%message%%&quot;</span>
+            <span class="na">level=</span><span class="s">&quot;debug&quot;</span>
+            <span class="na">formatter=</span><span class="s">&quot;monolog.formatter.html&quot;</span>
+            <span class="na">content-type=</span><span class="s">&quot;text/html&quot;</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;monolog:to-email&gt;</span><a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="721700001d0032170a131f021e175c111d1f">[email&#160;protected]</a><span class="nt">&lt;/monolog:to-email&gt;</span>
+
+            <span class="c">&lt;!-- or list of recipients --&gt;</span>
+            <span class="c">&lt;!--</span>
+<span class="c">            &lt;monolog:to-email&gt;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="87e3e2f1b6c7e2ffe6eaf7ebe2a9e4e8ea">[email&#160;protected]</a>&lt;/monolog:to-email&gt;</span>
+<span class="c">            &lt;monolog:to-email&gt;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="533736256113362b323e233f367d303c3e">[email&#160;protected]</a>&lt;/monolog:to-email&gt;</span>
+<span class="c">            ...</span>
+<span class="c">            --&gt;</span>
+        <span class="nt">&lt;/monolog:handler&gt;</span>
+    <span class="nt">&lt;/monolog:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/prod/monolog.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;monolog&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;handlers&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;main&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;type&#39;</span>         <span class="o">=&gt;</span> <span class="s1">&#39;fingers_crossed&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;action_level&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;critical&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;handler&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;grouped&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;grouped&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;type&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;group&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;members&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;streamed&#39;</span><span class="p">,</span> <span class="s1">&#39;deduplicated&#39;</span><span class="p">),</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;streamed&#39;</span>  <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;type&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;stream&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;path&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;%kernel.logs_dir%/%kernel.environment%.log&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;level&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;debug&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;deduplicated&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;type&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;deduplication&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;handler&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;swift&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;swift&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;type&#39;</span>         <span class="o">=&gt;</span> <span class="s1">&#39;swift_mailer&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;from_email&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="87e2f5f5e8f5c7e2ffe6eaf7ebe2a9e4e8ea">[email&#160;protected]</a>&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;to_email&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="345146465b4674514c55594458511a575b59">[email&#160;protected]</a>&#39;</span><span class="p">,</span>
+            <span class="c1">// or a list of recipients</span>
+            <span class="c1">// &#39;to_email&#39;   =&gt; array(&#39;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="432726357203263b222e332f266d202c2e">[email&#160;protected]</a>&#39;, &#39;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="0a6e6f7c384a6f726b677a666f24696567">[email&#160;protected]</a>&#39;, ...),</span>
+            <span class="s1">&#39;subject&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;An Error Occurred! %%message%%&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;level&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;debug&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;formatter&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;monolog.formatter.html&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;content_type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;text/html&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Используется обработчик <tt class="docutils literal"><code>group</code></tt> для отправки сообщений двум членамгруппы, обработчики
+<tt class="docutils literal"><code>deduplicated</code></tt> и <tt class="docutils literal"><code>stream</code></tt>. Теперь оба сообщения будут записаны в файл логов и
+отправлены по электронной почте.</p>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  <script data-cfasync="false" src="..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script></body>
+</body></html>

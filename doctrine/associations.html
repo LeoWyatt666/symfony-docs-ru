@@ -1,0 +1,997 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как работать с ассоциациями / отношениями Doctrine &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="doctrine doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как работать с ассоциациями / отношениями Doctrine</a><ul>
+<li><a class="reference internal" href="#manytoone-onetomany">Ассоциация ManyToOne / OneToMany</a></li>
+<li><a class="reference internal" href="#manytoone">Отображение отношения ManyToOne</a></li>
+<li><a class="reference internal" href="#id1">Сохранение связанных сущностей</a></li>
+<li><a class="reference internal" href="#id2">Извлечение связанных объектов</a></li>
+<li><a class="reference internal" href="#id5">Объединение связанных записей</a></li>
+<li><a class="reference internal" href="#associations-inverse-side-ru">Установка информации с обратной стороны</a></li>
+<li><a class="reference internal" href="#id9">Больше информации об ассоциациях</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Как работать с ассоциациями / отношениями Doctrine</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="doctrine">
+<span id="index-0"></span><h1>Как работать с ассоциациями / отношениями Doctrine<a class="headerlink" href="#doctrine" title="Permalink to this headline">¶</a></h1>
+<p>Существует <strong>два</strong> основных типа отношений / ассциаций:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>ManyToOne</code></tt> / <tt class="docutils literal"><code>OneToMany</code></tt></dt>
+<dd>Наиболее распространённые отношения, отображённые в БД с помощью простого
+внешнего столбца ключей (например, столбца <tt class="docutils literal"><code>category_id</code></tt> в таблице <tt class="docutils literal"><code>product</code></tt>).
+На самом деле, это <em>один</em> тип ассоциации, рассматриваемый с двух разных
+<em>сторон</em> отношений.</dd>
+<dt><tt class="docutils literal"><code>ManyToMany</code></tt></dt>
+<dd>Использует промежуточную таблицу и нужен, когда обе стороны отношений могут
+иметь множество с другой стороны (например, &quot;ученики&quot; и &quot;предметы&quot;: каждый ученик
+во многих предметах, и каждый класс имеет множество учеников).</dd>
+</dl>
+<p>Для начала, вам нужно определить, какое отношение использовать. Если обе стороны
+отношений будут содержать множество с другой стороны (например, &quot;ученики&quot; и
+&quot;предметы&quot;), то вам нужно использовать отношение <tt class="docutils literal"><code>ManyToMany</code></tt>. В других случаях,
+вам скорее нужен <tt class="docutils literal"><code>ManyToOne</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Также существуют отношения  OneToOne (например, один Пользователь
+имеет один Профиль и наоборот). На практике, их использование схоже
+с <tt class="docutils literal"><code>ManyToOne</code></tt>.</p>
+</div></div>
+<div class="section" id="manytoone-onetomany">
+<h2>Ассоциация ManyToOne / OneToMany<a class="headerlink" href="#manytoone-onetomany" title="Permalink to this headline">¶</a></h2>
+<p>Представьте, что каждый продукт в вашем приложении принадлежит только к одной
+конкретной категории. В этом случае, вам понадобится класс <tt class="docutils literal"><code>Category</code></tt>, и способ
+связать объект <tt class="docutils literal"><code>Product</code></tt> с объектом <tt class="docutils literal"><code>Category</code></tt>.</p>
+<p>Начните с создания сущности <tt class="docutils literal"><code>Category</code></tt>:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console make:entity Category
+</pre></div>
+</td></tr></table></div></div>
+<p>Далее, добавьте поле <tt class="docutils literal"><code>name</code></tt> к новому классу <tt class="docutils literal"><code>Category</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Category</span>
+<span class="c1">// ...</span>
+
+<span class="k">class</span> <span class="nc">Category</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Id</span>
+<span class="sd">     * @ORM\GeneratedValue</span>
+<span class="sd">     * @ORM\Column(type=&quot;integer&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$id</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Column(type=&quot;string&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$name</span><span class="p">;</span>
+
+    <span class="c1">// ... getters and setters</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="manytoone">
+<h2>Отображение отношения ManyToOne<a class="headerlink" href="#manytoone" title="Permalink to this headline">¶</a></h2>
+<p>В этом примере, каждая категория может быть ассоциирована со <em>многими</em> продуктами.
+Но каждый продукт может быть ассоциирован только с <em>одной</em> категорией.
+Это отношение можно подытожить так: <em>многие</em> продукты к <em>одной</em> категории (или,
+равнозначно - <em>одна</em> категория ко <em>многим</em> продуктам).</p>
+<p>С точки зрения сущности <tt class="docutils literal"><code>Product</code></tt> - это отношения многие-к-одному. С точки зрения
+сущности <tt class="docutils literal"><code>Category</code></tt> - это отношения один-ко-многим. Это важно, так как относительная
+природа отношений определяет, какие метаданные использовать для отображения. Она также
+определяет, какой класс <em>должен</em> содержать отсылку к другому классу.</p>
+<p>Чтобы отобразить это, для начала создайте свойство <tt class="docutils literal"><code>category</code></tt> в класее <tt class="docutils literal"><code>Product</code></tt>
+с аннотацией <tt class="docutils literal"><code>ManyToOne</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Product.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Product</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\ManyToOne(targetEntity=&quot;App\Entity\Category&quot;, inversedBy=&quot;products&quot;)</span>
+<span class="sd">     * @ORM\JoinColumn(nullable=true)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$category</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCategory</span><span class="p">()</span><span class="o">:</span> <span class="nx">Category</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">category</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setCategory</span><span class="p">(</span><span class="nx">Category</span> <span class="nv">$category</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">category</span> <span class="o">=</span> <span class="nv">$category</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># src/Resources/config/doctrine/Product.orm.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">App\Entity\Product</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">entity</span>
+    <span class="c1"># ...</span>
+    <span class="l l-Scalar l-Scalar-Plain">manyToOne</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">category</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">targetEntity</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">App\Entity\Category</span>
+            <span class="l l-Scalar l-Scalar-Plain">inversedBy</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">products</span>
+            <span class="l l-Scalar l-Scalar-Plain">joinColumn</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">nullable</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- src/Resources/config/doctrine/Product.orm.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;doctrine-mapping</span> <span class="na">xmlns=</span><span class="s">&quot;http://doctrine-project.org/schemas/orm/doctrine-mapping&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://doctrine-project.org/schemas/orm/doctrine-mapping</span>
+<span class="s">        http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;entity</span> <span class="na">name=</span><span class="s">&quot;App\Entity\Product&quot;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+        <span class="nt">&lt;many-to-one</span>
+            <span class="na">field=</span><span class="s">&quot;category&quot;</span>
+            <span class="na">target-entity=</span><span class="s">&quot;App\Entity\Category&quot;</span>
+            <span class="na">inversed-by=</span><span class="s">&quot;products&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;join-column</span> <span class="na">nullable=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/many-to-one&gt;</span>
+    <span class="nt">&lt;/entity&gt;</span>
+<span class="nt">&lt;/doctrine-mapping&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Это отображение многие-к-одному является обязательным. Оно говорит Doctrine
+использовать колонку таблицы <tt class="docutils literal"><code>product</code></tt>, чтобы соотнести каждую запись в этой
+таблице с записью в таблице <tt class="docutils literal"><code>category</code></tt>.</p>
+<p>Далее, так как <em>один</em> объект <tt class="docutils literal"><code>Category</code></tt> будет относиться ко <em>многим</em> объектам
+<tt class="docutils literal"><code>Product</code></tt>, добавьте свойство <tt class="docutils literal"><code>products</code></tt> к <tt class="docutils literal"><code>Category</code></tt>, который будет содержать
+эти объекты:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Category.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Doctrine\Common\Collections\ArrayCollection</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\Common\Collections\Collection</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Category</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\OneToMany(targetEntity=&quot;App\Entity\Product&quot;, mappedBy=&quot;category&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$products</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">products</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayCollection</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @return Collection|Product[]</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getProducts</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">products</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># src/Resources/config/doctrine/Category.orm.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">App\Entity\Category</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">entity</span>
+    <span class="c1"># ...</span>
+    <span class="l l-Scalar l-Scalar-Plain">oneToMany</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">products</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">targetEntity</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">App\Entity\Product</span>
+            <span class="l l-Scalar l-Scalar-Plain">mappedBy</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">category</span>
+<span class="c1"># Don&#39;t forget to initialize the collection in</span>
+<span class="c1"># the __construct() method of the entity</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- src/Resources/config/doctrine/Category.orm.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;doctrine-mapping</span> <span class="na">xmlns=</span><span class="s">&quot;http://doctrine-project.org/schemas/orm/doctrine-mapping&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://doctrine-project.org/schemas/orm/doctrine-mapping</span>
+<span class="s">        http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;entity</span> <span class="na">name=</span><span class="s">&quot;App\Entity\Category&quot;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+        <span class="nt">&lt;one-to-many</span>
+            <span class="na">field=</span><span class="s">&quot;products&quot;</span>
+            <span class="na">target-entity=</span><span class="s">&quot;App\Entity\Product&quot;</span>
+            <span class="na">mapped-by=</span><span class="s">&quot;category&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="c">&lt;!--</span>
+<span class="c">            don&#39;t forget to init the collection in</span>
+<span class="c">            the __construct() method of the entity</span>
+<span class="c">        --&gt;</span>
+    <span class="nt">&lt;/entity&gt;</span>
+<span class="nt">&lt;/doctrine-mapping&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Отображение <tt class="docutils literal"><code>ManyToOne</code></tt>, показанное ранее, <em>обязательно</em>. Но, отношение
+<tt class="docutils literal"><code>OneToMany</code></tt> - необязательно: добавляйте его только <em>если</em> вы хотите иметь
+доступ к товарам, которые связаны с категорией. В этом примере, <em>будет</em> полезно
+иметь возможность вызвать <tt class="docutils literal"><code>$category-&gt;getProducts()</code></tt>. Если вы не хотите этого,
+то вам также не нужна конфигурация <tt class="docutils literal"><code>inversedBy</code></tt> или <tt class="docutils literal"><code>mappedBy</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Что такое ArrayCollection?</p>
+<p class="last">Код внутри <tt class="docutils literal"><code>__construct()</code></tt> важен: Свойство <tt class="docutils literal"><code>$products</code></tt> должно быть объектом
+коллекции, реализующим интерфейс Doctrine <tt class="docutils literal"><code>Collection</code></tt>. В этом случае, используется
+объект <tt class="docutils literal"><code>ArrayCollection</code></tt>. Он выглядит и действует почти <em>так же</em>, как массив, но
+имеет дополнительную гибкость. Просто представьте, что это <tt class="docutils literal"><code>array</code></tt>, и всё будет
+хорошо.</p>
+</div></div>
+<p>Ваша база данных настроена! Теперь, выполните миграции, как обычно:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console doctrine:migrations:diff
+<span class="gp">$</span> php bin/console doctrine:migrations:migrate
+</pre></div>
+</td></tr></table></div></div>
+<p>Благодрая отношениям, создаётся внешний столбец ключей <tt class="docutils literal"><code>category_id</code></tt> в
+таблице <tt class="docutils literal"><code>product</code></tt>. Doctrine готова сохранять наши отношения!</p>
+</div>
+<div class="section" id="id1">
+<h2>Сохранение связанных сущностей<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Теперь вы можете увидеть этот новый код в действии! Представьте, что вы внутри
+контроллера:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+
+<span class="k">use</span> <span class="nx">App\Entity\Category</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Entity\Product</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ProductController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Route(&quot;/product&quot;, name=&quot;product&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$category</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Category</span><span class="p">();</span>
+        <span class="nv">$category</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;Computer Peripherals&#39;</span><span class="p">);</span>
+
+        <span class="nv">$product</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">();</span>
+        <span class="nv">$product</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;Keyboard&#39;</span><span class="p">);</span>
+        <span class="nv">$product</span><span class="o">-&gt;</span><span class="na">setPrice</span><span class="p">(</span><span class="mf">19.99</span><span class="p">);</span>
+        <span class="nv">$product</span><span class="o">-&gt;</span><span class="na">setDescription</span><span class="p">(</span><span class="s1">&#39;Ergonomic and stylish!&#39;</span><span class="p">);</span>
+
+        <span class="c1">// связывает этот продукт с категорией</span>
+        <span class="nv">$product</span><span class="o">-&gt;</span><span class="na">setCategory</span><span class="p">(</span><span class="nv">$category</span><span class="p">);</span>
+
+        <span class="nv">$em</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
+        <span class="nv">$em</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$category</span><span class="p">);</span>
+        <span class="nv">$em</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$product</span><span class="p">);</span>
+        <span class="nv">$em</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span>
+            <span class="s1">&#39;Saved new product with id: &#39;</span><span class="o">.</span><span class="nv">$product</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">()</span>
+            <span class="o">.</span><span class="s1">&#39; and new category with id: &#39;</span><span class="o">.</span><span class="nv">$category</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">()</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Когда вы переходите в <tt class="docutils literal"><code>/product</code></tt>, к таблицам <tt class="docutils literal"><code>category</code></tt> и <tt class="docutils literal"><code>product</code></tt> добавляется
+одна строчка. Столбец <tt class="docutils literal"><code>product.category_id</code></tt> для нового товара устанавливается, как
+<tt class="docutils literal"><code>id</code></tt> новой категории. Doctrine управляет сохранением этих отношений за вас:</p>
+<img alt="../_images/mapping_relations.png" class="align-center" src="..\_images\mapping_relations.png">
+<p>Если вы новичок в ORM, то это <em>самый сложный</em> концепт: вам нужно перестать думать
+о вашей БД, а вместо этого думать <em>только</em> о ваших объектах. Вместо установки числового
+id категории в <tt class="docutils literal"><code>Product</code></tt>, вы устанавливаете весь <em>объект</em> <tt class="docutils literal"><code>Category</code></tt>. Doctrine
+заботится обо всём остальном при сохранении.</p>
+<div class="admonition-wrapper">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Обновление отношений с обратной стороны ассоциации</p>
+<p class="last">Можете ли вы также вызвать <tt class="docutils literal"><code>$category-&gt;setProducts()</code></tt>, чтобы установить
+отношения? На самом деле - нет! Ранее, вы <em>не</em> добавили метод <tt class="docutils literal"><code>setProducts()</code></tt>
+в <tt class="docutils literal"><code>Category</code></tt>. Это специально: вы можете устанавливать данные <em>только</em> на
+владеющей стороне отошений. Другими словами, если вы вызовете только
+<tt class="docutils literal"><code>$category-&gt;setProducts()</code></tt>, то это <em>полностью</em> игнорируется при сохранении.
+Чтобы узнать больше, см.: <a class="reference internal" href="#associations-inverse-side-ru">associations-inverse-side-ru</a>.</p>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Извлечение связанных объектов<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Когда вам надо вернуть ассоциированные объекты, ваш ход работы выглядит так же,
+как и раньше. Вначале, вызовите объект <tt class="docutils literal"><code>$product</code></tt>, а потом получите доступ к
+связанному с ним объекту <tt class="docutils literal"><code>Category</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Entity\Product</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">showAction</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$product</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Product</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+
+    <span class="c1">// ...</span>
+
+    <span class="nv">$categoryName</span> <span class="o">=</span> <span class="nv">$product</span><span class="o">-&gt;</span><span class="na">getCategory</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getName</span><span class="p">();</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В этом примере, вы вначале запрашиваете объект <tt class="docutils literal"><code>Product</code></tt>, основываясь на его
+<tt class="docutils literal"><code>id</code></tt>. Это запускает запрос <em>только</em> для данных продукта и насыщает объект
+<tt class="docutils literal"><code>$product</code></tt>. Позже, когда вы вызовете <tt class="docutils literal"><code>$product-&gt;getCategory()-&gt;getName()</code></tt>,
+Doctrine тихо создаст второй запрос, чтобы найти <tt class="docutils literal"><code>Category</code></tt>, которая связана с этим
+<tt class="docutils literal"><code>Product</code></tt>. Она подготавливает объект <a href="#id3"><span class="problematic" id="id4">``</span></a>$category``и возвращает его вам.</p>
+<img alt="../_images/mapping_relations_proxy.png" class="align-center" src="..\_images\mapping_relations_proxy.png">
+<p>Так как мы отобразили необязательную сторону <tt class="docutils literal"><code>OneToMany</code></tt>, то вы также
+можете запросить в обратном направлении:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">showProductsAction</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$category</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Category</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+
+    <span class="nv">$products</span> <span class="o">=</span> <span class="nv">$category</span><span class="o">-&gt;</span><span class="na">getProducts</span><span class="p">();</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В этом случае, происходят те же вещи: вы вначале запрашиваете один объект
+<tt class="docutils literal"><code>Category</code></tt>. Далее, только когда (и если) вы получаете доступ к товарам,
+Doctrine делает второй запрос, чтобы извлечь связанные объекты <tt class="docutils literal"><code>Product</code></tt>.
+Этого дополнительного запроса можно избежать, добавив JOIN.</p>
+<div class="admonition-wrapper">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Отношения и классы прокси</p>
+<p>Такая &quot;ленивая загрузка&quot; возможна потому, что когда это необходимо, Doctrine
+возвращает объект &quot;прокси&quot; вместо настоящего объекта. Еще раз посмотрите на пример,
+показанный выше:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$product</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Product</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+
+<span class="nv">$category</span> <span class="o">=</span> <span class="nv">$product</span><span class="o">-&gt;</span><span class="na">getCategory</span><span class="p">();</span>
+
+<span class="c1">// отображает &quot;Proxies\AppEntityCategoryProxy&quot;</span>
+<span class="nx">dump</span><span class="p">(</span><span class="nb">get_class</span><span class="p">(</span><span class="nv">$category</span><span class="p">));</span>
+<span class="k">die</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Этот объект прокси расширяет настоящий объект <tt class="docutils literal"><code>Category</code></tt>, и выглядит
+и ведёт себя точно так же. Разница в том, что используя объект прокси,
+Doctrine может отложить запрос настоящих данных <tt class="docutils literal"><code>Category</code></tt> до тех пор,
+пока вам они действительно не понадобятся (например, вы вызовете
+<tt class="docutils literal"><code>$category-&gt;getName()</code></tt>).</p>
+<p>Классы прокси генерируются Doctrine и хранятся в каталоге кеша. Вы скорее
+всего никогда не заметите, что ваш объект <tt class="docutils literal"><code>$category</code></tt> на самом деле -
+объект прокси.</p>
+<p class="last">В следующей части, когда вы будете возвращать данные продукта и категории
+одновременно (с помощью <em>объединения</em>), Doctrine будет возвращать <em>настоящий</em> объект
+<tt class="docutils literal"><code>Category</code></tt>, так как ленивая загрузка ни для чего не потребуется.</p>
+</div></div>
+</div>
+<div class="section" id="id5">
+<h2>Объединение связанных записей<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>В вышеописанных примерах, было сделано два запроса - один к оригинальному
+объекту (например, <tt class="docutils literal"><code>Category</code></tt>) и один к связанному(ым) объекту(ам),
+(например объектам objects).</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Помните, что вы можете увидеть все запросы, сделанные во время запроса
+с помощью панели инструментов веб-отладки.</p>
+</div></div>
+<p>Конечно, если вы заранее знаете, что вам понадобится получить доступ к обоим
+объектам, вы можете избежать ворого запроса, путём создания объединения в
+оригинальном запросе. Добавьте следующий метод к классу <tt class="docutils literal"><code>ProductRepository</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Repository/ProductRepository.php</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">findOneByIdJoinedToCategory</span><span class="p">(</span><span class="nv">$productId</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createQueryBuilder</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+        <span class="c1">// p.category ссылается на свойство &quot;category&quot; в товаре</span>
+        <span class="o">-&gt;</span><span class="na">innerJoin</span><span class="p">(</span><span class="s1">&#39;p.category&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+        <span class="c1">// выбирает все данные категории, чтобы избежать запрос</span>
+        <span class="o">-&gt;</span><span class="na">addSelect</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">andWhere</span><span class="p">(</span><span class="s1">&#39;p.id = :id&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nv">$productId</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">getQuery</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">getOneOrNullResult</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это <em>всё равно</em> вернёт массив объектов <tt class="docutils literal"><code>Product</code></tt>. Но теперь, когда вы
+вызываете <tt class="docutils literal"><code>$product-&gt;getCategory()</code></tt> и используете эти данные, второй
+запрос не создаётся.</p>
+<p>Теперь вы можете использовать этот метод в вашем контроллере, чтобы создать
+запрос к объекту <tt class="docutils literal"><code>Product</code></tt> и связанному с ним <tt class="docutils literal"><code>Category</code></tt> с помощью
+единого запроса:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">showAction</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$product</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Product</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">findOneByIdJoinedToCategory</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+
+    <span class="nv">$category</span> <span class="o">=</span> <span class="nv">$product</span><span class="o">-&gt;</span><span class="na">getCategory</span><span class="p">();</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="associations-inverse-side-ru">
+<span id="id6"></span><h2>Установка информации с обратной стороны<a class="headerlink" href="#associations-inverse-side-ru" title="Permalink to this headline">¶</a></h2>
+<p>До этого момента вы обновляли отношения, вызывая <tt class="docutils literal"><code>$product-&gt;setCategory($category)</code></tt>.
+Это не случайно: вы <em>должны</em> установить отношения на <em>владеющей</em> стороне. Владеющая
+стороная всегда находится там, где установлено отображение <tt class="docutils literal"><code>ManyToOne</code></tt> (для
+отношения <a href="#id7"><span class="problematic" id="id8">``</span></a>ManyToMany``вы можете выбрать, какая сторона является владеющей).</p>
+<p>Значит ли это, что вызвать <tt class="docutils literal"><code>$category-&gt;setProducts()</code></tt> невозможно? На самом деле,
+<em>возможно</em>, с помощью написания умных методов. Для начала, вместо метода
+<tt class="docutils literal"><code>setProducts()</code></tt>, создайте метод <tt class="docutils literal"><code>addProduct()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Category.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Category</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">addProduct</span><span class="p">(</span><span class="nx">Product</span> <span class="nv">$product</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">products</span><span class="o">-&gt;</span><span class="na">contains</span><span class="p">(</span><span class="nv">$product</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">products</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$product</span><span class="p">;</span>
+        <span class="c1">// установите *владеющую* сторону!</span>
+        <span class="nv">$product</span><span class="o">-&gt;</span><span class="na">setCategory</span><span class="p">(</span><span class="nv">$this</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и всё! <em>Ключом</em> является <tt class="docutils literal"><code>$product-&gt;setCategory($this)</code></tt>, который устанавливает
+<em>владеющую</em> стороны. Теперь, когда вы сохраняетесь, отношения <em>будут</em> обновляться в
+БД.</p>
+<p>Что на счёт <em>удаления</em> <tt class="docutils literal"><code>Product</code></tt> из <tt class="docutils literal"><code>Category</code></tt>? Добавьте метод <tt class="docutils literal"><code>removeProduct()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Category.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Category</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">removeProduct</span><span class="p">(</span><span class="nx">Product</span> <span class="nv">$product</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">products</span><span class="o">-&gt;</span><span class="na">removeElement</span><span class="p">(</span><span class="nv">$product</span><span class="p">);</span>
+        <span class="c1">// установите владеющую сторону, как null</span>
+        <span class="nv">$product</span><span class="o">-&gt;</span><span class="na">setCategory</span><span class="p">(</span><span class="k">null</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Чтобы это работало, <em>теперь</em> вам нужно позволить, чтобы <tt class="docutils literal"><code>null</code></tt> передавалось
+<tt class="docutils literal"><code>Product::setCategory()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-diff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span>// src/Entity/Product.php
+
+// ...
+class Product
+{
+    // ...
+
+<span class="gd">-     public function getCategory(): Category</span>
+<span class="gi">+     public function getCategory(): ?Category</span>
+    // ...
+
+<span class="gd">-     public function setCategory(Category $category)</span>
+<span class="gi">+     public function setCategory(Category $category = null)</span>
+    {
+        $this-&gt;category = $category;
+    }
+}
+</pre></div>
+</td></tr></table></div></div>
+<p>И это всё! Теперь, если вы вызовете <tt class="docutils literal"><code>$category-&gt;removeProduct($product)</code></tt>, <tt class="docutils literal"><code>category_id</code></tt>
+в этом <tt class="docutils literal"><code>Product</code></tt> будет установлен в БД, как <tt class="docutils literal"><code>null</code></tt>.</p>
+<p>Но, вместо установки <tt class="docutils literal"><code>category_id</code></tt>, как null, что, если вы хотите, чтобы <tt class="docutils literal"><code>Product</code></tt>
+был <em>удалён</em>, если он станет &quot;сиротой&quot; (т.е. без <tt class="docutils literal"><code>Category</code></tt>)? Чтобы выбрать  такое
+поведение, используйте опцию <a class="reference external" href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/working-with-associations.html#orphan-removal">orphanRemoval</a> внутри <tt class="docutils literal"><code>Category</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Category.php</span>
+
+<span class="c1">// ...</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @ORM\OneToMany(targetEntity=&quot;App\Entity\Product&quot;, mappedBy=&quot;category&quot;, orphanRemoval=true)</span>
+<span class="sd"> */</span>
+<span class="k">private</span> <span class="nv">$products</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Благодаря этому, если <tt class="docutils literal"><code>Product</code></tt> удаляется из <tt class="docutils literal"><code>Category</code></tt>, он будет
+полностью удалён из базы данных.</p>
+</div>
+<div class="section" id="id9">
+<h2>Больше информации об ассоциациях<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>этот раздел был вступлением к одному распространённому типу отношений сущностей,
+отношению один-ко-многим. Для более подробных деталей и примеров того, как использовать
+другие типы отношений (например, один-к-одному, многие-ко-многим), смотрите
+<a class="reference external" href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/association-mapping.html">Документацию отображения ассоциаций</a> Doctrine.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если вы используете аннотации, вам понадобится добавить ко всем
+аннотациям префикс <tt class="docutils literal"><code>&#64;ORM\</code></tt> (например, <tt class="docutils literal"><code>&#64;ORM\OneToMany</code></tt>), который
+не отображается в документации Doctrine.</p>
+</div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

@@ -1,0 +1,811 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Безопасность &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="best_practices doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Безопасность</a><ul>
+<li><a class="reference internal" href="#id2">Аутентификация и брандмауэры (т.е. получение сертификатов пользователя)</a></li>
+<li><a class="reference internal" href="#id3">Авторизация (т.е. отказ в доступе)</a></li>
+<li><a class="reference internal" href="#security">Аннотация &#64;Security</a><ul>
+<li><a class="reference internal" href="#id4">Использование выражений для сложных ограничений безопасности</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manually-checking-permissions-ru">Проверка разрешеий без &#64;Security</a></li>
+<li><a class="reference internal" href="#id6">Избиратели безопасности</a></li>
+<li><a class="reference internal" href="#id7">Узнайте больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Безопасность</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>Безопасность<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>Аутентификация и брандмауэры (т.е. получение сертификатов пользователя)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Вы можете сконфигурировать Symfony так, чтобы аутентифицировать ваших
+пользователей, используя любой метод, который вы хотите и загружать информацию
+о пользователе с любого источника. Это сложная тема, но <a class="reference internal" href="..\security.html"><em>справочник Безопасности</em></a>
+расскажет много информации об этом.</p>
+<p>Вне зависимости от ваших нужд, аутентификация конфигурируется в <tt class="docutils literal"><code>security.yaml</code></tt>,
+в основном под ключом <tt class="docutils literal"><code>firewalls</code></tt>.</p>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Разве что у вас есть две реально разные системы аутентификации и пользователи
+(например, форма входа для главного сайта и система токенов только для
+вашего API), мы рекомендуем иметь только <em>одну</em> запись брандмауэра с
+включённым ключом <tt class="docutils literal"><code>anonymous</code></tt>.</p>
+</div></div>
+<p>Большинство приложений имеют только одну систему аутентификации и один набор
+пользователей. По этой причине, вам нужна только <em>одна</em> запись брандмауэра.
+Конечно, существуют исключения, особенно если вы разделили разделы веб и API
+на вашем сайте. Но цель в том, чтобы оставить всё максимально простым.</p>
+<p>Кроме того, вам стоит использовать ключ <tt class="docutils literal"><code>anonymous</code></tt> в вашем брандмауэре.
+Если вам нужно затребовать, чтобы пользователь выполнил вход в систему для
+разных разделов вашего сайта (или, может почти для <em>всех</em> разделов), используйте
+область <tt class="docutils literal"><code>access_control</code></tt>.</p>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Используйте кодировщик <tt class="docutils literal"><code>bcrypt</code></tt> для хеширования паролей ваших пользователей.</p>
+</div></div>
+<p>Если ваши пользователи имеют пароль, то мы рекомендуем шифровать его используя
+кодировщик <tt class="docutils literal"><code>bcrypt</code></tt>, вместо традиционного хеширующего кодировщика SHA-512.
+Главными премуществами <tt class="docutils literal"><code>bcrypt</code></tt> являются включеие значения <em>соли</em> для защиты
+от атаки радужной таблицы, и его адаптивная природа, которая позволяет замедлить
+его для резистентности к атакам поиска перебором.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last"><a class="reference internal" href="..\reference\configuration\security.html#reference-security-argon2i"><span>Argon2i</span></a> - это алгоритм хеширования,
+рекомендованный стандартами индустрии, но оне будет доступен вам, если
+вы не используете PHP 7.2+ или если у вас не установлено расширение
+<a class="reference external" href="https://pecl.php.net/package/libsodium">libsodium</a>. <tt class="docutils literal"><code>bcrypt</code></tt> достаточно для большинства приложений.</p>
+</div></div>
+<p>Имея это в виду, вот настройка аутентификации из нашего приложения, которое
+использует форму входа для загрузки пользователей из БД:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/security.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">encoders</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">App\Entity\User</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bcrypt</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">providers</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">database_users</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">entity</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">class</span><span class="p p-Indicator">:</span> <span class="nv">App\Entity\User</span><span class="p p-Indicator">,</span> <span class="nv">property</span><span class="p p-Indicator">:</span> <span class="nv">username</span> <span class="p p-Indicator">}</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">firewalls</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">secured_area</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">pattern</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">^/</span>
+            <span class="l l-Scalar l-Scalar-Plain">anonymous</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="l l-Scalar l-Scalar-Plain">form_login</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">check_path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">login</span>
+                <span class="l l-Scalar l-Scalar-Plain">login_path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">login</span>
+
+            <span class="l l-Scalar l-Scalar-Plain">logout</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">security_logout</span>
+                <span class="l l-Scalar l-Scalar-Plain">target</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">homepage</span>
+
+<span class="c1"># ... access_control существует, но не показан тут</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Исходный код нашего проекта содержит комментарии, объясняющие каждую часть.</p>
+</div></div>
+</div>
+<div class="section" id="id3">
+<h2>Авторизация (т.е. отказ в доступе)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Symfony предоставляет вам несколько способов внедрения авторизации, включая
+конфигурацию <tt class="docutils literal"><code>access_control</code></tt> в <a class="reference internal" href="..\reference\configuration\security.html"><em>security.yaml</em></a>,
+<a class="reference internal" href="security.html#best-practices-security-annotation"><span>аннотацию &#64;Security</span></a> и использование
+<a class="reference internal" href="security.html#best-practices-directly-isgranted"><span>isGranted</span></a> напрямую в сервисе
+<tt class="docutils literal"><code>security.authorization_checker</code></tt>.</p>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<ul class="last simple">
+<li>Для защиты широких паттернов URL, используйте <tt class="docutils literal"><code>access_control</code></tt>;</li>
+<li>Всегда, когда возможно, используйте аннотацию <tt class="docutils literal"><code>&#64;Security</code></tt>;</li>
+<li>Проверяйте безопасность напрмую в сервисе <tt class="docutils literal"><code>security.authorization_checker</code></tt>
+каждый раз, когда у вас более сложная ситуация.</li>
+</ul>
+</div></div>
+<p>Также существуют разные способы централизации вашей логики авторизации, например
+с пользовательским избирателем безопасности.</p>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Определите пользовательский избиратель безопасности, чтобы реализовать
+тонконастраиваемые ограничения.</p>
+</div></div>
+</div>
+<div class="section" id="security">
+<span id="best-practices-security-annotation-ru"></span><h2>Аннотация &#64;Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
+<p>Для контролирования доступа на основании от-контроллера-к-контроллеру, используйте
+аннотацию <tt class="docutils literal"><code>&#64;Security</code></tt> всегда, когда это возможно. Его легко читать и он постоянно
+размещается над каждым действием.</p>
+<p>В нашем приложении, вам нужна <tt class="docutils literal"><code>ROLE_ADMIN</code></tt>, чтобы создать новый пост. Использование
+<tt class="docutils literal"><code>&#64;Security</code></tt>, выглядит так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Sensio\Bundle\FrameworkExtraBundle\Configuration\Security</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Displays a form to create a new Post entity.</span>
+<span class="sd"> *</span>
+<span class="sd"> * @Route(&quot;/new&quot;, name=&quot;admin_post_new&quot;)</span>
+<span class="sd"> * @Security(&quot;is_granted(&#39;ROLE_ADMIN&#39;)&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">new</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id4">
+<h3>Использование выражений для сложных ограничений безопасности<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Если ваша логика безопасности немного сложнее, вы можете использовать
+<a class="reference internal" href="..\components\expression_language.html"><em>выражение</em></a> внутри <tt class="docutils literal"><code>&#64;Security</code></tt>.
+В следующем примере, пользователь может получить доступ к контроллеру только
+если его email совпадает со значением, возвращённым методом <tt class="docutils literal"><code>getAuthorEmail()</code></tt>
+в объекте <tt class="docutils literal"><code>Post</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Entity\Post</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sensio\Bundle\FrameworkExtraBundle\Configuration\Security</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @Route(&quot;/{id}/edit&quot;, name=&quot;admin_post_edit&quot;)</span>
+<span class="sd"> * @Security(&quot;user.getEmail() == post.getAuthorEmail()&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">edit</span><span class="p">(</span><span class="nx">Post</span> <span class="nv">$post</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Заметьте, что это требует использования <a class="reference external" href="https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/converters.html">ParamConverter</a>, который автоматически
+запрашивает объект <tt class="docutils literal"><code>Post</code></tt> и помещает его в аргумент <tt class="docutils literal"><code>$post</code></tt>. Это делает возможным
+использование переменной <tt class="docutils literal"><code>post</code></tt> в выражении.</p>
+<p>Это имеет один большой недостаток: выражение в аннотации нельзя легко использовать
+повторно в других частях приложения. Представьте,что вы хотите добавить ссылку в шаблон,
+который будет виден только авторам. Сейчас вам нужно будет повторить код выражения,
+используя синтаксис Twig:</p>
+<div class="literal-block"><div class="highlight-html+jinja"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">app.user</span> <span class="k">and</span> <span class="nv">app.user.email</span> <span class="o">==</span> <span class="nv">post.authorEmail</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span> ... <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Самое простое решение - если ваша логика достаточно проста - добавить новый
+метод в сущность``Post``, которая проверяет является ли заданный пользователь
+автором:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Post.php</span>
+<span class="c1">// ...</span>
+
+<span class="k">class</span> <span class="nc">Post</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Is the given User the author of this Post?</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return bool</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">isAuthor</span><span class="p">(</span><span class="nx">User</span> <span class="nv">$user</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$user</span> <span class="o">&amp;&amp;</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getEmail</span><span class="p">()</span> <span class="o">==</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getAuthorEmail</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь вы можете повторно использовать этот метод как шаблоне, так и в выражении
+безопасности:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Entity\Post</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sensio\Bundle\FrameworkExtraBundle\Configuration\Security</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @Route(&quot;/{id}/edit&quot;, name=&quot;admin_post_edit&quot;)</span>
+<span class="sd"> * @Security(&quot;post.isAuthor(user)&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">edit</span><span class="p">(</span><span class="nx">Post</span> <span class="nv">$post</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-html+jinja"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">post.isAuthor</span><span class="o">(</span><span class="nv">app.user</span><span class="o">)</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span> ... <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="manually-checking-permissions-ru">
+<span id="checking-permissions-without-security-ru"></span><span id="best-practices-directly-isgranted-ru"></span><span id="id5"></span><h2>Проверка разрешеий без &#64;Security<a class="headerlink" href="#manually-checking-permissions-ru" title="Permalink to this headline">¶</a></h2>
+<p>Вышеописанный пример с <tt class="docutils literal"><code>&#64;Security</code></tt> работает только потому, что мы используем
+<a class="reference internal" href="controllers.html#best-practices-paramconverter"><span>ParamConverter</span></a>, который предоставляет
+выражению доступ к переменной <tt class="docutils literal"><code>post</code></tt>. Если вы не используете это, или если у
+вас более продвинутый пример использования, вы всегда можете сделать такую же
+проверку безопасности в PHP:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">/**</span>
+<span class="sd"> * @Route(&quot;/{id}/edit&quot;, name=&quot;admin_post_edit&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">edit</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$post</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Post</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$post</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createNotFoundException</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$post</span><span class="o">-&gt;</span><span class="na">isAuthor</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getUser</span><span class="p">()))</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">denyAccessUnlessGranted</span><span class="p">(</span><span class="s1">&#39;edit&#39;</span><span class="p">,</span> <span class="nv">$post</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// эквивалентный код без использования сокращения &quot;denyAccessUnlessGranted()&quot;:</span>
+    <span class="c1">//</span>
+    <span class="c1">// использовать Symfony\Component\Security\Core\Exception\AccessDeniedException;</span>
+    <span class="c1">// использовать Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface</span>
+    <span class="c1">//</span>
+    <span class="c1">// ...</span>
+    <span class="c1">//</span>
+    <span class="c1">// public function __construct(AuthorizationCheckerInterface $authorizationChecker) {</span>
+    <span class="c1">//      $this-&gt;authorizationChecker = $authorizationChecker;</span>
+    <span class="c1">// }</span>
+    <span class="c1">//</span>
+    <span class="c1">// ...</span>
+    <span class="c1">//</span>
+    <span class="c1">// if (!$this-&gt;authorizationChecker-&gt;isGranted(&#39;edit&#39;, $post)) {</span>
+    <span class="c1">//    throw $this-&gt;createAccessDeniedException();</span>
+    <span class="c1">// }</span>
+    <span class="c1">//</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id6">
+<h2>Избиратели безопасности<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Если ваша логика безопасности сложная и не может быть централизована в
+методе вроде <tt class="docutils literal"><code>isAuthor()</code></tt>, вам стоит использовать пользовательских
+избирателей. Они намного легче, чем <a class="reference internal" href="..\security\acl.html"><em>ACL</em></a> и предоставят
+вам гибкость, необходимую вам почти по всех случаях.</p>
+<p>Для начала, создайте класс избирателя. Следующий пример показывает избирателя,
+реализующего ту же логику <tt class="docutils literal"><code>getAuthorEmail()</code></tt>, что использовалась выше:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">App\Security</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Entity\Post</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Token\TokenInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authorization\Voter\Voter</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\UserInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PostVoter</span> <span class="k">extends</span> <span class="nx">Voter</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="no">CREATE</span> <span class="o">=</span> <span class="s1">&#39;create&#39;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="no">EDIT</span>   <span class="o">=</span> <span class="s1">&#39;edit&#39;</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="nv">$decisionManager</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">AccessDecisionManagerInterface</span> <span class="nv">$decisionManager</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">decisionManager</span> <span class="o">=</span> <span class="nv">$decisionManager</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">supports</span><span class="p">(</span><span class="nv">$attribute</span><span class="p">,</span> <span class="nv">$subject</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$attribute</span><span class="p">,</span> <span class="p">[</span><span class="nx">self</span><span class="o">::</span><span class="na">CREATE</span><span class="p">,</span> <span class="nx">self</span><span class="o">::</span><span class="na">EDIT</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$subject</span> <span class="nx">instanceof</span> <span class="nx">Post</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">voteOnAttribute</span><span class="p">(</span><span class="nv">$attribute</span><span class="p">,</span> <span class="nv">$subject</span><span class="p">,</span> <span class="nx">TokenInterface</span> <span class="nv">$token</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$user</span> <span class="o">=</span> <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">getUser</span><span class="p">();</span>
+        <span class="sd">/** @var Post */</span>
+        <span class="nv">$post</span> <span class="o">=</span> <span class="nv">$subject</span><span class="p">;</span> <span class="c1">// $subject must be a Post instance, thanks to the supports method</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$user</span> <span class="nx">instanceof</span> <span class="nx">UserInterface</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">switch</span> <span class="p">(</span><span class="nv">$attribute</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// если пользователь является админом, позвольте ему создавать новые посты</span>
+            <span class="k">case</span> <span class="nx">self</span><span class="o">::</span><span class="na">CREATE</span><span class="o">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">decisionManager</span><span class="o">-&gt;</span><span class="na">decide</span><span class="p">(</span><span class="nv">$token</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ROLE_ADMIN&#39;</span><span class="p">]))</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+                <span class="p">}</span>
+
+                <span class="k">break</span><span class="p">;</span>
+
+            <span class="c1">// если пользователь является автором поста, позвольте ему редактировать посты</span>
+            <span class="k">case</span> <span class="nx">self</span><span class="o">::</span><span class="na">EDIT</span><span class="o">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getEmail</span><span class="p">()</span> <span class="o">===</span> <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">getAuthorEmail</span><span class="p">())</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+                <span class="p">}</span>
+
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы используете <a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>конфигурацию services.yaml по умолчанию</span></a>,
+то ваше приложение <a class="reference internal" href="..\service_container.html#services-autoconfigure"><span>автоматически сконфигурирует</span></a> вашего
+избирателя безопасности и внедрит экземпляр <tt class="docutils literal"><code>AccessDecisionManagerInterface</code></tt> в него
+благодаря <a class="reference internal" href="..\service_container\autowiring.html"><em>автомонтированию</em></a>.</p>
+<p>Теперь вы можете использовать избирателя с аннотацией <tt class="docutils literal"><code>&#64;Security</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">/**</span>
+<span class="sd"> * @Route(&quot;/{id}/edit&quot;, name=&quot;admin_post_edit&quot;)</span>
+<span class="sd"> * @Security(&quot;is_granted(&#39;edit&#39;, post)&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">edit</span><span class="p">(</span><span class="nx">Post</span> <span class="nv">$post</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы также можете использовать это напрямую с сервисом <tt class="docutils literal"><code>security.authorization_checker</code></tt>
+или через даже более простой шорткат в контроллере:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">/**</span>
+<span class="sd"> * @Route(&quot;/{id}/edit&quot;, name=&quot;admin_post_edit&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">edit</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$post</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span> <span class="c1">// query for the post</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">denyAccessUnlessGranted</span><span class="p">(</span><span class="s1">&#39;edit&#39;</span><span class="p">,</span> <span class="nv">$post</span><span class="p">);</span>
+
+    <span class="c1">// использовать Symfony\Component\Security\Core\Exception\AccessDeniedException;</span>
+    <span class="c1">// использовать Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface</span>
+    <span class="c1">//</span>
+    <span class="c1">// ...</span>
+    <span class="c1">//</span>
+    <span class="c1">// public function __construct(AuthorizationCheckerInterface $authorizationChecker) {</span>
+    <span class="c1">//      $this-&gt;authorizationChecker = $authorizationChecker;</span>
+    <span class="c1">// }</span>
+    <span class="c1">//</span>
+    <span class="c1">// ...</span>
+    <span class="c1">//</span>
+    <span class="c1">// if (!$this-&gt;authorizationChecker-&gt;isGranted(&#39;edit&#39;, $post)) {</span>
+    <span class="c1">//    throw $this-&gt;createAccessDeniedException();</span>
+    <span class="c1">// }</span>
+    <span class="c1">//</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id7">
+<h2>Узнайте больше<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/FriendsOfSymfony/FOSUserBundle">FOSUserBundle</a>, разработанный обществом Symfony, добавляет поддержку для
+пользовательской системы, имеющей базу данных, в Symfony. Он также обрабатывает
+общие задачи вроде функционала регистрации ползователей и забытых паролей.</p>
+<p>Включите <a class="reference internal" href="..\security\remember_me.html"><em>функцию &quot;Запомнить меня&quot;</em></a>, чтобы
+позволить вашим пользователям оставаться в системе на долгий период времени.</p>
+<p>При предоставлении поддержки пользователю, иногда необходим доступ к приложению
+под видом <em>другого</em> пользователя, чтобы можно было воспроизвести проблему. Symfony
+предоставляет возможность <a class="reference internal" href="..\security\impersonating_user.html"><em>имитации пользователей</em></a>.</p>
+<p>Если ваша компания использует метод логина пользователей, не поддерживаемый
+Symfony, вы можете разработать <a class="reference internal" href="..\security\custom_provider.html"><em>вашего собстенного поставщика пользователей</em></a>
+и <a class="reference internal" href="..\security\custom_authentication_provider.html"><em>вашего собственного поставщика аутентификации</em></a>.</p>
+<hr class="docutils">
+<p>Далее: <a class="reference internal" href="web-assets.html"><em>Web Assets</em></a></p>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        
+    
+
+
+
+  </body>
+</body></html>

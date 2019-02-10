@@ -1,0 +1,818 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент PropertyInfo (Информация о свойстве) &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="Мост PSR-7" href="psr7-ru.html">
+    <link rel="prev" title="Компонента PropertyAccess (доступ к свойству)" href="property_access-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент PropertyInfo (Информация о свойстве)</a><ul>
+<li><a class="reference internal" href="#components-property-information-installation-ru">Установка</a></li>
+<li><a class="reference internal" href="#components-property-information-usage-ru">Использование</a><ul>
+<li><a class="reference internal" href="#id3">Порядок извлекателей</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#components-property-information-extractable-information-ru">Извлекаемая информация</a><ul>
+<li><a class="reference internal" href="#property-info-list-ru">Информация о списке</a></li>
+<li><a class="reference internal" href="#property-info-type-ru">Информация о типе</a></li>
+<li><a class="reference internal" href="#property-info-description-ru">Информация об описании</a></li>
+<li><a class="reference internal" href="#property-info-access-ru">Информация доступа</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#components-property-info-type-ru">Объекты типов</a><ul>
+<li><a class="reference internal" href="#type-getbuiltintype">Type::getBuiltInType()</a></li>
+<li><a class="reference internal" href="#type-isnullable">Type::isNullable()</a></li>
+<li><a class="reference internal" href="#type-getclassname">Type::getClassName()</a></li>
+<li><a class="reference internal" href="#type-iscollection">Type::isCollection()</a></li>
+<li><a class="reference internal" href="#type-getcollectionkeytype-type-getcollectionvaluetype">Type::getCollectionKeyType() &amp; Type::getCollectionValueType()</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#components-property-info-extractors-ru">Извлекатели</a><ul>
+<li><a class="reference internal" href="#reflectionextractor">ReflectionExtractor</a></li>
+<li><a class="reference internal" href="#phpdocextractor">PhpDocExtractor</a></li>
+<li><a class="reference internal" href="#serializerextractor">SerializerExtractor</a></li>
+<li><a class="reference internal" href="#doctrineextractor">DoctrineExtractor</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#components-property-information-extractors-creation-ru">Создание ваших собственных извлекателей</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент PropertyInfo (Информация о свойстве)</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="propertyinfo">
+<span id="index-0"></span><h1>Компонент PropertyInfo (Информация о свойстве)<a class="headerlink" href="#propertyinfo" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Компонент PropertyInfo позволяет вам получать информацию о свойствах
+класса, используя разные источники метаданных.</div></blockquote>
+<p>В то время, как <a class="reference internal" href="property_access.html"><em>компонент PropertyAccess component</em></a>
+позволяет вам читать и писать значение из,в объекты и массиві, компонент PropertyInfo
+работает только с определениями классов, чтобы предоставить информацию о типе данных и
+видимости свойств в этом классе, включая геттер и сеттер методы.</p>
+<div class="section" id="components-property-information-installation-ru">
+<span id="id1"></span><h2>Установка<a class="headerlink" href="#components-property-information-installation-ru" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/property-info
+</pre></div>
+</td></tr></table></div></div>
+<p>Также вы можете клонировать репозиторий <a class="reference external" href="https://github.com/symfony/property-info">https://github.com/symfony/property-info</a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+<p>Дополнительные зависимости могут быть необходимы для некоторых из
+<a class="reference internal" href="property_info.html#components-property-info-extractors"><span>извлекателей, предоставленных этим компонентом</span></a>.</p>
+</div>
+<div class="section" id="components-property-information-usage-ru">
+<span id="id2"></span><h2>Использование<a class="headerlink" href="#components-property-information-usage-ru" title="Permalink to this headline">¶</a></h2>
+<p>Чтобы использовать этот компонент создайте новый экземпляр
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyInfoExtractor.html" title="Symfony\Component\PropertyInfo\PropertyInfoExtractor">PropertyInfoExtractor</a></code></tt>
+и предоставьте ему набор извлекателей информации.</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\PropertyInfo\PropertyInfoExtractor</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Example\Namespace\YourAwesomeCoolClass</span><span class="p">;</span>
+
+<span class="c1">// полный список извлекателей показан ниже</span>
+<span class="nv">$phpDocExtractor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PhpDocExtractor</span><span class="p">();</span>
+<span class="nv">$reflectionExtractor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ReflectionExtractor</span><span class="p">();</span>
+
+<span class="c1">// массив PropertyListExtractorInterface</span>
+<span class="nv">$listExtractors</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$reflectionExtractor</span><span class="p">);</span>
+
+<span class="c1">// массив PropertyTypeExtractorInterface</span>
+<span class="nv">$typeExtractors</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$phpDocExtractor</span><span class="p">,</span> <span class="nv">$reflectionExtractor</span><span class="p">);</span>
+
+<span class="c1">// массив PropertyDescriptionExtractorInterface</span>
+<span class="nv">$descriptionExtractors</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$phpDocExtractor</span><span class="p">);</span>
+
+<span class="c1">// массив PropertyAccessExtractorInterface</span>
+<span class="nv">$accessExtractors</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$reflectionExtractor</span><span class="p">);</span>
+
+<span class="nv">$propertyInfo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PropertyInfoExtractor</span><span class="p">(</span>
+    <span class="nv">$listExtractors</span><span class="p">,</span>
+    <span class="nv">$typeExtractors</span><span class="p">,</span>
+    <span class="nv">$descriptionExtractors</span><span class="p">,</span>
+    <span class="nv">$accessExtractors</span>
+<span class="p">);</span>
+
+<span class="c1">// см. далее, чтобы увидеть больше примеров</span>
+<span class="nv">$class</span> <span class="o">=</span> <span class="nx">YourAwesomeCoolClass</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+<span class="nv">$properties</span> <span class="o">=</span> <span class="nv">$propertyInfo</span><span class="o">-&gt;</span><span class="na">getProperties</span><span class="p">(</span><span class="nv">$class</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id3">
+<h3>Порядок извлекателей<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Порядок экземпляров извлекателей в массиве имеет значение: первый результат который не
+будет null, будет возвращен. Поэтому вы должны предоставить каждой категории извлекателей
+отдельные массивы, даже если извлекатель предоставляет информацию для более, чем одной
+категории.</p>
+<p>Например, в то время, как все класс
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Extractor/ReflectionExtractor.html" title="Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor">ReflectionExtractor</a></code></tt>
+и <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bridge/Doctrine/PropertyInfo/DoctrineExtractor.html" title="Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor">DoctrineExtractor</a></code></tt> оба
+оба предоставляют информацию о списке, наверное будет лучше, чтобы:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Extractor/ReflectionExtractor.html" title="Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor">ReflectionExtractor</a></code></tt>
+имел приоритет для информации о списке, чтобы все свойства в классе были
+возвращены (а не только отображённые свойства).</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bridge/Doctrine/PropertyInfo/DoctrineExtractor.html" title="Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor">DoctrineExtractor</a></code></tt> имел
+приоритет для информации о типе, чтобы метаданные сущности были использованы
+вместо типизирования, чтобы предоставить более точную информацию о типе.</li>
+</ul>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\PropertyInfo\PropertyInfoExtractor</span><span class="p">;</span>
+
+<span class="nv">$reflectionExtractor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ReflectionExtractor</span><span class="p">();</span>
+<span class="nv">$doctrineExtractor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DoctrineExtractor</span><span class="p">(</span><span class="cm">/* ... */</span><span class="p">);</span>
+
+<span class="nv">$propertyInfo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PropertyInfoExtractor</span><span class="p">(</span>
+    <span class="c1">// Извлекатели списка</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="nv">$reflectionExtractor</span><span class="p">,</span>
+        <span class="nv">$doctrineExtractor</span>
+    <span class="p">),</span>
+    <span class="c1">// Извлекатели типа</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="nv">$doctrineExtractor</span><span class="p">,</span>
+        <span class="nv">$reflectionExtractor</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="components-property-information-extractable-information-ru">
+<span id="id4"></span><h2>Извлекаемая информация<a class="headerlink" href="#components-property-information-extractable-information-ru" title="Permalink to this headline">¶</a></h2>
+<p>Класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyInfoExtractor.html" title="Symfony\Component\PropertyInfo\PropertyInfoExtractor">PropertyInfoExtractor</a></code></tt>
+демонстрирует публичные методы для извлечения четырёх типов в информации:</p>
+<ul class="simple">
+<li><a class="reference internal" href="property_info.html#property-info-list"><span>Список свойств</span></a>: <cite>getProperties()</cite></li>
+<li><a class="reference internal" href="property_info.html#property-info-type"><span>Тип свойства</span></a>: <cite>getTypes()</cite></li>
+<li><a class="reference internal" href="property_info.html#property-info-description"><span>Описание свойства</span></a>: <cite>getShortDescription()</cite> и <cite>getLongDescription()</cite></li>
+<li><a class="reference internal" href="property_info.html#property-info-access"><span>Доступ к деталям свойсвта</span></a>: <cite>isReadable()</cite> и <cite>isWritable()</cite></li>
+</ul>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p>Передайте имя <em>класса</em>, а не объекта, методам извлекателя:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Плохо! Может сработать, но не со всеми извлекателями</span>
+<span class="nv">$propertyInfo</span><span class="o">-&gt;</span><span class="na">getProperties</span><span class="p">(</span><span class="nv">$awesomeObject</span><span class="p">);</span>
+
+<span class="c1">// Хорошо!</span>
+<span class="nv">$propertyInfo</span><span class="o">-&gt;</span><span class="na">getProperties</span><span class="p">(</span><span class="nb">get_class</span><span class="p">(</span><span class="nv">$awesomeObject</span><span class="p">));</span>
+<span class="nv">$propertyInfo</span><span class="o">-&gt;</span><span class="na">getProperties</span><span class="p">(</span><span class="s1">&#39;Example\Namespace\YourAwesomeClass&#39;</span><span class="p">);</span>
+<span class="nv">$propertyInfo</span><span class="o">-&gt;</span><span class="na">getProperties</span><span class="p">(</span><span class="nx">YourAwesomeClass</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<div class="section" id="property-info-list-ru">
+<span id="id5"></span><h3>Информация о списке<a class="headerlink" href="#property-info-list-ru" title="Permalink to this headline">¶</a></h3>
+<p>Извлекатели, которые реализуют <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyListExtractorInterface.html" title="Symfony\Component\PropertyInfo\PropertyListExtractorInterface">PropertyListExtractorInterface</a></code></tt>,
+предоставляют список в свойств, которые доступны в классе в качестве массива, содержащий
+каждое имя свойства в виде строки.</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$properties</span> <span class="o">=</span> <span class="nv">$propertyInfo</span><span class="o">-&gt;</span><span class="na">getProperties</span><span class="p">(</span><span class="nv">$class</span><span class="p">);</span>
+<span class="cm">/*</span>
+<span class="cm">  Пример результата</span>
+<span class="cm">  -----------------</span>
+<span class="cm">  array(3) {</span>
+<span class="cm">    [0] =&gt; string(8) &quot;username&quot;</span>
+<span class="cm">    [1] =&gt; string(8) &quot;password&quot;</span>
+<span class="cm">    [2] =&gt; string(6) &quot;active&quot;</span>
+<span class="cm">  }</span>
+<span class="cm">*/</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="property-info-type-ru">
+<span id="id6"></span><h3>Информация о типе<a class="headerlink" href="#property-info-type-ru" title="Permalink to this headline">¶</a></h3>
+<p>Извлекатели, которые реализуют <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyTypeExtractorInterface.html" title="Symfony\Component\PropertyInfo\PropertyTypeExtractorInterface">PropertyTypeExtractorInterface</a></code></tt>,
+предоставляют <a class="reference internal" href="property_info.html#components-property-info-type"><span>extensive data type information</span></a> для свойства.</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$types</span> <span class="o">=</span> <span class="nv">$propertyInfo</span><span class="o">-&gt;</span><span class="na">getTypes</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="nv">$property</span><span class="p">);</span>
+
+<span class="cm">/*</span>
+<span class="cm">  Пример результата</span>
+<span class="cm">  -----------------</span>
+<span class="cm">  array(1) {</span>
+<span class="cm">    [0] =&gt;</span>
+<span class="cm">    class Symfony\Component\PropertyInfo\Type (6) {</span>
+<span class="cm">      private $builtinType          =&gt; string(6) &quot;string&quot;</span>
+<span class="cm">      private $nullable             =&gt; bool(false)</span>
+<span class="cm">      private $class                =&gt; NULL</span>
+<span class="cm">      private $collection           =&gt; bool(false)</span>
+<span class="cm">      private $collectionKeyType    =&gt; NULL</span>
+<span class="cm">      private $collectionValueType  =&gt; NULL</span>
+<span class="cm">    }</span>
+<span class="cm">  }</span>
+<span class="cm">*/</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>См. <a class="reference internal" href="property_info.html#components-property-info-type"><span>Type Objects</span></a>, чтобы получить информацию о классе <tt class="docutils literal"><code>Type</code></tt>.</p>
+</div>
+<div class="section" id="property-info-description-ru">
+<span id="id7"></span><h3>Информация об описании<a class="headerlink" href="#property-info-description-ru" title="Permalink to this headline">¶</a></h3>
+<p>Извлекатели, которые реализуют <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyDescriptionExtractorInterface.html" title="Symfony\Component\PropertyInfo\PropertyDescriptionExtractorInterface">PropertyDescriptionExtractorInterface</a></code></tt>,
+предоставляют короткие и длинные описания из аннотации свойств в виде строк.</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$title</span> <span class="o">=</span> <span class="nv">$propertyInfo</span><span class="o">-&gt;</span><span class="na">getShortDescription</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="nv">$property</span><span class="p">);</span>
+<span class="cm">/*</span>
+<span class="cm">  Пример результата</span>
+<span class="cm">  -----------------</span>
+<span class="cm">  string(41) &quot;Это первая строка DocComment.&quot;</span>
+<span class="cm">*/</span>
+
+<span class="nv">$paragraph</span> <span class="o">=</span> <span class="nv">$propertyInfo</span><span class="o">-&gt;</span><span class="na">getLongDescription</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="nv">$property</span><span class="p">);</span>
+<span class="cm">/*</span>
+<span class="cm">  Пример результата</span>
+<span class="cm">  -----------------</span>
+<span class="cm">  string(79):</span>
+<span class="cm">    Это следующий параграф в DocComment.</span>
+<span class="cm">    Он может содержать несколько строк.</span>
+<span class="cm">*/</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="property-info-access-ru">
+<span id="id8"></span><h3>Информация доступа<a class="headerlink" href="#property-info-access-ru" title="Permalink to this headline">¶</a></h3>
+<p>Извлекатели, которые реализуют <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyAccessExtractorInterface.html" title="Symfony\Component\PropertyInfo\PropertyAccessExtractorInterface">PropertyAccessExtractorInterface</a></code></tt>,
+предоставляют информацию о том, можно ли прочитать или написать свойства, в виде булевых значений.</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$propertyInfo</span><span class="o">-&gt;</span><span class="na">isReadable</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="nv">$property</span><span class="p">);</span>
+<span class="c1">// Пример результата: bool(true)</span>
+
+<span class="nv">$propertyInfo</span><span class="o">-&gt;</span><span class="na">isWritable</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="nv">$property</span><span class="p">);</span>
+<span class="c1">// Пример результата: bool(false)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Extractor/ReflectionExtractor.html" title="Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor">ReflectionExtractor</a></code></tt> ищет методы геттера
+/ иссера / сеттера / хассера в дополнение к тому, является ли свойство публичным, чтобы определить,
+возможно ли получить к нему доступ. Это основывается на том, как работает
+<a class="reference internal" href="property_access.html"><em>PropertyAccess</em></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Поддержка методов хассера в классе <tt class="docutils literal"><code>ReflectionExtractor</code></tt> была представлена
+в Symfony 4.1.</p>
+</div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Главный класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyInfoExtractor.html" title="Symfony\Component\PropertyInfo\PropertyInfoExtractor">PropertyInfoExtractor</a></code></tt>
+реализует все четыре интерфейса, делегируя извлечение информации свойства
+извлекателями которые были зарегистрированы в нём.</p>
+<p class="last">Это означает, что любой метод, доступный в каждом из извлекателей, также доступен
+в главном классе <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyInfoExtractor.html" title="Symfony\Component\PropertyInfo\PropertyInfoExtractor">PropertyInfoExtractor</a></code></tt>.</p>
+</div></div>
+</div>
+</div>
+<div class="section" id="components-property-info-type-ru">
+<span id="id9"></span><h2>Объекты типов<a class="headerlink" href="#components-property-info-type-ru" title="Permalink to this headline">¶</a></h2>
+<p>В сравнении с другими извлекателями, извлекатели типа информации предоставляют
+намного больше информации, чем можно отобразить в обычном скалярном значении.
+Поэтому, извлекатели типа возвращают массив объектов <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Type.html" title="Symfony\Component\PropertyInfo\Type">Type</a></code></tt>
+для каждого типа, поддерживаемого свойством.</p>
+<p>Например, если свойство поддерживает как <tt class="docutils literal"><code>integer</code></tt>, так и <tt class="docutils literal"><code>string</code></tt> (через аннотацию
+<tt class="docutils literal"><code>&#64;return int|string</code></tt>),
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyInfoExtractor.html#method_getTypes" title="Symfony\Component\PropertyInfo\PropertyInfoExtractor::getTypes()">PropertyInfoExtractor::getTypes()</a></code></tt>
+вернёт массив содержащий <strong>два</strong> экземпляра класса <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Type.html" title="Symfony\Component\PropertyInfo\Type">Type</a></code></tt>.
+class.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Большинство извлекателей вернут только один экземпляр  <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Type.html" title="Symfony\Component\PropertyInfo\Type">Type</a></code></tt>.
+На данный момент, <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Extractor/PhpDocExtractor.html" title="Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor">PhpDocExtractor</a></code></tt>
+является единственным извлекателем, который возвращает несколько экземпляров в массиве.</p>
+</div></div>
+<p>Каждый объект предоставит 6 атрибутов, доступных в 6 методах:</p>
+<div class="section" id="type-getbuiltintype">
+<span id="components-property-info-type-builtin-ru"></span><h3>Type::getBuiltInType()<a class="headerlink" href="#type-getbuiltintype" title="Permalink to this headline">¶</a></h3>
+<p>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Type.html#method_getBuiltinType" title="Symfony\Component\PropertyInfo\Type::getBuiltinType()">Type::getBuiltinType()</a></code></tt>
+вернёт встроенный тип данных PHP, который может быть одним из этих возможных значений строки:
+<tt class="docutils literal"><code>array</code></tt>, <tt class="docutils literal"><code>bool</code></tt>, <tt class="docutils literal"><code>callable</code></tt>, <tt class="docutils literal"><code>float</code></tt>, <tt class="docutils literal"><code>int</code></tt>, <tt class="docutils literal"><code>iterable</code></tt>, <tt class="docutils literal"><code>null</code></tt>, <tt class="docutils literal"><code>object</code></tt>,
+<tt class="docutils literal"><code>resource</code></tt> или <tt class="docutils literal"><code>string</code></tt>.</p>
+<p>Константы внутри класса <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Type.html" title="Symfony\Component\PropertyInfo\Type">Type</a></code></tt>,
+в форме <tt class="docutils literal"><code>Type::BUILTIN_TYPE_*</code></tt> предоставляются для удобства.</p>
+</div>
+<div class="section" id="type-isnullable">
+<h3>Type::isNullable()<a class="headerlink" href="#type-isnullable" title="Permalink to this headline">¶</a></h3>
+<p>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Type.html#method_isNullable" title="Symfony\Component\PropertyInfo\Type::isNullable()">Type::isNullable()</a></code></tt>
+вернёт булево значение, отображающее, может ли параметр свойства быть установлен как
+<tt class="docutils literal"><code>null</code></tt>.</p>
+</div>
+<div class="section" id="type-getclassname">
+<h3>Type::getClassName()<a class="headerlink" href="#type-getclassname" title="Permalink to this headline">¶</a></h3>
+<p>Если <a class="reference internal" href="property_info.html#components-property-info-type-builtin"><span>встроенный тип данных PHP</span></a> - это
+<tt class="docutils literal"><code>object</code></tt>, метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Type.html#method_getClassName" title="Symfony\Component\PropertyInfo\Type::getClassName()">Type::getClassName()</a></code></tt>
+вернёт полное приемлемое имя класса или  интерфейса.</p>
+</div>
+<div class="section" id="type-iscollection">
+<h3>Type::isCollection()<a class="headerlink" href="#type-iscollection" title="Permalink to this headline">¶</a></h3>
+<p>Метод  <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Type.html#method_isCollection" title="Symfony\Component\PropertyInfo\Type::isCollection()">Type::isCollection()</a></code></tt>
+вернёт булево значение, отображающие, является ли свойство параметра набором (нескалярным
+значением, способным содержать другие значения). На данный момент, возвращается <tt class="docutils literal"><code>true</code></tt>,
+если:</p>
+<ul class="simple">
+<li><a class="reference internal" href="property_info.html#components-property-info-type-builtin"><span>Встроенный тип данных PHP</span></a>
+- это <tt class="docutils literal"><code>array</code></tt>, или</li>
+<li>метод заглушения свойства из которого выводится свойство, имеет префикс
+<tt class="docutils literal"><code>add</code></tt> или <tt class="docutils literal"><code>remove</code></tt> , которые определяются в виде списка префиксов
+заглушителей массива.</li>
+</ul>
+</div>
+<div class="section" id="type-getcollectionkeytype-type-getcollectionvaluetype">
+<h3>Type::getCollectionKeyType() &amp; Type::getCollectionValueType()<a class="headerlink" href="#type-getcollectionkeytype-type-getcollectionvaluetype" title="Permalink to this headline">¶</a></h3>
+<p>Если свойство является набором, могут быть возвращены дополнительные типы
+объектов, как для типа ключей, так и значений набора (если информация доступна),
+через методы <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Type.html#method_getCollectionKeyType" title="Symfony\Component\PropertyInfo\Type::getCollectionKeyType()">Type::getCollectionKeyType()</a></code></tt>
+и <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Type.html#method_getCollectionValueType" title="Symfony\Component\PropertyInfo\Type::getCollectionValueType()">Type::getCollectionValueType()</a></code></tt>.</p>
+</div>
+</div>
+<div class="section" id="components-property-info-extractors-ru">
+<span id="id10"></span><h2>Извлекатели<a class="headerlink" href="#components-property-info-extractors-ru" title="Permalink to this headline">¶</a></h2>
+<p>Извлечение информации свойства выполняется <em>классами извлекателей</em>. Класс
+извлекателя может предоставить один или более типов информации свойства,
+реализуя правильный интерфейс(ы).</p>
+<p>Класс  <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyInfoExtractor.html" title="Symfony\Component\PropertyInfo\PropertyInfoExtractor">PropertyInfoExtractor</a></code></tt>
+итерирует соответствующие классы извлекателей, в том порядке, в котором они
+были установлены, вызывает соответствующий метод и возвращает первый результат,
+который не является <tt class="docutils literal"><code>null</code></tt>.</p>
+<p id="components-property-information-extractors-available-ru">Несмотря на то, что вы можете создавать свои собственные извлекатели, следующие уже
+доступны для того, чтобы охватить большинство случаев использования:</p>
+<div class="section" id="reflectionextractor">
+<h3>ReflectionExtractor<a class="headerlink" href="#reflectionextractor" title="Permalink to this headline">¶</a></h3>
+<p>Используя отображение PHP, <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Extractor/ReflectionExtractor.html" title="Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor">ReflectionExtractor</a></code></tt>
+предоставляет информацию о типе, списке и доступе из методов сеттера и процесса доступа.
+Он также может предоставить возвратный и скалярный тип для PHP 7+.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p>При использовании фреймворка Symfony, этот сервис автоматически регистрируется,
+когда включена функция <tt class="docutils literal"><code>property_info</code></tt>:</p>
+<div class="literal-block"><div class="last highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/framework.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">framework</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">property_info</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor</span><span class="p">;</span>
+
+<span class="nv">$reflectionExtractor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ReflectionExtractor</span><span class="p">();</span>
+
+<span class="c1">// Информация о списке.</span>
+<span class="nv">$reflectionExtractor</span><span class="o">-&gt;</span><span class="na">getProperties</span><span class="p">(</span><span class="nv">$class</span><span class="p">);</span>
+<span class="c1">// Информация о типе.</span>
+<span class="nv">$reflectionExtractor</span><span class="o">-&gt;</span><span class="na">getTypes</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="nv">$property</span><span class="p">);</span>
+<span class="c1">// Информация доступа.</span>
+<span class="nv">$reflectionExtractor</span><span class="o">-&gt;</span><span class="na">isReadable</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="nv">$property</span><span class="p">);</span>
+<span class="nv">$reflectionExtractor</span><span class="o">-&gt;</span><span class="na">isWritable</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="nv">$property</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="phpdocextractor">
+<h3>PhpDocExtractor<a class="headerlink" href="#phpdocextractor" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Этот извлекатель зависит от библиотеки  <a class="reference external" href="https://packagist.org/packages/phpdocumentor/reflection-docblock">phpdocumentor/reflection-docblock</a>.</p>
+</div></div>
+<p>Используя <a class="reference external" href="https://github.com/phpDocumentor/ReflectionDocBlock">Отражение phpDocumentor</a> для анализа свойства и метода аннотации,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/Extractor/PhpDocExtractor.html" title="Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor">PhpDocExtractor</a></code></tt> предоставляет
+информацию о типе и описании. Этот извлекатель автоматически регистрируются с помощью
+<tt class="docutils literal"><code>property_info</code></tt> в фреймворке Symfony, <em>если</em> присутствует зависимая библиотека.</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor</span><span class="p">;</span>
+
+<span class="nv">$phpDocExtractor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PhpDocExtractor</span><span class="p">();</span>
+
+<span class="c1">// Информация о типе.</span>
+<span class="nv">$phpDocExtractor</span><span class="o">-&gt;</span><span class="na">getTypes</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="nv">$property</span><span class="p">);</span>
+<span class="c1">// Информация об описании.</span>
+<span class="nv">$phpDocExtractor</span><span class="o">-&gt;</span><span class="na">getShortDescription</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="nv">$property</span><span class="p">);</span>
+<span class="nv">$phpDocExtractor</span><span class="o">-&gt;</span><span class="na">getLongDescription</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="nv">$property</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="serializerextractor">
+<h3>SerializerExtractor<a class="headerlink" href="#serializerextractor" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Этот извлекатель зависит от библиотеки <a class="reference external" href="https://packagist.org/packages/symfony/serializer">symfony/serializer</a>.</p>
+</div></div>
+<p>Использование <a class="reference internal" href="../serializer-ru.html#serializer-using-serialization-groups-annotations"><span>метаданных групп</span></a>
+из <a class="reference internal" href="serializer.html"><em>компонента Сериализатор</em></a>, предоставляет информацию о
+списке. Этот извлекатель <em>не</em> регистрируется автоматически в сервисе <tt class="docutils literal"><code>property_info</code></tt>
+в фреймворке Symfony.</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Doctrine\Common\Annotations\AnnotationReader</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\PropertyInfo\Extractor\SerializerExtractor</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader</span><span class="p">;</span>
+
+<span class="nv">$serializerClassMetadataFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClassMetadataFactory</span><span class="p">(</span>
+    <span class="k">new</span> <span class="nx">AnnotationLoader</span><span class="p">(</span><span class="k">new</span> <span class="nx">AnnotationReader</span><span class="p">)</span>
+<span class="p">);</span>
+<span class="nv">$serializerExtractor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SerializerExtractor</span><span class="p">(</span><span class="nv">$serializerClassMetadataFactory</span><span class="p">);</span>
+
+<span class="c1">// Информация о списке</span>
+<span class="nv">$serializerExtractor</span><span class="o">-&gt;</span><span class="na">getProperties</span><span class="p">(</span><span class="nv">$class</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="doctrineextractor">
+<h3>DoctrineExtractor<a class="headerlink" href="#doctrineextractor" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Этот извлекатель зависит от библиотек <a class="reference external" href="https://packagist.org/packages/symfony/doctrine-bridge">symfony/doctrine-bridge</a> и <a class="reference external" href="https://packagist.org/packages/doctrine/orm">doctrine/orm</a>.</p>
+</div></div>
+<p>Использование данных отображения сущности из <a class="reference external" href="http://www.doctrine-project.org/projects/orm.html">Doctrine ORM</a>,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bridge/Doctrine/PropertyInfo/DoctrineExtractor.html" title="Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor">DoctrineExtractor</a></code></tt> предоставляет
+информацию о типе и списке. Этот извлекатель не регистрируется автоматически сервисом
+<tt class="docutils literal"><code>property_info</code></tt> в фреймворке Symfony.</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Doctrine\ORM\EntityManager</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\ORM\Tools\Setup</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor</span><span class="p">;</span>
+
+<span class="nv">$config</span> <span class="o">=</span> <span class="nx">Setup</span><span class="o">::</span><span class="na">createAnnotationMetadataConfiguration</span><span class="p">([</span><span class="no">__DIR__</span><span class="p">],</span> <span class="k">true</span><span class="p">);</span>
+<span class="nv">$entityManager</span> <span class="o">=</span> <span class="nx">EntityManager</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+    <span class="s1">&#39;driver&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;pdo_sqlite&#39;</span><span class="p">,</span>
+    <span class="c1">// ...</span>
+<span class="p">],</span> <span class="nv">$config</span><span class="p">);</span>
+<span class="nv">$doctrineExtractor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DoctrineExtractor</span><span class="p">(</span><span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">getMetadataFactory</span><span class="p">());</span>
+
+<span class="c1">// Информация о списке.</span>
+<span class="nv">$doctrineExtractor</span><span class="o">-&gt;</span><span class="na">getProperties</span><span class="p">(</span><span class="nv">$class</span><span class="p">);</span>
+<span class="c1">// Информация о типе.</span>
+<span class="nv">$doctrineExtractor</span><span class="o">-&gt;</span><span class="na">getTypes</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="nv">$property</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="components-property-information-extractors-creation-ru">
+<span id="id11"></span><h2>Создание ваших собственных извлекателей<a class="headerlink" href="#components-property-information-extractors-creation-ru" title="Permalink to this headline">¶</a></h2>
+<p>Вы можете создавать ваши собственные извлекатели информации свойства,
+создавая класс, реализующий один или более следующих интерфейсов
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyAccessExtractorInterface.html" title="Symfony\Component\PropertyInfo\PropertyAccessExtractorInterface">PropertyAccessExtractorInterface</a></code></tt>,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyDescriptionExtractorInterface.html" title="Symfony\Component\PropertyInfo\PropertyDescriptionExtractorInterface">PropertyDescriptionExtractorInterface</a></code></tt>,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyListExtractorInterface.html" title="Symfony\Component\PropertyInfo\PropertyListExtractorInterface">PropertyListExtractorInterface</a></code></tt>
+и <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyTypeExtractorInterface.html" title="Symfony\Component\PropertyInfo\PropertyTypeExtractorInterface">PropertyTypeExtractorInterface</a></code></tt>.</p>
+<p>Если вы включили компонент PropertyInfo и FrameworkBundle, то вы можете автоматически
+регистрировать ваш извлекатель с помощью сервиса <tt class="docutils literal"><code>property_info</code></tt>, определяя его в качестве
+сервиса с одним или несколькими следующими <a class="reference internal" href="..\service_container\tags.html"><em>тегами</em></a>:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>property_info.list_extractor</code></tt>, если он предоставляет информацию о списке.</li>
+<li><tt class="docutils literal"><code>property_info.type_extractor</code></tt>, если он предоставляет информацию о типе.</li>
+<li><tt class="docutils literal"><code>property_info.description_extractor</code></tt>, если он предоставляет информацию об описании.</li>
+<li><tt class="docutils literal"><code>property_info.access_extractor</code></tt>, если он предоставляет информацию о доступе.</li>
+</ul>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="property_access-ru.html">« Компонента PropertyAccess (доступ к свойству)</a>
+                <span class="separator">|</span>
+                <a href="psr7-ru.html">Мост PSR-7 »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

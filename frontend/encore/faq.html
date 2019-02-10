@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>ЧЗВ и общие проблемы &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+    <link rel="up" title="Managing CSS and JavaScript" href="..\..\frontend.html">
+    <link rel="next" title="Установка Encore" href="installation-ru.html">
+    <link rel="prev" title="FAQ and Common Issues" href="faq.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="frontend doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">ЧЗВ и общие проблемы</a><ul>
+<li><a class="reference internal" href="#encore">Как мне развернуть мои ресурсы Encore?</a></li>
+<li><a class="reference internal" href="#node-js">Нужно ли мне устанавливать Node.js на моём сервере производства?</a></li>
+<li><a class="reference internal" href="#git">Какие файлы мне стоит зафиксировать в git? А какие стоит игнорировать?</a></li>
+<li><a class="reference internal" href="#id2">Моё приложение живёт в подкаталоге</a></li>
+<li><a class="reference internal" href="#jquery">&quot;jQuery не определён&quot; или &quot;$ не определён&quot;</a></li>
+<li><a class="reference internal" href="#referenceerror-webpackjsonp">Непойманная ReferenceError: webpackJsonp не определён</a></li>
+<li><a class="reference internal" href="#path-to-file-js">Эта зависимость не была найдена: некоторый модуль в ./path/to/file.js</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li><a href="..\..\frontend.html">Managing CSS and JavaScript</a></li>
+                
+                <li class="active">ЧЗВ и общие проблемы</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>ЧЗВ и общие проблемы<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="encore">
+<h2>Как мне развернуть мои ресурсы Encore?<a class="headerlink" href="#encore" title="Permalink to this headline">¶</a></h2>
+<p>При развёртывании ваших ресурсов, стоит помнить 2 важные вещи.</p>
+<p><strong>1) Запустите ``производство encore``</strong></p>
+<p>Оптимизируйте ваши ресурсы для производства, выполнив:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> ./node_modules/.bin/encore production
+</pre></div>
+</td></tr></table></div></div>
+<p>Это уменьшит ваши ресрусы и выполнит другие оптимизации производительности. Ура!</p>
+<p>Но, на каком сервере стоит выполнять эту команду? Это зависит от того, как вы развёртываете.
+Например, вы можете выполнить её локально (или на сервере построения), и использовать
+rsync или что-то еще, чтобы перенести построенные файлы на ваш сервер. Или, вы можете
+разместить ваши файлы на сервере производства вначале (например, через вызов git), а потом
+выполнить эту команду на производстве (в иделе, до того, как до вашего кода дойдёт трафик).
+В этом случае, вам понадобится установить Node.js на вашем сервере производства.</p>
+<p><strong>2) Развёртывйте только построенные ресурсы</strong></p>
+<p><em>Единственные</em> файлы, которые нужно развёртывать на ваших серверах производства - это
+финальные, построенные ресурсы (например, каталог <tt class="docutils literal"><code>public/build</code></tt>). Вам <em>не</em> нужно
+устаналивать Node.js, разверните <tt class="docutils literal"><code>webpack.config.js</code></tt>, каталог <tt class="docutils literal"><code>node_modules</code></tt> или даже
+ваши файлы источников ресурсов, <strong>кроме случаев</strong>, когда вы планируете запускать
+<tt class="docutils literal"><code>encore production</code></tt> на вашей машине производства. Когда ваши ресрусы будут построены,
+они будут <em>единственным</em>, что должно жить на сервере производства.</p>
+</div>
+<div class="section" id="node-js">
+<h2>Нужно ли мне устанавливать Node.js на моём сервере производства?<a class="headerlink" href="#node-js" title="Permalink to this headline">¶</a></h2>
+<p>Нет, разве что вы планируете построит ваши ресурсы производства на вашем
+сервере прозводвства, что не рекомендуется. См. <a class="reference internal" href="#encore">Как мне развернуть мои ресурсы Encore?</a>.</p>
+</div>
+<div class="section" id="git">
+<h2>Какие файлы мне стоит зафиксировать в git? А какие стоит игнорировать?<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h2>
+<p>Вам стоит фиксировать все ваши файлы в git, кроме каталога <tt class="docutils literal"><code>node_modules/</code></tt> и
+построенных файлов. Ваш файл <tt class="docutils literal"><code>.gitignore</code></tt> должен включать в себя:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>/node_modules/
+# любой путь, который вы передаёте Encore.setOutputPath()
+/public/build
+</pre></div>
+</td></tr></table></div></div>
+<p>Вам <em>стоит</em> зафиксировать все ваши файлы источников ресурсов, <tt class="docutils literal"><code>package.json</code></tt>
+и <tt class="docutils literal"><code>yarn.lock</code></tt>.</p>
+</div>
+<div class="section" id="id2">
+<h2>Моё приложение живёт в подкаталоге<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Если ваше приложение не живёт в корне вашего веб-сервера (т.е. оно живёт в подкаталоге, вроде
+<tt class="docutils literal"><code>/myAppSubdir</code></tt>), вам просто нужно сконфигурировать это при вызове <tt class="docutils literal"><code>Encore.setPublicPrefix()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-diff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span>// webpack.config.js
+Encore
+    // ...
+
+    .setOutputPath(&#39;public/build/&#39;)
+
+<span class="gd">-     .setPublicPath(&#39;/build&#39;)</span>
+<span class="gi">+     // это ваш *настоящий* публичный путь</span>
+<span class="gi">+     .setPublicPath(&#39;/myAppSubdir/build&#39;)</span>
+
+<span class="gi">+     // теперь это неоходимо, чтобы ваши ключи manifest.json keys всё ещё были `build/foo.js`</span>
+<span class="gi">+     // т.е. вам не нужно изменять ничего в вашем приложении Symfony</span>
+<span class="gi">+     .setManifestKeyPrefix(&#39;build&#39;)</span>
+;
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы <a class="reference internal" href="versioning.html#load-manifest-files"><span>обрабатываете ваши ресурсы через manifest.json</span></a>,
+то вы закончили! Файл <tt class="docutils literal"><code>manifest.json</code></tt> теперь будет включать подкаталог в финальные
+пути:</p>
+<div class="literal-block"><div class="highlight-json"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;build/app.js&quot;</span><span class="p">:</span> <span class="s2">&quot;/myAppSubdir/build/app.123abc.js&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;build/dashboard.css&quot;</span><span class="p">:</span> <span class="s2">&quot;/myAppSubdir/build/dashboard.a4bf2d.css&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="jquery">
+<h2>&quot;jQuery не определён&quot; или &quot;$ не определён&quot;<a class="headerlink" href="#jquery" title="Permalink to this headline">¶</a></h2>
+<p>Эта ошибка случается, когда ваш код (или какая-то используемая вами библиотека) ожидает,
+что <tt class="docutils literal"><code>$</code></tt> или <tt class="docutils literal"><code>jQuery</code></tt> будет глобальной переменной. Но, когда вы используете Webpack
+и <tt class="docutils literal"><code>require('jquery')</code></tt>, никакие глобальные переменные не устаналиваются.</p>
+<p>Решение зависит от того, происходит эта ошибка в вашем коде, или в некой сторонней
+библиотеке, которую вы используете. См. <a class="reference internal" href="legacy-apps.html"><em>jQuery and Legacy Applications</em></a>, чтобы
+узнать, как исправить это.</p>
+</div>
+<div class="section" id="referenceerror-webpackjsonp">
+<h2>Непойманная ReferenceError: webpackJsonp не определён<a class="headerlink" href="#referenceerror-webpackjsonp" title="Permalink to this headline">¶</a></h2>
+<p>Если вы получаете эту ошибку, то это скорее всего потому, что вы только что
+добавили <a class="reference internal" href="shared-entry.html"><em>общую запись</em></a>, но <em>забыли</em> добавить
+тег <tt class="docutils literal"><code>script</code></tt> для нового файла <tt class="docutils literal"><code>manifest.js</code></tt>. См. информацию о
+<a class="reference internal" href="shared-entry.html#encore-shared-entry-script"><span>тегах скрипта</span></a> в этом разделе.</p>
+</div>
+<div class="section" id="path-to-file-js">
+<h2>Эта зависимость не была найдена: некоторый модуль в ./path/to/file.js<a class="headerlink" href="#path-to-file-js" title="Permalink to this headline">¶</a></h2>
+<p>Обычно, после того, как вы устанавливаете пакет через yarn, вы можете запросить / импортировать
+его для использования. Например, после запуска <tt class="docutils literal"><code>yarn add respond.js</code></tt>, вы пробуете запросить
+этот модуль:</p>
+<div class="literal-block"><div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;respond.js&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Но вместо того, чтобы всё работало, вы видите ошибку:</p>
+<blockquote>
+<div><p>Эта зависимость не была найдена:</p>
+<ul class="simple">
+<li>respond.js in ./assets/js/app.js</li>
+</ul>
+</div></blockquote>
+<p>Обычно, пакет будет &quot;представлять&quot; свой &quot;главный&quot; файл, добавляя ключ <tt class="docutils literal"><code>main</code></tt>
+к его <tt class="docutils literal"><code>package.json</code></tt>. Но иногда, старые библиотеки не будут иметь этого.
+Вместо этого, вам нужно будет конкретно требовать файл, который вам нужен.
+В этом случае, файл, который вам нужно использовать, находится в
+<tt class="docutils literal"><code>node_modules/respond.js/dest/respond.src.js</code></tt>. Вы можете потребовать его через:</p>
+<div class="literal-block"><div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// потребовать неуменьшенный файл, если это возможно</span>
+<span class="nx">require</span><span class="p">(</span><span class="s1">&#39;respond.js/dest/respond.src.js&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="faq.html">« FAQ and Common Issues</a>
+                <span class="separator">|</span>
+                <a href="installation-ru.html">Установка Encore »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

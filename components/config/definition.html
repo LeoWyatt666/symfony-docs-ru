@@ -1,0 +1,1449 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Определение и обработка значений конфигурации &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+    <link rel="up" title="The Config Component" href="..\config.html">
+    <link rel="next" title="Loading Resources" href="resources.html">
+    <link rel="prev" title="Defining and Processing Configuration Values" href="definition.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Определение и обработка значений конфигурации</a><ul>
+<li><a class="reference internal" href="#id2">Валидация значений конфигурации</a></li>
+<li><a class="reference internal" href="#treebuilder">Определение иерархии значений конфигурации с использованием TreeBuilder</a></li>
+<li><a class="reference internal" href="#id3">Добавление определения узлов в дерево</a><ul>
+<li><a class="reference internal" href="#id4">Переменные узлы</a></li>
+<li><a class="reference internal" href="#id5">Тип узла</a></li>
+<li><a class="reference internal" href="#id6">Ограничения числовых узлов</a></li>
+<li><a class="reference internal" href="#enum">Узлы Enum</a></li>
+<li><a class="reference internal" href="#id7">Узлы массива</a></li>
+<li><a class="reference internal" href="#id8">Опции узлов массива</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id9">Требуемые значения и значения по умолчанию</a></li>
+<li><a class="reference internal" href="#id10">Устаревание опции</a></li>
+<li><a class="reference internal" href="#id11">Документирование опции</a></li>
+<li><a class="reference internal" href="#id12">Опциональные разделы</a></li>
+<li><a class="reference internal" href="#id13">Объединение опций</a></li>
+<li><a class="reference internal" href="#id14">Добавление разделов</a></li>
+<li><a class="reference internal" href="#component-config-normalization">Нормализация</a></li>
+<li><a class="reference internal" href="#id16">Правила валидации</a></li>
+<li><a class="reference internal" href="#id17">Конфигурация разделителя пути узла</a></li>
+<li><a class="reference internal" href="#id20">Обработка значений конфигурации</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li><a href="..\index.html">The Components</a></li>
+                
+                <li><a href="..\config.html">The Config Component</a></li>
+                
+                <li class="active">Определение и обработка значений конфигурации</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Определение и обработка значений конфигурации<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>Валидация значений конфигурации<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>После загрузки значений конфигурации из всех типов ресурсов, значения и
+их структура могут быть валидированы с использованием части &quot;Определение&quot;
+(&quot;Definition&quot;) компонента Config. Значения конфигурации обычно должны
+отображать какую-либо иерархию. Также, значения должны быть определённого
+типа, быть ограничены в количестве или быть одним из заданных наборов
+значений. Например, следующая конфигурация (на YAML) отображает явную
+иерархию и некоторые правила валидации, которые должны быть применены
+к ней (вроде: &quot;значение для <tt class="docutils literal"><code>auto_connect</code></tt> должно быть булевым&quot;):</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">auto_connect</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="l l-Scalar l-Scalar-Plain">default_connection</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">mysql</span>
+<span class="l l-Scalar l-Scalar-Plain">connections</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">mysql</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+        <span class="l l-Scalar l-Scalar-Plain">driver</span><span class="p p-Indicator">:</span>   <span class="l l-Scalar l-Scalar-Plain">mysql</span>
+        <span class="l l-Scalar l-Scalar-Plain">username</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">user</span>
+        <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">pass</span>
+    <span class="l l-Scalar l-Scalar-Plain">sqlite</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+        <span class="l l-Scalar l-Scalar-Plain">driver</span><span class="p p-Indicator">:</span>   <span class="l l-Scalar l-Scalar-Plain">sqlite</span>
+        <span class="l l-Scalar l-Scalar-Plain">memory</span><span class="p p-Indicator">:</span>   <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="l l-Scalar l-Scalar-Plain">username</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">user</span>
+        <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">pass</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>При загрузке нескольких файлов конфигурации, должна быть возможность объединять
+и перезаписывать некоторые значения. Другие значения не должны быть объединены
+и оставаться в том виде, в котором они были при первом обнаружении. Также
+некоторые ключи доступны только тогда, когда другой ключ имеет определённое
+значение (в примере конфигурации выше: ключ <tt class="docutils literal"><code>memory</code></tt> имеет смысл только тогда,
+когда <tt class="docutils literal"><code>driver</code></tt> - <tt class="docutils literal"><code>sqlite</code></tt>).</p>
+</div>
+<div class="section" id="treebuilder">
+<h2>Определение иерархии значений конфигурации с использованием TreeBuilder<a class="headerlink" href="#treebuilder" title="Permalink to this headline">¶</a></h2>
+<p>Все правила, касающиеся значений конфигурации могут быть определены, используя
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Config/Definition/Builder/TreeBuilder.html" title="Symfony\Component\Config\Definition\Builder\TreeBuilder">TreeBuilder</a></code></tt>.</p>
+<p>Экземпляр <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Config/Definition/Builder/TreeBuilder.html" title="Symfony\Component\Config\Definition\Builder\TreeBuilder">TreeBuilder</a></code></tt>
+должен быть возвращён из пользовательского класса <tt class="docutils literal"><code>Configuration</code></tt>, реализующего
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Config/Definition/ConfigurationInterface.html" title="Symfony\Component\Config\Definition\ConfigurationInterface">ConfigurationInterface</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">Acme\DatabaseConfiguration</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Config\Definition\ConfigurationInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Config\Definition\Builder\TreeBuilder</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">DatabaseConfiguration</span> <span class="k">implements</span> <span class="nx">ConfigurationInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getConfigTreeBuilder</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$treeBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TreeBuilder</span><span class="p">();</span>
+        <span class="nv">$rootNode</span> <span class="o">=</span> <span class="nv">$treeBuilder</span><span class="o">-&gt;</span><span class="na">root</span><span class="p">(</span><span class="s1">&#39;database&#39;</span><span class="p">);</span>
+
+        <span class="c1">// ... добавьте определения узлов в корень дерева</span>
+
+        <span class="k">return</span> <span class="nv">$treeBuilder</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id3">
+<h2>Добавление определения узлов в дерево<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>Переменные узлы<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Дерево содержит определения узлов, которые можно изложить семантическим путём.
+Это означает, что используя отступы и свободные нотации, возможно отобразить
+настоящую структуру значений конфигурации:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$rootNode</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">booleanNode</span><span class="p">(</span><span class="s1">&#39;auto_connect&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">defaultTrue</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;default_connection&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">defaultValue</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Сам корневой узел является узлом массива, имеет детей, вроде узла локации
+<tt class="docutils literal"><code>auto_connect</code></tt> и склаярный узел <tt class="docutils literal"><code>default_connection</code></tt>. В общем: после
+определения узла, вызов к <tt class="docutils literal"><code>end()</code></tt> аоднимает вас на один уровень в иерархии.</p>
+</div>
+<div class="section" id="id5">
+<h3>Тип узла<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Возможно валидировать тип предоставленного значения, используя соответствующее
+определение узла. Типы узлов доступны для:</p>
+<ul class="simple">
+<li>скаляров (общий тип, включающий в себя булевы значения, строки, числа,
+плавающие значения и <tt class="docutils literal"><code>null</code></tt>)</li>
+<li>булевых значений</li>
+<li>чисел</li>
+<li>плавающих значений</li>
+<li>enum (схоже со скалярами, но позволяет только ограниченный набор значений)</li>
+<li>массивов</li>
+<li>переменных (без валидации)</li>
+</ul>
+<p>и создаются с помощью <tt class="docutils literal"><code>node($name, $type)</code></tt> или связанного с ними метода
+сокращения <tt class="docutils literal"><code>xxxxNode($name)</code></tt></p>
+</div>
+<div class="section" id="id6">
+<h3>Ограничения числовых узлов<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Числовые узлы (плавающие значения и числа) предоставляют два дополнительных ограничения -
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Config/Definition/Builder/IntegerNodeDefinition.html#method_min" title="Symfony\Component\Config\Definition\Builder\IntegerNodeDefinition::min()">min()</a></code></tt>
+и <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Config/Definition/Builder/IntegerNodeDefinition.html#method_max" title="Symfony\Component\Config\Definition\Builder\IntegerNodeDefinition::max()">max()</a></code></tt>
+- позволяющих валидировать значение:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$rootNode</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">integerNode</span><span class="p">(</span><span class="s1">&#39;positive_value&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">min</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">floatNode</span><span class="p">(</span><span class="s1">&#39;big_value&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">max</span><span class="p">(</span><span class="mf">5E45</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">integerNode</span><span class="p">(</span><span class="s1">&#39;value_inside_a_range&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">min</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">max</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="enum">
+<h3>Узлы Enum<a class="headerlink" href="#enum" title="Permalink to this headline">¶</a></h3>
+<p>Узлы Enum предоставляют ограничение для сопоставления заданного вода с
+набором значений:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$rootNode</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">enumNode</span><span class="p">(</span><span class="s1">&#39;delivery&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">values</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;standard&#39;</span><span class="p">,</span> <span class="s1">&#39;expedited&#39;</span><span class="p">,</span> <span class="s1">&#39;priority&#39;</span><span class="p">))</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это ограничит опции <tt class="docutils literal"><code>delivery</code></tt> до значений <tt class="docutils literal"><code>standard</code></tt>,
+<tt class="docutils literal"><code>expedited</code></tt>  или <tt class="docutils literal"><code>priority</code></tt>.</p>
+</div>
+<div class="section" id="id7">
+<h3>Узлы массива<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Возможно добавить более глубокий уровень к иерархии, добавив узел массива.
+Узел массива сам по себе может имуть предопределённый набор переменных узлов:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$rootNode</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">arrayNode</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;driver&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Или вы можете определить прототип для каждогоузла внутри узла массива:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$rootNode</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">arrayNode</span><span class="p">(</span><span class="s1">&#39;connections&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">arrayPrototype</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;driver&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Прототип может быть использован для добавления определения, которо может быть
+много раз повторено в текущем узле. В соответствии с определением прототипа в
+примере выше, возможно иметь неколько массивов соединений (содержащих <tt class="docutils literal"><code>driver</code></tt>,
+<tt class="docutils literal"><code>host</code></tt>, и др.).</p>
+<p>Иногда для улучшения опыта пользователя от вашего приложения или пакета, вы можете
+позволить использовать простую строку или числовое значение там, где требуется
+значение массива. Используйте помощника <tt class="docutils literal"><code>castToArray()</code></tt>, чтобы преобразовать эти
+переменные в массивы:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">-&gt;</span><span class="na">arrayNode</span><span class="p">(</span><span class="s1">&#39;hosts&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">beforeNormalization</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">castToArray</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="c1">// ...</span>
+<span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id8">
+<h3>Опции узлов массива<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>До определения детей узла массива, вы можете предоставить опции вроде:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>useAttributeAsKey()</code></tt></dt>
+<dd>Предоставьте название дочернего узла, значение которого должно быть использовано
+как ключ в полученном массиве. Этот метод также определяет то, как поступать
+с ключами массива конфигурации, что объясняется в следующем примере.</dd>
+<dt><tt class="docutils literal"><code>requiresAtLeastOneElement()</code></tt></dt>
+<dd>В массиве должен быть хотя бы один элемент (работает только тогда,
+когда также вызывается <tt class="docutils literal"><code>isRequired()</code></tt>).</dd>
+<dt><tt class="docutils literal"><code>addDefaultsIfNotSet()</code></tt></dt>
+<dd>Если какой-либо дочерний узел имеет значение по умолчанию, используйте
+его, если не было явно предоставлено другого значения.</dd>
+<dt><tt class="docutils literal"><code>normalizeKeys(false)</code></tt></dt>
+<dd>Если вызвана (с <tt class="docutils literal"><code>false</code></tt>), ключи с дефисами <em>не</em> нормализуются в нижние
+подчёркивания. Рекомендуется использовать с узлами прототипов, где пользователь
+будет определять отображение ключ-значение, чтобы избежать ненужных преобразований.</dd>
+<dt><tt class="docutils literal"><code>ignoreExtraKeys()</code></tt></dt>
+<dd>Позволяет указывать в массиве дополнительные ключи конфигурации без
+вызоыва исключений.</dd>
+</dl>
+<p>Базовая конфигурация прототипного массива можнт быть определена следующим
+образом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$node</span>
+    <span class="o">-&gt;</span><span class="na">fixXmlConfig</span><span class="p">(</span><span class="s1">&#39;driver&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">arrayNode</span><span class="p">(</span><span class="s1">&#39;drivers&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">scalarPrototype</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>При использовании следюущей YAML конфигурации</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">drivers</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;mysql&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;sqlite&#39;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Или следующей XML конфигурации:</p>
+<div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">&lt;driver&gt;</span>mysql<span class="nt">&lt;/driver&gt;</span>
+<span class="nt">&lt;driver&gt;</span>sqlite<span class="nt">&lt;/driver&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Обработанная конфигурация:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">Array</span><span class="p">(</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="s1">&#39;mysql&#39;</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="s1">&#39;sqlite&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Более сложным примером будет определить прототипны массив с детьми:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$node</span>
+    <span class="o">-&gt;</span><span class="na">fixXmlConfig</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">arrayNode</span><span class="p">(</span><span class="s1">&#39;connections&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">arrayPrototype</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>При использовании следующей конфигурации YAML:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">connections</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">table</span><span class="p p-Indicator">:</span> <span class="nv">symfony</span><span class="p p-Indicator">,</span> <span class="nv">user</span><span class="p p-Indicator">:</span> <span class="nv">root</span><span class="p p-Indicator">,</span> <span class="nv">password</span><span class="p p-Indicator">:</span> <span class="nv">~</span> <span class="p p-Indicator">}</span>
+    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">table</span><span class="p p-Indicator">:</span> <span class="nv">foo</span><span class="p p-Indicator">,</span> <span class="nv">user</span><span class="p p-Indicator">:</span> <span class="nv">root</span><span class="p p-Indicator">,</span> <span class="nv">password</span><span class="p p-Indicator">:</span> <span class="nv">pa$$</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Или следующей конфигурации XML:</p>
+<div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">&lt;connection</span> <span class="na">table=</span><span class="s">&quot;symfony&quot;</span> <span class="na">user=</span><span class="s">&quot;root&quot;</span> <span class="na">password=</span><span class="s">&quot;null&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;connection</span> <span class="na">table=</span><span class="s">&quot;foo&quot;</span> <span class="na">user=</span><span class="s">&quot;root&quot;</span> <span class="na">password=</span><span class="s">&quot;pa$$&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Обработанная конфигурация:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">Array</span><span class="p">(</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">Array</span><span class="p">(</span>
+        <span class="p">[</span><span class="nx">table</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="s1">&#39;symfony&#39;</span>
+        <span class="p">[</span><span class="nx">user</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="s1">&#39;root&#39;</span>
+        <span class="p">[</span><span class="nx">password</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">null</span>
+    <span class="p">)</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">Array</span><span class="p">(</span>
+        <span class="p">[</span><span class="nx">table</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="s1">&#39;foo&#39;</span>
+        <span class="p">[</span><span class="nx">user</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="s1">&#39;root&#39;</span>
+        <span class="p">[</span><span class="nx">password</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="s1">&#39;pa$$&#39;</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Предыдущий вывод совпадает с ожидаемым результатом. Однако, учитывая древо
+конфигурации, при использовании следующей конфигурации YAML:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">connections</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">sf_connection</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">table</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">symfony</span>
+        <span class="l l-Scalar l-Scalar-Plain">user</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+        <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+    <span class="l l-Scalar l-Scalar-Plain">default</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">table</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">foo</span>
+        <span class="l l-Scalar l-Scalar-Plain">user</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+        <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">pa$$</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Конфигурация вывода будет точно такой же, как и раньше. Другими словами, ключи
+конфигурации <tt class="docutils literal"><code>sf_connection</code></tt> и <tt class="docutils literal"><code>default</code></tt> теряются. Причиной этому является то,
+что компонент Symfony Config относится к массивам как к спискам по умолчанию.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">С момента написания этого, существует нелогичность: если только один файл
+предоставляет обсуждаемую конфигурацию, ключи (т.е. <tt class="docutils literal"><code>sf_connection</code></tt> и
+<tt class="docutils literal"><code>default</code></tt>) <em>не</em> теряются. Но если более одного файла предоставляют конфигурацию,
+то ключи теряются, как описано выше.</p>
+</div></div>
+<p>Для того, чтобы содержать ключи массива, используйте метод <tt class="docutils literal"><code>useAttributeAsKey()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$node</span>
+    <span class="o">-&gt;</span><span class="na">fixXmlConfig</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">arrayNode</span><span class="p">(</span><span class="s1">&#39;connections&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">useAttributeAsKey</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">arrayPrototype</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Аргумент этого метода (<tt class="docutils literal"><code>name</code></tt> в примере выше) определяет название атрибута,
+добавляемого к каждому XML узлу для их дифференциации. Теперь вы можете использвать
+ту же конфигурацию YAML, что была показана ранее, или следующую конфигурацию XML:</p>
+<div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">&lt;connection</span> <span class="na">name=</span><span class="s">&quot;sf_connection&quot;</span>
+    <span class="na">table=</span><span class="s">&quot;symfony&quot;</span> <span class="na">user=</span><span class="s">&quot;root&quot;</span> <span class="na">password=</span><span class="s">&quot;null&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;connection</span> <span class="na">name=</span><span class="s">&quot;default&quot;</span>
+    <span class="na">table=</span><span class="s">&quot;foo&quot;</span> <span class="na">user=</span><span class="s">&quot;root&quot;</span> <span class="na">password=</span><span class="s">&quot;pa$$&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В обоих случаях обработанная конфигурацию содержит ключи <tt class="docutils literal"><code>sf_connection</code></tt> и
+<tt class="docutils literal"><code>default</code></tt> keys:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">Array</span><span class="p">(</span>
+    <span class="p">[</span><span class="nx">sf_connection</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">Array</span><span class="p">(</span>
+        <span class="p">[</span><span class="nx">table</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="s1">&#39;symfony&#39;</span>
+        <span class="p">[</span><span class="nx">user</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="s1">&#39;root&#39;</span>
+        <span class="p">[</span><span class="nx">password</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">null</span>
+    <span class="p">)</span>
+    <span class="p">[</span><span class="k">default</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">Array</span><span class="p">(</span>
+        <span class="p">[</span><span class="nx">table</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="s1">&#39;foo&#39;</span>
+        <span class="p">[</span><span class="nx">user</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="s1">&#39;root&#39;</span>
+        <span class="p">[</span><span class="nx">password</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="s1">&#39;pa$$&#39;</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>Требуемые значения и значения по умолчанию<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>Для всех типов узлов возможно определить значения по умолчанию и замещающие
+значения в случае, если узел имеет определённое значение:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>defaultValue()</code></tt></dt>
+<dd>Установить значение по умолчанию</dd>
+<dt><tt class="docutils literal"><code>isRequired()</code></tt></dt>
+<dd>Должно быть определено (но может быть пустым)</dd>
+<dt><tt class="docutils literal"><code>cannotBeEmpty()</code></tt></dt>
+<dd>Не может содержать пустого значения</dd>
+<dt><tt class="docutils literal"><code>default*()</code></tt></dt>
+<dd>(<tt class="docutils literal"><code>null</code></tt>, <tt class="docutils literal"><code>true</code></tt>, <tt class="docutils literal"><code>false</code></tt>), сокращение для <tt class="docutils literal"><code>defaultValue()</code></tt></dd>
+<dt><tt class="docutils literal"><code>treat*Like()</code></tt></dt>
+<dd>(<tt class="docutils literal"><code>null</code></tt>, <tt class="docutils literal"><code>true</code></tt>, <tt class="docutils literal"><code>false</code></tt>), предоставить замещающее значение в случае,
+если значение - <tt class="docutils literal"><code>*.</code></tt></dd>
+</dl>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$rootNode</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">arrayNode</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;driver&#39;</span><span class="p">)</span>
+                    <span class="o">-&gt;</span><span class="na">isRequired</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">cannotBeEmpty</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">)</span>
+                    <span class="o">-&gt;</span><span class="na">defaultValue</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">booleanNode</span><span class="p">(</span><span class="s1">&#39;memory&#39;</span><span class="p">)</span>
+                    <span class="o">-&gt;</span><span class="na">defaultFalse</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">arrayNode</span><span class="p">(</span><span class="s1">&#39;settings&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">addDefaultsIfNotSet</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+                    <span class="o">-&gt;</span><span class="na">isRequired</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">cannotBeEmpty</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">defaultValue</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id10">
+<h2>Устаревание опции<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>Вы можете сделать опцию устаревшей, используя метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Config/Definition/Builder/NodeDefinition.html#method_setDeprecated" title="Symfony\Component\Config\Definition\Builder\NodeDefinition::setDeprecated()">setDeprecated()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$rootNode</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">integerNode</span><span class="p">(</span><span class="s1">&#39;old_option&#39;</span><span class="p">)</span>
+            <span class="c1">// выводит следующее общее сообщение об устарении:</span>
+            <span class="c1">// Дочерний узел &quot;old_option&quot; по пути &quot;...&quot; устарел.</span>
+            <span class="o">-&gt;</span><span class="na">setDeprecated</span><span class="p">()</span>
+
+            <span class="c1">// вы также моежете передать пользовательское сообщеиие об устарении (доступны заполнители %node% и %path%):</span>
+            <span class="o">-&gt;</span><span class="na">setDeprecated</span><span class="p">(</span><span class="s1">&#39;Опция &quot;%node%&quot; устарела. Используйте &quot;new_config_option&quot; вместо неё.&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы испльзуете Панель инструментов веб-отладки, эти уведомления об устарении
+отображаются при перестроении конфигурации.</p>
+</div>
+<div class="section" id="id11">
+<h2>Документирование опции<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>Все опции можно документировать с помощью метода
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Config/Definition/Builder/NodeDefinition.html#method_info" title="Symfony\Component\Config\Definition\Builder\NodeDefinition::info()">info()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$rootNode</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">integerNode</span><span class="p">(</span><span class="s1">&#39;entries_per_page&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s1">&#39;Это значение используетсятолько для для страницы результатов поиска.&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">defaultValue</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Информация будет отображена в виде комментария при сбросе дерева конфигурации
+с помощью команды <tt class="docutils literal"><code>config:dump-reference</code></tt>.</p>
+<p>В YAML у вас может быть:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Это значение используетсятолько для для страницы результатов поиска.</span>
+<span class="l l-Scalar l-Scalar-Plain">entries_per_page</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">25</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>А в XML:</p>
+<div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- entries-per-page: Это значение используетсятолько для для страницы результатов поиска. --&gt;</span>
+<span class="nt">&lt;config</span> <span class="na">entries-per-page=</span><span class="s">&quot;25&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id12">
+<h2>Опциональные разделы<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>Если у вас есть целые разделы, которые являются необязательными, и могут быть
+включены и отключены, вы можете воспользоваться преимуществами методов сокращения
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Config/Definition/Builder/ArrayNodeDefinition.html#method_canBeEnabled" title="Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition::canBeEnabled()">canBeEnabled()</a></code></tt>
+и
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Config/Definition/Builder/ArrayNodeDefinition.html#method_canBeDisabled" title="Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition::canBeDisabled()">canBeDisabled()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$arrayNode</span>
+    <span class="o">-&gt;</span><span class="na">canBeEnabled</span><span class="p">()</span>
+<span class="p">;</span>
+
+<span class="c1">// эквивалентно</span>
+
+<span class="nv">$arrayNode</span>
+    <span class="o">-&gt;</span><span class="na">treatFalseLike</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">))</span>
+    <span class="o">-&gt;</span><span class="na">treatTrueLike</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">))</span>
+    <span class="o">-&gt;</span><span class="na">treatNullLike</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">))</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">booleanNode</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">defaultFalse</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code>canBeDisabled()</code></tt> выглядит примерно так же, кроме того, что
+раздел будет включен по умолчанию.</p>
+</div>
+<div class="section" id="id13">
+<h2>Объединение опций<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>Могут быть предоставлены дополнительные опции, касающиеся объединения. Для массивов:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>performNoDeepMerging()</code></tt></dt>
+<dd>Когда значение также определено во втором массиве конфигурации, не пробуйте
+объединять массив, а полностью перепишите его</dd>
+</dl>
+<p>Для всех узлов:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>cannotBeOverwritten()</code></tt></dt>
+<dd>не позвляйте другим массивам конфигурации перезаписывать существующее
+значение для этого узла</dd>
+</dl>
+</div>
+<div class="section" id="id14">
+<h2>Добавление разделов<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<p>Если вы валидируете сложную конфигурацию, то дерево может сильно вырости
+и вы можете захотеть поделить его на разделы. Вы можете сделать это, создав
+отдельный узел для раздела, а потом добавив его в основное дерево с помощью
+<tt class="docutils literal"><code>append()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">getConfigTreeBuilder</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nv">$treeBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TreeBuilder</span><span class="p">();</span>
+    <span class="nv">$rootNode</span> <span class="o">=</span> <span class="nv">$treeBuilder</span><span class="o">-&gt;</span><span class="na">root</span><span class="p">(</span><span class="s1">&#39;database&#39;</span><span class="p">);</span>
+
+    <span class="nv">$rootNode</span>
+        <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">arrayNode</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;driver&#39;</span><span class="p">)</span>
+                        <span class="o">-&gt;</span><span class="na">isRequired</span><span class="p">()</span>
+                        <span class="o">-&gt;</span><span class="na">cannotBeEmpty</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">)</span>
+                        <span class="o">-&gt;</span><span class="na">defaultValue</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">)</span>
+                    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">booleanNode</span><span class="p">(</span><span class="s1">&#39;memory&#39;</span><span class="p">)</span>
+                        <span class="o">-&gt;</span><span class="na">defaultFalse</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">append</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">addParametersNode</span><span class="p">())</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="p">;</span>
+
+    <span class="k">return</span> <span class="nv">$treeBuilder</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">addParametersNode</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nv">$treeBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TreeBuilder</span><span class="p">();</span>
+    <span class="nv">$node</span> <span class="o">=</span> <span class="nv">$treeBuilder</span><span class="o">-&gt;</span><span class="na">root</span><span class="p">(</span><span class="s1">&#39;parameters&#39;</span><span class="p">);</span>
+
+    <span class="nv">$node</span>
+        <span class="o">-&gt;</span><span class="na">isRequired</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">requiresAtLeastOneElement</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">useAttributeAsKey</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">arrayPrototype</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">isRequired</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="p">;</span>
+
+    <span class="k">return</span> <span class="nv">$node</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это также полезно для того, чтобы вы избежали повторения самого себя если у
+вас есть разделы конфигурации, которые повторяются в разных местах.</p>
+<p>Пример приводит к следующему:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">database</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">connection</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">driver</span><span class="p p-Indicator">:</span>               <span class="l l-Scalar l-Scalar-Plain">~</span> <span class="c1"># Required</span>
+        <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+        <span class="l l-Scalar l-Scalar-Plain">username</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">~</span>
+        <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">~</span>
+        <span class="l l-Scalar l-Scalar-Plain">memory</span><span class="p p-Indicator">:</span>               <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>           <span class="c1"># Required</span>
+
+            <span class="c1"># Prototype</span>
+            <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span>                <span class="l l-Scalar l-Scalar-Plain">~</span> <span class="c1"># Required</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">&lt;database&gt;</span>
+    <span class="c">&lt;!-- driver: Required --&gt;</span>
+    <span class="nt">&lt;connection</span>
+        <span class="na">driver=</span><span class="s">&quot;&quot;</span>
+        <span class="na">host=</span><span class="s">&quot;localhost&quot;</span>
+        <span class="na">username=</span><span class="s">&quot;&quot;</span>
+        <span class="na">password=</span><span class="s">&quot;&quot;</span>
+        <span class="na">memory=</span><span class="s">&quot;false&quot;</span>
+    <span class="nt">&gt;</span>
+
+        <span class="c">&lt;!-- prototype --&gt;</span>
+        <span class="c">&lt;!-- value: Required --&gt;</span>
+        <span class="nt">&lt;parameters</span>
+            <span class="na">name=</span><span class="s">&quot;parameters name&quot;</span>
+            <span class="na">value=</span><span class="s">&quot;&quot;</span>
+        <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;/connection&gt;</span>
+<span class="nt">&lt;/database&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="component-config-normalization">
+<span id="id15"></span><h2>Нормализация<a class="headerlink" href="#component-config-normalization" title="Permalink to this headline">¶</a></h2>
+<p>Когда обрабатываются файлы конфигурации, они вначале нормализуются, потом
+объединяются и в конце концов используется дерево для валидации итогового
+массива. Процесс нормализации используется для удаления некоторых разбежностей,
+которые получаются из разных форматов конфигурации, в основном, различия между
+YAML и XML.</p>
+<p>Разделитель, используемый в ключах, обычно <tt class="docutils literal"><code>_</code></tt> в YAML, и <tt class="docutils literal"><code>-</code></tt> в XML.
+Например, <tt class="docutils literal"><code>auto_connect</code></tt> в YAML и <tt class="docutils literal"><code>auto-connect</code></tt> в XML. Нормализация
+преобразит их оба в <tt class="docutils literal"><code>auto_connect</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Целевой ключ не будет изменён, если он будет смешанным, вроде
+<tt class="docutils literal"><code>foo-bar_moo</code></tt>, или если он уже существует.</p>
+</div></div>
+<p>Ещё одним различием между YAML и XML является то, как могут быть представлены
+значения массивов. В YAML у вас может быть:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">twig</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">extensions</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;twig.extension.foo&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;twig.extension.bar&#39;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>А в XML:</p>
+<div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">&lt;twig:config&gt;</span>
+    <span class="nt">&lt;twig:extension&gt;</span>twig.extension.foo<span class="nt">&lt;/twig:extension&gt;</span>
+    <span class="nt">&lt;twig:extension&gt;</span>twig.extension.bar<span class="nt">&lt;/twig:extension&gt;</span>
+<span class="nt">&lt;/twig:config&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это различие может быть удалено в нормализации, путём размножения ключа,
+используемого в XML. Вы можете указать, что вы хотите таким образом размножить
+ключ, используя <tt class="docutils literal"><code>fixXmlConfig()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$rootNode</span>
+    <span class="o">-&gt;</span><span class="na">fixXmlConfig</span><span class="p">(</span><span class="s1">&#39;extension&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">arrayNode</span><span class="p">(</span><span class="s1">&#39;extensions&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">scalarPrototype</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если это нерегулярное размножение, то вы можете указать используемое множество
+в качестве второго аргумента:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$rootNode</span>
+    <span class="o">-&gt;</span><span class="na">fixXmlConfig</span><span class="p">(</span><span class="s1">&#39;child&#39;</span><span class="p">,</span> <span class="s1">&#39;children&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">arrayNode</span><span class="p">(</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+            <span class="c1">// ...</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Кроме исправления этого, <tt class="docutils literal"><code>fixXmlConfig()</code></tt> гарантирует, что единичные элементы
+XML все равно будут преобразованы в массивы. Поэтому у вас может быть:</p>
+<div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">&lt;connection&gt;</span>default<span class="nt">&lt;/connection&gt;</span>
+<span class="nt">&lt;connection&gt;</span>extra<span class="nt">&lt;/connection&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>А иногда только:</p>
+<div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">&lt;connection&gt;</span>default<span class="nt">&lt;/connection&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>По умолчанию <tt class="docutils literal"><code>connection</code></tt> будет массиво в первом случае, и строкой - во
+втором, что приведёт к сложностям валидации. Вы можете гаранировать, чтобы
+он всегда был массивом, с помощью <tt class="docutils literal"><code>fixXmlConfig()</code></tt>.</p>
+<p>Вы можете еще больше контролировать процесс нормализации, если вам нужно. Например,
+вы можете захотеть позволить установку и использование строки в качестве конкретного
+ключа или явной установки нескольких ключей. Так, как если бы все, кроме  <tt class="docutils literal"><code>name</code></tt>
+в этой конфигурации было необязательным:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">connection</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">my_mysql_connection</span>
+    <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+    <span class="l l-Scalar l-Scalar-Plain">driver</span><span class="p p-Indicator">:</span>   <span class="l l-Scalar l-Scalar-Plain">mysql</span>
+    <span class="l l-Scalar l-Scalar-Plain">username</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">user</span>
+    <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">pass</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы также можете позволить следующее:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">connection</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my_mysql_connection</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Изменив значение строки в ассоциативный массив с <tt class="docutils literal"><code>name</code></tt> в качестве ключа:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$rootNode</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">arrayNode</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">beforeNormalization</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">ifString</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">then</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$v</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$v</span><span class="p">);</span> <span class="p">})</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">isRequired</span><span class="p">()</span>
+                <span class="c1">// ...</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id16">
+<h2>Правила валидации<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<p>Более продвинутые правила валидации можно предоставить используя
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Config/Definition/Builder/ExprBuilder.html" title="Symfony\Component\Config\Definition\Builder\ExprBuilder">ExprBuilder</a></code></tt>. Этот
+конструктор реализует текущий интерфейс для широко известной структуры контроля.
+Конструктор используется для добавления продвинутых правил валидации к определениям
+узлов, вроде:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$rootNode</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">arrayNode</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;driver&#39;</span><span class="p">)</span>
+                    <span class="o">-&gt;</span><span class="na">isRequired</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">validate</span><span class="p">()</span>
+                        <span class="o">-&gt;</span><span class="na">ifNotInArray</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;mysql&#39;</span><span class="p">,</span> <span class="s1">&#39;sqlite&#39;</span><span class="p">,</span> <span class="s1">&#39;mssql&#39;</span><span class="p">))</span>
+                        <span class="o">-&gt;</span><span class="na">thenInvalid</span><span class="p">(</span><span class="s1">&#39;Invalid database driver %s&#39;</span><span class="p">)</span>
+                    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Правило валидации всегда имеет часть &quot;if&quot; (&quot;если&quot;). Вы можете указать эту
+часть следующими образами:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>ifTrue()</code></tt></li>
+<li><tt class="docutils literal"><code>ifString()</code></tt></li>
+<li><tt class="docutils literal"><code>ifNull()</code></tt></li>
+<li><tt class="docutils literal"><code>ifEmpty()</code></tt> (начиная Symfony 3.2)</li>
+<li><tt class="docutils literal"><code>ifArray()</code></tt></li>
+<li><tt class="docutils literal"><code>ifInArray()</code></tt></li>
+<li><tt class="docutils literal"><code>ifNotInArray()</code></tt></li>
+<li><tt class="docutils literal"><code>always()</code></tt></li>
+</ul>
+<p>Правило валидации также требует части &quot;then&quot; (&quot;то&quot;):</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>then()</code></tt></li>
+<li><tt class="docutils literal"><code>thenEmptyArray()</code></tt></li>
+<li><tt class="docutils literal"><code>thenInvalid()</code></tt></li>
+<li><tt class="docutils literal"><code>thenUnset()</code></tt></li>
+</ul>
+<p>Обычно, &quot;then&quot; является закрывающим. Его возвратное значение будет использовано
+в качестве нового значения для узла, вместо исходного значения узла.</p>
+</div>
+<div class="section" id="id17">
+<h2>Конфигурация разделителя пути узла<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Опция для конфигурации разделителя пути узла была представлена в Symfony 4.1.</p>
+</div>
+<p>Рассмотрите следующий пример конструктора конфигурации:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$treeBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TreeBuilder</span><span class="p">();</span>
+<span class="nv">$rootNode</span> <span class="o">=</span> <span class="nv">$treeBuilder</span><span class="o">-&gt;</span><span class="na">root</span><span class="p">(</span><span class="s1">&#39;database&#39;</span><span class="p">);</span>
+
+<span class="nv">$rootNode</span>
+    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">arrayNode</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;driver&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>По умолчанию, иерархия узлов в пути конфигурации определяется с помощью
+символа точки (<tt class="docutils literal"><code>.</code></tt>):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+
+<span class="nv">$node</span> <span class="o">=</span> <span class="nv">$treeBuilder</span><span class="o">-&gt;</span><span class="na">buildTree</span><span class="p">();</span>
+<span class="nv">$children</span> <span class="o">=</span> <span class="nv">$node</span><span class="o">-&gt;</span><span class="na">getChildren</span><span class="p">();</span>
+<span class="nv">$path</span> <span class="o">=</span> <span class="nv">$children</span><span class="p">[</span><span class="s1">&#39;driver&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">getPath</span><span class="p">();</span>
+<span class="c1">// $path = &#39;database.connection.driver&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Используйте метод <a href="#id18"><span class="problematic" id="id19">``</span></a>setPathSeparator()``в конструкторе конфигурации, чтобы
+изменить разделитель пути:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+
+<span class="nv">$treeBuilder</span><span class="o">-&gt;</span><span class="na">setPathSeparator</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">);</span>
+<span class="nv">$node</span> <span class="o">=</span> <span class="nv">$treeBuilder</span><span class="o">-&gt;</span><span class="na">buildTree</span><span class="p">();</span>
+<span class="nv">$children</span> <span class="o">=</span> <span class="nv">$node</span><span class="o">-&gt;</span><span class="na">getChildren</span><span class="p">();</span>
+<span class="nv">$path</span> <span class="o">=</span> <span class="nv">$children</span><span class="p">[</span><span class="s1">&#39;driver&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">getPath</span><span class="p">();</span>
+<span class="c1">// $path = &#39;database/connection/driver&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id20">
+<h2>Обработка значений конфигурации<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Config/Definition/Processor.html" title="Symfony\Component\Config\Definition\Processor">Processor</a></code></tt> использует дерево,
+так как он был построен, используя
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Config/Definition/Builder/TreeBuilder.html" title="Symfony\Component\Config\Definition\Builder\TreeBuilder">TreeBuilder</a></code></tt>,чтобы
+обрабатывать несколько массивов значений конфигурации, которые должны быть
+объединены. Если какое-либо значение не имеет ожидаемый тип, обязательно, но
+не определено, или не может быть валидировано любым другим способом, будет
+вызвано исключение. Иначе, результатом будет чистый массив значений конфигурации:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Yaml\Yaml</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Config\Definition\Processor</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Acme\DatabaseConfiguration</span><span class="p">;</span>
+
+<span class="nv">$config</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span>
+    <span class="nb">file_get_contents</span><span class="p">(</span><span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/src/Matthias/config/config.yaml&#39;</span><span class="p">)</span>
+<span class="p">);</span>
+<span class="nv">$extraConfig</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span>
+    <span class="nb">file_get_contents</span><span class="p">(</span><span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/src/Matthias/config/config_extra.yaml&#39;</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="nv">$configs</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$config</span><span class="p">,</span> <span class="nv">$extraConfig</span><span class="p">);</span>
+
+<span class="nv">$processor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Processor</span><span class="p">();</span>
+<span class="nv">$databaseConfiguration</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DatabaseConfiguration</span><span class="p">();</span>
+<span class="nv">$processedConfiguration</span> <span class="o">=</span> <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">processConfiguration</span><span class="p">(</span>
+    <span class="nv">$databaseConfiguration</span><span class="p">,</span>
+    <span class="nv">$configs</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="definition.html">« Defining and Processing Configuration Values</a>
+                <span class="separator">|</span>
+                <a href="resources.html">Loading Resources »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

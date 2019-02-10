@@ -1,0 +1,481 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент Cache &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="The ClassLoader Component" href="class_loader.html">
+    <link rel="prev" title="Адаптеры для взаимодействия между кешами PSR-6 и PSR-16" href="cache/psr6_psr16_adapters-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент Cache</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#psr-6-psr-16">Кеш (PSR-6) протв простого кеша (PSR-16)</a></li>
+<li><a class="reference internal" href="#psr-16">Простое кеширование (PSR-16)</a><ul>
+<li><a class="reference internal" href="#id2">Добступные классы простого кеша (PSR-16)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#psr-6">Более продвинутое кеширование (PSR-6)</a></li>
+<li><a class="reference internal" href="#id3">Базовое применение (PSR-6)</a></li>
+<li><a class="reference internal" href="#id4">Продвинутое использование (PSR-6)</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент Cache</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="cache">
+<span id="cache-component-ru"></span><span id="index-0"></span><h1>Компонент Cache<a class="headerlink" href="#cache" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Компонент Cache предоставляет расширенную реализацию <a class="reference external" href="http://www.php-fig.org/psr/psr-6/">PSR-6</a> и <a class="reference external" href="http://www.php-fig.org/psr/psr-16/">PSR-16</a>,
+реализации &quot;Простого кеша&quot; для добавления кеша в ваши приложения. Он
+спроектирован так, чтобы иметь маленькую нагрузку и поставляет с готовыми
+к использованю адаптерами для большинства кеширующих бэк-эндов.</div></blockquote>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/cache
+</pre></div>
+</td></tr></table></div></div>
+<p>Также вы можете клонировать репозиторий <a class="reference external" href="https://github.com/symfony/cache">https://github.com/symfony/cache</a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+</div>
+<div class="section" id="psr-6-psr-16">
+<h2>Кеш (PSR-6) протв простого кеша (PSR-16)<a class="headerlink" href="#psr-6-psr-16" title="Permalink to this headline">¶</a></h2>
+<p>Этот компонент включает в себя <em>два</em> разных подхода к кешированию:</p>
+<dl class="docutils">
+<dt>:ref:` Кеширование PSR-6&lt;cache-component-psr6-caching&gt;`:</dt>
+<dd>Полноценная система кода, которая включает в себя &quot;пулы&quot; кеша, более продвинутые
+&quot;объекты&quot; кеша и <a class="reference internal" href="cache/cache_invalidation-ru.html#cache-component-tags"><span>тегирование кеша для инвалидации</span></a>.</dd>
+<dt><a class="reference internal" href="cache.html#cache-component-psr16-caching"><span>Простое кеширование PSR-16</span></a>:</dt>
+<dd>Простой способ хранить, извлекать и удалять объекты из кеша.</dd>
+</dl>
+<p>Оба метода поддерживают <em>одни и те же</em> адаптеры кеша и дадут вам очень схожую производительность.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Компонент также содержит адаптеры для преобразования между кешами PSR-6 и PSR-16.
+См. <a class="reference internal" href="cache\psr6_psr16_adapters.html"><em>Adapters For Interoperability between PSR-6 and PSR-16 Cache</em></a>.</p>
+</div></div>
+</div>
+<div class="section" id="psr-16">
+<span id="cache-component-psr16-caching-ru"></span><h2>Простое кеширование (PSR-16)<a class="headerlink" href="#psr-16" title="Permalink to this headline">¶</a></h2>
+<p>Эта часть компонента является реализацией <a class="reference external" href="http://www.php-fig.org/psr/psr-16/">PSR-16</a>, что означает, что его базовый
+API совпадает с определённым в стандарте. Для начала, создайте объект кеша из одного
+из встроенных классов кеша. Например, чтобысоздать кеш, основанный на файловой системе,
+инстанциируйте <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Simple/FilesystemCache.html" title="Symfony\Component\Cache\Simple\FilesystemCache">FilesystemCache</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Cache\Simple\FilesystemCache</span><span class="p">;</span>
+
+<span class="nv">$cache</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FilesystemCache</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь вы можете создавать, извлекать, обновлять и удалять объекты, используя это:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// сохранить новый объект в кеш</span>
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;stats.products_count&#39;</span><span class="p">,</span> <span class="mi">4711</span><span class="p">);</span>
+
+<span class="c1">// или установить его с пользовательским ttl</span>
+<span class="c1">// $cache-&gt;set(&#39;stats.products_count&#39;, 4711, 3600);</span>
+
+<span class="c1">// извлечь объект кеша</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">has</span><span class="p">(</span><span class="s1">&#39;stats.products_count&#39;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// ... объект не существует в кеше</span>
+<span class="p">}</span>
+
+<span class="c1">// извлечь значение, хранимое объектом</span>
+<span class="nv">$numProducts</span> <span class="o">=</span> <span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;stats.products_count&#39;</span><span class="p">);</span>
+
+<span class="c1">// или указать значение по умолчанию, если ключ не существует</span>
+<span class="c1">// $numProducts = $cache-&gt;get(&#39;stats.products_count&#39;, 100);</span>
+
+<span class="c1">// удалить ключ кеша</span>
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;stats.products_count&#39;</span><span class="p">);</span>
+
+<span class="c1">// очистить *все* ключи кеша</span>
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">clear</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы также можете работать с несколькими объектами одновременно:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">setMultiple</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;stats.products_count&#39;</span> <span class="o">=&gt;</span> <span class="mi">4711</span><span class="p">,</span>
+    <span class="s1">&#39;stats.users_count&#39;</span> <span class="o">=&gt;</span> <span class="mi">1356</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="nv">$stats</span> <span class="o">=</span> <span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">getMultiple</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;stats.products_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;stats.users_count&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">deleteMultiple</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;stats.products_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;stats.users_count&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id2">
+<h3>Добступные классы простого кеша (PSR-16)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Доступны следующие адаптеры кеша:</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Чтобы узнать больше о каждом из этих классов, вы можете прочесть страницу
+<a class="reference internal" href="cache\cache_pools.html"><em>PSR-6 Cache Pool</em></a>. Эти &quot;простые&quot; классы
+кеша (PSR-16) не идентичны адаптерам PSR-6 на этой странице, но каждый имеет
+общие аргументы конструктора и случаи использования.</p>
+</div></div>
+<ul class="simple">
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Simple/ApcuCache.html" title="Symfony\Component\Cache\Simple\ApcuCache">ApcuCache</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Simple/ArrayCache.html" title="Symfony\Component\Cache\Simple\ArrayCache">ArrayCache</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Simple/ChainCache.html" title="Symfony\Component\Cache\Simple\ChainCache">ChainCache</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Simple/DoctrineCache.html" title="Symfony\Component\Cache\Simple\DoctrineCache">DoctrineCache</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Simple/FilesystemCache.html" title="Symfony\Component\Cache\Simple\FilesystemCache">FilesystemCache</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Simple/MemcachedCache.html" title="Symfony\Component\Cache\Simple\MemcachedCache">MemcachedCache</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Simple/NullCache.html" title="Symfony\Component\Cache\Simple\NullCache">NullCache</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Simple/PdoCache.html" title="Symfony\Component\Cache\Simple\PdoCache">PdoCache</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Simple/PhpArrayCache.html" title="Symfony\Component\Cache\Simple\PhpArrayCache">PhpArrayCache</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Simple/PhpFilesCache.html" title="Symfony\Component\Cache\Simple\PhpFilesCache">PhpFilesCache</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Simple/RedisCache.html" title="Symfony\Component\Cache\Simple\RedisCache">RedisCache</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Simple/TraceableCache.html" title="Symfony\Component\Cache\Simple\TraceableCache">TraceableCache</a></code></tt></li>
+</ul>
+</div>
+</div>
+<div class="section" id="psr-6">
+<span id="cache-component-psr6-caching-ru"></span><h2>Более продвинутое кеширование (PSR-6)<a class="headerlink" href="#psr-6" title="Permalink to this headline">¶</a></h2>
+<p>Чтобы использовать более продвинутые возможности кеширования PSR-6, вам понадобится
+выучить ключевые концепты:</p>
+<dl class="docutils">
+<dt><strong>Объект</strong></dt>
+<dd>Одна единица информации, хранящаяся в виде пары ключ-значение, где ключ -
+уникальный идентификатор информации, а значение - его содержимое;</dd>
+<dt><strong>Пул</strong></dt>
+<dd>Логическое хранилище объектов кеша.Все операции кеша (сохранение объектов,
+поиск объектов и др.) выполняются через пул. Приложения могут определять
+столько пулов, сколько необходимо.</dd>
+<dt><strong>Адаптер</strong></dt>
+<dd>Реализует сам механизм кеширования, чтобы хранить информацию в файловой
+системе, БД и др. Компонент предоставляет несколько готовых к использованию
+адаптеров для распространённых бэк-эндов кеширования (Redis, APCu, Doctrine,
+PDO, и т.д.)</dd>
+</dl>
+</div>
+<div class="section" id="id3">
+<h2>Базовое применение (PSR-6)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Эта часть компонента является реализацией <a class="reference external" href="http://www.php-fig.org/psr/psr-6/">PSR-6</a>, что означает, что его базовый
+API совпадает с определённым в стандарте. До того, как кешировать информацию, создайте
+пул кеша, используя любые встроенные адаптеры. Например, чтобы создать кеш, основанный
+на файловой системе, инстанциируйте <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Adapter/FilesystemAdapter.html" title="Symfony\Component\Cache\Adapter\FilesystemAdapter">FilesystemAdapter</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Cache\Adapter\FilesystemAdapter</span><span class="p">;</span>
+
+<span class="nv">$cache</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FilesystemAdapter</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь вы можете создавать, извлекать, обновлять и удалять объекты, используя
+этот пул кеша:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// создайте новый объект, пытаясь получить его из кеша</span>
+<span class="nv">$productsCount</span> <span class="o">=</span> <span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">getItem</span><span class="p">(</span><span class="s1">&#39;stats.products_count&#39;</span><span class="p">);</span>
+
+<span class="c1">// назначьте значение объекту и сохраните его</span>
+<span class="nv">$numProducts</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="mi">4711</span><span class="p">);</span>
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$numProducts</span><span class="p">);</span>
+
+<span class="c1">// извлеките объект кеша</span>
+<span class="nv">$productsCount</span> <span class="o">=</span> <span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">getItem</span><span class="p">(</span><span class="s1">&#39;stats.products_count&#39;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$productsCount</span><span class="o">-&gt;</span><span class="na">isHit</span><span class="p">())</span> <span class="p">{</span>
+    <span class="c1">// ... объект не существует в кеше</span>
+<span class="p">}</span>
+<span class="c1">// извлеките значение, хранимое объектом</span>
+<span class="nv">$total</span> <span class="o">=</span> <span class="nv">$productsCount</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+
+<span class="c1">// удалите объект кеша</span>
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">deleteItem</span><span class="p">(</span><span class="s1">&#39;stats.products_count&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Чтобы увидеть список всех поддерживаемых адаптеров, см. <a class="reference internal" href="cache\cache_pools.html"><em>Cache Pools and Supported Adapters</em></a>.</p>
+</div>
+<div class="section" id="id4">
+<h2>Продвинутое использование (PSR-6)<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cache\cache_invalidation.html">Cache Invalidation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache/cache_invalidation-ru.html">Инвалидация кеша</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache\cache_items.html">Cache Items</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache/cache_items-ru.html">Объекты кеша</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache\cache_pools.html">Cache Pools and Supported Adapters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache/cache_pools-ru.html">Пулы кешей и поддерживаемые адаптеры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache/pdo_doctrine_dbal_adapter-ru.html">Адаптер кеша PDO &amp; Doctrine DBAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache/php_array_cache_adapter-ru.html">Адаптер кеша Php массива</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache/proxy_adapter-ru.html">Адаптер кеша прокси</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache\psr6_psr16_adapters.html">Adapters For Interoperability between PSR-6 and PSR-16 Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache/psr6_psr16_adapters-ru.html">Адаптеры для взаимодействия между кешами PSR-6 и PSR-16</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="cache/psr6_psr16_adapters-ru.html">« Адаптеры для взаимодействия между кешами PSR-6 и PSR-16</a>
+                <span class="separator">|</span>
+                <a href="class_loader.html">The ClassLoader Component »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

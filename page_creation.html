@@ -1,0 +1,596 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Создайте вашу первую страницу в Symfony &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="_static/" type="text/css">
+    <link rel="stylesheet" href="_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="index.html">
+
+<link rel="stylesheet" href="_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="page_creation-r doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\index.html">
+                    <img src="..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Создайте вашу первую страницу в Symfony</a><ul>
+<li><a class="reference internal" href="#c">Cоздание страницы: маршрут и контроллер</a></li>
+<li><a class="reference internal" href="#annotation-routes-ru">Маршруты аннотаций</a></li>
+<li><a class="reference internal" href="#symfony-flex">Автоустановка рецептом с помощью Symfony Flex</a></li>
+<li><a class="reference internal" href="#bin-console">Команда bin/console</a></li>
+<li><a class="reference internal" href="#id2">Панель инструментов веб-отладки: отладка мечты</a></li>
+<li><a class="reference internal" href="#id3">Отображение шаблона</a></li>
+<li><a class="reference internal" href="#id4">Проверка структуры проекта</a></li>
+<li><a class="reference internal" href="#id5">Что дальше?</a></li>
+<li><a class="reference internal" href="#http">Углубленное изучение основ HTTP и фреймворка</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="index.html">Документация</a></li>
+                
+                <li class="active">Создайте вашу первую страницу в Symfony</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="symfony">
+<span id="creating-pages-in-symfony-ru"></span><span id="creating-pages-in-symfony2-ru"></span><span id="index-0"></span><h1>Создайте вашу первую страницу в Symfony<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h1>
+<p>Создание новой страницы – не важно, будет это страница HTML или JSON
+– это простой процесс, состоящий из 2 шагов:</p>
+<ol class="arabic simple">
+<li><strong>Создайте маршрут</strong>: Маршрут – это URL (например, <tt class="docutils literal"><code>/about</code></tt>)
+вашей страницы и указание на контроллер;</li>
+<li><strong>Создайте контроллер</strong>: Контроллер – это РНР функция, написанная
+вами, которая создаёт страницу. Вы берете входящую информацию
+запроса, и используете её для создания объекта Symfony <tt class="docutils literal"><code>Response</code></tt>,
+который может содержать HTML содержимое, JSON строку, или даже
+бинарный файл вроде изображения или PDF.</li>
+</ol>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Вы предпочитаете видео-туториалы? Посмотрите серию видео
+<a class="reference external" href="http://knpuniversity.com/screencast/symfony/first-page">Восхитительная разработка на Symfony</a> от KnpUniversity.</div></div>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Symfony <em>охватывает</em> жизненный цикл HTTP запрос-ответ. Чтобы
+узнать больше см. <a class="reference internal" href="introduction\http_fundamentals.html"><em>Основы HTTP</em></a>.</div></div>
+<div class="section" id="c">
+<span id="index-1"></span><h2>Cоздание страницы: маршрут и контроллер<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Перед тем, как продолжать, убедитесь в том, что вы прочли
+<a class="reference internal" href="setup.html"><em>главу про установку</em></a>, и можете вызвать приложение
+Symfony из своего браузера.</p>
+</div></div>
+<p>Допустим, вы хотите создать страницу <tt class="docutils literal"><code>/lucky/number</code></tt>, которая будет генерировать
+счастливое (хорошо, случайное) число и отображать его. Для этого, создайте
+«класс контроллера» и внутри него метод «контроллера»:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Controller/LuckyController.php</span>
+<span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">LuckyController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">number</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$number</span> <span class="o">=</span> <span class="nb">mt_rand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span>
+            <span class="s1">&#39;&lt;html&gt;&lt;body&gt;Lucky number: &#39;</span><span class="o">.</span><span class="nv">$number</span><span class="o">.</span><span class="s1">&#39;&lt;/body&gt;&lt;/html&gt;&#39;</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь вам нужно проассоциировать эту функцию контроллера с публичным URL (например,
+<tt class="docutils literal"><code>/lucky/number</code></tt>), чтобы метод <tt class="docutils literal"><code>number()</code></tt> выполнялся, когда пользователь переходит
+поссылке. Эта ассоциация определяется путём создания <strong>маршрута</strong> в файле <tt class="docutils literal"><code>config/routes.yaml</code></tt>:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/routes.yaml</span>
+
+<span class="c1"># имя маршрута &quot;app_lucky_number&quot; пока не важно</span>
+<span class="l l-Scalar l-Scalar-Plain">app_lucky_number</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/lucky/number</span>
+    <span class="l l-Scalar l-Scalar-Plain">controller</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">App\Controller\LuckyController::number</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и всё! Если вы используете веб-сервер Symfony, испробуйте его, перейдя
+по ссылке:</p>
+<blockquote>
+<div><a class="reference external" href="http://localhost:8000/lucky/number">http://localhost:8000/lucky/number</a></div></blockquote>
+<p>Если вы увидите отображенное счастливо число – поздравляем! Однако перед тем,
+как бежать играть в лотерею, посмотрите, как это работает. Помните два шага
+по созданию страницы?</p>
+<ol class="arabic simple">
+<li><em>Создайте маршрут</em>: В <tt class="docutils literal"><code>config/routes.yaml</code></tt>, маршрут определяет URL к вашей
+странице (<tt class="docutils literal"><code>path</code></tt>), и какой <tt class="docutils literal"><code>controller</code></tt> вызывать. Вы узнаете больше о
+<a class="reference internal" href="routing.html"><em>маршрутизации</em></a> в разделе о ней, включая то, как cоздавать
+<em>переменные</em> URL;</li>
+<li><em>Создайте контроллер</em>: Это функция, в которой <em>вы</em> строите страницу и возвращаете
+объект <tt class="docutils literal"><code>Response</code></tt>. Вы узнаете больше о <a class="reference internal" href="controller.html"><em>контроллерах</em></a> в разделе
+о них, включая то, как возвращать ответы JSON.</li>
+</ol>
+</div>
+<div class="section" id="annotation-routes-ru">
+<span id="id1"></span><h2>Маршруты аннотаций<a class="headerlink" href="#annotation-routes-ru" title="Permalink to this headline">¶</a></h2>
+<p>Вместо того, чтобы определять ваш маршрут на YAML, Symfony также позволяет вам
+использовать маршруты <em>аннотаций</em>. Чтобы сделать это, установите пакет аннотаций:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require annotations
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь вы можете добавлять ваш маршрут прямо <em>над</em> контроллером:</p>
+<div class="literal-block"><div class="highlight-diff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span>// src/Controller/LuckyController.php
+
+// ...
+<span class="gi">+ use Symfony\Component\Routing\Annotation\Route;</span>
+
+class LuckyController
+{
+<span class="gi">+     /**</span>
+<span class="gi">+      * @Route(&quot;/lucky/number&quot;)</span>
+<span class="gi">+      */</span>
+    public function number()
+    {
+        // это выглядит точно так же
+    }
+}
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и всё! Страница <tt class="docutils literal"><code>http://localhost:8000/lucky/number</code></tt> будет работать точно
+так же, как и раньше! Аннотации являются рекомендоанным способом конфигурации
+маршрутов.</p>
+</div>
+<div class="section" id="symfony-flex">
+<span id="flex-quick-intro-ru"></span><h2>Автоустановка рецептом с помощью Symfony Flex<a class="headerlink" href="#symfony-flex" title="Permalink to this headline">¶</a></h2>
+<p>Возможно вы не заметили, но когда вы выполнили <tt class="docutils literal"><code>composer require annotations</code></tt>,
+произошли две особенные вещи, обе благодаря мощному плагину Composer по имени
+<a class="reference internal" href="setup\flex.html"><em>Flex</em></a>.</p>
+<p>Во-первых, <tt class="docutils literal"><code>annotations</code></tt> - это не настоящее имя пакета: это <em>дополнительное имя</em>
+(т.е. ярлык), который Flex разрешает до <tt class="docutils literal"><code>sensio/framework-extra-bundle</code></tt>.</p>
+<p>Во-вторых, после того, как был скачан этот пакет, Flex выполнил <em>рецепт</em>, который
+является набором автоматических инструкций, которые сообщают Symfony, как интегрировать
+внешний пакет. Рецепты Flex существуют для многих пакетов (см. <a class="reference external" href="https://symfony.sh/">symfony.sh</a>) и имеют
+возможность делать многое, вроде добавления файлов конфигурации, создания каталогов,
+обновления <tt class="docutils literal"><code>.gitignore</code></tt> и добавления новой конфигурации в ваш файл <tt class="docutils literal"><code>.env</code></tt>. Flex
+<em>автоматизирует</em> установку пакетов, чтобы вы могли вернуться к написанию кода.</p>
+<p>Вы можете узнать больше о Flex, прочитав &quot;<a class="reference internal" href="setup\flex.html"><em>Using Symfony Flex to Manage Symfony Applications</em></a>&quot;. Но это не обязательно:
+Flex автоматически работает в фоновом режиме, когда вы добавляете пакеты.</p>
+</div>
+<div class="section" id="bin-console">
+<h2>Команда bin/console<a class="headerlink" href="#bin-console" title="Permalink to this headline">¶</a></h2>
+<p>Ваш проект уже имеет в себе мощный инструмент отладки: команду <tt class="docutils literal"><code>bin/console</code></tt>.
+Попробуйте выполнить её:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы должны увидеть список команд, которые могут дать вам информацию об отладке, помочь
+сгенерировать код, сгенерировать миграции БД и многое другое. Когда вы будете устанавливать
+больше пакетов, вы будете видеть больше команд.</p>
+<p>Чтобы получить список <em>всех</em> маршрутов в вашей системе, используйте команду
+<tt class="docutils literal"><code>debug:router</code></tt>:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console debug:router
+</pre></div>
+</td></tr></table></div></div>
+<p>Сейчас вы должны увидеть ваш <em>один</em> маршрут:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%">
+<col width="15%">
+<col width="15%">
+<col width="11%">
+<col width="27%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Имя</th>
+<th class="head">Метод</th>
+<th class="head">Схема</th>
+<th class="head">Хост</th>
+<th class="head">Путь</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>app_lucky_number</td>
+<td>любой</td>
+<td>любой</td>
+<td>любой</td>
+<td>/lucky/number</td>
+</tr>
+</tbody>
+</table>
+<p>You'll learn about many more commands as you continue!</p>
+</div>
+<div class="section" id="id2">
+<h2>Панель инструментов веб-отладки: отладка мечты<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Одной из <em>убийственных</em> функций Symfony является Панель инструментов веб-отладки:
+панель, которая отображает <em>огромное</em> количество информации отладки внизу вашей
+страницы во время разработки.</p>
+<p>Чтобы использовать панель инструментов веб-отладки, просто установите её:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require --dev profiler
+</pre></div>
+</td></tr></table></div></div>
+<p>Как только этот процесс завершится, обновите вашу страницу. Вы должны увидеть
+чёрную панель внизу вашей страницы. Вы узнаете больше обо всей информации, которую
+она содержит по ходу чтения, но не бойтесь экспериментировать: наведите на неё и
+нажимайте разные иконки,чтобы получить информацию о маршрутизации, производительности,
+логировании и пр.</p>
+<p>Пакет <tt class="docutils literal"><code>profiler</code></tt> также является отличным примером Flex! После скачивания пакета,
+рецепт создал несколько файлов конфигурации, чтобы панель инструментов веб-отладки
+работала незамедлительно.</p>
+</div>
+<div class="section" id="id3">
+<h2>Отображение шаблона<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Если вашему контроллеру нужно возвращать HTML, то вы, скорее всего, захотите
+использовать шаблон. К счастью, в Symfony есть шаблонизатор <a class="reference external" href="http://twig.sensiolabs.org">Twig</a> – простой,
+многофункциональный и, на самом деле, классный.</p>
+<p>Для начала, установите Twig:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require twig
+</pre></div>
+</td></tr></table></div></div>
+<p>Далее, убедитесь в том, что <tt class="docutils literal"><code>LuckyController</code></tt> расширяет базовый класс
+Symfony <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/FrameworkBundle/Controller/Controller.html" title="Symfony\Bundle\FrameworkBundle\Controller\Controller">Controller</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-diff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>// src/Controller/LuckyController.php
+
+// ...
+<span class="gi">+ use Symfony\Bundle\FrameworkBundle\Controller\Controller;</span>
+
+<span class="gd">- class LuckyController</span>
+<span class="gi">+ class LuckyController extends Controller</span>
+{
+    // ...
+}
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, используйте удобную функцию <tt class="docutils literal"><code>render()</code></tt>, чтобы отобразить шаблон. Передайте
+ей переменную <tt class="docutils literal"><code>number</code></tt>, чтобы вы могли использовать её в Twig:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Controller/LuckyController.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">LuckyController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Route(&quot;/lucky/number&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">number</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$number</span> <span class="o">=</span> <span class="nb">mt_rand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;lucky/number.html.twig&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;number&#39;</span> <span class="o">=&gt;</span> <span class="nv">$number</span><span class="p">,</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Файлы шаблонов живут в каталоге <tt class="docutils literal"><code>templates/</code></tt>, который был создан для вас автоматически
+при установке Twig. Создайте новый каталог <tt class="docutils literal"><code>templates/lucky</code></tt> с новым файлом <tt class="docutils literal"><code>number.html.twig</code></tt>
+внутри:</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# templates/lucky/number.html.twig #}</span><span class="x"></span>
+
+<span class="x">&lt;h1&gt;Ваше счастливое число - </span><span class="cp">{{</span> <span class="nv">number</span> <span class="cp">}}</span><span class="x">&lt;/h1&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Синтаксис <tt class="docutils literal"><code>{{ number }}</code></tt> используется для <em>отображения</em> переменных в Twig.
+Обновите ваш брайзер, чтобы получить ваше <em>новое</em> счастливое число!</p>
+<blockquote>
+<div><a class="reference external" href="http://localhost:8000/lucky/number">http://localhost:8000/lucky/number</a></div></blockquote>
+<p>Теперь вам может быть интересно, куда делась Панель инструментов веб-отладки: она
+пропала, так как в текущем шаблоне нет тега <tt class="docutils literal"><code>&lt;/body&gt;</code></tt>. Вы можете добавить элемент
+тела самостоятельно, или расширить <tt class="docutils literal"><code>base.html.twig</code></tt>, который содержит все элементы
+HTML по умолчанию.</p>
+<p>В статье <a class="reference internal" href="templating.html"><em>Создание и использование шаблонов</em></a>, вы узнаете все о Twig:
+как проходить по циклу, отображать другие шаблоны и на полную использовать его мощную
+систему наследования шаблонов.</p>
+</div>
+<div class="section" id="id4">
+<h2>Проверка структуры проекта<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Отличные новости! Вы уже работали внутри самых важных каталогов вашего
+проекта:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>config/</code></tt></dt>
+<dd>Содержит... конфигурацию, конечно же! Вы будете конфигурировать
+маршруты, <a class="reference internal" href="service_container.html"><em>сервисы</em></a> и пакеты.</dd>
+<dt><tt class="docutils literal"><code>src/</code></tt></dt>
+<dd>Здесь живет весь ваш PHP-код.</dd>
+<dt><tt class="docutils literal"><code>templates/</code></tt></dt>
+<dd>Все ваши шаблоны Twig живут здесь.</dd>
+</dl>
+<p>Большинство времени, вы будете работать в <tt class="docutils literal"><code>src/</code></tt>, <tt class="docutils literal"><code>templates/</code></tt> или <tt class="docutils literal"><code>config/</code></tt>.
+По мере прочтения книги, вы узнаете, что можно делать в каждом из этих мест.</p>
+<p>А что насчет других каталогов в проекте?</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>bin/</code></tt></dt>
+<dd>Известный файл <tt class="docutils literal"><code>bin/console</code></tt> живет здесь (и другие, менее
+важные исполнимые файлы).</dd>
+<dt><tt class="docutils literal"><code>var/</code></tt></dt>
+<dd>Здесь хранятся автоматически созданные файлы, такие как файлы кеша
+(<tt class="docutils literal"><code>var/cache/</code></tt>) и логи (<tt class="docutils literal"><code>var/log/</code></tt>).</dd>
+<dt><tt class="docutils literal"><code>vendor/</code></tt></dt>
+<dd>Здесь находятся сторонние библиотеки (например, «поставщик»)! Они обычно
+скачиваются с помощью менеджера пакетов <a class="reference external" href="https://getcomposer.org">Composer</a>.</dd>
+<dt><tt class="docutils literal"><code>public/</code></tt></dt>
+<dd>Это корневой документ вашего проекта: здесь вы размещаете любые ваши публично
+доступные файлы.</dd>
+</dl>
+<p>И когда вы будете устанавливать новые пакеты, при необходимости новые каталоги
+будут созданы автоматически.</p>
+</div>
+<div class="section" id="id5">
+<h2>Что дальше?<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Поздравляем! Вы уже начинаете овладевать Symfony и изучаете новый способ
+построения прекрасных, функциональных, быстрых и поддерживаемых приложений.</p>
+<p>Ладно, пора закончить освоение базовых знаний, прочитав следующие статьи:</p>
+<ul class="simple">
+<li><a class="reference internal" href="routing.html"><em>Маршрутизация</em></a></li>
+<li><a class="reference internal" href="controller.html"><em>Контроллер</em></a></li>
+<li><a class="reference internal" href="templating.html"><em>Шаблоны</em></a></li>
+</ul>
+<p>После этого, узнайте о других важных аспектах вроде <a class="reference internal" href="service_container.html"><em>Сервис-контейнера</em></a>,
+<a class="reference internal" href="forms.html"><em>системы форм</em></a>, использовании <a class="reference internal" href="doctrine.html"><em>Doctrine</em></a>
+(если вам нужно использовать базу данных) и других!</p>
+<p>Повеселитесь!</p>
+</div>
+<div class="section" id="http">
+<h2>Углубленное изучение основ HTTP и фреймворка<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction\from_flat_php_to_symfony2.html">Symfony против чистого РНР</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction\http_fundamentals.html">Symfony и основы HTTP</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

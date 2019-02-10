@@ -1,0 +1,574 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Организация вашей бизнес-логики &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="best_practices doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Организация вашей бизнес-логики</a><ul>
+<li><a class="reference internal" href="#services-naming-and-format-ru">Сервисы: Именование и конфигурация</a></li>
+<li><a class="reference internal" href="#yaml">Формат сервиса: YAML</a></li>
+<li><a class="reference internal" href="#id3">Использование уровня хранения</a><ul>
+<li><a class="reference internal" href="#doctrine">Информация маршрутизации Doctrine</a></li>
+<li><a class="reference internal" href="#id4">Фиксаторы данных</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">Стандарты кодировки</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Организация вашей бизнес-логики</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>Организация вашей бизнес-логики<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>В компьютерном ПО, <strong>бизнес-логика</strong> или логика домена - это &quot;часть программы,
+которая шифрует правила бизнеса реального мира, которые определяют то, как могут
+быть созданы, отображены, сохранены и изменены данные (см. <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D0%BB%D0%BE%D0%B3%D0%B8%D0%BA%D0%B0">полное определение</a>).</p>
+<p>В приложениях Symfony, бизнес-логика - это весь пользовательский код, который
+вы пишете для вашего приложения, который не характерен исключительно для фреймворка
+(например, маршрутизация и контроллеры). Классы домена, сущности Doctrine и
+обычные PHP-классы, которые используются в качестве сервисов, являются хорошими
+примерами бизнес-логики.</p>
+<p>Для большинства проектов вам стоит хранить весь ваш код в каталоге <tt class="docutils literal"><code>src/</code></tt>. Там,
+вы можете создать любые желаемые вами каталоги для систематизации вещей:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>symfony-project/
+├─ config/
+├─ public/
+├─ src/
+│  └─ Utils/
+│     └─ MyClass.php
+├─ tests/
+├─ var/
+└─ vendor/
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="services-naming-and-format-ru">
+<span id="id2"></span><h2>Сервисы: Именование и конфигурация<a class="headerlink" href="#services-naming-and-format-ru" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Используйте автомонтирование, чтобы автоматизировать конфигурацию
+сервисов приложения.</p>
+</div></div>
+<p><a class="reference internal" href="..\service_container\autowiring.html"><em>Автомонтирование сервисов</em></a> - это функция,
+предоставленная сервис-контейнером Symfony для управления сервисами с минимальной
+конфигурацией. Он считывает типизацию в вашем конструкторе (или других методах) и
+автоматически передаёт правильные сервисы каждому методу. Он также может добавлять
+к сервисам <a class="reference internal" href="..\service_container\tags.html"><em>теги</em></a>, если они им нужны, например расширениям
+Twig, подписчикам событий и т.д.</p>
+<p>Приложению блога необходима утилита, которая может преобразовать заголовок
+поста (например, &quot;Привет, мир&quot;) в заготовку (slug) (наример, &quot;hello-world&quot;),
+чтобы включить его в качестве части URL поста. Давайте создадим новый класс
+<tt class="docutils literal"><code>Slugger</code></tt> внутри <tt class="docutils literal"><code>src/Utils/</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Utils/Slugger.php</span>
+<span class="k">namespace</span> <span class="nx">App\Utils</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Slugger</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">slugify</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$value</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы используете <a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>конфигурацию services.yaml по умолчанию</span></a>,
+то этот класс автоматически регистрируется, как сервис, ID которого <tt class="docutils literal"><code>App\Utils\Slugger</code></tt>
+(или просто <tt class="docutils literal"><code>Slugger::class</code></tt>, если класс уже импортирован в ваш код).</p>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Id сервисов вашего приложения должны совпадать с их именем класса, кроме
+сдучаев, когда у вас сконфигурировано несколько сервисов для одного класса
+(в этом случае, используйте id &quot;змеиной кожи&quot;.</p>
+</div></div>
+<p>Теперь вы можете использовать пользовательский слаггер в любом другом сервисе или
+классе контроллера, вроде <tt class="docutils literal"><code>AdminController</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Utils\Slugger</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">Slugger</span> <span class="nv">$slugger</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isSubmitted</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nv">$slug</span> <span class="o">=</span> <span class="nv">$slugger</span><span class="o">-&gt;</span><span class="na">slugify</span><span class="p">(</span><span class="nv">$post</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="p">());</span>
+        <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">setSlug</span><span class="p">(</span><span class="nv">$slug</span><span class="p">);</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Сервисы также могут быть <a class="reference internal" href="..\service_container.html#container-public"><span>публичными или приватными</span></a>. Если
+вы используете <a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>конфигурацию services.yaml по умолчанию</span></a>,
+то все сервисы приватные по умолчанию.</p>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Сервисы должны быть <tt class="docutils literal"><code>private</code></tt> всегда, когда это возможно. Это убережёт вас от
+доступа к сервису через <tt class="docutils literal"><code>$container-&gt;get()</code></tt>. Вместо этого, вам нужно будет использовать
+внедрение зависимости.</p>
+</div></div>
+</div>
+<div class="section" id="yaml">
+<h2>Формат сервиса: YAML<a class="headerlink" href="#yaml" title="Permalink to this headline">¶</a></h2>
+<p>Если вы используете <a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>конфигурацию services.yaml по умолчанию</span></a>,
+большинство сервисов будут настроены автоматически. Но в некоторых крайних случаях
+вам нужно будет настроить сервиси (или их часть) вручную.</p>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Используйте формат YAML, чтобы определять ваши собственные сервисы.</p>
+</div></div>
+<p>Это спорно, и по нашему опыту, использование YAML и XML распределяется среди
+разработчиков одинаково, с небольшим преимуществом в пользу YAML. Оба формата
+имеют одинаковую производительность, так что обычно это вопрос личного предпочтения.</p>
+<p>Мы рекомендуем YAML, так как он дружелюбен по отношениюк новичкам и компактен.
+Вы, конечно, можете использовать любой формат, который хотите.</p>
+</div>
+<div class="section" id="id3">
+<h2>Использование уровня хранения<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Symfony - это HTTP-фреймворк, который занят только генерированием HTTP-ответа
+для каждого HTTP-запроса. Поэтому Symfony не предоставляет способ общения с
+уровнем хранения (например, БД, внешним API). Вы можете выбрать любую билиотеку
+или стратегию, которую хотите.</p>
+<p>На практике, многие приложения Symfony полагаются на независимый <a class="reference external" href="http://www.doctrine-project.org/">проект Doctrine</a>,
+чтобы определять их модель, используя сущности и хранилища. Так же, как и с бизнес-
+логикой, мы рекомендуем хранить сущности Doctrine в каталоге <tt class="docutils literal"><code>src/Entity/</code></tt>.</p>
+<p>Три сущности, определённые нашим пробным приложением блога, являются хорошим примером:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>symfony-project/
+├─ ...
+└─ src/
+   └─ Entity/
+      ├─ Comment.php
+      ├─ Post.php
+      └─ User.php
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="doctrine">
+<h3>Информация маршрутизации Doctrine<a class="headerlink" href="#doctrine" title="Permalink to this headline">¶</a></h3>
+<p>Сущности Doctrine являются простыми PHP-объектами, который вы храните в
+некоторой &quot;БД&quot;. Doctrine знает о ваших сущностях только через метаданные
+маршрутизации, сконфигурированные для ваших классов моделей. Doctrine поддерживает
+четыре формата метаданных: YAML, XML, PHP и аннотации.</p>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Используйте аннотации, чтобы определить информацию маршрутизации сущностей
+Doctrine.</p>
+</div></div>
+<p>Аннотации являются несравненно наиболее удобным и гибким методом настройки
+и поиска информации о маоршрутизации:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Doctrine\ORM\Mapping</span> <span class="k">as</span> <span class="nx">ORM</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\Common\Collections\ArrayCollection</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @ORM\Entity</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Post</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="no">NUMBER_OF_ITEMS</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Id</span>
+<span class="sd">     * @ORM\GeneratedValue</span>
+<span class="sd">     * @ORM\Column(type=&quot;integer&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$id</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Column(type=&quot;string&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$title</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Column(type=&quot;string&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$slug</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Column(type=&quot;text&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$content</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Column(type=&quot;string&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$authorEmail</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Column(type=&quot;datetime&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$publishedAt</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\OneToMany(</span>
+<span class="sd">     *      targetEntity=&quot;Comment&quot;,</span>
+<span class="sd">     *      mappedBy=&quot;post&quot;,</span>
+<span class="sd">     *      orphanRemoval=true</span>
+<span class="sd">     * )</span>
+<span class="sd">     * @ORM\OrderBy({&quot;publishedAt&quot;=&quot;ASC&quot;})</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$comments</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">publishedAt</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\DateTime</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">comments</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayCollection</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// геттеры и сеттеры ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Все форматы имеют одинаковую производительность, так что это опять-таки
+чисто вопрос предпочтений.</p>
+</div>
+<div class="section" id="id4">
+<h3>Фиксаторы данных<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Так как поддержка фиксаторов не включена в Symfony по умолчанию, вам нужно
+выполнить следующую команду, чтобы установить пакет фиксаторов Doctrine:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require <span class="s2">&quot;doctrine/doctrine-fixtures-bundle&quot;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Далее этот пакет включается автоматически, но только для окружений <tt class="docutils literal"><code>dev</code></tt> и <tt class="docutils literal"><code>test</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/bundles.php</span>
+
+<span class="k">return</span> <span class="p">[</span>
+    <span class="c1">// ...</span>
+    <span class="nx">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</span><span class="o">::</span><span class="na">class</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;dev&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">],</span>
+<span class="p">];</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Мы рекомендуем создавать только <em>один</em> <a class="reference external" href="https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html#writing-simple-fixtures">класс фиксаторов</a> лля простоты, хотя вы
+всегда можете создать больше, если этот класс станет достаточно большим.</p>
+<p>Предполагая, что у вас есть как минимум один класс фиксторов, и что доступ к БД
+сконфигурирован правильно, вы можете загрузить ваши фиксаторы, выполнив следующую
+команду:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console doctrine:fixtures:load
+
+<span class="go">Осторожно, БД будет очищена. Вы хотите продолжить Да/Нет? Да</span>
+<span class="gp">  &gt;</span> очистка БД
+<span class="gp">  &gt;</span> загрузка App\DataFixtures\ORM\LoadFixtures
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Стандарты кодировки<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Исходный код Symfony следует стандартам кодировки <a class="reference external" href="https://www.php-fig.org/psr/psr-1/">PSR-1</a> и <a class="reference external" href="https://www.php-fig.org/psr/psr-2/">PSR-2</a>, которые
+были определены PHP-сообществом. Вы можете узнать больше о
+<a class="reference internal" href="..\contributing\code\standards.html"><em>стандартах кодировки Symfony</em></a> и даже
+использовать <a class="reference external" href="https://github.com/FriendsOfPHP/PHP-CS-Fixer">PHP-CS-Fixer</a> - утилиту комнадной строки, которая может исправлять
+стандарты кодировки целой кодовой базы за считанные секунды.</p>
+<hr class="docutils">
+<p>Далее: <a class="reference internal" href="controllers.html"><em>Controllers</em></a></p>
+</div>
+</div>
+
+
+            
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        
+    
+
+
+
+  </body>
+</body></html>

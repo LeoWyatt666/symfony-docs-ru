@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Управление CSS и JavaScript &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="_static/" type="text/css">
+    <link rel="stylesheet" href="_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="index.html">
+
+<link rel="stylesheet" href="_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="frontend-r doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\index.html">
+                    <img src="..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Управление CSS и JavaScript</a><ul>
+<li><a class="reference internal" href="#webpack-encore">Webpack Encore</a></li>
+<li><a class="reference internal" href="#encore">Документация Encore</a><ul>
+<li><a class="reference internal" href="#id1">Начало работы</a></li>
+<li><a class="reference internal" href="#id2">Добавление функций</a></li>
+<li><a class="reference internal" href="#id3">Оптимизация</a></li>
+<li><a class="reference internal" href="#id4">Справочники</a></li>
+<li><a class="reference internal" href="#id5">Проблемы и вопросы</a></li>
+<li><a class="reference internal" href="#api">Полный API</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#assetic">Assetic</a></li>
+<li><a class="reference internal" href="#id6">Другие статьи о фронтенде</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="index.html">Документация</a></li>
+                
+                <li class="active">Управление CSS и JavaScript</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="css-javascript">
+<h1>Управление CSS и JavaScript<a class="headerlink" href="#css-javascript" title="Permalink to this headline">¶</a></h1>
+<p>Symfony поставляется с библиотекой полностью на JavaScript - называемой Webpack Encore
+- которая делает работу с CSS и JavaScript радостью. Вы можете использовать ее, или
+что-то другое, или просто создавать статичные файлы CSS и JS files в вашем каталоге <tt class="docutils literal"><code>public/</code></tt>
+и включать их в ваши шаблоны.</p>
+<div class="section" id="webpack-encore">
+<span id="frontend-webpack-encore-ru"></span><h2>Webpack Encore<a class="headerlink" href="#webpack-encore" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.npmjs.com/package/&#64;symfony/webpack-encore">Webpack Encore</a> - это упрощенный сопсоб интеграции <a class="reference external" href="https://webpack.js.org/">Webpack</a> в ваше приложение. Он
+становится <em>оберткой</em> для Webpack, предоставляя вам чистый и мощный API для построения
+модулей JavaScript, предварительной обработки CSS и JS, а также для компиляции и уменьшения
+ресурсов. Encore предоставляет вам профессиональную систему ресурсов, <em>упоительную</em> в
+использовании.</p>
+<p>Enconre вдохновлена <a class="reference external" href="https://github.com/rails/webpacker">Webpacker</a> и <a class="reference external" href="https://laravel.com/docs/5.4/mix">Mix</a>, но создана в духе Webpack:
+использует его функции, концепты и договорености по именованию для более
+привычного ощущения. Она стремится исправить большинство распросраненных
+случаев использования Webpack.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Encore сделана <a class="reference external" href="http://symfony.com/">Symfony</a> и <em>прекрасно</em> работает в приложениях Symfony. Но
+она также с легкостью может быть использована в любом приложении... На любом
+языке!</p>
+</div></div>
+</div>
+<div class="section" id="encore">
+<span id="encore-toc-ru"></span><h2>Документация Encore<a class="headerlink" href="#encore" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Начало работы<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="frontend\encore\installation.html"><em>Установка</em></a></li>
+<li><a class="reference internal" href="frontend\encore\simple-example.html"><em>Первый пример</em></a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Добавление функций<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="frontend\encore\css-preprocessors.html"><em>Препроцессоры CSS: Sass, LESS, и др.</em></a></li>
+<li><a class="reference internal" href="frontend\encore\postcss.html"><em>PostCSS и autoprefixing</em></a></li>
+<li><a class="reference internal" href="frontend\encore\reactjs.html"><em>Подключение React.js</em></a></li>
+<li><a class="reference internal" href="frontend\encore\babel.html"><em>Конфигурация Babel</em></a></li>
+<li><a class="reference internal" href="frontend\encore\vuejs.html"><em>Подключение Vue.js (vue-loader)</em></a></li>
+<li><a class="reference internal" href="frontend\encore\sourcemaps.html"><em>Карты источников</em></a></li>
+<li><a class="reference internal" href="frontend\encore\typescript.html"><em>Подключение TypeScript (ts-loader)</em></a></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>Оптимизация<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="frontend\encore\versioning.html"><em>Контроль версий (и файл manifest.json)</em></a></li>
+<li><a class="reference internal" href="frontend\encore\cdn.html"><em>Использоваие A CDN</em></a></li>
+<li><a class="reference internal" href="frontend\encore\shared-entry.html"><em>Создание &quot;общей&quot; записи для повторно используемых модулей</em></a></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>Справочники<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="frontend\encore\bootstrap.html"><em>Использоваие самозагрузки CSS &amp; JS</em></a></li>
+<li><a class="reference internal" href="frontend\encore\page-specific-assets.html"><em>Создание CSS/JS для конкретных страниц</em></a></li>
+<li><a class="reference internal" href="frontend\encore\legacy-apps.html"><em>jQuery и приложения наследования</em></a></li>
+<li><a class="reference internal" href="frontend\encore\server-data.html"><em>Передача информации из Twig в JavaScript</em></a></li>
+<li><a class="reference internal" href="frontend\encore\dev-server.html"><em>webpack-dev-server и Hot Module Replacement (HMR)</em></a></li>
+<li><a class="reference internal" href="frontend\encore\custom-loaders-plugins.html"><em>Добавление пользовательских загрузчиков и плагинов</em></a></li>
+<li><a class="reference internal" href="frontend\encore\advanced-config.html"><em>Продвинутая конфигурация Advanced</em></a></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>Проблемы и вопросы<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="frontend\encore\faq.html"><em>ЧЗВ и общие проблемы</em></a></li>
+<li><a class="reference internal" href="frontend\encore\versus-assetic.html"><em>Encore Versus Assetic?</em></a></li>
+</ul>
+</div>
+<div class="section" id="api">
+<h3>Полный API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/symfony/webpack-encore/blob/master/index.js">Полный API</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="assetic">
+<h2>Assetic<a class="headerlink" href="#assetic" title="Permalink to this headline">¶</a></h2>
+<p>Assetic это чистая библиотека PHP, которая помогает обрабатывать и оптимизировать
+ваши источники (схоже с Encore). Несмотря на то, что мы рекомендуем использовать
+Encore, Assetic тоже отлично работает. Для сравнения, см. <a class="reference internal" href="frontend\encore\versus-assetic.html"><em>Encore Versus Assetic?</em></a>.</p>
+<p>Чтобы узнать больше об Assetic, см. <a class="reference internal" href="frontend\assetic.html"><em>Assetic</em></a>.</p>
+</div>
+<div class="section" id="id6">
+<h2>Другие статьи о фронтенде<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="frontend\assetic.html">Assetic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frontend/assetic-ru.html">Assetic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frontend\custom_version_strategy.html">How to Use a Custom Version Strategy for Assets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frontend/custom_version_strategy-ru.html">Как использовать стратегию пользовательских версий для ресурсов</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

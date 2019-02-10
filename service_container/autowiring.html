@@ -1,0 +1,957 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Автоматическое определение зависимостей сервиса (автомонтирование) &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Service Container" href="..\service_container.html">
+    <link rel="next" title="Service Method Calls and Setter Injection" href="calls.html">
+    <link rel="prev" title="Defining Services Dependencies Automatically (Autowiring)" href="autowiring.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="service_container doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Автоматическое определение зависимостей сервиса (автомонтирование)</a><ul>
+<li><a class="reference internal" href="#id2">Пример автомонтирования</a></li>
+<li><a class="reference internal" href="#autowiring-logic-explained-ru">Объяснение логики автомонтирования</a></li>
+<li><a class="reference internal" href="#service-autowiring-alias-ru">Использование дополнительных имён для включения автомонтирования</a></li>
+<li><a class="reference internal" href="#autowiring-interface-alias-ru">Работа с интерфейсами</a></li>
+<li><a class="reference internal" href="#id8">Работа с несколькими внедрениями одного типа</a></li>
+<li><a class="reference internal" href="#id9">Исправление аргументов, не поддающихся автомонтированию</a></li>
+<li><a class="reference internal" href="#autowiring-calls-ru">Автомонтирование других методов (например, сеттеров)</a></li>
+<li><a class="reference internal" href="#id11">Автомонтирование методов действий контроллера</a></li>
+<li><a class="reference internal" href="#id12">Последствия производительности</a></li>
+<li><a class="reference internal" href="#id13">Публичные и повторно используемые пакеты</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\service_container.html">Service Container</a></li>
+                
+                <li class="active">Автоматическое определение зависимостей сервиса (автомонтирование)</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Автоматическое определение зависимостей сервиса (автомонтирование)<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Автомонтирование позволяет вам управлять сервисами в контейнере с минимальной конфигурацией.
+Оно читает типизирования в вашем конструкторе (или других методах) и автоматически
+передаёт вам правильные сервисы. Автомонтирование Symfony создано так, чтобы быть предсказуемым:
+если не абсолютно точно ясно, какую зависимость нужно передать, вы увидите применимое на
+практике исключение.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Благодаря скомпилированному контейнеру Symfony, при использовании автомонтирования,
+время прогона не увеличивается.</p>
+</div></div>
+<div class="section" id="id2">
+<h2>Пример автомонтирования<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Представьте, что вы создаёте API так, чтобы он публиковал статусы в ленте Twitter,
+запутанные с помощью <a class="reference external" href="https://ru.wikipedia.org/wiki/ROT13">ROT13</a>... забавный кодировщик, который сдвигает все символы
+на 13 букв алфавита вперёд.</p>
+<p>Начните с создания класса трансформера ROT13:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">AppBundle\Util</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Rot13Transformer</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">transform</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">str_rot13</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>А теперь, клиент Twitter, использующий этот трансформер:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">AppBundle\Service</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">AppBundle\Util\Rot13Transformer</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">TwitterClient</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$transformer</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">Rot13Transformer</span> <span class="nv">$transformer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">transformer</span> <span class="o">=</span> <span class="nv">$transformer</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">tweet</span><span class="p">(</span><span class="nv">$user</span><span class="p">,</span> <span class="nv">$key</span><span class="p">,</span> <span class="nv">$status</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$transformedStatus</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">transformer</span><span class="o">-&gt;</span><span class="na">transform</span><span class="p">(</span><span class="nv">$status</span><span class="p">);</span>
+
+        <span class="c1">// ... подключиться к Twitter и отправить зашифрованный статус</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы используете <a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>конфигурацию services.yml по умолчанию</span></a>,
+то <strong>оба класса автоматически регистрируются как сервисы и конфигурируются для автомонтирования</strong>.
+Это означает, что вы можете использовать их сразу же, без <em>какой-либо</em> конфигурации.</p>
+<p>Однаков, чтобы лучше понять автомонтирование, следующие примеры ясно конфигурируют оба
+сервиса. Также, чтобы всё оставалось просто, сконфигурируйте <a href="#id3"><span class="problematic" id="id4">``</span></a>TwitterClient``так, чтобы
+он был <a class="reference internal" href="..\service_container.html#container-public"><span>публичным</span></a> сервисом:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">_defaults</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">autowire</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="l l-Scalar l-Scalar-Plain">autoconfigure</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="l l-Scalar l-Scalar-Plain">public</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Service\TwitterClient</span><span class="p p-Indicator">:</span>
+        <span class="c1"># излишне, благодаря _defaults, но значение пеоепределеятся для каждого сервиса</span>
+        <span class="l l-Scalar l-Scalar-Plain">autowire</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="c1"># не требуется, но поможет в нашем примере</span>
+        <span class="l l-Scalar l-Scalar-Plain">public</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Util\Rot13Transformer</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">autowire</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;defaults</span> <span class="na">autowire=</span><span class="s">&quot;true&quot;</span> <span class="na">autoconfigure=</span><span class="s">&quot;true&quot;</span> <span class="na">public=</span><span class="s">&quot;false&quot;</span> <span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Service\TwitterClient&quot;</span> <span class="na">autowire=</span><span class="s">&quot;true&quot;</span> <span class="na">public=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Util\Rot13Transformer&quot;</span> <span class="na">autowire=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">AppBundle\Service\TwitterClient</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AppBundle\Util\Rot13Transformer</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="c1">// этот метод автомонтирования новый в Symfony 3.3</span>
+<span class="c1">// в более ранних версиях, используйте register(), а потом вызовите setAutowired(true)</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">TwitterClient</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">Rot13Transformer</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Теперь вы можете использовать сервис <tt class="docutils literal"><code>TwitterClient</code></tt> сразу же в контроллере:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">AppBundle\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">AppBundle\Service\TwitterClient</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sensio\Bundle\FrameworkExtraBundle\Configuration\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\Controller</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">DefaultController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Route(&quot;/tweet&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">tweetAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// вызовите $user, $key, $status из опубликованных (POST) данных</span>
+
+        <span class="nv">$twitterClient</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">container</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nx">TwitterClient</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+        <span class="nv">$twitterClient</span><span class="o">-&gt;</span><span class="na">tweet</span><span class="p">(</span><span class="nv">$user</span><span class="p">,</span> <span class="nv">$key</span><span class="p">,</span> <span class="nv">$status</span><span class="p">);</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это работает автоматически! Контейнер знает, что надо передать сервис <tt class="docutils literal"><code>Rot13Transformer</code></tt>
+в качестве первого аргумента при создании сервиса <tt class="docutils literal"><code>TwitterClient</code></tt>.</p>
+</div>
+<div class="section" id="autowiring-logic-explained-ru">
+<span id="id5"></span><h2>Объяснение логики автомонтирования<a class="headerlink" href="#autowiring-logic-explained-ru" title="Permalink to this headline">¶</a></h2>
+<p>Автомонтирование работает путём считывания <em>типизирования</em> <tt class="docutils literal"><code>Rot13Transformer</code></tt>
+в <tt class="docutils literal"><code>TwitterClient</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">AppBundle\Util\Rot13Transformer</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">TwitterClient</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">Rot13Transformer</span> <span class="nv">$transformer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">transformer</span> <span class="o">=</span> <span class="nv">$transformer</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Система автомонтирования <strong>ищет сервис, id которого точно совпадает с типизированием</strong>:
+то есть <tt class="docutils literal"><code>AppBundle\Util\Rot13Transformer</code></tt>. В этом случае, он существует! Когда вы
+сконфигурировали сервис <tt class="docutils literal"><code>Rot13Transformer</code></tt>, вы использовали его полностью квалифицированное
+имя класс в качестве id. Автомонтрирование - это не магия: оно просто ищет сервис, id которого
+совпадает с типизированем. Если вы <a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>загружаете сервисы автоматически</span></a>,
+то каждый id сервиса является классом его имени. Это главный способ контролировать автомонтирование.</p>
+<p>Если сервиса, id которого точно совпадает с типом, <em>нет</em>, тогда:</p>
+<dl class="docutils">
+<dt>Если в контейнере <strong>0</strong> сервисов, которые имеют такой тип, тогда:</dt>
+<dd>Если тип - конкретный класс, тогда в контейнере автоматически регистрируется
+новый приватный и автомонтируемый сервис, который используется для аргумента.</dd>
+</dl>
+<dl class="docutils" id="autowiring-single-matching-service-ru">
+<dt>Если в контейнере <strong>1</strong> сервис, который имеют такой тип, тогда:</dt>
+<dd>(осуждено) Этот сервис используется для аргумента. В Symfony 4.0, это будет
+удалено. Правильным решением является создание <a class="reference internal" href="autowiring.html#service-autowiring-alias"><span>дополнительного имени</span></a>
+из типа в id сервиса, чтобы работало нормальное автомонтирование.</dd>
+<dt>Если в контейнере <strong>2</strong> и более сервисов, которые имеют такой тип, тогда:</dt>
+<dd>Выдаётся чёткое исключение. Вам нужно <em>выбрать</em>, какой сервис должен быть использован,
+путём создания <a class="reference internal" href="autowiring.html#service-autowiring-alias"><span>дополнительного имени</span></a> или
+<a class="reference internal" href="..\service_container.html#services-wire-specific-service"><span>ясной конфигурации аргумента</span></a>.</dd>
+</dl>
+<p>Автомонтирование - это отличный способ автоматизировать конфигурацию, и Symfony старается
+быть настолько <em>предсказуемой</em> и чёткой, насколько это возможно.</p>
+</div>
+<div class="section" id="service-autowiring-alias-ru">
+<span id="id6"></span><h2>Использование дополнительных имён для включения автомонтирования<a class="headerlink" href="#service-autowiring-alias-ru" title="Permalink to this headline">¶</a></h2>
+<p>Основной способ сконфигурировать автомонтирование - это создать сервис, id которого
+точно совпадает с его классом. В предыдущем примере, id сериса - <tt class="docutils literal"><code>AppBundle\Util\Rot13Transformer</code></tt>,
+что позволяет нам автоматически смонтировать этот тип.</p>
+<p>Этого также можно достинуть, используя <a class="reference internal" href="alias_private.html#services-alias"><span>дополнительное имя</span></a>. Представьте,
+что, по какой-либо причине, id сервис вместо этого был <tt class="docutils literal"><code>app.rot13.transformer</code></tt>. В таком случае,
+любые аргументы, типизированные в имени класса (<tt class="docutils literal"><code>AppBundle\Util\Rot13Transformer</code></tt>) больше не
+могут быть автомонтированы (на самом деле, это <span class="xref std std-ref">уже будет работать, но не в Symfony 4.0</span>).</p>
+<p>Не проблема! Чтобы исправить это, вы можете <em>созать</em> сервис, id которого совпадает
+с классом, добавив дополнительное имя сервиса:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="c1"># id не является классом, так что он не будет использоваться для автомонтирования</span>
+    <span class="l l-Scalar l-Scalar-Plain">app.rot13.transformer</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">class AppBundle\Util\Rot13Transformer</span>
+        <span class="l l-Scalar l-Scalar-Plain"># ...</span>
+
+    <span class="c1"># но это исправляет ошибку!</span>
+    <span class="c1"># сервис ``app.rot13.transformer`` будет внедрён, когда</span>
+    <span class="c1"># будет обнаружено типизирование ``AppBundle\Util\Rot13Transformer``</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Util\Rot13Transformer</span><span class="p p-Indicator">:</span> <span class="s">&#39;@app.rot13.transformer&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;app.rot13.transformer&quot;</span> <span class="na">class=</span><span class="s">&quot;AppBundle\Util\Rot13Transformer&quot;</span> <span class="na">autowire=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Util\Rot13Transformer&quot;</span> <span class="na">alias=</span><span class="s">&quot;app.rot13.transformer&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">AppBundle\Util\Rot13Transformer</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="s1">&#39;app.rot13.transformer&#39;</span><span class="p">,</span> <span class="nx">Rot13Transformer</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">setAlias</span><span class="p">(</span><span class="nx">Rot13Transformer</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;app.rot13.transformer&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Это создаёт &quot;дополнительное имя&quot; сервиса, id которого - <tt class="docutils literal"><code>AppBundle\Util\Rot13Transformer</code></tt>.
+Благодаря этому, автомонтирование видит это и использует его каждый раз, когда типизируется
+<tt class="docutils literal"><code>Rot13Transformer</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Дополнительные именя используются базовыми пакетами, чтобы позволить сервисам
+быть автоматически смонтированными. Например, MonologBundle создаёт сервис, id
+которого - <tt class="docutils literal"><code>logger</code></tt>. Но он также добавляет дополнительное имя:
+<tt class="docutils literal"><code>Psr\Log\LoggerInterface</code></tt>, которое указывает на сервис <tt class="docutils literal"><code>logger</code></tt>. Это то,
+почему аргументы, типизированные <tt class="docutils literal"><code>Psr\Log\LoggerInterface</code></tt> могут быть автомонтированы.</p>
+</div></div>
+</div>
+<div class="section" id="autowiring-interface-alias-ru">
+<span id="id7"></span><h2>Работа с интерфейсами<a class="headerlink" href="#autowiring-interface-alias-ru" title="Permalink to this headline">¶</a></h2>
+<p>Вы также можете обнаружить, что вы типизируете абстракции (например, интерфейсы),
+вместо точных классов, так как это облегчает замену ваших зависимостей другими
+объектами.</p>
+<p>Чтобы последовать этой наилучшей практике, представьте, что вы решили создать <tt class="docutils literal"><code>TransformerInterface</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">AppBundle\Util</span><span class="p">;</span>
+
+<span class="k">interface</span> <span class="nx">TransformerInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">transform</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Потом, вы обновляете <tt class="docutils literal"><code>Rot13Transformer</code></tt>, чтобы реализовать его:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Rot13Transformer</span> <span class="k">implements</span> <span class="nx">TransformerInterface</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, когда у вас есть интерфейс, вам стоит использовать это в качестве
+вашей типизации:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TwitterClient</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">TransformerInterface</span> <span class="nv">$transformer</span><span class="p">)</span>
+    <span class="p">{</span>
+         <span class="c1">// ...</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Однако, сейчас типизация (<tt class="docutils literal"><code>AppBundle\Util\TransformerInterface</code></tt>) больше не совпадает
+с id сервиса (<tt class="docutils literal"><code>AppBundle\Util\Rot13Transformer</code></tt>). Это означает, что аргумент больше не
+может быть автомонтирован (на самом деле, это
+<span class="xref std std-ref">теперь будет работать, но не в Symfony 4.0</span>).</p>
+<p>Чтобы исправить это, добавьте <a class="reference internal" href="autowiring.html#service-autowiring-alias"><span>дополнительное имя</span></a>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Util\Rot13Transformer</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+    <span class="c1"># сервис ``AppBundle\Util\Rot13Transformer`` будет внедрён, когда</span>
+    <span class="c1"># будет обнаружена типизация ``AppBundle\Util\TransformerInterface``</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Util\TransformerInterface</span><span class="p p-Indicator">:</span> <span class="s">&#39;@AppBundle\Util\Rot13Transformer&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Util\Rot13Transformer&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Util\TransformerInterface&quot;</span> <span class="na">alias=</span><span class="s">&quot;AppBundle\Util\Rot13Transformer&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">AppBundle\Util\Rot13Transformer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AppBundle\Util\TransformerInterface</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">Rot13Transformer</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">setAlias</span><span class="p">(</span><span class="nx">TransformerInterface</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nx">Rot13Transformer</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Благодаря дополнительному имени <tt class="docutils literal"><code>AppBundle\Util\TransformerInterface</code></tt>, подсистема
+автомонтирования знает, что сервис <tt class="docutils literal"><code>AppBundle\Util\Rot13Transformer</code></tt> должен быть
+внедрён при работе с <tt class="docutils literal"><code>TransformerInterface</code></tt>.</p>
+</div>
+<div class="section" id="id8">
+<h2>Работа с несколькими внедрениями одного типа<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>Представьте, что вы создаёте второй класс - <tt class="docutils literal"><code>UppercaseTransformer</code></tt>, который
+внедряет <tt class="docutils literal"><code>TransformerInterface</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">AppBundle\Util</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UppercaseTransformer</span> <span class="k">implements</span> <span class="nx">TransformerInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">transform</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">strtoupper</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы зарегистрируете его как сервис, то у вас будет <em>два</em> сервиса, внедряющих тип
+<tt class="docutils literal"><code>AppBundle\Util\TransformerInterface</code></tt>. Symfony не знает, какой нужно использовать
+для автомонтирования, так что вам нужно выбрать один из них, создав дополнительное имя
+из типа для правильного id сервиса (смотрите <a class="reference internal" href="autowiring.html#autowiring-interface-alias"><span>Working with Interfaces</span></a>).</p>
+<p>Если вы хотите, чтобы <tt class="docutils literal"><code>Rot13Transformer</code></tt> был сервисом, используемым для автомонтирования,
+создайте такое дополнительное имя:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Util\Rot13Transformer</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Util\UppercaseTransformer</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+    <span class="c1"># сервис ``AppBundle\Util\Rot13Transformer`` будет внедрён, когда</span>
+    <span class="c1"># будет обнаружено типизирование ``AppBundle\Util\TransformerInterface``</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Util\TransformerInterface</span><span class="p p-Indicator">:</span> <span class="s">&#39;@AppBundle\Util\Rot13Transformer&#39;</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Service\TwitterClient</span><span class="p p-Indicator">:</span>
+        <span class="c1"># Rot13Transformer будет передан, как аргумент $transformer</span>
+        <span class="l l-Scalar l-Scalar-Plain">autowire</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+        <span class="c1"># Если вы хотели выбрать сервис не по умолчанию, смонтируйте его вручную</span>
+        <span class="c1"># arguments:</span>
+        <span class="c1">#     $transformer: &#39;@AppBundle\Util\UppercaseTransformer&#39;</span>
+        <span class="c1"># ...</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Util\Rot13Transformer&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Util\UppercaseTransformer&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Util\TransformerInterface&quot;</span> <span class="na">alias=</span><span class="s">&quot;AppBundle\Util\Rot13Transformer&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Service\TwitterClient&quot;</span> <span class="na">autowire=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+            <span class="c">&lt;!-- &lt;argument key=&quot;$transformer&quot; type=&quot;service&quot; id=&quot;AppBundle\Util\UppercaseTransformer&quot; /&gt; --&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">AppBundle\Util\Rot13Transformer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AppBundle\Util\UppercaseTransformer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AppBundle\Util\TransformerInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AppBundle\Service\TwitterClient</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">Rot13Transformer</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">UppercaseTransformer</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">setAlias</span><span class="p">(</span><span class="nx">TransformerInterface</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nx">Rot13Transformer</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">TwitterClient</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="c1">//-&gt;setArgument(&#39;$transformer&#39;, new Reference(UppercaseTransformer::class))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Благодаря дополнительному имени <tt class="docutils literal"><code>AppBundle\Util\TransformerInterface</code></tt>, любой аргумент
+типизированный этим интерфейсом, будет передан сервису <tt class="docutils literal"><code>AppBundle\Util\Rot13Transformer</code></tt>.
+Однако, вы также можете вручную смонтировать <em>другой</em> сервис, указав аргумент под ключом
+аргументов.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 3.3: </span>Использование дополнительных имён FQCN для исправления двусмысленности
+автомонтирования было представлено в Symfony 3.3. До версии 3.3, вам
+нужно было использовать ключ <tt class="docutils literal"><code>autowiring_types</code></tt>.</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>Исправление аргументов, не поддающихся автомонтированию<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>Автомонтирование работает только в случае, если ваш аргумент является <em>объектом</em>.
+Но если у вас есть скалярный аргумент (например, строка), то его нельзя автомонтировать:
+Symfony выдаст чёткое исключение.</p>
+<p>Чтобы исправить это, вы можете <a class="reference internal" href="..\service_container.html#services-manually-wire-args"><span>вручную смонтировать проблемный аргумент</span></a>.
+Вы монтируете сложные аргументы - Symfony заботится обо всём остальном.</p>
+</div>
+<div class="section" id="autowiring-calls-ru">
+<span id="id10"></span><h2>Автомонтирование других методов (например, сеттеров)<a class="headerlink" href="#autowiring-calls-ru" title="Permalink to this headline">¶</a></h2>
+<p>Когда автомонтирование включено для сервиса, вы <em>также</em> можете сконфигурировать
+контейнер так, чтобы он вызывал методы в вашем классе при его инстанциировании.
+Например, представьте, что вы хотите внедрить сервис <tt class="docutils literal"><code>logger</code></tt>, и решаете использовать
+сеттер-внедрение:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">AppBundle\Util</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Rot13Transformer</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$logger</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @required</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setLogger</span><span class="p">(</span><span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">transform</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s1">&#39;Transforming &#39;</span><span class="o">.</span><span class="nv">$value</span><span class="p">);</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Автомонтирование автоматически вызовет <em>любой</em> метод с аннотацией <tt class="docutils literal"><code>&#64;required</code></tt> над
+ним, автомонтируя каждый аргумент. Если вам нужно вручную смонтировать некоторые из
+аргументов метода, вы всегда можете ясно <a class="reference internal" href="calls.html"><em>сконфигурировать вызов метода</em></a>.</p>
+</div>
+<div class="section" id="id11">
+<h2>Автомонтирование методов действий контроллера<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>Если вы используете фреймворк Symfony, вы также можете автомонтировать аргументы к
+вашим методом действий контроллера. Это особый случай автомонтирования, который
+существует для удобства. Смотрите <a class="reference internal" href="..\controller.html#controller-accessing-services"><span>Fetching Services</span></a>, чтобы узнать
+больше.</p>
+</div>
+<div class="section" id="id12">
+<h2>Последствия производительности<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>Благодаря скомпилированному контейнеру Symfony, снижения производительности при
+использовании автомонтирования <em>нет</em>. Однако, есть небольшое снижение производительности
+в окружении <tt class="docutils literal"><code>dev</code></tt>, так как контейнер может перестраиваться чаще, когда вы изменяете
+классы. Если перестройка вашего контейнера проходит медленно (возможно в очень больших
+проектах), возможно вы не сможете использовать автомонтирование.</p>
+</div>
+<div class="section" id="id13">
+<h2>Публичные и повторно используемые пакеты<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>Публичные пакеты должны ясно конфигурировать свои сервисы и не полагаться на автомонтирование.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="autowiring.html">« Defining Services Dependencies Automatically (Autowiring)</a>
+                <span class="separator">|</span>
+                <a href="calls.html">Service Method Calls and Setter Injection »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

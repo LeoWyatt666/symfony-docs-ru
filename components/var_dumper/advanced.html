@@ -1,0 +1,737 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Продвинутое использование компонента VarDumper &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+    <link rel="up" title="The VarDumper Component" href="..\var_dumper.html">
+    <link rel="next" title="The Workflow Component" href="..\workflow.html">
+    <link rel="prev" title="Advanced Usage of the VarDumper Component" href="advanced.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Продвинутое использование компонента VarDumper</a><ul>
+<li><a class="reference internal" href="#cloners">Cloners</a></li>
+<li><a class="reference internal" href="#dumpers">Dumpers</a></li>
+<li><a class="reference internal" href="#casters">Casters</a><ul>
+<li><a class="reference internal" href="#id1">Добавление семантики с метаданными</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li><a href="..\index.html">The Components</a></li>
+                
+                <li><a href="../index-ru.html">The Components</a></li>
+                
+                <li><a href="..\var_dumper.html">The VarDumper Component</a></li>
+                
+                <li class="active">Продвинутое использование компонента VarDumper</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="vardumper">
+<span id="index-0"></span><h1>Продвинутое использование компонента VarDumper<a class="headerlink" href="#vardumper" title="Permalink to this headline">¶</a></h1>
+<p>Функция <tt class="docutils literal"><code>dump()</code></tt> - это просто тонкая обёртка и более удобный способ вызова
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/VarDumper.html#method_dump" title="Symfony\Component\VarDumper\VarDumper::dump()">VarDumper::dump()</a></code></tt>.
+Вы можете изменить поведение этой функции, вызвав
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/VarDumper.html#method_setHandler" title="Symfony\Component\VarDumper\VarDumper::setHandler()">VarDumper::setHandler($callable)</a></code></tt>.
+Вызовы к <tt class="docutils literal"><code>dump()</code></tt> будут потом перенаправлены к <tt class="docutils literal"><code>$callable</code></tt>.</p>
+<p>Добавив обработчик, вы ожете настроить <a class="reference internal" href="#cloners">Cloners</a>, <a class="reference internal" href="#dumpers">Dumpers</a> и <a class="reference internal" href="#casters">Casters</a>,
+как объясняется ниже. Простая реализация функции обработчика может выглядеть
+таким образом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\VarDumper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Cloner\VarCloner</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Dumper\CliDumper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Dumper\HtmlDumper</span><span class="p">;</span>
+
+<span class="nx">VarDumper</span><span class="o">::</span><span class="na">setHandler</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$var</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$cloner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VarCloner</span><span class="p">();</span>
+    <span class="nv">$dumper</span> <span class="o">=</span> <span class="s1">&#39;cli&#39;</span> <span class="o">===</span> <span class="nx">PHP_SAPI</span> <span class="o">?</span> <span class="k">new</span> <span class="nx">CliDumper</span><span class="p">()</span> <span class="o">:</span> <span class="k">new</span> <span class="nx">HtmlDumper</span><span class="p">();</span>
+
+    <span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span><span class="nv">$cloner</span><span class="o">-&gt;</span><span class="na">cloneVar</span><span class="p">(</span><span class="nv">$var</span><span class="p">));</span>
+<span class="p">});</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="cloners">
+<h2>Cloners<a class="headerlink" href="#cloners" title="Permalink to this headline">¶</a></h2>
+<p>Клонировщик используется для создания среднего представления любой переменной
+PHP. Его вывод - это объект <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/Data.html" title="Symfony\Component\VarDumper\Cloner\Data">Data</a></code></tt>,
+который окружает это представление.</p>
+<p>Вы можете создать объект <tt class="docutils literal"><code>Data</code></tt> таким образом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Cloner\VarCloner</span><span class="p">;</span>
+
+<span class="nv">$cloner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VarCloner</span><span class="p">();</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$cloner</span><span class="o">-&gt;</span><span class="na">cloneVar</span><span class="p">(</span><span class="nv">$myVar</span><span class="p">);</span>
+<span class="c1">// это часто потом передаётся дамперу</span>
+<span class="c1">// см. пример наверху этой страницы</span>
+<span class="c1">// $dumper-&gt;dump($data);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Независимо от структуры клонированных данных, результирующие объекты <tt class="docutils literal"><code>Data</code></tt>
+всегда поддаются сериализации.</p>
+<p>Клонировщик применяет ограничения при создании представления, так что
+один может представляь только поднабор клонированной переменной. До
+вызова <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/VarCloner.html#method_cloneVar" title="Symfony\Component\VarDumper\Cloner\VarCloner::cloneVar()">cloneVar()</a></code></tt>,
+вы можете сконфигурировать эти ограничения:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/VarCloner.html#method_setMaxItems" title="Symfony\Component\VarDumper\Cloner\VarCloner::setMaxItems()">setMaxItems()</a></code></tt></dt>
+<dd>Конфигурирует максимальное количество объектов, которые будут
+клонированы <em>после минимальной глубины вложения</em>. Объекты считаются,
+используя алогритм по уровням, так что объекты низшего уровня будут
+иметь более высокий приоритет, чем глубоко вложенные объекты; Указав
+<tt class="docutils literal"><code>-1</code></tt>, вы удалите ограничение.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/VarCloner.html#method_setMinDepth" title="Symfony\Component\VarDumper\Cloner\VarCloner::setMinDepth()">setMinDepth()</a></code></tt></dt>
+<dd>Конфигурирует минимальную глубину дерева, где мы гарантированно клонируем
+все объекты. После того, как достигнута эта глубина, только объекты
+<tt class="docutils literal"><code>setMaxItems</code></tt> будут клонированы. Значение по умолчанию - <tt class="docutils literal"><code>1</code></tt>, что
+не вступает в конфликт с более старыми версиями Symfony.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/VarCloner.html#method_setMaxString" title="Symfony\Component\VarDumper\Cloner\VarCloner::setMaxString()">setMaxString()</a></code></tt></dt>
+<dd>Конфигурирует максимальное количество символов, которое будет клонировано
+перед обрезкой слишком длинных строк. Указав <tt class="docutils literal"><code>-1</code></tt>, вы удалите ограничение.</dd>
+</dl>
+<p>До сброса, вы можете ещё больше ограничить результирующий объект
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/Data.html" title="Symfony\Component\VarDumper\Cloner\Data">Data</a></code></tt>, используя следующие методы:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/Data.html#method_withMaxDepth" title="Symfony\Component\VarDumper\Cloner\Data::withMaxDepth()">withMaxDepth()</a></code></tt></dt>
+<dd>Ограничивается сбросы в измерении глубины.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/Data.html#method_withMaxItemsPerDepth" title="Symfony\Component\VarDumper\Cloner\Data::withMaxItemsPerDepth()">withMaxItemsPerDepth()</a></code></tt></dt>
+<dd>Ограничивает количество объектов на уровень глубины.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/Data.html#method_withRefHandles" title="Symfony\Component\VarDumper\Cloner\Data::withRefHandles()">withRefHandles()</a></code></tt></dt>
+<dd>Удаляет обработки внутренних объектов для более просторного вывода
+(полезно для тестов).</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/Data.html#method_seek" title="Symfony\Component\VarDumper\Cloner\Data::seek()">seek()</a></code></tt></dt>
+<dd>Выбирает только подчасти уже клонированных массивов, объектов или источников.</dd>
+</dl>
+<p>В отличие от предыдущих ограничений в клонировщиках, которые специально удаляют
+данные, эти могут меняться до сброса, так как они не влияют на промежуточное
+представление внутренне.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Когда не применяется никакое ограничение, объект
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/Data.html" title="Symfony\Component\VarDumper\Cloner\Data">Data</a></code></tt> настолько же точен,
+насколько родная функция <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.serialize.php" title="serialize">serialize</a></code></tt>, и следовательно может
+быть использован вне отладки.</p>
+</div></div>
+</div>
+<div class="section" id="dumpers">
+<h2>Dumpers<a class="headerlink" href="#dumpers" title="Permalink to this headline">¶</a></h2>
+<p>Дампер ответственный за вывод представления строки переменной PHP, используя объект
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/Data.html" title="Symfony\Component\VarDumper\Cloner\Data">Data</a></code></tt> в качестве ввода. Назначение и
+форматирование этого вывода отличается в различных дамперах.</p>
+<p>Этот компонент поставляется с <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Dumper/HtmlDumper.html" title="Symfony\Component\VarDumper\Dumper\HtmlDumper">HtmlDumper</a></code></tt>
+для вывода HTML, и <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Dumper/CliDumper.html" title="Symfony\Component\VarDumper\Dumper\CliDumper">CliDumper</a></code></tt> для опционально
+маркированного цветом вывода командной строки.</p>
+<p>Например, если вы хотите сбросить некоторую <tt class="docutils literal"><code>$variable</code></tt>, просто выполните:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Cloner\VarCloner</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Dumper\CliDumper</span><span class="p">;</span>
+
+<span class="nv">$cloner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VarCloner</span><span class="p">();</span>
+<span class="nv">$dumper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CliDumper</span><span class="p">();</span>
+
+<span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span><span class="nv">$cloner</span><span class="o">-&gt;</span><span class="na">cloneVar</span><span class="p">(</span><span class="nv">$variable</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Используя первый аргумент конструктора, вы можете выбрать поток вывода, куда
+будет записан сброс. По умолчанию, <tt class="docutils literal"><code>CliDumper</code></tt> пишет в <tt class="docutils literal"><code>php://stdout</code></tt>, а
+<tt class="docutils literal"><code>HtmlDumper</code></tt> - в <tt class="docutils literal"><code>php://output</code></tt>. Но любой PHP потом (источник или URL)
+приемлем.</p>
+<p>Вместо места назначения потока, вы можете также передать ему <tt class="docutils literal"><code>callable</code></tt>,
+которое будет вызвано повторно для каждой строчки, сгенерированной дампером.
+Это вызываемое может быть сконфигурировано, используя первый аргумент
+конструктора дампера, а также используя метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Dumper/AbstractDumper.html#method_setOutput" title="Symfony\Component\VarDumper\Dumper\AbstractDumper::setOutput()">setOutput()</a></code></tt>
+или второй аргумент метода
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Dumper/AbstractDumper.html#method_dump" title="Symfony\Component\VarDumper\Dumper\AbstractDumper::dump()">dump()</a></code></tt>.</p>
+<p>Например, чтобы получить сброс в виде строки в переменной, вы можете:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Cloner\VarCloner</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Dumper\CliDumper</span><span class="p">;</span>
+
+<span class="nv">$cloner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VarCloner</span><span class="p">();</span>
+<span class="nv">$dumper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CliDumper</span><span class="p">();</span>
+<span class="nv">$output</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+<span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span>
+    <span class="nv">$cloner</span><span class="o">-&gt;</span><span class="na">cloneVar</span><span class="p">(</span><span class="nv">$variable</span><span class="p">),</span>
+    <span class="k">function</span> <span class="p">(</span><span class="nv">$line</span><span class="p">,</span> <span class="nv">$depth</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="o">&amp;</span><span class="nv">$output</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Негативная глубина означает &quot;конец сброса&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$depth</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Добавляет два пробела отступа к строчке</span>
+            <span class="nv">$output</span> <span class="o">.=</span> <span class="nb">str_repeat</span><span class="p">(</span><span class="s1">&#39;  &#39;</span><span class="p">,</span> <span class="nv">$depth</span><span class="p">)</span><span class="o">.</span><span class="nv">$line</span><span class="o">.</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+
+<span class="c1">// $output теперь наполняется представлением сброса $variable</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Другой опцией для того, чтобы сделать то же самое, может быть:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Cloner\VarCloner</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Dumper\CliDumper</span><span class="p">;</span>
+
+<span class="nv">$cloner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VarCloner</span><span class="p">();</span>
+<span class="nv">$dumper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CliDumper</span><span class="p">();</span>
+<span class="nv">$output</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="s1">&#39;php://memory&#39;</span><span class="p">,</span> <span class="s1">&#39;r+b&#39;</span><span class="p">);</span>
+
+<span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span><span class="nv">$cloner</span><span class="o">-&gt;</span><span class="na">cloneVar</span><span class="p">(</span><span class="nv">$variable</span><span class="p">),</span> <span class="nv">$output</span><span class="p">);</span>
+<span class="nv">$output</span> <span class="o">=</span> <span class="nb">stream_get_contents</span><span class="p">(</span><span class="nv">$output</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="c1">// $output теперь наполняется представлением сброса $variable</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Вы можете передать <tt class="docutils literal"><code>true</code></tt> второму аргументу метода
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Dumper/AbstractDumper.html#method_dump" title="Symfony\Component\VarDumper\Dumper\AbstractDumper::dump()">dump()</a></code></tt>,
+чтобы заставить его возвращать сброс в виде строки:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$output</span> <span class="o">=</span> <span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span><span class="nv">$cloner</span><span class="o">-&gt;</span><span class="na">cloneVar</span><span class="p">(</span><span class="nv">$variable</span><span class="p">),</span> <span class="k">true</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<p>Дамперы реализуют интерфейс
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Dumper/DataDumperInterface.html" title="Symfony\Component\VarDumper\Dumper\DataDumperInterface">DataDumperInterface</a></code></tt>, который
+указывает метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Dumper/DataDumperInterface.html#method_dump" title="Symfony\Component\VarDumper\Dumper\DataDumperInterface::dump()">dump(Data $data)</a></code></tt>.
+Они также обычно реализуют
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/DumperInterface.html" title="Symfony\Component\VarDumper\Cloner\DumperInterface">DumperInterface</a></code></tt>, который освобождает их
+от повторной реализации логики, необходимой для прохождения внутренней структуры объекта
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/Data.html" title="Symfony\Component\VarDumper\Cloner\Data">Data</a></code></tt>.</p>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Dumper/HtmlDumper.html" title="Symfony\Component\VarDumper\Dumper\HtmlDumper">HtmlDumper</a></code></tt> ограничивает длину
+строки и глубину вложения вывода, чтобы сделать его более читаемым. Эти опции
+можно переопределить третьим необязательным параметром метода
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Dumper/DataDumperInterface.html#method_dump" title="Symfony\Component\VarDumper\Dumper\DataDumperInterface::dump()">dump(Data $data)</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Dumper\HtmlDumper</span><span class="p">;</span>
+
+<span class="nv">$output</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="s1">&#39;php://memory&#39;</span><span class="p">,</span> <span class="s1">&#39;r+b&#39;</span><span class="p">);</span>
+
+<span class="nv">$dumper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HtmlDumper</span><span class="p">();</span>
+<span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span><span class="nv">$var</span><span class="p">,</span> <span class="nv">$output</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// 1 и 160 являются значениями по умолчанию для этих опций</span>
+    <span class="s1">&#39;maxDepth&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;maxStringLength&#39;</span> <span class="o">=&gt;</span> <span class="mi">160</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Формат вывода дампера может быть тонко настроен двумя флажками:
+<tt class="docutils literal"><code>DUMP_STRING_LENGTH</code></tt> и <tt class="docutils literal"><code>DUMP_LIGHT_ARRAY</code></tt>, которые передаются в виде
+битовой карты третьему аргументу конструктора. Они также могут быть установлены
+через переменные окружения при использовании
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Test/VarDumperTestTrait.html#method_assertDumpEquals" title="Symfony\Component\VarDumper\Test\VarDumperTestTrait::assertDumpEquals()">assertDumpEquals($dump, $data, $filter, $message)</a></code></tt>
+во время модульного тестирования.</p>
+<p>Аргумент <tt class="docutils literal"><code>$filter</code></tt> <tt class="docutils literal"><code>assertDumpEquals()</code></tt> может быть использован для передачи
+части констант поля <tt class="docutils literal"><code>Caster::EXCLUDE_*</code></tt> и влияет на ожидаемый вывод, созданный
+разными кастерами.</p>
+<p>Если установлен <tt class="docutils literal"><code>DUMP_STRING_LENGTH</code></tt>, то длина строки отображается радом с её
+содержанием:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Dumper\AbstractDumper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Dumper\CliDumper</span><span class="p">;</span>
+
+<span class="nv">$var</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">);</span>
+<span class="nv">$dumper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CliDumper</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span><span class="nv">$var</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+
+<span class="c1">// массив:1 [</span>
+<span class="c1">//   0 =&gt; &quot;test&quot;</span>
+<span class="c1">// ]</span>
+
+<span class="nv">$dumper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CliDumper</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="nx">AbstractDumper</span><span class="o">::</span><span class="na">DUMP_STRING_LENGTH</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span><span class="nv">$var</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+
+<span class="c1">// (добавлена длина строки перед строкой)</span>
+<span class="c1">// массив:1 [</span>
+<span class="c1">//   0 =&gt; (4) &quot;test&quot;</span>
+<span class="c1">// ]</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если установлен <tt class="docutils literal"><code>DUMP_LIGHT_ARRAY</code></tt>, то массивы сбрасываются в сокращённом формате,
+схожим с краткой нотацией массива в PHP:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Dumper\AbstractDumper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Dumper\CliDumper</span><span class="p">;</span>
+
+<span class="nv">$var</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">);</span>
+<span class="nv">$dumper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CliDumper</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span><span class="nv">$var</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+
+<span class="c1">// массив:1 [</span>
+<span class="c1">//   0 =&gt; &quot;test&quot;</span>
+<span class="c1">// ]</span>
+
+<span class="nv">$dumper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CliDumper</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="nx">AbstractDumper</span><span class="o">::</span><span class="na">DUMP_LIGHT_ARRAY</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span><span class="nv">$var</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+
+<span class="c1">// (больше не массив:1 префикс)</span>
+<span class="c1">// [</span>
+<span class="c1">//   0 =&gt; &quot;test&quot;</span>
+<span class="c1">// ]</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы хотите использовать обе опции, то вы можете просто объедиить их,
+используя логический оператор OR <tt class="docutils literal"><code>|</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Dumper\AbstractDumper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Dumper\CliDumper</span><span class="p">;</span>
+
+<span class="nv">$var</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">);</span>
+<span class="nv">$dumper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CliDumper</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="nx">AbstractDumper</span><span class="o">::</span><span class="na">DUMP_STRING_LENGTH</span> <span class="o">|</span> <span class="nx">AbstractDumper</span><span class="o">::</span><span class="na">DUMP_LIGHT_ARRAY</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span><span class="nv">$var</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+
+<span class="c1">// [</span>
+<span class="c1">//   0 =&gt; (4) &quot;test&quot;</span>
+<span class="c1">// ]</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="casters">
+<h2>Casters<a class="headerlink" href="#casters" title="Permalink to this headline">¶</a></h2>
+<p>Объекты и источники, вложенные в PHP переменную &quot;приводятся&quot; в массивы в
+промежуточном представлении <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/Data.html" title="Symfony\Component\VarDumper\Cloner\Data">Data</a></code></tt>.
+Вы можете настроить представление массива для каждго объекта / источника,
+подсоединив Caster к этому процессу. Компонент уже включает в себя caster для
+базовых PHP классов и других общих классов.</p>
+<p>Если вы хотите построить собственный Caster, то вы можете зарегистрировать его
+перед клонированием переменной PHP. Caster регистрируется используя либо конструктор
+Cloner'а, либо его метод <tt class="docutils literal"><code>addCasters()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Cloner\VarCloner</span><span class="p">;</span>
+
+<span class="nv">$myCasters</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+<span class="nv">$cloner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VarCloner</span><span class="p">(</span><span class="nv">$myCasters</span><span class="p">);</span>
+
+<span class="c1">// или</span>
+
+<span class="nv">$cloner</span><span class="o">-&gt;</span><span class="na">addCasters</span><span class="p">(</span><span class="nv">$myCasters</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Предоставленный аргумент <tt class="docutils literal"><code>$myCasters</code></tt> является массивом, соединяющим класс,
+интерфейс или тип источника с вызываемым:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$myCasters</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;FooClass&#39;</span> <span class="o">=&gt;</span> <span class="nv">$myFooClassCallableCaster</span><span class="p">,</span>
+    <span class="s1">&#39;:bar resource&#39;</span> <span class="o">=&gt;</span> <span class="nv">$myBarResourceCallableCaster</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Как вы можете заметить, типы источников имеют префиксы <tt class="docutils literal"><code>:</code></tt>, чтобы
+избежать коллизий с именами классов.</p>
+<p>Так как объект имеет один основной класс и потенциально множество родительских
+классов или интерфейсов, многие caster могут быть применены к одному объекту.
+В этом случае, caster вызываются один за одним, начиная с caster, привязаных
+к интерфейсам, классам родителей и потом к основному классу. Несколько caster
+также могут быть зарегистрированы для одного типа / класса / интерфейса источника.
+Они называются порядком регистрации.</p>
+<p>Casterы отвечают за возвращение свойств объекта или источника, который
+клонируется в массив. Они являются вызываемыми, которые принимают 5
+аргументов:</p>
+<ul class="simple">
+<li>объект или источник, который приводится;</li>
+<li>массив, смоделированный для объектов после родного оператора приведения PHP <tt class="docutils literal"><code>(array)</code></tt>;</li>
+<li>объект <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Cloner/Stub.html" title="Symfony\Component\VarDumper\Cloner\Stub">Stub</a></code></tt>, представляющий
+главные свойства объекта (класс, тип и т.д.);</li>
+<li>true/false, когда вызывается вложенный или не вложенный в структуру caster;</li>
+<li>Немного констант поля <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Caster/Caster.html" title="Symfony\Component\VarDumper\Caster\Caster">Caster</a></code></tt> <tt class="docutils literal"><code>::EXCLUDE_*</code></tt>.</li>
+</ul>
+<p>Вот простоой caster, который ничего не делает:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Cloner\Stub</span><span class="p">;</span>
+
+<span class="k">function</span> <span class="nf">myCaster</span><span class="p">(</span><span class="nv">$object</span><span class="p">,</span> <span class="nv">$array</span><span class="p">,</span> <span class="nx">Stub</span> <span class="nv">$stub</span><span class="p">,</span> <span class="nv">$isNested</span><span class="p">,</span> <span class="nv">$filter</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ... наполнить/изменить $array в соответствии с вашими нуждами</span>
+
+    <span class="k">return</span> <span class="nv">$array</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Для объектов, параметр <tt class="docutils literal"><code>$array</code></tt> поставляется предварительно наполненный с использованием
+родного оператора приведения PHP <tt class="docutils literal"><code>(array)</code></tt> или возвратного значения <tt class="docutils literal"><code>$object-&gt;__debugInfo()</code></tt>,
+если существует волшебный метод. Далее, возвратное значение одного castera подаётся в виде
+аргумента массива следующему castery в цепочке.</p>
+<p>При приведении опретаора <tt class="docutils literal"><code>(array)</code></tt>, PHP добавляет к защищённым свойства префикс
+<tt class="docutils literal"><code>\0*\0</code></tt>, а к приватным - класс, владеющий свойством. Например, <tt class="docutils literal"><code>\0Foobar\0</code></tt>
+будет префиксом для всех приватных свойств объектов типа Foobar. Casterы следуют
+этому соглашению и добавляют ещё два префикса: <tt class="docutils literal"><code>\0~\0</code></tt> используется для виртуальных
+свойств, а <tt class="docutils literal"><code>\0+\0</code></tt> - для динамических (свойства добавленного времени прогона не
+в объявлении класса).</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Несмотря на то, что вы можете это сделать, не рекомендуется изменять состояние
+объекта при проведении его в Caster.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">До написанися собственных casterов, стоит рассмотреть уже существующие.</p>
+</div></div>
+<div class="section" id="id1">
+<h3>Добавление семантики с метаданными<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Так как casterы прикреплены к конкретным классам или интерфейсам, они знают об
+объектах, которые они изменяют. Изменив объект <tt class="docutils literal"><code>$stub</code></tt> (третий аргумент любого
+casterа), можно передать эти знания результирующему объекту <tt class="docutils literal"><code>Data</code></tt>, то есть
+дамперам. Чтобы помочь вам сделать это (см. исходный код, чтобы понять, как это
+работает), компонент поставляется с набором оболочек для распространённой дополнительной
+семантики. Вы можете использовать:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Caster/ConstStub.html" title="Symfony\Component\VarDumper\Caster\ConstStub">ConstStub</a></code></tt>, чтобы обернуть значение,
+которое лучше всего представляется PHP константой;</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Caster/ClassStub.html" title="Symfony\Component\VarDumper\Caster\ClassStub">ClassStub</a></code></tt>, чтобы обернуть идентификатор
+PHP (<em>т.е.</em> имя класса или метода, интерфейс <em>и др.</em>);</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Caster/CutStub.html" title="Symfony\Component\VarDumper\Caster\CutStub">CutStub</a></code></tt>, чтобы заменить большие шумные
+объекты / строки / <em>и т.д.</em> эллипсами;</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Caster/CutArrayStub.html" title="Symfony\Component\VarDumper\Caster\CutArrayStub">CutArrayStub</a></code></tt>. чтобы оставить только
+неоторые полезные ключи массива;</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Caster/EnumStub.html" title="Symfony\Component\VarDumper\Caster\EnumStub">EnumStub</a></code></tt>, чтобы обернуть набор виртуальных
+значений (<em>т.е.</em> значений, которые не существуют в виде свойств исходной структуры PHP
+данных, но стоят указания на ряду с настоящими);</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Caster/LinkStub.html" title="Symfony\Component\VarDumper\Caster\LinkStub">LinkStub</a></code></tt>, чтобы обернуть строки, которые
+можно превратить в ссылки с помощью дамперов;</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Caster/TraceStub.html" title="Symfony\Component\VarDumper\Caster\TraceStub">TraceStub</a></code></tt> и их</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Caster/FrameStub.html" title="Symfony\Component\VarDumper\Caster\FrameStub">FrameStub</a></code></tt> и родственников</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Caster/ArgsStub.html" title="Symfony\Component\VarDumper\Caster\ArgsStub">ArgsStub</a></code></tt>, чтобы обернуть протоколы PHP
+(используется <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Caster/ExceptionCaster.html" title="Symfony\Component\VarDumper\Caster\ExceptionCaster">ExceptionCaster</a></code></tt>).</li>
+</ul>
+<p>Например, если вы знаете, что ваш объект <tt class="docutils literal"><code>Product</code></tt> имеет свойство <tt class="docutils literal"><code>brochure</code></tt>, которое
+содержит имя файла или URL, вы можете обернуть его в <tt class="docutils literal"><code>LinkStub</code></tt>, чтобы сообщить <tt class="docutils literal"><code>HtmlDumper</code></tt>
+сделать его нажимаемым:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Caster\LinkStub</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\VarDumper\Cloner\Stub</span><span class="p">;</span>
+
+<span class="k">function</span> <span class="nf">ProductCaster</span><span class="p">(</span><span class="nx">Product</span> <span class="nv">$object</span><span class="p">,</span> <span class="nv">$array</span><span class="p">,</span> <span class="nx">Stub</span> <span class="nv">$stub</span><span class="p">,</span> <span class="nv">$isNested</span><span class="p">,</span> <span class="nv">$filter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$array</span><span class="p">[</span><span class="s1">&#39;brochure&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkStub</span><span class="p">(</span><span class="nv">$array</span><span class="p">[</span><span class="s1">&#39;brochure&#39;</span><span class="p">]);</span>
+
+    <span class="k">return</span> <span class="nv">$array</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="advanced.html">« Advanced Usage of the VarDumper Component</a>
+                <span class="separator">|</span>
+                <a href="..\workflow.html">The Workflow Component »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

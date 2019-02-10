@@ -1,0 +1,531 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Процесс релиза &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="contributing doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Процесс релиза</a><ul>
+<li><a class="reference internal" href="#contributing-release-development-ru">Разработка</a></li>
+<li><a class="reference internal" href="#contributing-release-maintenance-ru">Содержание</a></li>
+<li><a class="reference internal" href="#symfony">Версии Symfony</a><ul>
+<li><a class="reference internal" href="#id4">Стандартные версии</a></li>
+<li><a class="reference internal" href="#releases-lts-ru">Версии длительной поддержки</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">Расписание</a></li>
+<li><a class="reference internal" href="#id13">Обратная совместимость</a></li>
+<li><a class="reference internal" href="#id14">Депрекации</a></li>
+<li><a class="reference internal" href="#id15">Обоснование</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li class="active">Процесс релиза</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>Процесс релиза<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Этот документ объясняет <strong>процесс релиза</strong> проекта Symfony (т.е. кода, расположенного
+в главном <a class="reference external" href="https://github.com/symfony/symfony">хранилище Git</a> <tt class="docutils literal"><code>symfony/symfony</code></tt>).</p>
+<p>Symfony управляет своими релизами с помощью <em>модели, основанной на времени</em> и
+следует стратегии <a class="reference external" href="https://semver.org/">Семантического версионирования</a>:</p>
+<ul class="simple">
+<li>Новая промежуточная версия Symfony (например, 2.8, 3.2, 4.1) выходит <em>раз в 6 месяцев</em>,
+одна в <em>мае</em> и одна - в <em>ноябре</em>;</li>
+<li>Новая полноценная версия Symfony (например, 3.0, 4.0) выходит <em>раз в 2 года</em> и выпускается
+в то жевремя, что и последняя младшая версия предыдущей старшей версии.</li>
+</ul>
+<div class="section" id="contributing-release-development-ru">
+<span id="id2"></span><h2>Разработка<a class="headerlink" href="#contributing-release-development-ru" title="Permalink to this headline">¶</a></h2>
+<p>Полный период разработки любой полноценной или младшей версии длится шесть месяцев
+и делится на два этапа:</p>
+<ul class="simple">
+<li><strong>Разработка</strong>: <em>Четыре месяца</em>, чтобы добавить новые функции и улучшить
+существующие;</li>
+<li><strong>Стабилизация</strong>: <em>Два месяца</em>, чтобы исправить баги, подготовить релиз,
+и дождаться, пока подтянется все экосистема Symfony (сторонние библиотеки,
+пакеты и проекты, использующие Symfony).</li>
+</ul>
+<p>Во время этапа разработки, любая новая функция может быть отменена, если она
+не будет закончена вовремя, или если она недостаточно стабильна, чтобы быть
+включённой в текущий финальный релиз.</p>
+</div>
+<div class="section" id="contributing-release-maintenance-ru">
+<span id="id3"></span><h2>Содержание<a class="headerlink" href="#contributing-release-maintenance-ru" title="Permalink to this headline">¶</a></h2>
+<p>Каждая версия Symfony содержится фиксированный период времени, в зависимости
+от типа релиза. Это содержание делится на:</p>
+<ul class="simple">
+<li><em>Исправления багов и безопасности</em>: Во время этого периода могут быть исправлены
+все проблемы. Конец этого периода называется <em>концом содержания</em> релиза.</li>
+<li><em>Исправления только безопасности</em>: Во время этого периода исправляются только проблемы
+безопасности. Конец этого периода называется <em>концом жизни</em> релиза.</li>
+</ul>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last"><a class="reference internal" href="..\code\maintenance.html"><em>Документ содержания</em></a> описывает границы
+и дозволенные изменения во время содержания.</p>
+</div></div>
+</div>
+<div class="section" id="symfony">
+<h2>Версии Symfony<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>Стандартные версии<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p><strong>Стандартна младшая версия</strong> содержится на протяжении <em>восьми месяцев</em> для
+исправления багов, и на протяжении <em>четырнадцати месяцев</em> для исправлений
+проблем безопасности.</p>
+<p>В ветке Symfony 2.x, количество младших версий не было ограничено, поэтому
+в ветке оказалось 9 младших версий (от 2.0 до 2.8). Начиная с ветки 3.x,
+количество младших версий ограничивается до пяти (от X.0 до X.4).</p>
+</div>
+<div class="section" id="releases-lts-ru">
+<span id="id5"></span><h3>Версии длительной поддержки<a class="headerlink" href="#releases-lts-ru" title="Permalink to this headline">¶</a></h3>
+<p>Каждые два года публикуется новая <strong>Версия длительной поддержки</strong> (обычно её
+сокращают, как &quot;ВДП&quot;). Каждая ВДП версия поддерживается на протяжении <em>трёх
+лет</em> для исправления багов, и <em>четырёх лет</em> для исправления проблем безопасности.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Платная поддержка, предоставляемая обществом, после этой трёхлетней поддержки
+может быть также куплена у <a class="reference external" href="http://sensiolabs.com/">SensioLabs</a>.</p>
+</div></div>
+<p>В ветке Symfony 2.x версии ВДП - 2.3, 2.7 и 2.8. Начиная с ветки 3.x, только
+последняя младшая версия каждой ветки считается ВДП (например, 3.4, 4.4, 5.4,
+и т.д.)</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>Расписание<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Ниже находится расписание нескольких первых версий, которые используют эту модель
+релизов:</p>
+<img alt="../../_images/release-process.jpg" class="align-center" src="..\..\_images\release-process.jpeg">
+<ul class="simple">
+<li><strong>Жёлтый</strong> представляет фазу Разработки</li>
+<li><strong>Синий</strong> представляет фазу Стабилизации</li>
+<li><strong>Зелёный</strong> представляет период Содержания</li>
+</ul>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если вы хотите узнать больше о хронологии любой заданной версии Symfony,
+используйте онлайн <a class="reference external" href="https://symfony.com/roadmap#checker">калькулятор хронологии</a>.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Каждый раз, когда происходит важное событи, связанное с версиями Symfony
+(версия доходит до конца периода содержания, или выпускается новая версия
+патча, например), вы можете автоматически получить уведомление на email?
+если вы подписались на странице <a class="reference external" href="https://symfony.com/roadmap">плана уведомлений</a>.</p>
+</div></div>
+<table border="1" class="docutils" id="version-history-ru">
+<colgroup>
+<col width="16%">
+<col width="28%">
+<col width="9%">
+<col width="33%">
+<col width="14%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Версия</th>
+<th class="head">Заморозка функционала</th>
+<th class="head">Релиз</th>
+<th class="head">Конец содержания</th>
+<th class="head">Конец жизни</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="https://symfony.com/roadmap?version=2.0">2.0</a></td>
+<td>05/2011</td>
+<td>07/2011</td>
+<td>03/2013 (20 месяцев)</td>
+<td>09/2013</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://symfony.com/roadmap?version=2.1">2.1</a></td>
+<td>07/2012</td>
+<td>09/2012</td>
+<td>05/2013 (9 месяцев)</td>
+<td>11/2013</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://symfony.com/roadmap?version=2.2">2.2</a></td>
+<td>01/2013</td>
+<td>03/2013</td>
+<td>11/2013 (8 месяцев)</td>
+<td>05/2014</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://symfony.com/roadmap?version=2.3">2.3</a> (LTS)</td>
+<td>03/2013</td>
+<td>05/2013</td>
+<td>05/2016 (36 месяцев)</td>
+<td>05/2017</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://symfony.com/roadmap?version=2.4">2.4</a></td>
+<td>09/2013</td>
+<td>11/2013</td>
+<td>09/2014 (10 месяцев <a class="footnote-reference" href="#id10" id="id7">[1]</a>)</td>
+<td>01/2015</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://symfony.com/roadmap?version=2.5">2.5</a></td>
+<td>03/2014</td>
+<td>05/2014</td>
+<td>01/2015 (8 месяцев)</td>
+<td>07/2015</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://symfony.com/roadmap?version=2.6">2.6</a></td>
+<td>09/2014</td>
+<td>11/2014</td>
+<td>07/2015 (8 месяцев)</td>
+<td>01/2016</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://symfony.com/roadmap?version=2.7">2.7</a> (LTS)</td>
+<td>03/2015</td>
+<td>05/2015</td>
+<td>05/2018 (36 месяцев)</td>
+<td>05/2019</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://symfony.com/roadmap?version=2.8">2.8</a> (LTS)</td>
+<td>09/2015</td>
+<td>11/2015</td>
+<td>11/2018 (36 месяцев <a class="footnote-reference" href="#id11" id="id8">[2]</a>)</td>
+<td>11/2019</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://symfony.com/roadmap?version=3.0">3.0</a></td>
+<td>09/2015</td>
+<td>11/2015</td>
+<td>07/2016 (8 месяцев) <a class="footnote-reference" href="#id12" id="id9">[3]</a>)</td>
+<td>01/2017</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://symfony.com/roadmap?version=3.1">3.1</a></td>
+<td>03/2016</td>
+<td>05/2016</td>
+<td>01/2017 (8 месяцев)</td>
+<td>07/2017</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://symfony.com/roadmap?version=3.2">3.2</a></td>
+<td>09/2016</td>
+<td>11/2016</td>
+<td>07/2017 (8 месяцев)</td>
+<td>01/2018</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://symfony.com/roadmap?version=3.3">3.3</a></td>
+<td>03/2017</td>
+<td>05/2017</td>
+<td>01/2018 (8 месяцев)</td>
+<td>07/2018</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://symfony.com/roadmap?version=3.4">3.4</a> (LTS)</td>
+<td>09/2017</td>
+<td>11/2017</td>
+<td>11/2020 (36 месяцев)</td>
+<td>11/2021</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://symfony.com/roadmap?version=4.0">4.0</a></td>
+<td>09/2017</td>
+<td>11/2017</td>
+<td>07/2018 (8 месяцев)</td>
+<td>01/2019</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://symfony.com/roadmap?version=4.1">4.1</a></td>
+<td>03/2018</td>
+<td>05/2018</td>
+<td>01/2019 (8 месяцев)</td>
+<td>07/2019</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://symfony.com/roadmap?version=4.2">4.2</a></td>
+<td>09/2018</td>
+<td>11/2018</td>
+<td>07/2019 (8 месяцев)</td>
+<td>01/2020</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://symfony.com/roadmap?version=4.3">4.3</a></td>
+<td>03/2019</td>
+<td>05/2019</td>
+<td>01/2020 (8 месяцев)</td>
+<td>07/2020</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://symfony.com/roadmap?version=4.4">4.4</a> (LTS)</td>
+<td>09/2019</td>
+<td>11/2019</td>
+<td>11/2022 (36 месяцев)</td>
+<td>11/2023</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://symfony.com/roadmap?version=5.0">5.0</a></td>
+<td>09/2019</td>
+<td>11/2019</td>
+<td>07/2020 (8 месяцев)</td>
+<td>01/2021</td>
+</tr>
+<tr class="row-even"><td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[1]</a></td><td>Содержание Symfony 2.4 было <a class="reference external" href="https://symfony.com/blog/extended-maintenance-for-symfony-2-4">продлено до сентября 2014</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[2]</a></td><td>Symfony 2.8 является последней версией в ветке Symfony 2.x.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id12" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[3]</a></td><td>Symfony 3.0 является первой версией, использующей новый процесс релиза,
+основанный на пяти младших версиях.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id13">
+<h2>Обратная совместимость<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>Наше <a class="reference internal" href="..\code\bc.html"><em>Обещание обратной совместимости</em></a> очень строгое
+и позволяет разработчикам уверенно обновляться с одной младшей версии Symfony на
+следующую.</p>
+<p>Если ОС невозможна, функция, улучшение или исправление бага будет реализовано
+в следующей полноценной версии.</p>
+<p>Однако, <a class="reference internal" href="..\code\experimental.html"><em>Экспериментальные функции</em></a> <strong>не</strong>
+являются частью обещания ОС и их API могут изменяться от одной младшей версии к
+другой. Журнал изменений должен объяснить изменения и то, как обновиться.</p>
+</div>
+<div class="section" id="id14">
+<h2>Депрекации<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<p>Когда реализация функции не может быть заменена лучшей, не нарушая обратную
+совместимость, существует возможность объявить старую реализацию устаревшей,
+и добавить новую предпочитаемую. Прочтите документ <a class="reference internal" href="..\code\conventions.html#contributing-code-conventions-deprecations"><span>соглашения</span></a>,
+чтобы узнать о том, как Symfony работает с депрекациями.</p>
+</div>
+<div class="section" id="id15">
+<h2>Обоснование<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<p>Этот процесс релиза был принят, чтобы добавить <em>предсказуемости</em> и
+<em>прозрачности</em>. Он обсуждался, основываясь на следующих целях:</p>
+<ul class="simple">
+<li>Сократить цикл релиза (позволить разработчикам получать преимущества
+от новых функций быстрее);</li>
+<li>Дать большую видимость разработчикам, используя фреймворк и проекты Symfony
+из открытых источников;</li>
+<li>Улучшить опыт базовых вкладчиков Symfony: все знают, когда функция может
+стать доступна в Symfony;</li>
+<li>Скоординировать хронологию Symfony с популярными PHP проектами, которые
+хорошо работают с Symfony, и с проектами, использующими Symfony;</li>
+<li>Дать время экосистеме подхватить новые версии (авторов пакетов, авторов
+документации, переводчиков, ...).</li>
+</ul>
+<p>Шестимесячный период был выбран, так как в году получается два релиза. Это
+также даёт достаточно времени для работы над новыми функциями и позволяет
+неготовым функциям быть отложенными до следующей версии, не превращая ожидание
+в слишком длительное.</p>
+<p>Режим двойного содержания был принят, чтобы сделать каждого пользователя Symfony
+счастливым. Быстрые пользователи, которые хотят работать с новейшими версиями,
+используют стандартную версию: новая версия публикуется каждые 6 месяцев и существует
+двухмесячный период для обновления.Компании, которые хотят большей стабильности,
+используют версии ВДП: новая версия публикуется каждые два года и существует годичный
+период для обновления.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

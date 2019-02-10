@@ -1,0 +1,810 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как создать дружественную конфигурацию для пакета &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="bundles doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как создать дружественную конфигурацию для пакета</a><ul>
+<li><a class="reference internal" href="#id2">Использование расширения пакета</a><ul>
+<li><a class="reference internal" href="#configs">Обработка массива <tt class="docutils literal"><code>$configs</code></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">Изменение конфигурации другого пакета</a></li>
+<li><a class="reference internal" href="#id4">Сброс конфигурации</a></li>
+<li><a class="reference internal" href="#xml">Поддержка XML</a><ul>
+<li><a class="reference internal" href="#id5">Подготовьте ваше дерево конфигурации к XML</a></li>
+<li><a class="reference internal" href="#id6">Выбор пространста имён XML</a></li>
+<li><a class="reference internal" href="#id7">Предоставление XML-схемы</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Как создать дружественную конфигурацию для пакета</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как создать дружественную конфигурацию для пакета<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Если вы откроете ваш главный каталог приложения (обычно <tt class="docutils literal"><code>config/packages/</code></tt>),
+то вы увидите некоторое количество разных файлов, вроде <tt class="docutils literal"><code>framework.yaml</code></tt>,
+<tt class="docutils literal"><code>twig.yaml</code></tt> и <tt class="docutils literal"><code>doctrine.yaml</code></tt>. Каждый из них конфигурирует особый пакет,
+позволяя вам определять опции на высоком уровне, а потом позволяя пакету сделать
+все сложные изменения низшего уровня, основываясь на ваших настройках.</p>
+<p>Например, следующая конфигурации сообщает FrameworkBundle подключить интеграцию формы,
+которая затрагивает определение немаленького количества сервисов, а также интеграцию
+связанных с ними компонентов:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">framework</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">form</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:framework=</span><span class="s">&quot;http://symfony.com/schema/dic/symfony&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/symfony</span>
+<span class="s">        http://symfony.com/schema/dic/symfony/symfony-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;framework:config&gt;</span>
+        <span class="nt">&lt;framework:form</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/framework:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;framework&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;form&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Использование расширения пакета<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Основная идея заключается в том, что вместо того, чтобы переопределять
+отдельные параметры, вы позволяете пользователю сконфигурировать всего
+несколько специально созданных опций. Как разработчик пакетов, вы потом
+проанализируете эту конфигурацию и загрузите правильные сервисы и парааметры
+вутри класса расширений (&quot;Extension&quot;).</p>
+<p>В качестве примера, представьте, что вы создаёте социальнй пакет, который
+предоставляет интеграцию с Twitter и др. Чтобы иметь возможность повторно
+использовать ваш пакет, вам нужно сделать переменные <tt class="docutils literal"><code>client_id</code></tt> и
+<tt class="docutils literal"><code>client_secret</code></tt> конфигурируемыми. Ваша конфигурация пакета будет выглядеть так:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/acme_social.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">acme_social</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">twitter</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">client_id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">123</span>
+        <span class="l l-Scalar l-Scalar-Plain">client_secret</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">your_secret</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/acme_social.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:acme-social=</span><span class="s">&quot;http://example.org/schema/dic/acme_social&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+   <span class="nt">&lt;acme-social:config&gt;</span>
+       <span class="nt">&lt;acme-social:twitter</span> <span class="na">client-id=</span><span class="s">&quot;123&quot;</span> <span class="na">client-secret=</span><span class="s">&quot;your_secret&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;/acme-social:config&gt;</span>
+
+   <span class="c">&lt;!-- ... --&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/acme_social.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;acme_social&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;client_id&#39;</span>     <span class="o">=&gt;</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s1">&#39;client_secret&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;your_secret&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Прочтите больше о расширении в <a class="reference internal" href="extension.html"><em>How to Load Service Configuration inside a Bundle</em></a>.</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если пакет предоставляет класс расширения, то вам <em>не</em> стоит просто
+переопределять любые параметры сервис-контейнера из этого пакета. Идея
+заключается в том, что если присутствует класс расширения, то каждая
+настройка, которая должна быть конфигурируемой, должны быть представлена
+в конфигурации и достуна для этого класса. Другими словами, класс расширения
+определяетвсе публичные настройки конфигурации для которых сохраняется
+обратная совместимсть.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Для работы с параметрами в рамках контейнера внедрения зависимости, см.
+<a class="reference internal" href="..\configuration\using_parameters_in_dic.html"><em>Using Parameters within a Dependency Injection Class</em></a>.</div></div>
+<div class="section" id="configs">
+<h3>Обработка массива <tt class="docutils literal"><code>$configs</code></tt><a class="headerlink" href="#configs" title="Permalink to this headline">¶</a></h3>
+<p>Первым делом вам нужно создать класс расширения так, как объясняется в
+<a class="reference internal" href="extension.html"><em>How to Load Service Configuration inside a Bundle</em></a>.</p>
+<p>Каждый раз, когда пользователь включает ключ <tt class="docutils literal"><code>acme_social</code></tt> (который является
+дополнительным именем ВЗ) в файле конфигурации, конфигурация под ним добавляется
+в массив конфигурация и передаётся методу <tt class="docutils literal"><code>load()</code></tt> вашего расширения (Symfony
+автоматически конвертирует XML и YAML в массив).</p>
+<p>Для примера конфигурации в предыдущем разделе, массив, переданный вашему методу
+<tt class="docutils literal"><code>load()</code></tt> будет выглядеть так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">array</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;twitter&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;client_id&#39;</span> <span class="o">=&gt;</span> <span class="mi">123</span><span class="p">,</span>
+            <span class="s1">&#39;client_secret&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;your_secret&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Отметьте, что это <em>массив массивов</em>, а не просто плоский массив значений
+конфигурации. Это сделано специально, так как позволяет Symfony анализировать
+несколько источников конфигурации. Например, если <tt class="docutils literal"><code>acme_social</code></tt> появляется в
+другом файле конфигурации, скажем, <tt class="docutils literal"><code>config/packages/dev/acme_social.yaml</code></tt>,
+с другими значениями под ним, входящий массив может выглядеть так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">array</span><span class="p">(</span>
+    <span class="c1">// значения из config/packages/acme_social.yaml</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;twitter&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;client_id&#39;</span> <span class="o">=&gt;</span> <span class="mi">123</span><span class="p">,</span>
+            <span class="s1">&#39;client_secret&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;your_secret&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+    <span class="c1">// значения из config/packages/dev/acme_social.yaml</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;twitter&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;client_id&#39;</span> <span class="o">=&gt;</span> <span class="mi">456</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Порядок двух массивов зависит от того, какой установлен первым.</p>
+<p>Но не волнуйтесь! Компонент Symfony Конфигурация поможет вам объедиить эти
+значения, предоставит значения по умолчанию и даст пользователю ошибки валидации
+в плохой конфигурации. Вот, как это работает. Создайте класс <tt class="docutils literal"><code>Configuration</code></tt>
+в каталоге <tt class="docutils literal"><code>DependencyInjection</code></tt> и постройте дерево, определяющее структуру
+конфигурации вашего пакета.</p>
+<p>КЛасс <tt class="docutils literal"><code>Configuration</code></tt> для обработки пробной конфигурации выглядит так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Acme/SocialBundle/DependencyInjection/Configuration.php</span>
+<span class="k">namespace</span> <span class="nx">Acme\SocialBundle\DependencyInjection</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Config\Definition\Builder\TreeBuilder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Config\Definition\ConfigurationInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Configuration</span> <span class="k">implements</span> <span class="nx">ConfigurationInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getConfigTreeBuilder</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$treeBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TreeBuilder</span><span class="p">();</span>
+        <span class="nv">$rootNode</span> <span class="o">=</span> <span class="nv">$treeBuilder</span><span class="o">-&gt;</span><span class="na">root</span><span class="p">(</span><span class="s1">&#39;acme_social&#39;</span><span class="p">);</span>
+
+        <span class="nv">$rootNode</span>
+            <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">arrayNode</span><span class="p">(</span><span class="s1">&#39;twitter&#39;</span><span class="p">)</span>
+                    <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+                        <span class="o">-&gt;</span><span class="na">integerNode</span><span class="p">(</span><span class="s1">&#39;client_id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                        <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;client_secret&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span> <span class="c1">// twitter</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="p">;</span>
+
+        <span class="k">return</span> <span class="nv">$treeBuilder</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Класс <tt class="docutils literal"><code>Configuration</code></tt> может быть намного сложнее, чем показано здесь,
+поддерживать узлы &quot;прототипов&quot;, продвинутую валидацию, XML нормализацию
+и продвинутое объёдинение. Вы можете прочитать больше об этом в
+<a class="reference internal" href="..\components\config\definition.html"><em>документации компонента Конфигурации</em></a>.
+Вы также можете увидеть это в действии, изучив некоторые базовые классы
+Конфигурации, как, например, <a class="reference external" href="https://github.com/symfony/symfony/blob/master/src/Symfony/Bundle/FrameworkBundle/DependencyInjection/Configuration.php">Конфигурацию FrameworkBundle</a> или
+<a class="reference external" href="https://github.com/symfony/symfony/blob/master/src/Symfony/Bundle/TwigBundle/DependencyInjection/Configuration.php">Конфигурацию TwigBundle</a>.</div></div>
+<p>Этот класс теперь может быть использован в вашем методе <tt class="docutils literal"><code>load()</code></tt> для слияния
+конфигураций и форсирования валидации (например, если была передана дополнительная
+опция, будет выдано исключение):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Acme/SocialBundle/DependencyInjection/AcmeSocialExtension.php</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="k">array</span> <span class="nv">$configs</span><span class="p">,</span> <span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$configuration</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Configuration</span><span class="p">();</span>
+
+    <span class="nv">$config</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">processConfiguration</span><span class="p">(</span><span class="nv">$configuration</span><span class="p">,</span> <span class="nv">$configs</span><span class="p">);</span>
+
+    <span class="c1">// теперь у вас есть эти 2 ключа конфигурации</span>
+    <span class="c1">// $config[&#39;twitter&#39;][&#39;client_id&#39;] and $config[&#39;twitter&#39;][&#39;client_secret&#39;]</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code>processConfiguration()</code></tt> использует дерево конфигурации, которое вы
+определили в классе <tt class="docutils literal"><code>Configuration</code></tt> для валидации, нормализаци и слияния
+всех массивов конфигурации.</p>
+<p>Теперь вы можете использовать переменную <tt class="docutils literal"><code>$config</code></tt> для изменения
+сервиса, предоставленного вашим пакетом.
+Например, представьте, что ваш пакет имеет следующий пример конфигурации:</p>
+<div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- src/Acme/SocialBundle/Resources/config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;acme.social.twitter_client&quot;</span> <span class="na">class=</span><span class="s">&quot;Acme\SocialBundle\TwitterClient&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;argument&gt;&lt;/argument&gt;</span> <span class="c">&lt;!-- will be filled in with client_id dynamically --&gt;</span>
+            <span class="nt">&lt;argument&gt;&lt;/argument&gt;</span> <span class="c">&lt;!-- will be filled in with client_secret dynamically --&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В вашем расширении вы можете загрузить это и динамически установить аргументы:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Acme/SocialBundle/DependencyInjection/AcmeSocialExtension.php</span>
+<span class="c1">// ...</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Loader\XmlFileLoader</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Config\FileLocator</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="k">array</span> <span class="nv">$configs</span><span class="p">,</span> <span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XmlFileLoader</span><span class="p">(</span><span class="nv">$container</span><span class="p">,</span> <span class="k">new</span> <span class="nx">FileLocator</span><span class="p">(</span><span class="nb">dirname</span><span class="p">(</span><span class="no">__DIR__</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;/Resources/config&#39;</span><span class="p">));</span>
+    <span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;services.xml&#39;</span><span class="p">);</span>
+
+    <span class="nv">$configuration</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Configuration</span><span class="p">();</span>
+    <span class="nv">$config</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">processConfiguration</span><span class="p">(</span><span class="nv">$configuration</span><span class="p">,</span> <span class="nv">$configs</span><span class="p">);</span>
+
+    <span class="nv">$definition</span> <span class="o">=</span> <span class="nv">$container</span><span class="o">-&gt;</span><span class="na">getDefinition</span><span class="p">(</span><span class="s1">&#39;acme.social.twitter_client&#39;</span><span class="p">);</span>
+    <span class="nv">$definition</span><span class="o">-&gt;</span><span class="na">replaceArgument</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;twitter&#39;</span><span class="p">][</span><span class="s1">&#39;client_id&#39;</span><span class="p">]);</span>
+    <span class="nv">$definition</span><span class="o">-&gt;</span><span class="na">replaceArgument</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;twitter&#39;</span><span class="p">][</span><span class="s1">&#39;client_secret&#39;</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Вместо вызова <tt class="docutils literal"><code>processConfiguration()</code></tt> в вашем расширении каждый раз,
+когда вы предоставляете некие опции конфигурации, вы можете захотеть использовать
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/DependencyInjection/ConfigurableExtension.html" title="Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension">ConfigurableExtension</a></code></tt>,
+чтобы он делал это за вас автоматически:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Acme/HelloBundle/DependencyInjection/AcmeHelloExtension.php</span>
+<span class="k">namespace</span> <span class="nx">Acme\HelloBundle\DependencyInjection</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerBuilder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AcmeHelloExtension</span> <span class="k">extends</span> <span class="nx">ConfigurableExtension</span>
+<span class="p">{</span>
+    <span class="c1">// отметьте, что этот метод называетсят loadInternal, а не загрузка</span>
+    <span class="nx">защищённой</span> <span class="nx">функции</span> <span class="nx">loadInternal</span><span class="p">(</span><span class="nx">массив</span> <span class="nv">$mergedConfig</span><span class="p">,</span> <span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p class="last">Этот класс использует метод <tt class="docutils literal"><code>getConfiguration()</code></tt>, чтобы получить
+экземпляр Конфигурации.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Обработка самой конфигурации</p>
+<p>Использование компонента Конфигурации абсолютно не обязательно. Метод <tt class="docutils literal"><code>load()</code></tt>
+получает массив значений конфигурации. Вы можете просто проанализировать эти
+массивы самостоятельно (например, переопределив конфигурации и использовав
+<tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.isset.php" title="isset">isset</a></code></tt>, чтобы проверить наличие значения). Имейте в виду, что будет
+очень сложно поддерживать XML.</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="k">array</span> <span class="nv">$configs</span><span class="p">,</span> <span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$config</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    <span class="c1">// позвольте источникам переопределить предыдущее установленное значение</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$configs</span> <span class="k">as</span> <span class="nv">$subConfig</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$config</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">(</span><span class="nv">$config</span><span class="p">,</span> <span class="nv">$subConfig</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ... теперь используйте чистый массив $config</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Изменение конфигурации другого пакета<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Если у вас есть несколько пакетов, зависящих друг от друга, может быть полезным
+позволить одному классу <tt class="docutils literal"><code>Extension</code></tt> Этого можно достигнуть, используя
+расширение дополнения. Чтобы узнать больше, см. <a class="reference internal" href="prepend_extension.html"><em>How to Simplify Configuration of Multiple Bundles</em></a>.</p>
+</div>
+<div class="section" id="id4">
+<h2>Сброс конфигурации<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Команда <tt class="docutils literal"><code>config:dump-reference</code></tt> сбрасывает конфигурацию пакета по умолчанию
+в консоли, используя формат Yaml.</p>
+<p>Если конфигурация вашего пакета находится в стандартной локации
+(<tt class="docutils literal"><code>YourBundle\DependencyInjection\Configuration</code></tt>) и не имеет консруктора,
+то она будет работать автоматически. Если же у вас что-то по-другому, ваш
+класс <tt class="docutils literal"><code>Extension</code></tt> должен переопределять метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/DependencyInjection/Extension.html#method_getConfiguration" title="Symfony\Component\HttpKernel\DependencyInjection\Extension::getConfiguration()">Extension::getConfiguration()</a></code></tt>
+и возвращать экземпляр вашей <tt class="docutils literal"><code>Configuration</code></tt>.</p>
+</div>
+<div class="section" id="xml">
+<h2>Поддержка XML<a class="headerlink" href="#xml" title="Permalink to this headline">¶</a></h2>
+<p>Symfony позволяет людям предоставить конфигурацию в трёх разных форматах:
+Yaml, XML и PHP. Как Yaml, так и PHP используют одинаковый синтаксис и поддерживаются
+по умолчанию при использовании компонента Кофигурации. Поддержка XML требует от
+вас некоторых вещей. Но при общем использовании пакета с другими, рекомендуется
+следовать этим шагам.</p>
+<div class="section" id="id5">
+<h3>Подготовьте ваше дерево конфигурации к XML<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Компонент Конфигурации предоставляет некоторые методы по умолчанию, чтобы позволить
+ему корректно обработать XML-конфигурацию. Смотрите &quot;<a class="reference internal" href="../components/config/definition-ru.html#component-config-normalization"><span>Нормализация</span></a>&quot;
+в документации компонента. Однако, вы можете сделать некоторые дополнительные вещи,
+которые улучшат опыт использования XML-конфигурации:</p>
+</div>
+<div class="section" id="id6">
+<h3>Выбор пространста имён XML<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>В XML, <a class="reference external" href="https://en.wikipedia.org/wiki/XML_namespace">пространство имён XML</a> используется для определения того, какие
+элементы принадлежат конфигурации конкретного пакета. Пространство имён
+возвращается из метода
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DependencyInjection/Extension/Extension.html#method_getNamespace" title="Symfony\Component\DependencyInjection\Extension\Extension::getNamespace()">Extension::getNamespace()</a></code></tt>.
+По соглашению, пространство имён - это URL (он не должен быть валидным или
+в принципе сушествовать). По умолчанию, просранство имён для пакета -
+<tt class="docutils literal"><code>http://example.org/schema/dic/DI_ALIAS</code></tt>, где <tt class="docutils literal"><code>DI_ALIAS</code></tt> -  дополнительное
+имя прямого внедрения расширения. Вы можете захотеть изменить это на более
+профессиональный URL:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Acme/HelloBundle/DependencyInjection/AcmeHelloExtension.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">AcmeHelloExtension</span> <span class="k">extends</span> <span class="nx">Extension</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getNamespace</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;http://acme_company.com/schema/dic/hello&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id7">
+<h3>Предоставление XML-схемы<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>XML имеет очень полезную функцию, под названием <a class="reference external" href="https://en.wikipedia.org/wiki/XML_schema">XML-схема</a>. Она позволяет вам
+описать все возможные элементы и атрибуты, а также их значения, в Определении
+XML-схемы (xsd-файл). Этот XSD-файл используется интегрированной средой обработки
+для автозаполнения и использутется компонентом Конфигурации для валидации элементов.</p>
+<p>Для того, чтобы использовать схему, файл XML-конфигурации должен предоставлять
+атрибут <tt class="docutils literal"><code>xsi:schemaLocation</code></tt>, указывающий на XSD-файл для определённого пространства
+имён XML. Это местоположение всегда начинается с пространства имён XML. Это
+пространство имён XML потом заменяется базовым путём XSD-валидации, возвращёнными
+из метода
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DependencyInjection/Extension/ExtensionInterface.html#method_getXsdValidationBasePath" title="Symfony\Component\DependencyInjection\Extension\ExtensionInterface::getXsdValidationBasePath()">Extension::getXsdValidationBasePath()</a></code></tt>.
+Потом за этим пространством имён следует остальной путь из базового пути к
+самому файлу.</p>
+<p>По соглашению, XSD-файл живёт в <tt class="docutils literal"><code>Resources/config/schema/</code></tt>, но вы можете
+разместить его где угодно. Вам стоит вернуть этот путь в качестве базового:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Acme/HelloBundle/DependencyInjection/AcmeHelloExtension.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">AcmeHelloExtension</span> <span class="k">extends</span> <span class="nx">Extension</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getXsdValidationBasePath</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../Resources/config/schema&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если предположить, что XSD-файл называется <tt class="docutils literal"><code>hello-1.0.xsd</code></tt>, то месторасположение
+схемы будет <tt class="docutils literal"><code>http://acme_company.com/schema/dic/hello/hello-1.0.xsd</code></tt>:</p>
+<div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/acme_hello.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:acme-hello=</span><span class="s">&quot;http://acme_company.com/schema/dic/hello&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://acme_company.com/schema/dic/hello</span>
+<span class="s">        http://acme_company.com/schema/dic/hello/hello-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;acme-hello:config&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;/acme-hello:config&gt;</span>
+
+    <span class="c">&lt;!-- ... --&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

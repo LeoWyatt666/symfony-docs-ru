@@ -1,0 +1,595 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как использовать PdoSessionHandler для хранения сессий в БД &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="doctrine doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как использовать PdoSessionHandler для хранения сессий в БД</a><ul>
+<li><a class="reference internal" href="#id1">Конфигурация имён таблицы и колонок</a></li>
+<li><a class="reference internal" href="#example-sql-statements-ru">Подготовка БД для сохранения сессий</a><ul>
+<li><a class="reference internal" href="#mysql">MySQL</a></li>
+<li><a class="reference internal" href="#postgresql">PostgreSQL</a></li>
+<li><a class="reference internal" href="#microsoft-sql">Сервер Microsoft SQL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Как использовать PdoSessionHandler для хранения сессий в БД</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="pdosessionhandler">
+<span id="index-0"></span><h1>Как использовать PdoSessionHandler для хранения сессий в БД<a class="headerlink" href="#pdosessionhandler" title="Permalink to this headline">¶</a></h1>
+<p>Хранилище сессий Symfony по умолчанию сохраняет информацию о сессиях в файлы.
+Большинство средних и больших веб-сайтов используют БД для хранения значений сессии,
+вмето файлов, так как базы данных легче использовать и масштабировать в окружении
+множества веб-серверов.</p>
+<p>Symfony имеет встроенное решение для хранения сессий в базах данных, под названием
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/Handler/PdoSessionHandler.html" title="Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler">PdoSessionHandler</a></code></tt>.
+Чтобы использовать его, зарегистрируйте новый сервис-обработчик:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/services.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="s">&#39;mysql:dbname=mydatabase&#39;</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">db_username</span><span class="p p-Indicator">:</span> <span class="nv">myuser</span><span class="p p-Indicator">,</span> <span class="nv">db_password</span><span class="p p-Indicator">:</span> <span class="nv">mypassword</span> <span class="p p-Indicator">}</span>
+
+            <span class="c1"># Если вы используете Doctrine и хотите использовать это соединение повторно, тогд:</span>
+            <span class="c1"># прокомментируйте 2 строчки выше, и уберите комментарий из строчки ниже</span>
+            <span class="c1"># - !service { class: PDO, factory: &#39;database_connection:getWrappedConnection&#39; }</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:framework=</span><span class="s">&quot;http://symfony.com/schema/dic/symfony&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/symfony/symfony-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler&quot;</span> <span class="na">public=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;argument&gt;</span>mysql:dbname=mydatabase<span class="nt">&lt;/argument&gt;</span>
+            <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;collection&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;argument</span> <span class="na">key=</span><span class="s">&quot;db_username&quot;</span><span class="nt">&gt;</span>myuser<span class="nt">&lt;/argument&gt;</span>
+                <span class="nt">&lt;argument</span> <span class="na">key=</span><span class="s">&quot;db_password&quot;</span><span class="nt">&gt;</span>mypassword<span class="nt">&lt;/argument&gt;</span>
+            <span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/services.php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler</span><span class="p">;</span>
+
+<span class="nv">$storageDefinition</span> <span class="o">=</span> <span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">PdoSessionHandler</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArguments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;mysql:dbname=mydatabase&#39;</span><span class="p">,</span>
+        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;db_username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;myuser&#39;</span><span class="p">,</span> <span class="s1">&#39;db_password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;mypassword&#39;</span><span class="p">)</span>
+    <span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Далее, скажите Symfony использовать ваш сервис в качестве обработчика сессии:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/framework.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">framework</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">session</span><span class="p p-Indicator">:</span>
+        <span class="c1"># ...</span>
+        <span class="l l-Scalar l-Scalar-Plain">handler_id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/framework.xml --&gt;</span>
+<span class="nt">&lt;framework:config&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;framework:session</span> <span class="na">handler-id=</span><span class="s">&quot;Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler&quot;</span> <span class="na">cookie-lifetime=</span><span class="s">&quot;3600&quot;</span> <span class="na">auto-start=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/framework:config&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/framework.php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;framework&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+    <span class="s1">&#39;session&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="c1">// ...</span>
+        <span class="s1">&#39;handler_id&#39;</span> <span class="o">=&gt;</span> <span class="nx">PdoSessionHandler</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Конфигурация имён таблицы и колонок<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Для этого необходима таблица <tt class="docutils literal"><code>sessions</code></tt> с некоторым количеством разных столбцов.
+Имя таблицы, а также все имена стобцов, могут быть сконфигурированы путём передачи
+второго массива аргументов в <tt class="docutils literal"><code>PdoSessionHandler</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/services.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="s">&#39;mysql:dbname=mydatabase&#39;</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">db_table</span><span class="p p-Indicator">:</span> <span class="nv">sessions</span><span class="p p-Indicator">,</span> <span class="nv">db_username</span><span class="p p-Indicator">:</span> <span class="nv">myuser</span><span class="p p-Indicator">,</span> <span class="nv">db_password</span><span class="p p-Indicator">:</span> <span class="nv">mypassword</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler&quot;</span> <span class="na">public=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;argument&gt;</span>mysql:dbname=mydatabase<span class="nt">&lt;/argument&gt;</span>
+            <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;collection&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;argument</span> <span class="na">key=</span><span class="s">&quot;db_table&quot;</span><span class="nt">&gt;</span>sessions<span class="nt">&lt;/argument&gt;</span>
+                <span class="nt">&lt;argument</span> <span class="na">key=</span><span class="s">&quot;db_username&quot;</span><span class="nt">&gt;</span>myuser<span class="nt">&lt;/argument&gt;</span>
+                <span class="nt">&lt;argument</span> <span class="na">key=</span><span class="s">&quot;db_password&quot;</span><span class="nt">&gt;</span>mypassword<span class="nt">&lt;/argument&gt;</span>
+            <span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/services.php</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">PdoSessionHandler</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArguments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;mysql:dbname=mydatabase&#39;</span><span class="p">,</span>
+        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;db_table&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;sessions&#39;</span><span class="p">,</span> <span class="s1">&#39;db_username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;myuser&#39;</span><span class="p">,</span> <span class="s1">&#39;db_password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;mypassword&#39;</span><span class="p">)</span>
+    <span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Вот параметры, которые вы можете сконфигурировать:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>db_table</code></tt> (по умолчанию <tt class="docutils literal"><code>sessions</code></tt>):</dt>
+<dd>Имя таблицы сессии в вашей БД;</dd>
+<dt><tt class="docutils literal"><code>db_id_col</code></tt> (по умолчанию <tt class="docutils literal"><code>sess_id</code></tt>):</dt>
+<dd>Имя столбца id в вашей талбице сессии (VARCHAR(128));</dd>
+<dt><tt class="docutils literal"><code>db_data_col</code></tt> (по умолчанию <tt class="docutils literal"><code>sess_data</code></tt>):</dt>
+<dd>Имя столбца значения в вашей таблице сессии (BLOB);</dd>
+<dt><tt class="docutils literal"><code>db_time_col</code></tt> (по умолчанию <tt class="docutils literal"><code>sess_time</code></tt>):</dt>
+<dd>Имя столбца времени в вашей таблице сессии (INTEGER);</dd>
+<dt><tt class="docutils literal"><code>db_lifetime_col</code></tt> (по умолчанию <tt class="docutils literal"><code>sess_lifetime</code></tt>):</dt>
+<dd>Имя столбца жизненного цикла в вашей таблице сессии (INTEGER).</dd>
+</dl>
+</div>
+<div class="section" id="example-sql-statements-ru">
+<span id="id2"></span><h2>Подготовка БД для сохранения сессий<a class="headerlink" href="#example-sql-statements-ru" title="Permalink to this headline">¶</a></h2>
+<p>Перед тем, как сохранять сессии в БД, вы должны создать таблицу, которая будет
+хранить информацию. Обработчик сессий предоставляет метод под названием
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/Handler.html#method_createTable" title="Symfony\Component\HttpFoundation\Session\Storage\Handler::createTable()">createTable()</a></code></tt>
+для установки этой таблицы за вас, в соответствии с используемым движком БД:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$sessionHandlerService</span><span class="o">-&gt;</span><span class="na">createTable</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">\PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// таблица не могла быть создана по какой-то причине</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы предпочитаете устанавливать таблицу самостоятельно, то вот некоторые
+примеры утверждений SQL, которые вы можете использовать, в соответствии с
+вашим конкретным движком БД.</p>
+<p>Отличным способом запустить это в производстве будет сгенерировать пустую
+миграцию, а потом добавить внутрь этот SQL:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console doctrine:migrations:generate
+</pre></div>
+</td></tr></table></div></div>
+<p>Найдите правильный SQL ниже и поместите его внутрь этого файла. Далее, выполните
+его с:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console doctrine:migrations:migrate
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="mysql">
+<h3>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-sql"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">sessions</span><span class="o">`</span> <span class="p">(</span>
+    <span class="o">`</span><span class="n">sess_id</span><span class="o">`</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="o">`</span><span class="n">sess_data</span><span class="o">`</span> <span class="nb">BLOB</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="o">`</span><span class="n">sess_time</span><span class="o">`</span> <span class="nb">INTEGER</span> <span class="n">UNSIGNED</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="o">`</span><span class="n">sess_lifetime</span><span class="o">`</span> <span class="n">MEDIUMINT</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_bin</span><span class="p">,</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Тип столбца <tt class="docutils literal"><code>BLOB</code></tt> может хранить максимум 64 килобита. Если данные, сохраняемые
+в сессии пользователя, превысят это значение, может быть вызвано исключение, или
+сессия будет тихо восстановлена. Рассмотрите использование <tt class="docutils literal"><code>MEDIUMBLOB</code></tt>, если вам
+нужно больше места.</p>
+</div></div>
+</div>
+<div class="section" id="postgresql">
+<h3>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-sql"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">sessions</span> <span class="p">(</span>
+    <span class="n">sess_id</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">sess_data</span> <span class="n">BYTEA</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">sess_time</span> <span class="nb">INTEGER</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">sess_lifetime</span> <span class="nb">INTEGER</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="microsoft-sql">
+<h3>Сервер Microsoft SQL<a class="headerlink" href="#microsoft-sql" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-sql"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">sessions</span><span class="p">](</span>
+    <span class="p">[</span><span class="n">sess_id</span><span class="p">]</span> <span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">sess_data</span><span class="p">]</span> <span class="p">[</span><span class="n">ntext</span><span class="p">]</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">sess_time</span><span class="p">]</span> <span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">sess_lifetime</span><span class="p">]</span> <span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">CLUSTERED</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">sess_id</span><span class="p">]</span> <span class="k">ASC</span>
+    <span class="p">)</span> <span class="k">WITH</span> <span class="p">(</span>
+        <span class="n">PAD_INDEX</span>  <span class="o">=</span> <span class="k">OFF</span><span class="p">,</span>
+        <span class="n">STATISTICS_NORECOMPUTE</span>  <span class="o">=</span> <span class="k">OFF</span><span class="p">,</span>
+        <span class="n">IGNORE_DUP_KEY</span> <span class="o">=</span> <span class="k">OFF</span><span class="p">,</span>
+        <span class="n">ALLOW_ROW_LOCKS</span>  <span class="o">=</span> <span class="k">ON</span><span class="p">,</span>
+        <span class="n">ALLOW_PAGE_LOCKS</span>  <span class="o">=</span> <span class="k">ON</span>
+    <span class="p">)</span> <span class="k">ON</span> <span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+<span class="p">)</span> <span class="k">ON</span> <span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span> <span class="n">TEXTIMAGE_ON</span> <span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p>Если данные сессии не помещаются в столбце данных, они могут быть усечены
+движком базы данных. Чтобы усугубить ситуацию, когда данные сессии искажаются,
+PHP начинает игнорировать данные, не предупреждая об этом.</p>
+<p class="last">Если приложение хранит большие объёмы данных сессии, эта проблема может быть
+решена путём увеличения размера столбца (используйте <tt class="docutils literal"><code>BLOB</code></tt> или даже <tt class="docutils literal"><code>MEDIUMBLOB</code></tt>).
+При использовании MySQL в качестве движка БД, вы можете также активировать
+<a class="reference external" href="https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html">режим строгого SQL</a>, чтобы получать уведомления, когда будет происходить такая ошибка.</p>
+</div></div>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

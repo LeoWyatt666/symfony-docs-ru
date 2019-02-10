@@ -1,0 +1,618 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Справочник функций и переменных форм шаблонов Twig &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments-1.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index-2.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="reference doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index-49.html">
+                    <img src="..\..\..\..\_images\header-logo-1.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support-1.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index-2.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index-1.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index-1.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index-1.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\index-1.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex-1.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index-1.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Справочник функций и переменных форм шаблонов Twig</a><ul>
+<li><a class="reference internal" href="#reference-form-twig-functions-ru">Функции отображения формы</a></li>
+<li><a class="reference internal" href="#form-view-variables">form(view, variables)</a></li>
+<li><a class="reference internal" href="#form-start-view-variables">form_start(view, variables)</a></li>
+<li><a class="reference internal" href="#form-end-view-variables">form_end(view, variables)</a></li>
+<li><a class="reference internal" href="#form-label-view-label-variables">form_label(view, label, variables)</a></li>
+<li><a class="reference internal" href="#form-errors-view">form_errors(view)</a></li>
+<li><a class="reference internal" href="#form-widget-view-variables">form_widget(view, variables)</a></li>
+<li><a class="reference internal" href="#form-row-view-variables">form_row(view, variables)</a></li>
+<li><a class="reference internal" href="#form-rest-view-variables">form_rest(view, variables)</a></li>
+<li><a class="reference internal" href="#id2">Справочник тестов форм</a><ul>
+<li><a class="reference internal" href="#selectedchoice-selected-value">selectedchoice(selected_value)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#twig-reference-form-variables-ru">Больше о переменных форм</a><ul>
+<li><a class="reference internal" href="#reference-form-twig-variables-ru">Справочник переменных формы</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini-1.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index-2.html">Документация</a></li>
+                
+                <li class="active">Справочник функций и переменных форм шаблонов Twig</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="twig">
+<span id="index-0"></span><h1>Справочник функций и переменных форм шаблонов Twig<a class="headerlink" href="#twig" title="Permalink to this headline">¶</a></h1>
+<p>При работе с формами в шаблоне, в вашем распоряжении существуют две
+мощные вещи:</p>
+<ul class="simple">
+<li><a class="reference internal" href="twig_reference-1.html#reference-form-twig-functions"><span>Функции</span></a> для отображения каждой
+части формы;</li>
+<li><a class="reference internal" href="twig_reference-1.html#twig-reference-form-variables"><span>Переменные</span></a> для получения <em>любой</em>
+информации о любом поле.</li>
+</ul>
+<p>Вы будете часто использовать функции для отображения ваших полей. Переменные,
+с другой стороны, реже используются, но имеют бесконечную мощность, так как
+вы можете получить доступ к ярлыку поля, атрибуту id, ошибкам и к любой информации
+о поле.</p>
+<div class="section" id="reference-form-twig-functions-ru">
+<span id="id1"></span><h2>Функции отображения формы<a class="headerlink" href="#reference-form-twig-functions-ru" title="Permalink to this headline">¶</a></h2>
+<p>Этот справочник охватывает все доступные функции Twig для отображения форм.
+Существует несколько разных доступных функций и каждая отвечает за отображение
+разных частей формы (например, ярлыки, ошибки, виджеты и т.д.).</p>
+</div>
+<div class="section" id="form-view-variables">
+<span id="reference-forms-twig-form-ru"></span><h2>form(view, variables)<a class="headerlink" href="#form-view-variables" title="Permalink to this headline">¶</a></h2>
+<p>Отображает HTML полной формы.</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# отобразить форму и изменить метод отправки #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">form</span><span class="o">(</span><span class="nv">form</span><span class="o">,</span> <span class="o">{</span><span class="s1">&#39;method&#39;</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="o">})</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы в основном будете использовать этого помощника для прототипирования, или
+если вы используете пользовательские темы форм. Если вам нужна большая гибкость
+при отображении формы, вы должны использовать другие помощники, чтобы отобразить
+отдельные части формы:</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_start</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">form_errors</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.name</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.dueDate</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.submit</span><span class="o">,</span> <span class="o">{</span> <span class="s1">&#39;label&#39;</span><span class="o">:</span> <span class="s1">&#39;Submit me&#39;</span> <span class="o">})</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">form_end</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="form-start-view-variables">
+<span id="reference-forms-twig-start-ru"></span><h2>form_start(view, variables)<a class="headerlink" href="#form-start-view-variables" title="Permalink to this headline">¶</a></h2>
+<p>Отображает стартовый тег формы. Этот помощник заботится об отображении
+сконфигурированного метода и целевого действия формы. Он также включит
+правильное свойство <tt class="docutils literal"><code>enctype</code></tt>, если форма содержит поля загрузки.</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# отобразить стартовый тег и изменить метод отправки #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">form_start</span><span class="o">(</span><span class="nv">form</span><span class="o">,</span> <span class="o">{</span><span class="s1">&#39;method&#39;</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="o">})</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="form-end-view-variables">
+<span id="reference-forms-twig-end-ru"></span><h2>form_end(view, variables)<a class="headerlink" href="#form-end-view-variables" title="Permalink to this headline">¶</a></h2>
+<p>Отображает конечный тег формы.</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_end</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Этот помощник также выводит <tt class="docutils literal"><code>form_rest()</code></tt>, разве что вы не установите <tt class="docutils literal"><code>render_rest</code></tt>,
+как &quot;false&quot;:</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# не отображать неотображённые поля #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">form_end</span><span class="o">(</span><span class="nv">form</span><span class="o">,</span> <span class="o">{</span><span class="s1">&#39;render_rest&#39;</span><span class="o">:</span> <span class="kp">false</span><span class="o">})</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="form-label-view-label-variables">
+<span id="reference-forms-twig-label-ru"></span><h2>form_label(view, label, variables)<a class="headerlink" href="#form-label-view-label-variables" title="Permalink to this headline">¶</a></h2>
+<p>Отображает ярлык заданного поля. Вы можете по желанию передать конкретный
+ярлык, который вы хотите отобразить в качестве второго аргумента.</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_label</span><span class="o">(</span><span class="nv">form.name</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="c">{# Два следующих синтаксиса эквивалентны #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">form_label</span><span class="o">(</span><span class="nv">form.name</span><span class="o">,</span> <span class="s1">&#39;Your Name&#39;</span><span class="o">,</span> <span class="o">{</span><span class="s1">&#39;label_attr&#39;</span><span class="o">:</span> <span class="o">{</span><span class="s1">&#39;class&#39;</span><span class="o">:</span> <span class="s1">&#39;foo&#39;</span><span class="cp">}}</span><span class="x">) }}</span>
+
+<span class="cp">{{</span> <span class="nv">form_label</span><span class="o">(</span><span class="nv">form.name</span><span class="o">,</span> <span class="kp">null</span><span class="o">,</span> <span class="o">{</span>
+    <span class="s1">&#39;label&#39;</span><span class="o">:</span> <span class="s1">&#39;Your name&#39;</span><span class="o">,</span>
+    <span class="s1">&#39;label_attr&#39;</span><span class="o">:</span> <span class="o">{</span><span class="s1">&#39;class&#39;</span><span class="o">:</span> <span class="s1">&#39;foo&#39;</span><span class="o">}</span>
+<span class="o">})</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p>См. &quot;<a class="reference internal" href="twig_reference-1.html#twig-reference-form-variables"><span>More about Form Variables</span></a>&quot;, чтобы узнать об аргументе <tt class="docutils literal"><code>variables</code></tt>.</p>
+</div>
+<div class="section" id="form-errors-view">
+<span id="reference-forms-twig-errors-ru"></span><h2>form_errors(view)<a class="headerlink" href="#form-errors-view" title="Permalink to this headline">¶</a></h2>
+<p>Отображает любые ошибки для заданного поля.</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_errors</span><span class="o">(</span><span class="nv">form.name</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="c">{# отобразить любые &quot;глобальные&quot; ошибки #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">form_errors</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="form-widget-view-variables">
+<span id="reference-forms-twig-widget-ru"></span><h2>form_widget(view, variables)<a class="headerlink" href="#form-widget-view-variables" title="Permalink to this headline">¶</a></h2>
+<p>Отображает HTML-виджет заданного поля. Если вы примените это ко всей форме
+или коллекции полей, то будет отображён каждый лежащий в основе ряд формы.</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# отобразить виджет, но добавить к нему класс &quot;foo&quot; #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">form_widget</span><span class="o">(</span><span class="nv">form.name</span><span class="o">,</span> <span class="o">{</span><span class="s1">&#39;attr&#39;</span><span class="o">:</span> <span class="o">{</span><span class="s1">&#39;class&#39;</span><span class="o">:</span> <span class="s1">&#39;foo&#39;</span><span class="cp">}}</span><span class="x">) }}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Второй аргумент <tt class="docutils literal"><code>form_widget()</code></tt> - это массив переменных. Наиболее распространённой
+переменной является <tt class="docutils literal"><code>attr</code></tt>, которая есть массивом HTML-атрибутов, применяемых к HTML-
+виджету. В некоторых случаях, определённые типы также имеют другие опции, связанные с
+шаблонами, которые можно передать. Они обсуждаются от типа к типу. <tt class="docutils literal"><code>attributes</code></tt> не
+применяеются к дочерним полям рекурсивно, если вы одновременно отображаете много полей
+(например, <tt class="docutils literal"><code>form_widget(form)</code></tt>).</p>
+<p>См. &quot;<a class="reference internal" href="twig_reference-1.html#twig-reference-form-variables"><span>More about Form Variables</span></a>&quot;, чтобы узнать больше об аргументе
+<tt class="docutils literal"><code>variables</code></tt>.</p>
+</div>
+<div class="section" id="form-row-view-variables">
+<span id="reference-forms-twig-row-ru"></span><h2>form_row(view, variables)<a class="headerlink" href="#form-row-view-variables" title="Permalink to this headline">¶</a></h2>
+<p>Отображает &quot;ряд&quot; заданного поля, который является комбинацией ярлыка, ошибок
+и виджета поля.</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# отобразить ряд поля, но отобразить ярлык с текстом &quot;foo&quot; #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.name</span><span class="o">,</span> <span class="o">{</span><span class="s1">&#39;label&#39;</span><span class="o">:</span> <span class="s1">&#39;foo&#39;</span><span class="o">})</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Второй аргумент <tt class="docutils literal"><code>form_row()</code></tt> - это массив переменных. Шаблоны, предоставленные
+в Symfony позволяют только переопределить ярлык так, как показано в примере выше.</p>
+<p>См. &quot;<a class="reference internal" href="twig_reference-1.html#twig-reference-form-variables"><span>More about Form Variables</span></a>&quot;, чтобы узнать больше об аргументе
+<tt class="docutils literal"><code>variables</code></tt>.</p>
+</div>
+<div class="section" id="form-rest-view-variables">
+<span id="reference-forms-twig-rest-ru"></span><h2>form_rest(view, variables)<a class="headerlink" href="#form-rest-view-variables" title="Permalink to this headline">¶</a></h2>
+<p>Отображает все поля, которые ещё не были отображены для данной формы. Хорошая
+идея всегда иметь это где-то внутри вашей формы, так как оно будет отображать
+все скрытые поля и заставлять любые поля, о которых вы забыли, отображать более
+очевидные(так как оно будет отображать поле за вас).</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_rest</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id2">
+<h2>Справочник тестов форм<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Тесты могут быть выполнены с использованием оператора <tt class="docutils literal"><code>is</code></tt> в Twig, чтобы
+создать условие. Прочтите <a class="reference external" href="http://twig.sensiolabs.org/doc/templates.html#test-operator">документацию Twig</a>, чтобы узнать больше.</p>
+<div class="section" id="selectedchoice-selected-value">
+<span id="form-twig-selectedchoice-ru"></span><h3>selectedchoice(selected_value)<a class="headerlink" href="#selectedchoice-selected-value" title="Permalink to this headline">¶</a></h3>
+<p>Этот тест проверит, равняется ли текущий выбор <tt class="docutils literal"><code>selected_value</code></tt>, или является
+ли текущий выбор массивом (когда <tt class="docutils literal"><code>selected_value</code></tt> - массив).</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="x">&lt;option </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">choice</span> <span class="k">is</span> <span class="nf">selectedchoice</span><span class="o">(</span><span class="nv">value</span><span class="o">)</span> <span class="cp">%}</span><span class="x"> selected=&quot;selected&quot;</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"> ...&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="twig-reference-form-variables-ru">
+<span id="id3"></span><h2>Больше о переменных форм<a class="headerlink" href="#twig-reference-form-variables-ru" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Чтобы увидеть полный список переменных, см.: <a class="reference internal" href="twig_reference-1.html#reference-form-twig-variables"><span>Form Variables Reference</span></a>.</p>
+</div></div>
+<p>Почти в каждой функции Twig выше, финальный аргумент - это массив &quot;переменных&quot;,
+используемых при отображении одной части формы. Например,следующее будет отображать
+&quot;виджет&quot; для поля и изменять его атрибуты, чтобы включать специальный класс:</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# отобразить виджет, но добавить к нему класс &quot;foo&quot; #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">form_widget</span><span class="o">(</span><span class="nv">form.name</span><span class="o">,</span> <span class="o">{</span> <span class="s1">&#39;attr&#39;</span><span class="o">:</span> <span class="o">{</span><span class="s1">&#39;class&#39;</span><span class="o">:</span> <span class="s1">&#39;foo&#39;</span><span class="o">}</span> <span class="o">})</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Цель этих переменных - что они делают и откуда они берутся - может быть ясна
+не сразу, но они очень мощные. Каждый раз, когда вы отображаете часть вашей
+формы, блок, отображающий её, использует несколько переменных. По умолчанию,
+эти блоки живут внутри <a class="reference external" href="https://github.com/symfony/symfony/blob/master/src/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig">form_div_layout.html.twig</a>.</p>
+<p>Рассмотрите <tt class="docutils literal"><code>form_label</code></tt> в качестве примера:</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">form_label</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nv">compound</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">label_attr</span> <span class="o">=</span> <span class="nv">label_attr</span><span class="o">|</span><span class="nf">merge</span><span class="o">({</span><span class="s1">&#39;for&#39;</span><span class="o">:</span> <span class="nv">id</span><span class="o">})</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">required</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">label_attr</span> <span class="o">=</span> <span class="nv">label_attr</span><span class="o">|</span><span class="nf">merge</span><span class="o">({</span>
+            <span class="s1">&#39;class&#39;</span><span class="o">:</span> <span class="o">(</span><span class="nv">label_attr.class</span><span class="o">|</span><span class="nf">default</span><span class="o">(</span><span class="s1">&#39;&#39;</span><span class="o">)</span> <span class="o">~</span> <span class="s1">&#39; required&#39;</span><span class="o">)|</span><span class="nf">trim</span>
+        <span class="o">})</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">label</span> <span class="k">is</span> <span class="nf">empty</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">label</span> <span class="o">=</span> <span class="nv">name</span><span class="o">|</span><span class="nf">humanize</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="x">    &lt;label</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">attrname</span><span class="o">,</span> <span class="nv">attrvalue</span> <span class="k">in</span> <span class="nv">label_attr</span> -<span class="cp">%}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{{</span> <span class="nv">attrname</span> <span class="cp">}}</span><span class="x">=&quot;</span><span class="cp">{{</span> <span class="nv">attrvalue</span> <span class="cp">}}</span><span class="x">&quot;</span>
+<span class="x">        </span><span class="cp">{%</span>- <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &gt;</span>
+<span class="x">        </span><span class="cp">{{</span> <span class="nv">label</span><span class="o">|</span><span class="nf">trans</span><span class="o">({},</span> <span class="nv">translation_domain</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">    &lt;/label&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="nv">form_label</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Этот блок использует несколько переменных: <tt class="docutils literal"><code>compound</code></tt>, <tt class="docutils literal"><code>label_attr</code></tt>,
+<tt class="docutils literal"><code>required</code></tt>, <tt class="docutils literal"><code>label</code></tt>, <tt class="docutils literal"><code>name</code></tt> и <tt class="docutils literal"><code>translation_domain</code></tt>. Эти переменные
+были сделаны доступными системой отображения форм. Но, что важнее, это
+переменные, которые вы можете переопределить вызвав <tt class="docutils literal"><code>form_label()</code></tt> (так как
+в этом примере вы отображаете ярлык).</p>
+<p>Точные переменные доступные для переопределения зависят от того, какую часть
+формы вы хотите отобразить (например, ярлык или виджет), и какое поле вы
+отображаете (например,виджет <tt class="docutils literal"><code>choice</code></tt> имеет дополнительную опцию <tt class="docutils literal"><code>expanded</code></tt>).
+Если вы ознакомитесь и привыкнете к <a class="reference external" href="https://github.com/symfony/symfony/blob/master/src/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig">form_div_layout.html.twig</a>, вы всегда сможете
+увидеть, какие опции у вас есть.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">За кулисами, эти переменные доступны объекту <tt class="docutils literal"><code>FormView</code></tt> вашей формы,
+когда компонент вызывает <tt class="docutils literal"><code>buildView()</code></tt> и <tt class="docutils literal"><code>finishView()</code></tt> в каждом
+&quot;узле&quot; вашего дерева формы. Чтобы увидеть, какие переменные &quot;просмотра&quot;
+имеет конкретное поле, найдите исходный код поля формы (и его родительских
+полей) и посмотрите на две вышеописанные функции.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p>Если вы одномоментно отображаете форму целиком (или целую встроенную
+формы), то аргумент <tt class="docutils literal"><code>variables</code></tt> будет применён только к самой форме,
+но не к её дочерям. Другими словами, следующее <strong>не</strong> будет передать
+атрибут класса &quot;foo&quot; всем дочерним полям формы:</p>
+<div class="literal-block"><div class="last highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# **не** работает - переменные не рекурсивны #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">form_widget</span><span class="o">(</span><span class="nv">form</span><span class="o">,</span> <span class="o">{</span> <span class="s1">&#39;attr&#39;</span><span class="o">:</span> <span class="o">{</span><span class="s1">&#39;class&#39;</span><span class="o">:</span> <span class="s1">&#39;foo&#39;</span><span class="o">}</span> <span class="o">})</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<div class="section" id="reference-form-twig-variables-ru">
+<span id="id4"></span><h3>Справочник переменных формы<a class="headerlink" href="#reference-form-twig-variables-ru" title="Permalink to this headline">¶</a></h3>
+<p>Следующие переменные общие для всех типов полей. Некоторые типы полей могут
+иметь даже больше переменных, а некоторые переменные здесь на самом деле
+применяются только к конкретным типам.</p>
+<p>Предполагая, что у вас в шаблоне есть переменная <tt class="docutils literal"><code>form</code></tt>, и вы хотите сослаться
+на переменные в поле <tt class="docutils literal"><code>name</code></tt>, получение доступа к переменным проходит с использованием
+публичного свойства <tt class="docutils literal"><code>vars</code></tt> объекта <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Form/FormView.html" title="Symfony\Component\Form\FormView">FormView</a></code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">form.name.vars.id</span> <span class="cp">}}</span><span class="s">&quot;</span>
+    <span class="na">class</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">form.name.vars.required</span> <span class="o">?</span> <span class="s1">&#39;required&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
+    <span class="cp">{{</span> <span class="nv">form.name.vars.label</span> <span class="cp">}}</span>
+<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">vars</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="s">&quot;</span>
+    <span class="na">class</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">vars</span><span class="p">[</span><span class="s1">&#39;required&#39;</span><span class="p">]</span> <span class="o">?</span> <span class="s1">&#39;required&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="p">&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">vars</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span>
+<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%">
+<col width="79%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Переменная</th>
+<th class="head">Использование</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><code>form</code></tt></td>
+<td>Текущий экземпляр <tt class="docutils literal"><code>FormView</code></tt>.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>id</code></tt></td>
+<td>HTML-атрибут <tt class="docutils literal"><code>id</code></tt> для отображения.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>name</code></tt></td>
+<td>Имя поля (например, <tt class="docutils literal"><code>title</code></tt>) - но не <tt class="docutils literal"><code>name</code></tt>
+HTML-атрибута, которое является <tt class="docutils literal"><code>full_name</code></tt>.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>full_name</code></tt></td>
+<td><tt class="docutils literal"><code>name</code></tt> HTML-атрибута для отображения.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>errors</code></tt></td>
+<td>Массив любых ошибок, присоединённый к <em>этому</em> конкретному полю
+(например, <tt class="docutils literal"><code>form.title.errors</code></tt>).
+Заметьте, что вы не можете использовать <tt class="docutils literal"><code>form.errors</code></tt>, чтобы определить валидность
+формы, так как возвращаются только &quot;глобальные&quot; ошибки: некоторые индивидуальные
+поля могут иметь ошибки. Вместо этого используйте опцию <tt class="docutils literal"><code>valid</code></tt>.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>submitted</code></tt></td>
+<td>Возвращает <tt class="docutils literal"><code>true</code></tt> или <tt class="docutils literal"><code>false</code></tt> в зависимости от того, отправлена ли форма целиком</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>valid</code></tt></td>
+<td>Возвращает <tt class="docutils literal"><code>true</code></tt> или <tt class="docutils literal"><code>false</code></tt>  в зависимости от того, валидна ли форма целиком.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>value</code></tt></td>
+<td>Значение, которое будет использовано при отображении (чаще всего HTML-атрибут <tt class="docutils literal"><code>value</code></tt>).</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>disabled</code></tt></td>
+<td>Если <tt class="docutils literal"><code>true</code></tt>, <tt class="docutils literal"><code>disabled=&quot;disabled&quot;</code></tt> добавляется к полю.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>required</code></tt></td>
+<td>Если <tt class="docutils literal"><code>true</code></tt>, атрибут <tt class="docutils literal"><code>required</code></tt> добавляется к полю, чтобы активировать валидацию
+HTML5. Кроме того, к ярлыку добавляется класс <tt class="docutils literal"><code>required</code></tt>.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>label</code></tt></td>
+<td>Строка ярлыка, которая будет отображена.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>multipart</code></tt></td>
+<td>Если <tt class="docutils literal"><code>true</code></tt>, <tt class="docutils literal"><code>form_enctype</code></tt> отобразит <tt class="docutils literal"><code>enctype=&quot;multipart/form-data&quot;</code></tt>.
+Применяется только к корневому элементу формы.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>attr</code></tt></td>
+<td>Массив ключей-значений, который будет отображён как HTML-атрибуты поля.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>label_attr</code></tt></td>
+<td>Массив ключей-значений, который будет отображён как HTML-атрибуты ярлыка.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>compound</code></tt></td>
+<td>Является ли поле носителем группы дочерних полей (например, поля <tt class="docutils literal"><code>choice</code></tt>,
+которое насамом деле является группой чекбоксов.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>block_prefixes</code></tt></td>
+<td>Массив всех имён родительских типов.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>translation_domain</code></tt></td>
+<td>Домен переводов для этой формы.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>cache_key</code></tt></td>
+<td>Уникальный ключ, используемый для кеширования.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>data</code></tt></td>
+<td>Нормализованные данные типа.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>method</code></tt></td>
+<td>Метод текущей формы (POST, GET, и т.д.).</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>action</code></tt></td>
+<td>Действие текущей формы.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

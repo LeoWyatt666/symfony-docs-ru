@@ -1,0 +1,536 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Поле BirthdayType &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\..\index.html">
+
+<link rel="stylesheet" href="..\..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="reference doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\..\index.html">
+                    <img src="..\..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Поле BirthdayType</a><ul>
+<li><a class="reference internal" href="#id1">Переопределённые опции</a><ul>
+<li><a class="reference internal" href="#years">years</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">Наследуемые опции</a><ul>
+<li><a class="reference internal" href="#choice-translation-domain">choice_translation_domain</a></li>
+<li><a class="reference internal" href="#days">days</a></li>
+<li><a class="reference internal" href="#placeholder">placeholder</a></li>
+<li><a class="reference internal" href="#format">format</a></li>
+<li><a class="reference internal" href="#input">input</a></li>
+<li><a class="reference internal" href="#model-timezone">model_timezone</a></li>
+<li><a class="reference internal" href="#months">months</a></li>
+<li><a class="reference internal" href="#view-timezone">view_timezone</a></li>
+<li><a class="reference internal" href="#widget">widget</a></li>
+<li><a class="reference internal" href="#data">data</a></li>
+<li><a class="reference internal" href="#disabled">disabled</a></li>
+<li><a class="reference internal" href="#inherit-data">inherit_data</a></li>
+<li><a class="reference internal" href="#invalid-message">invalid_message</a></li>
+<li><a class="reference internal" href="#invalid-message-parameters">invalid_message_parameters</a></li>
+<li><a class="reference internal" href="#mapped">mapped</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\..\index.html">Документация</a></li>
+                
+                <li class="active">Поле BirthdayType</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="birthdaytype">
+<span id="index-0"></span><h1>Поле BirthdayType<a class="headerlink" href="#birthdaytype" title="Permalink to this headline">¶</a></h1>
+<p>Поле <a class="reference internal" href="date.html"><em>DateType</em></a>, которое специализируется на
+работе с данными о дате рождения.</p>
+<p>Может быть отображено, как одно текстовое поле, три текстовых поля (месяц,
+день и год) или три поля выбора.</p>
+<p>Этот тип по сути такой же, как и тип <a class="reference internal" href="date.html"><em>DateType</em></a>,
+но с более правильным значением по умолчанию для опции <a class="reference internal" href="#years">years</a>. Опция <a class="reference internal" href="#years">years</a>
+по умолчанию равняется 120 годам назад от текущего года.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%">
+<col width="77%">
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Основоположный тип
+данных</td>
+<td>может быть <tt class="docutils literal"><code>DateTime</code></tt>, <tt class="docutils literal"><code>string</code></tt>, <tt class="docutils literal"><code>timestamp</code></tt>, или <tt class="docutils literal"><code>array</code></tt>
+(см. <a class="reference internal" href="date.html#form-reference-date-input"><span>опцию ввода</span></a>)</td>
+</tr>
+<tr class="row-even"><td>Отображается как</td>
+<td>три поля выбора, 1 или 3 текстовых поля, основываясь на опции <a class="reference internal" href="#widget">widget</a></td>
+</tr>
+<tr class="row-odd"><td>Переопределённые опции</td>
+<td><ul class="first last simple">
+<li><a class="reference internal" href="#years">years</a></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>Наследуемые опции</td>
+<td><p class="first">из <a class="reference internal" href="date.html"><em>DateType</em></a>:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#choice-translation-domain">choice_translation_domain</a></li>
+<li><a class="reference internal" href="#days">days</a></li>
+<li><a class="reference internal" href="#placeholder">placeholder</a></li>
+<li><a class="reference internal" href="#format">format</a></li>
+<li><a class="reference internal" href="#input">input</a></li>
+<li><a class="reference internal" href="#model-timezone">model_timezone</a></li>
+<li><a class="reference internal" href="#months">months</a></li>
+<li><a class="reference internal" href="#view-timezone">view_timezone</a></li>
+<li><a class="reference internal" href="#widget">widget</a></li>
+</ul>
+<p>из <a class="reference internal" href="form.html"><em>FormType</em></a>:</p>
+<ul class="last simple">
+<li><a class="reference internal" href="#data">data</a></li>
+<li><a class="reference internal" href="#disabled">disabled</a></li>
+<li><a class="reference internal" href="#inherit-data">inherit_data</a></li>
+<li><a class="reference internal" href="#invalid-message">invalid_message</a></li>
+<li><a class="reference internal" href="#invalid-message-parameters">invalid_message_parameters</a></li>
+<li><a class="reference internal" href="#mapped">mapped</a></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>Тип родителя</td>
+<td><a class="reference internal" href="date.html"><em>DateType</em></a></td>
+</tr>
+<tr class="row-even"><td>Класс</td>
+<td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Form/Extension/Core/Type/BirthdayType.html" title="Symfony\Component\Form\Extension\Core\Type\BirthdayType">BirthdayType</a></code></tt></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>Переопределённые опции<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="years">
+<h3>years<a class="headerlink" href="#years" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: 120 лет назад от текущего года</p>
+<p>Список годов, доступных в типе поля год. Эта опция имеет значение только
+когда опция <tt class="docutils literal"><code>widget</code></tt> установлена, как <tt class="docutils literal"><code>choice</code></tt>.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Наследуемые опции<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Эти опции наследуются из <a class="reference internal" href="date.html"><em>DateType</em></a>:</p>
+<div class="section" id="choice-translation-domain">
+<h3>choice_translation_domain<a class="headerlink" href="#choice-translation-domain" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt>, <tt class="docutils literal"><code>boolean</code></tt> or <tt class="docutils literal"><code>null</code></tt></p>
+<p>This option determines if the choice values should be translated and in which
+translation domain.</p>
+<p>The values of the <tt class="docutils literal"><code>choice_translation_domain</code></tt> option can be <tt class="docutils literal"><code>true</code></tt> (reuse the current
+translation domain), <tt class="docutils literal"><code>false</code></tt> (disable translation), <tt class="docutils literal"><code>null</code></tt> (uses the parent translation
+domain or the default domain) or a string which represents the exact translation
+domain to use.</p>
+</div>
+<div class="section" id="days">
+<h3>days<a class="headerlink" href="#days" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>default</strong>: 1 to 31</p>
+<p>List of days available to the day field type. This option is only relevant
+when the <tt class="docutils literal"><code>widget</code></tt> option is set to <tt class="docutils literal"><code>choice</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="s1">&#39;days&#39;</span> <span class="o">=&gt;</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">31</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="placeholder">
+<h3>placeholder<a class="headerlink" href="#placeholder" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> | <tt class="docutils literal"><code>array</code></tt></p>
+<p>Если ваша оцпия виджета установлена, как <tt class="docutils literal"><code>choice</code></tt>, то это поле будет представлено
+как набор полей выбора <tt class="docutils literal"><code>select</code></tt>. Когда значение заполнителя является строкой, оно
+будет использовано в качестве <strong>пустого значения</strong> всех полей выбора:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;birthdate&#39;</span><span class="p">,</span> <span class="nx">BirthdayType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;placeholder&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Select a value&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Как вариант, вы можете использовать массив, который конфигурирует разные
+значения заполнителей для полей года, месяца и дня:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;birthdate&#39;</span><span class="p">,</span> <span class="nx">BirthdayType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;placeholder&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;year&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Day&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="format">
+<h3>format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>integer</code></tt> or <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: <a class="reference external" href="https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants">IntlDateFormatter::MEDIUM</a>
+(or <tt class="docutils literal"><code>yyyy-MM-dd</code></tt> if <a class="reference internal" href="#widget">widget</a> is <tt class="docutils literal"><code>single_text</code></tt>)</p>
+<p>Option passed to the <tt class="docutils literal"><code>IntlDateFormatter</code></tt> class, used to transform user
+input into the proper format. This is critical when the <a class="reference internal" href="#widget">widget</a> option
+is set to <tt class="docutils literal"><code>single_text</code></tt> and will define how the user will input the data.
+By default, the format is determined based on the current user locale: meaning
+that <em>the expected format will be different for different users</em>. You can
+override it by passing the format as a string.</p>
+<p>For more information on valid formats, see <a class="reference external" href="http://userguide.icu-project.org/formatparse/datetime#TOC-Date-Time-Format-Syntax">Date/Time Format Syntax</a>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\DateType</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;date_created&#39;</span><span class="p">,</span> <span class="nx">DateType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;widget&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;single_text&#39;</span><span class="p">,</span>
+    <span class="c1">// this is actually the default format for single_text</span>
+    <span class="s1">&#39;format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;yyyy-MM-dd&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you want your field to be rendered as an HTML5 &quot;date&quot; field, you
+have to use a <tt class="docutils literal"><code>single_text</code></tt> widget with the <tt class="docutils literal"><code>yyyy-MM-dd</code></tt> format
+(the <a class="reference external" href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format) which is the default value if you use the
+<tt class="docutils literal"><code>single_text</code></tt> widget.</p>
+</div></div>
+</div>
+<div class="section" id="input">
+<h3>input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>datetime</code></tt></p>
+<p>The format of the <em>input</em> data - i.e. the format that the date is stored
+on your underlying object. Valid values are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>string</code></tt> (e.g. <tt class="docutils literal"><code>2011-06-05</code></tt>)</li>
+<li><tt class="docutils literal"><code>datetime</code></tt> (a <tt class="docutils literal"><code>DateTime</code></tt> object)</li>
+<li><tt class="docutils literal"><code>datetime_immutable</code></tt> (a <tt class="docutils literal"><code>DateTimeImmutable</code></tt> object)</li>
+<li><tt class="docutils literal"><code>array</code></tt> (e.g. <tt class="docutils literal"><code>array('year' =&gt; 2011, 'month' =&gt; 06, 'day' =&gt; 05)</code></tt>)</li>
+<li><tt class="docutils literal"><code>timestamp</code></tt> (e.g. <tt class="docutils literal"><code>1307232000</code></tt>)</li>
+</ul>
+<p>The value that comes back from the form will also be normalized back into
+this format.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">If <tt class="docutils literal"><code>timestamp</code></tt> is used, <tt class="docutils literal"><code>DateType</code></tt> is limited to dates between
+Fri, 13 Dec 1901 20:45:54 GMT and Tue, 19 Jan 2038 03:14:07 GMT on 32bit
+systems. This is due to a <a class="reference external" href="https://php.net/manual/en/function.date.php#refsect1-function.date-changelog">limitation in PHP itself</a>.</p>
+</div></div>
+</div>
+<div class="section" id="model-timezone">
+<h3>model_timezone<a class="headerlink" href="#model-timezone" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: system default timezone</p>
+<p>Timezone that the input data is stored in. This must be one of the
+<a class="reference external" href="https://php.net/manual/en/timezones.php">PHP supported timezones</a>.</p>
+</div>
+<div class="section" id="months">
+<h3>months<a class="headerlink" href="#months" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>default</strong>: 1 to 12</p>
+<p>List of months available to the month field type. This option is only relevant
+when the <tt class="docutils literal"><code>widget</code></tt> option is set to <tt class="docutils literal"><code>choice</code></tt>.</p>
+</div>
+<div class="section" id="view-timezone">
+<h3>view_timezone<a class="headerlink" href="#view-timezone" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: system default timezone</p>
+<p>Timezone for how the data should be shown to the user (and therefore also
+the data that the user submits). This must be one of the
+<a class="reference external" href="https://php.net/manual/en/timezones.php">PHP supported timezones</a>.</p>
+</div>
+<div class="section" id="widget">
+<h3>widget<a class="headerlink" href="#widget" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>choice</code></tt></p>
+<p>The basic way in which this field should be rendered. Can be one of the
+following:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>choice</code></tt>: renders three select inputs. The order of the selects is defined
+in the <a class="reference internal" href="#format">format</a> option.</li>
+<li><tt class="docutils literal"><code>text</code></tt>: renders a three field input of type <tt class="docutils literal"><code>text</code></tt> (month, day, year).</li>
+<li><tt class="docutils literal"><code>single_text</code></tt>: renders a single input of type <tt class="docutils literal"><code>date</code></tt>. User's input
+is validated based on the <a class="reference internal" href="#format">format</a> option.</li>
+</ul>
+<p>Эти опции наследуются из <a class="reference internal" href="form.html"><em>FormType</em></a>:</p>
+</div>
+<div class="section" id="data">
+<h3>data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>mixed</code></tt> <strong>default</strong>: Defaults to field of the underlying structure.</p>
+<p>When you create a form, each field initially displays the value of the
+corresponding property of the form's domain data (e.g. if you bind an object to
+the form). If you want to override this initial value for the form or
+an individual field, you can set it in the data option:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\HiddenType</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">,</span> <span class="nx">HiddenType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;data&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">The <tt class="docutils literal"><code>data</code></tt> option <em>always</em> overrides the value taken from the domain data
+(object) when rendering. This means the object value is also overriden when
+the form edits an already persisted object, causing it to lose its
+persisted value when the form is submitted.</p>
+</div></div>
+</div>
+<div class="section" id="disabled">
+<h3>disabled<a class="headerlink" href="#disabled" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>boolean</code></tt>  <strong>default</strong>: <tt class="docutils literal"><code>false</code></tt></p>
+<p>If you don't want a user to modify the value of a field, you can set the
+disabled option to true. Any submitted value will be ignored.</p>
+</div>
+<div class="section" id="inherit-data">
+<h3>inherit_data<a class="headerlink" href="#inherit-data" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>false</code></tt></p>
+<p>This option determines if the form will inherit data from its parent form.
+This can be useful if you have a set of fields that are duplicated across
+multiple forms. See <a class="reference internal" href="..\..\..\form\inherit_data_option.html"><em>How to Reduce Code Duplication with &quot;inherit_data&quot;</em></a>.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">When a field has the <tt class="docutils literal"><code>inherit_data</code></tt> option set, it uses the data of
+the parent form as is. This means that
+<a class="reference internal" href="..\..\..\form\data_transformers.html"><em>Data Transformers</em></a> won't be
+applied to that field.</p>
+</div></div>
+</div>
+<div class="section" id="invalid-message">
+<h3>invalid_message<a class="headerlink" href="#invalid-message" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>This value is not valid</code></tt></p>
+<p>This is the validation error message that's used if the data entered into
+this field doesn't make sense (i.e. fails validation).</p>
+<p>This might happen, for example, if the user enters a nonsense string into
+a <a class="reference internal" href="time.html"><em>TimeType</em></a> field that cannot be converted
+into a real time or if the user enters a string (e.g. <tt class="docutils literal"><code>apple</code></tt>) into a
+number field.</p>
+<p>Normal (business logic) validation (such as when setting a minimum length
+for a field) should be set using validation messages with your validation
+rules (<a class="reference internal" href="..\..\..\validation.html#validation-constraint-configuration"><span>reference</span></a>).</p>
+</div>
+<div class="section" id="invalid-message-parameters">
+<h3>invalid_message_parameters<a class="headerlink" href="#invalid-message-parameters" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>array()</code></tt></p>
+<p>When setting the <tt class="docutils literal"><code>invalid_message</code></tt> option, you may need to
+include some variables in the string. This can be done by adding placeholders
+to that option and including the variables in this option:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;some_field&#39;</span><span class="p">,</span> <span class="nx">SomeFormType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+    <span class="s1">&#39;invalid_message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;You entered an invalid value, it should include %num% letters&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;invalid_message_parameters&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;%num%&#39;</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="mapped">
+<h3>mapped<a class="headerlink" href="#mapped" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>boolean</code></tt>  <strong>default</strong>: <tt class="docutils literal"><code>true</code></tt></p>
+<p>If you wish the field to be ignored when reading or writing to the object,
+you can set the <tt class="docutils literal"><code>mapped</code></tt> option to <tt class="docutils literal"><code>false</code></tt>.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

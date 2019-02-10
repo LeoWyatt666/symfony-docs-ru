@@ -1,0 +1,486 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как использовать несколько поставщиков пользователей &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Security Component" href="..\components\security.html">
+    <link rel="next" title="Как динамически выбирать алогоритм кодировщика пароля" href="named_encoders-ru.html">
+    <link rel="prev" title="Как использовать несколько аутентификаторов защиты" href="multiple_guard_authenticators-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="security doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как использовать несколько поставщиков пользователей</a></li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\components\index.html">The Components</a></li>
+                
+                <li><a href="../components/index-ru.html">The Components</a></li>
+                
+                <li><a href="..\components\security.html">The Security Component</a></li>
+                
+                <li class="active">Как использовать несколько поставщиков пользователей</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>Как использовать несколько поставщиков пользователей<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Каждый механизм аутентификации (например, HTTP-аутентификация, форма входа
+в систему и т.д.) использует только одного поставщика пользователя и будет
+использовать первого объявленного поставщика пользователя по умолчанию. Но
+что, если вы хотите указать несколько пользователей через конфигурацию, а
+остальных ваших пользователей в БД? Это возможно, если создать нового поставщика,
+который свяжет конфигурацию и базу данных:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/security.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">providers</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">chain_provider</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">chain</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">providers</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">in_memory</span><span class="p p-Indicator">,</span> <span class="nv">user_db</span><span class="p p-Indicator">]</span>
+        <span class="l l-Scalar l-Scalar-Plain">in_memory</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">memory</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">users</span><span class="p p-Indicator">:</span>
+                    <span class="l l-Scalar l-Scalar-Plain">foo</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">password</span><span class="p p-Indicator">:</span> <span class="nv">test</span> <span class="p p-Indicator">}</span>
+        <span class="l l-Scalar l-Scalar-Plain">user_db</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">entity</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">class</span><span class="p p-Indicator">:</span> <span class="nv">AppBundle\Entity\User</span><span class="p p-Indicator">,</span> <span class="nv">property</span><span class="p p-Indicator">:</span> <span class="nv">username</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;config&gt;</span>
+        <span class="nt">&lt;provider</span> <span class="na">name=</span><span class="s">&quot;chain_provider&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;chain&gt;</span>
+                <span class="nt">&lt;provider&gt;</span>in_memory<span class="nt">&lt;/provider&gt;</span>
+                <span class="nt">&lt;provider&gt;</span>user_db<span class="nt">&lt;/provider&gt;</span>
+            <span class="nt">&lt;/chain&gt;</span>
+        <span class="nt">&lt;/provider&gt;</span>
+
+        <span class="nt">&lt;provider</span> <span class="na">name=</span><span class="s">&quot;in_memory&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;memory&gt;</span>
+                <span class="nt">&lt;user</span> <span class="na">name=</span><span class="s">&quot;foo&quot;</span> <span class="na">password=</span><span class="s">&quot;test&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/memory&gt;</span>
+        <span class="nt">&lt;/provider&gt;</span>
+
+        <span class="nt">&lt;provider</span> <span class="na">name=</span><span class="s">&quot;user_db&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;entity</span> <span class="na">class=</span><span class="s">&quot;AppBundle\Entity\User&quot;</span> <span class="na">property=</span><span class="s">&quot;username&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/provider&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/security.php</span>
+<span class="k">use</span> <span class="nx">AppBundle\Entity\User</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;providers&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;chain_provider&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;chain&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;providers&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;in_memory&#39;</span><span class="p">,</span> <span class="s1">&#39;user_db&#39;</span><span class="p">),</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;in_memory&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;memory&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+               <span class="s1">&#39;users&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                   <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;test&#39;</span><span class="p">),</span>
+               <span class="p">),</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;user_db&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;entity&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;class&#39;</span>    <span class="o">=&gt;</span> <span class="nx">User</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+                <span class="s1">&#39;property&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Теперь все механизмы аутентификации будут использовать <tt class="docutils literal"><code>chain_provider</code></tt>,
+так как он указан первым. <tt class="docutils literal"><code>chain_provider</code></tt> в свою очередь будет пробовать
+загрузить пользователя из поставщиков <tt class="docutils literal"><code>in_memory</code></tt> и <tt class="docutils literal"><code>user_db</code></tt>.</p>
+<p>Вы также можете сконфигурировать брандмауэр или индивидуальные механизмы
+аутентификации, чтобы они использовали конкретного поставщика. Опять же,
+если поставщик не указан ясно, то всегда будет испльзоваться первый:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/security.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">firewalls</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">secured_area</span><span class="p p-Indicator">:</span>
+            <span class="c1"># ...</span>
+            <span class="l l-Scalar l-Scalar-Plain">pattern</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">^/</span>
+            <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">user_db</span>
+            <span class="l l-Scalar l-Scalar-Plain">http_basic</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">realm</span><span class="p p-Indicator">:</span> <span class="s">&#39;Secured</span><span class="nv"> </span><span class="s">Demo</span><span class="nv"> </span><span class="s">Area&#39;</span>
+                <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">in_memory</span>
+            <span class="l l-Scalar l-Scalar-Plain">form_login</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;config&gt;</span>
+        <span class="nt">&lt;firewall</span> <span class="na">name=</span><span class="s">&quot;secured_area&quot;</span> <span class="na">pattern=</span><span class="s">&quot;^/&quot;</span> <span class="na">provider=</span><span class="s">&quot;user_db&quot;</span><span class="nt">&gt;</span>
+            <span class="c">&lt;!-- ... --&gt;</span>
+            <span class="nt">&lt;http-basic</span> <span class="na">realm=</span><span class="s">&quot;Secured Demo Area&quot;</span> <span class="na">provider=</span><span class="s">&quot;in_memory&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;form-login</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/firewall&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/security.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;firewalls&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;secured_area&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="c1">// ...</span>
+            <span class="s1">&#39;pattern&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;^/&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;provider&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;user_db&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;http_basic&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="c1">// ...</span>
+                <span class="s1">&#39;realm&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Secured Demo Area&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;provider&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;in_memory&#39;</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="s1">&#39;form_login&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(),</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>В этом примере, если пользователь пытается выполнить вход через HTTP-аутентификацию,
+то система аутентификации будет использовать поставщика пользователя <tt class="docutils literal"><code>in_memory</code></tt>.
+Но если пользователь пытается выполнить вход через форму входа, то будет использован
+поставщик <tt class="docutils literal"><code>user_db</code></tt> (так как он установлен по умолчаню для всего брандмауэра).</p>
+<p>Чтобы узнать больше информации о поставщиках пользователей и конфигурации
+брандмауэра, смотрите <a class="reference internal" href="..\reference\configuration\security.html"><em>Security Configuration Reference (SecurityBundle)</em></a>.</p>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="multiple_guard_authenticators-ru.html">« Как использовать несколько аутентификаторов защиты</a>
+                <span class="separator">|</span>
+                <a href="named_encoders-ru.html">Как динамически выбирать алогоритм кодировщика пароля »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

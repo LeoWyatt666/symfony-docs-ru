@@ -1,0 +1,915 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как использовать преобразователи данных &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Forms" href="..\forms.html">
+    <link rel="next" title="How to Use the submit() Function to Handle Form Submissions" href="direct_submit.html">
+    <link rel="prev" title="How to Use Data Transformers" href="data_transformers.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="form doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как использовать преобразователи данных</a><ul>
+<li><a class="reference internal" href="#simple-example-sanitizing-html-on-user-input-ru">Простой пример: Преобразование строковых тегов из ввода пользователя в массив</a></li>
+<li><a class="reference internal" href="#id3">Более сложный пример: Преобразование номера проблемы в сущность проблемы</a><ul>
+<li><a class="reference internal" href="#id4">Создание преобразователя</a></li>
+<li><a class="reference internal" href="#id5">Использование преобразователя</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#issue-selector">Создание повторно используемого поля issue_selector</a></li>
+<li><a class="reference internal" href="#model-and-view-transformers-ru">О преобразователях модели и просмотра</a></li>
+<li><a class="reference internal" href="#id7">Так зачем использовать преобразователь модели?</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\forms.html">Forms</a></li>
+                
+                <li class="active">Как использовать преобразователи данных</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как использовать преобразователи данных<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Преобразователи данных используются для перевода данных для поля в формат, который
+может быть отображён в форме (и обратно при отправке). Они уже используются внутренне
+для многих типов полей. Например, поле <a class="reference internal" href="..\reference\forms\types\date.html"><em>DateType</em></a>
+может быть отображено в виде текстового ввода формата <tt class="docutils literal"><code>yyyy-MM-dd</code></tt>. Внутренне, преобразователь
+данных конвертирует начальное значение поля <tt class="docutils literal"><code>DateTime</code></tt> в строку <tt class="docutils literal"><code>yyyy-MM-dd</code></tt>, чтобы
+отобразить форму, а потом обратно в объект <tt class="docutils literal"><code>DateTime</code></tt> при отправке.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Если в поле формы установлена опция <tt class="docutils literal"><code>inherit_data</code></tt>, преобразователи данных
+не будут применены к такому полю.</p>
+</div></div>
+<div class="section" id="simple-example-sanitizing-html-on-user-input-ru">
+<span id="id2"></span><h2>Простой пример: Преобразование строковых тегов из ввода пользователя в массив<a class="headerlink" href="#simple-example-sanitizing-html-on-user-input-ru" title="Permalink to this headline">¶</a></h2>
+<p>Представьте, что у вас есть форма задачи (task) с типом тегов <tt class="docutils literal"><code>text</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/Type/TaskType.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form\Type</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Entity\Task</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormBuilderInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\OptionsResolver\OptionsResolver</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextType</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">TaskType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;data_class&#39;</span> <span class="o">=&gt;</span> <span class="nx">Task</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Внутренне, <tt class="docutils literal"><code>tags</code></tt> хранятся в этом массиве, но отображаются пользователю, как обычная
+строка, разделяемая запятой, чтобы облегчить их редактирование.</p>
+<p>Это <em>идеальное</em> время, чтобы присоединить пользовательский преобразователь данных к
+полю <tt class="docutils literal"><code>tags</code></tt>. Легчевсего это сделать с помощью класса <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Form/CallbackTransformer.html" title="Symfony\Component\Form\CallbackTransformer">CallbackTransformer</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/Type/TaskType.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form\Type</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\CallbackTransformer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormBuilderInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextType</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="k">class</span> <span class="nc">TaskType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">addModelTransformer</span><span class="p">(</span><span class="k">new</span> <span class="nx">CallbackTransformer</span><span class="p">(</span>
+                <span class="k">function</span> <span class="p">(</span><span class="nv">$tagsAsArray</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="c1">// преобразовать массив в строку</span>
+                    <span class="k">return</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">,</span> <span class="nv">$tagsAsArray</span><span class="p">);</span>
+                <span class="p">},</span>
+                <span class="k">function</span> <span class="p">(</span><span class="nv">$tagsAsString</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="c1">// преобразовать строку обратно в массив</span>
+                    <span class="k">return</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">,</span> <span class="nv">$tagsAsString</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">))</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p><tt class="docutils literal"><code>CallbackTransformer</code></tt> берёт две функции обратного вызова в качестве аргументов.
+Первый преобразует первоначальное значение в формат, который будет использован для
+отображения поля. Второй делает обратное - он преобразует отправленное значение
+обратно в формат, который вы увидите в своём коде.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Метод <tt class="docutils literal"><code>addModelTransformer()</code></tt> принимает <em>любой</em> объект, который реализует
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Form/DataTransformerInterface.html" title="Symfony\Component\Form\DataTransformerInterface">DataTransformerInterface</a></code></tt> - так что вы можете
+создать ваши собственные классы, вместо того, чтобы вставлять всю логику в форму
+(смотрите следующий раздел).</p>
+</div></div>
+<p>Вы также можете добавить преобразователь во время добавления поля, слегка изменив формат:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextType</span><span class="p">;</span>
+
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span>
+    <span class="nv">$builder</span>
+        <span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">addModelTransformer</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id3">
+<h2>Более сложный пример: Преобразование номера проблемы в сущность проблемы<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Скажем, у вас есть отношение многие-к-одному между сущностью Задачи (task) и сущностью
+Проблемы (issue) (т.е. каждая задача имеет необязательный внешний ключ к относящейся к
+ней проблеме). Добавление окна списка со всеми возможными проблемами может быть <em>очень</em>
+долгим и долго загружаться. Вместо этого, вы рашаете, что вы хотите добавить текстовое
+окно, где пользователь может просто вводить номер проблемы.</p>
+<p>Начните с установки текстового поля, как обычно:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/Type/TaskType.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form\Type</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Entity\Task</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextareaType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextType</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">TaskType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="nx">TextareaType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;issue&#39;</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;data_class&#39;</span> <span class="o">=&gt;</span> <span class="nx">Task</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Хорошее начало! Но если бы вы остановились здесь и отправили форму, то свойство
+задачи <tt class="docutils literal"><code>issue</code></tt> было бы строкой (например, &quot;55&quot;). Как вы можете преобразовать это
+в сущность <tt class="docutils literal"><code>Issue</code></tt> при отправке?</p>
+<div class="section" id="id4">
+<h3>Создание преобразователя<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Вы можете использовать <tt class="docutils literal"><code>CallbackTransformer</code></tt>, как ранее. Но так как это немного сложнее,
+создание нового класса преобразователя будет упрощать класс формы <tt class="docutils literal"><code>TaskType</code></tt>.</p>
+<p>Создайте класс <tt class="docutils literal"><code>IssueToNumberTransformer</code></tt>: он будет отвечать за конвертирование из номера
+проблемы в объект <tt class="docutils literal"><code>Issue</code></tt> и наоборот:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/DataTransformer/IssueToNumberTransformer.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form\DataTransformer</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Entity\Issue</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\ORM\EntityManagerInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\DataTransformerInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Exception\TransformationFailedException</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">IssueToNumberTransformer</span> <span class="k">implements</span> <span class="nx">DataTransformerInterface</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$em</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">EntityManagerInterface</span> <span class="nv">$em</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">em</span> <span class="o">=</span> <span class="nv">$em</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Трансформирует объект (проблему) в строку (цифру).</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param  Issue|null $issue</span>
+<span class="sd">     * @return строку</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">transform</span><span class="p">(</span><span class="nv">$issue</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">null</span> <span class="o">===</span> <span class="nv">$issue</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$issue</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Transforms a string (number) to an object (issue).</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param  string $issueNumber</span>
+<span class="sd">     * @return Issue|null</span>
+<span class="sd">     * @throws TransformationFailedException if object (issue) is not found.</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">reverseTransform</span><span class="p">(</span><span class="nv">$issueNumber</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// нет номера проблемы? Это необязательно, так что всё хорошо</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$issueNumber</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$issue</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">em</span>
+            <span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="s1">&#39;AppBundle:Issue&#39;</span><span class="p">)</span>
+            <span class="c1">// запрос проблемы по этому id</span>
+            <span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$issueNumber</span><span class="p">)</span>
+        <span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="k">null</span> <span class="o">===</span> <span class="nv">$issue</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// вызывает ошибку валидации</span>
+            <span class="c1">// это сообщение не отображается пользователю</span>
+            <span class="c1">// смотрите опцию invalid_message</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">TransformationFailedException</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span>
+                <span class="s1">&#39;An issue with number &quot;%s&quot; does not exist!&#39;</span><span class="p">,</span>
+                <span class="nv">$issueNumber</span>
+            <span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$issue</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Так же. как и в первом примере, преобразователь имеет два направления. Метод
+<tt class="docutils literal"><code>transform()</code></tt> отвечает за конвертирование данных, используемых в вашем коде,
+в формат, который может быть отображён в вашей форме (например, объект <tt class="docutils literal"><code>Issue</code></tt>
+в строку <tt class="docutils literal"><code>id</code></tt>). Метод <tt class="docutils literal"><code>reverseTransform()</code></tt> делает обратное: он конвертирует
+отправленные данные обратно в формат, который вы хотите (например, конвертирует
+<tt class="docutils literal"><code>id</code></tt> обратно в объект <tt class="docutils literal"><code>Issue</code></tt>).</p>
+<p>Чтобы вызвать ошибку валидации, используйте <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Form/Exception/TransformationFailedException.html" title="Symfony\Component\Form\Exception\TransformationFailedException">TransformationFailedException</a></code></tt>.
+Но сообщение, которое вы передаёте этому исключению, не будет отображено пользователю.
+Вы установите это сообщение с помощью опции <tt class="docutils literal"><code>invalid_message</code></tt> (см. ниже).</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Когда методу <tt class="docutils literal"><code>transform()</code></tt> передаётся <tt class="docutils literal"><code>null</code></tt>, ваш преобразователь должен
+вернуть эквивалентное значение типа, в который он трансформирует (например,
+пустую строку, 0 для целых чисел или 0.0 для плавающих).</p>
+</div></div>
+</div>
+<div class="section" id="id5">
+<h3>Использование преобразователя<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Далее вам нужно использовать объект <tt class="docutils literal"><code>IssueToNumberTransformer</code></tt> внутри <tt class="docutils literal"><code>TaskType</code></tt>,
+и добаивть его в поле <tt class="docutils literal"><code>issue</code></tt>. Не проблема! Просто добавьте метод <tt class="docutils literal"><code>__construct()</code></tt>
+и типизируйте новый класс:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/Type/TaskType.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form\Type</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Form\DataTransformer\IssueToNumberTransformer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextareaType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextType</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">TaskType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$transformer</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">IssueToNumberTransformer</span> <span class="nv">$transformer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">transformer</span> <span class="o">=</span> <span class="nv">$transformer</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="nx">TextareaType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;issue&#39;</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                <span class="c1">// validation message if the data transformer fails</span>
+                <span class="s1">&#39;invalid_message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;That is not a valid issue number&#39;</span><span class="p">,</span>
+            <span class="p">));</span>
+
+        <span class="c1">// ...</span>
+
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;issue&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">addModelTransformer</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">transformer</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и всё! Если вы используете <a class="reference internal" href="..\service_container.html#services-autowire"><span>автомонтирование</span></a> и
+<a class="reference internal" href="..\service_container.html#services-autoconfigure"><span>автоконфигурацию</span></a>, Symfony автоматически будет
+передавать вашему <tt class="docutils literal"><code>TaskType</code></tt> экземпляр <tt class="docutils literal"><code>IssueToNumberTransformer</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Чтобы узнать больше об определении типов форм в качестве сервисов,
+прочтите <a class="reference internal" href="form_dependencies.html"><em>регистрация вашего типа формы, как сервиса</em></a>.</p>
+</div></div>
+<p>Теперь вы с лёгкостью можете использовать ваш <tt class="docutils literal"><code>TaskType</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// например, где-то в контроллере</span>
+<span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createForm</span><span class="p">(</span><span class="nx">TaskType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nv">$task</span><span class="p">);</span>
+
+<span class="c1">// ...</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Супер, вы закончили! Ваш пользователь будет иметь возможность ввести номер
+проблемы в текстовое поле и он будет преобразован в объект проблемы (issue).
+Это означает, что после успешной отправки, компонент формы передаст <tt class="docutils literal"><code>Task::setIssue()</code></tt>
+настоящий объект <tt class="docutils literal"><code>Issue</code></tt> вместо номера проблемы.</p>
+<p>Если проблема не будет найдена, для этого поля будет создана ошибка формы;
+сообщение об ошибке можно контролировать с помощью опции поля <tt class="docutils literal"><code>invalid_message</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p>Юудьте осторожны при добавлении собственных преобразователей. Например, следующее
+<strong>неправильно</strong>, так как преобразователь будет применён ко всей форме, вместо одного
+поля:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ЭТО НЕПРАВИЛЬНО - ПРЕОБРАЗОВАТЕЛЬ БУДЕТ ПРИМЕНЁН КО ВСЕЙ ФОРМЕ</span>
+<span class="c1">// см. пример выше для правильного кода</span>
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;issue&#39;</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addModelTransformer</span><span class="p">(</span><span class="nv">$transformer</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+</div>
+</div>
+<div class="section" id="issue-selector">
+<span id="using-transformers-in-a-custom-field-type-ru"></span><h2>Создание повторно используемого поля issue_selector<a class="headerlink" href="#issue-selector" title="Permalink to this headline">¶</a></h2>
+<p>В примере выше, вы применяли преобразователь к нормальному полю <tt class="docutils literal"><code>text</code></tt>. Но
+если вы часто делаете это преобразование, то может быть лучше
+<a class="reference internal" href="create_custom_field_type.html"><em>создать пользовательский тип поля</em></a>. который
+делает это автоматически.</p>
+<p>Для начала, создайте пользовательский класс типа поля:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/IssueSelectorType.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Form\DataTransformer\IssueToNumberTransformer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\Common\Persistence\ObjectManager</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\AbstractType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormBuilderInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\OptionsResolver\OptionsResolver</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">IssueSelectorType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$transformer</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">IssueToNumberTransformer</span> <span class="nv">$transformer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">transformer</span> <span class="o">=</span> <span class="nv">$transformer</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">addModelTransformer</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">transformer</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;invalid_message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;The selected issue does not exist&#39;</span><span class="p">,</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getParent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Отлично! Он будет действоваь и отображать, как текстовое поле (<tt class="docutils literal"><code>getParent()</code></tt>), но будет
+автоматически иметь преобразователь данных <em>и</em> хорошее значение по умолчанию для опции
+<tt class="docutils literal"><code>invalid_message</code></tt>.</p>
+<p>Если вы используете <a class="reference internal" href="..\service_container.html#services-autowire"><span>автомонтирование</span></a> и
+<a class="reference internal" href="..\service_container.html#services-autoconfigure"><span>автоконфигурацию</span></a>, вы можете незамедлительно начать
+использование формы:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/Type/TaskType.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form\Type</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Form\DataTransformer\IssueToNumberTransformer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextareaType</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="k">class</span> <span class="nc">TaskType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="nx">TextareaType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;issue&#39;</span><span class="p">,</span> <span class="nx">IssueSelectorType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если вы не используете <tt class="docutils literal"><code>autowire</code></tt> и <tt class="docutils literal"><code>autoconfigure</code></tt>, смотрите
+<a class="reference internal" href="create_custom_field_type.html"><em>How to Create a Custom Form Field Type</em></a>, чтобы узнать, как сконфигурировать
+ваш новый <tt class="docutils literal"><code>IssueSelectorType</code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="model-and-view-transformers-ru">
+<span id="id6"></span><h2>О преобразователях модели и просмотра<a class="headerlink" href="#model-and-view-transformers-ru" title="Permalink to this headline">¶</a></h2>
+<p>В примере выше, преобразователь был использован как &quot;модель&quot;. На самом
+деле, существует два разных вида преобразователей и три разных типа
+лежащих в основе данных.</p>
+<img alt="../_images/data-transformer-types.png" class="align-center" src="..\_images\data-transformer-types.png">
+<p>В любой форме, три разных типа данных - это:</p>
+<ol class="arabic simple">
+<li><strong>Данные модели</strong> - Это данные в формате, используемом в вашем приложении (например,
+объект <tt class="docutils literal"><code>Issue</code></tt>). Если вы вызовете <tt class="docutils literal"><code>Form::getData()</code></tt> или <tt class="docutils literal"><code>Form::setData()</code></tt>, вы
+имеете дело с данными &quot;модели&quot;.</li>
+<li><strong>Данные нормы</strong> - Это нормализированная версия ваших данных и она зачастую
+совпадает с данными &quot;модели&quot; (но не в нашем примере). Обычно они не используются
+напрямую.</li>
+<li><strong>Данные просмотра</strong> - Это формат, который используется для заполнения самих
+полей формы. Это также формат, в котором пользователь будет отправлять данные.
+Когда вы вызываете <tt class="docutils literal"><code>Form::submit($data)</code></tt>, <tt class="docutils literal"><code>$data</code></tt> имеет формат данных &quot;просмотра&quot;.</li>
+</ol>
+<p>Два разных типа преобразователей помогают конвертировать из и в каждый из этих
+типов данных:</p>
+<dl class="docutils">
+<dt><strong>Преобразователи модели</strong>:</dt>
+<dd><ul class="first last simple">
+<li><tt class="docutils literal"><code>transform()</code></tt>: &quot;данные модели&quot; =&gt; &quot;данные нормы&quot;</li>
+<li><tt class="docutils literal"><code>reverseTransform()</code></tt>: &quot;данные нормы&quot; =&gt; &quot;данные модели&quot;</li>
+</ul>
+</dd>
+<dt><strong>Преобразователи просмотра</strong>:</dt>
+<dd><ul class="first last simple">
+<li><tt class="docutils literal"><code>transform()</code></tt>: &quot;данные нормы&quot; =&gt; &quot;данные просмотра&quot;</li>
+<li><tt class="docutils literal"><code>reverseTransform()</code></tt>: &quot;данные просмотра&quot; =&gt; &quot;данные нормы&quot;</li>
+</ul>
+</dd>
+</dl>
+<p>То, какой преобразователь вам нужен, зависит от ситуации.</p>
+<p>Чтобы использовать преобразователь просмотра, вызовите <tt class="docutils literal"><code>addViewTransformer()</code></tt>.</p>
+</div>
+<div class="section" id="id7">
+<h2>Так зачем использовать преобразователь модели?<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>В этом примере, поле - это поле <tt class="docutils literal"><code>text</code></tt>, а текстовое поле всегда должно быть
+простым скалярным форматом в форматах &quot;нормы&quot; и &quot;просмотра&quot;. По этой причине,
+наиболее подходящим преобразователем был преобразователь &quot;модели&quot; (который конвертирует
+из/в формата <em>нормы</em> - строки номера проблемы - в формат <em>модели</em> - объект проблемы).</p>
+<p>Разница между преобразователями тонкая, и вы всегда должны думать о том, какими
+на самом деле должны быть данные &quot;нормы&quot; для поля. Например, данные &quot;нормы&quot; для
+поля <tt class="docutils literal"><code>text</code></tt> - это строка, но для поля <tt class="docutils literal"><code>date</code></tt> - это объект <tt class="docutils literal"><code>DateTime</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">В качестве общего правила, нормализированные данные должны содержать максимально
+возможное количество информации.</p>
+</div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="data_transformers.html">« How to Use Data Transformers</a>
+                <span class="separator">|</span>
+                <a href="direct_submit.html">How to Use the submit() Function to Handle Form Submissions »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

@@ -1,0 +1,374 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Bootstrap 4 Form Theme &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Forms" href="..\forms.html">
+    <link rel="next" title="How to Choose Validation Groups Based on the Clicked Button" href="button_based_validation.html">
+    <link rel="prev" title="Как изменить действие и метод формы" href="action_method-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="form doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Bootstrap 4 Form Theme</a><ul>
+<li><a class="reference internal" href="#accessibility">Accessibility</a></li>
+<li><a class="reference internal" href="#custom-forms">Custom Forms</a></li>
+<li><a class="reference internal" href="#labels-and-errors">Labels and Errors</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\forms.html">Forms</a></li>
+                
+                <li class="active">Bootstrap 4 Form Theme</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="bootstrap-4-form-theme">
+<h1>Bootstrap 4 Form Theme<a class="headerlink" href="#bootstrap-4-form-theme" title="Permalink to this headline">¶</a></h1>
+<p>Symfony provides several ways of integrating Bootstrap into your application. The
+most straightforward way is to just add the required <tt class="docutils literal"><code>&lt;link&gt;</code></tt> and <tt class="docutils literal"><code>&lt;script&gt;</code></tt>
+elements in your templates (usually you only include them in the main layout
+template which other templates extend from):</p>
+<div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# templates/base.html.twig #}</span>
+
+<span class="c">{# beware that the blocks in your template may be named different #}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">head_css</span> <span class="cp">%}</span>
+    <span class="c">&lt;!-- Copy CSS from https://getbootstrap.com/docs/4.0/getting-started/introduction/#css --&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">head_js</span> <span class="cp">%}</span>
+    <span class="c">&lt;!-- Copy JavaScript from https://getbootstrap.com/docs/4.0/getting-started/introduction/#js --&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>If your application uses modern front-end practices, it's better to use
+<a class="reference internal" href="..\frontend.html"><em>Webpack Encore</em></a> and follow <a class="reference internal" href="..\frontend\encore\bootstrap.html"><em>this tutorial</em></a>
+to import Bootstrap's sources into your SCSS and JavaScript files.</p>
+<p>The next step is to configure the Symfony application to use Bootstrap 4 styles
+when rendering forms. If you want to apply them to all forms, define this
+configuration:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/twig.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">twig</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">form_themes</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;bootstrap_4_layout.html.twig&#39;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/twig.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:twig=</span><span class="s">&quot;http://symfony.com/schema/dic/twig&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/twig</span>
+<span class="s">        http://symfony.com/schema/dic/twig/twig-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;twig:config&gt;</span>
+        <span class="nt">&lt;twig:form-theme&gt;</span>bootstrap_4_layout.html.twig<span class="nt">&lt;/twig:form-theme&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;/twig:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/twig.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;twig&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;form_themes&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;bootstrap_4_layout.html.twig&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+
+    <span class="c1">// ...</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>If you prefer to apply the Bootstrap styles on a form to form basis, include the
+<tt class="docutils literal"><code>form_theme</code></tt> tag in the templates where those forms are used:</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# ... #}</span><span class="x"></span>
+<span class="c">{# this tag only applies to the forms defined in this template #}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">form_theme</span> <span class="nv">form</span> <span class="s1">&#39;bootstrap_4_layout.html.twig&#39;</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;h1&gt;User Sign Up:&lt;/h1&gt;</span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">form</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="accessibility">
+<h2>Accessibility<a class="headerlink" href="#accessibility" title="Permalink to this headline">¶</a></h2>
+<p>The Bootstrap 4 framework has done a good job making it accessible for functional
+variations like impaired vision and cognitive ability. Symfony has taken this one
+step further to make sure the form theme complies with the <a class="reference external" href="https://www.w3.org/TR/WCAG20/">WCAG 2.0 standard</a>.</p>
+<p>This does not mean that your entire website automatically complies with the full
+standard, but it does mean that you have come far in your work to create a design
+for <strong>all</strong> users.</p>
+</div>
+<div class="section" id="custom-forms">
+<h2>Custom Forms<a class="headerlink" href="#custom-forms" title="Permalink to this headline">¶</a></h2>
+<p>Bootstrap 4 has a feature called &quot;<a class="reference external" href="https://getbootstrap.com/docs/4.0/components/forms/#custom-forms">custom forms</a>&quot;. You can enable that on your
+Symfony Form <tt class="docutils literal"><code>RadioType</code></tt> and <tt class="docutils literal"><code>CheckboxType</code></tt> by adding a class called <tt class="docutils literal"><code>radio-custom</code></tt>
+and <tt class="docutils literal"><code>checkbox-custom</code></tt> respectively.</p>
+<div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.myRadio</span><span class="o">,</span> <span class="o">{</span><span class="nv">label_attr</span><span class="o">:</span> <span class="o">{</span><span class="nv">class</span><span class="o">:</span> <span class="s1">&#39;radio-custom&#39;</span><span class="o">}</span> <span class="o">})</span> <span class="cp">}}</span>
+<span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.myCheckbox</span><span class="o">,</span> <span class="o">{</span><span class="nv">label_attr</span><span class="o">:</span> <span class="o">{</span><span class="nv">class</span><span class="o">:</span> <span class="s1">&#39;checkbox-custom&#39;</span><span class="o">}</span> <span class="o">})</span> <span class="cp">}}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="labels-and-errors">
+<h2>Labels and Errors<a class="headerlink" href="#labels-and-errors" title="Permalink to this headline">¶</a></h2>
+<p>When you use the Bootstrap form themes and render the fields manually, calling
+<tt class="docutils literal"><code>form_label()</code></tt> for a checkbox/radio field doesn't render anything. Due to Bootstrap
+internals, the label is already rendered by <tt class="docutils literal"><code>form_widget()</code></tt>.</p>
+<p>Form errors are rendered <strong>inside</strong> the <tt class="docutils literal"><code>&lt;label&gt;</code></tt> element to make sure there
+is a strong connection between the error and its <tt class="docutils literal"><code>&lt;input&gt;</code></tt>, as required by the
+<a class="reference external" href="https://www.w3.org/TR/WCAG20/">WCAG 2.0 standard</a>.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="action_method-ru.html">« Как изменить действие и метод формы</a>
+                <span class="separator">|</span>
+                <a href="button_based_validation.html">How to Choose Validation Groups Based on the Clicked Button »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

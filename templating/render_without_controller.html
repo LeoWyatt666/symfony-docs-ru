@@ -1,0 +1,433 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как отобразить шаблон без пользовательского контроллера &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Creating and Using Templates" href="..\templating.html">
+    <link rel="next" title="How to Check the Syntax of Your Twig Templates" href="syntax.html">
+    <link rel="prev" title="How to Render a Template without a custom Controller" href="render_without_controller.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="templating doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как отобразить шаблон без пользовательского контроллера</a><ul>
+<li><a class="reference internal" href="#templating-no-controller-caching-ru">Кеширование статическго шаблона</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\getting_started\index.html">Getting Started</a></li>
+                
+                <li><a href="..\setup.html">Installing &amp; Setting up the Symfony Framework</a></li>
+                
+                <li><a href="..\page_creation.html">Create your First Page in Symfony</a></li>
+                
+                <li><a href="..\routing.html">Routing</a></li>
+                
+                <li><a href="..\controller.html">Controller</a></li>
+                
+                <li><a href="..\templating.html">Creating and Using Templates</a></li>
+                
+                <li class="active">Как отобразить шаблон без пользовательского контроллера</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как отобразить шаблон без пользовательского контроллера<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Обычно, когда вам нужно создать страницу, вам нужно создать контроллер и
+отобразить шаблон изнутри этого контроллера. Но если вы отображаете простой
+шаблон, который не требует передачи каких-либо данных в него, вы можете
+полностью избежать создания контроллера, используя встроенный контроллер
+<tt class="docutils literal"><code>FrameworkBundle:Template:template</code></tt>.</p>
+<p>Например, представьте, что вы хотите отобразить шаблон <tt class="docutils literal"><code>static/privacy.html.twig</code></tt>,
+который не требует передачи в него каких-либо переменных. Вы можете сделать это,
+не создавая контроллер:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">acme_privacy</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/privacy</span>
+    <span class="l l-Scalar l-Scalar-Plain">defaults</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">_controller</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">FrameworkBundle:Template:template</span>
+        <span class="l l-Scalar l-Scalar-Plain">template</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">static/privacy.html.twig</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;routes</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/routing&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;route</span> <span class="na">id=</span><span class="s">&quot;acme_privacy&quot;</span> <span class="na">path=</span><span class="s">&quot;/privacy&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;default</span> <span class="na">key=</span><span class="s">&quot;_controller&quot;</span><span class="nt">&gt;</span>FrameworkBundle:Template:template<span class="nt">&lt;/default&gt;</span>
+        <span class="nt">&lt;default</span> <span class="na">key=</span><span class="s">&quot;template&quot;</span><span class="nt">&gt;</span>static/privacy.html.twig<span class="nt">&lt;/default&gt;</span>
+    <span class="nt">&lt;/route&gt;</span>
+<span class="nt">&lt;/routes&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Routing\RouteCollection</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Route</span><span class="p">;</span>
+
+<span class="nv">$collection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteCollection</span><span class="p">();</span>
+<span class="nv">$collection</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;acme_privacy&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">&#39;/privacy&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;_controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;FrameworkBundle:Template:template&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;template&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;static/privacy.html.twig&#39;</span><span class="p">,</span>
+<span class="p">)));</span>
+
+<span class="k">return</span> <span class="nv">$collection</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Контроллер <tt class="docutils literal"><code>FrameworkBundle:Template:template</code></tt> просто отобразит любой переданный
+вами шаблон в качестве значения <tt class="docutils literal"><code>template</code></tt> по умолчанию.</p>
+<p>Конечно же, вы можете также использовать этот фокус при отображении встроенных
+контроллеров изнутри шаблона. Но так как целью отображения контроллера из шаблона
+обычно является подготовка некоторых данных в пользовательском контроллере, это
+наверное полезно только если вы хотите частично кешировать эту страницу (смотрите
+<a class="reference internal" href="render_without_controller.html#templating-no-controller-caching"><span>Caching the static Template</span></a>).</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">render</span><span class="o">(</span><span class="nv">url</span><span class="o">(</span><span class="s1">&#39;acme_privacy&#39;</span><span class="o">))</span> <span class="cp">}}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Generator\UrlGeneratorInterface</span><span class="p">;</span>
+<span class="cp">?&gt;</span>
+
+<span class="c">&lt;!-- Метод url() был представлен в Symfony 2.8. До версии 2.8, вам</span>
+<span class="c">     нужно было использовать generate() с UrlGeneratorInterface::ABSOLUTE_URL,</span>
+<span class="c">     переданным в качестве третьего аргумента. --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;actions&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span>
+    <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;router&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">url</span><span class="p">(</span><span class="s1">&#39;acme_privacy&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">())</span>
+<span class="p">)</span> <span class="cp">?&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="section" id="templating-no-controller-caching-ru">
+<span id="id2"></span><h2>Кеширование статическго шаблона<a class="headerlink" href="#templating-no-controller-caching-ru" title="Permalink to this headline">¶</a></h2>
+<p>Так как шаблоны, отображённые таким способом, обычно статические, может иметь
+смысл кешировать их. К счастью, это просто! Путём конфигурации нескольких других
+переменных в вашем маршруте, вы можете точно контролировать, как будет кеширована
+ваша страница:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">acme_privacy</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/privacy</span>
+    <span class="l l-Scalar l-Scalar-Plain">defaults</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">_controller</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">FrameworkBundle:Template:template</span>
+        <span class="l l-Scalar l-Scalar-Plain">template</span><span class="p p-Indicator">:</span>     <span class="s">&#39;static/privacy.html.twig&#39;</span>
+        <span class="l l-Scalar l-Scalar-Plain">maxAge</span><span class="p p-Indicator">:</span>       <span class="l l-Scalar l-Scalar-Plain">86400</span>
+        <span class="l l-Scalar l-Scalar-Plain">sharedAge</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">86400</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;routes</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/routing&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;route</span> <span class="na">id=</span><span class="s">&quot;acme_privacy&quot;</span> <span class="na">path=</span><span class="s">&quot;/privacy&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;default</span> <span class="na">key=</span><span class="s">&quot;_controller&quot;</span><span class="nt">&gt;</span>FrameworkBundle:Template:template<span class="nt">&lt;/default&gt;</span>
+        <span class="nt">&lt;default</span> <span class="na">key=</span><span class="s">&quot;template&quot;</span><span class="nt">&gt;</span>static/privacy.html.twig<span class="nt">&lt;/default&gt;</span>
+        <span class="nt">&lt;default</span> <span class="na">key=</span><span class="s">&quot;maxAge&quot;</span><span class="nt">&gt;</span>86400<span class="nt">&lt;/default&gt;</span>
+        <span class="nt">&lt;default</span> <span class="na">key=</span><span class="s">&quot;sharedAge&quot;</span><span class="nt">&gt;</span>86400<span class="nt">&lt;/default&gt;</span>
+    <span class="nt">&lt;/route&gt;</span>
+<span class="nt">&lt;/routes&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Routing\RouteCollection</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Route</span><span class="p">;</span>
+
+<span class="nv">$collection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteCollection</span><span class="p">();</span>
+<span class="nv">$collection</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;acme_privacy&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">&#39;/privacy&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;_controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;FrameworkBundle:Template:template&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;template&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;static/privacy.html.twig&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;maxAge&#39;</span>      <span class="o">=&gt;</span> <span class="mi">86400</span><span class="p">,</span>
+    <span class="s1">&#39;sharedAge&#39;</span>   <span class="o">=&gt;</span> <span class="mi">86400</span><span class="p">,</span>
+<span class="p">)));</span>
+
+<span class="k">return</span> <span class="nv">$collection</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Значения <tt class="docutils literal"><code>maxAge</code></tt> и <tt class="docutils literal"><code>sharedAge</code></tt> используются для изменения объекта ответа
+(Response), созданного в контроллере. Для более детальной информации о кешировании,
+см. <a class="reference internal" href="..\http_cache.html"><em>HTTP Cache</em></a>.</p>
+<p>Также существует переменная <tt class="docutils literal"><code>private</code></tt> (не показанная здесь). По умолчанию, объект
+Response будет публичным, если переданы <tt class="docutils literal"><code>maxAge</code></tt> или <tt class="docutils literal"><code>sharedAge</code></tt>. Если установлено
+значение <tt class="docutils literal"><code>true</code></tt>, Response будет отмечен как приватный.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="render_without_controller.html">« How to Render a Template without a custom Controller</a>
+                <span class="separator">|</span>
+                <a href="syntax.html">How to Check the Syntax of Your Twig Templates »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

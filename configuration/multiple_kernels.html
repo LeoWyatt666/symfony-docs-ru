@@ -1,0 +1,529 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как создать приложение Symfony с несколькими ядрами &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Configuring Symfony (and Environments)" href="..\configuration.html">
+    <link rel="next" title="How to Override Symfony&#39;s default Directory Structure" href="override_dir_structure.html">
+    <link rel="prev" title="How To Create Symfony Applications with Multiple Kernels" href="multiple_kernels.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="configuration doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как создать приложение Symfony с несколькими ядрами</a><ul>
+<li><a class="reference internal" href="#id1">Добавление нового ядра в приложение</a><ul>
+<li><a class="reference internal" href="#id2">Шаг 1) Создайте новый фронт контроллер</a></li>
+<li><a class="reference internal" href="#id3">Шаг 2) Создайте новый класс ядра</a></li>
+<li><a class="reference internal" href="#id4">Шаг 3) Определите конфигурацию ядра</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">Выполнение команд с другим ядром</a></li>
+<li><a class="reference internal" href="#id6">Отображение шаблонов, определённых в другом ядре</a></li>
+<li><a class="reference internal" href="#id7">Выполнение тестов, используя другое ядро</a></li>
+<li><a class="reference internal" href="#id8">Добавление большего количества ядер в приложение</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\getting_started\index.html">Getting Started</a></li>
+                
+                <li><a href="..\setup.html">Installing &amp; Setting up the Symfony Framework</a></li>
+                
+                <li><a href="..\page_creation.html">Create your First Page in Symfony</a></li>
+                
+                <li><a href="..\routing.html">Routing</a></li>
+                
+                <li><a href="..\controller.html">Controller</a></li>
+                
+                <li><a href="..\templating.html">Creating and Using Templates</a></li>
+                
+                <li><a href="..\configuration.html">Configuring Symfony (and Environments)</a></li>
+                
+                <li class="active">Как создать приложение Symfony с несколькими ядрами</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="symfony">
+<span id="index-0"></span><h1>Как создать приложение Symfony с несколькими ядрами<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Создание приложений с несколькими ядрами больше не рекомендуется
+Symfony. Рассмотрите вариант создания нескольких маленьких приложений
+вместо этого.</p>
+</div></div>
+<p>В большинстве приложений Symfony входящие запросы обрабатываются фронт контроллером
+<tt class="docutils literal"><code>public/index.php</code></tt>, который инстанциирует класс <tt class="docutils literal"><code>src/Kernel.php</code></tt> для создания ядра
+приложения, загружающего пакеты и работающего с запросом лля генерирования ответа.</p>
+<p>Подход одного ядра - это удобное решение, но приложения Symfony могут определять любое
+количество ядер. В то время, как <a class="reference internal" href="environments.html"><em>окружения</em></a> выполняют
+одно и то же приложение с разными конфигурациями, ядра могут выполнять разные части одного
+и того же приложения.</p>
+<p>Вот наиболее распространённые случаи применения создания множества ядер:</p>
+<ul class="simple">
+<li>Приложение, которое определяет API, может определить два ядра по причине производительности.
+Первое ядро будет служить обычному приложению, а второе - реагировать только на API запросы,
+загружая пакеты и подключая меньше функций;</li>
+<li>Высокочувствительное приложение может также определять два ядра. Первое будет только загружать
+маршруты, совпадающие с публичными частями приложения. Второе - загружать остальное приложение
+и его доступ будет защищён веб-сервером;</li>
+<li>Приложение, ориентированное на микросервисы, может определять несколько ядер для выборочного
+подключения или отключения сервисов, превращая традиционное монолитное приложение в несколько
+микро-приложений.</li>
+</ul>
+<div class="section" id="id1">
+<h2>Добавление нового ядра в приложение<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Создание нового ядра в приложении - это процесс, состоящий из трёх шагов:</p>
+<ol class="arabic simple">
+<li>Создайте новый фронт контроллер для загрузки нового ядра;</li>
+<li>Создайте новый класс ядра;</li>
+<li>Определите конфигурацию, загружаемую новым ядром.</li>
+</ol>
+<p>Следующий пример показывает, как создать новое ядро для API заданного приложения
+Symfony.</p>
+<div class="section" id="id2">
+<h3>Шаг 1) Создайте новый фронт контроллер<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Вместо создания нового фронт контроллера с нуля, легче будет дублировать уже
+существующий. Например, создайте <tt class="docutils literal"><code>public/api.php</code></tt> из <tt class="docutils literal"><code>public/index.php</code></tt>.</p>
+<p>Далее, обновите код нового фронт контроллера, чтобы инстанциировать новый класс ядра,
+вместо обычного класса <tt class="docutils literal"><code>Kernel</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// public/api.php</span>
+<span class="c1">// ...</span>
+<span class="nv">$kernel</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ApiKernel</span><span class="p">(</span>
+    <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;APP_ENV&#39;</span><span class="p">]</span> <span class="o">??</span> <span class="s1">&#39;dev&#39;</span><span class="p">,</span>
+    <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;APP_DEBUG&#39;</span><span class="p">]</span> <span class="o">??</span> <span class="p">(</span><span class="s1">&#39;prod&#39;</span> <span class="o">!==</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;APP_ENV&#39;</span><span class="p">]</span> <span class="o">??</span> <span class="s1">&#39;dev&#39;</span><span class="p">))</span>
+<span class="p">);</span>
+<span class="c1">// ...</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Другой подход заключается в том, чтобы оставить существующий фронт контроллер
+<tt class="docutils literal"><code>index.php</code></tt>, но добавить утверждение <tt class="docutils literal"><code>if</code></tt> для загрузки другого ядра,
+основанного на URL (например, если URL начинается с``/api``, используйте <tt class="docutils literal"><code>ApiKernel</code></tt>).</p>
+</div></div>
+</div>
+<div class="section" id="id3">
+<h3>Шаг 2) Создайте новый класс ядра<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Теперь вам нужно определить класс <tt class="docutils literal"><code>ApiKernel</code></tt>, используемый новым фронт контроллером.
+Легче всего это сделать дублировав существующий файл <tt class="docutils literal"><code>src/Kernel.php`</code></tt> и внеся в него
+необходимые изменения.</p>
+<p>В этом примере, <tt class="docutils literal"><code>ApiKernel</code></tt> будет загружать меньше пакетов, чем Kernel по умолчанию.
+Убедитесь в том, что вы также изменили локацию кеша, логов и файлов конфигурации, чтобы
+они не сталкивались с файлами из <tt class="docutils literal"><code>src/Kernel.php</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/ApiKernel.php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Kernel</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Config\Loader\LoaderInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerBuilder</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ApiKernel</span> <span class="k">extends</span> <span class="nx">Kernel</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">registerBundles</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// загружать только, если пакеты строго нужны для API...</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCacheDir</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">dirname</span><span class="p">(</span><span class="no">__DIR__</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;/var/cache/api/&#39;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getEnvironment</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getLogDir</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">dirname</span><span class="p">(</span><span class="no">__DIR__</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;/var/log/api&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureContainer</span><span class="p">(</span><span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">,</span> <span class="nx">LoaderInterface</span> <span class="nv">$loader</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// загружать только, если файлы строго конфигурации нужны для API</span>
+        <span class="nv">$confDir</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getProjectDir</span><span class="p">()</span><span class="o">.</span><span class="s1">&#39;/config&#39;</span><span class="p">;</span>
+        <span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="nv">$confDir</span><span class="o">.</span><span class="s1">&#39;/api/*&#39;</span><span class="o">.</span><span class="nx">self</span><span class="o">::</span><span class="na">CONFIG_EXTS</span><span class="p">,</span> <span class="s1">&#39;glob&#39;</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">is_dir</span><span class="p">(</span><span class="nv">$confDir</span><span class="o">.</span><span class="s1">&#39;/api/&#39;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">environment</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="nv">$confDir</span><span class="o">.</span><span class="s1">&#39;/api/&#39;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">environment</span><span class="o">.</span><span class="s1">&#39;/**/*&#39;</span><span class="o">.</span><span class="nx">self</span><span class="o">::</span><span class="na">CONFIG_EXTS</span><span class="p">,</span> <span class="s1">&#39;glob&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id4">
+<h3>Шаг 3) Определите конфигурацию ядра<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Наконец, определите файлы конфигурации, которые будет загружать новый <tt class="docutils literal"><code>ApiKernel</code></tt>.
+Следуя коду выше, эта конфигурация будет жить в одном из множества файлов,
+хранящихся в каталогах <tt class="docutils literal"><code>config/api/</code></tt> и <tt class="docutils literal"><code>config/api/ENVIRONMENT_NAME/</code></tt>.</p>
+<p>Новые файлы конфигурации могут быть созданы с нуля при загрузке всего нескольких пакетов,
+так как это очень просто. В других случаях, дублируйте существующие в``config/packages/``
+файлы конфигурации, или, что ещё лучше - импортируйте их и переопределите необходимые опции:</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Выполнение команд с другим ядром<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Скрипт <tt class="docutils literal"><code>bin/console</code></tt>, используемый для запуска команд Symfony всегда использует
+класс по умолчанию <tt class="docutils literal"><code>Kernel</code></tt>, чтобы построить приложение и загрузить команды.
+Если вам нужно выполнить консольные команды, используя новое ядро, дублируйте скрипт
+<tt class="docutils literal"><code>bin/console</code></tt> и переименуйте его (например, <tt class="docutils literal"><code>bin/api</code></tt>).</p>
+<p>Далее, замените инстанциирование <tt class="docutils literal"><code>Kernel</code></tt> вашим собственным инстанциированием ядра
+(например, <tt class="docutils literal"><code>ApiKernel</code></tt>) и теперь вы можете выполнять команды, используя новое ядро
+(например, <tt class="docutils literal"><code>php bin/api cache:clear</code></tt>). Тепеоь вы можете выполнять команды, используя
+новое ядро.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Команды, доступные для каждого конспольного скрипта (например, <tt class="docutils literal"><code>bin/console</code></tt>
+и <tt class="docutils literal"><code>bin/api</code></tt>) могут отличаться, так как они зависят от пакетов, подключенных
+дла каждого ядра, которые могут отличаться.</p>
+</div></div>
+</div>
+<div class="section" id="id6">
+<h2>Отображение шаблонов, определённых в другом ядре<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Если вы следуете Лучшим практикам Symfony, то шаблоны нового ядра будут храниться в
+<tt class="docutils literal"><code>templates/</code></tt>. Попытка отобразить эти шаблоны в другом ядре, приведут к
+ошибки <em>Не существует зарегистрированных путей для пространста имён &quot;__main__&quot;</em>.</p>
+<p>Чтобы решить эту проблему, добавьте следующую конфигурацию к вашему ядру:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/api/twig.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">twig</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">paths</span><span class="p p-Indicator">:</span>
+        <span class="c1"># позволяет использовать api/templates/ dir в ApiKernel</span>
+        <span class="s">&quot;%kernel.project_dir%/api/templates&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id7">
+<h2>Выполнение тестов, используя другое ядро<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>В приложениях Symfony функциональные тесты по умолчанию расширяются из класса
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/FrameworkBundle/Test/WebTestCase.html" title="Symfony\Bundle\FrameworkBundle\Test\WebTestCase">WebTestCase</a></code></tt>. Внутри этого класса,
+метод под названием <tt class="docutils literal"><code>getKernelClass()</code></tt> пытается найти класс ядра, для запуска
+приложения во время тестирования. Логика этого метода не поддерживает приложения
+с несколькими ядрами, так что ваши тесты не будут использовать правильное ядро.</p>
+<p>Решением будет создать пользовательский базовый класс для функциональных тестов,
+расширяющийся из класса <tt class="docutils literal"><code>WebTestCase</code></tt> и переопределяющий метод <tt class="docutils literal"><code>getKernelClass()</code></tt>,
+чтобы возвращать полное имя класса ядра для использования:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Test\WebTestCase</span><span class="p">;</span>
+
+<span class="c1">// тесты, которым нужно, чтобы ApiKernel работал, теперь должны расширять этот</span>
+<span class="c1">// класс ApiTestCase вместо класса WebTestCase по умолчанию</span>
+<span class="k">class</span> <span class="nc">ApiTestCase</span> <span class="k">extends</span> <span class="nx">WebTestCase</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getKernelClass</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;App\ApiKernel&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// это нужно, так как класс KernelTestCase содержит ссылку на созданное</span>
+    <span class="c1">// ранее ядро и его статичное свойство $kernel. Следовательно, если ваши</span>
+    <span class="c1">// функциональные тесты не запускают изолированный процесс, позднейший запуск</span>
+    <span class="c1">// теста для другого ядра будет повторно использовать созданный ранее экземпляр,</span>
+    <span class="c1">// указывающий на другое ядро</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">tearDown</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">tearDown</span><span class="p">();</span>
+
+        <span class="k">static</span><span class="o">::</span><span class="nv">$class</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id8">
+<h2>Добавление большего количества ядер в приложение<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>Если ваше приложеиие очень сложное и вы создаёте несколько ядер, то лучше хранить
+их в собственных каталогах, вместо того, чтобы путаться с кучей файлов в каталоге
+<tt class="docutils literal"><code>src/</code></tt> по умолчанию:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span>project/
+├─ src/
+│  ├─ ...
+│  └─ Kernel.php
+├─ api/
+│  ├─ ...
+│  └─ ApiKernel.php
+├─ ...
+└─ public/
+    ├─ ...
+    ├─ api.php
+    └─ index.php
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="multiple_kernels.html">« How To Create Symfony Applications with Multiple Kernels</a>
+                <span class="separator">|</span>
+                <a href="override_dir_structure.html">How to Override Symfony&#39;s default Directory Structure »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

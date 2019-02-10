@@ -1,0 +1,566 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Стандарты написания кода &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="contributing doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Стандарты написания кода</a><ul>
+<li><a class="reference internal" href="#id2">Как заставить ваш код следовать стандартам написания</a></li>
+<li><a class="reference internal" href="#symfony">Стандарты написания кода Symfony в деталях</a><ul>
+<li><a class="reference internal" href="#id3">Структура</a></li>
+<li><a class="reference internal" href="#id4">Соглашения именования</a></li>
+<li><a class="reference internal" href="#service-naming-conventions-ru">Соглашения именования сервисов</a></li>
+<li><a class="reference internal" href="#id6">Документация</a></li>
+<li><a class="reference internal" href="#id7">Лицензия</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li class="active">Стандарты написания кода</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>Стандарты написания кода<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Код Symfony дополняется тысячами разработчиков со всего мира. Чтобы каждая часть
+кода выглядела и ощущалась знакомой, Symfony определяет некоторые стандарты написания
+кода, которым должны следовать все вкладчики.</p>
+<p>Эти стандарты кода Symfony основаны на стандартах <a class="reference external" href="https://www.php-fig.org/psr/psr-1/">PSR-1</a>, <a class="reference external" href="https://www.php-fig.org/psr/psr-2/">PSR-2</a> и <a class="reference external" href="https://www.php-fig.org/psr/psr-4/">PSR-4</a>,
+так что вы уже можете знать большинство из них.</p>
+<div class="section" id="id2">
+<h2>Как заставить ваш код следовать стандартам написания<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Вместо того, чтобы вручную проверять ваш код, Symfony делает так, чтобы проверка
+соответствия отправленного вами когда ожидаемому синтаксису кода была максимально
+лёгкой. Для начала, установите <a class="reference external" href="http://cs.sensiolabs.org/">инструмент PHP CS Fixer</a>, а потом выполните эту
+команду, чтобы исправить любую проблему:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> your-project/
+<span class="gp">$</span> php php-cs-fixer.phar fix -v
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы забудете выполнить эту команду и сделаете запрос на включение с проблемой
+синтаксиса, наши автоматизированные инструменты предупредят вас об этом и предложат
+решение.</p>
+</div>
+<div class="section" id="symfony">
+<h2>Стандарты написания кода Symfony в деталях<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h2>
+<p>Если вы хотите узнать о стандартах написаия кода Symfony в деталях, то вот
+краткий пример, содержащий большинство функций, описанных ниже:</p>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Этот файл является частью пакета Symfony.</span>
+<span class="cm"> *</span>
+<span class="cm"> * (c) Fabien Potencier &lt;<a href="..\..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="a3c5c2c1cac6cde3d0dacec5cccdda8dc0ccce">[email&#160;protected]</a>&gt;</span>
+<span class="cm"> *</span>
+<span class="cm"> * Чтобы получить полную информацию об авторском праве и лицензии, пожалуйста</span>
+<span class="cm"> * просмотрите файл LICENSE, который поставляется с этим исходным кодом.</span>
+<span class="cm"> */</span>
+
+<span class="k">namespace</span> <span class="nx">Acme</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Coding standards demonstration.</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">FooBar</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="no">SOME_CONST</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var string</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$fooBar</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @param string $dummy Some argument description</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$dummy</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fooBar</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">transformText</span><span class="p">(</span><span class="nv">$dummy</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @return string</span>
+<span class="sd">     *</span>
+<span class="sd">     * @deprecated</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">someDeprecatedMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="o">@</span><span class="nb">trigger_error</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;The %s() method is deprecated since version 2.8 and will be removed in 3.0. Use Acme\Baz::someMethod() instead.&#39;</span><span class="p">,</span> <span class="no">__METHOD__</span><span class="p">),</span> <span class="nx">E_USER_DEPRECATED</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nx">Baz</span><span class="o">::</span><span class="na">someMethod</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Преобразует ввод, заданный в качестве первого аргумента.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param bool|string $dummy   Описание некоторого аргумента</span>
+<span class="sd">     * @param array       $options Коллекция опций, которую нужно использовать при преобразовании</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return string|null The transformed input</span>
+<span class="sd">     *</span>
+<span class="sd">     * @throws \RuntimeException When an invalid option is provided</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">transformText</span><span class="p">(</span><span class="nv">$dummy</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="nv">$defaultOptions</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;some_default&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;values&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;another_default&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;more values&#39;</span><span class="p">,</span>
+        <span class="p">);</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$options</span> <span class="k">as</span> <span class="nv">$option</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$option</span><span class="p">,</span> <span class="nv">$defaultOptions</span><span class="p">))</span> <span class="p">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="nx">\RuntimeException</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;Unrecognized option &quot;%s&quot;&#39;</span><span class="p">,</span> <span class="nv">$option</span><span class="p">));</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="nv">$mergedOptions</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">(</span>
+            <span class="nv">$defaultOptions</span><span class="p">,</span>
+            <span class="nv">$options</span>
+        <span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="k">true</span> <span class="o">===</span> <span class="nv">$dummy</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;string&#39;</span> <span class="o">===</span> <span class="nv">$dummy</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;values&#39;</span> <span class="o">===</span> <span class="nv">$mergedOptions</span><span class="p">[</span><span class="s1">&#39;some_default&#39;</span><span class="p">])</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$dummy</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="nb">ucwords</span><span class="p">(</span><span class="nv">$dummy</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Выполняет некоторую базовую проверку данного значения.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param mixed $value     Некоторое значение, которое нужно проверить</span>
+<span class="sd">     * @param bool  $theSwitch Некоторый переключатель для контроля работы метода</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return bool|void Резуультирующая проверка, если $theSwitch не false, иначе - void</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">reverseBoolean</span><span class="p">(</span><span class="nv">$value</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span> <span class="nv">$theSwitch</span> <span class="o">=</span> <span class="k">false</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$theSwitch</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="o">!</span><span class="nv">$value</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id3">
+<h3>Структура<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Добавляйте один пробел после каждой запятой-разграничителя;</li>
+<li>Добавляйте один пробел вокруг бинарных операций(<tt class="docutils literal"><code>==</code></tt>, <tt class="docutils literal"><code>&amp;&amp;</code></tt>, ...), за
+исключением операции конкатенации (<tt class="docutils literal"><code>.</code></tt>);</li>
+<li>Помещайте унарные операторы (<tt class="docutils literal"><code>!</code></tt>, <tt class="docutils literal"><code>--</code></tt>, ...) непосредственно с  задействованной
+переменной;</li>
+<li>Всегда используйте <a class="reference external" href="https://php.net/manual/en/language.operators.comparison.php">идентичное сравнение</a>, кроме случаев, когда вам нужно
+жонглирование типами;</li>
+<li>Испльзуйте <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A3%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F_%D0%99%D0%BE%D0%B4%D1%8B">условия Йоды</a> при сопоставлении переменной с выражением, чтобы
+избежать случайного назначения внутри выражения условия (это применимо к <tt class="docutils literal"><code>==</code></tt>,
+<tt class="docutils literal"><code>!=</code></tt>, <tt class="docutils literal"><code>===</code></tt>, и <tt class="docutils literal"><code>!==</code></tt>);</li>
+<li>Добавляйте запятую после каждого объекта массива в многстрочном массиве,
+даже после последнего;</li>
+<li>Добавляйте пустую строку перед утверждениями <tt class="docutils literal"><code>return</code></tt>, кроме случаев,
+когда возврат осуществляется внутри группы утвеждений (как утверждение <tt class="docutils literal"><code>if</code></tt>);</li>
+<li>Используйте <tt class="docutils literal"><code>return null;</code></tt>, когда функция ясно возвращает значения <tt class="docutils literal"><code>null</code></tt> и
+используйте <tt class="docutils literal"><code>return;</code></tt>, когда функция возвращает значения <tt class="docutils literal"><code>void</code></tt>;</li>
+<li>Используйте скобки, чтобы обозначить тело структуры контроля независимо
+от количества содержащися в неё утверждений;</li>
+<li>Определяйте один класс на файла - это не применимо к приватным классам помощников,
+которые не должны быть инстанциированы извне, и поэтому не рассматриваются автозагружаемыми
+стандартами <a class="reference external" href="https://www.php-fig.org/psr/psr-0/">PSR-0</a> and <a class="reference external" href="https://www.php-fig.org/psr/psr-4/">PSR-4</a>;</li>
+<li>Объявляйте наследуемость классов и все реализуемые интерфейсы в одной строке
+с именем класса;</li>
+<li>Объявляйте свойства класса до методов;</li>
+<li>Объявляйте вначале публичные методы, потом защищённые и потом - приватные.
+Исключением из этого правила являются конструктор класса и методы модульных
+PHP тестов <tt class="docutils literal"><code>setUp()</code></tt> и <tt class="docutils literal"><code>tearDown()</code></tt>, которые должны всегда быть первыми
+методами для большей удобочитаемости;</li>
+<li>Объявляйте все аргументы в той же строке, что и имя метода или функции,
+независимо от того, сколько их;</li>
+<li>Используйте круглые скобки при инстанциировании классов, независимо от
+количества аргументов в конструкторе;</li>
+<li>Строки исключений и сообщений ошибок должны быть конкатенированы используя
+<tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.sprintf.php" title="sprintf">sprintf</a></code></tt>;</li>
+<li>Вызовы <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.trigger-error.php" title="trigger_error">trigger_error</a></code></tt> с типом <tt class="docutils literal"><code>E_USER_DEPRECATED</code></tt> должны быть
+переключены на согласие через оператор <tt class="docutils literal"><code>&#64;</code></tt>.
+Прочтите больше в <a class="reference internal" href="conventions.html#contributing-code-conventions-deprecations"><span>Deprecations</span></a>;</li>
+<li>Не используйте <tt class="docutils literal"><code>else</code></tt>, <tt class="docutils literal"><code>elseif</code></tt>, <tt class="docutils literal"><code>break</code></tt> после условий <tt class="docutils literal"><code>if</code></tt> и <tt class="docutils literal"><code>case</code></tt>,
+которые что-то вызывают или возвращают;</li>
+<li>Не используйте пробелы вокруг относительного аксессора <tt class="docutils literal"><code>[</code></tt> и перед
+относительным аксессором <tt class="docutils literal"><code>]</code></tt>.</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>Соглашения именования<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Используйте camelCase, а не нижние подчёркивания, для имён переменных, функций,
+методов и аргументов;</li>
+<li>Используйте нижние подчёркивания для опций конфигурации и параметров;</li>
+<li>Используйте пространства имён для всех классов;</li>
+<li>Добавляйте ко всем абстрактным классам, кроме PHPUnit <tt class="docutils literal"><code>*TestCase</code></tt>, префикс <tt class="docutils literal"><code>Abstract</code></tt>.
+Пожалуйста отметьте, что некоторые ранние классы Symfony не следуют этому соглашению и
+не были переименованы по причинам обратной совместимости. Однако, все новые абстрактные
+классы должны следовать этому соглашению именования;</li>
+<li>Добавлйте к интерфейсам суффикс <tt class="docutils literal"><code>Interface</code></tt>;</li>
+<li>Добавляйте к чертам суффикс <tt class="docutils literal"><code>Trait</code></tt>;</li>
+<li>Добавляйте к исключениям суффикс <tt class="docutils literal"><code>Exception</code></tt>;</li>
+<li>Используйте алфавитно-цифровые знаки и нижние подчёркивания для имён
+файлов;</li>
+<li>Для типизирования в PHPDocs и приведениях, используйте <tt class="docutils literal"><code>bool</code></tt> (вместо <tt class="docutils literal"><code>boolean</code></tt>
+или <tt class="docutils literal"><code>Boolean</code></tt>), <tt class="docutils literal"><code>int</code></tt> (вместо <tt class="docutils literal"><code>integer</code></tt>), <tt class="docutils literal"><code>float</code></tt> (вместо <tt class="docutils literal"><code>double</code></tt> или
+<tt class="docutils literal"><code>real</code></tt>);</li>
+<li>Не забывайте смотреть в более подробный документ <a class="reference internal" href="conventions.html"><em>Conventions</em></a> для более
+субъективных правил именования.</li>
+</ul>
+</div>
+<div class="section" id="service-naming-conventions-ru">
+<span id="id5"></span><h3>Соглашения именования сервисов<a class="headerlink" href="#service-naming-conventions-ru" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Имя сервиса должно совпадать с полным именем класса (FQCN) его
+класса (например, <tt class="docutils literal"><code>App\EventSubscriber\UserSubscriber</code></tt>);</li>
+<li>Если в одном классе существует несколько сервисов, используйте FQCN для
+главноо сервиса, а для остальных используйте имена в нижнем регистре и с
+нижними подчёркиваниями. По желанию можете разделить их на группы, разделённые
+точками (например, <tt class="docutils literal"><code>something.service_name</code></tt>, <tt class="docutils literal"><code>fos_user.something.service_name</code></tt>);</li>
+<li>Используйте буквы нижнего регистра для имён параметров (кроме
+случаев ссылания на переменные окружения с синтаксисом <tt class="docutils literal"><code>%env(VARIABLE_NAME)%</code></tt>);</li>
+<li>Добавьте дополнитедьные имена для публичных сервисов (например, дополнительное имя</li>
+</ul>
+<blockquote>
+<div><tt class="docutils literal"><code>Symfony\Component\Something\ClassName</code></tt> к <tt class="docutils literal"><code>something.service_name</code></tt>).</div></blockquote>
+</div>
+<div class="section" id="id6">
+<h3>Документация<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Добавляйте блоки PHPDoc для всех классов, методов и функций;</li>
+<li>Группируйте аннотации вместе, чтобы аннотации одного типа следовали сразу
+же друг за другом, а аннотации разных типов были разделены одной пустой строкой;</li>
+<li>Опускайте тег <tt class="docutils literal"><code>&#64;return</code></tt>, если метод ничего не возвращает;</li>
+<li>Аннотации <tt class="docutils literal"><code>&#64;package</code></tt> и <tt class="docutils literal"><code>&#64;subpackage</code></tt> не используются;</li>
+<li>Не встраивайте блоки PHPDoc, даже если они содержат всего один тег (например,
+не помещайте <tt class="docutils literal"><code>/** {&#64;inheritdoc} */</code></tt> в одну строчку).</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>Лицензия<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Symfony выпускается под лицензией MIT, и блок лицензии должен присутствовать
+сверху каждого PHP-файла, перед пространством имён.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  <script data-cfasync="false" src="..\..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script></body>
+</body></html>

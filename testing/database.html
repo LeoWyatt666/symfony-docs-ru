@@ -1,0 +1,480 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как тестировать код, взаимодействующий с базой данных &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Testing" href="..\testing.html">
+    <link rel="next" title="How to Test Doctrine Repositories" href="doctrine.html">
+    <link rel="prev" title="How to Test Code that Interacts with the Database" href="database.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="testing doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как тестировать код, взаимодействующий с базой данных</a><ul>
+<li><a class="reference internal" href="#repository">Макетирование <tt class="docutils literal"><code>Repository</code></tt> в модульном тесте</a></li>
+<li><a class="reference internal" href="#id2">Изменение настроек БД для функциональных тестов</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\testing.html">Testing</a></li>
+                
+                <li class="active">Как тестировать код, взаимодействующий с базой данных</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как тестировать код, взаимодействующий с базой данных<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Если ваш код взаимодействует с базой данных, например, считывает данные из нее
+или сохраняет данные в нее, вам нужно настроить ваши тесты так, чтобы они это
+учитывали. Существует множество способов справиться с этим. В модульном тестировании
+вы можете создать макет <tt class="docutils literal"><code>Repository</code></tt> и использовать ее для возвращения
+ожидаемых объектов. В функциональном тесте вам может понадобиться подготовить тестовую
+БД с предопределёнными значениями, чтобы убедиться, что ваш тест всегда имеет одни
+и те же данные для работы.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если вы хотите тестировать ваши запросы напрямую, см. <a class="reference internal" href="doctrine.html"><em>How to Test Doctrine Repositories</em></a>.</p>
+</div></div>
+<div class="section" id="repository">
+<h2>Макетирование <tt class="docutils literal"><code>Repository</code></tt> в модульном тесте<a class="headerlink" href="#repository" title="Permalink to this headline">¶</a></h2>
+<p>Если вы хотите протестировать код, который зависит от хранилища Doctrine в
+изоляции, вам понадобится макетировать <tt class="docutils literal"><code>Repository</code></tt>. Обычно вы внедряете
+<tt class="docutils literal"><code>EntityManager</code></tt> в ваш класс и используете его для получения хранилища. Это
+немного усложняет вещи, так как вам понадобится делать макеты как <tt class="docutils literal"><code>EntityManager</code></tt>,
+так и вашего класса хранилища.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Существует возможность (и это хорошая идея) внедрить ваше хранилище
+напрямую, путём регистрации его в качестве <a class="reference internal" href="..\service_container\factories.html"><em>сервиса предприятия</em></a>.
+Это требует больших усилий по установке, но облегчает тестирование, так
+как вам понадобится имитировать только хранилище.</p>
+</div></div>
+<p>Представьте, что класс, который вы хотите протестировать, выглядит так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Salary/SalaryCalculator.php</span>
+<span class="k">namespace</span> <span class="nx">AppBundle\Salary</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Doctrine\ORM\EntityManagerInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">SalaryCalculator</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$entityManager</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">EntityManagerInterface</span> <span class="nv">$entityManager</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">entityManager</span> <span class="o">=</span> <span class="nv">$entityManager</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">calculateTotalSalary</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$employeeRepository</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">entityManager</span>
+            <span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="s1">&#39;AppBundle:Employee&#39;</span><span class="p">);</span>
+        <span class="nv">$employee</span> <span class="o">=</span> <span class="nv">$employeeRepository</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$employee</span><span class="o">-&gt;</span><span class="na">getSalary</span><span class="p">()</span> <span class="o">+</span> <span class="nv">$employee</span><span class="o">-&gt;</span><span class="na">getBonus</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Так как <tt class="docutils literal"><code>EntityManagerInterface</code></tt> внедряется в класс через конструктор, то
+очень легко передать объект-макет в пределах теста:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// tests/AppBundle/Salary/SalaryCalculatorTest.php</span>
+<span class="k">namespace</span> <span class="nx">Tests\AppBundle\Salary</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">AppBundle\Entity\Employee</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AppBundle\Salary\SalaryCalculator</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\ORM\EntityRepository</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\ORM\EntityManagerInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">SalaryCalculatorTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testCalculateTotalSalary</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Вначале, макетируйте объект, который будет использован в тесте</span>
+        <span class="nv">$employee</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createMock</span><span class="p">(</span><span class="nx">Employee</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+        <span class="c1">// используйте getMock() на PHPUnit 5.3 или ниже</span>
+        <span class="c1">// $employee = $this-&gt;getMock(Employee::class);</span>
+        <span class="nv">$employee</span><span class="o">-&gt;</span><span class="na">expects</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">once</span><span class="p">())</span>
+            <span class="o">-&gt;</span><span class="na">method</span><span class="p">(</span><span class="s1">&#39;getSalary&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">will</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">returnValue</span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
+        <span class="nv">$employee</span><span class="o">-&gt;</span><span class="na">expects</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">once</span><span class="p">())</span>
+            <span class="o">-&gt;</span><span class="na">method</span><span class="p">(</span><span class="s1">&#39;getBonus&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">will</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">returnValue</span><span class="p">(</span><span class="mi">1100</span><span class="p">));</span>
+
+        <span class="c1">// Теперь, создайте макет хранилища так, чтобы он возвращал макет служащего</span>
+        <span class="nv">$employeeRepository</span> <span class="o">=</span> <span class="nv">$this</span>
+            <span class="o">-&gt;</span><span class="na">getMockBuilder</span><span class="p">(</span><span class="nx">EntityManagerInterface</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">disableOriginalConstructor</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">getMock</span><span class="p">();</span>
+        <span class="nv">$employeeRepository</span><span class="o">-&gt;</span><span class="na">expects</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">once</span><span class="p">())</span>
+            <span class="o">-&gt;</span><span class="na">method</span><span class="p">(</span><span class="s1">&#39;find&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">will</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">returnValue</span><span class="p">(</span><span class="nv">$employee</span><span class="p">));</span>
+
+        <span class="c1">// В конце, создайте макет EntityManager так, чтобы он возвращал макет хранилища</span>
+        <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$this</span>
+            <span class="o">-&gt;</span><span class="na">getMockBuilder</span><span class="p">(</span><span class="nx">EntityManagerInterface</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">disableOriginalConstructor</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">getMock</span><span class="p">();</span>
+        <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">expects</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">once</span><span class="p">())</span>
+            <span class="o">-&gt;</span><span class="na">method</span><span class="p">(</span><span class="s1">&#39;getRepository&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">will</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">returnValue</span><span class="p">(</span><span class="nv">$employeeRepository</span><span class="p">));</span>
+
+        <span class="nv">$salaryCalculator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SalaryCalculator</span><span class="p">(</span><span class="nv">$entityManager</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertEquals</span><span class="p">(</span><span class="mi">2100</span><span class="p">,</span> <span class="nv">$salaryCalculator</span><span class="o">-&gt;</span><span class="na">calculateTotalSalary</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В этом примере, вы строите макеты наизнанку, вначале создавая служащего, который
+возвращается <tt class="docutils literal"><code>Repository</code></tt>, который, в свою очередь, возвращается <tt class="docutils literal"><code>EntityManager</code></tt>.
+Таким образом, в тестировании не участвует ни один настоящий класс.</p>
+</div>
+<div class="section" id="id2">
+<h2>Изменение настроек БД для функциональных тестов<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Если у вас есть функциональные тесты, вам нужно, чтобы они взаимодействовали
+с настоящей базой данных. В большинстве случаев, вам нужно будет использовать
+выделенную связь с базой данных, чтобы убедиться в том, что вы не переопределяете
+данные, которые вы ввели при разработке приложения, и в том, что вы сможете
+очищать БД перед каждым тестом.</p>
+<p>Чтобы сделать это, вы можете указать конфигурацию БД, которая переопределяет
+конфигурацию по умолчанию:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/config_test.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">doctrine</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+    <span class="l l-Scalar l-Scalar-Plain">dbal</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+        <span class="l l-Scalar l-Scalar-Plain">dbname</span><span class="p p-Indicator">:</span>   <span class="l l-Scalar l-Scalar-Plain">testdb</span>
+        <span class="l l-Scalar l-Scalar-Plain">user</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">testdb</span>
+        <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">testdb</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/config_test.xml --&gt;</span>
+<span class="nt">&lt;doctrine:config&gt;</span>
+    <span class="nt">&lt;doctrine:dbal</span>
+        <span class="na">host=</span><span class="s">&quot;localhost&quot;</span>
+        <span class="na">dbname=</span><span class="s">&quot;testdb&quot;</span>
+        <span class="na">user=</span><span class="s">&quot;testdb&quot;</span>
+        <span class="na">password=</span><span class="s">&quot;testdb&quot;</span>
+    <span class="nt">/&gt;</span>
+<span class="nt">&lt;/doctrine:config&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/config_test.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;doctrine&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;dbal&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;host&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;dbname&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;testdb&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;user&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;testdb&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;testdb&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Убедитесь в том, что ваша база данных работает на локальном хосте и имеет
+установленную определённую БД и учётные данные пользователя.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="database.html">« How to Test Code that Interacts with the Database</a>
+                <span class="separator">|</span>
+                <a href="doctrine.html">How to Test Doctrine Repositories »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Использование Symfony с Homestead/Vagrant &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Installing &amp; Setting up the Symfony Framework" href="..\setup.html">
+    <link rel="next" title="How to Install or Upgrade to the Latest, Unreleased Symfony Version" href="unstable_versions.html">
+    <link rel="prev" title="Using Symfony Flex to Manage Symfony Applications" href="flex.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="setup doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Использование Symfony с Homestead/Vagrant</a><ul>
+<li><a class="reference internal" href="#vagrant-homestead">Установите Vagrant и Homestead</a></li>
+<li><a class="reference internal" href="#symfony">Монтаж приложения Symfony</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\getting_started\index.html">Getting Started</a></li>
+                
+                <li><a href="..\setup.html">Installing &amp; Setting up the Symfony Framework</a></li>
+                
+                <li class="active">Использование Symfony с Homestead/Vagrant</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="symfony-homestead-vagrant">
+<span id="index-0"></span><h1>Использование Symfony с Homestead/Vagrant<a class="headerlink" href="#symfony-homestead-vagrant" title="Permalink to this headline">¶</a></h1>
+<p>Для того, чтобы разработать приложение Symfony, вы можете захотеть использовать
+виртуальное окружение разработки вместо встроенного сервера или WAMP/LAMP. <a class="reference external" href="http://laravel.com/docs/homestead">Homestead</a>
+- это простой в использовании <a class="reference external" href="https://www.vagrantup.com/">Vagrant</a>, чтобы быстро получить и запустить виртуальное
+окружение.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">В связи с количеством операций файловой системы в Symfony (например, обновление
+файлов кеша и запись файлов логов), Symfony модет существенно замедлиться. Чтобы
+улучшитьс скорость, рассмотрите вариант <a class="reference internal" href="..\configuration\override_dir_structure.html#override-cache-dir"><span>переопределения каталогов логов и кеша</span></a>
+в локацию вне NFS (например, используя <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.sys-get-temp-dir.php" title="sys_get_temp_dir">sys_get_temp_dir</a></code></tt>). Вы можете
+проситеть <a class="reference external" href="http://www.whitewashing.de/2013/08/19/speedup_symfony2_on_vagrant_boxes.html">эту запись блога</a>, чтобы получить больше советов об ускорении Symfony в Vagrant.</p>
+</div></div>
+<div class="section" id="vagrant-homestead">
+<h2>Установите Vagrant и Homestead<a class="headerlink" href="#vagrant-homestead" title="Permalink to this headline">¶</a></h2>
+<p>Перед тем, как вы сожете использовать Homestead, вам нужно установить и
+сконфигурировать Vagrant и Homestead так, как объявняется в <a class="reference external" href="http://laravel.com/docs/homestead#installation-and-setup">документации Homestead</a>.</p>
+</div>
+<div class="section" id="symfony">
+<h2>Монтаж приложения Symfony<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h2>
+<p>Представьте, что вы установили ваше приложение Symfony в <tt class="docutils literal"><code>~/projects/symfony_demo</code></tt>
+в вашей локальной системе. Для начала вам нужно, чтобы Homestead синхронизировал
+ваши файлы в этом проекте. Выполните <tt class="docutils literal"><code>homestead edit</code></tt>, чтобы редактировать конфигурацию
+Homestead и сконфигурируйте каталог``~/projects``:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
+<span class="l l-Scalar l-Scalar-Plain">folders</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">map</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~/projects</span>
+      <span class="l l-Scalar l-Scalar-Plain">to</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/home/vagrant/projects</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>К каталогу <tt class="docutils literal"><code>projects/</code></tt> на вашем ПК теперь можно получить доступ в
+<tt class="docutils literal"><code>/home/vagrant/projects</code></tt> в окружении Homestead.</p>
+<p>После того, как вы это сделали, сконфигурируйте приложение Symfony в
+конфигурации Homestead:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
+<span class="l l-Scalar l-Scalar-Plain">sites</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">map</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">symfony-demo.dev</span>
+      <span class="l l-Scalar l-Scalar-Plain">to</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/home/vagrant/projects/symfony_demo/web</span>
+      <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">symfony</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Опция <tt class="docutils literal"><code>type</code></tt> говорит Homestead использовать конфигурацию Symfony nginx.</p>
+<p>Наконец, отредактипруйте файлы хоста на вашей локальной машине, чтобы провести
+маршрут от <tt class="docutils literal"><code>symfony-demo.dev</code></tt> к <tt class="docutils literal"><code>192.168.10.10</code></tt> (что является IP, используемым
+Homestead):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># /etc/hosts (unix) or C:\Windows\System32\drivers\etc\hosts (Windows)</span>
+<span class="mf">192.168</span><span class="o">.</span><span class="mf">10.10</span> <span class="nx">symfony</span><span class="o">-</span><span class="nx">demo</span><span class="o">.</span><span class="nx">dev</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, перейдите на <tt class="docutils literal"><code>http://symfony-demo.dev</code></tt> в вашем веб-браузере и нслаждайтесь
+разработкой вашего приложения Symfony!</p>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Чтобы узнать о других функциях Homestead, включая интеграцию профилировщика Blackfire,
+автоматическое создание БД MySQL и др., читайте раздел <a class="reference external" href="http://laravel.com/docs/5.1/homestead#daily-usage">Повседневное использование</a>
+в документации Homestead.</div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="flex.html">« Using Symfony Flex to Manage Symfony Applications</a>
+                <span class="separator">|</span>
+                <a href="unstable_versions.html">How to Install or Upgrade to the Latest, Unreleased Symfony Version »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

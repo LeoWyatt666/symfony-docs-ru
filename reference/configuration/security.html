@@ -1,0 +1,1327 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Конфигурация SecurityBundle (&#34;security&#34;) &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="reference doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Конфигурация SecurityBundle (&quot;security&quot;)</a><ul>
+<li><a class="reference internal" href="#id1">Полная конфигурация по умолчанию</a></li>
+<li><a class="reference internal" href="#reference-security-firewall-form-login-ru">Конфигурация формы входа</a><ul>
+<li><a class="reference internal" href="#id3">Процесс и форма входа в систему</a><ul>
+<li><a class="reference internal" href="#login-path">login_path</a></li>
+<li><a class="reference internal" href="#check-path">check_path</a></li>
+<li><a class="reference internal" href="#use-forward">use_forward</a></li>
+<li><a class="reference internal" href="#username-parameter">username_parameter</a></li>
+<li><a class="reference internal" href="#password-parameter">password_parameter</a></li>
+<li><a class="reference internal" href="#post-only">post_only</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4">Перенаправление после входа в систему</a><ul>
+<li><a class="reference internal" href="#always-use-default-target-path">always_use_default_target_path</a></li>
+<li><a class="reference internal" href="#default-target-path">default_target_path</a></li>
+<li><a class="reference internal" href="#target-path-parameter">target_path_parameter</a></li>
+<li><a class="reference internal" href="#use-referer">use_referer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reference-security-pbkdf2-ru">Конфигурация выхода из системы</a><ul>
+<li><a class="reference internal" href="#invalidate-session">invalidate_session</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ldap">Функциональность LDAP</a><ul>
+<li><a class="reference internal" href="#id6">Аутентификация</a><ul>
+<li><a class="reference internal" href="#service">service</a></li>
+<li><a class="reference internal" href="#dn-string">dn_string</a></li>
+<li><a class="reference internal" href="#query-string">query_string</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7">Поставщик пользователей</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pbkdf2">Использование кодировщика PBKDF2: Безопасность и скорость</a></li>
+<li><a class="reference internal" href="#bcrypt">Использование кодировщика паролей BCrypt</a></li>
+<li><a class="reference internal" href="#argon2i">Использование Argon2i Кодировщик пароля</a></li>
+<li><a class="reference internal" href="#reference-security-firewall-context-ru">Контекст брандмауэра</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li class="active">Конфигурация SecurityBundle (&quot;security&quot;)</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="securitybundle-security">
+<span id="index-0"></span><h1>Конфигурация SecurityBundle (&quot;security&quot;)<a class="headerlink" href="#securitybundle-security" title="Permalink to this headline">¶</a></h1>
+<p>Система безопасности - это одна из наиболее мощных частей Symfony, которую
+можно во многом контролировать через её конфигурацию.</p>
+<div class="section" id="id1">
+<h2>Полная конфигурация по умолчанию<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Ниже представлена полная конфигурация по умолчанию для системы безопасности.
+Каждая часть будет разъяснена отдельно в следующем разделе.</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/security.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">access_denied_url</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">~</span> <span class="c1"># Example: /foo/error403</span>
+
+    <span class="c1"># стратегия может быть: ничего не делать, мигрировать, инвалидировать</span>
+    <span class="l l-Scalar l-Scalar-Plain">session_fixation_strategy</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">migrate</span>
+    <span class="l l-Scalar l-Scalar-Plain">hide_user_not_found</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="l l-Scalar l-Scalar-Plain">always_authenticate_before_granting</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="l l-Scalar l-Scalar-Plain">erase_credentials</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="l l-Scalar l-Scalar-Plain">access_decision_manager</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">strategy</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">affirmative</span> <span class="c1"># One of affirmative, consensus, unanimous</span>
+        <span class="l l-Scalar l-Scalar-Plain">allow_if_all_abstain</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="l l-Scalar l-Scalar-Plain">allow_if_equal_granted_denied</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">encoders</span><span class="p p-Indicator">:</span>
+        <span class="c1"># Примеры:</span>
+        <span class="l l-Scalar l-Scalar-Plain">App\Entity\User1</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sha512</span>
+        <span class="l l-Scalar l-Scalar-Plain">App\Entity\User2</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">algorithm</span><span class="p p-Indicator">:</span>           <span class="l l-Scalar l-Scalar-Plain">sha512</span>
+            <span class="l l-Scalar l-Scalar-Plain">encode_as_base64</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="l l-Scalar l-Scalar-Plain">iterations</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">5000</span>
+
+        <span class="c1"># Кодировшик PBKDF2</span>
+        <span class="c1"># смотрите примечание о PBKDF2 ниже, чтобы узнать детали о безопасности и скорости</span>
+        <span class="l l-Scalar l-Scalar-Plain">App\Entity\User3</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">algorithm</span><span class="p p-Indicator">:</span>            <span class="l l-Scalar l-Scalar-Plain">pbkdf2</span>
+            <span class="l l-Scalar l-Scalar-Plain">hash_algorithm</span><span class="p p-Indicator">:</span>       <span class="l l-Scalar l-Scalar-Plain">sha512</span>
+            <span class="l l-Scalar l-Scalar-Plain">encode_as_base64</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="l l-Scalar l-Scalar-Plain">iterations</span><span class="p p-Indicator">:</span>           <span class="l l-Scalar l-Scalar-Plain">1000</span>
+            <span class="l l-Scalar l-Scalar-Plain">key_length</span><span class="p p-Indicator">:</span>           <span class="l l-Scalar l-Scalar-Plain">40</span>
+
+        <span class="c1"># Примеры опций/значений того, как может выглядеть пользовательский кодировщик</span>
+        <span class="l l-Scalar l-Scalar-Plain">App\Entity\User4</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span>                   <span class="l l-Scalar l-Scalar-Plain">App\Security\MyPasswordEncoder</span>
+
+        <span class="c1"># Кодировщик BCrypt</span>
+        <span class="c1"># смотрите примечание о bcrypt ниже, чтобы узнать детали о конкретных зависимостях</span>
+        <span class="l l-Scalar l-Scalar-Plain">App\Entity\User5</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">algorithm</span><span class="p p-Indicator">:</span>            <span class="l l-Scalar l-Scalar-Plain">bcrypt</span>
+            <span class="l l-Scalar l-Scalar-Plain">cost</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">13</span>
+
+        <span class="c1"># Кодировщик Plaintext</span>
+        <span class="c1"># не проводит кодировку</span>
+        <span class="l l-Scalar l-Scalar-Plain">App\Entity\User6</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">algorithm</span><span class="p p-Indicator">:</span>            <span class="l l-Scalar l-Scalar-Plain">plaintext</span>
+            <span class="l l-Scalar l-Scalar-Plain">ignore_case</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+        <span class="c1"># кодировщик Argon2i</span>
+        <span class="l l-Scalar l-Scalar-Plain">Acme\DemoBundle\Entity\User6</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">algorithm</span><span class="p p-Indicator">:</span>            <span class="l l-Scalar l-Scalar-Plain">argon2i</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">providers</span><span class="p p-Indicator">:</span>            <span class="c1"># Required</span>
+        <span class="c1"># Примеры:</span>
+        <span class="l l-Scalar l-Scalar-Plain">my_in_memory_provider</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">memory</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">users</span><span class="p p-Indicator">:</span>
+                    <span class="l l-Scalar l-Scalar-Plain">foo</span><span class="p p-Indicator">:</span>
+                        <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span>           <span class="l l-Scalar l-Scalar-Plain">foo</span>
+                        <span class="l l-Scalar l-Scalar-Plain">roles</span><span class="p p-Indicator">:</span>              <span class="l l-Scalar l-Scalar-Plain">ROLE_USER</span>
+                    <span class="l l-Scalar l-Scalar-Plain">bar</span><span class="p p-Indicator">:</span>
+                        <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span>           <span class="l l-Scalar l-Scalar-Plain">bar</span>
+                        <span class="l l-Scalar l-Scalar-Plain">roles</span><span class="p p-Indicator">:</span>              <span class="p p-Indicator">[</span><span class="nv">ROLE_USER</span><span class="p p-Indicator">,</span> <span class="nv">ROLE_ADMIN</span><span class="p p-Indicator">]</span>
+
+        <span class="l l-Scalar l-Scalar-Plain">my_entity_provider</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">entity</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">class</span><span class="p p-Indicator">:</span>              <span class="l l-Scalar l-Scalar-Plain">App\Entity\User7</span>
+                <span class="l l-Scalar l-Scalar-Plain">property</span><span class="p p-Indicator">:</span>           <span class="l l-Scalar l-Scalar-Plain">username</span>
+                <span class="c1"># имя менеджера сущностей не по умолчанию</span>
+                <span class="l l-Scalar l-Scalar-Plain">manager_name</span><span class="p p-Indicator">:</span>       <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+        <span class="l l-Scalar l-Scalar-Plain">my_ldap_provider</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">ldap</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">service</span><span class="p p-Indicator">:</span>            <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">base_dn</span><span class="p p-Indicator">:</span>            <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">search_dn</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">search_password</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">default_roles</span><span class="p p-Indicator">:</span>      <span class="s">&#39;ROLE_USER&#39;</span>
+                <span class="l l-Scalar l-Scalar-Plain">uid_key</span><span class="p p-Indicator">:</span>            <span class="s">&#39;sAMAccountName&#39;</span>
+                <span class="l l-Scalar l-Scalar-Plain">filter</span><span class="p p-Indicator">:</span>             <span class="s">&#39;({uid_key}={username})&#39;</span>
+
+        <span class="c1"># Пример пользовательского провайдера</span>
+        <span class="l l-Scalar l-Scalar-Plain">my_some_custom_provider</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span>                   <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+        <span class="c1"># Цепь некоторых провайдеров</span>
+        <span class="l l-Scalar l-Scalar-Plain">my_chain_provider</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">chain</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">providers</span><span class="p p-Indicator">:</span>          <span class="p p-Indicator">[</span> <span class="nv">my_in_memory_provider</span><span class="p p-Indicator">,</span> <span class="nv">my_entity_provider</span> <span class="p p-Indicator">]</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">firewalls</span><span class="p p-Indicator">:</span>            <span class="c1"># Required</span>
+        <span class="c1"># Примеры:</span>
+        <span class="l l-Scalar l-Scalar-Plain">somename</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">pattern</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">.*</span>
+            <span class="c1"># ограничьте брандмауэр для определённого хоста</span>
+            <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">admin\.example\.com</span>
+            <span class="c1"># ограничьте брандмауэр для определённых HTTP-методов</span>
+            <span class="l l-Scalar l-Scalar-Plain">methods</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">GET</span><span class="p p-Indicator">,</span> <span class="nv">POST</span><span class="p p-Indicator">]</span>
+            <span class="l l-Scalar l-Scalar-Plain">request_matcher</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some.service.id</span>
+            <span class="l l-Scalar l-Scalar-Plain">access_denied_url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/foo/error403</span>
+            <span class="l l-Scalar l-Scalar-Plain">access_denied_handler</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some.service.id</span>
+            <span class="l l-Scalar l-Scalar-Plain">entry_point</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some.service.id</span>
+            <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some_key_from_above</span>
+            <span class="c1"># управляет тем, где каждый брандмауэр хранит информацию о сессии</span>
+            <span class="c1"># См &quot;Контекст брандмауэра&quot; ниже, чтобы узнать больше</span>
+            <span class="l l-Scalar l-Scalar-Plain">context</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">context_key</span>
+            <span class="l l-Scalar l-Scalar-Plain">stateless</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+            <span class="l l-Scalar l-Scalar-Plain">x509</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some_key_from_above</span>
+            <span class="l l-Scalar l-Scalar-Plain">remote_user</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some_key_from_above</span>
+            <span class="l l-Scalar l-Scalar-Plain">http_basic</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some_key_from_above</span>
+            <span class="l l-Scalar l-Scalar-Plain">http_basic_ldap</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">some_key_from_above</span>
+                <span class="l l-Scalar l-Scalar-Plain">service</span><span class="p p-Indicator">:</span>      <span class="l l-Scalar l-Scalar-Plain">ldap</span>
+                <span class="l l-Scalar l-Scalar-Plain">dn_string</span><span class="p p-Indicator">:</span>    <span class="s">&#39;{username}&#39;</span>
+                <span class="l l-Scalar l-Scalar-Plain">query_string</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+            <span class="l l-Scalar l-Scalar-Plain">http_digest</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some_key_from_above</span>
+            <span class="l l-Scalar l-Scalar-Plain">guard</span><span class="p p-Indicator">:</span>
+                <span class="c1"># Ключ из раздела &quot;провайдеры&quot; вашей конфигурации безопасности, в случае если провайдер вашего пользователя отличается от брандмауеэра</span>
+                <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+                <span class="c1"># id сервиса (одного из ваших аутентификаторов), метод start() которого должен быть вызван, когда анонимный пользователь переходит на страницу, требущую аутентификации</span>
+                <span class="l l-Scalar l-Scalar-Plain">entry_point</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">null</span>
+
+                <span class="c1"># Массив id сервисов для всех ваших &quot;аутентификаторов&quot;</span>
+                <span class="l l-Scalar l-Scalar-Plain">authenticators</span><span class="p p-Indicator">:</span>       <span class="p p-Indicator">[]</span>
+            <span class="l l-Scalar l-Scalar-Plain">form_login</span><span class="p p-Indicator">:</span>
+                <span class="c1"># отправить форму входа здесь</span>
+                <span class="l l-Scalar l-Scalar-Plain">check_path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/login_check</span>
+
+                <span class="c1"># пользователь перенаправляется сюда, когда ему нужно выполнить вход</span>
+                <span class="l l-Scalar l-Scalar-Plain">login_path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/login</span>
+
+                <span class="c1"># если &quot;true&quot;, то перешлите пользователя на форму входа, вместо перенаправления</span>
+                <span class="l l-Scalar l-Scalar-Plain">use_forward</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+                <span class="c1"># опции перенаправления удачного входа в систему (читайте подробнее ниже)</span>
+                <span class="l l-Scalar l-Scalar-Plain">always_use_default_target_path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+                <span class="l l-Scalar l-Scalar-Plain">default_target_path</span><span class="p p-Indicator">:</span>            <span class="l l-Scalar l-Scalar-Plain">/</span>
+                <span class="l l-Scalar l-Scalar-Plain">target_path_parameter</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">_target_path</span>
+                <span class="l l-Scalar l-Scalar-Plain">use_referer</span><span class="p p-Indicator">:</span>                    <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+                <span class="c1"># опции перенаправления неудачного входа в систему (читайте подробнее ниже)</span>
+                <span class="l l-Scalar l-Scalar-Plain">failure_path</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">/foo</span>
+                <span class="l l-Scalar l-Scalar-Plain">failure_forward</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+                <span class="l l-Scalar l-Scalar-Plain">failure_path_parameter</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">_failure_path</span>
+                <span class="l l-Scalar l-Scalar-Plain">failure_handler</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some.service.id</span>
+                <span class="l l-Scalar l-Scalar-Plain">success_handler</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some.service.id</span>
+
+                <span class="c1"># имена полей для имения пользователя и пароля</span>
+                <span class="l l-Scalar l-Scalar-Plain">username_parameter</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">_username</span>
+                <span class="l l-Scalar l-Scalar-Plain">password_parameter</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">_password</span>
+
+                <span class="c1"># опции csrf-токенов</span>
+                <span class="l l-Scalar l-Scalar-Plain">csrf_parameter</span><span class="p p-Indicator">:</span>       <span class="l l-Scalar l-Scalar-Plain">_csrf_token</span>
+                <span class="l l-Scalar l-Scalar-Plain">csrf_token_id</span><span class="p p-Indicator">:</span>        <span class="l l-Scalar l-Scalar-Plain">authenticate</span>
+                <span class="l l-Scalar l-Scalar-Plain">csrf_token_generator</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my.csrf_token_generator.id</span>
+
+                <span class="c1"># по умолчанию, форма входа *должна* быть POST, а не GET</span>
+                <span class="l l-Scalar l-Scalar-Plain">post_only</span><span class="p p-Indicator">:</span>      <span class="l l-Scalar l-Scalar-Plain">true</span>
+                <span class="l l-Scalar l-Scalar-Plain">remember_me</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+                <span class="c1"># по умолчанию, сессия должна существовать до отправки запроса аутентификации</span>
+                <span class="c1"># если это не так, то Request::hasPreviousSession не вызывается во время аутентификации</span>
+                <span class="l l-Scalar l-Scalar-Plain">require_previous_session</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+            <span class="l l-Scalar l-Scalar-Plain">form_login_ldap</span><span class="p p-Indicator">:</span>
+                <span class="c1"># отправьте форму входа здесь</span>
+                <span class="l l-Scalar l-Scalar-Plain">check_path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/login_check</span>
+
+                <span class="c1"># пользователь перенаправляется сюда, когда ему нужно выполнить вход</span>
+                <span class="l l-Scalar l-Scalar-Plain">login_path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/login</span>
+
+                <span class="c1"># если &quot;true&quot;, перешлите пользователя к форме входа вместо перенаправления</span>
+                <span class="l l-Scalar l-Scalar-Plain">use_forward</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+                <span class="c1"># опции перенаправления удачного входа в систему (читайте больше ниже)</span>
+                <span class="l l-Scalar l-Scalar-Plain">always_use_default_target_path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+                <span class="l l-Scalar l-Scalar-Plain">default_target_path</span><span class="p p-Indicator">:</span>            <span class="l l-Scalar l-Scalar-Plain">/</span>
+                <span class="l l-Scalar l-Scalar-Plain">target_path_parameter</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">_target_path</span>
+                <span class="l l-Scalar l-Scalar-Plain">use_referer</span><span class="p p-Indicator">:</span>                    <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+                <span class="c1"># опции перенаправления неудачного входа в систему (читайте больше ниже)</span>
+                <span class="l l-Scalar l-Scalar-Plain">failure_path</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">/foo</span>
+                <span class="l l-Scalar l-Scalar-Plain">failure_forward</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+                <span class="l l-Scalar l-Scalar-Plain">failure_path_parameter</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">_failure_path</span>
+                <span class="l l-Scalar l-Scalar-Plain">failure_handler</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some.service.id</span>
+                <span class="l l-Scalar l-Scalar-Plain">success_handler</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some.service.id</span>
+
+                <span class="c1"># имена полей имени пользователя и пароля</span>
+                <span class="l l-Scalar l-Scalar-Plain">username_parameter</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">_username</span>
+                <span class="l l-Scalar l-Scalar-Plain">password_parameter</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">_password</span>
+
+                <span class="c1"># опции csrf-токенов</span>
+                <span class="l l-Scalar l-Scalar-Plain">csrf_parameter</span><span class="p p-Indicator">:</span>       <span class="l l-Scalar l-Scalar-Plain">_csrf_token</span>
+                <span class="l l-Scalar l-Scalar-Plain">csrf_token_id</span><span class="p p-Indicator">:</span>        <span class="l l-Scalar l-Scalar-Plain">authenticate</span>
+                <span class="l l-Scalar l-Scalar-Plain">csrf_token_generator</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my.csrf_token_generator.id</span>
+
+                <span class="c1"># по умолчанию, форма входа *должна* быть POST, а не GET</span>
+                <span class="l l-Scalar l-Scalar-Plain">post_only</span><span class="p p-Indicator">:</span>      <span class="l l-Scalar l-Scalar-Plain">true</span>
+                <span class="l l-Scalar l-Scalar-Plain">remember_me</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+                <span class="c1"># по умолчанию, сессия должна существовать до отправки запроса аутентификации</span>
+                <span class="c1"># если это не так, то Request::hasPreviousSession не вызывается во время аутентификации</span>
+                <span class="l l-Scalar l-Scalar-Plain">require_previous_session</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+                <span class="l l-Scalar l-Scalar-Plain">service</span><span class="p p-Indicator">:</span>      <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">dn_string</span><span class="p p-Indicator">:</span>    <span class="s">&#39;{username}&#39;</span>
+                <span class="l l-Scalar l-Scalar-Plain">query_string</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+            <span class="l l-Scalar l-Scalar-Plain">remember_me</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">token_provider</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">name</span>
+                <span class="l l-Scalar l-Scalar-Plain">secret</span><span class="p p-Indicator">:</span> <span class="s">&quot;%secret%&quot;</span>
+                <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NameOfTheCookie</span>
+                <span class="l l-Scalar l-Scalar-Plain">lifetime</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3600</span> <span class="c1"># in seconds</span>
+                <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/foo</span>
+                <span class="l l-Scalar l-Scalar-Plain">domain</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">somedomain.foo</span>
+                <span class="l l-Scalar l-Scalar-Plain">secure</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+                <span class="l l-Scalar l-Scalar-Plain">httponly</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+                <span class="l l-Scalar l-Scalar-Plain">always_remember_me</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+                <span class="l l-Scalar l-Scalar-Plain">remember_me_parameter</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">_remember_me</span>
+            <span class="l l-Scalar l-Scalar-Plain">logout</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>   <span class="l l-Scalar l-Scalar-Plain">/logout</span>
+                <span class="l l-Scalar l-Scalar-Plain">target</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/</span>
+                <span class="l l-Scalar l-Scalar-Plain">invalidate_session</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+                <span class="l l-Scalar l-Scalar-Plain">delete_cookies</span><span class="p p-Indicator">:</span>
+                    <span class="l l-Scalar l-Scalar-Plain">a</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">path</span><span class="p p-Indicator">:</span> <span class="nv">null</span><span class="p p-Indicator">,</span> <span class="nv">domain</span><span class="p p-Indicator">:</span> <span class="nv">null</span> <span class="p p-Indicator">}</span>
+                    <span class="l l-Scalar l-Scalar-Plain">b</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">path</span><span class="p p-Indicator">:</span> <span class="nv">null</span><span class="p p-Indicator">,</span> <span class="nv">domain</span><span class="p p-Indicator">:</span> <span class="nv">null</span> <span class="p p-Indicator">}</span>
+                <span class="l l-Scalar l-Scalar-Plain">handlers</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">some.service.id</span><span class="p p-Indicator">,</span> <span class="nv">another.service.id</span><span class="p p-Indicator">]</span>
+                <span class="l l-Scalar l-Scalar-Plain">success_handler</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some.service.id</span>
+            <span class="l l-Scalar l-Scalar-Plain">anonymous</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+        <span class="c1"># Значения и опции по умолчанию для любого брандмауэра</span>
+        <span class="l l-Scalar l-Scalar-Plain">some_firewall_listener</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">pattern</span><span class="p p-Indicator">:</span>              <span class="l l-Scalar l-Scalar-Plain">~</span>
+            <span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="l l-Scalar l-Scalar-Plain">request_matcher</span><span class="p p-Indicator">:</span>      <span class="l l-Scalar l-Scalar-Plain">~</span>
+            <span class="l l-Scalar l-Scalar-Plain">access_denied_url</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">~</span>
+            <span class="l l-Scalar l-Scalar-Plain">access_denied_handler</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">~</span>
+            <span class="l l-Scalar l-Scalar-Plain">entry_point</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">~</span>
+            <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">~</span>
+            <span class="l l-Scalar l-Scalar-Plain">stateless</span><span class="p p-Indicator">:</span>            <span class="l l-Scalar l-Scalar-Plain">false</span>
+            <span class="l l-Scalar l-Scalar-Plain">context</span><span class="p p-Indicator">:</span>              <span class="l l-Scalar l-Scalar-Plain">~</span>
+            <span class="l l-Scalar l-Scalar-Plain">logout</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">csrf_parameter</span><span class="p p-Indicator">:</span>       <span class="l l-Scalar l-Scalar-Plain">_csrf_token</span>
+                <span class="l l-Scalar l-Scalar-Plain">csrf_token_generator</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">csrf_token_id</span><span class="p p-Indicator">:</span>        <span class="l l-Scalar l-Scalar-Plain">logout</span>
+                <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">/logout</span>
+                <span class="l l-Scalar l-Scalar-Plain">target</span><span class="p p-Indicator">:</span>               <span class="l l-Scalar l-Scalar-Plain">/</span>
+                <span class="l l-Scalar l-Scalar-Plain">success_handler</span><span class="p p-Indicator">:</span>      <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">invalidate_session</span><span class="p p-Indicator">:</span>   <span class="l l-Scalar l-Scalar-Plain">true</span>
+                <span class="l l-Scalar l-Scalar-Plain">delete_cookies</span><span class="p p-Indicator">:</span>
+
+                    <span class="c1"># Prototype</span>
+                    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span>
+                        <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">~</span>
+                        <span class="l l-Scalar l-Scalar-Plain">domain</span><span class="p p-Indicator">:</span>               <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">handlers</span><span class="p p-Indicator">:</span>             <span class="p p-Indicator">[]</span>
+            <span class="l l-Scalar l-Scalar-Plain">anonymous</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">secret</span><span class="p p-Indicator">:</span>               <span class="s">&quot;%secret%&quot;</span>
+            <span class="l l-Scalar l-Scalar-Plain">switch_user</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">~</span>
+                <span class="l l-Scalar l-Scalar-Plain">parameter</span><span class="p p-Indicator">:</span>            <span class="l l-Scalar l-Scalar-Plain">_switch_user</span>
+                <span class="l l-Scalar l-Scalar-Plain">role</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">ROLE_ALLOWED_TO_SWITCH</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">access_control</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">requires_channel</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+        <span class="c1"># используйте этот дешифрованный формат url</span>
+        <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">~</span> <span class="c1"># Example: ^/path to resource/</span>
+        <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">~</span>
+        <span class="l l-Scalar l-Scalar-Plain">ips</span><span class="p p-Indicator">:</span>                  <span class="p p-Indicator">[]</span>
+        <span class="l l-Scalar l-Scalar-Plain">methods</span><span class="p p-Indicator">:</span>              <span class="p p-Indicator">[]</span>
+        <span class="l l-Scalar l-Scalar-Plain">roles</span><span class="p p-Indicator">:</span>                <span class="p p-Indicator">[]</span>
+    <span class="l l-Scalar l-Scalar-Plain">role_hierarchy</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">ROLE_ADMIN</span><span class="p p-Indicator">:</span>      <span class="p p-Indicator">[</span><span class="nv">ROLE_ORGANIZER</span><span class="p p-Indicator">,</span> <span class="nv">ROLE_USER</span><span class="p p-Indicator">]</span>
+        <span class="l l-Scalar l-Scalar-Plain">ROLE_SUPERADMIN</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">ROLE_ADMIN</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="reference-security-firewall-form-login-ru">
+<span id="id2"></span><h2>Конфигурация формы входа<a class="headerlink" href="#reference-security-firewall-form-login-ru" title="Permalink to this headline">¶</a></h2>
+<p>При использовании слушателя аутентификатора <tt class="docutils literal"><code>form_login</code></tt> под брандмауэром,
+существует несколько общих опций для конфигурации опыта &quot;формы входа&quot;.</p>
+<p>Чтобы узнать ещё больше деталей, см. <a class="reference internal" href="..\..\security\form_login.html"><em>How to Customize Redirect After Form Login</em></a>.</p>
+<div class="section" id="id3">
+<h3>Процесс и форма входа в систему<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="login-path">
+<h4>login_path<a class="headerlink" href="#login-path" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>/login</code></tt></p>
+<p>Это маршрут или путь, по которому будет перенаправлен пользователь (кроме случаев,
+когда <tt class="docutils literal"><code>use_forward</code></tt> установлен, как <tt class="docutils literal"><code>true</code></tt>), когда он будет пытаться получить
+доступ к защищённому источнику, но при этом не пройдя полную аутентификацию.</p>
+<p>Этот путь <strong>должен</strong> быть доступен обычному, неаутентифицированному пользователю,
+иначе вы можете создать петлю перенаправления. Чтобы узнать больше, см.
+&quot;<a class="reference internal" href="..\..\security\form_login_setup.html#security-common-pitfalls"><span>Избежание распространённых ошибок</span></a>&quot;.</p>
+</div>
+<div class="section" id="check-path">
+<h4>check_path<a class="headerlink" href="#check-path" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>/login_check</code></tt></p>
+<p>Это маршрут или путь, по которму должна отправляться ваша форма входа. Брандмауэр
+будет принимать любые запросы (по умолчанию, только запросы <tt class="docutils literal"><code>POST</code></tt>) по этому URL,
+и обрабатывать отправленные учётные данные входа.</p>
+<p>Убедитесь в том, что этот URL охватывается вашим основным брандмауэром (т.е. не
+создавайте отдельный брандмауэр просто для URL <tt class="docutils literal"><code>check_path</code></tt>).</p>
+</div>
+<div class="section" id="use-forward">
+<h4>use_forward<a class="headerlink" href="#use-forward" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>false</code></tt></p>
+<p>Если вы хотите, чтобы пользователь был переслан к форме входа вместо того,
+чтобы быть перенаправленным, установите эту опцию как <tt class="docutils literal"><code>true</code></tt>.</p>
+</div>
+<div class="section" id="username-parameter">
+<h4>username_parameter<a class="headerlink" href="#username-parameter" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>_username</code></tt></p>
+<p>Это имя поля, которое вам нужно дать полю имени пользователя вашей формы
+входа. Когда вы отправляете форму в <tt class="docutils literal"><code>check_path</code></tt>, то система безопасности
+будет искать параметр POST с этим именем.</p>
+</div>
+<div class="section" id="password-parameter">
+<h4>password_parameter<a class="headerlink" href="#password-parameter" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>_password</code></tt></p>
+<p>Это имя поля, которое вам нужно дать полю пароле вашей формы входа. Когда
+вы отправляете форму в <tt class="docutils literal"><code>check_path</code></tt>, то система безопасности будет искать
+параметр POST с этим именем.</p>
+</div>
+<div class="section" id="post-only">
+<h4>post_only<a class="headerlink" href="#post-only" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>true</code></tt></p>
+<p>По умолчанию, вы должны отправить вашу форму входа по URL <tt class="docutils literal"><code>check_path</code></tt> в
+виде запроса POST. Установив эту опцию, как <tt class="docutils literal"><code>false</code></tt>, вы можете отправить
+запрос GET по URL <tt class="docutils literal"><code>check_path</code></tt>.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Перенаправление после входа в систему<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="always-use-default-target-path">
+<h4>always_use_default_target_path<a class="headerlink" href="#always-use-default-target-path" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>false</code></tt></p>
+<p>Если <tt class="docutils literal"><code>true</code></tt>, то пользователи всегда перенаправляются по целевому
+пути по умолчанию, несмотря на предыдущий URL, сохранённый в сессии.</p>
+</div>
+<div class="section" id="default-target-path">
+<h4>default_target_path<a class="headerlink" href="#default-target-path" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>/</code></tt></p>
+<p>Страница, на которую перенаправляются пользователи, когда предыдущая страница,
+сохранённая в сессии, отсутствует (например, когда пользователи напрямую заходят
+на страницу входа в систему).</p>
+</div>
+<div class="section" id="target-path-parameter">
+<h4>target_path_parameter<a class="headerlink" href="#target-path-parameter" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>_target_path</code></tt></p>
+<p>При использовании формы входа, если вы включаете HTML-элемент для установки целевого
+пути, эта опция позволяется вам изменить имя самого HTML-элемента.</p>
+</div>
+<div class="section" id="use-referer">
+<h4>use_referer<a class="headerlink" href="#use-referer" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>false</code></tt></p>
+<p>Если <tt class="docutils literal"><code>true</code></tt>, то пользователь перенаправляется в значению, сохранённому
+в заголовке <tt class="docutils literal"><code>HTTP_REFERER</code></tt>, когда в сессии не был сохранён предыдущий
+URL. Если реферальный URL такой же, как и сгенерированный с маршрутом <tt class="docutils literal"><code>login_path</code></tt>,
+то пользователь перенаправляется по <tt class="docutils literal"><code>default_target_path</code></tt>, чтобы избежать
+замкнутого перенаправления.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">По историческим причинам, и чтобы соответствовать ошибке HTTP стандарта,
+опция называется <tt class="docutils literal"><code>use_referer</code></tt> вместо <tt class="docutils literal"><code>use_referrer</code></tt>.</p>
+</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="reference-security-pbkdf2-ru">
+<span id="id5"></span><h2>Конфигурация выхода из системы<a class="headerlink" href="#reference-security-pbkdf2-ru" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="invalidate-session">
+<h3>invalidate_session<a class="headerlink" href="#invalidate-session" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>true</code></tt></p>
+<p>По умолчанию, когда пользователи выходят из любого брандмауэра, их сессии
+инвалидируются. Это означает, что выход из одного брандмауэра автоматически
+запускает выходы из всех других.</p>
+<p>Опция <tt class="docutils literal"><code>invalidate_session</code></tt> позволяет вам переопределить это поведение. Установите
+эту опцию, как <tt class="docutils literal"><code>false</code></tt> в каждом брандмауэре, и пользователь будет выполнять выход
+только из текущего брандмауэра, но не остальных.</p>
+</div>
+</div>
+<div class="section" id="ldap">
+<span id="reference-security-ldap-ru"></span><h2>Функциональность LDAP<a class="headerlink" href="#ldap" title="Permalink to this headline">¶</a></h2>
+<p>Существует несколько опций для соединения с LDAP-сервером, используя
+поставщиков аутентификации <tt class="docutils literal"><code>form_login_ldap</code></tt> и <tt class="docutils literal"><code>http_basic_ldap</code></tt>,
+или поставщика пользователей <tt class="docutils literal"><code>ldap</code></tt>.</p>
+<p>Чтобы узнать ещё больше, см. <a class="reference internal" href="..\..\security\ldap.html"><em>Authenticating against an LDAP server</em></a>.</p>
+<div class="section" id="id6">
+<h3>Аутентификация<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Вы можете аутентифицироваться на LDAP-сервере используя LDAP-варианты
+поставщиков аутентификации <tt class="docutils literal"><code>form_login</code></tt> и <tt class="docutils literal"><code>http_basic</code></tt>. Просто
+используйте <tt class="docutils literal"><code>form_login_ldap</code></tt> и <tt class="docutils literal"><code>http_basic_ldap</code></tt>, которые попробуют
+<tt class="docutils literal"><code>bind</code></tt> с LDAP-сервером, вместо использования сравнения паролей.</p>
+<p>Оба поставщика аутентификации имеют одинаковые аргументы в качестве
+обычных составляющих, с дополнением в виде двух ключей конфигурации:</p>
+<div class="section" id="service">
+<h4>service<a class="headerlink" href="#service" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>ldap</code></tt></p>
+<p>Это имя вашего сконфигурированного LDAP-клиента.</p>
+</div>
+<div class="section" id="dn-string">
+<h4>dn_string<a class="headerlink" href="#dn-string" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>{username}</code></tt></p>
+<p>Это строка, которая будет использована как связующее отличительное имя.
+Заполнитель <tt class="docutils literal"><code>{username}</code></tt> будет заменён значением, предоставленным пользователем
+(его логином). В зависимости от конфигурации вашего LDAP-сервера, вам может
+быть нужно переопределить это значение.</p>
+</div>
+<div class="section" id="query-string">
+<h4>query_string<a class="headerlink" href="#query-string" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>Это строка, которая будет использованадля запросов отличительного имени.
+Заполнитель <tt class="docutils literal"><code>{username}</code></tt> будет заменён значением, предоставленным пользователем
+(его логином). В зависимости от конфигурации вашего LDAP-сервера, вам может
+быть нужно переопределить это значение. Эта настройка необходима только если
+отличительное имя пользователя не может быть выведено статистично, используя
+опцию конфигурации <tt class="docutils literal"><code>dn_string</code></tt>.</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>Поставщик пользователей<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Пользователи будут извлекаться из сконфигурированного поставщика пользователей.
+Если вы хотите получаь ваших пользователей из LDAP-сервера, то вам нужно будет
+использовать поставщика пользователей <tt class="docutils literal"><code>ldap</code></tt>, в дополнение к одному из двух
+поставщиков аутентификации (<tt class="docutils literal"><code>form_login_ldap</code></tt> или <tt class="docutils literal"><code>http_basic_ldap</code></tt>).</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/security.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">providers</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">my_ldap_users</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">ldap</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">service</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ldap</span>
+                <span class="l l-Scalar l-Scalar-Plain">base_dn</span><span class="p p-Indicator">:</span> <span class="s">&#39;dc=symfony,dc=com&#39;</span>
+                <span class="l l-Scalar l-Scalar-Plain">search_dn</span><span class="p p-Indicator">:</span> <span class="s">&#39;%ldap.search_dn%&#39;</span>
+                <span class="l l-Scalar l-Scalar-Plain">search_password</span><span class="p p-Indicator">:</span> <span class="s">&#39;%ldap.search_password%&#39;</span>
+                <span class="l l-Scalar l-Scalar-Plain">default_roles</span><span class="p p-Indicator">:</span> <span class="s">&#39;&#39;</span>
+                <span class="l l-Scalar l-Scalar-Plain">uid_key</span><span class="p p-Indicator">:</span> <span class="s">&#39;uid&#39;</span>
+                <span class="l l-Scalar l-Scalar-Plain">filter</span><span class="p p-Indicator">:</span> <span class="s">&#39;(&amp;({uid_key}={username})(objectclass=person)(ou=Users))&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="pbkdf2">
+<h2>Использование кодировщика PBKDF2: Безопасность и скорость<a class="headerlink" href="#pbkdf2" title="Permalink to this headline">¶</a></h2>
+<p>Кодировщик <a class="reference external" href="https://ru.wikipedia.org/wiki/PBKDF2">PBKDF2</a> предоставляет высокий уровень Шифрованной безопасности,
+как рекомендовано Национальным Институтом Стандартов и Технологий (NIST).</p>
+<p>Вы можете увидеть пример кодировщика <tt class="docutils literal"><code>pbkdf2</code></tt> в разделе YAML на этой странице.</p>
+<p>Но использование PBKDF2 также имеет предостережние: его использование (с большим
+количеством итераций) замедляет процесс. Поэтому, PBKDF2 стоит использовать бережно
+и с осторожностью.</p>
+<p>Хорошая конфигурация содержит какминимум 1000 итераций и sha512 для
+алгоритма хеширования.</p>
+</div>
+<div class="section" id="bcrypt">
+<span id="reference-security-bcrypt-ru"></span><h2>Использование кодировщика паролей BCrypt<a class="headerlink" href="#bcrypt" title="Permalink to this headline">¶</a></h2>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/security.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">encoders</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Symfony\Component\Security\Core\User\User</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">algorithm</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bcrypt</span>
+            <span class="l l-Scalar l-Scalar-Plain">cost</span><span class="p p-Indicator">:</span>      <span class="l l-Scalar l-Scalar-Plain">15</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; charset=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;config&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+        <span class="nt">&lt;encoder</span>
+            <span class="na">class=</span><span class="s">&quot;Symfony\Component\Security\Core\User\User&quot;</span>
+            <span class="na">algorithm=</span><span class="s">&quot;bcrypt&quot;</span>
+            <span class="na">cost=</span><span class="s">&quot;15&quot;</span>
+        <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/security.php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\User</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+    <span class="s1">&#39;encoders&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="nx">User</span><span class="o">::</span><span class="na">class</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;algorithm&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bcrypt&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;cost&#39;</span>      <span class="o">=&gt;</span> <span class="mi">15</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p><tt class="docutils literal"><code>cost</code></tt> может быть в диапазоне <tt class="docutils literal"><code>4-31</code></tt> и определяет длину кодирования пароля.
+Каждый отрезок <tt class="docutils literal"><code>cost</code></tt> <em>удваивает</em> время кодирования пароля.</p>
+<p>Если вы не предоставите опцию <tt class="docutils literal"><code>cost</code></tt>, то используется значение по умолчанию -
+<tt class="docutils literal"><code>13</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вы можете изменить значение в любой момент - даже если у вас уже есть
+зашифрованные пароли с другим значением. Новые пароли будут зашифрованы
+с использованием нового значения, в то время, как зашифрованные ранее
+будут влаидированы, используя значение, использованное во время шифрования.</p>
+</div></div>
+<p>Соль для каждого нового пароля генерируется автоматически и не должна быть
+сохранена. Так как зашифрованный пароль содержит соль, использованную для его
+шифрования, сохранения только зашифрованного пароля достаточно.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Зашифрованные пароли BCrypt составляют <tt class="docutils literal"><code>60</code></tt> символов, так что убедитесь в том,
+что вы выделили им достаточно места для хранения.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Простая техника для ускорения тестов при использовании BCrypt - установить
+стоимость как <tt class="docutils literal"><code>4</code></tt>, что является минимальным позволенным значением, в конфигурации
+окружения <tt class="docutils literal"><code>test</code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="argon2i">
+<span id="reference-security-argon2i-ru"></span><h2>Использование Argon2i Кодировщик пароля<a class="headerlink" href="#argon2i" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Чтобы использовать этот кодировщик, вам нужно либо использовать PHP версии
+7.2, или установить расширение <a class="reference external" href="https://pecl.php.net/package/libsodium">libsodium</a>.</p>
+</div></div>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/security.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">encoders</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Symfony\Component\Security\Core\User\User</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">algorithm</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">argon2i</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/security.xml --&gt;</span>
+<span class="nt">&lt;config&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;encoder</span>
+        <span class="na">class=</span><span class="s">&quot;Symfony\Component\Security\Core\User\User&quot;</span>
+        <span class="na">algorithm=</span><span class="s">&quot;argon2i&quot;</span>
+    <span class="nt">/&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/security.php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\User</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+    <span class="s1">&#39;encoders&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="nx">User</span><span class="o">::</span><span class="na">class</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;algorithm&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;argon2i&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Соль для каждого нового пароля генерируется автоматически и не требует
+сохранения. Так как зашифрованный пароль содержит соль, использованную
+для его шифрования, сохранения самого зашифрованного пароля достаточно.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Зашифрованные с помощью Argon2i пароли имеют <tt class="docutils literal"><code>96</code></tt> символов, но в связи
+с требованиями хеширования, сохранёнными в результирующем хеше, это может
+измениться в будущем.</p>
+</div></div>
+</div>
+<div class="section" id="reference-security-firewall-context-ru">
+<span id="id8"></span><h2>Контекст брандмауэра<a class="headerlink" href="#reference-security-firewall-context-ru" title="Permalink to this headline">¶</a></h2>
+<p>Большинству приложений понадобится только один <a class="reference internal" href="..\..\security.html#security-firewalls"><span>брандмауэр</span></a>.
+Но если вашему приложению <em>нужно</em> несколько, то вы заметите, что если вы аутентифицированы
+в одном брандмауэре, автоматически в других вы не аутентифицируетесь. Другими словами,
+системы не пользуются общщим &quot;контекстом&quot;: каждый брандмауэр действует, как отдельная
+система безопасности.</p>
+<p>Однако, каждый брандмауэр имеет необязательный ключ <tt class="docutils literal"><code>context</code></tt> (который по умолчанию
+имеет имя бандмауэра), который используется при хранении и извлечении данных безопасности
+из и в сессию. Если бы этот ключ устанавливал одинаковое значение в нескольких брандмауэрах,
+то &quot;контекст&quot; мог бы быть общим:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/security.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">firewalls</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">somename</span><span class="p p-Indicator">:</span>
+            <span class="c1"># ...</span>
+            <span class="l l-Scalar l-Scalar-Plain">context</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my_context</span>
+        <span class="l l-Scalar l-Scalar-Plain">othername</span><span class="p p-Indicator">:</span>
+            <span class="c1"># ...</span>
+            <span class="l l-Scalar l-Scalar-Plain">context</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my_context</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; charset=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;config&gt;</span>
+        <span class="nt">&lt;firewall</span> <span class="na">name=</span><span class="s">&quot;somename&quot;</span> <span class="na">context=</span><span class="s">&quot;my_context&quot;</span><span class="nt">&gt;</span>
+            <span class="c">&lt;!-- ... --&gt;</span>
+        <span class="nt">&lt;/firewall&gt;</span>
+        <span class="nt">&lt;firewall</span> <span class="na">name=</span><span class="s">&quot;othername&quot;</span> <span class="na">context=</span><span class="s">&quot;my_context&quot;</span><span class="nt">&gt;</span>
+            <span class="c">&lt;!-- ... --&gt;</span>
+        <span class="nt">&lt;/firewall&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/security.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;firewalls&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;somename&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="c1">// ...</span>
+            <span class="s1">&#39;context&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;my_context&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;othername&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="c1">// ...</span>
+            <span class="s1">&#39;context&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;my_context&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Ключ контекста брандмауэра хранится в сессии, так что каждый брандмауэр,
+использующий его, должен установить свою опцию <tt class="docutils literal"><code>stateless</code></tt>, как <tt class="docutils literal"><code>false</code></tt>.
+В обратном случае, контекст игнорируется и вы не сможете аутентифицироваться
+в нескольких брандмауэрах одновременно.</p>
+</div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

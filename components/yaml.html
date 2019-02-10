@@ -1,0 +1,747 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент Yaml &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="Reference Documents" href="..\reference\index.html">
+    <link rel="prev" title="Компонент Workflow" href="workflow-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент Yaml</a><ul>
+<li><a class="reference internal" href="#id1">Что это?</a></li>
+<li><a class="reference internal" href="#id2">Установка</a></li>
+<li><a class="reference internal" href="#id3">Почему?</a><ul>
+<li><a class="reference internal" href="#id4">Быстро</a></li>
+<li><a class="reference internal" href="#id5">Реальный анализатор</a></li>
+<li><a class="reference internal" href="#id6">Ясные сообщения ошибок</a></li>
+<li><a class="reference internal" href="#id7">Поддержка сброса</a></li>
+<li><a class="reference internal" href="#id8">Поддержка типов</a></li>
+<li><a class="reference internal" href="#id9">Поддержка ключей полного слияния</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#symfony-yaml">Использование компонента Symfony YAML</a><ul>
+<li><a class="reference internal" href="#id10">Чтение содержания YAML</a></li>
+<li><a class="reference internal" href="#id11">Чтение файлов YAML</a></li>
+<li><a class="reference internal" href="#components-yaml-dump-ru">Написание YAML файлов</a><ul>
+<li><a class="reference internal" href="#id13">Расширение и встраивание массива</a></li>
+<li><a class="reference internal" href="#id14">Установка отступов</a></li>
+<li><a class="reference internal" href="#id15">Числовые литералы</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id16">Продвинутое использование: флажки</a><ul>
+<li><a class="reference internal" href="#objects-for-mappings-ru">Анализ и сброс объектов</a></li>
+<li><a class="reference internal" href="#invalid-types-and-object-serialization-ru">Анализ и сброс объектов в виде карт</a></li>
+<li><a class="reference internal" href="#id19">Работа с невалидными типами</a></li>
+<li><a class="reference internal" href="#id20">Работа с данными</a></li>
+<li><a class="reference internal" href="#id21">Сброс многострочных блоков литералов</a></li>
+<li><a class="reference internal" href="#php">Анализ PHP констант</a></li>
+<li><a class="reference internal" href="#id22">Анализ и сброс бинарных данных</a></li>
+<li><a class="reference internal" href="#id23">Анализ и сброс пользовательских тегов</a></li>
+<li><a class="reference internal" href="#id24">Валидация синтаксиса</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id25">Узнать больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент Yaml</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="yaml">
+<span id="index-0"></span><h1>Компонент Yaml<a class="headerlink" href="#yaml" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Компонент Yaml загружает и сбрасывает файлы YAML.</div></blockquote>
+<div class="section" id="id1">
+<h2>Что это?<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Компонент Symfony Yaml анализирует YAML строки, чтобы преобразовать их
+в PHP массивы. Он также может преобразовывать PHP массивы в YAML строки.</p>
+<p><a class="reference external" href="http://yaml.org/">YAML</a>, <em>YAML не является языком разметки</em> - это дружелюбный стандарт сериализации
+данных для всех языков программирования. YAML является отличным форматом для ваших
+файлов конфигурации. Файлы YAML так же экспрессивны, как файлы XML, и так же читаемы,
+как файлы INI.</p>
+<p>Компонент Symfony Yaml реализует выбранный поднабор функций, определённых
+в <a class="reference external" href="http://yaml.org/spec/1.2/spec.html">спецификации версии YAML 1.2</a>.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Узнайте больше о компоненте Yaml в статье
+<a class="reference internal" href="yaml\yaml_format.html"><em>The YAML Format</em></a>.</p>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Установка<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/yaml
+</pre></div>
+</td></tr></table></div></div>
+<p>Также вы можете клонировать репозиторий <a class="reference external" href="https://github.com/symfony/yaml">https://github.com/symfony/yaml</a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+</div>
+<div class="section" id="id3">
+<h2>Почему?<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>Быстро<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Одна из целей Yaml Symfony - найти правильный баланс между скоростью и функциями.
+Он поддерживает только необходимые функции для обработки файлов конфигурации. Заметно
+не хватает таких функций: директив документов, многострочных цитируемых сообщений,
+компактных коллекций блоков и многодокументных файлов.</p>
+</div>
+<div class="section" id="id5">
+<h3>Реальный анализатор<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Поддерживает реальный анализатор и может анализировать большой поднабор
+спецификации YAML для всех ваших потребностей конфигурации. Это также
+означает, что анализатор достаточно обширен, легок в понимании и достаточно
+прост для расширения.</p>
+</div>
+<div class="section" id="id6">
+<h3>Ясные сообщения ошибок<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Каждый раз, когда у вас есть проблема синтаксиса в ваших YAML файлах, библиотека
+выводит полезное сообщение с именем файла и номером строки, где возникла проблема.
+Это очень облегчает отладку.</p>
+</div>
+<div class="section" id="id7">
+<h3>Поддержка сброса<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Он также может сбрасывать PHP массивы в YAML с поддержкой объекта, и встраиваемый
+уровень конфигурации для красивых выводов.</p>
+</div>
+<div class="section" id="id8">
+<h3>Поддержка типов<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Поддерживает большинство встроенных типов YAML вроде дат, чисел, окталов,
+булевых значений и многие другие...</p>
+</div>
+<div class="section" id="id9">
+<h3>Поддержка ключей полного слияния<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Полная поддержка ссылок, дополнительных имён и ключей полного слияния.
+Не повторяйте самостоятельно, ссылаясь на распространённые части конфигурации.</p>
+</div>
+</div>
+<div class="section" id="symfony-yaml">
+<span id="using-the-symfony2-yaml-component-ru"></span><h2>Использование компонента Symfony YAML<a class="headerlink" href="#symfony-yaml" title="Permalink to this headline">¶</a></h2>
+<p>Компонент Symfony Yaml очень простой и состоит из двух главных классов:
+один анализирует YAML строки (<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Yaml/Parser.html" title="Symfony\Component\Yaml\Parser">Parser</a></code></tt>), а
+второй - сбратсывает PHP массив в строку YAML (<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Yaml/Dumper.html" title="Symfony\Component\Yaml\Dumper">Dumper</a></code></tt>).</p>
+<p>On top of these two classes, the <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Yaml/Yaml.html" title="Symfony\Component\Yaml\Yaml">Yaml</a></code></tt> class
+acts as a thin wrapper that simplifies common uses.</p>
+<div class="section" id="id10">
+<h3>Чтение содержания YAML<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Yaml/Yaml.html#method_parse" title="Symfony\Component\Yaml\Yaml::parse()">parse()</a></code></tt> анализирует строку YAML
+и преобразует её в PHP массив:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$value</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span><span class="s2">&quot;foo: bar&quot;</span><span class="p">);</span>
+<span class="c1">// $value = array(&#39;foo&#39; =&gt; &#39;bar&#39;)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если ошибка возникает во время анализа, анализатор вызывает исключение
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Yaml/Exception/ParseException.html" title="Symfony\Component\Yaml\Exception\ParseException">ParseException</a></code></tt>, обозначающее
+тип ошибки и строчку исходной строки YAML, где возникла ошибка:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Yaml\Exception\ParseException</span><span class="p">;</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$value</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">ParseException</span> <span class="nv">$exception</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">printf</span><span class="p">(</span><span class="s1">&#39;Unable to parse the YAML string: %s&#39;</span><span class="p">,</span> <span class="nv">$exception</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id11">
+<h3>Чтение файлов YAML<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Yaml/Yaml.html#method_parseFile" title="Symfony\Component\Yaml\Yaml::parseFile()">parseFile()</a></code></tt> анализирует содержимое
+YAML заданного пути файла и преобразует его в PHP значение:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Yaml\Yaml</span><span class="p">;</span>
+
+<span class="nv">$value</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">parseFile</span><span class="p">(</span><span class="s1">&#39;/path/to/file.yaml&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если во время анализа возникает ошибка, анализатор вызывает исключение <tt class="docutils literal"><code>ParseException</code></tt>.</p>
+</div>
+<div class="section" id="components-yaml-dump-ru">
+<span id="id12"></span><h3>Написание YAML файлов<a class="headerlink" href="#components-yaml-dump-ru" title="Permalink to this headline">¶</a></h3>
+<p>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Yaml/Yaml.html#method_dump" title="Symfony\Component\Yaml\Yaml::dump()">dump()</a></code></tt> сбрасывает любой PHP
+массив в его представление YAML:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Yaml\Yaml</span><span class="p">;</span>
+
+<span class="nv">$array</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;baz&#39;</span><span class="p">),</span>
+<span class="p">);</span>
+
+<span class="nv">$yaml</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">dump</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span>
+
+<span class="nb">file_put_contents</span><span class="p">(</span><span class="s1">&#39;/path/to/file.yaml&#39;</span><span class="p">,</span> <span class="nv">$yaml</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если ошибка возникает во время сброса, анализатор вызывает исключение
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Yaml/Exception/DumpException.html" title="Symfony\Component\Yaml\Exception\DumpException">DumpException</a></code></tt>.</p>
+<div class="section" id="id13">
+<h4>Расширение и встраивание массива<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<p>Форма YAML поддерживает два типа представления для массивов, расширенное
+и встроенное. По умолчанию, сбрасыватель использует расширенное представление:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">foo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
+<span class="l l-Scalar l-Scalar-Plain">bar</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">foo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
+    <span class="l l-Scalar l-Scalar-Plain">bar</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">baz</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Второй аргумент метода <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Yaml/Yaml.html#method_dump" title="Symfony\Component\Yaml\Yaml::dump()">dump()</a></code></tt> настраивает
+уровень, на котором вывод переключается с расширенного представления на встроенное:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">echo</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">dump</span><span class="p">(</span><span class="nv">$array</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">foo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
+<span class="l l-Scalar l-Scalar-Plain">bar</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">foo</span><span class="p p-Indicator">:</span> <span class="nv">bar</span><span class="p p-Indicator">,</span> <span class="nv">bar</span><span class="p p-Indicator">:</span> <span class="nv">baz</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">echo</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">dump</span><span class="p">(</span><span class="nv">$array</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">foo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
+<span class="l l-Scalar l-Scalar-Plain">bar</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">foo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
+    <span class="l l-Scalar l-Scalar-Plain">bar</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">baz</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id14">
+<h4>Установка отступов<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<p>По умолчанию, компонент YAML будет использовать 4 пробела для отступа. Это
+может быть изменено с помощью третьего аргумента таким образом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// использует 8 пробелов для отступа</span>
+<span class="k">echo</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">dump</span><span class="p">(</span><span class="nv">$array</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">foo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
+<span class="l l-Scalar l-Scalar-Plain">bar</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">foo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
+        <span class="l l-Scalar l-Scalar-Plain">bar</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">baz</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id15">
+<h4>Числовые литералы<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>Длинные числовые литералы, будь они целыми числами, float или шестнадцатиричными,
+известны своей плохой читаемостью в коде и файлах конфигурации. Поэтому файлы YAML
+позволяют добавлять нижние подчёркивания для улучшения их читаемости:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">credit_card_number</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1234_5678_9012_3456</span>
+    <span class="l l-Scalar l-Scalar-Plain">long_number</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10_000_000_000</span>
+    <span class="l l-Scalar l-Scalar-Plain">pi</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3.14159_26535_89793</span>
+    <span class="l l-Scalar l-Scalar-Plain">hex_words</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0x_CAFE_F00D</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Во время анализа содержаним YAML, все символы <tt class="docutils literal"><code>_</code></tt> удаляются из содержания
+числовых литералов, поэтому лимита количества нижних подчёркиваний, которые
+вы можете включать или то, как вы группируете содержание, не существует.</p>
+</div>
+</div>
+</div>
+<div class="section" id="id16">
+<h2>Продвинутое использование: флажки<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="objects-for-mappings-ru">
+<span id="id17"></span><h3>Анализ и сброс объектов<a class="headerlink" href="#objects-for-mappings-ru" title="Permalink to this headline">¶</a></h3>
+<p>Вы можете сбрасывать объекты, используя флажок <tt class="docutils literal"><code>DUMP_OBJECT</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$object</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\stdClass</span><span class="p">();</span>
+<span class="nv">$object</span><span class="o">-&gt;</span><span class="na">foo</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">;</span>
+
+<span class="nv">$dumped</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">dump</span><span class="p">(</span><span class="nv">$object</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">DUMP_OBJECT</span><span class="p">);</span>
+<span class="c1">// !php/object &#39;O:8:&quot;stdClass&quot;:1:{s:5:&quot;foo&quot;;s:7:&quot;bar&quot;;}&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>И анализировать их, используя флажок <tt class="docutils literal"><code>PARSE_OBJECT</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$parsed</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span><span class="nv">$dumped</span><span class="p">,</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">PARSE_OBJECT</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nb">is_object</span><span class="p">(</span><span class="nv">$parsed</span><span class="p">));</span> <span class="c1">// true</span>
+<span class="k">echo</span> <span class="nv">$parsed</span><span class="o">-&gt;</span><span class="na">foo</span><span class="p">;</span> <span class="c1">// bar</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Компонент YAML использует метод PHP <tt class="docutils literal"><code>serialize()</code></tt> для генерирования представления
+строки объекта.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Сериализация объекта специфична в этой реализации, другие анализаторы
+PHP YAML скорее всего не узнают тег <tt class="docutils literal"><code>php/object</code></tt>, а не-PHP реализации
+точно не узнают - используйте с осторожностью!</p>
+</div></div>
+</div>
+<div class="section" id="invalid-types-and-object-serialization-ru">
+<span id="id18"></span><h3>Анализ и сброс объектов в виде карт<a class="headerlink" href="#invalid-types-and-object-serialization-ru" title="Permalink to this headline">¶</a></h3>
+<p>Вы можете сбрасывать объекты, как Yaml карты, используя флажок <tt class="docutils literal"><code>DUMP_OBJECT_AS_MAP</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$object</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\stdClass</span><span class="p">();</span>
+<span class="nv">$object</span><span class="o">-&gt;</span><span class="na">foo</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">;</span>
+
+<span class="nv">$dumped</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">dump</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;data&#39;</span> <span class="o">=&gt;</span> <span class="nv">$object</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">DUMP_OBJECT_AS_MAP</span><span class="p">);</span>
+<span class="c1">// $dumped = &quot;data:\n    foo: bar&quot;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>И анализировать их, используя флажок <tt class="docutils literal"><code>PARSE_OBJECT_FOR_MAP</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$parsed</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span><span class="nv">$dumped</span><span class="p">,</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">PARSE_OBJECT_FOR_MAP</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nb">is_object</span><span class="p">(</span><span class="nv">$parsed</span><span class="p">));</span> <span class="c1">// true</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nb">is_object</span><span class="p">(</span><span class="nv">$parsed</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">));</span> <span class="c1">// true</span>
+<span class="k">echo</span> <span class="nv">$parsed</span><span class="o">-&gt;</span><span class="na">data</span><span class="o">-&gt;</span><span class="na">foo</span><span class="p">;</span> <span class="c1">// bar</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Компонент YAML использует приведение PHP <tt class="docutils literal"><code>(array)</code></tt>, чтобы сгенерировать строчное
+представление объекта в виде карты.</p>
+</div>
+<div class="section" id="id19">
+<h3>Работа с невалидными типами<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p>По умолчанию, анализатор зашифрует невалидные типы, как <tt class="docutils literal"><code>null</code></tt>. Вы можете заставить
+анализатор вызывать исключения, используя флажок <tt class="docutils literal"><code>PARSE_EXCEPTION_ON_INVALID_TYPE</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$yaml</span> <span class="o">=</span> <span class="s1">&#39;!php/object \&#39;O:8:&quot;stdClass&quot;:1:{s:5:&quot;foo&quot;;s:7:&quot;bar&quot;;}\&#39;&#39;</span><span class="p">;</span>
+<span class="nx">Yaml</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span><span class="nv">$yaml</span><span class="p">,</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">PARSE_EXCEPTION_ON_INVALID_TYPE</span><span class="p">);</span> <span class="c1">// throws an exception</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Схожим образом вы можете использовать <tt class="docutils literal"><code>DUMP_EXCEPTION_ON_INVALID_TYPE</code></tt> при сбрасывании:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\stdClass</span><span class="p">();</span> <span class="c1">// by default objects are invalid.</span>
+<span class="nx">Yaml</span><span class="o">::</span><span class="na">dump</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">DUMP_EXCEPTION_ON_INVALID_TYPE</span><span class="p">);</span> <span class="c1">// вызывает исключение</span>
+
+<span class="k">echo</span> <span class="nv">$yaml</span><span class="p">;</span> <span class="c1">// { foo: bar }</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id20">
+<h3>Работа с данными<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<p>По умолчанию, анализатор YAML преобразует нецитируемые строки, которые будут
+выглядеть как дата или дата-время во временную метку Unix; например, <tt class="docutils literal"><code>2016-05-27</code></tt>
+или <tt class="docutils literal"><code>2016-05-27T02:59:43.1Z</code></tt> (<a class="reference external" href="http://www.iso.org/iso/iso8601">ISO-8601</a>):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">Yaml</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span><span class="s1">&#39;2016-05-27&#39;</span><span class="p">);</span> <span class="c1">// 1464307200</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы можете заставить его преобразовывать в экземпляр <tt class="docutils literal"><code>DateTime</code></tt>, используя флажок
+<tt class="docutils literal"><code>PARSE_DATETIME</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$date</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span><span class="s1">&#39;2016-05-27&#39;</span><span class="p">,</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">PARSE_DATETIME</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nb">get_class</span><span class="p">(</span><span class="nv">$date</span><span class="p">));</span> <span class="c1">// DateTime</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id21">
+<h3>Сброс многострочных блоков литералов<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<p>В YAML множество строчек могут быть представлены, как блоки литералов, по
+умолчанию, сбрасывател зашифрует множество строчек в виде встроенной строки:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$string</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;string&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Multiple</span><span class="se">\n</span><span class="s2">Line</span><span class="se">\n</span><span class="s2">String&quot;</span><span class="p">);</span>
+<span class="nv">$yaml</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">dump</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$yaml</span><span class="p">;</span> <span class="c1">// строка: &quot;Multiple\nLine\nString&quot;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы можете заставить его использовать блок литералов с помощью флажка
+<tt class="docutils literal"><code>DUMP_MULTI_LINE_LITERAL_BLOCK</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$string</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;string&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Multiple</span><span class="se">\n</span><span class="s2">Line</span><span class="se">\n</span><span class="s2">String&quot;</span><span class="p">);</span>
+<span class="nv">$yaml</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">dump</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">DUMP_MULTI_LINE_LITERAL_BLOCK</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$yaml</span><span class="p">;</span>
+<span class="c1">//  string: |</span>
+<span class="c1">//       Многострочная</span>
+<span class="c1">//       строка</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="php">
+<h3>Анализ PHP констант<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h3>
+<p>По умолчанию, анализатор YAML относится к PHP константам, включенным в содержание,
+как в обычным строкам. Используйте флажок <tt class="docutils literal"><code>PARSE_CONSTANT</code></tt> и специальный синтаксис
+<tt class="docutils literal"><code>!php/const</code></tt>, чтобы проанализировать их, как соответствующие PHP константы:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$yaml</span> <span class="o">=</span> <span class="s1">&#39;{ foo: PHP_INT_SIZE, bar: !php/const PHP_INT_SIZE }&#39;</span><span class="p">;</span>
+<span class="nv">$parameters</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span><span class="nv">$yaml</span><span class="p">,</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">PARSE_CONSTANT</span><span class="p">);</span>
+<span class="c1">// $parameters = array(&#39;foo&#39; =&gt; &#39;PHP_INT_SIZE&#39;, &#39;bar&#39; =&gt; 8);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id22">
+<h3>Анализ и сброс бинарных данных<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<p>Вы можете сбросить бинарные данные, используя флажок <tt class="docutils literal"><code>DUMP_BASE64_BINARY_DATA</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$imageContents</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/images/logo.png&#39;</span><span class="p">);</span>
+
+<span class="nv">$dumped</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">dump</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;logo&#39;</span> <span class="o">=&gt;</span> <span class="nv">$imageContents</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">DUMP_BASE64_BINARY_DATA</span><span class="p">);</span>
+<span class="c1">// лого: !!binary iVBORw0KGgoAAAANSUhEUgAAA6oAAADqCAY...</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Бинарные данные автоматичеки анализируются, если они включают в себя флажок YAML
+<tt class="docutils literal"><code>!!binary</code></tt> (нет необходимости передавать какой-либо флажок анализатору Yaml):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$dumped</span> <span class="o">=</span> <span class="s1">&#39;logo: !!binary iVBORw0KGgoAAAANSUhEUgAAA6oAAADqCAY...&#39;</span><span class="p">;</span>
+<span class="nv">$parsed</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span><span class="nv">$dumped</span><span class="p">);</span>
+<span class="nv">$imageContents</span> <span class="o">=</span> <span class="nv">$parsed</span><span class="p">[</span><span class="s1">&#39;logo&#39;</span><span class="p">];</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id23">
+<h3>Анализ и сброс пользовательских тегов<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<p>Кроме встроенной поддержки тегов вроде <tt class="docutils literal"><code>!php/const</code></tt> и <tt class="docutils literal"><code>!!binary</code></tt>, вы можете
+определять ваши пользовательские YAML теги и анализировать их с помощью флажка
+<tt class="docutils literal"><code>PARSE_CUSTOM_TAGS</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$data</span> <span class="o">=</span> <span class="s2">&quot;!my_tag { foo: bar }&quot;</span><span class="p">;</span>
+<span class="nv">$parsed</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">PARSE_CUSTOM_TAGS</span><span class="p">);</span>
+<span class="c1">// $parsed = Symfony\Component\Yaml\Tag\TaggedValue(&#39;my_tag&#39;, array(&#39;foo&#39; =&gt; &#39;bar&#39;));</span>
+<span class="nv">$tagName</span> <span class="o">=</span> <span class="nv">$parsed</span><span class="o">-&gt;</span><span class="na">getTag</span><span class="p">();</span>    <span class="c1">// $tagName = &#39;my_tag&#39;</span>
+<span class="nv">$tagValue</span> <span class="o">=</span> <span class="nv">$parsed</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">();</span> <span class="c1">// $tagValue = array(&#39;foo&#39; =&gt; &#39;bar&#39;)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если содержание для сброса содержит объекты <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Yaml/Tag/TaggedValue.html" title="Symfony\Component\Yaml\Tag\TaggedValue">TaggedValue</a></code></tt>,
+то они автоматически преобразуются в YAML теги:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Yaml\Tag\TaggedValue</span><span class="p">;</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TaggedValue</span><span class="p">(</span><span class="s1">&#39;my_tag&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">));</span>
+<span class="nv">$dumped</span> <span class="o">=</span> <span class="nx">Yaml</span><span class="o">::</span><span class="na">dump</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+<span class="c1">// $dumped = &#39;!my_tag { foo: bar }&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id24">
+<h3>Валидация синтаксиса<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<p>Синтаксис содержания YAML может быть валидирован через CLI, используя команду
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Yaml/Command/LintCommand.html" title="Symfony\Component\Yaml\Command\LintCommand">LintCommand</a></code></tt>.</p>
+<p>Для начала, установите компонент Консоль:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/console
+</pre></div>
+</td></tr></table></div></div>
+<p>Создайте консоль приложения с <tt class="docutils literal"><code>lint:yaml</code></tt> в качестве его единственной команды:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// lint.php</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Console\Application</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Yaml\Command\LintCommand</span><span class="p">;</span>
+
+<span class="p">(</span><span class="k">new</span> <span class="nx">Application</span><span class="p">(</span><span class="s1">&#39;yaml/lint&#39;</span><span class="p">))</span>
+    <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">LintCommand</span><span class="p">())</span>
+    <span class="o">-&gt;</span><span class="na">getApplication</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">setDefaultCommand</span><span class="p">(</span><span class="s1">&#39;lint:yaml&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Далее, выполните скрипт для валидации содержания:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># валидирует один файл</span>
+<span class="gp">$</span> php lint.php path/to/file.yaml
+
+<span class="c1"># или все файлы в каталоге</span>
+<span class="gp">$</span> php lint.php path/to/directory
+
+<span class="c1"># или содержание, переданное в STDIN</span>
+<span class="gp">$</span> cat path/to/file.yaml <span class="p">|</span> php lint.php
+</pre></div>
+</td></tr></table></div></div>
+<p>Результат записывается в STDOUT и использует формат простого текста по
+умолчанию. Добавьте опцию <tt class="docutils literal"><code>--format</code></tt>, чтобы получить вывод в формате JSON:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php lint.php path/to/file.yaml --format json
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Команда проверки соблюдения стандартов кода также сообщит обо всех устареваниях
+в провеяемых YAML файлах. Это может быть, к примеру, быть полезным для определения
+устареваний содержания YAML файлов во время автоматизированных тестов.</p>
+</div></div>
+</div>
+</div>
+<div class="section" id="id25">
+<h2>Узнать больше<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="yaml\yaml_format.html">The YAML Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaml/yaml_format-ru.html">Формат YAML</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="workflow-ru.html">« Компонент Workflow</a>
+                <span class="separator">|</span>
+                <a href="..\reference\index.html">Reference Documents »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

@@ -1,0 +1,1056 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как создать пользовательскую аутентификацию с защитой &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Security Component" href="..\components\security.html">
+    <link rel="next" title="Как ограничить брандмауэры для конкретного хоста" href="host_restriction-ru.html">
+    <link rel="prev" title="Как построить традиционную форму входа в систему" href="form_login_setup-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="security doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как создать пользовательскую аутентификацию с защитой</a><ul>
+<li><a class="reference internal" href="#id2">Создайте пользовател и поставщика пользователя</a></li>
+<li><a class="reference internal" href="#id3">Шаг 1) Создайте класс аутентификатора</a></li>
+<li><a class="reference internal" href="#id4">Шаг 2) Сконфигурируйте аутентификатор</a></li>
+<li><a class="reference internal" href="#guard-auth-methods-ru">Методы аутентификатора защиты</a></li>
+<li><a class="reference internal" href="#guard-customize-error-ru">Настраивание сообщений об ошибке</a></li>
+<li><a class="reference internal" href="#id9">Построение формы входа</a></li>
+<li><a class="reference internal" href="#csrf">Добавление CSRF-защиты</a></li>
+<li><a class="reference internal" href="#id10">Часто задаваемые вопросы</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\components\index.html">The Components</a></li>
+                
+                <li><a href="../components/index-ru.html">The Components</a></li>
+                
+                <li><a href="..\components\security.html">The Security Component</a></li>
+                
+                <li class="active">Как создать пользовательскую аутентификацию с защитой</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как создать пользовательскую аутентификацию с защитой<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Независимо от того, что вам нужно создать - традиционную форму в хода в систему, систему
+аутентификации API-токена или интегрировать какую-либо систему собственнси единого-входа,
+компонент Защита (Guard) может сделать это лёгким... и весёлым!</p>
+<p>В этом примере, вы создадите систему аутентификации API-токена и узнаете, как работать с
+Защитой.</p>
+<div class="section" id="id2">
+<h2>Создайте пользовател и поставщика пользователя<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Независимо от того, как вы проводите аутентификацию, вам нужно создать класс Ползователя,
+реализующий <tt class="docutils literal"><code>UserInterface</code></tt> и сконфигурировать <a class="reference internal" href="custom_provider.html"><em>поставщика пользователя</em></a>.
+В этом примере, пользователи хранятся в базе данных через Doctrine, и каждый ползователь
+имеет свойство <tt class="docutils literal"><code>apiKey</code></tt>, которое они используют, чтобы получить доступ к своей учётной
+записи через API:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Entity/User.php</span>
+<span class="k">namespace</span> <span class="nx">AppBundle\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\UserInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\ORM\Mapping</span> <span class="k">as</span> <span class="nx">ORM</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @ORM\Entity</span>
+<span class="sd"> * @ORM\Table(name=&quot;user&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">User</span> <span class="k">implements</span> <span class="nx">UserInterface</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Id</span>
+<span class="sd">     * @ORM\GeneratedValue(strategy=&quot;AUTO&quot;)</span>
+<span class="sd">     * @ORM\Column(type=&quot;integer&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$id</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Column(type=&quot;string&quot;, unique=true)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$username</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Column(type=&quot;string&quot;, unique=true)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$apiKey</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getUsername</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getRoles</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ROLE_USER&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getPassword</span><span class="p">()</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getSalt</span><span class="p">()</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">eraseCredentials</span><span class="p">()</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="c1">// больше геттеров/сеттеров</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Этот Пользователь не имеет пароля, но вы можете добавить свойство <tt class="docutils literal"><code>password</code></tt>,
+если вы также хотите позволить этому пользователю выполнять вход с паролем
+(например, через форму входа в систему).</p>
+</div></div>
+<p>Ваш класс <tt class="docutils literal"><code>User</code></tt> не должен храниться в Doctrine: делайте то, что вам нужно. Далее,
+убедитесь, что вы сконфигурировали &quot;поставщика пользователя&quot; для пользователя:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/security.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">providers</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">your_db_provider</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">entity</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">class</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">AppBundle:User</span>
+                <span class="l l-Scalar l-Scalar-Plain">property</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">apiKey</span>
+
+    <span class="c1"># ...</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;config&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="nt">&lt;provider</span> <span class="na">name=</span><span class="s">&quot;your_db_provider&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;entity</span> <span class="na">class=</span><span class="s">&quot;AppBundle:User&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/provider&gt;</span>
+
+        <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/security.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+
+    <span class="s1">&#39;providers&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;your_db_provider&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;entity&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;AppBundle:User&#39;</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+
+    <span class="c1">// ...</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Вот и всё! Если вам нужно больше информации об этом шаге, смотрите:</p>
+<ul class="simple">
+<li><a class="reference internal" href="entity_provider.html"><em>How to Load Security Users from the Database (the Entity Provider)</em></a></li>
+<li><a class="reference internal" href="custom_provider.html"><em>How to Create a custom User Provider</em></a></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>Шаг 1) Создайте класс аутентификатора<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Представьте, что у вас есть API, в котором ваши клиенты будут отправлять заголовок
+<tt class="docutils literal"><code>X-AUTH-TOKEN</code></tt> на каждый запрос, используя их API-токен. Ваша работа - считывать
+это и находить связанного с ним пользователя (если он существует).</p>
+<p>Чтобы создать пользователькую систему аутентификации, просто создайте класс и заставьте
+его реализовывать <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Guard/GuardAuthenticatorInterface.html" title="Symfony\Component\Security\Guard\GuardAuthenticatorInterface">GuardAuthenticatorInterface</a></code></tt>.
+Или, расширьте более простой класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Guard/AbstractGuardAuthenticator.html" title="Symfony\Component\Security\Guard\AbstractGuardAuthenticator">AbstractGuardAuthenticator</a></code></tt>.
+Это требует от вас реализации семи методов:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Security/TokenAuthenticator.php</span>
+<span class="k">namespace</span> <span class="nx">AppBundle\Security</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\JsonResponse</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\UserInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Guard\AbstractGuardAuthenticator</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Token\TokenInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\AuthenticationException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\UserProviderInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">TokenAuthenticator</span> <span class="k">extends</span> <span class="nx">AbstractGuardAuthenticator</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * Вызывается по каждому запросу. Верните те сертификаты, которые вы</span>
+<span class="sd">     * хотите передать getUser(). Возвращение &quot;null&quot; приведёт к пропуску</span>
+<span class="sd">     * аутентификатора.</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCredentials</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$token</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;X-AUTH-TOKEN&#39;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// Нет токена?</span>
+            <span class="nv">$token</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// То, что вы возвращаете здесь, будет передано getUser() как $credentials</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;token&#39;</span> <span class="o">=&gt;</span> <span class="nv">$token</span><span class="p">,</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getUser</span><span class="p">(</span><span class="nv">$credentials</span><span class="p">,</span> <span class="nx">UserProviderInterface</span> <span class="nv">$userProvider</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$apiKey</span> <span class="o">=</span> <span class="nv">$credentials</span><span class="p">[</span><span class="s1">&#39;token&#39;</span><span class="p">];</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="k">null</span> <span class="o">===</span> <span class="nv">$apiKey</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// если null, то аутентификация будет неудачной</span>
+        <span class="c1">// если объект Пользователя, то вызывается checkCredentials()</span>
+        <span class="k">return</span> <span class="nv">$userProvider</span><span class="o">-&gt;</span><span class="na">loadUserByUsername</span><span class="p">(</span><span class="nv">$apiKey</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">checkCredentials</span><span class="p">(</span><span class="nv">$credentials</span><span class="p">,</span> <span class="nx">UserInterface</span> <span class="nv">$user</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// проверить сертификаты - например, убедиться, что пароль валидный</span>
+        <span class="c1">// в этом случае проверка сертификатов не требуется</span>
+
+        <span class="c1">// вернуть true, чтобы аутентификация прошла успешно</span>
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">onAuthenticationSuccess</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">TokenInterface</span> <span class="nv">$token</span><span class="p">,</span> <span class="nv">$providerKey</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// при успехе, позвольте запросу продолжать</span>
+        <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">onAuthenticationFailure</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">AuthenticationException</span> <span class="nv">$exception</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;message&#39;</span> <span class="o">=&gt;</span> <span class="nb">strtr</span><span class="p">(</span><span class="nv">$exception</span><span class="o">-&gt;</span><span class="na">getMessageKey</span><span class="p">(),</span> <span class="nv">$exception</span><span class="o">-&gt;</span><span class="na">getMessageData</span><span class="p">())</span>
+
+            <span class="c1">// или, чтобы перевести это сообщение</span>
+            <span class="c1">// $this-&gt;translator-&gt;trans($exception-&gt;getMessageKey(), $exception-&gt;getMessageData())</span>
+        <span class="p">);</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">JsonResponse</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nx">Response</span><span class="o">::</span><span class="na">HTTP_FORBIDDEN</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Вызывается, когда нужна аутентификация, но не отправляется</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">start</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">AuthenticationException</span> <span class="nv">$authException</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+            <span class="c1">// вы можете перевести это сообщение</span>
+            <span class="s1">&#39;message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Authentication Required&#39;</span>
+        <span class="p">);</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">JsonResponse</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nx">Response</span><span class="o">::</span><span class="na">HTTP_UNAUTHORIZED</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">supportsRememberMe</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Хорошая работа! Каждый метод разъясняется ниже: <a class="reference internal" href="guard_authentication.html#guard-auth-methods"><span>Методы аутентификатора защиты</span></a>.</p>
+</div>
+<div class="section" id="id4">
+<h2>Шаг 2) Сконфигурируйте аутентификатор<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Чтобы закончить это, убедитесь, что ваш аутентификатор зарегистрирован, как сервис.
+Если вы используете <a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>конфигурацию services.yml по умолчанию</span></a>,
+то это происходит автоматически.</p>
+<p>Наконец, сконфигурируйте ваш ключ <tt class="docutils literal"><code>firewalls</code></tt> в <tt class="docutils literal"><code>security.yml</code></tt>, чтобы использовать этот
+аутентификатор:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/security.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">firewalls</span><span class="p p-Indicator">:</span>
+        <span class="c1"># ...</span>
+
+        <span class="l l-Scalar l-Scalar-Plain">main</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">anonymous</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+            <span class="l l-Scalar l-Scalar-Plain">logout</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+            <span class="l l-Scalar l-Scalar-Plain">guard</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">authenticators</span><span class="p p-Indicator">:</span>
+                    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AppBundle\Security\TokenAuthenticator</span>
+
+            <span class="c1"># если вы хотите, отключите хранение пользователей в сессии</span>
+            <span class="c1"># без фиксации состояния: true</span>
+
+            <span class="c1"># может другие вещи, как form_login, remember_me, и т.д.</span>
+            <span class="c1"># ...</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;config&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="nt">&lt;firewall</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span>
+            <span class="na">pattern=</span><span class="s">&quot;^/&quot;</span>
+            <span class="na">anonymous=</span><span class="s">&quot;true&quot;</span>
+        <span class="nt">&gt;</span>
+            <span class="nt">&lt;logout</span> <span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;guard&gt;</span>
+                <span class="nt">&lt;authenticator&gt;</span>AppBundle\Security\TokenAuthenticator<span class="nt">&lt;/authenticator&gt;</span>
+            <span class="nt">&lt;/guard&gt;</span>
+
+            <span class="c">&lt;!-- ... --&gt;</span>
+        <span class="nt">&lt;/firewall&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/security.php</span>
+
+<span class="c1">// ..</span>
+<span class="k">use</span> <span class="nx">AppBundle\Security\TokenAuthenticator</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;firewalls&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;main&#39;</span>       <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;pattern&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;^/&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;anonymous&#39;</span>      <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+            <span class="s1">&#39;logout&#39;</span>         <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+            <span class="s1">&#39;guard&#39;</span>          <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;authenticators&#39;</span>  <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                    <span class="nx">TokenAuthenticator</span><span class="o">::</span><span class="na">class</span>
+                <span class="p">),</span>
+            <span class="p">),</span>
+            <span class="c1">// ...</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Вы сделали это! Теперь у вас есть полностью функциональная система аутентификации
+API-токена. Если ваша домашняя страница требовала <tt class="docutils literal"><code>ROLE_USER</code></tt>, то вы можете
+начинать тестировать её при разных условиях:</p>
+<div class="literal-block"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># тестировать без токена</span>
+curl http://localhost:8000/
+<span class="c1"># {&quot;message&quot;:&quot;Authentication Required&quot;}</span>
+
+<span class="c1"># тестировать с плохим токеном</span>
+curl -H <span class="s2">&quot;X-AUTH-TOKEN: FAKE&quot;</span> http://localhost:8000/
+<span class="c1"># {&quot;message&quot;:&quot;Username could not be found.&quot;}</span>
+
+<span class="c1"># тестировать с рабочим токеном</span>
+curl -H <span class="s2">&quot;X-AUTH-TOKEN: REAL&quot;</span> http://localhost:8000/
+<span class="c1"># the homepage controller is executed: the page loads normally</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, узнайте больше о том, что делает каждый метод.</p>
+</div>
+<div class="section" id="guard-auth-methods-ru">
+<span id="id5"></span><h2>Методы аутентификатора защиты<a class="headerlink" href="#guard-auth-methods-ru" title="Permalink to this headline">¶</a></h2>
+<p>Каждый аутентификатор требует следующие методы:</p>
+<dl class="docutils">
+<dt><strong>getCredentials(Request $request)</strong></dt>
+<dd>Будет вызываться на <em>каждый</em> запрос, и ваша задача - считывать токен (или то,
+что является вашей информацией &quot;аутентификации) из запроса и возвращатьл его.
+Если вы вернёте <tt class="docutils literal"><code>null</code></tt>, то остальной процесс аутентификации будет пропущен.
+В друних случаях, будет вызван <a href="#id6"><span class="problematic" id="id7">``</span></a>getUser()``и возвращённое значение будет передано
+в качестве первого аргумента.</dd>
+<dt><strong>getUser($credentials, UserProviderInterface $userProvider)</strong></dt>
+<dd>Если <tt class="docutils literal"><code>getCredentials()</code></tt> возвращает ненулевое значение, то вызывается этот
+метод, и его значение передаётся, как аругмент <tt class="docutils literal"><code>$credentials</code></tt>. Ваша задача
+- вернуть объект, реализующий <tt class="docutils literal"><code>UserInterface</code></tt>. Если вы это сделаете, то будет
+вызван <tt class="docutils literal"><code>checkCredentials()</code></tt>. Если вы вернёте <tt class="docutils literal"><code>null</code></tt> (или вызовете исключение
+<a class="reference internal" href="guard_authentication.html#guard-customize-error"><span>AuthenticationException</span></a>), то аутентификация будет
+неуспешной.</dd>
+<dt><strong>checkCredentials($credentials, UserInterface $user)</strong></dt>
+<dd>Если <tt class="docutils literal"><code>getUser()</code></tt> возвращает объект Пользователя, то будет вызван этот метод.
+Ваша задача - убедиться, что сертификаты правильные. В форме входа, именно тут
+вы будете проверять, правильный ли пароль для этого пользователя. Чтобы пройти
+аутентификацию, передайте <tt class="docutils literal"><code>true</code></tt>. Если вы вернёте <em>что-либо</em> другое (или вызовете
+исключение <a class="reference internal" href="guard_authentication.html#guard-customize-error"><span>AuthenticationException</span></a>), то аутентификация
+будет неуспешной.</dd>
+<dt><strong>onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)</strong></dt>
+<dd>Вызывается после успешной аутентификации и ваша задача - либо вернуть объект
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Response.html" title="Symfony\Component\HttpFoundation\Response">Response</a></code></tt>, который будет отправлен
+клиенту, или <tt class="docutils literal"><code>null</code></tt>, чтобы продолжить дальше (например, позволить вызов маршрута
+или контроллера, как обычно) Так как это - API, в котором каждый запрос аутентифицируется
+сам, то вы хотите вернуть <tt class="docutils literal"><code>null</code></tt>.</dd>
+<dt><strong>onAuthenticationFailure(Request $request, AuthenticationException $exception)</strong></dt>
+<dd>Вызывается, если аутентификация неуспешна. Ваша задача - вернуть объект
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Response.html" title="Symfony\Component\HttpFoundation\Response">Response</a></code></tt>, который должен быть
+отправлен клиенту. <tt class="docutils literal"><code>$exception</code></tt> сообщит вам о том, <em>что</em> пошло не так во
+время аутентификации.</dd>
+<dt><strong>start(Request $request, AuthenticationException $authException = null)</strong></dt>
+<dd>Вызывается, если клиент заходит на URI/ресурс, который требует аутнетификации,
+но детали аутентификации не были отправлены (т.е. вы вернули <tt class="docutils literal"><code>null</code></tt> из
+<tt class="docutils literal"><code>getCredentials()</code></tt>). Ваша задача - вернуть объект <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Response.html" title="Symfony\Component\HttpFoundation\Response">Response</a></code></tt>,
+который помогает пользователю аутентифицироваться (например, ответ 404, сообщающий
+&quot;токен отсутствует!&quot;).</dd>
+<dt><strong>supportsRememberMe()</strong></dt>
+<dd>Если вы хотите поддержать функцию &quot;запомнить меня&quot;, верните true из этого метода.
+Вам всё равно надо будет активировать <tt class="docutils literal"><code>remember_me</code></tt> в вашем брандмауэре, чтобы
+он работал. Так как это API без запоминания состояния, то вы не хотите поддерживать
+функцию &quot;запомнить меня&quot; в этом примере.</dd>
+<dt><strong>createAuthenticatedToken(UserInterface $user, string $providerKey)</strong></dt>
+<dd>Если вы реализуете <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Guard/GuardAuthenticatorInterface.html" title="Symfony\Component\Security\Guard\GuardAuthenticatorInterface">GuardAuthenticatorInterface</a></code></tt>
+вместо расширения класса <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Guard/AbstractGuardAuthenticator.html" title="Symfony\Component\Security\Guard\AbstractGuardAuthenticator">AbstractGuardAuthenticator</a></code></tt>,
+то вам нужно реализовать этот метод. Он будет вызван после успешной аутентифакции,
+чтобы создать и вернуть токен для пользователя, который был поставлен в качестве
+первого аргумента.</dd>
+</dl>
+<p>Изображение ниже отображает, как Symfony вызывает методы аутентификатора защиты:</p>
+<img alt="_images/security/authentication-guard-methods.png" class="align-center" src="_images/security/authentication-guard-methods.png">
+</div>
+<div class="section" id="guard-customize-error-ru">
+<span id="id8"></span><h2>Настраивание сообщений об ошибке<a class="headerlink" href="#guard-customize-error-ru" title="Permalink to this headline">¶</a></h2>
+<p>Когда вызвыается <tt class="docutils literal"><code>onAuthenticationFailure()</code></tt>, он передаётся <tt class="docutils literal"><code>AuthenticationException</code></tt>,
+который описывает <em>как</em> произошла неудача аутентификации через метод <tt class="docutils literal"><code>$e-&gt;getMessageKey()</code></tt>
+(и <tt class="docutils literal"><code>$e-&gt;getMessageData()</code></tt>). Сообщения будут разными, в зависимости от того, <em>где</em> потерпит
+неудачу аутентификация (т.е. <tt class="docutils literal"><code>getUser()</code></tt> против <tt class="docutils literal"><code>checkCredentials()</code></tt>).</p>
+<p>Однако вы можете с лёгкостью вернуть пользовательское сообщение, вызвав
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Exception/CustomUserMessageAuthenticationException.html" title="Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException">CustomUserMessageAuthenticationException</a></code></tt>.
+Вы можете вызвать его из <tt class="docutils literal"><code>getCredentials()</code></tt>, <tt class="docutils literal"><code>getUser()</code></tt> или <tt class="docutils literal"><code>checkCredentials()</code></tt>,
+чтобы вызвать неудачу:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Security/TokenAuthenticator.php</span>
+<span class="c1">// ...</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">TokenAuthenticator</span> <span class="k">extends</span> <span class="nx">AbstractGuardAuthenticator</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCredentials</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$token</span> <span class="o">==</span> <span class="s1">&#39;ILuvAPIs&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">CustomUserMessageAuthenticationException</span><span class="p">(</span>
+                <span class="s1">&#39;ILuvAPIs is not a real API key: it\&#39;s just a silly phrase&#39;</span>
+            <span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В этом случае, так как &quot;ILuvAPIs&quot; - нелепый API-ключ, вы можете включить сюрприз для
+пользователя, в виде пользовательского сообщения, если кто-то попробует так сделать:</p>
+<div class="literal-block"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;X-AUTH-TOKEN: ILuvAPIs&quot;</span> http://localhost:8000/
+<span class="c1"># {&quot;message&quot;:&quot;ILuvAPIs - не настоящий API-ключ: это просто глупая фраза&quot;}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id9">
+<h2>Построение формы входа<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>Если вы строите форму входа, используйте <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Guard/Authenticator/AbstractFormLoginAuthenticator.html" title="Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator">AbstractFormLoginAuthenticator</a></code></tt>
+в качестве вашего основного класса - он реализует для вас несколько методов.
+Потом, заполните другие методы, так же как и с <tt class="docutils literal"><code>TokenAuthenticator</code></tt>. Вне
+Защиты, вы всё ещё отвечаете за создание маршрута, контроллера и шаблона для
+вашей формы входа.</p>
+</div>
+<div class="section" id="csrf">
+<span id="guard-csrf-protection-ru"></span><h2>Добавление CSRF-защиты<a class="headerlink" href="#csrf" title="Permalink to this headline">¶</a></h2>
+<p>Если вы используете аутентификатор Защиты, чтобы построить форму входа, и хотите
+добавить CSRF-защиту - это не проблема!</p>
+<p>Для начала, <a class="reference internal" href="csrf.html#csrf-login-template"><span>добавьте _csrf_token в ваш шаблон входа</span></a>.</p>
+<p>Потом, типизируйте <tt class="docutils literal"><code>CsrfTokenManagerInterface</code></tt> в вашем методе <tt class="docutils literal"><code>__construct()</code></tt>
+(или вручную сконфигурируйте, чтобы передавался сервис <tt class="docutils literal"><code>security.csrf.token_manager</code></tt>)
+и добавьте следующую логику:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Security/ExampleFormAuthenticator.php</span>
+<span class="c1">// ...</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Csrf\CsrfTokenManagerInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Csrf\CsrfToken</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\InvalidCsrfTokenExceptionl</span>
+
+<span class="k">class</span> <span class="nc">ExampleFormAuthenticator</span> <span class="k">extends</span> <span class="nx">AbstractFormLoginAuthenticator</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$csrfTokenManager</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">CsrfTokenManagerInterface</span> <span class="nv">$csrfTokenManager</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">csrfTokenManager</span> <span class="o">=</span> <span class="nv">$csrfTokenManager</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCredentials</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$token</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;_csrf_token&#39;</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="k">false</span> <span class="o">===</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">csrfTokenManager</span><span class="o">-&gt;</span><span class="na">isTokenValid</span><span class="p">(</span><span class="k">new</span> <span class="nx">CsrfToken</span><span class="p">(</span><span class="s1">&#39;authenticate&#39;</span><span class="p">,</span> <span class="nv">$csrfToken</span><span class="p">)))</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">InvalidCsrfTokenException</span><span class="p">(</span><span class="s1">&#39;Invalid CSRF token.&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// ... вся ваша обычная логика</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id10">
+<h2>Часто задаваемые вопросы<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><strong>Может ли у меня быть несколько аутентификаторов?</strong></dt>
+<dd>Да! Но если это ваш случай, то вам понадобиться выбрать <em>один</em> из них, чтобы
+он был вашей точкой входа (&quot;entry_point&quot;). Это означает, что вам понадобится
+выбрать, <em>какой</em> метод аутентификатора <tt class="docutils literal"><code>start()</code></tt> должен быть вызван, когда
+анонимный пользователь пытается получить доступ к защищённому ресурсу. Чтобы
+узнать больше, смотрите <a class="reference internal" href="multiple_guard_authenticators.html"><em>How to Use Multiple Guard Authenticators</em></a>.</dd>
+<dt><strong>Могу ли я использовать это с form_login?</strong></dt>
+<dd>Да! <tt class="docutils literal"><code>form_login</code></tt> - это <em>один</em> из способов аутентифицировать пользователя, так что
+вы можете использовать его <em>и</em> потом добавить один или более аутентификаторов.
+Использование аутентификатора защиты не конфликтует ни с одним другим способом
+аутентификации.</dd>
+<dt><strong>Могу ли я использовать это с FOSUserBundle?</strong></dt>
+<dd>Да! На самом деле, FOSUserBundle не работает с безопасностью, он просто предоставляет
+вам объект <tt class="docutils literal"><code>User</code></tt> и некоторые маршруты и контроллеры, чтобы помочь с выполнением
+входа, регистрацией, забытым паролем и т.д. Когда вы используете FOSUserBundle, вы
+обычно используете <tt class="docutils literal"><code>form_login</code></tt> для аутентификации пользователя. Вы можете продолжать
+делать это (смотрите предыдущий вопрос), или использовать объект <tt class="docutils literal"><code>User</code></tt> их FOSUserBundle
+и создать ваш собственный authenticator(s) (так же, как в этой статье).</dd>
+</dl>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="form_login_setup-ru.html">« Как построить традиционную форму входа в систему</a>
+                <span class="separator">|</span>
+                <a href="host_restriction-ru.html">Как ограничить брандмауэры для конкретного хоста »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

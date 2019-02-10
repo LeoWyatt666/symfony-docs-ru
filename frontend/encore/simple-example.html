@@ -1,0 +1,468 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Первый пример &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+    <link rel="up" title="Managing CSS and JavaScript" href="..\..\frontend.html">
+    <link rel="next" title="Enabling Source Maps" href="sourcemaps.html">
+    <link rel="prev" title="Создание общей распространённой записи" href="shared-entry-ru.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="frontend doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Первый пример</a><ul>
+<li><a class="reference internal" href="#encore-webpack">Конфигурирование Encore/Webpack</a></li>
+<li><a class="reference internal" href="#javascript">Требование модулей JavaScript</a></li>
+<li><a class="reference internal" href="#id2">Множественные записи JavaScript</a></li>
+<li><a class="reference internal" href="#id3">Продолжайте!</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li><a href="..\..\frontend.html">Managing CSS and JavaScript</a></li>
+                
+                <li class="active">Первый пример</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>Первый пример<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Представьте, что у вас есть простой проект с одним CSS- и одним JS0-файлом, организованными
+в каталоге <tt class="docutils literal"><code>assets/</code></tt>:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>assets/js/app.js</code></tt></li>
+<li><tt class="docutils literal"><code>assets/css/app.scss</code></tt></li>
+</ul>
+<p>С Encore вам нужно думать о CSS, как о <em>зависимости</em> вашего JavaScript. Это означает,
+что вы будете <em>требовать</em> тот CSS, который вам нужно, изнутри JavaScript:</p>
+<div class="literal-block"><div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// assets/js/app.js</span>
+<span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../css/app.scss&#39;</span><span class="p">);</span>
+
+<span class="c1">// ...здесь остаток кода JavaScript</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>С Encore, мы можем с лёгкостью уменьшить эти файлы, предварительно обработать
+<tt class="docutils literal"><code>app.scss</code></tt> через Sass и <em>многое</em> другое.</p>
+<div class="section" id="encore-webpack">
+<h2>Конфигурирование Encore/Webpack<a class="headerlink" href="#encore-webpack" title="Permalink to this headline">¶</a></h2>
+<p>Создайте новый файл, под названием <tt class="docutils literal"><code>webpack.config.js</code></tt> в корне вашего проекта.
+Внутри, используйте Encore, чтобы помочь сгенерировать вашу конфигурацию Webpack.</p>
+<div class="literal-block"><div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// webpack.config.js</span>
+<span class="kd">var</span> <span class="nx">Encore</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@symfony/webpack-encore&#39;</span><span class="p">);</span>
+
+<span class="nx">Encore</span>
+    <span class="c1">// каталог проекта , где будут храниться все скомпилированные ресурсы</span>
+    <span class="p">.</span><span class="nx">setOutputPath</span><span class="p">(</span><span class="s1">&#39;public/build/&#39;</span><span class="p">)</span>
+
+    <span class="c1">// публичный путь, используемый веб-сервером для доступа к предыдущему каталогу</span>
+    <span class="p">.</span><span class="nx">setPublicPath</span><span class="p">(</span><span class="s1">&#39;/build&#39;</span><span class="p">)</span>
+
+    <span class="c1">// создаст public/build/app.js и public/build/app.css</span>
+    <span class="p">.</span><span class="nx">addEntry</span><span class="p">(</span><span class="s1">&#39;app&#39;</span><span class="p">,</span> <span class="s1">&#39;./assets/js/app.js&#39;</span><span class="p">)</span>
+
+    <span class="c1">// позволит обработку файлов sass/scss</span>
+    <span class="p">.</span><span class="nx">enableSassLoader</span><span class="p">()</span>
+
+    <span class="c1">// позволить приложениям наследования использовать $/jQuery в качестве глобальной переменной</span>
+    <span class="p">.</span><span class="nx">autoProvidejQuery</span><span class="p">()</span>
+
+    <span class="p">.</span><span class="nx">enableSourceMaps</span><span class="p">(</span><span class="o">!</span><span class="nx">Encore</span><span class="p">.</span><span class="nx">isProduction</span><span class="p">())</span>
+
+    <span class="c1">// очистить outputPath dir перед каждым построением</span>
+    <span class="p">.</span><span class="nx">cleanupOutputBeforeBuild</span><span class="p">()</span>
+
+    <span class="c1">// показать уведомления ОС при окончании/неудаче построения</span>
+    <span class="p">.</span><span class="nx">enableBuildNotifications</span><span class="p">()</span>
+
+    <span class="c1">// создать хешированные имена файлов (например, app.abc123.css)</span>
+    <span class="c1">// .enableVersioning()</span>
+<span class="p">;</span>
+
+<span class="c1">// экспортировать финальную конфигурацию</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">Encore</span><span class="p">.</span><span class="nx">getWebpackConfig</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это уже насыщенная настройка: она выводит 2 файла, использует предпроцессор Sass и
+включает исходные карты, чтобы помочь с отладкой.</p>
+<p id="encore-build-assets-ru">Чтобы построить ресурсы, используйте исполнимое <tt class="docutils literal"><code>encore</code></tt>:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># единожды скомпилировать ресурсы</span>
+<span class="gp">$</span> ./node_modules/.bin/encore dev
+
+<span class="c1"># автоматически рекомпилировать ресурсы при изменении файлов</span>
+<span class="gp">$</span> ./node_modules/.bin/encore dev --watch
+
+<span class="c1"># компилировать ресурсы, но также уменьшать и оптимизировать их</span>
+<span class="gp">$</span> ./node_modules/.bin/encore production
+
+<span class="c1"># более краткая версия 2 вышеописанных команд</span>
+<span class="gp">$</span> yarn run encore dev
+<span class="gp">$</span> yarn run encore dev --watch
+<span class="gp">$</span> yarn run encore production
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Перезапускайте <tt class="docutils literal"><code>encore</code></tt> каждый раз, когда обновляете ваш файл <tt class="docutils literal"><code>webpack.config.js</code></tt>.</p>
+</div></div>
+<p>На самом деле, чтобы использовать <tt class="docutils literal"><code>enableSassLoader()</code></tt>, вам нужно будет установить
+ещё несколько пакетов. Но Encore скажет вам, что <em>именно</em> вам нужно.</p>
+<p>После выполнения одной из этих команд, вы теперь можете добавлять теги <tt class="docutils literal"><code>script</code></tt> и
+<tt class="docutils literal"><code>link</code></tt> к новым скомпилированным ресурсам (например, <tt class="docutils literal"><code>/build/app.css</code></tt> и
+<tt class="docutils literal"><code>/build/app.js</code></tt>). В Symfony, используйте помощника <tt class="docutils literal"><code>asset()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# base.html.twig #}</span><span class="x"></span>
+<span class="x">&lt;!DOCTYPE html&gt;</span>
+<span class="x">&lt;html&gt;</span>
+<span class="x">    &lt;head&gt;</span>
+<span class="x">        &lt;!-- ... --&gt;</span>
+<span class="x">        &lt;link rel=&quot;stylesheet&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;build/app.css&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
+<span class="x">    &lt;/head&gt;</span>
+<span class="x">    &lt;body&gt;</span>
+<span class="x">        &lt;!-- ... --&gt;</span>
+<span class="x">        &lt;script src=&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;build/app.js&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;&gt;&lt;/script&gt;</span>
+<span class="x">    &lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="javascript">
+<h2>Требование модулей JavaScript<a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h2>
+<p>Webpack - это модульный упаковщик... что означает, что вы можете <tt class="docutils literal"><code>require</code></tt> другие
+файлы JavaScript. Для начала, создайте файл, экспортирующий функцию:</p>
+<div class="literal-block"><div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// assets/js/greet.js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="sb">`Yo yo </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb"> - welcome to Encore!`</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Мы будем использовать jQuery, чтобы напечатать это сообщение на странице. Установите
+его через:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> yarn add jquery --dev
+</pre></div>
+</td></tr></table></div></div>
+<p>Отлично! Используйте <tt class="docutils literal"><code>require()</code></tt>, чтобы импортировать <tt class="docutils literal"><code>jquery</code></tt> и <tt class="docutils literal"><code>greet.js</code></tt>:</p>
+<div class="literal-block"><div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// assets/js/app.js</span>
+
+<span class="c1">// загружает пакет jquery из node_modules</span>
+<span class="kd">var</span> <span class="nx">$</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">);</span>
+
+<span class="c1">// импортировать функцию из greet.js (расширение .js необязательно)</span>
+<span class="c1">// ./ (or ../) means to look for a local file</span>
+<span class="kd">var</span> <span class="nx">greet</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./greet&#39;</span><span class="p">);</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">prepend</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;&#39;</span><span class="o">+</span><span class="nx">greet</span><span class="p">(</span><span class="s1">&#39;john&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;&lt;/h1&gt;&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и всё! Когда вы строите ваши ресурсы, jQuery и <tt class="docutils literal"><code>greet.js</code></tt> будут автоматически
+добавлены к файлу вывода (<tt class="docutils literal"><code>app.js</code></tt>). Для общих библиотек, вроде jQuery, вы можете
+также захотеть <a class="reference internal" href="shared-entry.html"><em>создать общую запись</em></a> для лучшей
+производительности.</p>
+</div>
+<div class="section" id="id2">
+<h2>Множественные записи JavaScript<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Предыдущий пример - наилучший способ, чтобы справляться с ОП (одностраничными
+приложениями) и очень простыми приложениями. Однако, по мере роста вашего приложения,
+вамможет захотеться иметь JavaScript или CSS, относящийся к конкретным страницам
+(например, главная страница, блог, магазин и т.д.). Чтобы справиться с этим, добавьте
+новую &quot;запись&quot; для каждой страницы, которой нужен отдельный JavaScript или CSS:</p>
+<div class="literal-block"><div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">Encore</span>
+    <span class="c1">// ...</span>
+    <span class="p">.</span><span class="nx">addEntry</span><span class="p">(</span><span class="s1">&#39;homepage&#39;</span><span class="p">,</span> <span class="s1">&#39;./assets/js/homepage.js&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addEntry</span><span class="p">(</span><span class="s1">&#39;blog&#39;</span><span class="p">,</span> <span class="s1">&#39;./assets/js/blog.js&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addEntry</span><span class="p">(</span><span class="s1">&#39;store&#39;</span><span class="p">,</span> <span class="s1">&#39;./assets/js/store.js&#39;</span><span class="p">)</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если эти записи включают в себя файлы CSS/Sass (например, <tt class="docutils literal"><code>homepage.js</code></tt> требует
+<tt class="docutils literal"><code>assets/css/homepage.scss</code></tt>), то для каждого будут сгенерированы 2 файла:
+(например, <tt class="docutils literal"><code>build/homepage.js</code></tt> и <tt class="docutils literal"><code>build/homepage.css</code></tt>).</p>
+</div>
+<div class="section" id="id3">
+<h2>Продолжайте!<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Вернитесь к <a class="reference internal" href="..\..\frontend.html#encore-toc"><span>Топ-списку Encore</span></a>, чтобы узнать больше и добавить новые функции.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="shared-entry-ru.html">« Создание общей распространённой записи</a>
+                <span class="separator">|</span>
+                <a href="sourcemaps.html">Enabling Source Maps »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

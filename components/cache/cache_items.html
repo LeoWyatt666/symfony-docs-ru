@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Объекты кеша &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+    <link rel="up" title="The Cache Component" href="..\cache.html">
+    <link rel="next" title="Cache Pools and Supported Adapters" href="cache_pools.html">
+    <link rel="prev" title="Cache Items" href="cache_items.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Объекты кеша</a><ul>
+<li><a class="reference internal" href="#id2">Ключи и значения объектов кеша</a></li>
+<li><a class="reference internal" href="#id3">Создание объектов кеша</a><ul>
+<li><a class="reference internal" href="#id4">Срок действия объекта кеща</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">Попадания и промахи в объекты кеша</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li><a href="..\index.html">The Components</a></li>
+                
+                <li><a href="..\cache.html">The Cache Component</a></li>
+                
+                <li class="active">Объекты кеша</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Объекты кеша<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Объекты кеша - это информационные единицы, которые хранятся в кеше в виде пары
+ключ/значение. В компоненте Cache они представлены классом
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/CacheItem.html" title="Symfony\Component\Cache\CacheItem">CacheItem</a></code></tt>.</p>
+<div class="section" id="id2">
+<h2>Ключи и значения объектов кеша<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>Ключ</strong> объекта кеша - это простая строка, которая действует так же, как
+её идентификатор, поэтому она должна быть уникальна для каждого пула кеша.
+Вы можете свободно выбирать ключи, но они должны содержать только буквы
+(A-Z, a-z), цифры (0-9) и символы <tt class="docutils literal"><code>_</code></tt> и <tt class="docutils literal"><code>.</code></tt>. Другие распространённые
+символы (вроде <tt class="docutils literal"><code>{</code></tt>, <tt class="docutils literal"><code>}</code></tt>, <tt class="docutils literal"><code>(</code></tt>, <tt class="docutils literal"><code>)</code></tt>, <tt class="docutils literal"><code>/</code></tt>, <tt class="docutils literal"><code>\</code></tt> и <tt class="docutils literal"><code>&#64;</code></tt>) зарезервированы
+стандартом PSR-6 для дальнейшего использованияй.</p>
+<p><strong>Значение</strong> объекта кеша может быть любыми данными, представленными типом,
+который можно сериализировать PHP, например, обычными типами (строка, число,
+булево значение, null), массивами и объектами.</p>
+</div>
+<div class="section" id="id3">
+<h2>Создание объектов кеша<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Объекты кеша создаются с помощью метода <tt class="docutils literal"><code>getItem($key)</code></tt> пула кеша. Аргументом
+является ключ объекта:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// объект пула $cache был создан ранее</span>
+<span class="nv">$productsCount</span> <span class="o">=</span> <span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">getItem</span><span class="p">(</span><span class="s1">&#39;stats.products_count&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Далее, используйте метод <tt class="docutils literal"><code>Psr\\Cache\\CacheItemInterface::set</code></tt>, чтобы установить
+данные, хранящиеся в объекте кеша:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// сохранение простого числа</span>
+<span class="nv">$productsCount</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="mi">4711</span><span class="p">);</span>
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$productsCount</span><span class="p">);</span>
+
+<span class="c1">// сохранение массива</span>
+<span class="nv">$productsCount</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;category1&#39;</span> <span class="o">=&gt;</span> <span class="mi">4711</span><span class="p">,</span>
+    <span class="s1">&#39;category2&#39;</span> <span class="o">=&gt;</span> <span class="mi">2387</span><span class="p">,</span>
+<span class="p">));</span>
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$productsCount</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Ключ и значение любого заданного объекта кеша можно получить с помощью
+соответствующих методов <em>геттера</em>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$cacheItem</span> <span class="o">=</span> <span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">getItem</span><span class="p">(</span><span class="s1">&#39;exchange_rate&#39;</span><span class="p">);</span>
+<span class="c1">// ...</span>
+<span class="nv">$key</span> <span class="o">=</span> <span class="nv">$cacheItem</span><span class="o">-&gt;</span><span class="na">getKey</span><span class="p">();</span>
+<span class="nv">$value</span> <span class="o">=</span> <span class="nv">$cacheItem</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id4">
+<h3>Срок действия объекта кеща<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>По умолчанию, объекты кеша хранятся постоянно. На практике, это &quot;постоянное
+хранение&quot; может сильно отличаться, в зависимости от используемого типа кеша,
+как объясняется в статье <a class="reference internal" href="cache_pools.html"><em>Cache Pools and Supported Adapters</em></a>.</p>
+<p>Однако, в некоторых приложениях распространено использование объектов кеша
+с более коротким жизненным циклом. Рассмотрите, к примеру, приложение, которое
+кеширует последние новости только на одну минуту. В таких случаях, используйте
+метод <tt class="docutils literal"><code>expiresAfter()</code></tt>, чтобы установить количество секунд для кеширования
+объекта:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$latestNews</span> <span class="o">=</span> <span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">getItem</span><span class="p">(</span><span class="s1">&#39;latest_news&#39;</span><span class="p">);</span>
+<span class="nv">$latestNews</span><span class="o">-&gt;</span><span class="na">expiresAfter</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>  <span class="c1">// 60 seconds = 1 minute</span>
+
+<span class="c1">// этот метод также принимает экземпляры \DateInterval</span>
+<span class="nv">$latestNews</span><span class="o">-&gt;</span><span class="na">expiresAfter</span><span class="p">(</span><span class="nx">DateInterval</span><span class="o">::</span><span class="na">createFromDateString</span><span class="p">(</span><span class="s1">&#39;1 hour&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Объекты кеша определяют другой связанный метод под названием <tt class="docutils literal"><code>expiresAt()</code></tt>,
+чтобы установить точную дату и время истечения срока действия объекта:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$mostPopularNews</span> <span class="o">=</span> <span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">getItem</span><span class="p">(</span><span class="s1">&#39;popular_news&#39;</span><span class="p">);</span>
+<span class="nv">$mostPopularNews</span><span class="o">-&gt;</span><span class="na">expiresAt</span><span class="p">(</span><span class="k">new</span> <span class="nx">\DateTime</span><span class="p">(</span><span class="s1">&#39;tomorrow&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Попадания и промахи в объекты кеша<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Использование механизма кеша важно для улучшения производительности приложения,
+но не должно быть обязательным для работы приложения. На самомделе, стандарт
+PSR-6 указывает, что ошибки кеширования не должны приводить к ошибкам приложения.</p>
+<p>На практике это означает, что метод <tt class="docutils literal"><code>getItem()</code></tt> всегда возвращает объект, реализующий
+интерфейс <tt class="docutils literal"><code>Psr\Cache\CacheItemInterface</code></tt>, даже когда объект кеша не существует.
+Следовательно, вам не нужно разбиираться с возвратными значениями <tt class="docutils literal"><code>null</code></tt> и вы можете
+беопасно сохранять значения кеша, вроде <tt class="docutils literal"><code>false</code></tt> и <tt class="docutils literal"><code>null</code></tt>.</p>
+<p>Для того, чтобы решить, правильный ли возвращённый объект, кеши используют
+концепт попаданий и промахов:</p>
+<ul class="simple">
+<li><strong>Кеш-попадания</strong> возникают, когда запрошенный объект найден в кеше, его
+значение не повереждено или нвалидно, и он не просрочен;</li>
+<li><strong>Кеш-промахи</strong> являются противоположностью попаданий, поэтому они возникают,
+когда объект не найден в кеше, его значение повреждено или инвалидно по какой-
+либо причине, или же объект просрочен.</li>
+</ul>
+<p>Единицы объектов кеша определяют булев метод <tt class="docutils literal"><code>isHit()</code></tt>, который возвращает
+<tt class="docutils literal"><code>true</code></tt> для кеш-попаданий:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$latestNews</span> <span class="o">=</span> <span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">getItem</span><span class="p">(</span><span class="s1">&#39;latest_news&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$latestNews</span><span class="o">-&gt;</span><span class="na">isHit</span><span class="p">())</span> <span class="p">{</span>
+    <span class="c1">// провести сложные вычисления</span>
+    <span class="nv">$news</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+    <span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$latestNews</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="nv">$news</span><span class="p">));</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nv">$news</span> <span class="o">=</span> <span class="nv">$latestNews</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="cache_items.html">« Cache Items</a>
+                <span class="separator">|</span>
+                <a href="cache_pools.html">Cache Pools and Supported Adapters »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

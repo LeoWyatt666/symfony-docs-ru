@@ -1,0 +1,634 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент Filesystem &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="The Finder Component" href="finder.html">
+    <link rel="prev" title="The Filesystem Component" href="filesystem.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент Filesystem</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#id2">Использование</a><ul>
+<li><a class="reference internal" href="#mkdir">mkdir</a></li>
+<li><a class="reference internal" href="#exists">exists</a></li>
+<li><a class="reference internal" href="#copy">copy</a></li>
+<li><a class="reference internal" href="#touch">touch</a></li>
+<li><a class="reference internal" href="#chown">chown</a></li>
+<li><a class="reference internal" href="#chgrp">chgrp</a></li>
+<li><a class="reference internal" href="#chmod">chmod</a></li>
+<li><a class="reference internal" href="#remove">remove</a></li>
+<li><a class="reference internal" href="#rename">rename</a></li>
+<li><a class="reference internal" href="#symlink">symlink</a></li>
+<li><a class="reference internal" href="#readlink">readlink</a></li>
+<li><a class="reference internal" href="#makepathrelative">makePathRelative</a></li>
+<li><a class="reference internal" href="#mirror">mirror</a></li>
+<li><a class="reference internal" href="#isabsolutepath">isAbsolutePath</a></li>
+<li><a class="reference internal" href="#dumpfile">dumpFile</a></li>
+<li><a class="reference internal" href="#appendtofile">appendToFile</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">Обработка ошибок</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент Filesystem</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="filesystem">
+<span id="index-0"></span><h1>Компонент Filesystem<a class="headerlink" href="#filesystem" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Компонент Filesystem предоставляет базовые инструменты для файловой системы.</div></blockquote>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/filesystem
+</pre></div>
+</td></tr></table></div></div>
+<p>Также вы можете клонировать репозиторий <a class="reference external" href="https://github.com/symfony/filesystem">https://github.com/symfony/filesystem</a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Использование<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html" title="Symfony\Component\Filesystem\Filesystem">Filesystem</a></code></tt> - это уникальная конечная
+точка для операций файловой системы:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Filesystem\Filesystem</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Filesystem\Exception\IOExceptionInterface</span><span class="p">;</span>
+
+<span class="nv">$fileSystem</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Filesystem</span><span class="p">();</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">mkdir</span><span class="p">(</span><span class="nb">sys_get_temp_dir</span><span class="p">()</span><span class="o">.</span><span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="nx">random_int</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">));</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">IOExceptionInterface</span> <span class="nv">$exception</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">&quot;Ошибка при создании вашего каталога &quot;</span><span class="o">.</span><span class="nv">$exception</span><span class="o">-&gt;</span><span class="na">getPath</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Методы <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_mkdir" title="Symfony\Component\Filesystem\Filesystem::mkdir()">mkdir()</a></code></tt>,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_exists" title="Symfony\Component\Filesystem\Filesystem::exists()">exists()</a></code></tt>,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_touch" title="Symfony\Component\Filesystem\Filesystem::touch()">touch()</a></code></tt>,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_remove" title="Symfony\Component\Filesystem\Filesystem::remove()">remove()</a></code></tt>,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_chmod" title="Symfony\Component\Filesystem\Filesystem::chmod()">chmod()</a></code></tt>,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_chown" title="Symfony\Component\Filesystem\Filesystem::chown()">chown()</a></code></tt> и
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_chgrp" title="Symfony\Component\Filesystem\Filesystem::chgrp()">chgrp()</a></code></tt> могут получать
+строку, массив или любой объект, реализующий <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.traversable.php" title="Traversable">Traversable</a></code></tt> в
+качестве целевого аргумента.</p>
+</div></div>
+<div class="section" id="mkdir">
+<h3>mkdir<a class="headerlink" href="#mkdir" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_mkdir" title="Symfony\Component\Filesystem\Filesystem::mkdir()">mkdir()</a></code></tt> создаёт каталог
+рекурсивно. В файловых системах POSIX, каталоги создаются со значением режима
+по умолчанию <cite>0777</cite>. Вы можете использовать второй аргумент, чтобы установить
+ваш собственный режим:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">mkdir</span><span class="p">(</span><span class="s1">&#39;/tmp/photos&#39;</span><span class="p">,</span> <span class="mo">0700</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вы можете передать массив или любой <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.traversable.php" title="traversable">traversable</a></code></tt> объект в
+качестве первого аргумента.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Эта функция игнорирует уже существующие каталоги.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Текущий <a class="reference external" href="https://en.wikipedia.org/wiki/Umask">umask</a> влияет на разрешения каталога. Установите umask
+для вашего веб-сервера, используйте функцию PHP <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.umask.php" title="umask">umask</a></code></tt>
+или используйте функцию <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.chmod.php" title="chmod">chmod</a></code></tt> после создания каталога.</p>
+</div></div>
+</div>
+<div class="section" id="exists">
+<h3>exists<a class="headerlink" href="#exists" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_exists" title="Symfony\Component\Filesystem\Filesystem::exists()">exists()</a></code></tt> проверяет наличие
+одного или болеефайлоа или каталогов и возвращает <tt class="docutils literal"><code>false</code></tt>, если какие-либо
+из них отсутствуют:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// если этот каталог с этим абсолютным путём существует, вернуть true</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">exists</span><span class="p">(</span><span class="s1">&#39;/tmp/photos&#39;</span><span class="p">);</span>
+
+<span class="c1">// если rabbit.jpg существует, bottle.png не существует, вернуть false</span>
+<span class="c1">// не абсолютные пути являются относительными к каталогу, где находится запущенный скрипт PHP</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">exists</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;rabbit.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;bottle.png&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вы можете передать массив или любой <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.traversable.php" title="traversable">traversable</a></code></tt> объект в
+качестве первого аргумента.</p>
+</div></div>
+</div>
+<div class="section" id="copy">
+<h3>copy<a class="headerlink" href="#copy" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_copy" title="Symfony\Component\Filesystem\Filesystem::copy()">copy()</a></code></tt> делает копию одного файла
+(используйте <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_mirror" title="Symfony\Component\Filesystem\Filesystem::mirror()">mirror()</a></code></tt>, чтобы
+копировать каталоги). Если цель уже существует, то файл копируется только, если дата
+изменения источника позже, чем у цели. Это поведение можно переопределить третьим
+булевым аргументом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// работает только, если image-ICC было изменено после image.jpg</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">copy</span><span class="p">(</span><span class="s1">&#39;image-ICC.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;image.jpg&#39;</span><span class="p">);</span>
+
+<span class="c1">// image.jpg будет переопределено</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">copy</span><span class="p">(</span><span class="s1">&#39;image-ICC.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;image.jpg&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="touch">
+<h3>touch<a class="headerlink" href="#touch" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_touch" title="Symfony\Component\Filesystem\Filesystem::touch()">touch()</a></code></tt> устанавливает доступ и
+время изменения файла. Текущее время используется по умолчанию. Вы можете установить
+ваше собственное с помощью второго аргумента. Третий аргумент - это время доступа:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// устанавливает время изменения в текущей отметке времени</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">touch</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">);</span>
+<span class="c1">// устанавливает время изменения на 10 секунд в будущем</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">touch</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">,</span> <span class="nb">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">10</span><span class="p">);</span>
+<span class="c1">// устанавливает время изменения на 10 секунд в прошлом</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">touch</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">,</span> <span class="nb">time</span><span class="p">(),</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вы можете передать массив или любой <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.traversable.php" title="traversable">traversable</a></code></tt> объект в
+качестве первого аргумента.</p>
+</div></div>
+</div>
+<div class="section" id="chown">
+<h3>chown<a class="headerlink" href="#chown" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_chown" title="Symfony\Component\Filesystem\Filesystem::chown()">chown()</a></code></tt> изменяет владельца
+файла. Третий аргумент - рекурсивная булева опция:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// устанавливает владельца видео lolcat как www-data</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">chown</span><span class="p">(</span><span class="s1">&#39;lolcat.mp4&#39;</span><span class="p">,</span> <span class="s1">&#39;www-data&#39;</span><span class="p">);</span>
+<span class="c1">// рекурсивно изменяет владельца каталога видео</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">chown</span><span class="p">(</span><span class="s1">&#39;/video&#39;</span><span class="p">,</span> <span class="s1">&#39;www-data&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вы можете передать массив или любой <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.traversable.php" title="traversable">traversable</a></code></tt> объект в
+качестве первого аргумента.</p>
+</div></div>
+</div>
+<div class="section" id="chgrp">
+<h3>chgrp<a class="headerlink" href="#chgrp" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_chgrp" title="Symfony\Component\Filesystem\Filesystem::chgrp()">chgrp()</a></code></tt> изменяет группу файла.
+Третий аргумент - рекурсивная булева опция:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// устанавливает группу видео lolcat как nginx</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">chgrp</span><span class="p">(</span><span class="s1">&#39;lolcat.mp4&#39;</span><span class="p">,</span> <span class="s1">&#39;nginx&#39;</span><span class="p">);</span>
+<span class="c1">// рекурсивно изменяет группу каталога видео</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">chgrp</span><span class="p">(</span><span class="s1">&#39;/video&#39;</span><span class="p">,</span> <span class="s1">&#39;nginx&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вы можете передать массив или любой <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.traversable.php" title="traversable">traversable</a></code></tt> объект в
+качестве первого аргумента.</p>
+</div></div>
+</div>
+<div class="section" id="chmod">
+<h3>chmod<a class="headerlink" href="#chmod" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_chmod" title="Symfony\Component\Filesystem\Filesystem::chmod()">chmod()</a></code></tt> изменяет режим или
+разрешения файла. Четвертый аргумент - рекурсивная булева опция:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// устанавливает режим видео 0600</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">chmod</span><span class="p">(</span><span class="s1">&#39;video.ogg&#39;</span><span class="p">,</span> <span class="mo">0600</span><span class="p">);</span>
+<span class="c1">// рекурсивно изменяет режим каталога src</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">chmod</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="mo">0700</span><span class="p">,</span> <span class="mo">0000</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вы можете передать массив или любой <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.traversable.php" title="traversable">traversable</a></code></tt> объект в
+качестве первого аргумента.</p>
+</div></div>
+</div>
+<div class="section" id="remove">
+<h3>remove<a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_remove" title="Symfony\Component\Filesystem\Filesystem::remove()">remove()</a></code></tt> удаляет файлы,
+каталогы и сивольные ссылки:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">remove</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;symlink&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/directory&#39;</span><span class="p">,</span> <span class="s1">&#39;activity.log&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вы можете передать массив или любой <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.traversable.php" title="traversable">traversable</a></code></tt> объект в
+качестве первого аргумента.</p>
+</div></div>
+</div>
+<div class="section" id="rename">
+<h3>rename<a class="headerlink" href="#rename" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_rename" title="Symfony\Component\Filesystem\Filesystem::rename()">rename()</a></code></tt> изменяет имя одного
+файла или каталога:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// переименовывает файл</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">rename</span><span class="p">(</span><span class="s1">&#39;/tmp/processed_video.ogg&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/store/video_647.ogg&#39;</span><span class="p">);</span>
+<span class="c1">// переименовывает каталог</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">rename</span><span class="p">(</span><span class="s1">&#39;/tmp/files&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/store/files&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="symlink">
+<h3>symlink<a class="headerlink" href="#symlink" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_symlink" title="Symfony\Component\Filesystem\Filesystem::symlink()">symlink()</a></code></tt> создаёт символьную
+ссылку от цели к направлению. Если файловая система не поддерживает символьные
+ссылки, доступен третий булев аргумент:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// создаёт символьную ссылку</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">symlink</span><span class="p">(</span><span class="s1">&#39;/path/to/source&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/destination&#39;</span><span class="p">);</span>
+<span class="c1">// дублирует каталог источника, если файловая система</span>
+<span class="c1">// не поддерживает символьные ссылки</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">symlink</span><span class="p">(</span><span class="s1">&#39;/path/to/source&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/destination&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="readlink">
+<h3>readlink<a class="headerlink" href="#readlink" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_readlink" title="Symfony\Component\Filesystem\Filesystem::readlink()">readlink()</a></code></tt> читает ссылки целей.</p>
+<p>Функция PHP <tt class="docutils literal"><code>readlink()</code></tt> возвращает цель символьной ссылки. Однако, её поведение
+полностью отличается в Windows и Unix. В системах Windows, <tt class="docutils literal"><code>readlink()</code></tt> рекурсивно
+разрешает дочерние ссылки до нахождения финмальной цели. В системах, основанных на
+Unix, <tt class="docutils literal"><code>readlink()</code></tt> разрешает только следующую ссылку.</p>
+<p>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_readlink" title="Symfony\Component\Filesystem\Filesystem::readlink()">readlink()</a></code></tt>, предоставленные
+компонентом Filesystem всегда ведёт себя одинаково:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// возвращает следующую прямую цель ссылки, не рассматривая существование цели</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">readlink</span><span class="p">(</span><span class="s1">&#39;/path/to/link&#39;</span><span class="p">);</span>
+
+<span class="c1">// возвращает абсолютнуюп полностью разрешённую финальную версию цели</span>
+<span class="c1">// (если были вложенные ссылки, они разрешены)</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">readlink</span><span class="p">(</span><span class="s1">&#39;/path/to/link&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Её поведение следующее:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">readlink</span><span class="p">(</span><span class="nv">$path</span><span class="p">,</span> <span class="nv">$canonicalize</span> <span class="o">=</span> <span class="k">false</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Когда <tt class="docutils literal"><code>$canonicalize</code></tt> - <tt class="docutils literal"><code>false</code></tt>:</dt>
+<dd><ul class="first last">
+<li>если <tt class="docutils literal"><code>$path</code></tt> не существует, или не является ссылкой, то возвращается <tt class="docutils literal"><code>null</code></tt>.</li>
+<li>если <tt class="docutils literal"><code>$path</code></tt> - ссылка, возвращается следующая прямая цель ссылки, не рассматривая
+существование цели.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Когда <tt class="docutils literal"><code>$canonicalize</code></tt> - <tt class="docutils literal"><code>true</code></tt>:</dt>
+<dd><ul class="first last">
+<li>если <tt class="docutils literal"><code>$path</code></tt> не существует,  то возвращается <tt class="docutils literal"><code>null</code></tt>.</li>
+<li>если <tt class="docutils literal"><code>$path</code></tt> существует, то возвращается его абсолютная полностью разрешённая
+финальная версия.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="makepathrelative">
+<h3>makePathRelative<a class="headerlink" href="#makepathrelative" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_makePathRelative" title="Symfony\Component\Filesystem\Filesystem::makePathRelative()">makePathRelative()</a></code></tt> берёт два абсолютных
+пути и возвращает относительный путь от второго пути к первому:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// возвращает &#39;../&#39;</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">makePathRelative</span><span class="p">(</span>
+    <span class="s1">&#39;/var/lib/symfony/src/Symfony/&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/var/lib/symfony/src/Symfony/Component&#39;</span>
+<span class="p">);</span>
+<span class="c1">// возвращает &#39;videos/&#39;</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">makePathRelative</span><span class="p">(</span><span class="s1">&#39;/tmp/videos&#39;</span><span class="p">,</span> <span class="s1">&#39;/tmp&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="mirror">
+<h3>mirror<a class="headerlink" href="#mirror" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_mirror" title="Symfony\Component\Filesystem\Filesystem::mirror()">mirror()</a></code></tt> копирует всё содержание
+каталога источника в целевой (используйте метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_copy" title="Symfony\Component\Filesystem\Filesystem::copy()">copy()</a></code></tt>, чтобы скопировать одиночные
+файлы):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">mirror</span><span class="p">(</span><span class="s1">&#39;/path/to/source&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/target&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="isabsolutepath">
+<h3>isAbsolutePath<a class="headerlink" href="#isabsolutepath" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_isAbsolutePath" title="Symfony\Component\Filesystem\Filesystem::isAbsolutePath()">isAbsolutePath()</a></code></tt> возвращает
+<tt class="docutils literal"><code>true</code></tt>, если данный путь абсолютный, <tt class="docutils literal"><code>false</code></tt> - во всех других случаях:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// возвращает true</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">isAbsolutePath</span><span class="p">(</span><span class="s1">&#39;/tmp&#39;</span><span class="p">);</span>
+<span class="c1">// возвращает true</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">isAbsolutePath</span><span class="p">(</span><span class="s1">&#39;c:\\Windows&#39;</span><span class="p">);</span>
+<span class="c1">// возвращает false</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">isAbsolutePath</span><span class="p">(</span><span class="s1">&#39;tmp&#39;</span><span class="p">);</span>
+<span class="c1">// возвращает false</span>
+<span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">isAbsolutePath</span><span class="p">(</span><span class="s1">&#39;../dir&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="dumpfile">
+<h3>dumpFile<a class="headerlink" href="#dumpfile" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_dumpFile" title="Symfony\Component\Filesystem\Filesystem::dumpFile()">dumpFile()</a></code></tt> сохраняет данное
+содержание в файл. Это делается автоматически: он вначале записывает временный
+файл и потом перемещает его в новую локацию файла, когда он закончен. Это означает,
+что пользовательвсегда будет видеть либо полный старый файл, либо полный новый файл
+(но никогда - частично написанный файл):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">dumpFile</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Файл <tt class="docutils literal"><code>file.txt</code></tt> теперь содержит <tt class="docutils literal"><code>Hello World</code></tt>.</p>
+</div>
+<div class="section" id="appendtofile">
+<h3>appendToFile<a class="headerlink" href="#appendtofile" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Filesystem.html#method_appendToFile" title="Symfony\Component\Filesystem\Filesystem::appendToFile()">appendToFile()</a></code></tt> добавляет новое
+содержание в конце некоторого файла:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$fileSystem</span><span class="o">-&gt;</span><span class="na">appendToFile</span><span class="p">(</span><span class="s1">&#39;logs.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;Email sent to <a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="7c090f190e3c19041d110c1019521f1311">[email&#160;protected]</a>&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если либо файл, либо каталог, содержащий его, не существует, то этот метод
+создаёт их перед добавлением содержания.</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Обработка ошибок<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Когда что-то идёт не так, вызывается исключение, реализующее
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Exception/ExceptionInterface.html" title="Symfony\Component\Filesystem\Exception\ExceptionInterface">ExceptionInterface</a></code></tt> или
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Exception/IOExceptionInterface.html" title="Symfony\Component\Filesystem\Exception\IOExceptionInterface">IOExceptionInterface</a></code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если создание каталога проходит неуспешно, вызывается
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Filesystem/Exception/IOException.html" title="Symfony\Component\Filesystem\Exception\IOException">IOException</a></code></tt>.</p>
+</div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="filesystem.html">« The Filesystem Component</a>
+                <span class="separator">|</span>
+                <a href="finder.html">The Finder Component »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  <script data-cfasync="false" src="..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script></body>
+</body></html>

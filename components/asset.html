@@ -1,0 +1,764 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент Asset &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="The BrowserKit Component" href="browser_kit.html">
+    <link rel="prev" title="The Asset Component" href="asset.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент Asset</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#id2">Использование</a><ul>
+<li><a class="reference internal" href="#id3">Пакеты ресурсов</a></li>
+<li><a class="reference internal" href="#component-assets-versioning-ru">Версионрованные ресурсы</a><ul>
+<li><a class="reference internal" href="#json">JSON файл-манифест</a></li>
+<li><a class="reference internal" href="#id5">Пользовательские стратегии версии</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#component-assets-path-package-ru">Сгруппированные ресурсы</a><ul>
+<li><a class="reference internal" href="#id7">Ресурсы, осознающие конекст запроса</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cdn">Абсолютные ресурсы и CDN</a><ul>
+<li><a class="reference internal" href="#id8">Ресурсы, осознающие контекст запроса</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id9">Названные пакеты</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10">Узнайте больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент Asset</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="asset">
+<span id="index-0"></span><h1>Компонент Asset<a class="headerlink" href="#asset" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Компонент Asset управляет генерированием URL и версионированием веб-ресурсов
+вроде таблиц стилей CSS, файлов JavaScript и изображений.</div></blockquote>
+<p>В прошлом, веб-приложения зачастую жёстко кодировали URL веб-ресурсов. Например:</p>
+<div class="literal-block"><div class="highlight-html"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/css/main.css&quot;</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- ... --&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/images/logo.png&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Эта практика больше не рекомендуется кроме случаев, когда веб-приложение очень
+простое. Жёсткое кодирование URL может быть недостатком потому что:</p>
+<ul class="simple">
+<li><strong>Шаблоны становятся многословыми</strong>: вам нужно написать полный путь для
+каждого ресурса. При использовании компонента Ресурс, вы можете сгруппировать
+ресурсы в пакеты, чтобы избежать повторения общей части их пути;</li>
+<li><strong>Усложняется версионирование</strong>: оно должно быть обработано вручную для каждого
+приложения. Добавление версии (например, <tt class="docutils literal"><code>main.css?v=5</code></tt>) к URL ресурсов важно
+для некоторых приложений, так как позволяет вам контролирвать кеширование ресурсов.
+Компонент Ресурс позволяет вам определять разные стратегии версионирования для
+каждого пакета;</li>
+<li><strong>Перемещение локации ресурсов</strong> становится напряжным и ненадёжным: оно требует
+осторожного обновления URL всех ресурсов, включённых во все шаблоны. Компонент
+Ресурс позволяет перемещать ресурсы без усилий, просто изменяя базовое значение
+пути, связанное с пакетом ресурсов;</li>
+<li><strong>Почти невозможно использовать несколько CDN</strong>: эта техника требует от вас
+изменения URL ресурса рандомно для каждого запроса. Компонент Ресурс предоставляет
+готовую к использованию поддержку для любого количества CDN, как обычных (<tt class="docutils literal"><code>http://</code></tt>),
+так и безопасных (<tt class="docutils literal"><code>https://</code></tt>).</li>
+</ul>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/asset
+</pre></div>
+</td></tr></table></div></div>
+<p>Также вы можете клонировать репозиторий <a class="reference external" href="https://github.com/symfony/asset">https://github.com/symfony/asset</a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Использование<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>Пакеты ресурсов<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Компонент Asset управляет ресурсами через пакеты. Пакет группирует все ресурсы
+с общими свойствами: стратегией версионирования, базовым путём, хостами CDN, и т.д.
+В следующем базовом примере, пакет создаётся для управления ресурсов без версионирования:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Asset\Package</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy</span><span class="p">;</span>
+
+<span class="nv">$package</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Package</span><span class="p">(</span><span class="k">new</span> <span class="nx">EmptyVersionStrategy</span><span class="p">());</span>
+
+<span class="c1">// Абсолютный путь</span>
+<span class="k">echo</span> <span class="nv">$package</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;/image.png&#39;</span><span class="p">);</span>
+<span class="c1">// результат: /image.png</span>
+
+<span class="c1">// Относительный путь</span>
+<span class="k">echo</span> <span class="nv">$package</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;image.png&#39;</span><span class="p">);</span>
+<span class="c1">// результат: image.png</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Пакеты реализуют <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Asset/PackageInterface.html" title="Symfony\Component\Asset\PackageInterface">PackageInterface</a></code></tt>, которй
+определяет следующие два метода:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Asset/PackageInterface.html#method_getVersion" title="Symfony\Component\Asset\PackageInterface::getVersion()">getVersion()</a></code></tt></dt>
+<dd>Возвращает версию ресурса для ресурса.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Asset/PackageInterface.html#method_getUrl" title="Symfony\Component\Asset\PackageInterface::getUrl()">getUrl()</a></code></tt></dt>
+<dd>Возвращает абсолютный или публичный релятивный корневой путь.</dd>
+</dl>
+<p>С пакетом вы можете:</p>
+<ol class="upperalpha simple">
+<li><a class="reference internal" href="asset.html#component-assets-versioning"><span>версионировать ресурсы</span></a>;</li>
+<li>устанавливать <a class="reference internal" href="asset.html#component-assets-path-package"><span>общий базовый путь</span></a> (например, <tt class="docutils literal"><code>/css</code></tt>)
+для пакетов;</li>
+<li><a class="reference internal" href="asset.html#component-assets-cdn"><span>конфигурировать CDN</span></a> for the assets</li>
+</ol>
+</div>
+<div class="section" id="component-assets-versioning-ru">
+<span id="id4"></span><h3>Версионрованные ресурсы<a class="headerlink" href="#component-assets-versioning-ru" title="Permalink to this headline">¶</a></h3>
+<p>Одной из основных функций компонента Ресурс является возможность усправлять
+версионированием ресурсов приложения. Версии ресурсов зачастую используются
+для контролирования того, как эти ресурсы кешируются.</p>
+<p>Вместо того, чтобы полагаться на простой механизм версии, компонент Ресурс
+позволяет вам определять продвинутые стратегии версионирования через PHP
+классы. Две встроенные стратегии: <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Asset/VersionStrategy/EmptyVersionStrategy.html" title="Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy">EmptyVersionStrategy</a></code></tt>,
+которая не добавляет версии в ресурс, и <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Asset/VersionStrategy/StaticVersionStrategy.html" title="Symfony\Component\Asset\VersionStrategy\StaticVersionStrategy">StaticVersionStrategy</a></code></tt>,
+которая позволяет вам установить версию с помощью строки формата.</p>
+<p>В этом примере, <tt class="docutils literal"><code>StaticVersionStrategy</code></tt> используется, чтобы прикрепить суффикс
+<tt class="docutils literal"><code>v1</code></tt> к любому пути ресурса:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Asset\Package</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Asset\VersionStrategy\StaticVersionStrategy</span><span class="p">;</span>
+
+<span class="nv">$package</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Package</span><span class="p">(</span><span class="k">new</span> <span class="nx">StaticVersionStrategy</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">));</span>
+
+<span class="c1">// Абсолютный путь</span>
+<span class="k">echo</span> <span class="nv">$package</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;/image.png&#39;</span><span class="p">);</span>
+<span class="c1">// результат: /image.png?v1</span>
+
+<span class="c1">// Относительный путь:</span>
+<span class="k">echo</span> <span class="nv">$package</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;image.png&#39;</span><span class="p">);</span>
+<span class="c1">// результат: image.png?v1</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В случае, если вы хотите измеить формат версии, передайте строку формата,
+совместимого с sprintf в качестве второго аргумента конструктора <tt class="docutils literal"><code>StaticVersionStrategy</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// помещает слово &#39;version&#39; перед значением версии</span>
+<span class="nv">$package</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Package</span><span class="p">(</span><span class="k">new</span> <span class="nx">StaticVersionStrategy</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">,</span> <span class="s1">&#39;%s?version=%s&#39;</span><span class="p">));</span>
+
+<span class="k">echo</span> <span class="nv">$package</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;/image.png&#39;</span><span class="p">);</span>
+<span class="c1">// результат: /image.png?version=v1</span>
+
+<span class="c1">// помещает версию ресурса перед его путём</span>
+<span class="nv">$package</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Package</span><span class="p">(</span><span class="k">new</span> <span class="nx">StaticVersionStrategy</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">,</span> <span class="s1">&#39;%2$s/%1$s&#39;</span><span class="p">));</span>
+
+<span class="k">echo</span> <span class="nv">$package</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;/image.png&#39;</span><span class="p">);</span>
+<span class="c1">// результат: /v1/image.png</span>
+
+<span class="k">echo</span> <span class="nv">$package</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;image.png&#39;</span><span class="p">);</span>
+<span class="c1">// результат: v1/image.png</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="json">
+<h4>JSON файл-манифест<a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h4>
+<p>Популярный метод управления версиями ресурсов, используемым во многих инструментах, таких как
+<a class="reference external" href="https://webpack.js.org/">Webpack</a>, это создание JSON-файла с указанием связей всех исходных файлов и
+соответствующих результирующих файлов:</p>
+<div class="literal-block"><div class="highlight-json"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span>// rev-manifest.json
+{
+    &quot;css/app.css&quot;: &quot;build/css/app.b916426ea1d10021f3f17ce8031f93c2.css&quot;,
+    &quot;js/app.js&quot;: &quot;build/js/app.13630905267b809161e71d0f8a0c017b.js&quot;,
+    &quot;...&quot;: &quot;...&quot;
+}
+</pre></div>
+</td></tr></table></div></div>
+<p>В данных случаях используйте
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Asset/VersionStrategy/JsonManifestVersionStrategy.html" title="Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy">JsonManifestVersionStrategy</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Asset\Package</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy</span><span class="p">;</span>
+
+<span class="nv">$package</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Package</span><span class="p">(</span><span class="k">new</span> <span class="nx">JsonManifestVersionStrategy</span><span class="p">(</span><span class="no">__DIR__</span><span class="s1">&#39;./rev-manifest.json&#39;</span><span class="p">));</span>
+
+<span class="k">echo</span> <span class="nv">$package</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;css/app.css&#39;</span><span class="p">);</span>
+<span class="c1">// result: build/css/app.b916426ea1d10021f3f17ce8031f93c2.css</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id5">
+<h4>Пользовательские стратегии версии<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>Используйте <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Asset/VersionStrategy/VersionStrategyInterface.html" title="Symfony\Component\Asset\VersionStrategy\VersionStrategyInterface">VersionStrategyInterface</a></code></tt>
+чтобы определить вашу собственную стратегию версионирования. Например, ваше приложение
+может нуждаться в том, чтобы добавить текущую дату ко всем своим веб-реурсам, чтобы
+сбивать кеш каждый день:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Asset\VersionStrategy\VersionStrategyInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">DateVersionStrategy</span> <span class="k">implements</span> <span class="nx">VersionStrategyInterface</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$version</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">version</span> <span class="o">=</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;Ymd&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getVersion</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">version</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">applyVersion</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;%s?v=%s&#39;</span><span class="p">,</span> <span class="nv">$path</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getVersion</span><span class="p">(</span><span class="nv">$path</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="component-assets-path-package-ru">
+<span id="id6"></span><h3>Сгруппированные ресурсы<a class="headerlink" href="#component-assets-path-package-ru" title="Permalink to this headline">¶</a></h3>
+<p>Зачастую многие ресурсы живут по общему пути (например, <tt class="docutils literal"><code>/static/images</code></tt>). Если
+это ваш случай, замените класс по умолчанию <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Asset/Package.html" title="Symfony\Component\Asset\Package">Package</a></code></tt>
+на <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Asset/PathPackage.html" title="Symfony\Component\Asset\PathPackage">PathPackage</a></code></tt> чтобы избежать повтора этого пути
+снова и снова:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Asset\PathPackage</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$pathPackage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PathPackage</span><span class="p">(</span><span class="s1">&#39;/static/images&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">StaticVersionStrategy</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">));</span>
+
+<span class="k">echo</span> <span class="nv">$pathPackage</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;logo.png&#39;</span><span class="p">);</span>
+<span class="c1">// результат: /static/images/logo.png?v1</span>
+
+<span class="c1">// Базовый путь игнорируется при использовании абсолютных путей</span>
+<span class="k">echo</span> <span class="nv">$pathPackage</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;/logo.png&#39;</span><span class="p">);</span>
+<span class="c1">// результат: /logo.png?v1</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id7">
+<h4>Ресурсы, осознающие конекст запроса<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>Если вы также используете компонент <a class="reference internal" href="http_foundation.html"><em>HttpFoundation</em></a>
+в вашем проекте (например, в приложении Symfony), то класс <tt class="docutils literal"><code>PathPackage</code></tt> может принять
+во внимание контекст текущего зароса:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Asset\PathPackage</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Asset\Context\RequestStackContext</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$pathPackage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PathPackage</span><span class="p">(</span>
+    <span class="s1">&#39;/static/images&#39;</span><span class="p">,</span>
+    <span class="k">new</span> <span class="nx">StaticVersionStrategy</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nx">RequestStackContext</span><span class="p">(</span><span class="nv">$requestStack</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$pathPackage</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;logo.png&#39;</span><span class="p">);</span>
+<span class="c1">// результат: /somewhere/static/images/logo.png?v1</span>
+
+<span class="c1">// Как &quot;base path&quot;, так и &quot;base url&quot; игнорируются при использовании абсолютного пути для ресурса</span>
+<span class="k">echo</span> <span class="nv">$pathPackage</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;/logo.png&#39;</span><span class="p">);</span>
+<span class="c1">// результат: /logo.png?v1</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, когда контекст запроса установлен, <tt class="docutils literal"><code>PathPackage</code></tt> добавит текущий запрос
+к базовому URL. Так что, например, если весь ваш сайт находится в каталоге <tt class="docutils literal"><code>/somewhere</code></tt>
+вашего корневого каталога веб-сервера, а сконфигурированный базовый путь - <tt class="docutils literal"><code>/static/images</code></tt>,
+то все пути будут иметь префикс <tt class="docutils literal"><code>/somewhere/static/images</code></tt>.</p>
+</div>
+</div>
+<div class="section" id="cdn">
+<span id="component-assets-cdn-ru"></span><h3>Абсолютные ресурсы и CDN<a class="headerlink" href="#cdn" title="Permalink to this headline">¶</a></h3>
+<p>Приложения, которые размещают свои ресурсы на разных доменах и CDN (<em>Сети доставки
+контента</em>) должны использовать класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Asset/UrlPackage.html" title="Symfony\Component\Asset\UrlPackage">UrlPackage</a></code></tt>,
+чтобы сгенерировать абсолютные URL для своих ресурсов:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Asset\UrlPackage</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$urlPackage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UrlPackage</span><span class="p">(</span>
+    <span class="s1">&#39;http://static.example.com/images/&#39;</span><span class="p">,</span>
+    <span class="k">new</span> <span class="nx">StaticVersionStrategy</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$urlPackage</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;/logo.png&#39;</span><span class="p">);</span>
+<span class="c1">// результат: http://static.example.com/images/logo.png?v1</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы также можете передать URL схем-агностиков:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Asset\UrlPackage</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$urlPackage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UrlPackage</span><span class="p">(</span>
+    <span class="s1">&#39;//static.example.com/images/&#39;</span><span class="p">,</span>
+    <span class="k">new</span> <span class="nx">StaticVersionStrategy</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$urlPackage</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;/logo.png&#39;</span><span class="p">);</span>
+<span class="c1">// результат: //static.example.com/images/logo.png?v1</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это полезно, так как ресусры будут автоматически запрошены через HTTPS, если
+посетитель просматривает ваш сайт на https. Просто убедитесь в том, что ваш
+CDN хост поддерживает https.</p>
+<p>В случае, если вы предоставляете ресурсы более, чем с одного домена, чтобы
+улучшить производительность приложения, передайте массив URL в качестве первого
+аргумента конструктора <tt class="docutils literal"><code>UrlPackage</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Asset\UrlPackage</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$urls</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;//static1.example.com/images/&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;//static2.example.com/images/&#39;</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="nv">$urlPackage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UrlPackage</span><span class="p">(</span><span class="nv">$urls</span><span class="p">,</span> <span class="k">new</span> <span class="nx">StaticVersionStrategy</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">));</span>
+
+<span class="k">echo</span> <span class="nv">$urlPackage</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;/logo.png&#39;</span><span class="p">);</span>
+<span class="c1">// результат: http://static1.example.com/images/logo.png?v1</span>
+<span class="k">echo</span> <span class="nv">$urlPackage</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;/icon.png&#39;</span><span class="p">);</span>
+<span class="c1">// результат: http://static2.example.com/images/icon.png?v1</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Для каждого ресурсы, один из URL должен быт использован  рандомно. Но
+определение детерминировано, что означает,что каждый ресурс будет всегда
+подан одним и тем же доменом. Это поведение упрощает управление HTTP кешем.</p>
+<div class="section" id="id8">
+<h4>Ресурсы, осознающие контекст запроса<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>Схоже с ресурсами, относящимися к приложению, абсолютные ресурсы также могут
+брать во внимание контекст текущего запроса. В этом случае, рассматривается
+только схема запроса, чтобы выбрать соответствующий базовый URL (HTTPs или
+протокол-релятивные URL для HTTPs запросов, любой базовый URL для HTTP запросов):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Asset\UrlPackage</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Asset\Context\RequestStackContext</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$package</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UrlPackage</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;http://example.com/&#39;</span><span class="p">,</span> <span class="s1">&#39;https://example.com/&#39;</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nx">StaticVersionStrategy</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nx">RequestStackContext</span><span class="p">(</span><span class="nv">$requestStack</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$package</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;/logo.png&#39;</span><span class="p">);</span>
+<span class="c1">// предполагая, что RequestStackContext сообщает, что мы на защищённом хосте</span>
+<span class="c1">// результат: https://example.com/logo.png?v1</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>Названные пакеты<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Приложения, которые управляют множеством разных ресурсов, могут захотеть
+сгруппировать их в пакеты с одинаковой стратегией версионирования и базовым
+путём. Компонент Ресурс включает в себя класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Asset/Packages.html" title="Symfony\Component\Asset\Packages">Packages</a></code></tt>,
+чтобы упростит управление несколькими пакетами.</p>
+<p>В следующем примере все пакеты используют одну стратегию версионирования, но
+они все имеют разные базовые пути:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Asset\Package</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Asset\PathPackage</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Asset\UrlPackage</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Asset\Packages</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$versionStrategy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">StaticVersionStrategy</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">);</span>
+
+<span class="nv">$defaultPackage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Package</span><span class="p">(</span><span class="nv">$versionStrategy</span><span class="p">);</span>
+
+<span class="nv">$namedPackages</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;img&#39;</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">UrlPackage</span><span class="p">(</span><span class="s1">&#39;http://img.example.com/&#39;</span><span class="p">,</span> <span class="nv">$versionStrategy</span><span class="p">),</span>
+    <span class="s1">&#39;doc&#39;</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">PathPackage</span><span class="p">(</span><span class="s1">&#39;/somewhere/deep/for/documents&#39;</span><span class="p">,</span> <span class="nv">$versionStrategy</span><span class="p">),</span>
+<span class="p">);</span>
+
+<span class="nv">$packages</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Packages</span><span class="p">(</span><span class="nv">$defaultPackage</span><span class="p">,</span> <span class="nv">$namedPackages</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Класс <tt class="docutils literal"><code>Packages</code></tt> позволяет определять пакет по умолчанию, который будет
+применён к ресурсам, которые не определяют имя пакета для использования.
+Кроме того, это приложение определяет пакет под именем <tt class="docutils literal"><code>img</code></tt> для подачи
+изображений с внешнего домена, и пакет <tt class="docutils literal"><code>doc</code></tt>, чтобы избежать повторения
+длинных путей при ссылании на документ внутри шаблона:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">echo</span> <span class="nv">$packages</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;/main.css&#39;</span><span class="p">);</span>
+<span class="c1">// результат: /main.css?v1</span>
+
+<span class="k">echo</span> <span class="nv">$packages</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;/logo.png&#39;</span><span class="p">,</span> <span class="s1">&#39;img&#39;</span><span class="p">);</span>
+<span class="c1">// результат: http://img.example.com/logo.png?v1</span>
+
+<span class="k">echo</span> <span class="nv">$packages</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;resume.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;doc&#39;</span><span class="p">);</span>
+<span class="c1">// результат: /somewhere/deep/for/documents/resume.pdf?v1</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>Узнайте больше<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="asset.html">« The Asset Component</a>
+                <span class="separator">|</span>
+                <a href="browser_kit.html">The BrowserKit Component »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

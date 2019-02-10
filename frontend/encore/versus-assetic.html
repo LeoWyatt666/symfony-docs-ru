@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Encore против Assetic? &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+    <link rel="up" title="Managing CSS and JavaScript" href="..\..\frontend.html">
+    <link rel="next" title="Enabling Vue.js (vue-loader)" href="vuejs.html">
+    <link rel="prev" title="Encore Versus Assetic?" href="versus-assetic.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="frontend doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Encore против Assetic?</a><ul>
+<li><a class="reference internal" href="#assetic-encore">Стоит ли мне обновиться с Assetic до Encore</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li><a href="..\..\frontend.html">Managing CSS and JavaScript</a></li>
+                
+                <li class="active">Encore против Assetic?</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="encore-assetic">
+<h1>Encore против Assetic?<a class="headerlink" href="#encore-assetic" title="Permalink to this headline">¶</a></h1>
+<p>Symfony первоначально шла с поддержкой <a class="reference internal" href="..\assetic.html"><em>Assetic</em></a>: чистой
+PHP библиотеки, способной обрабатывать, комбинировать и уменьшать файлы CSS и JavaScript.
+И хотя сейчас рекомендуемым способом обработки ваших ресурсов является Encore, Assetic
+всё ещё отлично работает.</p>
+<p>Так какие же различия между Assetic и Encore?</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%">
+<col width="35%">
+<col width="28%">
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td rowspan="2">&nbsp;</td>
+<td rowspan="2">Assetic</td>
+<td rowspan="2">Encore</td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td>Язык</td>
+<td>Чистый PHP, полагается на
+другие языковые инструменты
+для некоторых задач</td>
+<td>Node.js</td>
+</tr>
+<tr class="row-even"><td>Комбинирует ресурсы?</td>
+<td>Да</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Уменьшает ресурсы?</td>
+<td>Да (после конфигурации)</td>
+<td>Да (сразу же)</td>
+</tr>
+<tr class="row-even"><td>Обрабатывает Sass/Less?</td>
+<td>Да</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Загружает модули JS? <a class="footnote-reference" href="#id3" id="id1">[1]</a></td>
+<td>Нет</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Загружает CSS Deps в JS? [1]</td>
+<td>Нет</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>React, поддерживает Vue.js?</td>
+<td>Нет <a class="footnote-reference" href="#id4" id="id2">[2]</a></td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Поддержка</td>
+<td>Неактивная</td>
+<td>Активная</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><p class="first">Модули JavaScript позволяют вам организовывать ваш JavaScript в маленькие файлы под
+названием модули, и импортировать их:</p>
+<div class="literal-block"><div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// требовать сторонние модули</span>
+<span class="kd">var</span> <span class="nx">$</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">);</span>
+
+<span class="c1">// требовать ваши собственные модули CoolComponent.js</span>
+<span class="kd">var</span> <span class="nx">coolComponent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./components/CoolComponent&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p class="last">Encore (через Webpack) автоматически их анализирует и создаёт файл JavaScript,
+который содержит все необходимые зависимости. Вы можете даже потребовать CSS
+или изображения.</p>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Assetic имеет устаревшую поддержку только для React.js. Encore поставляется с
+современной поддержкой React.js, Vue.js, Typescript, и т.д.</td></tr>
+</tbody>
+</table>
+<div class="section" id="assetic-encore">
+<h2>Стоит ли мне обновиться с Assetic до Encore<a class="headerlink" href="#assetic-encore" title="Permalink to this headline">¶</a></h2>
+<p>Если у вас с приложении уже работает Assetic, и вам не нужны были никакие из функций
+Encore, которых нет в Assetic, вы можете продолжать использовать Assetic. Если вам
+<em>нужно</em> будет больше функций, то вам может понадобится перейти на Encore.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="versus-assetic.html">« Encore Versus Assetic?</a>
+                <span class="separator">|</span>
+                <a href="vuejs.html">Enabling Vue.js (vue-loader) »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

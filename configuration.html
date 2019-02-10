@@ -1,0 +1,597 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Конфигурация Symfony (и окружений) &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="_static/" type="text/css">
+    <link rel="stylesheet" href="_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="index.html">
+
+<link rel="stylesheet" href="_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="configuration-r doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\index.html">
+                    <img src="..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Конфигурация Symfony (и окружений)</a><ul>
+<li><a class="reference internal" href="#config-packages">Конфигурация: config/packages/</a></li>
+<li><a class="reference internal" href="#id1">Источник и сброс конфигурации</a></li>
+<li><a class="reference internal" href="#config-parameter-intro-ru">Ключ параметров: Параметры (Переменыые)</a><ul>
+<li><a class="reference internal" href="#env">Файл .env и переменные окружения</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">Окружения и другие файлы конфигурации</a></li>
+<li><a class="reference internal" href="#id4">Продолжайте!</a></li>
+<li><a class="reference internal" href="#id5">Узнать больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="index.html">Документация</a></li>
+                
+                <li class="active">Конфигурация Symfony (и окружений)</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="symfony">
+<span id="index-0"></span><h1>Конфигурация Symfony (и окружений)<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h1>
+<p>Приложения Symfony могут устанавливать сторонние программные пакеты (пакеты,
+библиотеки и др.), чтобы добавить новые функции (<a class="reference internal" href="service_container.html"><em>сервисы</em></a>)
+в ваш проект. Каждый пакет можно настроить с помощью файлов конфигурации, которые -
+по умолчанию - находятся в каталоге <tt class="docutils literal"><code>config/</code></tt>.</p>
+<div class="section" id="config-packages">
+<h2>Конфигурация: config/packages/<a class="headerlink" href="#config-packages" title="Permalink to this headline">¶</a></h2>
+<p>Файл конфигурации каждого пакета можно найти в <tt class="docutils literal"><code>config/packages/</code></tt>. Например, пакет
+фреймворка конфигурируется в <tt class="docutils literal"><code>config/packages/framework.yaml</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/framework.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">framework</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">secret</span><span class="p p-Indicator">:</span> <span class="s">&#39;%env(APP_SECRET)%&#39;</span>
+    <span class="c1">#default_locale: en</span>
+    <span class="c1">#csrf_protection: ~</span>
+    <span class="c1">#http_method_override: true</span>
+    <span class="c1">#trusted_hosts: ~</span>
+    <span class="c1"># https://symfony.com/doc/current/reference/configuration/framework.html#handler-id</span>
+    <span class="c1">#session:</span>
+    <span class="c1">#    # The native PHP session handler will be used</span>
+    <span class="c1">#    handler_id: ~</span>
+    <span class="c1">#esi: ~</span>
+    <span class="c1">#fragments: ~</span>
+    <span class="l l-Scalar l-Scalar-Plain">php_errors</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">log</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/framework.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:framework=</span><span class="s">&quot;http://symfony.com/schema/dic/framework&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/framework http://symfony.com/schema/dic/framework/framework-1.0.xsd&quot;</span>
+<span class="nt">&gt;</span>
+    <span class="nt">&lt;framework:config</span> <span class="na">secret=</span><span class="s">&quot;%env(APP_SECRET)%&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;framework:php-errors</span> <span class="na">log=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/framework:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/framework.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;framework&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">&#39;secret&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;%env(APP_SECRET)%&#39;</span><span class="p">,</span>
+    <span class="c1">//&#39;default_locale&#39; =&gt; &#39;en&#39;,</span>
+    <span class="c1">//&#39;csrf_protection&#39; =&gt; null,</span>
+    <span class="c1">//&#39;http_method_override&#39; =&gt; true,</span>
+    <span class="c1">//&#39;trusted_hosts&#39; =&gt; null,</span>
+    <span class="c1">// https://symfony.com/doc/current/reference/configuration/framework.html#handler-id</span>
+    <span class="c1">//&#39;session&#39; =&gt; [</span>
+    <span class="c1">//    // Будет использован родной обработчик сессий PHP</span>
+    <span class="c1">//    &#39;handler_id&#39; =&gt; null,</span>
+    <span class="c1">//],</span>
+    <span class="c1">//&#39;esi&#39; =&gt; null,</span>
+    <span class="c1">//&#39;fragments&#39; =&gt; null,</span>
+    <span class="s1">&#39;php_errors&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;log&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">]);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Большинство ключей высшего уровня вроде <tt class="docutils literal"><code>framework</code></tt> и <tt class="docutils literal"><code>twig</code></tt> ссылаются на конфигурацию
+конкретного пакета (в этом случае <a class="reference internal" href="reference\configuration\framework.html"><em>FrameworkBundle</em></a>).</p>
+<div class="admonition-wrapper">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Форматы конфигурации</p>
+<p>Далее в документации, все примеры конфигурации будут показаны в трех форматах
+(YAML, XML и PHP). YAML используется по умолчанию, но вы можете выбрать тот формат,
+который нравится вам больше всего. Разницы в производительности нет:</p>
+<ul class="last simple">
+<li><a class="reference internal" href="components\yaml\yaml_format.html"><em>Формат YAML</em></a>: Простой, аккуратный и легко читаемый;</li>
+<li><em>XML</em>: Иногда больше мощный, чем YAML, а также поддерживает автозаполнение IDE;</li>
+<li><em>PHP</em>: Очень мощный, но менее читаемый, чем стандартные форматы конфигруации.</li>
+</ul>
+</div></div>
+</div>
+<div class="section" id="id1">
+<h2>Источник и сброс конфигурации<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Существует <em>два</em> способа узнать, <em>какие</em> ключи вы можете сконфигурировать:</p>
+<ol class="arabic simple">
+<li>Использовать <a class="reference internal" href="reference\index.html"><em>Раздел об источниках</em></a>;</li>
+<li>Использовать команду <tt class="docutils literal"><code>config:dump-reference</code></tt>.</li>
+</ol>
+<p>Например, если вы хотите сконфигурировать что-то, связанноа с пакетом фреймворка,
+вы можете также увидеть пример сброса всех доступных опций конфигурации выполнив:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console config:dump-reference framework
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="config-parameter-intro-ru">
+<span id="page-creation-prod-cache-clear-ru"></span><span id="page-creation-environments-ru"></span><span id="index-1"></span><span id="id2"></span><h2>Ключ параметров: Параметры (Переменыые)<a class="headerlink" href="#config-parameter-intro-ru" title="Permalink to this headline">¶</a></h2>
+<p>Конфигурация имеет некоторые специальные ключи верхнего уровня. Один из них
+называется <tt class="docutils literal"><code>parameters</code></tt>: он используется для определения <em>переменных</em>, на
+которые можно сослаться в <em>любом</em> другом файле конфигурации. Например, когда
+вы устанавливаете пакет <em>перевода</em>, параметр <tt class="docutils literal"><code>locale</code></tt> добавляется в
+<tt class="docutils literal"><code>config/services.yaml</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/services.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">locale</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
+
+<span class="c1"># ...</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:framework=</span><span class="s">&quot;http://symfony.com/schema/dic/symfony&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/symfony</span>
+<span class="s">        http://symfony.com/schema/dic/symfony/symfony-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;parameters&gt;</span>
+        <span class="nt">&lt;parameter</span> <span class="na">key=</span><span class="s">&quot;locale&quot;</span><span class="nt">&gt;</span>en<span class="nt">&lt;/parameter&gt;</span>
+    <span class="nt">&lt;/parameters&gt;</span>
+
+    <span class="c">&lt;!-- ... --&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/services.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">&#39;locale&#39;</span><span class="p">,</span> <span class="s1">&#39;en&#39;</span><span class="p">);</span>
+<span class="c1">// ...</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>На этот параметр потом ссылаются в конфигурации фреймворка в
+<tt class="docutils literal"><code>config/packages/translation.yaml</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/translation.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">framework</span><span class="p p-Indicator">:</span>
+    <span class="c1"># any string surrounded by two % is replaced by that parameter value</span>
+    <span class="l l-Scalar l-Scalar-Plain">default_locale</span><span class="p p-Indicator">:</span> <span class="s">&#39;%locale%&#39;</span>
+
+    <span class="c1"># ...</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/translation.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:framework=</span><span class="s">&quot;http://symfony.com/schema/dic/symfony&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/symfony</span>
+<span class="s">        http://symfony.com/schema/dic/symfony/symfony-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- любая строка, окружённая двумя % заменяется этим значением параметра --&gt;</span>
+    <span class="nt">&lt;framework:config</span> <span class="na">default-locale=</span><span class="s">&quot;%locale%&quot;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;/framework:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/translation.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;framework&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// любая строка, окружённая двумя % заменяется этим значением параметраe</span>
+    <span class="s1">&#39;default_locale&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;%locale%&#39;</span><span class="p">,</span>
+
+    <span class="c1">// ...</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Вы можете определить, какие имена параметров вы хотите видеть под ключом <tt class="docutils literal"><code>parameters</code></tt>
+любого файла конфигурации. Чтобы сослаться на параметр, окружите его имя двумя знаками
+процента, например, <tt class="docutils literal"><code>%locale%</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Вы также можете устанавливать динамичные параметры, как из переменных
+окружения. См. <a class="reference internal" href="configuration\external_parameters.html"><em>Внешние параметры</em></a>.</div></div>
+<p>Чтобы узнать больше информации о параметрах, включая то, как ссылаться на них из контроллера
+см. <a class="reference internal" href="service_container.html#service-container-parameters"><span>Параметры сервис-контейнера</span></a>.</p>
+<div class="section" id="env">
+<span id="config-parameters-yml-ru"></span><span id="config-dot-env-ru"></span><h3>Файл .env и переменные окружения<a class="headerlink" href="#env" title="Permalink to this headline">¶</a></h3>
+<p>Также существует загружаемый файл <tt class="docutils literal"><code>.env</code></tt>. Его содержание становится переменными
+окружения в окружении разработки, что облегчает ссылание на переменные окружения в
+вашем коде. Когда вы устанавливаете пакеты, в этот файл добавляется больше переменных
+окружения. Но вы также можете добавлять ваши собственные переменные.</p>
+<p>На переменные окружения можно сослатьсяв любых других файлах конфигурации, используя
+специальный синтаксис. Например, если установите пакет <tt class="docutils literal"><code>doctrine</code></tt>, то у вас будет
+переменная окружения под названием <tt class="docutils literal"><code>DATABASE_URL</code></tt> в вашем файле <tt class="docutils literal"><code>.env</code></tt>. Ссылка на
+это находится внутри <tt class="docutils literal"><code>config/packages/doctrine.yaml</code></tt>:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/doctrine.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">doctrine</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">dbal</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span> <span class="s">&#39;%env(DATABASE_URL)%&#39;</span>
+
+        <span class="c1"># решеие: префикс разрешит параметры *внутри* переменной окружения</span>
+        <span class="c1"># url: &#39;%env(resolve:DATABASE_URL)%&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Чтобы узнать больше о переменных окружений, см. <a class="reference internal" href="configuration\external_parameters.html#config-env-vars"><span>Environment Variables</span></a>.</p>
+<p>Файл <tt class="docutils literal"><code>.env</code></tt> особенный, так как он определяет значения, которые обычно изменяются
+на каждом сервере. Например, сертификаты БД на вашей локальной машине разработки могут
+отличаться от тех, что у ваших коллег. Поэтому этот файл <strong>не фиксируется в общем
+хранилище</strong> и сохраняется только на вашей машине. Даже больше, файл <tt class="docutils literal"><code>.gitignore</code></tt>,
+который поставляется с Symfony, предотвращает его фиксацию.</p>
+<p>Однако, файл <tt class="docutils literal"><code>.env.dist</code></tt> <em>фиксируется</em> (с подставными значениями). Этот файл
+не считывается Symfony: он просто является ссылкой, чтобы Symfony знала, какие
+переменные нужно определить в файле <tt class="docutils literal"><code>.env</code></tt>. Если вы добавите или удалите ключи
+в <tt class="docutils literal"><code>.env</code></tt>, также добавьте или удалите их в <tt class="docutils literal"><code>.env.dist</code></tt>, чтобы оба файла всегда
+были синхронизированы.</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Окружения и другие файлы конфигурации<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>У вас есть всего <em>одно</em> приложение, и независимо от того, понимаете вы это, или нет,
+вам нужно, чтобы оно вело себя <em>по-разному</em> в разных случаях:</p>
+<ul class="simple">
+<li>Во время <strong>разработки</strong> вам нужно, чтобы ваше приложение записывало все в логи и
+предоставляло хорошие инструменты отладки;</li>
+<li>После выхода в производство, вам нужно, чтобы <em>то же самое</em> приложение было
+оптимизировано с точки зрения скорости, и записывало в логи только ошибки.</li>
+</ul>
+<p>Как можно заставить <em>одно</em> приложение вести себя по-разному? С помощью <em>окружений</em>.</p>
+<p>Вы наверное уже использовали окружение <tt class="docutils literal"><code>dev</code></tt> даже не зная об этом. После того, как
+вы введете приложение в действие, вы будете использовать окружение <tt class="docutils literal"><code>prod</code></tt>.</p>
+<p>Чтобы узнать больше о том, <em>как</em> выполнять и контролировать каждое окружение, см.
+<a class="reference internal" href="configuration\environments.html"><em>Окружения</em></a>.</p>
+</div>
+<div class="section" id="id4">
+<h2>Продолжайте!<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Поздравляем! Вы освоили основы Symfony. Далее, узнайте о <em>каждой</em> части Symfony
+по-отдельности, следуя руководствам:</p>
+<ul class="simple">
+<li><a class="reference internal" href="forms.html"><em>Формы</em></a></li>
+<li><a class="reference internal" href="doctrine.html"><em>Databases and the Doctrine ORM</em></a></li>
+<li><a class="reference internal" href="service_container.html"><em>Сервис-контейнер</em></a></li>
+<li><a class="reference internal" href="security.html"><em>Безопасность</em></a></li>
+<li><a class="reference internal" href="email.html"><em>How to Send an Email</em></a></li>
+<li><a class="reference internal" href="logging.html"><em>Logging with Monolog</em></a></li>
+</ul>
+<p>И многие другие темы.</p>
+</div>
+<div class="section" id="id5">
+<h2>Узнать больше<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configuration\configuration_organization.html">How to Organize Configuration Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/configuration_organization-ru.html">Как организовать файлы конфигурации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration\environments.html">How to Master and Create new Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/environments-ru.html">Как освоить и создавать новые окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration\external_parameters.html">How to Set external Parameters in the Service Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/external_parameters-ru.html">Как устанавливать внешние параметры в сервис-контейнере</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration\front_controllers_and_kernel.html">Understanding how the Front Controller, Kernel and Environments Work together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/front_controllers_and_kernel-ru.html">Понимание того, как работают вместе фронт контроллер, ядро и окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration\micro_kernel_trait.html">Building your own Framework with the MicroKernelTrait</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/micro_kernel_trait-ru.html">Построение собственного фреймворка с MicroKernelTrait</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration\multiple_kernels.html">How To Create Symfony Applications with Multiple Kernels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/multiple_kernels-ru.html">Как создать приложение Symfony с несколькими ядрами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration\override_dir_structure.html">How to Override Symfony's default Directory Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/override_dir_structure-ru.html">Как переопределить стуктуру каталогов Symfony по умолчанию</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration\using_parameters_in_dic.html">Using Parameters within a Dependency Injection Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/using_parameters_in_dic-ru.html">Использование параметров в классе внедрения зависимостей</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

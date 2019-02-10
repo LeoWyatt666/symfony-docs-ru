@@ -1,0 +1,416 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как найти отсутствующие или неиспользованные сообщения перевода &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Translation Component" href="..\components\translation.html">
+    <link rel="next" title="Как находить ошибки в файлах перевода" href="lint-ru.html">
+    <link rel="prev" title="Использование Translator" href="../components/translation/usage-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="translation doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как найти отсутствующие или неиспользованные сообщения перевода</a></li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\components\index.html">The Components</a></li>
+                
+                <li><a href="../components/index-ru.html">The Components</a></li>
+                
+                <li><a href="..\components\translation.html">The Translation Component</a></li>
+                
+                <li class="active">Как найти отсутствующие или неиспользованные сообщения перевода</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как найти отсутствующие или неиспользованные сообщения перевода<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>При поддержке приложения или пакета, вы можете добавлять или удалять сообщения
+перевода и забыть обновить каталоги сообщений. Команда <tt class="docutils literal"><code>debug:translation</code></tt>
+помогает вам найти эти отсутствующие или неиспользованные сообщения перевода.</p>
+<p>Благодаря экстракторам сообщений, команда определит тег перевода или отфильтрует
+использование в шаблонах Twig:</p>
+<div class="literal-block"><div class="highlight-jinja"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">trans</span> <span class="cp">%}</span><span class="x">Symfony is great</span><span class="cp">{%</span> <span class="k">endtrans</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{{</span> <span class="s1">&#39;Symfony is great&#39;</span><span class="o">|</span><span class="nf">trans</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="cp">{{</span> <span class="s1">&#39;Symfony is great&#39;</span><span class="o">|</span><span class="nf">transchoice</span><span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">transchoice</span> <span class="m">1</span> <span class="cp">%}</span><span class="x">Symfony is great</span><span class="cp">{%</span> <span class="k">endtranschoice</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Она также определит следующие использования переводчика в шаблонах PHP:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;translator&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">trans</span><span class="p">(</span><span class="s2">&quot;Symfony is great&quot;</span><span class="p">);</span>
+
+<span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;translator&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">transChoice</span><span class="p">(</span><span class="s1">&#39;Symfony is great&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p>Экстракторы неспособны инспектировать сообщения, переведенные вне шаблонов,
+что означает, что использование переводчика в ярлыках форм или внутри ваших
+контроллеров не будет обнаружено. Динамические переводы, включающие в себя
+переменныили выражения, не определяются в шаблонах, что означает, что этот
+пример не будет проанализирован:</p>
+<div class="literal-block"><div class="last highlight-jinja"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">message</span> <span class="o">=</span> <span class="s1">&#39;Symfony is great&#39;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">message</span><span class="o">|</span><span class="nf">trans</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<p>Предположим, что ваше приложение по умолчанию имеет локаль <tt class="docutils literal"><code>fr</code></tt> и вы сконфигурировали
+локаль <tt class="docutils literal"><code>en</code></tt> в качестве локали отката (см. <a class="reference internal" href="..\translation.html#translation-configuration"><span>Installation</span></a> и
+<a class="reference internal" href="..\translation.html#translation-fallback"><span>Fallback Translation Locales</span></a> для того, чтобы узнать, как их конфигурировать). И представьте,
+что вы уже установили некоторые переводы для локали <tt class="docutils literal"><code>fr</code></tt> внутри пакета AcmeDemoBundle:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- src/Acme/AcmeDemoBundle/Resources/translations/messages.fr.xliff --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;xliff</span> <span class="na">version=</span><span class="s">&quot;1.2&quot;</span> <span class="na">xmlns=</span><span class="s">&quot;urn:oasis:names:tc:xliff:document:1.2&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;file</span> <span class="na">source-language=</span><span class="s">&quot;en&quot;</span> <span class="na">datatype=</span><span class="s">&quot;plaintext&quot;</span> <span class="na">original=</span><span class="s">&quot;file.ext&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;body&gt;</span>
+            <span class="nt">&lt;trans-unit</span> <span class="na">id=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;source&gt;</span>Symfony is great<span class="nt">&lt;/source&gt;</span>
+                <span class="nt">&lt;target&gt;</span>J&#39;aime Symfony<span class="nt">&lt;/target&gt;</span>
+            <span class="nt">&lt;/trans-unit&gt;</span>
+        <span class="nt">&lt;/body&gt;</span>
+    <span class="nt">&lt;/file&gt;</span>
+<span class="nt">&lt;/xliff&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># src/Acme/AcmeDemoBundle/Resources/translations/messages.fr.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">Symfony is great</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">J&#39;aime Symfony</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Acme/AcmeDemoBundle/Resources/translations/messages.fr.php</span>
+<span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;Symfony is great&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;J\&#39;aime Symfony&#39;</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>и для локали <tt class="docutils literal"><code>en</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- src/Acme/AcmeDemoBundle/Resources/translations/messages.en.xliff --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;xliff</span> <span class="na">version=</span><span class="s">&quot;1.2&quot;</span> <span class="na">xmlns=</span><span class="s">&quot;urn:oasis:names:tc:xliff:document:1.2&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;file</span> <span class="na">source-language=</span><span class="s">&quot;en&quot;</span> <span class="na">datatype=</span><span class="s">&quot;plaintext&quot;</span> <span class="na">original=</span><span class="s">&quot;file.ext&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;body&gt;</span>
+            <span class="nt">&lt;trans-unit</span> <span class="na">id=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;source&gt;</span>Symfony is great<span class="nt">&lt;/source&gt;</span>
+                <span class="nt">&lt;target&gt;</span>Symfony is great<span class="nt">&lt;/target&gt;</span>
+            <span class="nt">&lt;/trans-unit&gt;</span>
+        <span class="nt">&lt;/body&gt;</span>
+    <span class="nt">&lt;/file&gt;</span>
+<span class="nt">&lt;/xliff&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># src/Acme/AcmeDemoBundle/Resources/translations/messages.en.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">Symfony is great</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Symfony is great</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Acme/AcmeDemoBundle/Resources/translations/messages.en.php</span>
+<span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;Symfony is great&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Symfony is great&#39;</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Чтобы исследовать все сообщения в локали <tt class="docutils literal"><code>fr</code></tt> для пакета AcmeDemoBundle, выполните:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console debug:translation fr AcmeDemoBundle
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы получите такой результат:</p>
+<img alt="_images/translation/debug_1.png" class="align-center" src="_images/translation/debug_1.png">
+<p>Он покажет вам таблицу с результатом при переводе сообщени в локали <tt class="docutils literal"><code>fr</code></tt> и
+результат при использовании локали отката <tt class="docutils literal"><code>en</code></tt>. Он также покажет случаи, когда
+перевод будет таким же, как перевод отката (это может сигнализировать о том, что
+сообщение было переведено неправильно). Более того, это сигнализирует о том, что
+сообщение <tt class="docutils literal"><code>Symfony is great</code></tt> не используется, так как оно переведено, но вы его
+еще нигде не использовали.</p>
+<p>Теперь, если вы переведёте сообщение в одном из ваших шаблонов, вы получите такой
+результат:</p>
+<img alt="_images/translation/debug_2.png" class="align-center" src="_images/translation/debug_2.png">
+<p>Состояние пустое, что означает, что сообщение переведено в локали <tt class="docutils literal"><code>fr</code></tt> и
+используется в одном или нескольких шаблонах.</p>
+<p>Если вы удалите сообщение <tt class="docutils literal"><code>Symfony is great</code></tt> из вашего файла перевода для
+локали <tt class="docutils literal"><code>fr</code></tt> и выполните команду, вы получите следующее:</p>
+<img alt="_images/translation/debug_3.png" class="align-center" src="_images/translation/debug_3.png">
+<p>Состояние обозначает, что сообщение отсутствует, так как оно не переведено
+в локали <tt class="docutils literal"><code>fr</code></tt>, но всё ещё используется в шаблоне. Более того, сообщение в
+локали <tt class="docutils literal"><code>fr</code></tt> приравнивается к сообщению в локали <tt class="docutils literal"><code>en</code></tt>. Это особенный случай,
+так как непереведенный id сообщения приравнивается к его переводу в локали
+<tt class="docutils literal"><code>en</code></tt>.</p>
+<p>Если вы скопируете содержимое файла перевода в локали <tt class="docutils literal"><code>en</code></tt> в файл перевода
+в локали <tt class="docutils literal"><code>fr</code></tt> и выполните команду, то вы получите следующее:</p>
+<img alt="_images/translation/debug_4.png" class="align-center" src="_images/translation/debug_4.png">
+<p>Вы можете увидеть, что переводы сообщения идентичны в локалях <tt class="docutils literal"><code>fr</code></tt> и
+<tt class="docutils literal"><code>en</code></tt>, что означает, что это сообщение скорее всего было скопировано из
+французского на английский и возможно вы забыли его перевести.</p>
+<p>По умолчанию исследуются все домены, но существует возможность указать один
+конкретный домен:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console debug:translation en AcmeDemoBundle --domain<span class="o">=</span>messages
+</pre></div>
+</td></tr></table></div></div>
+<p>Когда пакеты содержат много сообщений, удобно отображать только неиспользованные
+или только отсутствующие сообщения, используя переключатели <tt class="docutils literal"><code>--only-unused</code></tt> или
+<tt class="docutils literal"><code>--only-missing</code></tt>:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console debug:translation en AcmeDemoBundle --only-unused
+<span class="gp">$</span> php bin/console debug:translation en AcmeDemoBundle --only-missing
+</pre></div>
+</td></tr></table></div></div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="../components/translation/usage-ru.html">« Использование Translator</a>
+                <span class="separator">|</span>
+                <a href="lint-ru.html">Как находить ошибки в файлах перевода »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

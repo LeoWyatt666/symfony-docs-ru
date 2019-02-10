@@ -1,0 +1,777 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Построение собственного фреймворка с MicroKernelTrait &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Configuring Symfony (and Environments)" href="..\configuration.html">
+    <link rel="next" title="How To Create Symfony Applications with Multiple Kernels" href="multiple_kernels.html">
+    <link rel="prev" title="Building your own Framework with the MicroKernelTrait" href="micro_kernel_trait.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="configuration doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Построение собственного фреймворка с MicroKernelTrait</a><ul>
+<li><a class="reference internal" href="#symfony">Приложение Symfony в одном файле</a></li>
+<li><a class="reference internal" href="#id1">Методы &quot;микро&quot; ядра</a></li>
+<li><a class="reference internal" href="#twig">Продвинутый пример: Twig, аннотации и панель инструментов веб-отладки</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\getting_started\index.html">Getting Started</a></li>
+                
+                <li><a href="..\setup.html">Installing &amp; Setting up the Symfony Framework</a></li>
+                
+                <li><a href="..\page_creation.html">Create your First Page in Symfony</a></li>
+                
+                <li><a href="..\routing.html">Routing</a></li>
+                
+                <li><a href="..\controller.html">Controller</a></li>
+                
+                <li><a href="..\templating.html">Creating and Using Templates</a></li>
+                
+                <li><a href="..\configuration.html">Configuring Symfony (and Environments)</a></li>
+                
+                <li class="active">Построение собственного фреймворка с MicroKernelTrait</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="microkerneltrait">
+<h1>Построение собственного фреймворка с MicroKernelTrait<a class="headerlink" href="#microkerneltrait" title="Permalink to this headline">¶</a></h1>
+<p>Класс <tt class="docutils literal"><code>Kernel</code></tt> по умолчанию включённый в приложения Symfony использует
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/FrameworkBundle/Kernel/MicroKernelTrait.html" title="Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait">MicroKernelTrait</a></code></tt>, чтобы
+конфигурировать пакеты, маршруты и сервис-контейнер в одном классе.</p>
+<p>Этот подход микро-ядра настолько гибок, что позволяет вам контролировать структуру
+вашего приложения и функции достаточно легко.</p>
+<div class="section" id="symfony">
+<h2>Приложение Symfony в одном файле<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h2>
+<p>Начните с абсолютно пустого каталога. И установите эти компоненты Symfony
+через Composer:</p>
+<div class="literal-block"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>$ composer require symfony/config symfony/http-kernel <span class="se">\</span>
+  symfony/http-foundation symfony/routing <span class="se">\</span>
+  symfony/dependency-injection symfony/framework-bundle
+</pre></div>
+</td></tr></table></div></div>
+<p>Далее, создайте файл <tt class="docutils literal"><code>index.php</code></tt>, определяющий класс ядра и выолняющий его:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">использовать</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait</span><span class="p">;</span>
+<span class="nx">использовать</span> <span class="nx">Symfony\Component\Config\Loader\LoaderInterface</span><span class="p">;</span>
+<span class="nx">использовать</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerBuilder</span><span class="p">;</span>
+<span class="nx">использовать</span> <span class="nx">Symfony\Component\HttpFoundation\JsonResponse</span><span class="p">;</span>
+<span class="nx">использовать</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="nx">использовать</span> <span class="nx">Symfony\Component\HttpKernel\Kernel</span> <span class="nx">как</span> <span class="nx">BaseKernel</span>
+<span class="nx">использовать</span> <span class="nx">Symfony\Component\Routing\RouteCollectionBuilder</span><span class="p">;</span>
+
+<span class="k">require</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Kernel</span> <span class="k">extends</span> <span class="nx">BaseKernel</span>
+<span class="p">{</span>
+    <span class="k">use</span> <span class="nx">MicroKernelTrait</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">registerBundles</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="k">new</span> <span class="nx">Symfony\Bundle\FrameworkBundle\FrameworkBundle</span><span class="p">()</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureContainer</span><span class="p">(</span><span class="nx">ContainerBuilder</span> <span class="nv">$c</span><span class="p">,</span> <span class="nx">LoaderInterface</span> <span class="nv">$loader</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// PHP-эквивалент config/packages/framework.yaml</span>
+        <span class="nv">$c</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;framework&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;secret&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;S0ME_SECRET&#39;</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureRoutes</span><span class="p">(</span><span class="nx">RouteCollectionBuilder</span> <span class="nv">$routes</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ядро - это сервис, указывающий на этот класс</span>
+        <span class="c1">// необязательный 3ий аргумент - имя маршрута</span>
+        <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;/random/{limit}&#39;</span><span class="p">,</span> <span class="s1">&#39;kernel:randomNumber&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">randomNumber</span><span class="p">(</span><span class="nv">$limit</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">JsonResponse</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;number&#39;</span> <span class="o">=&gt;</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nv">$limit</span><span class="p">)</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$kernel</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Kernel</span><span class="p">(</span><span class="s1">&#39;dev&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="nv">$request</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">createFromGlobals</span><span class="p">();</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$kernel</span><span class="o">-&gt;</span><span class="na">handle</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+<span class="nv">$kernel</span><span class="o">-&gt;</span><span class="na">terminate</span><span class="p">(</span><span class="nv">$request</span><span class="p">,</span> <span class="nv">$response</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и всё! Чтобы протестировать, вы можете запустить встроенный веб-сервер:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php -S localhost:8000
+</pre></div>
+</td></tr></table></div></div>
+<p>Потом посмотрите JSON-ответ в вашем браузере:</p>
+<blockquote>
+<div><a class="reference external" href="http://localhost:8000/random/10">http://localhost:8000/random/10</a></div></blockquote>
+</div>
+<div class="section" id="id1">
+<h2>Методы &quot;микро&quot; ядра<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Когда вы используете <tt class="docutils literal"><code>MicroKernelTrait</code></tt>, ваше ядро требует ровно три метода,
+определяющих ваши пакеты, сервисы и маршруты:</p>
+<dl class="docutils">
+<dt><strong>registerBundles()</strong></dt>
+<dd>Тот же <tt class="docutils literal"><code>registerBundles()</code></tt>, что вы видите в обычном ядре.</dd>
+<dt><strong>configureContainer(ContainerBuilder $c, LoaderInterface $loader)</strong></dt>
+<dd>Этот метод строит и конфигурирует контейнер. На практике, вы будете использовать
+<tt class="docutils literal"><code>loadFromExtension</code></tt>, чтобы сконфигурировать разные пакеты (эквивалент того, что
+вы видите в обычном файле <tt class="docutils literal"><code>config/packages/*</code></tt>). Вы можете также зарегистрировать сервисы
+напрямую в PHP или загрузить внешние файлы конфигурации (показано ниже).</dd>
+<dt><strong>configureRoutes(RouteCollectionBuilder $routes)</strong></dt>
+<dd>Ваша задача в этом методе - добавить маршруты в приложение. <tt class="docutils literal"><code>RouteCollectionBuilder</code></tt>
+имеет методы, которые делают добавление маршрутов в PHP веселее. Вы также можете
+агрузить внешние файлы конфигурации (показано ниже).</dd>
+</dl>
+</div>
+<div class="section" id="twig">
+<h2>Продвинутый пример: Twig, аннотации и панель инструментов веб-отладки<a class="headerlink" href="#twig" title="Permalink to this headline">¶</a></h2>
+<p>Цель <tt class="docutils literal"><code>MicroKernelTrait</code></tt> <em>не</em> в том, чтобы иметь приложение из одного файла. Она в том,
+чтобы дать вам возможность выбирать ваши пакеты и структуру.</p>
+<p>Вначале, вы наверное захотите определить ваши PHP-классы в каталог <tt class="docutils literal"><code>src/</code></tt>. Сконфигурируйте
+ваш файл <tt class="docutils literal"><code>composer.json</code></tt> так, чтобы он загружал оттуда:</p>
+<div class="literal-block"><div class="highlight-json"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;autoload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;psr-4&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;App\\&quot;</span><span class="p">:</span> <span class="s2">&quot;src/&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, представьте, что вы хотите использовать Twig и загружать маршруты через аннотации.
+Вместо того, чтобы помещать <em>всё</em> в <tt class="docutils literal"><code>index.php</code></tt>, создайте новый <tt class="docutils literal"><code>src/Kernel.php</code></tt>,
+чтобы содержать ядро. Теперь он выглядит так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Kernel.php</span>
+<span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Config\Loader\LoaderInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerBuilder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Kernel</span> <span class="k">as</span> <span class="nx">BaseKernel</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\RouteCollectionBuilder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\Common\Annotations\AnnotationRegistry</span><span class="p">;</span>
+
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">require</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../vendor/autoload.php&#39;</span><span class="p">;</span>
+<span class="c1">// автозагрузка аннотаций</span>
+<span class="nx">AnnotationRegistry</span><span class="o">::</span><span class="na">registerLoader</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$loader</span><span class="p">,</span> <span class="s1">&#39;loadClass&#39;</span><span class="p">));</span>
+
+<span class="k">class</span> <span class="nc">Kernel</span> <span class="k">extends</span> <span class="nx">BaseKernel</span>
+<span class="p">{</span>
+    <span class="k">use</span> <span class="nx">MicroKernelTrait</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">registerBundles</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$bundles</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+            <span class="k">new</span> <span class="nx">Symfony\Bundle\FrameworkBundle\FrameworkBundle</span><span class="p">(),</span>
+            <span class="k">new</span> <span class="nx">Symfony\Bundle\TwigBundle\TwigBundle</span><span class="p">(),</span>
+        <span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getEnvironment</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;dev&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$bundles</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$bundles</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureContainer</span><span class="p">(</span><span class="nx">ContainerBuilder</span> <span class="nv">$c</span><span class="p">,</span> <span class="nx">LoaderInterface</span> <span class="nv">$loader</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/config/framework.yaml&#39;</span><span class="p">);</span>
+
+        <span class="c1">// сконфигурировать WebProfilerBundle только, если пакет подключен</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">bundles</span><span class="p">[</span><span class="s1">&#39;WebProfilerBundle&#39;</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="nv">$c</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;web_profiler&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;toolbar&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+                <span class="s1">&#39;intercept_redirects&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+            <span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureRoutes</span><span class="p">(</span><span class="nx">RouteCollectionBuilder</span> <span class="nv">$routes</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// импортировать WebProfilerRoutes только, если пакет подключен</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">bundles</span><span class="p">[</span><span class="s1">&#39;WebProfilerBundle&#39;</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">import</span><span class="p">(</span><span class="s1">&#39;@WebProfilerBundle/Resources/config/routing/wdt.xml&#39;</span><span class="p">,</span> <span class="s1">&#39;/_wdt&#39;</span><span class="p">);</span>
+            <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">import</span><span class="p">(</span><span class="s1">&#39;@WebProfilerBundle/Resources/config/routing/profiler.xml&#39;</span><span class="p">,</span> <span class="s1">&#39;/_profiler&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// загрузить маршруты аннотаций</span>
+        <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">import</span><span class="p">(</span><span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../src/Controller/&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;annotation&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// необязательно, чтобы использовать стандартный каталог кеша Symfony</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCacheDir</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../var/cache/&#39;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getEnvironment</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// необязательно, чтобы использовать каталог логов Symfony</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getLogDir</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../var/log&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В отличие от предыдущего ядра, это загружает внешний файл <tt class="docutils literal"><code>app/config/config.yml</code></tt>, так
+как конфигурация становится больше:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/config.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">framework</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">secret</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">S0ME_SECRET</span>
+    <span class="l l-Scalar l-Scalar-Plain">templating</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">engines</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;twig&#39;</span><span class="p p-Indicator">]</span>
+    <span class="l l-Scalar l-Scalar-Plain">profiler</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">only_exceptions</span><span class="p p-Indicator">:</span> <span class="nv">false</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/config.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:framework=</span><span class="s">&quot;http://symfony.com/schema/dic/symfony&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/symfony http://symfony.com/schema/dic/symfony/symfony-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;framework:config</span> <span class="na">secret=</span><span class="s">&quot;S0ME_SECRET&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;framework:templating&gt;</span>
+            <span class="nt">&lt;framework:engine&gt;</span>twig<span class="nt">&lt;/framework:engine&gt;</span>
+        <span class="nt">&lt;/framework:templating&gt;</span>
+        <span class="nt">&lt;framework:profiler</span> <span class="na">only-exceptions=</span><span class="s">&quot;false&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/framework:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/config.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;framework&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;secret&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;S0ME_SECRET&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;templating&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;engines&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;twig&#39;</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;profiler&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;only_exceptions&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Также загружает маршруты аннотации из каталога <tt class="docutils literal"><code>src/Controller/</code></tt>, который имеет в себе
+один файл:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Controller/MicroController.php</span>
+<span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\Controller</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MicroController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Route(&quot;/random/{limit}&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">randomNumber</span><span class="p">(</span><span class="nv">$limit</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$number</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nv">$limit</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;micro/random.html.twig&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;number&#39;</span> <span class="o">=&gt;</span> <span class="nv">$number</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Файлы шаблонов должны жить в каталоге <tt class="docutils literal"><code>Resources/views/</code></tt> того же каталога, в котором находится
+ваше <em>ядро</em>. Так как <tt class="docutils literal"><code>Kernel</code></tt> живёт в <tt class="docutils literal"><code>src/</code></tt>, то этот шаблон находится в
+<tt class="docutils literal"><code>src/Resources/views/micro/random.html.twig</code></tt>:</p>
+<div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- src/Resources/views/micro/random.html.twig --&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Random action<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">number</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Наконец, вам нужен фронт-контроллер для загрузки и запуска приложения. Создайте
+<tt class="docutils literal"><code>public/index.php</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// public/index.php</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+
+<span class="k">require</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../src/Kernel.php&#39;</span><span class="p">;</span>
+
+<span class="nv">$kernel</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Kernel</span><span class="p">(</span><span class="s1">&#39;dev&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="nv">$request</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">createFromGlobals</span><span class="p">();</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$kernel</span><span class="o">-&gt;</span><span class="na">handle</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+<span class="nv">$kernel</span><span class="o">-&gt;</span><span class="na">terminate</span><span class="p">(</span><span class="nv">$request</span><span class="p">,</span> <span class="nv">$response</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и всё! Этот URL <tt class="docutils literal"><code>/random/10</code></tt> будет работать, Twig будет отображать, и вы даже увидите
+внизу панель инструментов веб-отладки. Итоговая структура выглядит так:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span>your-project/
+├─ config/
+│  └─ framework.yaml
+├─ public/
+|  └─ index.php
+├─ src/
+|  ├─ Kernel.php
+|  ├─ Controller
+|  |  └─ MicroController.php
+│  └─ Resources
+|     └─ views
+|        └─ micro
+|           └─ random.html.twig
+├─ var/
+|  ├─ cache/
+│  └─ log/
+├─ vendor/
+│  └─ ...
+├─ composer.json
+└─ composer.lock
+</pre></div>
+</td></tr></table></div></div>
+<p>Как и раньше, вы можете использовать встроенный PHP-сервер:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="go">cd public/</span>
+<span class="gp">$</span> php -S localhost:8000
+</pre></div>
+</td></tr></table></div></div>
+<p>Просмотрите страницу в браузере:</p>
+<blockquote>
+<div><a class="reference external" href="http://localhost:8000/random/10">http://localhost:8000/random/10</a></div></blockquote>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="micro_kernel_trait.html">« Building your own Framework with the MicroKernelTrait</a>
+                <span class="separator">|</span>
+                <a href="multiple_kernels.html">How To Create Symfony Applications with Multiple Kernels »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

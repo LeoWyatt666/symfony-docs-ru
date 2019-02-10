@@ -1,0 +1,574 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Поле RepeatedType &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\..\index.html">
+
+<link rel="stylesheet" href="..\..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="reference doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\..\index.html">
+                    <img src="..\..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Поле RepeatedType</a><ul>
+<li><a class="reference internal" href="#id1">Пример использования</a><ul>
+<li><a class="reference internal" href="#id2">Отображение</a></li>
+<li><a class="reference internal" href="#id3">Валидация</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4">Опции поля</a><ul>
+<li><a class="reference internal" href="#first-name">first_name</a></li>
+<li><a class="reference internal" href="#first-options">first_options</a></li>
+<li><a class="reference internal" href="#options">options</a></li>
+<li><a class="reference internal" href="#second-name">second_name</a></li>
+<li><a class="reference internal" href="#second-options">second_options</a></li>
+<li><a class="reference internal" href="#type">type</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">Переопределённые опции</a><ul>
+<li><a class="reference internal" href="#error-bubbling">error_bubbling</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">Наследуемые опции</a><ul>
+<li><a class="reference internal" href="#data">data</a></li>
+<li><a class="reference internal" href="#error-mapping">error_mapping</a></li>
+<li><a class="reference internal" href="#invalid-message">invalid_message</a></li>
+<li><a class="reference internal" href="#invalid-message-parameters">invalid_message_parameters</a></li>
+<li><a class="reference internal" href="#mapped">mapped</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\..\index.html">Документация</a></li>
+                
+                <li class="active">Поле RepeatedType</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="repeatedtype">
+<span id="index-0"></span><h1>Поле RepeatedType<a class="headerlink" href="#repeatedtype" title="Permalink to this headline">¶</a></h1>
+<p>Это специальная &quot;группа&quot; полей, которая создаёт два идентичных поля, значения
+которых должны совпадать (иначе выдаётся ошибка валидации). Наиболее часто
+используется, когда вам нужно, чтобы пользователь повторял свой пароль или
+электронный адрес для точности.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%">
+<col width="80%">
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Отображается как</td>
+<td>поле ввода <tt class="docutils literal"><code>text</code></tt> по умолчанию, но см. опцию <a class="reference internal" href="#type">type</a></td>
+</tr>
+<tr class="row-even"><td>Опции</td>
+<td><ul class="first last simple">
+<li><a class="reference internal" href="#first-name">first_name</a></li>
+<li><a class="reference internal" href="#first-options">first_options</a></li>
+<li><a class="reference internal" href="#options">options</a></li>
+<li><a class="reference internal" href="#second-name">second_name</a></li>
+<li><a class="reference internal" href="#second-options">second_options</a></li>
+<li><a class="reference internal" href="#type">type</a></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>Переопределённые
+опуии</td>
+<td><ul class="first last simple">
+<li><a class="reference internal" href="#error-bubbling">error_bubbling</a></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>Наследуемые
+опции</td>
+<td><ul class="first last simple">
+<li><a class="reference internal" href="#data">data</a></li>
+<li><a class="reference internal" href="#error-mapping">error_mapping</a></li>
+<li><a class="reference internal" href="#invalid-message">invalid_message</a></li>
+<li><a class="reference internal" href="#invalid-message-parameters">invalid_message_parameters</a></li>
+<li><a class="reference internal" href="#mapped">mapped</a></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>Родительский тип</td>
+<td><a class="reference internal" href="form.html"><em>FormType</em></a></td>
+</tr>
+<tr class="row-even"><td>Класс</td>
+<td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Form/Extension/Core/Type/RepeatedType.html" title="Symfony\Component\Form\Extension\Core\Type\RepeatedType">RepeatedType</a></code></tt></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>Пример использования<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\RepeatedType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\PasswordType</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="nx">RepeatedType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="nx">PasswordType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="s1">&#39;invalid_message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Поля паролей должны совпадать.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;attr&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;password-field&#39;</span><span class="p">)),</span>
+    <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="s1">&#39;first_options&#39;</span>  <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Password&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;second_options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Repeat Password&#39;</span><span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>При успешной отправке формы, значение, введенное в оба поля &quot;пароль&quot; становится
+данными ключа <tt class="docutils literal"><code>password</code></tt>. Другими словами, хотя отображаются два поля, конечные
+данные формы - одно значение (обычно строка), которое вам нужно.</p>
+<p>Наиболее важная опция - <tt class="docutils literal"><code>type</code></tt>, которая можетбыть любым типом поля и определяет
+настоящий тип двух основоположных полей. Опция <tt class="docutils literal"><code>options</code></tt> передаётся каждому из
+этих индивидуальных полей, что означает (в этом примере), что любая опция, поддерживаемая
+<tt class="docutils literal"><code>PasswordType</code></tt> может быть передана в этот массив.</p>
+<div class="section" id="id2">
+<h3>Отображение<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Повторямый тип поляна самом деле - два лежащих в основе поля, которые вы можете
+отображать одновременно или по очереди. Чтобы отобразить их одновременно, используйте
+что-то вроде:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.password</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">row</span><span class="p">(</span><span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Чтобы отобразить каждое поле индивидуально, используйте что-то вроде:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# .first и .second у вас могут отличаться - см. примечание ниже #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.password.first</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.password.second</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">row</span><span class="p">(</span><span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">][</span><span class="s1">&#39;first&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">row</span><span class="p">(</span><span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">][</span><span class="s1">&#39;second&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Имена <tt class="docutils literal"><code>first</code></tt> и <tt class="docutils literal"><code>second</code></tt> - это имена по умолчанию для двух подполей.
+Однако, эти имена можно контролировать через опции <a class="reference internal" href="#first-name">first_name</a> и <a class="reference internal" href="#second-name">second_name</a>.
+Если вы установили эти опции, то используйте эти значения вместо <tt class="docutils literal"><code>first</code></tt> и
+<tt class="docutils literal"><code>second</code></tt> при отображении.</p>
+</div></div>
+</div>
+<div class="section" id="id3">
+<h3>Валидация<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Одной из основных функций поля <tt class="docutils literal"><code>repeated</code></tt> является внутренняя валидация
+(вам не нужно ничего делать, чтобы установить это), которая заставляет два
+поля иметь совпадающее значение. Если два поля не совпадают, то пользователю
+будет отображена ошибка.</p>
+<p><tt class="docutils literal"><code>invalid_message</code></tt> используется для настройки ошибки, которая будет отображена,
+когда два поля не будут совпадать.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Опции поля<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="first-name">
+<h3>first_name<a class="headerlink" href="#first-name" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>first</code></tt></p>
+<p>Это настоящее имяполя, которое будет использовано для первого поля. В основном
+это бесполезно, однако, данные, введенные в оба поля, будут доступны под ключом,
+назначенным самому полю <tt class="docutils literal"><code>RepeatedType</code></tt> (например, <tt class="docutils literal"><code>password</code></tt>). Однако, если вы
+не укажете ярлык, имя этого поля будет использовано для &quot;определения&quot; ярлыка для вас.</p>
+</div>
+<div class="section" id="first-options">
+<h3>first_options<a class="headerlink" href="#first-options" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>array()</code></tt></p>
+<p>Дополнительные опции (будут объединны в <a class="reference internal" href="#options">options</a> ниже), которые должны быть
+переданы <em>только</em> первому полю. Это очень полезно для настройки ярлыка:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\RepeatedType</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="nx">RepeatedType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;first_options&#39;</span>  <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Password&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;second_options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Repeat Password&#39;</span><span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="options">
+<h3>options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>array()</code></tt></p>
+<p>Этот массив опцийбудет передан каждому из двух лежащих в основе полей.
+Другимисловами, это те опции, которые настраивают индивидуальные типы полей.
+Например, если опция <tt class="docutils literal"><code>type</code></tt> установлена,как <tt class="docutils literal"><code>password</code></tt>, то этот массив
+может содержать опции <tt class="docutils literal"><code>always_empty</code></tt> или <tt class="docutils literal"><code>required</code></tt> - обе опции, которые
+поддерживаются полем <tt class="docutils literal"><code>PasswordType</code></tt> field.</p>
+</div>
+<div class="section" id="second-name">
+<h3>second_name<a class="headerlink" href="#second-name" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>second</code></tt></p>
+<p>То же самое,что и <tt class="docutils literal"><code>first_name</code></tt>, но для второго поля.</p>
+</div>
+<div class="section" id="second-options">
+<h3>second_options<a class="headerlink" href="#second-options" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>array()</code></tt></p>
+<p>Дополнительные опции (будут объединны в <a class="reference internal" href="#options">options</a> ниже), которые должны быть
+переданы <em>только</em> второму полю. Это очень полезно для настройки ярлыка (см.
+<a class="reference internal" href="#first-options">first_options</a>).</p>
+</div>
+<div class="section" id="type">
+<h3>type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Symfony\Component\Form\Extension\Core\Type\TextType</code></tt></p>
+<p>Два основоположных поля будут этим типом поля. Например, передача <tt class="docutils literal"><code>PasswordType::class</code></tt>
+отобразит два поля пароля.</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Переопределённые опции<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="error-bubbling">
+<h3>error_bubbling<a class="headerlink" href="#error-bubbling" title="Permalink to this headline">¶</a></h3>
+<p><strong>по умолчанию</strong>: <tt class="docutils literal"><code>false</code></tt></p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>Наследуемые опции<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Эти опции наследуются из <a class="reference internal" href="form.html"><em>FormType</em></a>:</p>
+<div class="section" id="data">
+<h3>data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>mixed</code></tt> <strong>default</strong>: Defaults to field of the underlying structure.</p>
+<p>When you create a form, each field initially displays the value of the
+corresponding property of the form's domain data (e.g. if you bind an object to
+the form). If you want to override this initial value for the form or
+an individual field, you can set it in the data option:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\HiddenType</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">,</span> <span class="nx">HiddenType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;data&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">The <tt class="docutils literal"><code>data</code></tt> option <em>always</em> overrides the value taken from the domain data
+(object) when rendering. This means the object value is also overriden when
+the form edits an already persisted object, causing it to lose its
+persisted value when the form is submitted.</p>
+</div></div>
+</div>
+<div class="section" id="error-mapping">
+<h3>error_mapping<a class="headerlink" href="#error-mapping" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>array()</code></tt></p>
+<p>This option allows you to modify the target of a validation error.</p>
+<p>Imagine you have a custom method named <tt class="docutils literal"><code>matchingCityAndZipCode()</code></tt> that validates
+whether the city and zip code match. Unfortunately, there is no &quot;matchingCityAndZipCode&quot;
+field in your form, so all that Symfony can do is display the error on top
+of the form.</p>
+<p>With customized error mapping, you can do better: map the error to the city
+field so that it displays above it:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;error_mapping&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;matchingCityAndZipCode&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;city&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Here are the rules for the left and the right side of the mapping:</p>
+<ul class="simple">
+<li>The left side contains property paths;</li>
+<li>If the violation is generated on a property or method of a class, its
+path is simply <tt class="docutils literal"><code>propertyName</code></tt>;</li>
+<li>If the violation is generated on an entry of an <tt class="docutils literal"><code>array</code></tt> or <tt class="docutils literal"><code>ArrayAccess</code></tt>
+object, the property path is <tt class="docutils literal"><code>[indexName]</code></tt>;</li>
+<li>You can construct nested property paths by concatenating them, separating
+properties by dots. For example: <tt class="docutils literal"><code>addresses[work].matchingCityAndZipCode</code></tt>;</li>
+<li>The right side contains simply the names of fields in the form.</li>
+</ul>
+<p>By default, errors for any property that is not mapped will bubble up to the
+parent form. You can use the dot (<tt class="docutils literal"><code>.</code></tt>) on the left side to map errors of all
+unmapped properties to a particular field. For instance, to map all these
+errors to the <tt class="docutils literal"><code>city</code></tt> field, use:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;error_mapping&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;.&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;city&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="invalid-message">
+<h3>invalid_message<a class="headerlink" href="#invalid-message" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>This value is not valid</code></tt></p>
+<p>This is the validation error message that's used if the data entered into
+this field doesn't make sense (i.e. fails validation).</p>
+<p>This might happen, for example, if the user enters a nonsense string into
+a <a class="reference internal" href="time.html"><em>TimeType</em></a> field that cannot be converted
+into a real time or if the user enters a string (e.g. <tt class="docutils literal"><code>apple</code></tt>) into a
+number field.</p>
+<p>Normal (business logic) validation (such as when setting a minimum length
+for a field) should be set using validation messages with your validation
+rules (<a class="reference internal" href="..\..\..\validation.html#validation-constraint-configuration"><span>reference</span></a>).</p>
+</div>
+<div class="section" id="invalid-message-parameters">
+<h3>invalid_message_parameters<a class="headerlink" href="#invalid-message-parameters" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>array()</code></tt></p>
+<p>When setting the <tt class="docutils literal"><code>invalid_message</code></tt> option, you may need to
+include some variables in the string. This can be done by adding placeholders
+to that option and including the variables in this option:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;some_field&#39;</span><span class="p">,</span> <span class="nx">SomeFormType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+    <span class="s1">&#39;invalid_message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;You entered an invalid value, it should include %num% letters&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;invalid_message_parameters&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;%num%&#39;</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="mapped">
+<h3>mapped<a class="headerlink" href="#mapped" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>boolean</code></tt>  <strong>default</strong>: <tt class="docutils literal"><code>true</code></tt></p>
+<p>If you wish the field to be ignored when reading or writing to the object,
+you can set the <tt class="docutils literal"><code>mapped</code></tt> option to <tt class="docutils literal"><code>false</code></tt>.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

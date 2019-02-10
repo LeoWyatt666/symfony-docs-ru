@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Общая картина &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="quick_tour doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Общая картина</a><ul>
+<li><a class="reference internal" href="#symfony">Скачивание Symfony</a></li>
+<li><a class="reference internal" href="#id2">Основы: Маршрут, Контроллер, Ответ</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Общая картина</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>Общая картина<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Начните использовать Symfony за 10 минут! Правда! Это всё время, которое вам
+понадобится, чтобы понять наиболее важные концепты и начать разработку настоящего
+проекта!</p>
+<p>Если вы использовать веб-фреймворк ранее, то вы должны чувствовать себя как
+дома, используя Symfony. Если же нет, то добро пожаловать в новый способ
+разработки веб-приложений. Symfony <em>охватывает</em> лучшие практики, имеет обратную
+совместимость (Да! Обновляться всегда легко и безопасно!) и предлагает долгосрочную
+поддержку.</p>
+<div class="section" id="symfony">
+<span id="installing-symfony2-ru"></span><h2>Скачивание Symfony<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h2>
+<p>Для начала, убедитесь, что вы установили <a class="reference external" href="https://getcomposer.org/">Composer</a> и имеете версию PHP 7.1.3
+или новее.</p>
+<p>Готовы? В терминале выполните:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer create-project symfony/skeleton quick_tour
+</pre></div>
+</td></tr></table></div></div>
+<p>Это создаёт новый каталог <tt class="docutils literal"><code>quick_tour/</code></tt> с маленьким, но мощным новым
+приложением Symfony:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span>quick_tour/
+├─ .env
+├─ .env.dist
+├─ bin/console
+├─ composer.json
+├─ composer.lock
+├─ config/
+├─ public/index.php
+├─ src/
+├─ symfony.lock
+├─ var/
+└─ vendor/
+</pre></div>
+</td></tr></table></div></div>
+<p>Можем ли мы уже загрузить проект в браузре? Конечно! Вы можете установить
+<a class="reference internal" href="..\setup\web_server_configuration.html"><em>Nginx или Apache</em></a> и сконфигурировать их корневым
+документом каталог <tt class="docutils literal"><code>public/</code></tt>. Но для разработки у Symfony есть собственный сервер.
+Установите и запустите его с помощью:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require server --dev
+<span class="gp">$</span> php bin/console server:start
+</pre></div>
+</td></tr></table></div></div>
+<p>Опробуйте ваше новое приложение, перейдя по ссылке <tt class="docutils literal"><code>http://localhost:8000</code></tt> в браузере!</p>
+<img alt="../_images/no_routes_page.png" class="with-browser align-center" src="..\_images\no_routes_page.png">
+</div>
+<div class="section" id="id2">
+<h2>Основы: Маршрут, Контроллер, Ответ<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>В нашем проекте есть всего около 15 файлов, но он уже стал элегантным API, роскошным
+веб-приложением или микросервисом. Symfony начинается с малого, но растёт вместе с
+вами.</p>
+<p>Но перед тем, как мы зайдём слишком далеко, давайте закопаемся в основы, построив нашу
+первую страницу.</p>
+<p>Начните в <tt class="docutils literal"><code>config/routes.yaml</code></tt>: это то, где <em>мы</em> можем определить URL к нашей
+новой странице. Уберите комментарии из примера, который уже живёт в файле:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">index</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/</span>
+    <span class="l l-Scalar l-Scalar-Plain">controller</span><span class="p p-Indicator">:</span> <span class="s">&#39;App\Controller\DefaultController::index&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это называется <em>маршрут</em>: он определяет URL к вашей странице (<tt class="docutils literal"><code>/</code></tt>) и &quot;контроллер&quot;:
+<em>функцию</em>, которая будет вызвана каждый раз, когда кто-то переходит по этому URL.
+Эта функция ещё не суещсвует, так что давайте создадим её!</p>
+<p>В <tt class="docutils literal"><code>src/Controller</code></tt>, создайте новый класс <tt class="docutils literal"><code>DefaultController</code></tt> и внутри него метод
+<tt class="docutils literal"><code>index</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">DefaultController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и всё! Попробуйте зайти на домашнюю страницу: <tt class="docutils literal"><code>http://localhost:8000/</code></tt>. Symfony
+видит, что URL совпадает с нашим маршрутом и выполняет новый метод <tt class="docutils literal"><code>index()</code></tt>.</p>
+<p>Контроллер - это обычная функция с <em>одним</em> правилом: она должна возвращать объект
+Symfony <tt class="docutils literal"><code>Response</code></tt>. Но этот ответ может содержать что угодно: простой текст, JSON
+или полную страницу HTML.</p>
+<p>Но система маршрутизации <em>намного</em> более мощная. Так что давайте сделаем маршрут более
+интересным:</p>
+<div class="literal-block"><div class="highlight-diff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span># config/routes.yaml
+<span class="gh">index:</span>
+<span class="gd">-     path: /</span>
+<span class="gi">+     path: /hello/{name}</span>
+    controller: &#39;App\Controller\DefaultController::index&#39;
+</pre></div>
+</td></tr></table></div></div>
+<p>URL к этой странице изменился: <em>теперь</em> он <tt class="docutils literal"><code>/hello/*</code></tt>: <tt class="docutils literal"><code>{name}</code></tt> действует как
+подстановочный символ, совпадающий с чем угодно. Всё становится ещё лучше! Обновите
+ещё и контроллер:</p>
+<div class="literal-block"><div class="highlight-diff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>// src/Controller/DefaultController.php
+// ...
+
+<span class="gd">- public function index()</span>
+<span class="gi">+ public function index($name)</span>
+{
+<span class="gd">-     return new Response(&#39;Привет!&#39;);</span>
+<span class="gi">+     return new Response(&quot;Привет, $name!&quot;);</span>
+}
+</pre></div>
+</td></tr></table></div></div>
+<p>Опробуйте эту страницу, перейдя на <tt class="docutils literal"><code>http://localhost:8000/hello/Symfony</code></tt>. Вы должны
+увидеть: Привет, Symfony! Значение <tt class="docutils literal"><code>{name}</code></tt> в URL доступно в качестве аргумента
+<tt class="docutils literal"><code>$name</code></tt> в вашем контроллере.</p>
+<p>Но это может быть ещё проще! Так что давайте установим поддержку аннотаций:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require annotations
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, закомментируйте маршрут YAML, добавив символ <tt class="docutils literal"><code>#</code></tt>:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/routes.yaml</span>
+<span class="c1"># index:</span>
+<span class="c1">#     path: /Привет/{name}</span>
+<span class="c1">#     controller: &#39;App\Controller\DefaultController::index&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вместо этого, добавьте маршрут <em>прямо над</em> методом контроллера:</p>
+<div class="literal-block"><div class="highlight-diff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>// src/Controller/DefaultController.php
+// ...
+
+<span class="gi">+ use Symfony\Component\Routing\Annotation\Route;</span>
+
+<span class="gi">+ /**</span>
+<span class="gi">+  * @Route(&quot;/Привет/{name}&quot;)</span>
+<span class="gi">+  */</span>
+public function index($name)
+</pre></div>
+</td></tr></table></div></div>
+<p>Это работает так же, как и раньше! Но используя аннотации, маршрут и контроллер
+живут прямо рядом друг с другом. Нужна ещё одна страница? Просто добавьте ешё один
+маршрут и метод в <tt class="docutils literal"><code>DefaultController</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Controller/DefaultController.php</span>
+<span class="c1">// ...</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @Route(&quot;/simplicity&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">simple</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s1">&#39;Просто! Легко! Прекрасно!&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Маршрутизация может делать <em>даже</em> больше, но мы оставим это на следующий раз. Сейчас,
+нашему приложению нужно больше функций! Вроде шаблонизатора, логирования, инструментов
+отладки и прочее.</p>
+<p>Продолжайте читать <a class="reference internal" href="flex_recipes.html"><em>Flex: Compose your Application</em></a>.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

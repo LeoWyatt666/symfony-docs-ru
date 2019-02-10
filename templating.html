@@ -1,0 +1,1467 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Создание и использование шаблонов &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="_static/" type="text/css">
+    <link rel="stylesheet" href="_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="index.html">
+
+<link rel="stylesheet" href="_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="templating-r doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\index.html">
+                    <img src="..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Создание и использование шаблонов</a><ul>
+<li><a class="reference internal" href="#index-1">Шаблоны</a><ul>
+<li><a class="reference internal" href="#twig">Кеширование шаблонов в Twig</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#layouts">Наследование шаблонов и макетов страницы (layouts)</a></li>
+<li><a class="reference internal" href="#template-naming-locations-ru">Правила именования и расположения шаблонов</a><ul>
+<li><a class="reference internal" href="#template-referencing-in-bundle-ru">Отсылка к шаблонам внутри пакета</a></li>
+<li><a class="reference internal" href="#id5">Суффиксы шаблонов</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#index-6">Теги и Помощники</a><ul>
+<li><a class="reference internal" href="#including-templates-ru">Подключение других шаблонов</a></li>
+<li><a class="reference internal" href="#templating-pages-ru">Ссылки на страницы</a></li>
+<li><a class="reference internal" href="#assets">Ссылки на ресурсы (assets)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#css-javascript-twig">Подключение CSS (таблиц стилей) и Javascript в Twig</a></li>
+<li><a class="reference internal" href="#id9">Отсылка к запросу, пользователю или сессии</a></li>
+<li><a class="reference internal" href="#id10">Экранирование</a></li>
+<li><a class="reference internal" href="#id11">Заключение</a></li>
+<li><a class="reference internal" href="#id12">Продолжайте!</a></li>
+<li><a class="reference internal" href="#id13">Узнать больше</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="index.html">Документация</a></li>
+                
+                <li class="active">Создание и использование шаблонов</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Создание и использование шаблонов<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Как уже было написано в  <a class="reference internal" href="controller.html"><em>предыдущей статьe</em></a>, контроллеры
+отвечают за обработку каждого запроса, который поступает в приложение Symfony,
+и обычно заканчивают отображением шаблона для генерирования содержимого
+ответа</p>
+<p>На самом деле, контроллер передает большую часть трудоемких операций другим
+частям фреймворка, чтобы код можно было тестировать и повторно использовать.
+Когда контроллеру необходимо создать HTML, CSS или любой другой контент, он
+передает эту работу шаблонизатору.</p>
+<p>В этой статье вы научитесь писать мощные шаблоны, которые можно использовать
+для возвращения контента пользователю, создания тела имейлов и многого другого.
+Также вы научитесь использовать шорткаты, узнаете хитрые способы наследования
+шаблонов и повторного использования кода шаблона.</p>
+<div class="section" id="index-1">
+<span id="id2"></span><h2>Шаблоны<a class="headerlink" href="#index-1" title="Permalink to this headline">¶</a></h2>
+<p>Шаблон - это обычный текстовый файл, который может генерировать любой формат,
+который основывается на тексте (HTML, XML, CSV, LaTeX  и др.). Самый известный
+тип шаблона это <em>PHP</em> шаблон - текстовый файл, который обрабатывается PHP и
+содержит как текст, так и PHP-код:</p>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Welcome to Symfony!<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$page_title</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;navigation&quot;</span><span class="p">&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$navigation</span> <span class="k">as</span> <span class="nv">$item</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$item</span><span class="o">-&gt;</span><span class="na">getHref</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="p">&gt;</span>
+                        <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$item</span><span class="o">-&gt;</span><span class="na">getCaption</span><span class="p">()</span> <span class="cp">?&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">endforeach</span> <span class="cp">?&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p id="index-2">Преимущество Symfony в том, что в ёё состав входит еще более мощный язык шаблонов,
+который называется <a class="reference external" href="http://twig.sensiolabs.org">Twig</a>. С помощью Twig вы можете писать лаконичные и читабельные
+шаблоны, которые удобнее в использовании для веб-дизайнеров, не говоря уже о том,
+что этот шаблон во многих случаях функциональнее чем PHP шаблоны:</p>
+<div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Welcome to Symfony!<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">page_title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;navigation&quot;</span><span class="p">&gt;</span>
+            <span class="cp">{%</span> <span class="k">for</span> <span class="nv">item</span> <span class="k">in</span> <span class="nv">navigation</span> <span class="cp">%}</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">item.href</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">item.caption</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+            <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+        <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Twig содержит три типа специальных синтаксических конструкций:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>{{ ... }}</code></tt></dt>
+<dd>“Что-то сказать”: печатает переменную или результат какого-то выражения в шаблоне.</dd>
+<dt><tt class="docutils literal"><code>{% ... %}</code></tt></dt>
+<dd>“Что-то выполнить”: <strong>тег</strong> (tag), который контролирует логику шаблона; используется
+для выполнения таких выражений, как например, циклы for-loops.</dd>
+<dt><tt class="docutils literal"><code>{# ... #}</code></tt></dt>
+<dd>“Что-то прокомментировать”: это эквивалент синтаксису PHP <tt class="docutils literal"><code>/* comment */</code></tt>.
+Этот синтаксис используется для добавления одно- или многострочных комментариев.
+Содержимое комментария не включается в отображаемые страницы.</dd>
+</dl>
+<p>Twig также содержит <strong>фильтры</strong>, которые изменяют контент перед тем, как его
+отобразить. Следующий фильтр позволяет перевести переменную <tt class="docutils literal"><code>title</code></tt> в верхний
+регистр перед тем, как отобразить ее:</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">title</span><span class="o">|</span><span class="nf">upper</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Twig по умолчанию содержит много тегов (<a class="reference external" href="http://twig.sensiolabs.org/doc/tags/index.html">tags</a>), фильтров (<a class="reference external" href="http://twig.sensiolabs.org/doc/filters/index.html">filters</a>) и
+функций (<a class="reference external" href="http://twig.sensiolabs.org/doc/functions/index.html">functions</a>), которые доступны по умолчанию. Вы даже можете добавлять
+<em>свои собственные</em> расширения в Twig с помощью <a class="reference internal" href="templating\twig_extension.html"><em>Расширения Twig</em></a>.</p>
+<p>Код Twig будет выглядеть схоже с PHP-кодом, с некоторыми маленькими, но приятными
+различиями. Следующий пример использует стандартный тег <tt class="docutils literal"><code>for</code></tt> и функцию <tt class="docutils literal"><code>cycle()</code></tt>
+для отображения десяти тегов div с переменными классами <tt class="docutils literal"><code>odd</code></tt> и <tt class="docutils literal"><code>even</code></tt>:</p>
+<div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">i</span> <span class="k">in</span> <span class="m">1..10</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">cycle</span><span class="o">([</span><span class="s1">&#39;even&#39;</span><span class="o">,</span> <span class="s1">&#39;odd&#39;</span><span class="o">],</span> <span class="nv">i</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
+      <span class="c">&lt;!-- some HTML here --&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>На протяжении этой статьи, примеры шаблонов будут показаны как в Twig так и на
+PHP.</p>
+<div class="admonition-wrapper">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Почему Twig?</p>
+<p>Шаблоны Twig изначально задумывались как более простые, и не обрабатывают
+PHP код. Это сделано намеренно: система шаблонов Twig задумана для быстрого
+создания уровней представления, а не для программной логики. Чем больше вы
+будете использовать Twig, тем больше вы будете замечать преимущества такого
+разделения. И, конечно, вас будут боготворить все дизайнеры.</p>
+<p>Twig также умеет то, что неподвластно PHP, например, контролировать символы
+пробела; “играть в песочнице”(sandboxing) - изолировать на время выполнения
+загружаемый код в ограниченную среду; вручную, в зависимости от контекста,
+управлять выводимыми данными; расширять пользовательские функции и фильтры,
+которые влияют только на шаблоны. У Twig много небольших особенностей, которые
+делают процесс написание шаблонов проще и лаконичнее. Посмотрим на пример ниже,
+в котором цикл комбинируется с логическим выражением <tt class="docutils literal"><code>if</code></tt>:</p>
+<div class="literal-block"><div class="last highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">user</span> <span class="k">in</span> <span class="nv">users</span> <span class="nv">if</span> <span class="nv">user.active</span> <span class="cp">%}</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">user.username</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>No users found<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<div class="section" id="twig">
+<span id="index-3"></span><h3>Кеширование шаблонов в Twig<a class="headerlink" href="#twig" title="Permalink to this headline">¶</a></h3>
+<p>Twig быстр, так как каждый шаблон компилируется в обычный PHP класс, который отображается
+во время выполнения. Но не волнуйтесь: это происходит автоматически, и*вам* не нужно ничего
+для этого делать. И в то время, как вы будете программировать, Twig настолько умен, что он
+будет рекмопилировать ваши шаблоны после любого внесенного изменения. Это значит, что Twig быстр
+в производстве, но легок в использовании при программировании.</p>
+</div>
+</div>
+<div class="section" id="layouts">
+<span id="twig-inheritance-ru"></span><span id="index-4"></span><h2>Наследование шаблонов и макетов страницы (layouts)<a class="headerlink" href="#layouts" title="Permalink to this headline">¶</a></h2>
+<p>Зачастую у шаблонов в проекте есть общие элементы, такие как “заголовок” (header),
+“подвал” (footer), боковые панели (sidebar) и т.п. В Symfony эта задача решается
+по-другому: шаблон может быть оформлен с помощью другого шаблона. Принцип работы
+здесь точно такой же, как с PHP-классами: наследование шаблонов позволяет вам выстроить
+базовый шаблон “макета страницы” (layout template), который содержит все необходимые вам
+общие элементы сайта, которые еще называют <strong>блоками</strong> (аналогично с “PHP-классом с базовыми
+методами”). Дочерний шаблон можно расширить по сравнению с базовым, а также можно
+переопределять любые его блоки (аналогично с “дочерним PHP-классом, который переопределяет
+некоторые методы родительского класса”).</p>
+<p>Для начала создайте файл базового макета страницы:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# app/Resources/views/base.html.twig #}</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Test Application<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;sidebar&quot;</span><span class="p">&gt;</span>
+            <span class="cp">{%</span> <span class="k">block</span> <span class="nv">sidebar</span> <span class="cp">%}</span>
+                <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/blog&quot;</span><span class="p">&gt;</span>Blog<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+            <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;</span>
+            <span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/Resources/views/base.html.php --&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Test Application&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;sidebar&quot;</span><span class="p">&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">has</span><span class="p">(</span><span class="s1">&#39;sidebar&#39;</span><span class="p">))</span><span class="o">:</span> <span class="cp">?&gt;</span>
+                <span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s1">&#39;sidebar&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">else</span><span class="o">:</span> <span class="cp">?&gt;</span>
+                <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/blog&quot;</span><span class="p">&gt;</span>Blog<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">endif</span> <span class="cp">?&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Несмотря на то, что обсуждение наследования шаблонов будет вестись применительно
+к Twig, в Twig и PHP-шаблонах используется одна и та же философия.</p>
+</div></div>
+<p>Этот шаблон определяет базовый костяк HTML-документа для простой страницы с двумя колонками.
+В данном примере определены три области <tt class="docutils literal"><code>{% block %}</code></tt> (<tt class="docutils literal"><code>title</code></tt>, <tt class="docutils literal"><code>sidebar</code></tt> и <tt class="docutils literal"><code>body</code></tt>).
+Каждый блок может быть переопределен дочерним шаблоном или оставлен с реализацией по умолчанию.
+Также этот шаблон можно отобразить напрямую. В таком случае блоки <tt class="docutils literal"><code>title</code></tt>, <tt class="docutils literal"><code>sidebar</code></tt> и
+<tt class="docutils literal"><code>body</code></tt> просто сохранят свои значения по умолчанию, использованные в этом шаблоне.</p>
+<p>Дочерний шаблон может выглядеть, например, так:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# app/Resources/views/blog/index.html.twig #}</span>
+<span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;base.html.twig&#39;</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>My cool blog posts<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">entry</span> <span class="k">in</span> <span class="nv">blog_entries</span> <span class="cp">%}</span>
+        <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">entry.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">entry.body</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/Resources/views/blog/index.html.php --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">extend</span><span class="p">(</span><span class="s1">&#39;base.html.php&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;My cool blog posts&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$blog_entries</span> <span class="k">as</span> <span class="nv">$entry</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$entry</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">endforeach</span> <span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">stop</span><span class="p">()</span> <span class="cp">?&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Родительский шаблон определяется благодаря специальному синтаксису строковой
+последовательности (<tt class="docutils literal"><code>base.html.twig</code></tt>). Этот путь относится к каталогу
+проекта``app/Resources/views``. Вы также можете использовать эквивалент
+логического имени  <tt class="docutils literal"><code>::base.html.twig</code></tt>. Такое соглашение о присвоении имен
+полностью объясняется в разделе <span class="xref std std-ref">Правила именования и расположения шаблонов template-naming-locations</span>.</p>
+</div></div>
+<p>Ключ к наследованию шаблонов - это тег <tt class="docutils literal"><code>{% extends %}</code></tt>. Он сообщает движку
+шаблонизатора, что сначала необходимо выполнить базовый шаблон, который настроит
+общую разметку и определит несколько блоков. После этого начинает отображаться
+дочерний шаблон, при этом блоки родителя``title`` и <tt class="docutils literal"><code>body</code></tt> замещаются аналогичными
+блоками потомка. В зависимости от значения переменной <tt class="docutils literal"><code>blog_entries</code></tt>, результат может
+выглядеть так:</p>
+<div class="literal-block"><div class="highlight-html"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>My cool blog posts<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;sidebar&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/blog&quot;</span><span class="p">&gt;</span>Blog<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>My first post<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The body of the first post.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+            <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Another post<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The body of the second post.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Обратите внимание, что дочерний шаблон не определяет блок <tt class="docutils literal"><code>sidebar</code></tt>, вместо
+этого используется значение из родительского шаблона. Содержимое тега <tt class="docutils literal"><code>{% block %}</code></tt>
+в родительском шаблоне всегда используется по умолчанию.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Вы можете использовать столько уровней наследования, сколько вам потребуется.
+См. <a class="reference internal" href="templating\inheritance.html"><em>Наследование шаблонов</em></a> для более детальной информации.</p>
+</div></div>
+<p>Когда вы работаете с наследованием шаблона нужно следовать нескольким правилам:</p>
+<ul>
+<li><p class="first">Если вы используете в шаблоне тег <tt class="docutils literal"><code>{% extends %}</code></tt>, он должен быть первым
+тегом в этом шаблоне;</p>
+</li>
+<li><p class="first">Чем больше тегов <tt class="docutils literal"><code>{% block %}</code></tt> в вашем базовом шаблоне, тем лучше. Запомните,
+дочерний шаблон не обязательно реализовывает все блоки родительского шаблона,
+так что создавайте необходимое количество блоков в вашем базовом шаблоне и
+указывайте для них разумный контент по умолчанию. Чем больше блоков будет в
+вашем базовом шаблоне, тем гибче будет макет вашей страницы;</p>
+</li>
+<li><p class="first">Если вы обнаружите повторяющийся контент в нескольких шаблонах, скорее всего
+это значит, что вам нужно переместить этот контент в тег <tt class="docutils literal"><code>{% block %}</code></tt> родительского
+шаблона. В некоторых случаях лучшим решением будет переместить содержимое на
+новый шаблон и <tt class="docutils literal"><code>include</code></tt> его (см. <span class="xref std std-ref">Подключение других шаблонов including-templates</span> );</p>
+</li>
+<li><p class="first">Если вам нужно содержимое блока из родительского шаблона, вы можете использовать
+функцию <tt class="docutils literal"><code>{{ parent() }}</code></tt>. Это удобно, если вам надо добавить что-то к содержанию
+родительского блока, а не полностью заменить его:</p>
+<div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">sidebar</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Table of Contents<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+
+    <span class="c">{# ... #}</span>
+
+    <span class="cp">{{</span> <span class="nb">parent</span><span class="o">()</span> <span class="cp">}}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="section" id="template-naming-locations-ru">
+<span id="index-5"></span><span id="id3"></span><h2>Правила именования и расположения шаблонов<a class="headerlink" href="#template-naming-locations-ru" title="Permalink to this headline">¶</a></h2>
+<p>По умолчанию, шаблоны могут располагаться в двух различных местах:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>app/Resources/views/</code></tt></dt>
+<dd>Каталог приложения <tt class="docutils literal"><code>views</code></tt> может содержать общие для всего приложения шаблоны
+(например, макет страницы вашего приложения и шаблоны пакета приложения), также
+как и шаблоны, которые переопределяют сторонние шаблоны пакетов
+(см. <tt class="xref doc docutils literal"><code>Переопределение шаблонов пакетов</code></tt>).</dd>
+<dt><tt class="docutils literal"><code>vendor/path/to/CoolBundle/Resources/views/</code></tt></dt>
+<dd>Каждый сторонний пакет содержит свои шаблоны в каталоге <tt class="docutils literal"><code>Resources/views/</code></tt>
+(и ее подкаталогах). Когда вы захотите поделиться (share) своим пакетом,
+вам стоит расположить шаблоны внутри пакета, а не в каталоге <tt class="docutils literal"><code>app/</code></tt>.</dd>
+</dl>
+<p>Большинство шаблонов, которые вы будете использовать, располагаются в каталоге a
+<tt class="docutils literal"><code>app/Resources/views/</code></tt>. Путь, который вы будете использовать, будет родственным
+этому каталогу. Для примера, чтобы отобразить/наследовать <tt class="docutils literal"><code>app/Resources/views/base.html.twig</code></tt>,
+вам нужно будет использовать путь <tt class="docutils literal"><code>base.html.twig</code></tt>. А чтобы отобразить/наследовать
+<tt class="docutils literal"><code>app/Resources/views/blog/index.html.twig</code></tt>, вам нужно будет использовать путь
+<tt class="docutils literal"><code>blog/index.html.twig</code></tt>.</p>
+<div class="section" id="template-referencing-in-bundle-ru">
+<span id="id4"></span><h3>Отсылка к шаблонам внутри пакета<a class="headerlink" href="#template-referencing-in-bundle-ru" title="Permalink to this headline">¶</a></h3>
+<p><em>Если</em> вам нужно сослаться на шаблон, который находится в пакете, Symfony использует
+специальный синтаксис строковой последовательности <strong>bundle</strong>:<strong>directory</strong>:<strong>filename</strong>.
+Это предусматривает несколько типов шаблонов, каждый из которых расположен в определенном месте:</p>
+<ul>
+<li><p class="first"><tt class="docutils literal"><code>AcmeBlogBundle:Blog:index.html.twig</code></tt>: Эта форма записи для того, чтобы определить
+шаблон для конкретной страницы. Три части синтаксиса, каждая из которых отделяется
+двоеточием (<tt class="docutils literal"><code>:</code></tt>), означают следующее:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>AcmeBlogBundle</code></tt>: (<em>пакет</em>) шаблон расположен внутри пакета AcmeBlogBundle
+(например, <tt class="docutils literal"><code>src/Acme/BlogBundle</code></tt>);</li>
+<li><tt class="docutils literal"><code>Blog</code></tt>: (<em>каталог</em>) указывает, что шаблон расположен внутри подкаталога
+<tt class="docutils literal"><code>Blog</code></tt> каталога <tt class="docutils literal"><code>Resources/views</code></tt>;</li>
+<li><tt class="docutils literal"><code>index.html.twig</code></tt>: (<em>имя файла</em>) собственно имя файла это  <tt class="docutils literal"><code>index.html.twig</code></tt>.</li>
+</ul>
+<p>При условии, что AcmeBlogBundle расположен в <tt class="docutils literal"><code>src/Acme/BlogBundle</code></tt>, полный путь к
+макету страницы будет <tt class="docutils literal"><code>src/Acme/BlogBundle/Resources/views/Blog/index.html.twig</code></tt>.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><code>AcmeBlogBundle::layout.html.twig</code></tt>: Этот синтаксис отсылает нас к базовому шаблону
+для определенного пакета AcmeBlogBundle. Поскольку в середине отсутствует наименование
+“каталога” (например, <tt class="docutils literal"><code>Blog</code></tt>), шаблон находится в каталоге
+<tt class="docutils literal"><code>Resources/views/layout.html.twig</code></tt> пакета AcmeBlogBundle. Да, вам не показалось -
+внутри синтаксиса два двоеточия, как раз в том месте, где отсутствует подкаталог
+“контроллер”.</p>
+</li>
+</ul>
+<p>В разделе <tt class="xref doc docutils literal"><code>Переопределение шаблонов пакетов</code></tt> вы узнаете,
+как любой шаблон, который, для примера, находится в пакете AcmeBlogBundle, можно
+переопределить путем размещения шаблона с тем же именем в каталоге
+<tt class="docutils literal"><code>app/Resources/AcmeBlogBundle/views/</code></tt>. Это дает возможность переопределять шаблоны
+из любого стороннего пакета.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Надеемся, что синтаксис именования шаблонов оказался вам знаком - такое
+же соглашение об именовании используется и для контроллеров
+(см. <span class="xref std std-ref">Шаблон именования контроллера controller-string-syntax</span>).</p>
+</div></div>
+</div>
+<div class="section" id="id5">
+<h3>Суффиксы шаблонов<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>У каждого имени шаблона есть два расширения, которые указывают на <em>формат</em> и тип
+<em>дивжок</em> (engine) для этого шаблона.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="67%">
+<col width="17%">
+<col width="17%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Имя файла</th>
+<th class="head">Формат</th>
+<th class="head">Движок</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><code>blog/index.html.twig</code></tt></td>
+<td>HTML</td>
+<td>Twig</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>blog/index.html.php</code></tt></td>
+<td>HTML</td>
+<td>PHP</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>blog/index.css.twig</code></tt></td>
+<td>CSS</td>
+<td>Twig</td>
+</tr>
+</tbody>
+</table>
+<p>По умолчанию любой шаблон в Symfony может быть написан либо на Twig, либо на PHP.
+Последняя часть расширения (например, <tt class="docutils literal"><code>.twig</code></tt> или <tt class="docutils literal"><code>.php</code></tt>) указывает, какой из
+этих двух <em>движков</em> будет использован. Первая часть расширения (например, <tt class="docutils literal"><code>.html</code></tt>,
+<tt class="docutils literal"><code>.css</code></tt>, и т.д.) это конечный формат, который будет генерировать шаблон. В отличие
+от типа шаблонизатора, который определяет, как Symfony будет анализировать шаблон,
+указание формата это всего лишь способ организации шаблонов, на тот случай, если один
+и тот же ресурс можно отобразить и как HTML (<tt class="docutils literal"><code>index.html.twig</code></tt>), и как XML
+(<tt class="docutils literal"><code>index.xml.twig</code></tt>) и в любом другом формате. Дополнительная информация содержится
+в разделе <a class="reference internal" href="templating\formats.html"><em>Форматы шаблонов</em></a>.</p>
+</div>
+</div>
+<div class="section" id="index-6">
+<span id="id6"></span><h2>Теги и Помощники<a class="headerlink" href="#index-6" title="Permalink to this headline">¶</a></h2>
+<p>Вы уже разбираетесь в основах создания шаблонов, способах именования и
+наследования шаблонов. Самое сложное уже позади. В этом разделе вы узнаете
+о множестве инструментов, которые помогают выполнить типичные задачи при
+работе с шаблонами, например, такие как подключение других шаблонов, создание
+ссылок на страницу и вставка изображений.</p>
+<p>Symfony содержит несколько специализированных тегов и функций Twig, которые
+упрощают работу дизайнера шаблонов. В PHP шаблонизатор предоставляет расширяемую
+систему <em>помощников</em>, которая предоставляет полезные функции в контексте шаблонов.</p>
+<p>Вы уже видели несколько встроенных в Twig тегов (<tt class="docutils literal"><code>{% block %}</code></tt> и <tt class="docutils literal"><code>{% extends %}</code></tt>),
+а также пример PHP-хелпера (<tt class="docutils literal"><code>$view['slots']</code></tt>). Теперь вы узнаете и о некоторых других.</p>
+<div class="section" id="including-templates-ru">
+<span id="index-7"></span><span id="id7"></span><h3>Подключение других шаблонов<a class="headerlink" href="#including-templates-ru" title="Permalink to this headline">¶</a></h3>
+<p>У вас часто будет возникать потребность подключить один и тот же шаблон или
+фрагмент кода для нескольких страниц. Например, в приложении с «новыми статьями»,
+код шаблона, отображающий статью, может быть использован на странице детальной
+информации о статье, на странице, отображающей наиболее популярные статьи или
+же на странице со списком последних статей.</p>
+<p>Когда вам необходимо использовать некую часть PHP-кода повторно, вы переносите
+этот код в новый PHP-класс или в функцию. То же верно и для шаблонов. Переместив
+повторно используемый код шаблона в собственный шаблон, он впоследствии может быть
+подключен к любому другому шаблону. Сначала создайте шаблон, который хотите
+использовать многократно.</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# app/Resources/views/article/article_details.html.twig #}</span>
+<span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">article.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;byline&quot;</span><span class="p">&gt;</span>by <span class="cp">{{</span> <span class="nv">article.authorName</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="cp">{{</span> <span class="nv">article.body</span> <span class="cp">}}</span>
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/Resources/views/article/article_details.html.php --&gt;</span>
+<span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$article</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;byline&quot;</span><span class="p">&gt;</span>by <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$article</span><span class="o">-&gt;</span><span class="na">getAuthorName</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$article</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">()</span> <span class="cp">?&gt;</span>
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Подключить этот шаблон к любому другому несложно:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# app/Resources/views/article/list.html.twig #}</span>
+<span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;layout.html.twig&#39;</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Recent Articles<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">article</span> <span class="k">in</span> <span class="nv">articles</span> <span class="cp">%}</span>
+        <span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="s1">&#39;article/article_details.html.twig&#39;</span><span class="o">,</span> <span class="o">{</span> <span class="s1">&#39;article&#39;</span><span class="o">:</span> <span class="nv">article</span> <span class="o">})</span> <span class="cp">}}</span>
+    <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/Resources/article/list.html.php --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">extend</span><span class="p">(</span><span class="s1">&#39;layout.html.php&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Recent Articles<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+    <span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$articles</span> <span class="k">as</span> <span class="nv">$article</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span>
+            <span class="s1">&#39;Article/article_details.html.php&#39;</span><span class="p">,</span>
+            <span class="k">array</span><span class="p">(</span><span class="s1">&#39;article&#39;</span> <span class="o">=&gt;</span> <span class="nv">$article</span><span class="p">)</span>
+        <span class="p">)</span> <span class="cp">?&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">endforeach</span> <span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">stop</span><span class="p">()</span> <span class="cp">?&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Шаблон подключается при помощи функции <tt class="docutils literal"><code>{{ include() }}</code></tt>. Обратите внимание,
+что имя шаблона следует типовым конвенциям об именовании. Шаблон
+<tt class="docutils literal"><code>article_details.html.twig</code></tt> использует переменную <tt class="docutils literal"><code>article</code></tt>, которую вы
+передаете в него. В этом случае, вы можете полностью избежать этого, так как все
+переменные, доступные в <tt class="docutils literal"><code>list.html.twig</code></tt> также доступны в <tt class="docutils literal"><code>article_details.html.twig</code></tt>
+(если только вы не установили <a class="reference external" href="http://twig.sensiolabs.org/doc/functions/include.html">with_context</a> в значение false).</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Синтаксис <tt class="docutils literal"><code>{'article': article}</code></tt> - это стандартный синтаксис для хэшей
+(т.е. массивов с названными ключами) в Twig. Если вам нужно передать много
+элементов, массив будет выглядеть следующим образом: <tt class="docutils literal"><code>{'foo': foo, 'bar': bar}</code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="templating-pages-ru">
+<span id="index-8"></span><span id="id8"></span><h3>Ссылки на страницы<a class="headerlink" href="#templating-pages-ru" title="Permalink to this headline">¶</a></h3>
+<p>Создание ссылок на другие страницы в вашем приложении - это одна из типичных
+операций в шаблоне. Вместо того, чтобы хардкодить URL в шаблоне, используйте Twig-функцию
+<tt class="docutils literal"><code>path</code></tt> (в PHP-помощьник <tt class="docutils literal"><code>router</code></tt>) для создания URL, основанных на конфигурации
+маршрутизатора. Потом, если вы захотите изменить URL конкретной страницы, вам
+всего лишь потребуется изменить конфигурацию маршрутизатора. Шаблоны автоматически
+сгенерируют новый URL.</p>
+<p>Сначала создайте ссылку на страницу &quot;welcome&quot;, которая определяется следующей
+конфигураций маршрутизатора:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Controller/WelcomeController.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Sensio\Bundle\FrameworkExtraBundle\Configuration\Route</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">WelcomeController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Route(&quot;/&quot;, name=&quot;welcome&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/routing.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">welcome</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">/</span>
+    <span class="l l-Scalar l-Scalar-Plain">defaults</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">_controller</span><span class="p p-Indicator">:</span> <span class="nv">AppBundle</span><span class="p p-Indicator">:</span><span class="nv">Welcome</span><span class="p p-Indicator">:</span><span class="nv">index</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/routing.yml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;routes</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/routing&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/routing</span>
+<span class="s">        http://symfony.com/schema/routing/routing-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;route</span> <span class="na">id=</span><span class="s">&quot;welcome&quot;</span> <span class="na">path=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;default</span> <span class="na">key=</span><span class="s">&quot;_controller&quot;</span><span class="nt">&gt;</span>AppBundle:Welcome:index<span class="nt">&lt;/default&gt;</span>
+    <span class="nt">&lt;/route&gt;</span>
+<span class="nt">&lt;/routes&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/routing.php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\RouteCollection</span><span class="p">;</span>
+
+<span class="nv">$collection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteCollection</span><span class="p">();</span>
+<span class="nv">$collection</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;welcome&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;_controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;AppBundle:Welcome:index&#39;</span><span class="p">,</span>
+<span class="p">)));</span>
+
+<span class="k">return</span> <span class="nv">$collection</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Для создания ссылки на страницу просто используйте функцию  <tt class="docutils literal"><code>path()</code></tt> и сошлитесь на маршрут:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;welcome&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;router&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">path</span><span class="p">(</span><span class="s1">&#39;welcome&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Как и ожидалось, это сгенерирует URL <tt class="docutils literal"><code>/</code></tt>. Давайте теперь посмотрим, как это
+работает для более сложных маршрутов:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Controller/ArticleController.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Sensio\Bundle\FrameworkExtraBundle\Configuration\Route</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ArticleController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Route(&quot;/article/{slug}&quot;, name=&quot;article_show&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">showAction</span><span class="p">(</span><span class="nv">$slug</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/routing.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">article_show</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">/article/{slug}</span>
+    <span class="l l-Scalar l-Scalar-Plain">defaults</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">_controller</span><span class="p p-Indicator">:</span> <span class="nv">AppBundle</span><span class="p p-Indicator">:</span><span class="nv">Article</span><span class="p p-Indicator">:</span><span class="nv">show</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/routing.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;routes</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/routing&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/routing</span>
+<span class="s">        http://symfony.com/schema/routing/routing-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;route</span> <span class="na">id=</span><span class="s">&quot;article_show&quot;</span> <span class="na">path=</span><span class="s">&quot;/article/{slug}&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;default</span> <span class="na">key=</span><span class="s">&quot;_controller&quot;</span><span class="nt">&gt;</span>AppBundle:Article:show<span class="nt">&lt;/default&gt;</span>
+    <span class="nt">&lt;/route&gt;</span>
+<span class="nt">&lt;/routes&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/routing.php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\RouteCollection</span><span class="p">;</span>
+
+<span class="nv">$collection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteCollection</span><span class="p">();</span>
+<span class="nv">$collection</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;article_show&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">&#39;/article/{slug}&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;_controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;AppBundle:Article:show&#39;</span><span class="p">,</span>
+<span class="p">)));</span>
+
+<span class="k">return</span> <span class="nv">$collection</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>В этом случае, вам нужно указать как имя маршрута (<tt class="docutils literal"><code>article_show</code></tt>), так и
+значение параметра <tt class="docutils literal"><code>{slug}</code></tt>. Используя этот маршрут, вернитесь к шаблону
+<tt class="docutils literal"><code>recent_list.html.twig</code></tt> из предыдущего раздела, и создайте ссылку на статью
+правильно:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# app/Resources/views/article/recent_list.html.twig #}</span>
+<span class="cp">{%</span> <span class="k">for</span> <span class="nv">article</span> <span class="k">in</span> <span class="nv">articles</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;article_show&#39;</span><span class="o">,</span> <span class="o">{</span><span class="s1">&#39;slug&#39;</span><span class="o">:</span> <span class="nv">article.slug</span><span class="o">})</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
+        <span class="cp">{{</span> <span class="nv">article.title</span> <span class="cp">}}</span>
+    <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/Resources/views/Article/recent_list.html.php --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$articles</span> <span class="k">as</span> <span class="nv">$article</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;router&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">path</span><span class="p">(</span><span class="s1">&#39;article_show&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;slug&#39;</span> <span class="o">=&gt;</span> <span class="nv">$article</span><span class="o">-&gt;</span><span class="na">getSlug</span><span class="p">(),</span>
+    <span class="p">))</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="p">&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$article</span><span class="o">-&gt;</span><span class="na">getTitle</span><span class="p">()</span> <span class="cp">?&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">endforeach</span> <span class="cp">?&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Вы также можете созадть абсолютный URL, использовав  функцию Twig <tt class="docutils literal"><code>url()</code></tt>:</p>
+<blockquote class="last">
+<div><div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">url</span><span class="o">(</span><span class="s1">&#39;welcome&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;router&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">url</span><span class="p">(</span>
+    <span class="s1">&#39;welcome&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">()</span>
+<span class="p">)</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div></blockquote>
+</div></div>
+</div>
+<div class="section" id="assets">
+<span id="templating-assets-ru"></span><span id="index-9"></span><h3>Ссылки на ресурсы (assets)<a class="headerlink" href="#assets" title="Permalink to this headline">¶</a></h3>
+<p>Шаблоны также часто ссылаются на картинки, JacaScript, страницы стилей и
+прочие ресурсы (здесь и далее вместо asset будет использован термин ресурс).
+Конечно, вы можете хардкодить пути к ресурсам (например, <tt class="docutils literal"><code>/images/logo.png</code></tt>),
+но Symfony предлагает использовать более динамичную функцию Twig <tt class="docutils literal"><code>asset()</code></tt> :</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;images/logo.png&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Symfony!&quot;</span> <span class="p">/&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;css/blog.css&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;assets&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;images/logo.png&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="s">&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Symfony!&quot;</span> <span class="p">/&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;assets&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;css/blog.css&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="s">&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Главная задача функции <tt class="docutils literal"><code>asset()</code></tt> - сделать ваше приложение более мобильным. Если
+ваше приложение находится в корне хоста (например, <tt class="docutils literal"><code>http://example.com</code></tt>), тогда
+отображенный путь будет <tt class="docutils literal"><code>/images/logo.png</code></tt>. Но, если ваше приложение находится
+в подкаталоге (наприер, <tt class="docutils literal"><code>http://example.com/my_app</code></tt>), каждый путь к ресурсу должен
+отображаться с этим подкаталогом (например, <tt class="docutils literal"><code>/my_app/images/logo.png</code></tt>). Функция
+<tt class="docutils literal"><code>asset()</code></tt> берёт на себя заботу по определению того, как именно ваше приложение
+используется и генерирует соответствующие пути.</p>
+<p>В дополнение к этому, если вы используете функцию <tt class="docutils literal"><code>asset()</code></tt>, Symfony сможет
+автоматически добавлять строку запроса к вашему ресурсу, чтобы гарантировать,
+что обновленные статичные ресурсы не будут загружены из кэша после выгрузки.
+Например, <tt class="docutils literal"><code>/images/logo.png</code></tt> может выглядеть как <tt class="docutils literal"><code>/images/logo.png?v2</code></tt>.
+Подробнее об этом смотрите  <span class="xref std std-ref">версию опций конфигурации reference-framework-assets-version</span>.</p>
+<p>Если для ресурсов вам нужны абсолютные URL, используйте функцию Twig
+<tt class="docutils literal"><code>absolute_url()</code></tt> следующим образом:</p>
+<div class="literal-block"><div class="highlight-html+jinja"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">absolute_url</span><span class="o">(</span><span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;images/logo.png&#39;</span><span class="o">))</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Symfony!&quot;</span> <span class="p">/&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="css-javascript-twig">
+<span id="index-10"></span><h2>Подключение CSS (таблиц стилей) и Javascript в Twig<a class="headerlink" href="#css-javascript-twig" title="Permalink to this headline">¶</a></h2>
+<p>Ни один современный сайт не может обойтись без подключения CSS и Javascript файлов.
+В Symfony, подключение этих ресурсов элегантно обрабатывается, опираясь на
+возможности наследования шаблонов.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">В этом разделе вы узнаете философию подключения CSS и Javascript ресурсов
+в Symfony. Symfony также совместим с другой библиотекой, Assetic, которая
+следует той же философии, но позволяет вам выполнять намного более интересные
+операций над этими ресурсами. Дополнительную информацию можно получить в
+<tt class="xref doc docutils literal"><code>Как использовать Assetic для управления ресурсами</code></tt>.</p>
+</div></div>
+<p>Начните с добавления двух блоков к вашему базовому шаблону, который будет содержать
+ваши ресурсы: один назовите <tt class="docutils literal"><code>stylesheets</code></tt>, внутри HTML-тега <tt class="docutils literal"><code>head</code></tt> , другой -
+<tt class="docutils literal"><code>javascripts</code></tt>, перед закрывающим HTML-тегом <tt class="docutils literal"><code>body</code></tt>. Эти блоки будут содержать все
+таблицы стилей и скрипты, которые вам требуются для сайта:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# app/Resources/views/base.html.twig #}</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="c">{# ... #}</span>
+
+        <span class="cp">{%</span> <span class="k">block</span> <span class="nv">stylesheets</span> <span class="cp">%}</span>
+            <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;css/main.css&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
+        <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="c">{# ... #}</span>
+
+        <span class="cp">{%</span> <span class="k">block</span> <span class="nv">javascripts</span> <span class="cp">%}</span>
+            <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;js/main.js&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/Resources/views/base.html.php</span>
+<span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+        <span class="o">&lt;?</span><span class="nx">php</span> <span class="o">...</span> <span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">        </span><span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span><span class="s1">&#39;stylesheets&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">            &lt;link href=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;assets&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;css/main.css&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x">&quot; rel=&quot;stylesheet&quot; /&gt;</span>
+<span class="x">        </span><span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">stop</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    &lt;/head&gt;</span>
+<span class="x">    &lt;body&gt;</span>
+<span class="x">        </span><span class="cp">&lt;?php</span> <span class="o">...</span> <span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">        </span><span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span><span class="s1">&#39;javascripts&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">            &lt;script src=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;assets&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;js/main.js&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;&lt;/script&gt;</span>
+<span class="x">        </span><span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">stop</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    &lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Проще некуда! Но что, если вам потребуется включить дополнительную таблицу
+стилей или скрипт в дочернем шаблоне? Например, предположим, что у вас есть
+страница контактов и вам нужно подключить файл стилей <tt class="docutils literal"><code>contact.css</code></tt> <em>только</em> на
+одной этой странице. Внутри шаблона страницы contact необходимо выполнить следующее:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# app/Resources/views/contact/contact.html.twig #}</span>
+<span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;base.html.twig&#39;</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">stylesheets</span> <span class="cp">%}</span>
+    <span class="cp">{{</span> <span class="nb">parent</span><span class="o">()</span> <span class="cp">}}</span>
+
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;css/contact.css&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+
+<span class="c">{# ... #}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/Resources/views/contact/contact.html.twig</span>
+<span class="o">&lt;?</span><span class="nx">php</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">extend</span><span class="p">(</span><span class="s1">&#39;base.html.php&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span><span class="s1">&#39;stylesheets&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    &lt;link href=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;assets&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;css/contact.css&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x">&quot; rel=&quot;stylesheet&quot; /&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;slots&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">stop</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>В дочернем шаблоне вы просто переопределяете блок <tt class="docutils literal"><code>stylesheets</code></tt> и размещаете
+новый тег стиля внутри этого блока. Конечно же, поскольку вам нужно добавить
+стиль к блоку родительского контента, а не заменить его, вы должны использовать
+функцию Twig <tt class="docutils literal"><code>parent()</code></tt>, чтобы включить все стили из блока stylesheets базового
+шаблона.</p>
+<p>Вы также можете включать ресурсы, расположенные в папке пакетов <tt class="docutils literal"><code>Resources/public</code></tt>.
+Вам нужно будет выполнить команду php <tt class="docutils literal"><code>php bin/console assets:install target [--symlink]</code></tt>,
+которая скопирует (или создаст символическую ссылку) файлы в нужное место
+(target по умолчанию имеет значение &quot;web&quot;.</p>
+<div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;bundles/acmedemo/css/contact.css&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Конечным результатом является страница, которая включает как <tt class="docutils literal"><code>main.js</code></tt>, так и <tt class="docutils literal"><code>contact.css</code></tt>.</p>
+</div>
+<div class="section" id="id9">
+<h2>Отсылка к запросу, пользователю или сессии<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>Symfony также предоставляет вам глобальную переменную Twig <tt class="docutils literal"><code>app</code></tt>? которая может
+быть использована для доступа к текущему пользователю, запросу и др.</p>
+<p>См. <a class="reference internal" href="templating\app_variable.html"><em>Переменная app</em></a> для большей информации.</p>
+</div>
+<div class="section" id="id10">
+<h2>Экранирование<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>Twig выполняет автоматическое &quot;экранирование&quot; во время отображения какого-либо
+содержимого для того, чтобы защитить вас от атак Cross Site Scripting (XSS).</p>
+<p>Представьте, что <tt class="docutils literal"><code>description</code></tt> равняется <tt class="docutils literal"><code>I &lt;3 this product</code></tt>:</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="x">&lt;!-- output escaping is on automatically --&gt;</span>
+<span class="cp">{{</span> <span class="nv">description</span> <span class="cp">}}</span><span class="x"> &lt;!-- I &amp;lt;3 this product --&gt;</span>
+
+<span class="x">&lt;!-- disable output escaping with the raw filter --&gt;</span>
+<span class="cp">{{</span> <span class="nv">description</span><span class="o">|</span><span class="nf">raw</span> <span class="cp">}}</span><span class="x"> &lt;!-- I &lt;3 this product --&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">PHP-шаблоны не экранируют контент автоматически.</p>
+</div></div>
+<p>Для того, чтобы узнать больше, см <a class="reference internal" href="templating\escaping.html"><em>Экранирование</em></a>.</p>
+</div>
+<div class="section" id="id11">
+<h2>Заключение<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>Шаблонизатор - это всего-лишь <em>один</em> из многих инструментов Symfony. И его работа
+проста: дать нам возможность отображать динамичный и сложный HTML-результат так, чтобы
+он в конечном счете возвращался к пользователю, отправлял email или делал что-то еще.</p>
+</div>
+<div class="section" id="id12">
+<h2>Продолжайте!<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>Перед тем, как снова нырнуть в мир Symfony, посмотрите <a class="reference internal" href="configuration.html"><em>Систему конфигурации</em></a>.</p>
+</div>
+<div class="section" id="id13">
+<h2>Узнать больше<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="templating\PHP.html">How to Use PHP instead of Twig for Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating/PHP-ru.html">Как использовать PHP для шаблонов вместо Twig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating\app_variable.html">How to Access the User, Request, Session &amp; more in Twig via the <tt class="docutils literal"><code>app</code></tt> Variable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating/app_variable-ru.html">Как получить доступ к пользователю, запросу, сессии и др. в Twig через переменную <tt class="docutils literal"><code>app</code></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating\debug.html">How to Dump Debug Information in Twig Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating/debug-ru.html">Как сбросить информацию об отладке в шаблонах Twig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating\embedding_controllers.html">How to Embed Controllers in a Template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating/embedding_controllers-ru.html">Как встраивать контроллеры в шаблон</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating\escaping.html">How to Escape Output in Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating/escaping-ru.html">Как экранировать вывод в шаблонах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating\formats.html">How to Work with Different Output Formats in Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating/formats-ru.html">Как работать с разными форматами вывода в шаблонах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating\global_variables.html">How to Inject Variables into all Templates (i.e. global Variables)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating/global_variables-ru.html">Как внедрять переменные во все шаблоны (т.е. глобальные переменные)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating\hinclude.html">How to Embed Asynchronous Content with hinclude.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating/hinclude-ru.html">Как встроить асинхронное содержание с помощью hinclude.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating\inheritance.html">How to Organize Your Twig Templates Using Inheritance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating/inheritance-ru.html">Как упорядочить ваши шаблоны Twig, используя наследование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating\namespaced_paths.html">How to Use and Register Namespaced Twig Paths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating/namespaced_paths-ru.html">Как использовать и регистрировать пути Twig с пространством имён</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating/overriding-ru.html">Как переопределять шаблоны из сторонних пакетов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating\render_without_controller.html">How to Render a Template without a custom Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating/render_without_controller-ru.html">Как отобразить шаблон без пользовательского контроллера</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating\syntax.html">How to Check the Syntax of Your Twig Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating/syntax-ru.html">Как проверить синтаксис ваших шаблонов Twig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating\twig_extension.html">How to Write a custom Twig Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating/twig_extension-ru.html">Как написать пользовательское расширение Twig</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

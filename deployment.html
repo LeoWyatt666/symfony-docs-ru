@@ -1,0 +1,467 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как развернуть приложение Symfony &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="_static/" type="text/css">
+    <link rel="stylesheet" href="_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="index.html">
+
+<link rel="stylesheet" href="_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="deployment-r doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\index.html">
+                    <img src="..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как развернуть приложение Symfony</a><ul>
+<li><a class="reference internal" href="#symfony2-deployment-basics-ru">Основы развёртывания Symfony</a></li>
+<li><a class="reference internal" href="#id2">Как развернуть приложение Symfony</a><ul>
+<li><a class="reference internal" href="#id3">Базовый перенос файла</a></li>
+<li><a class="reference internal" href="#id4">Использование системы управления исходным кодом</a></li>
+<li><a class="reference internal" href="#id5">Использование платформ в качестве сервиса</a></li>
+<li><a class="reference internal" href="#id6">Использование скриптов сборки и других инструментов</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7">Распространённые задачи после развёртывания</a><ul>
+<li><a class="reference internal" href="#a">A) Проверка требований</a></li>
+<li><a class="reference internal" href="#b">B) Конфигурация ваших переменных окружения</a></li>
+<li><a class="reference internal" href="#c">C) Установка/обвновления ваших поставщиков</a></li>
+<li><a class="reference internal" href="#d-symfony">D) Очистка вашего кеша Symfony</a></li>
+<li><a class="reference internal" href="#e-assetic">E) Сброс ваших файлов Assetic</a></li>
+<li><a class="reference internal" href="#f">F) Другие вещи!</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">Жизненный цикл приложения: непрерывная интеграция, контроль качества и др.</a></li>
+<li><a class="reference internal" href="#id9">Диагностика и устранение неполадок</a><ul>
+<li><a class="reference internal" href="#composer-json">Развёртывания, не использующие файл <tt class="docutils literal"><code>composer.json</code></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10">Узнать больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="index.html">Документация</a></li>
+                
+                <li class="active">Как развернуть приложение Symfony</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="symfony">
+<span id="how-to-deploy-a-symfony2-application-ru"></span><span id="index-0"></span><h1>Как развернуть приложение Symfony<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h1>
+<p>Развёртывание приложения Symfony может быть сложной и разнообразной задачей, в
+зависимости от установки и требований вашего приложения. Эта статья не является
+пошаговым руководством, она представляет собой общий список наиболее распространённых
+требований и идей для развёртывания.</p>
+<div class="section" id="symfony2-deployment-basics-ru">
+<span id="id1"></span><h2>Основы развёртывания Symfony<a class="headerlink" href="#symfony2-deployment-basics-ru" title="Permalink to this headline">¶</a></h2>
+<p>Типичные шаги, предпринимаемые при развёртывании приложения Symfony включают
+в себя:</p>
+<ol class="arabic simple">
+<li>Загрузите ваш код на сервер производства;</li>
+<li>Установите ваши зависимости поставщика (обычно делается через Composer и
+может быть выполнено до загрузки);</li>
+<li>Запуск перемещений базы данных или схожие задания по обновлению измененных структур
+данных;</li>
+<li>Очистка (и по желанию разогрев) вашего кеша.</li>
+</ol>
+<p>Развёртывание может также включать в себя следующие задачи:</p>
+<ul class="simple">
+<li>Тегирование конкретной версии вашего кода в качестве резила в хранилище вашего
+исходного кода;</li>
+<li>Создание временного участка подготовки производства для построения вашей обновлённой
+установки &quot;оффлайн&quot;;</li>
+<li>Запуск любых доступных тестов, чтобы убедиться в стабильности кода и/или сервера;</li>
+<li>Удаление любых ненужных файлов из каталога <tt class="docutils literal"><code>public/</code></tt> для поддержания чистоты вашего
+окружения производства;</li>
+<li>Очистка внешних систем кеширования (как <a class="reference external" href="http://memcached.org/">Memcached</a> или <a class="reference external" href="http://redis.io/">Redis</a>).</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Как развернуть приложение Symfony<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Существует несколько путей развёртывания вашего приложения Symfony. Начните с
+нескольких базовых стратегий развёртывания и после наращивайте силы.</p>
+<div class="section" id="id3">
+<h3>Базовый перенос файла<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Самым базовым способом развёртывания приложения является копирование файлов
+вручную с помощью FTP/SCP (или схожего метода). Этот способ имеет свои недостатки,
+так как вам будет не хватать контроля над системой по мере прогрессирования улучшений.
+Этот метод также требует некоторых ручных действий после переноса файлов (см.
+<a class="reference internal" href="#id7">Распространённые задачи после развёртывания</a>).</p>
+</div>
+<div class="section" id="id4">
+<h3>Использование системы управления исходным кодом<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Если вы используете системы управления исходным кодом (например, Git или SVN),
+вы можете упростить себе жизнь, если ваша живая инсталляция также будет копией
+вашего хранилища. Когда вы будете готовы к улучшению (апгрейду), все что вам нужно
+будет сделать - это вызвать последние обновления из вашей системы контроля исходного
+кода. При использовании Git распространённым подходом является создание тега для
+каждого релиза и проверка соответствующего тега при развёртывании (см. <a class="reference external" href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">Тегирование Git</a>).</p>
+<p>Это <em>облегчает</em> обновление ваших файлов, но вам все еще надо беспокоиться о том,
+чтобы выполнять другие шаги вручную (см. <a class="reference internal" href="#id7">Распространённые задачи после развёртывания</a>).</p>
+</div>
+<div class="section" id="id5">
+<h3>Использование платформ в качестве сервиса<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Использование платвормы в качестве сервиса (PaaS) может быть отличным способом развернут
+ваше приложение Symfony быстро и лекго. Существует множество PaaS, ниже перечислены те,
+что хорошо работают с Symfony:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://devcenter.heroku.com/articles/getting-started-with-symfony">Heroku</a></li>
+<li><a class="reference external" href="https://docs.platform.sh/frameworks/symfony.html">Platform.sh</a></li>
+<li><a class="reference external" href="https://azure.microsoft.com/en-us/develop/php/">Azure</a></li>
+<li><a class="reference external" href="https://help.fortrabbit.com/install-symfony">fortrabbit</a></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>Использование скриптов сборки и других инструментов<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Существуют также инструменты, которые облегчают муки развёртывания. Некоторые из
+них были специально подогнаны под требования Symfony.</p>
+<dl class="docutils">
+<dt><a class="reference external" href="https://github.com/EasyCorp/easy-deploy-bundle">EasyDeployBundle</a></dt>
+<dd>Пакет Symfony, который добавляет простые инструменты развёртывания в ваше приложение.</dd>
+<dt><a class="reference external" href="http://deployer.org/">Deployer</a></dt>
+<dd>Это ещё одна родная перезапись PHP Capistrano, с некоторыми готовыми рецептами для
+Symfony.</dd>
+<dt><a class="reference external" href="https://ansistrano.com/">Ansistrano</a></dt>
+<dd>Роль Ansible, которая позволяет вам конфигурировать мощное развёртывание через
+YAML файлы.</dd>
+<dt><a class="reference external" href="https://github.com/andres-montanez/Magallanes">Magallanes</a></dt>
+<dd>Этот инструмент развёртывания, похожий на Capistrano, встрое в PHP и может
+быть ленче для PHP-разработчиков в контексте его расширения под их нужды.</dd>
+<dt><a class="reference external" href="http://capistranorb.com/">Capistrano</a> с <a class="reference external" href="https://github.com/capistrano/symfony/">плагином Symfony</a></dt>
+<dd><a class="reference external" href="http://capistranorb.com/">Capistrano</a> - это удалённая автиматизация сервера и инструмент развёртывания,
+написанный на Ruby.
+<a class="reference external" href="https://github.com/capistrano/symfony/">Плагин Symfony</a> - это плагин для облегчения задач, связанных с Symfony, основанный
+на <a class="reference external" href="https://github.com/everzet/capifony">Capifony</a> (который работает только с Capistrano 2).</dd>
+<dt><a class="reference external" href="https://github.com/liip/sf2debpkg">sf2debpkg</a></dt>
+<dd>Помогает вам построить родной пакет Debian для вашего проекта Symfony.</dd>
+<dt>Базовое написание скриптов</dt>
+<dd>Вы, конечно же, можете использовать консоль, <a class="reference external" href="http://blog.sznapka.pl/deploying-symfony2-applications-with-ant">Ant</a> или любой другой инструмент для
+написания скриптов для развёртывания вашего приложения.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>Распространённые задачи после развёртывания<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>После развёртывания вашего испходного кода, существует перечень наиболее распространённых
+вещей, которые вам потребуется сделать:</p>
+<div class="section" id="a">
+<h3>A) Проверка требований<a class="headerlink" href="#a" title="Permalink to this headline">¶</a></h3>
+<p>Проверьте, соответствуетли ваш сервис требованиям, выполнив:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/symfony_requirements
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="b">
+<span id="b-configure-your-app-config-parameters-yml-file-ru"></span><h3>B) Конфигурация ваших переменных окружения<a class="headerlink" href="#b" title="Permalink to this headline">¶</a></h3>
+<p>Большинство приложений Symfony считывают конфигурацию из переменных окружения.
+При локальной разработке вы обычно храните её в файле <tt class="docutils literal"><code>.env</code></tt>. Но при производстве,
+вместо создания этого файла, вам стоит установить <em>настоящие</em> переменные окружения.</p>
+<p>То, как вы установите переменные окружения, зависит от вашей настройки: они могут
+быть установлены в командной строке, в вашей конфигурации Nginx или через другие
+методы, предоставленные вашими сервисами хостинга.</p>
+</div>
+<div class="section" id="c">
+<h3>C) Установка/обвновления ваших поставщиков<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h3>
+<p>Ваши поставщики могут быть обновлены до переноса вашего исходного кода
+(т.е. вы обновляете каталог <tt class="docutils literal"><code>vendor/</code></tt>, потом переносите его с вашим
+исходным кодом) или же после, уже на сервере. В любом случае, просто
+обновите ваших поставщиков так, как обычно:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer install --no-dev --optimize-autoloader
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Флажок <tt class="docutils literal"><code>--optimize-autoloader</code></tt> значительно улучшает производительноасть
+автозагрузчика Composer, путём построения &quot;карты классов&quot;. Флажок <tt class="docutils literal"><code>--no-dev</code></tt>
+убеждается в том, что пакеты разработки не установлены в окружении производства.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Если вы получите ошибку &quot;класс не найден&quot; во время этого шага, вам может
+понадобиться запустить <tt class="docutils literal"><code>export SYMFONY_ENV=prod</code></tt> (или <tt class="docutils literal"><code>export APP_ENV=prod</code></tt>,
+если выи спользуете <a class="reference internal" href="setup\flex.html"><em>Symfony Flex</em></a>) перед тем, как использовать
+эту команду, чтобы скрипты <tt class="docutils literal"><code>post-install-cmd</code></tt> запускались в окружении <tt class="docutils literal"><code>prod</code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="d-symfony">
+<h3>D) Очистка вашего кеша Symfony<a class="headerlink" href="#d-symfony" title="Permalink to this headline">¶</a></h3>
+<p>Убедитесь в том, что вы очистили и разогрели ваш кеш Symfony:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console cache:clear --env<span class="o">=</span>prod --no-debug
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="e-assetic">
+<h3>E) Сброс ваших файлов Assetic<a class="headerlink" href="#e-assetic" title="Permalink to this headline">¶</a></h3>
+<p>Если вы использоуете Assetic, вы также захотите сбросить ваши источники:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console assetic:dump --env<span class="o">=</span>prod --no-debug
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="f">
+<h3>F) Другие вещи!<a class="headerlink" href="#f" title="Permalink to this headline">¶</a></h3>
+<p>Существует еще масса других вещей, которые вам может понадобиться сделать,
+в зависимости от вашей установки:</p>
+<ul class="simple">
+<li>Запуск любых перемещений базы данных</li>
+<li>Очистка вашего APC-кеша</li>
+<li>Запуск <tt class="docutils literal"><code>assets:install</code></tt> (в <tt class="docutils literal"><code>composer install</code></tt> об этом уже позаботиличь)</li>
+<li>Добавление/изменение работ CRON</li>
+<li>Перемещение ресурсов в CDN</li>
+<li>...</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>Жизненный цикл приложения: непрерывная интеграция, контроль качества и др.<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>Несмотря на то, что эта запись покрывает технические детали развёртывания, полный
+жизненный цикл кода от разработки до прозводства может иметь больше шагов: развёртывание
+для подготовки, контроль качества, проведение тестов и т.д.</p>
+<p>Использование подготовки, тестированя, контроля качества, непрерывной интеграции,
+перемещений базы данных и возможности отката в случае провала сильно рекомендуются.
+Существуют простые и более сложные инструменты, и можно сделать развёртывание таким
+лёгким (или мудрёным), как требует этого ваше окружение.</p>
+<p>Не забудьте, что развёртывание вашего приложения также включает в себя обновление
+любой зависимости (обычно через Composer), перемещение вашей БД, очистку вашего кеша
+и другие потнециальные вещи, как перемещение ресурсов в CDN
+(см. <a class="reference internal" href="#id7">Распространённые задачи после развёртывания</a>).</p>
+</div>
+<div class="section" id="id9">
+<h2>Диагностика и устранение неполадок<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="composer-json">
+<h3>Развёртывания, не использующие файл <tt class="docutils literal"><code>composer.json</code></tt><a class="headerlink" href="#composer-json" title="Permalink to this headline">¶</a></h3>
+<p>Приложения Symfony предоставляют параметр <tt class="docutils literal"><code>kernel.project_dir</code></tt> и связанный с ним
+метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Kernel/Kernel.html#method_getProjectDir&gt;" title="Symfony\Component\HttpKernel\Kernel\Kernel::getProjectDir&gt;()">getProjectDir&gt;()</a></code></tt>. Вы
+можете использовать этот метод, чтобы выполнять операции с путями файла, относящимися
+к корневому каталогу вашего проекта. Логика для поиска этого корневого каталога проекта
+основывается на расположении главного файла <tt class="docutils literal"><code>composer.json</code></tt>.</p>
+<p>Если ваш метод развёртывания не использует Composer, то вы могли удалить файл
+<tt class="docutils literal"><code>composer.json</code></tt> и приложение не будет работать на сервере производства.
+Решением будет переопределить метод <tt class="docutils literal"><code>getProjectDir()</code></tt> в ядре приложения и
+вернуть корневой каталог вашего проекта:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Kernel.php</span>
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Kernel</span> <span class="k">extends</span> <span class="nx">BaseKernel</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getProjectDir</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/..&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>Узнать больше<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="deployment\proxies.html">How to Configure Symfony to Work behind a Load Balancer or a Reverse Proxy</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

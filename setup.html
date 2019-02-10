@@ -1,0 +1,556 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Установка и настройка Symfony &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="_static/" type="text/css">
+    <link rel="stylesheet" href="_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="index.html">
+
+<link rel="stylesheet" href="_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="setup-r doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\index.html">
+                    <img src="..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Установка и настройка Symfony</a><ul>
+<li><a class="reference internal" href="#c-symfony">Cоздание приложений Symfony</a><ul>
+<li><a class="reference internal" href="#id1">Создание вашего проекта на базе конкретной версии Symfony</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#symfony-composer">Создание приложений Symfony с помощью Composer</a></li>
+<li><a class="reference internal" href="#id2">Запуск приложения Symfony</a></li>
+<li><a class="reference internal" href="#id3">Проверка конфигурации и настроек приложения Symfony</a></li>
+<li><a class="reference internal" href="#id4">Устранение проблем доступа</a></li>
+<li><a class="reference internal" href="#installation-updating-vendors-ru">Обновление приложений Symfony</a></li>
+<li><a class="reference internal" href="#installing-a-symfony2-distribution-ru">Установка демо-версии Symfony или других сборок</a><ul>
+<li><a class="reference internal" href="#install-existing-app-ru">Установка существующего приложения Symfony</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10">Продолжайте!</a></li>
+<li><a class="reference internal" href="#id11">Детальнее об установке</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="index.html">Документация</a></li>
+                
+                <li class="active">Установка и настройка Symfony</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="symfony">
+<span id="index-0"></span><h1>Установка и настройка Symfony<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h1>
+<p>В этой главе описано, как установить Symfony разными способами и как решить
+наиболее распространенные проблемы, которые могут возникнуть в процессе установки.</p>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Предпочитаете видео-туториалы? Посмотреите серию <a class="reference external" href="http://knpuniversity.com/screencast/symfony">Разработка на Symfony с удовольствием</a>
+от KnpUniversity.</div></div>
+<div class="section" id="c-symfony">
+<h2>Cоздание приложений Symfony<a class="headerlink" href="#c-symfony" title="Permalink to this headline">¶</a></h2>
+<p>Symfony предоставляет специальное приложение под названием <strong>Установшик Symfony</strong>
+для облегчения создания приложений Symfony. Этот установщик совместим с PHP 5.4
+и нуждается в единоразовой установке на вашу систему:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># системы Linux and macOS</span>
+<span class="gp">$</span> sudo mkdir -p /usr/local/bin
+<span class="gp">$</span> sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
+<span class="gp">$</span> sudo chmod a+x /usr/local/bin/symfony
+
+<span class="c1"># системы Windows</span>
+<span class="gp">c:\&gt;</span> php -r <span class="s2">&quot;readfile(&#39;https://symfony.com/installer&#39;);&quot;</span> <span class="p">&gt;</span> symfony
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p>В Linux и macOS создается глобальная команда <tt class="docutils literal"><code>symfony</code></tt>. В Windows,
+переместите файл <tt class="docutils literal"><code>symfony</code></tt> в папку, которая включена в переменную окружения
+<tt class="docutils literal"><code>PATH</code></tt> для создания глобальной команды, или переместите его в любую
+другую удобную вам папку:</p>
+<div class="literal-block"><div class="last highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># например, при использовании WAMP ...</span>
+<span class="gp">c:\&gt;</span> <span class="k">move</span> symfony c:\wamp\bin\php
+<span class="c1"># ... выполните команду:</span>
+<span class="gp">c:\&gt;</span> symfony
+
+<span class="c1"># перемещение в вашу папку проектов ...</span>
+<span class="gp">c:\&gt;</span> <span class="k">move</span> symfony c:\projects
+<span class="c1"># ... выполните команду</span>
+<span class="gp">c:\&gt;</span> <span class="k">cd</span> projects
+<span class="gp">c:\projects\&gt;</span> php symfony
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<p id="installation-creating-the-app-ru">Когда установщик Symfony будет установлен, создайте ваше первое приложение
+Symfony c помощью команды <tt class="docutils literal"><code>new</code></tt>:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> symfony new my_project_name
+</pre></div>
+</td></tr></table></div></div>
+<p>Эта команда создаст новую папку под названием <tt class="docutils literal"><code>my_project_name/</code></tt>, в которой
+будет пустой проект, основанный на последней доступной стабильной версии Symfony.
+Кроме того, установщик проверяет, соответствует ли ваша система техническим требованиям
+для выполнения приложений Symfony. Если нет, вы увидите список необходимых изменений
+для соответствия требованиям.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если установщик не работает или не выдает никакого результата, убедитесь
+в том, что на вашем компьютере установлен и включено PHP <a class="reference external" href="http://php.net/manual/en/intro.phar.php">расширение Phar</a>.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p>Если сертификаты SSL установлены в вашей системе неправильно, вы
+можете увидеть такую ошибку:</p>
+<blockquote>
+<div>cURL error 60: SSL certificate problem: unable to get local issuer certificate.</div></blockquote>
+<p>Вы можете решить эту проблему следующим образом:</p>
+<ol class="last arabic">
+<li><p class="first">Скачайте файл с обновленным списком сертификатов по ссылке
+<a class="reference external" href="https://curl.haxx.se/ca/cacert.pem">https://curl.haxx.se/ca/cacert.pem</a></p>
+</li>
+<li><p class="first">Переместите скачанный файл <tt class="docutils literal"><code>cacert.pem</code></tt> в безопасное место вашей системы</p>
+</li>
+<li><p class="first">Обновите ваш файл  <tt class="docutils literal"><code>php.ini</code></tt> и создайте путь к нему:</p>
+<div class="literal-block"><div class="highlight-ini"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">; системы Linux и macOS</span>
+<span class="na">curl.cainfo</span> <span class="o">=</span> <span class="s">&quot;/path/to/cacert.pem&quot;</span>
+
+<span class="c1">; системы Windows</span>
+<span class="na">curl.cainfo</span> <span class="o">=</span> <span class="s">&quot;C:\path\to\cacert.pem&quot;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ol>
+</div></div>
+<div class="section" id="id1">
+<h3>Создание вашего проекта на базе конкретной версии Symfony<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Если ваш проект должен быть основан на конкретной версии Symfony, используйте
+второй дополнительный аргумент команды <tt class="docutils literal"><code>new</code></tt>:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># использовать последнюю версию любой ветви Symfony</span>
+<span class="gp">$</span> symfony new my_project_name <span class="m">2</span>.8
+<span class="gp">$</span> symfony new my_project_name <span class="m">3</span>.1
+
+<span class="c1"># использовать конкретную вресию Symfony</span>
+<span class="gp">$</span> symfony new my_project_name <span class="m">2</span>.8.3
+<span class="gp">$</span> symfony new my_project_name <span class="m">3</span>.1.5
+
+<span class="c1"># использовать бета или RC версию (удобно для тестированя новых версий Symfony)</span>
+<span class="gp">$</span> symfony new my_project <span class="m">2</span>.7.0-BETA1
+<span class="gp">$</span> symfony new my_project <span class="m">2</span>.7.0-RC1
+
+<span class="c1"># использовать последнюю версию &#39;lts&#39; (версия долгосрочной поддержки)</span>
+<span class="gp">$</span> symfony new my_project_name lts
+</pre></div>
+</td></tr></table></div></div>
+<p>Каждая версия имеет <em>свою</em> докуменатцию, которую вы можете выбрать на любой
+странице документации (в русском переводе есть только одна версия - <em>прим. переводчика</em>).</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Прочтите <a class="reference internal" href="contributing\community\releases.html"><em>Процесс выпуска Symfony</em></a>,
+чтобы лучше понимать, почему существует несколько версий Symfony, и какую из них
+использовать для ваших проектов.</p>
+</div></div>
+</div>
+</div>
+<div class="section" id="symfony-composer">
+<h2>Создание приложений Symfony с помощью Composer<a class="headerlink" href="#symfony-composer" title="Permalink to this headline">¶</a></h2>
+<p>Если вы до сих пор пользуетесь версией PHP 5.3, либо если вы по какой-то причине не можете
+использовать установщик, вы можете создавать приложения Symfony с помощью <a class="reference external" href="https://getcomposer.org/">Composer</a>,
+диспетчера внедрения зависимостей, который используют современные PHP-приложения.</p>
+<p>Если на вашем компьюетере не установлен Composer, начните с
+<a class="reference internal" href="setup\composer.html"><em>глобальной установки Composer</em></a>. Потом, выполните
+команду <tt class="docutils literal"><code>create-project</code></tt>, чтобы создать новое приложение Symfony, основанное
+на его последней стабильной версии:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer create-project symfony/framework-standard-edition my_project_name
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы также можете установить любую другую версию Symfony передав второй аргумент
+в команде <tt class="docutils literal"><code>create-project</code></tt>:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer create-project symfony/framework-standard-edition my_project_name <span class="s2">&quot;2.8.*&quot;</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если у вас медленное подключение к интернету, может показаться, что
+Composer ничего не делает. Если это ваш случай, добавьте флажок <tt class="docutils literal"><code>-vvv</code></tt> к
+предыдущей команде для отображения детальной работы Composer.</p>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Запуск приложения Symfony<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Symfony использует внутренний веб-сервер PHP (доступный с версии PHP 5.4),
+таким образом, что в процессе разработки приложение можно сразу запускать.
+Следовательно, приложение Symfony можно запустить путём загрузки каталога проекта и
+выполнения следующей команды:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> my_project_name/
+<span class="gp">$</span> php bin/console server:run
+</pre></div>
+</td></tr></table></div></div>
+<p>Затем откройте ваш браузер и зайдите на <tt class="docutils literal"><code>http://localhost:8000/</code></tt> URL,
+чтобы увидеть приветственную страничку Symfony:</p>
+<img alt="Symfony Welcome Page" class="with-browser align-center" src="_images/quick_tour/welcome.png">
+<p>Если вместо приветственной странички вы видите пустую страницу или отчёт об ошибке,
+то это вследствие ошибки в конфигурации прав доступа каталога. Решение этой
+проблемы описано в части <a class="reference internal" href="setup\file_permissions.html"><em>Настройка прав доступа</em></a>.</p>
+<p>Когда вы закончите работу над вашим приложением Symfony, остановите
+сервер нажатием  <tt class="docutils literal"><code>Ctrl+C</code></tt> в терминале или коммандной строке.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Внутренний веб-сервер PHP прекрасно подходит для разработки, но
+его <strong>не следует</strong> использовать на готовом продукте. Вместо этого
+используйте Apache или Nginx. См. раздел
+<a class="reference internal" href="setup\web_server_configuration.html"><em>Настройка веб-сервера</em></a>.</p>
+</div></div>
+</div>
+<div class="section" id="id3">
+<h2>Проверка конфигурации и настроек приложения Symfony<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Установщик Symfony проверяет, готова ли ваша система к запуску приложений
+Symfony. Однако, конфигурация PHP для коммандной строки может отличаться от
+веб-конфигурации PHP. Поэтому Symfony предоставляет визуальный тестироващик конфигурации.
+Зайдите на следующий URL, чтобы проверить вашу конфигурацию и исправить любые
+проблемы перед тем, как продолжить:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>http://localhost:8000/config.php
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id4">
+<h2>Устранение проблем доступа<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Если у вас есть какие-либо ошибки доступа или вы видите белый экран,
+тогда прочтите часть <a class="reference internal" href="setup\file_permissions.html"><em>Настройка прав доступа</em></a>
+для более детальной информации.</p>
+</div>
+<div class="section" id="installation-updating-vendors-ru">
+<span id="id5"></span><h2>Обновление приложений Symfony<a class="headerlink" href="#installation-updating-vendors-ru" title="Permalink to this headline">¶</a></h2>
+<p>К данному моменты вы уже создали полностью функционирующее приложение Symfony!
+Каждое приложение Symfony зависит от множества внешних библиотек, которые хранятся
+в каталоге <tt class="docutils literal"><code>vendor/</code></tt> и управляются с помощью Composer.</p>
+<p>Частое обновление этих сторонних библиотек - хороший способ предотвратить появление
+багов и уязвимостей в системе безопасности. Выполните команду Composer <a href="#id6"><span class="problematic" id="id7">``</span></a>update`,
+чтобы обновить всё сразу (это может занять несколько минут, в зависимости от
+сложности вашего проекта):</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> my_project_name/
+<span class="gp">$</span> composer update
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>В Symfony есть команда, с помощью которой можно проверить, есть ли у
+зависимостей проекта какие-либо уязвимости с точки зрения безопасности:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console security:check
+</pre></div>
+</td></tr></table></div></div>
+<p class="last">Хорошей идеей с точки зрения безопасности будет регулярно выполнять эту команду,
+чтобы иметь возможность как можно скорее обновить или заменить небезопасные
+зависимости приложения.</p>
+</div></div>
+</div>
+<div class="section" id="installing-a-symfony2-distribution-ru">
+<span id="id8"></span><h2>Установка демо-версии Symfony или других сборок<a class="headerlink" href="#installing-a-symfony2-distribution-ru" title="Permalink to this headline">¶</a></h2>
+<p>Вы уже скачали <a class="reference external" href="https://github.com/symfony/symfony-standard">Symfony Standard Edition</a>: начальный проект по умолчанию,
+который используется для всех приложений Symfony. Вы будете использовать этот
+проект по всей документации для создания вашего приложения!</p>
+<p>Symfony также предоставляет некоторые другие проекты и начальные сборки,
+которые вы можете использовать:</p>
+<dl class="docutils">
+<dt><a class="reference external" href="https://github.com/symfony/symfony-demo">The Symfony Demo Application</a></dt>
+<dd>Это полностью функциональное приложение, которое показывает рекомендуемый способ
+разработки приложений на Symfony. Это приложение было создано в качестве обучающего
+инструмента для новичков в Symfony, поэтому код приложения содержит много полезных
+комментариев и заметок.</dd>
+<dt><a class="reference external" href="https://github.com/symfony-cmf/standard-edition">The Symfony CMF Standard Edition</a></dt>
+<dd><a class="reference external" href="http://cmf.symfony.com/">Symfony CMF</a> - это проект, который облегчает разработчикам добавление функционала
+CMS к их приложениям Symfony. Это начальный проект, содержащий Symfony CMF.</dd>
+<dt><a class="reference external" href="https://github.com/gimler/symfony-rest-edition">The Symfony REST Edition</a></dt>
+<dd>Эта версия показывает, как построить приложение, которое предоставляет RESTful API,
+используя <a class="reference external" href="https://github.com/FriendsOfSymfony/FOSRestBundle">FOSRestBundle</a> и несколько других связанных с этим пакетов.</dd>
+</dl>
+<div class="section" id="install-existing-app-ru">
+<span id="id9"></span><h3>Установка существующего приложения Symfony<a class="headerlink" href="#install-existing-app-ru" title="Permalink to this headline">¶</a></h3>
+<p>При совместной работе в приложении Symfony, редко создается новое приложение
+Symfony так, как это описано в предыдущих разделах. Вместо этого, кто-то другой
+уже создал и загрузил его на общее хранилище.</p>
+<p>Рекомендуется не загружать некоторые файлы (<a class="reference internal" href="configuration.html#config-parameters-yml"><span>parameters.yml</span></a>)
+и папки (<tt class="docutils literal"><code>vendor/</code></tt>, кэш, логи) в хранилище кода, поэтому во время установки
+существующего приложения Symfony вам нужно будет сделать следующее:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># клонировать проект для скачивания его содержимого</span>
+<span class="gp">$</span> <span class="nb">cd</span> projects/
+<span class="gp">$</span> git clone ...
+
+<span class="c1"># установить с помощью Composer зависимости проекта в папку vendor/</span>
+<span class="gp">$</span> <span class="nb">cd</span> my_project_name/
+<span class="gp">$</span> composer install
+
+<span class="c1"># теперь Composer запросит у вас значения неопределённых параметров</span>
+<span class="gp">$</span> ...
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>Продолжайте!<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>Теперь, когда установка и настройка позади, пора <a class="reference internal" href="page_creation.html"><em>Создать вашу первую страницу в Symfony</em></a>.</p>
+</div>
+<div class="section" id="id11">
+<h2>Детальнее об установке<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="setup\homestead.html">Using Symfony with Homestead/Vagrant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup\built_in_web_server.html">How to Use PHP's built-in Web Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup\web_server_configuration.html">Configuring a Web Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup\composer.html">Installing Composer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup/built-in-web-server-ru.html">Как использовать встроенные веб-серверы PHP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup\bundles.html">Upgrading a Third-Party Bundle for a Major Symfony Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup/bundles-ru.html">Обновление стороннего пакета для старшей версии Symfony</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup/composer-ru.html">Установка Composer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup\file_permissions.html">Setting up or Fixing File Permissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup/file_permissions-ru.html">Установка или исправление разрешений файлов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup\flex.html">Using Symfony Flex to Manage Symfony Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup/homestead-ru.html">Использование Symfony с Homestead/Vagrant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup\unstable_versions.html">How to Install or Upgrade to the Latest, Unreleased Symfony Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup/unstable_versions-ru.html">Как устанавливать или обновляться до последней невыпущенной версии Symfony</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup\upgrade_major.html">Upgrading a Major Version (e.g. 3.4.0 to 4.1.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup/upgrade_major-ru.html">Обновление полноценной версии (например, с 2.7.0 до 3.0.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup\upgrade_minor.html">Upgrading a Minor Version (e.g. 3.3.3 to 3.4.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup/upgrade_minor-ru.html">Обновление упрощённой версии (например, с 2.5.3 до 2.6.1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup\upgrade_patch.html">Upgrading a Patch Version (e.g. 3.3.2 to 3.3.3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup/upgrade_patch-ru.html">Обновление версии патча (например с 2.6.0 до 2.6.1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup/web_server_configuration-ru.html">Конфигурация веб-сервера</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

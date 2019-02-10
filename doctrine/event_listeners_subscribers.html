@@ -1,0 +1,568 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Слушатели и подписчики событий Doctrine &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="doctrine doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Слушатели и подписчики событий Doctrine</a><ul>
+<li><a class="reference internal" href="#id1">Конфигурация слушателя/подписчика</a></li>
+<li><a class="reference internal" href="#id2">Создание класса слушателя</a></li>
+<li><a class="reference internal" href="#id3">Создание класса подписчика</a></li>
+<li><a class="reference internal" href="#id4">Ленивая загрузка слушателей событий</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Слушатели и подписчики событий Doctrine</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="doctrine">
+<span id="how-to-register-event-listeners-and-subscribers-ru"></span><span id="doctrine-event-config-ru"></span><span id="index-0"></span><h1>Слушатели и подписчики событий Doctrine<a class="headerlink" href="#doctrine" title="Permalink to this headline">¶</a></h1>
+<p>Пакеты Doctrine имеют богатую систему событий, которая выдаёт события почти
+всегда, когда в системе что-либо происходит. Для вас, это значит, что вы можете
+создавать произвольные <a class="reference internal" href="..\service_container.html"><em>сервисы</em></a> и говорить Doctrine
+уведомлять эти объекты, когда с Doctrine происходит некоторое действие (например,
+<tt class="docutils literal"><code>prePersist()</code></tt>). Это будет полезным, например, чтобы создать независимый поисковый
+индекс при сохранении объекта в вашу базу данных.</p>
+<p>Doctrine определяет два типа объектов, которые могут слушать события Doctrine:
+слушатели и подписчики. Оба типа схожи, но слушатели слегка более прямые. Чтобы
+узнать больше, смотрите <a class="reference external" href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/events.html">Система событий</a> на сайте Doctrine.</p>
+<p>Веб-страница Doctrine также разъясняет все существующие события, которые можно слушать.</p>
+<div class="section" id="id1">
+<h2>Конфигурация слушателя/подписчика<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Чтобы зарегистрировать сервис так, чтобы он вёл себя как слушатель событий или
+подписчик, вам нужно всего-лишь <a class="reference internal" href="..\service_container\tags.html"><em>тегировать</em></a> его
+с помощью правильного имени. В зависимости от вашего примера использования, вы можете
+подключить слушателя к каждому соединению DBAL и менеджеру сущностей ORM, или только к
+одному конкретному соединению DBAL и ко всем менеджерам сущностей, которые это соединение
+используют.</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">App\EventListener\SearchIndexer</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">doctrine.event_listener</span><span class="p p-Indicator">,</span> <span class="nv">event</span><span class="p p-Indicator">:</span> <span class="nv">postPersist</span> <span class="p p-Indicator">}</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\EventListener\SearchIndexer2</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">doctrine.event_listener</span><span class="p p-Indicator">,</span> <span class="nv">event</span><span class="p p-Indicator">:</span> <span class="nv">postPersist</span><span class="p p-Indicator">,</span> <span class="nv">connection</span><span class="p p-Indicator">:</span> <span class="nv">default</span> <span class="p p-Indicator">}</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\EventListener\SearchIndexerSubscriber</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">doctrine.event_subscriber</span><span class="p p-Indicator">,</span> <span class="nv">connection</span><span class="p p-Indicator">:</span> <span class="nv">default</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:doctrine=</span><span class="s">&quot;http://symfony.com/schema/dic/doctrine&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;services&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\EventListener\SearchIndexer&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;doctrine.event_listener&quot;</span> <span class="na">event=</span><span class="s">&quot;postPersist&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\EventListener\SearchIndexer2&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;doctrine.event_listener&quot;</span> <span class="na">event=</span><span class="s">&quot;postPersist&quot;</span> <span class="na">connection=</span><span class="s">&quot;default&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\EventListener\SearchIndexerSubscriber&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;doctrine.event_subscriber&quot;</span> <span class="na">connection=</span><span class="s">&quot;default&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\EventListener\SearchIndexer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\EventListener\SearchIndexer2</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\EventListener\SearchIndexerSubscriber</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">SearchIndexer</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;doctrine.event_listener&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;event&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;postPersist&#39;</span><span class="p">))</span>
+<span class="p">;</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">SearchIndexer2</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;doctrine.event_listener&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;event&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;postPersist&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;connection&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+    <span class="p">))</span>
+<span class="p">;</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">SearchIndexerSubscriber</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;doctrine.event_subscriber&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;default&#39;</span><span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Создание класса слушателя<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>В предыдущем примере, сервис <tt class="docutils literal"><code>SearchIndexer</code></tt> был сконфигуррован как Doctrine слушатель
+события <tt class="docutils literal"><code>postPersist</code></tt>. Класс, стоящий за этим сервисом, должен иметь метод <tt class="docutils literal"><code>postPersist()</code></tt>,
+который будет вызван при осуществлении события:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/EventListener/SearchIndexer.php</span>
+<span class="k">namespace</span> <span class="nx">App\EventListener</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Doctrine\ORM\Event\LifecycleEventArgs</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Entity\Product</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">SearchIndexer</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">postPersist</span><span class="p">(</span><span class="nx">LifecycleEventArgs</span> <span class="nv">$args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$entity</span> <span class="o">=</span> <span class="nv">$args</span><span class="o">-&gt;</span><span class="na">getEntity</span><span class="p">();</span>
+
+        <span class="c1">// only act on some &quot;Product&quot; entity</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$entity</span> <span class="nx">instanceof</span> <span class="nx">Product</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$args</span><span class="o">-&gt;</span><span class="na">getEntityManager</span><span class="p">();</span>
+        <span class="c1">// ... do something with the Product</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В каждом событии, у вас есть доступ к объекту <tt class="docutils literal"><code>LifecycleEventArgs</code></tt>, который
+даёт вам доступ и к объекту сущности события, и к самому менеджеру.</p>
+<p>Важно заметить одну вещь: слушатель будет слушать <em>все</em> сущности в вашем приложении.
+Так что если вы заинтересованы только в каком-то конкретном типе сущностей (например,
+сушности <tt class="docutils literal"><code>Product</code></tt>, но не сущности``BlogPost``), вам нужно проверить тип класса сущности
+в вашем методе (как показано выше).</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">В версии Doctrine 2.4, была представлена функция под названием &quot;Слушатели сущностей&quot;.
+Это класс слушателя жизненного цикла, используемый для сущности. Вы можете прочитать
+о нём в <a class="reference external" href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/events.html#entity-listeners">Документации Doctrine</a>.</p>
+</div></div>
+</div>
+<div class="section" id="id3">
+<h2>Создание класса подписчика<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Подписчик событий Doctrine должен внедрять интерфейс <tt class="docutils literal"><code>Doctrine\Common\EventSubscriber</code></tt>
+и иметь метод события для каждого события, на которое он подписывается:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/EventListener/SearchIndexerSubscriber.php</span>
+<span class="k">namespace</span> <span class="nx">App\EventListener</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Doctrine\Common\EventSubscriber</span><span class="p">;</span>
+<span class="c1">// для Doctrine &lt; 2.4: используйте Doctrine\ORM\Event\LifecycleEventArgs;</span>
+<span class="k">use</span> <span class="nx">Doctrine\Common\Persistence\Event\LifecycleEventArgs</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Entity\Product</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">SearchIndexerSubscriber</span> <span class="k">implements</span> <span class="nx">EventSubscriber</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getSubscribedEvents</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;postPersist&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;postUpdate&#39;</span><span class="p">,</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">postUpdate</span><span class="p">(</span><span class="nx">LifecycleEventArgs</span> <span class="nv">$args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">index</span><span class="p">(</span><span class="nv">$args</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">postPersist</span><span class="p">(</span><span class="nx">LifecycleEventArgs</span> <span class="nv">$args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">index</span><span class="p">(</span><span class="nv">$args</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">(</span><span class="nx">LifecycleEventArgs</span> <span class="nv">$args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$entity</span> <span class="o">=</span> <span class="nv">$args</span><span class="o">-&gt;</span><span class="na">getEntity</span><span class="p">();</span>
+
+        <span class="c1">// возможно, вы хотите действовать только в одной сущности &quot;Product&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$entity</span> <span class="nx">instanceof</span> <span class="nx">Product</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$args</span><span class="o">-&gt;</span><span class="na">getEntityManager</span><span class="p">();</span>
+            <span class="c1">// ... сделать что-то с Товаром</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Подписчики событий Doctrine не могут возвращать гибкий массив методов для
+вызова событий, как это может сделать <a class="reference internal" href="..\components\event_dispatcher.html#event-dispatcher-using-event-subscribers"><span>подписчик событий Symfony</span></a>.
+Подписчики событий Doctrine должны возвращать простой массив имён событий, на
+которые они подписываются. После этого Doctrine будет ожидать методов подписчиков
+с такими же именами, как каждое событие, на которое была оформлена подписка, так же,
+как и при использовании слушателя событий.</p>
+</div></div>
+<p>Для полной справки, смотрите главу <a class="reference external" href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/events.html">Система событий</a> в документации Doctrine.</p>
+</div>
+<div class="section" id="id4">
+<h2>Ленивая загрузка слушателей событий<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Небольшой разницей между слушателями и подписчиками является то, что Symfony
+может загружать слушателей сущностей лениво. Это означает, что ваш класс слушателя
+будет вызван из сервис-контейнера (следовательно, инстанциирован) только тогда,
+когда связанное с ним событие действительно произойдёт.</p>
+<p>Леивая загрузка может дать вам небольшое улучшение производительности, когда
+ваш слушатель работает для событий, которые редко случаются. Также, она может
+помочь вам, когда вы столкнётесь с <em>проблемами цикличной зависимости</em>, которые
+могут возникнуть, когда ваш сервис слушателя, в свою очередь, зависит от
+соединения DBAL.</p>
+<p>Чтобы отметить сервис слушателя как лениво загружаемый, просто добавьте к тегу
+атрибут <tt class="docutils literal"><code>lazy</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\EventListener\SearchIndexer</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">doctrine.event_listener</span><span class="p p-Indicator">,</span> <span class="nv">event</span><span class="p p-Indicator">:</span> <span class="nv">postPersist</span><span class="p p-Indicator">,</span> <span class="nv">lazy</span><span class="p p-Indicator">:</span> <span class="nv">true</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:doctrine=</span><span class="s">&quot;http://symfony.com/schema/dic/doctrine&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\EventListener\SearchIndexer&quot;</span> <span class="na">autowire=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;doctrine.event_listener&quot;</span> <span class="na">event=</span><span class="s">&quot;postPersist&quot;</span> <span class="na">lazy=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\EventListener\SearchIndexer</span><span class="p">;</span>
+
+<span class="nv">$container</span>
+    <span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">SearchIndexer</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;doctrine.event_listener&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;event&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;postPersist&#39;</span><span class="p">,</span> <span class="s1">&#39;lazy&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;true&#39;</span><span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Отметка``lazy`` слушателя событий не имеет никакого отношения к ленивым
+определениям сервиса, который описаны <a class="reference internal" href="..\service_container\lazy_services.html"><em>в своём разделе</em></a></p>
+</div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

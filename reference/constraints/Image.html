@@ -1,0 +1,779 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Image &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="reference doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Image</a><ul>
+<li><a class="reference internal" href="#id1">Базовое применение</a></li>
+<li><a class="reference internal" href="#id2">Опции</a><ul>
+<li><a class="reference internal" href="#mimetypes">mimeTypes</a></li>
+<li><a class="reference internal" href="#mimetypesmessage">mimeTypesMessage</a></li>
+<li><a class="reference internal" href="#minwidth">minWidth</a></li>
+<li><a class="reference internal" href="#maxwidth">maxWidth</a></li>
+<li><a class="reference internal" href="#minheight">minHeight</a></li>
+<li><a class="reference internal" href="#maxheight">maxHeight</a></li>
+<li><a class="reference internal" href="#minpixels">minPixels</a></li>
+<li><a class="reference internal" href="#maxpixels">maxPixels</a></li>
+<li><a class="reference internal" href="#maxratio">maxRatio</a></li>
+<li><a class="reference internal" href="#minratio">minRatio</a></li>
+<li><a class="reference internal" href="#allowsquare">allowSquare</a></li>
+<li><a class="reference internal" href="#allowlandscape">allowLandscape</a></li>
+<li><a class="reference internal" href="#allowportrait">allowPortrait</a></li>
+<li><a class="reference internal" href="#detectcorrupted">detectCorrupted</a></li>
+<li><a class="reference internal" href="#sizenotdetectedmessage">sizeNotDetectedMessage</a></li>
+<li><a class="reference internal" href="#maxwidthmessage">maxWidthMessage</a></li>
+<li><a class="reference internal" href="#minwidthmessage">minWidthMessage</a></li>
+<li><a class="reference internal" href="#maxheightmessage">maxHeightMessage</a></li>
+<li><a class="reference internal" href="#minheightmessage">minHeightMessage</a></li>
+<li><a class="reference internal" href="#maxpixelsmessage">maxPixelsMessage</a></li>
+<li><a class="reference internal" href="#minpixelsmessage">minPixelsMessage</a></li>
+<li><a class="reference internal" href="#maxratiomessage">maxRatioMessage</a></li>
+<li><a class="reference internal" href="#minratiomessage">minRatioMessage</a></li>
+<li><a class="reference internal" href="#allowsquaremessage">allowSquareMessage</a></li>
+<li><a class="reference internal" href="#allowlandscapemessage">allowLandscapeMessage</a></li>
+<li><a class="reference internal" href="#allowportraitmessage">allowPortraitMessage</a></li>
+<li><a class="reference internal" href="#corruptedmessage">corruptedMessage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li class="active">Image</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="image">
+<h1>Image<a class="headerlink" href="#image" title="Permalink to this headline">¶</a></h1>
+<p>Ограничение Image (изображеие) работает так же, как и ограничение
+<a class="reference internal" href="File.html"><em>File</em></a>, только его опции <a class="reference internal" href="#mimetypes">mimeTypes</a>
+и <a class="reference internal" href="#mimetypesmessage">mimeTypesMessage</a> автоматически устанавливаются так, чтобы работать
+конкретно с файлами изображений.</p>
+<p>Кроме того, оно имеет опции, чтобы вы могли валидировать ширину и высоту
+изображения.</p>
+<p>См. ограничение <a class="reference internal" href="File.html"><em>File</em></a>, чтобы увидеть часть
+документации этого ограничения.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%">
+<col width="82%">
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Применяется к</td>
+<td><a class="reference internal" href="..\..\validation.html#validation-property-target"><span>свойству или методу</span></a></td>
+</tr>
+<tr class="row-even"><td>Опции</td>
+<td><ul class="first last simple">
+<li><a class="reference internal" href="#mimetypes">mimeTypes</a></li>
+<li><a class="reference internal" href="#minwidth">minWidth</a></li>
+<li><a class="reference internal" href="#maxwidth">maxWidth</a></li>
+<li><a class="reference internal" href="#maxheight">maxHeight</a></li>
+<li><a class="reference internal" href="#minheight">minHeight</a></li>
+<li><a class="reference internal" href="#maxratio">maxRatio</a></li>
+<li><a class="reference internal" href="#minratio">minRatio</a></li>
+<li><a class="reference internal" href="#allowsquare">allowSquare</a></li>
+<li><a class="reference internal" href="#allowlandscape">allowLandscape</a></li>
+<li><a class="reference internal" href="#allowportrait">allowPortrait</a></li>
+<li><a class="reference internal" href="#detectcorrupted">detectCorrupted</a></li>
+<li><a class="reference internal" href="#mimetypesmessage">mimeTypesMessage</a></li>
+<li><a class="reference internal" href="#sizenotdetectedmessage">sizeNotDetectedMessage</a></li>
+<li><a class="reference internal" href="#maxwidthmessage">maxWidthMessage</a></li>
+<li><a class="reference internal" href="#minwidthmessage">minWidthMessage</a></li>
+<li><a class="reference internal" href="#maxheightmessage">maxHeightMessage</a></li>
+<li><a class="reference internal" href="#minheightmessage">minHeightMessage</a></li>
+<li><a class="reference internal" href="#maxratiomessage">maxRatioMessage</a></li>
+<li><a class="reference internal" href="#minratiomessage">minRatioMessage</a></li>
+<li><a class="reference internal" href="#allowsquaremessage">allowSquareMessage</a></li>
+<li><a class="reference internal" href="#allowlandscapemessage">allowLandscapeMessage</a></li>
+<li><a class="reference internal" href="#allowportraitmessage">allowPortraitMessage</a></li>
+<li><a class="reference internal" href="#corruptedmessage">corruptedMessage</a></li>
+<li>См. <a class="reference internal" href="File.html"><em>File</em></a> для наследуемых опций</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>Класс</td>
+<td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Validator/Constraints/Image.html" title="Symfony\Component\Validator\Constraints\Image">Image</a></code></tt></td>
+</tr>
+<tr class="row-even"><td>Валидатор</td>
+<td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Validator/Constraints/ImageValidator.html" title="Symfony\Component\Validator\Constraints\ImageValidator">ImageValidator</a></code></tt></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>Базовое применение<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Это ограничение наиболее часто используется в свойстве, которое будет
+отображено в форме как поле <a class="reference internal" href="..\forms\types\file.html"><em>FileType</em></a>.
+Например, представьте, что вы создаёте форму автора, где вы можете загружать
+изображение &quot;портрет&quot; (headshot) автора. В вашей форие, свойство <tt class="docutils literal"><code>headshot</code></tt>
+будет типом <tt class="docutils literal"><code>file</code></tt>. Класс <tt class="docutils literal"><code>Author</code></tt> может выглядеть так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Author.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\File\File</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Author</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$headshot</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setHeadshot</span><span class="p">(</span><span class="nx">File</span> <span class="nv">$file</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">headshot</span> <span class="o">=</span> <span class="nv">$file</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getHeadshot</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">headshot</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Чтобы гарантировать, что объект <tt class="docutils literal"><code>headshot</code></tt> <tt class="docutils literal"><code>File</code></tt>  является валидным изображением
+и что он имеет определённый размер, добавьте следующее:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Author.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Author</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Assert\Image(</span>
+<span class="sd">     *     minWidth = 200,</span>
+<span class="sd">     *     maxWidth = 400,</span>
+<span class="sd">     *     minHeight = 200,</span>
+<span class="sd">     *     maxHeight = 400</span>
+<span class="sd">     * )</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$headshot</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/validator/validation.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">App\Entity\Author</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">properties</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">headshot</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Image</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">minWidth</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">200</span>
+                <span class="l l-Scalar l-Scalar-Plain">maxWidth</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">400</span>
+                <span class="l l-Scalar l-Scalar-Plain">minHeight</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">200</span>
+                <span class="l l-Scalar l-Scalar-Plain">maxHeight</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">400</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/validator/validation.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;constraint-mapping</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;App\Entity\Author&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;headshot&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Image&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;minWidth&quot;</span><span class="nt">&gt;</span>200<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;maxWidth&quot;</span><span class="nt">&gt;</span>400<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;minHeight&quot;</span><span class="nt">&gt;</span>200<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;maxHeight&quot;</span><span class="nt">&gt;</span>400<span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;/constraint&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/class&gt;</span>
+<span class="nt">&lt;/constraint-mapping&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Author.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Mapping\ClassMetadata</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Author</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">loadValidatorMetadata</span><span class="p">(</span><span class="nx">ClassMetadata</span> <span class="nv">$metadata</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$metadata</span><span class="o">-&gt;</span><span class="na">addPropertyConstraint</span><span class="p">(</span><span class="s1">&#39;headshot&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Assert\Image</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;minWidth&#39;</span> <span class="o">=&gt;</span> <span class="mi">200</span><span class="p">,</span>
+            <span class="s1">&#39;maxWidth&#39;</span> <span class="o">=&gt;</span> <span class="mi">400</span><span class="p">,</span>
+            <span class="s1">&#39;minHeight&#39;</span> <span class="o">=&gt;</span> <span class="mi">200</span><span class="p">,</span>
+            <span class="s1">&#39;maxHeight&#39;</span> <span class="o">=&gt;</span> <span class="mi">400</span><span class="p">,</span>
+        <span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Свойство <tt class="docutils literal"><code>headshot</code></tt> валидируется, чтобы гарантировать, что это настоящее
+изображение, и что оно находится в рамках определённой ширины и высоты.</p>
+<p>Вы также можете захотеть гарантировать, что изображение <tt class="docutils literal"><code>headshot</code></tt> является
+квадратом. В этом случае, вы можете отключить вертикальную и горизонтальную
+ориентацию, как показано в следующем коде:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Author.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Author</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Assert\Image(</span>
+<span class="sd">     *     allowLandscape = false,</span>
+<span class="sd">     *     allowPortrait = false</span>
+<span class="sd">     * )</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$headshot</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/validator/validation.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">App\Entity\Author</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">properties</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">headshot</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Image</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">allowLandscape</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+                <span class="l l-Scalar l-Scalar-Plain">allowPortrait</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/validator/validation.xml --&gt;</span>
+<span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;App\Entity\Author&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;headshot&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Image&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;allowLandscape&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;allowPortrait&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;/constraint&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/class&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Author.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Mapping\ClassMetadata</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Author</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">loadValidatorMetadata</span><span class="p">(</span><span class="nx">ClassMetadata</span> <span class="nv">$metadata</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$metadata</span><span class="o">-&gt;</span><span class="na">addPropertyConstraint</span><span class="p">(</span><span class="s1">&#39;headshot&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Assert\Image</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;allowLandscape&#39;</span>    <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+            <span class="s1">&#39;allowPortrait&#39;</span>     <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+        <span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Вы можете смешать все опции ограничений, чтобы создать мощные правила валидации.</p>
+</div>
+<div class="section" id="id2">
+<h2>Опции<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Это ограничеие использует все опции вместе с ограничением
+<a class="reference internal" href="File.html"><em>File</em></a>. Однако, оно изменяется
+два значения опций по умолчанию и несколько других опций.</p>
+<div class="section" id="mimetypes">
+<h3>mimeTypes<a class="headerlink" href="#mimetypes" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> или <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>image/*</code></tt></p>
+<p>Вы можете найти список существующих mime-типов изображений на
+<a class="reference external" href="http://www.iana.org/assignments/media-types/image/index.html">сайте IANA</a>.</p>
+</div>
+<div class="section" id="mimetypesmessage">
+<h3>mimeTypesMessage<a class="headerlink" href="#mimetypesmessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>Этот файл не является валидным изображением.</code></tt></p>
+</div>
+<div class="section" id="minwidth">
+<h3>minWidth<a class="headerlink" href="#minwidth" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>integer</code></tt></p>
+<p>Если установлена, то ширина файла изображения должна быть больше, или равна
+этому значению в пикселях.</p>
+</div>
+<div class="section" id="maxwidth">
+<h3>maxWidth<a class="headerlink" href="#maxwidth" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>integer</code></tt></p>
+<p>Если установлена, то ширина файла изображения должна быть меньше, или равна
+этому значению в пикселях.</p>
+</div>
+<div class="section" id="minheight">
+<h3>minHeight<a class="headerlink" href="#minheight" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>integer</code></tt></p>
+<p>Если установлена, то высота файла изображения должна быть больше, или равна
+этому значению в пикселях.</p>
+</div>
+<div class="section" id="maxheight">
+<h3>maxHeight<a class="headerlink" href="#maxheight" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>integer</code></tt></p>
+<p>Если установлена, то высота файла изображения должна быть меньше, или равна
+этому значению в пикселях.</p>
+</div>
+<div class="section" id="minpixels">
+<h3>minPixels<a class="headerlink" href="#minpixels" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>integer</code></tt></p>
+<p>Если установлена, то количество пикселей файла изображения должно быть больше или равно
+этому значению.</p>
+</div>
+<div class="section" id="maxpixels">
+<h3>maxPixels<a class="headerlink" href="#maxpixels" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>integer</code></tt></p>
+<p>Если установлена, то количество пикселей файла изображения должно быть меньше или равно
+этому значению.</p>
+</div>
+<div class="section" id="maxratio">
+<h3>maxRatio<a class="headerlink" href="#maxratio" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>float</code></tt></p>
+<p>Если установлена, то соотношение аспектов (<tt class="docutils literal"><code>width / height</code></tt>) файла изображения
+должно быть меньше, или равно этому значению.</p>
+</div>
+<div class="section" id="minratio">
+<h3>minRatio<a class="headerlink" href="#minratio" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>float</code></tt></p>
+<p>Если установлена, то соотношение аспектов (<tt class="docutils literal"><code>width / height</code></tt>) файла изображения
+должно быть больше, или равно этому значению.</p>
+</div>
+<div class="section" id="allowsquare">
+<h3>allowSquare<a class="headerlink" href="#allowsquare" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>Boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>true</code></tt></p>
+<p>Если эта опция - &quot;false&quot;, то изображение не может быть квадратом. Если
+вы хотите принудить к квадратному изображению, то оставьте этой опции
+значение по умолчанию <tt class="docutils literal"><code>true</code></tt>, и установите и <a class="reference internal" href="#allowlandscape">allowLandscape</a>, и
+<a class="reference internal" href="#allowportrait">allowPortrait</a> как <tt class="docutils literal"><code>false</code></tt>.</p>
+</div>
+<div class="section" id="allowlandscape">
+<h3>allowLandscape<a class="headerlink" href="#allowlandscape" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>Boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>true</code></tt></p>
+<p>Если эта опция - &quot;false&quot;, то изображение не может иметь горизонтальную
+ориентацию.</p>
+</div>
+<div class="section" id="allowportrait">
+<h3>allowPortrait<a class="headerlink" href="#allowportrait" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>Boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>true</code></tt></p>
+<p>Если эта опция - &quot;false&quot;, то изображение не может иметь вертикальную
+ориентацию.</p>
+</div>
+<div class="section" id="detectcorrupted">
+<h3>detectCorrupted<a class="headerlink" href="#detectcorrupted" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>false</code></tt></p>
+<p>Если эта опция - &quot;true&quot;, то содержимое изображения валидируется, чтобы
+гарантировать, что изображение не повреждено. Эта валидация проводится
+с PHP-функцией <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.imagecreatefromstring.php" title="imagecreatefromstring">imagecreatefromstring</a></code></tt>, которая требует, чтобы
+<a class="reference external" href="http://php.net/manual/en/book.image.php">расширение PHP GD</a> было подключено.</p>
+</div>
+<div class="section" id="sizenotdetectedmessage">
+<h3>sizeNotDetectedMessage<a class="headerlink" href="#sizenotdetectedmessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Размер изображения не мог быть определён.</code></tt></p>
+<p>Если система не может определить размер изображения, то будет отображена эта
+ошибка. Это случится только если было установлено хотя бы одно ограничение
+опций размера.</p>
+</div>
+<div class="section" id="maxwidthmessage">
+<h3>maxWidthMessage<a class="headerlink" href="#maxwidthmessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Ширина изображения слишком большая ({{ width }}px).
+Максимальная позволенная ширина - {{ max_width }} пикселей.</code></tt></p>
+<p>Сообщение ошибки, если ширина изображения превышает <a class="reference internal" href="#maxwidth">maxWidth</a>.</p>
+</div>
+<div class="section" id="minwidthmessage">
+<h3>minWidthMessage<a class="headerlink" href="#minwidthmessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Ширина изображения слишком маленькая ({{ width }}px).
+Минимальная позволенная ширина - {{ min_width }} пикселей.</code></tt></p>
+<p>Сообщение ошибки, если ширина изображения меньше, чем <a class="reference internal" href="#minwidth">minWidth</a>.</p>
+</div>
+<div class="section" id="maxheightmessage">
+<h3>maxHeightMessage<a class="headerlink" href="#maxheightmessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Высота изображения слишком большая ({{ height }}px).
+Максимальная позволенная высота - {{ max_height }} пикселей.</code></tt></p>
+<p>Сообщение ошибки, если высота изображения превышает <a class="reference internal" href="#maxheight">maxHeight</a>.</p>
+</div>
+<div class="section" id="minheightmessage">
+<h3>minHeightMessage<a class="headerlink" href="#minheightmessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Высота изображения слишком маленькая ({{ height }}px).
+Минимальная позволенная высота - {{ min_height }} пикселей.</code></tt></p>
+<p>Сообщение ошибки, если высота изображения меньше, чем <a class="reference internal" href="#minheight">minHeight</a>.</p>
+</div>
+<div class="section" id="maxpixelsmessage">
+<h3>maxPixelsMessage<a class="headerlink" href="#maxpixelsmessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Изображение имеет слишком много пикселей ({{ pixels }} пикселей).
+Максимальное ожидаемое количество - {{ max_pixels }} пикселей.</code></tt></p>
+<p>Сообщение ошибки, если количество пикселей изображения превышает <a class="reference internal" href="#maxpixels">maxPixels</a>.</p>
+</div>
+<div class="section" id="minpixelsmessage">
+<h3>minPixelsMessage<a class="headerlink" href="#minpixelsmessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Изображение имеет слишком мало пикселей ({{ pixels }} пикселей).
+Минимальное ожидаемое количество - {{ min_pixels }} пикселей.</code></tt></p>
+<p>TСообщение ошибки, если количество пикселей изображения меньше, чем <a class="reference internal" href="#minpixels">minPixels</a>.</p>
+</div>
+<div class="section" id="maxratiomessage">
+<h3>maxRatioMessage<a class="headerlink" href="#maxratiomessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Соотношене изображения слишком большое ({{ ratio }}).
+Максимальное позволенное соотношение - {{ max_ratio }}</code></tt></p>
+<p>Сообщение ошибки, если соотношение изображения превышает <a class="reference internal" href="#maxratio">maxRatio</a>.</p>
+</div>
+<div class="section" id="minratiomessage">
+<h3>minRatioMessage<a class="headerlink" href="#minratiomessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Соотношене изображения слишком маленькое ({{ ratio }}).
+Минимальное позволенное соотношение - {{ min_ratio }}</code></tt></p>
+<p>Сообщение ошибки, если соотношение изображения меньше, чем <a class="reference internal" href="#minratio">minRatio</a>.</p>
+</div>
+<div class="section" id="allowsquaremessage">
+<h3>allowSquareMessage<a class="headerlink" href="#allowsquaremessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Изображение является квадратом ({{ width }}x{{ height }}px).
+Квадратные изображения не допускаются</code></tt></p>
+<p>Сообщение ошибки, если изображение является квадратом, а вы установили
+<a class="reference internal" href="#allowsquare">allowSquare</a>, как <tt class="docutils literal"><code>false</code></tt>.</p>
+</div>
+<div class="section" id="allowlandscapemessage">
+<h3>allowLandscapeMessage<a class="headerlink" href="#allowlandscapemessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Изображение имеет горизонтальную ориентацию ({{ width }}x{{ height }} пикселей).
+Изображения с горизонтальной ориентацией не допускаются</code></tt></p>
+<p>Сообщение ошибки, если изображение имеет горизонтальную ориентацию, а вы установили
+<a class="reference internal" href="#allowlandscape">allowLandscape</a>, как <tt class="docutils literal"><code>false</code></tt>.</p>
+</div>
+<div class="section" id="allowportraitmessage">
+<h3>allowPortraitMessage<a class="headerlink" href="#allowportraitmessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Изображение имеет вертикальную ориентацию ({{ width }}x{{ height }} пикселей).
+Изображения с вертикальной ориентацией не допускаются</code></tt></p>
+<p>Сообщение ошибки, если изображение имеет вертикальную ориентацию, а вы установили
+<a class="reference internal" href="#allowportrait">allowPortrait</a>, как <tt class="docutils literal"><code>false</code></tt>.</p>
+</div>
+<div class="section" id="corruptedmessage">
+<h3>corruptedMessage<a class="headerlink" href="#corruptedmessage" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Файл изображения повреждён.</code></tt></p>
+<p>Сообщение ошибки, когда опция <a class="reference internal" href="#detectcorrupted">detectCorrupted</a> подключена и изображение
+повреждено.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

@@ -1,0 +1,648 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как создать пользовательский сборщик данных &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="profiler doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как создать пользовательский сборщик данных</a><ul>
+<li><a class="reference internal" href="#id2">Создание пользовательского сборщика данных</a></li>
+<li><a class="reference internal" href="#data-collector-tag-ru">Включение пользовательских сборщиков данных</a></li>
+<li><a class="reference internal" href="#id4">Добавление шаблонов веб-профилировщика</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Как создать пользовательский сборщик данных</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как создать пользовательский сборщик данных<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="..\profiler.html"><em>Профилировщик Symfony</em></a> получает информацию о профилировании и
+отладке, используя некоторые специальные классы под названием сборщики данных.
+Symfony поставляется с некоторыми из них, но вы можете также создать собственные.</p>
+<div class="section" id="id2">
+<h2>Создание пользовательского сборщика данных<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Сборщик данных - это PHP класс, который реализует
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/DataCollector/DataCollectorInterface.html" title="Symfony\Component\HttpKernel\DataCollector\DataCollectorInterface">DataCollectorInterface</a></code></tt>.
+Для удобства, ващи сборщики данных также могут расширяться из класса
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/DataCollector/DataCollector.html" title="Symfony\Component\HttpKernel\DataCollector\DataCollector">DataCollector</a></code></tt>, который
+реализует интерфейс и предоставляет некоторые утилиты и свойство <tt class="docutils literal"><code>$this-&gt;data</code></tt>
+для хранения собранной информации.</p>
+<p>Следующий пример демонстрирует пользовательский сборщик, который хранит информацию
+о запросе:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/DataCollector/RequestCollector.php</span>
+<span class="k">namespace</span> <span class="nx">App\DataCollector</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\DataCollector\DataCollector</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">RequestCollector</span> <span class="k">extends</span> <span class="nx">DataCollector</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">collect</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">Response</span> <span class="nv">$response</span><span class="p">,</span> <span class="nx">\Exception</span> <span class="nv">$exception</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;method&#39;</span> <span class="o">=&gt;</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">(),</span>
+            <span class="s1">&#39;acceptable_content_types&#39;</span> <span class="o">=&gt;</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getAcceptableContentTypes</span><span class="p">(),</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">reset</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getName</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;app.request_collector&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/DataCollector/DataCollectorInterface.html#method_collect" title="Symfony\Component\HttpKernel\DataCollector\DataCollectorInterface::collect()">collect()</a></code></tt>:</dt>
+<dd><p class="first">Хранит собранные данные в локальных свойствах (<tt class="docutils literal"><code>$this-&gt;data</code></tt> если вы расширяете
+из <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/DataCollector/DataCollector.html" title="Symfony\Component\HttpKernel\DataCollector\DataCollector">DataCollector</a></code></tt>).
+Если данные для сборки не могут быть получены через запрос или ответ, внедрите
+необходимые сервисы в сборщик данных.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Метод <tt class="docutils literal"><code>collect()</code></tt> вызывается только единожды. Он не используется для
+&quot;сборки&quot; данных, но существует для &quot;подбора&quot; данных, которые хранятся
+вашим сервисом.</p>
+</div></div>
+<div class="last admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Пока ваш профилировщик сериализирует экземпляры сборщиков данных, вам
+не стоит хранить объекты, которые не могут быть сериализированы (вроде
+PDO объектов) или вам нужно предоставить ваш собственный метод
+<tt class="docutils literal"><code>serialize()</code></tt>.</p>
+</div></div>
+</dd>
+<dt>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/DataCollector/DataCollectorInterface.html#method_reset" title="Symfony\Component\HttpKernel\DataCollector\DataCollectorInterface::reset()">reset()</a></code></tt>:</dt>
+<dd>Вызывается между запросами, чтобы сбросить состояние профилировщика. Используйте
+его, чтобы удалить всю собранную методом <tt class="docutils literal"><code>collect()</code></tt> информацию.</dd>
+<dt>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/DataCollector/DataCollectorInterface.html#method_getName" title="Symfony\Component\HttpKernel\DataCollector\DataCollectorInterface::getName()">getName()</a></code></tt>:</dt>
+<dd>Возвращает идентификатор сборщика, который должен быть уникален для приложения.
+Это значение используется позже для доступа к информации сборщика (см.
+<a class="reference internal" href="..\testing\profiling.html"><em>How to Use the Profiler in a Functional Test</em></a>), так что рекомендуется возвращать короткую строку в
+нижнем регистре без пробелов.</dd>
+</dl>
+</div>
+<div class="section" id="data-collector-tag-ru">
+<span id="id3"></span><h2>Включение пользовательских сборщиков данных<a class="headerlink" href="#data-collector-tag-ru" title="Permalink to this headline">¶</a></h2>
+<p>Если вы используете <a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>конфигурацию services.yaml по умолчанию</span></a>
+с <tt class="docutils literal"><code>autoconfigure</code></tt>, то Symfony автоматически заметит ваш новый сборщик данных!
+Ваш метод <tt class="docutils literal"><code>collect()</code></tt> должен быть вызван при последующем обновлении.</p>
+<p>Если вы не используете <tt class="docutils literal"><code>autoconfigure</code></tt>, то вы также можете
+<a class="reference internal" href="..\service_container.html#services-explicitly-configure-wire-services"><span>вручную смонтировать ваш сервис</span></a>
+и <a class="reference internal" href="..\service_container\tags.html"><em>тегировать</em></a> его с помощью <tt class="docutils literal"><code>data_collector</code></tt>.</p>
+</div>
+<div class="section" id="id4">
+<h2>Добавление шаблонов веб-профилировщика<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Информация, собранная вашим сборщиком данных, может быть отображена как в
+панели инструментов веб-отладки, так и в веб-профилировщике. Чтобы сделать это,
+вам понадобится создать шаблон Twig, включающий некоторые конкретные блоки.</p>
+<p>Однако, вначале вам нужно добавить некоторые геттеры в класс сборщика данных, чтобы
+предоставить шаблону доступ к собранной информации:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/DataCollector/RequestCollector.php</span>
+<span class="k">namespace</span> <span class="nx">App\DataCollector</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\DataCollector\DataCollector</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">RequestCollector</span> <span class="k">extends</span> <span class="nx">DataCollector</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getAcceptableContentTypes</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="s1">&#39;acceptable_content_types&#39;</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В наипростейшем случае, вам просто нужно отобразить информацию в панели инструментов,
+не предоставляя панели профилировщика. Это требует определения блока <tt class="docutils literal"><code>toolbar</code></tt>
+и установки значений двух переменных, под названием <tt class="docutils literal"><code>icon</code></tt> и <tt class="docutils literal"><code>text</code></tt>:</p>
+<div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;@WebProfiler/Profiler/layout.html.twig&#39;</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">toolbar</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">icon</span> <span class="cp">%}</span>
+        <span class="c">{# это содержимое, отображённое в виде панели в панели инструментов #}</span>
+        <span class="p">&lt;</span><span class="nt">svg</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/2000/svg&quot;</span><span class="p">&gt;</span> ... <span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sf-toolbar-value&quot;</span><span class="p">&gt;</span>Request<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="cp">{%</span> <span class="k">endset</span> <span class="cp">%}</span>
+
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">text</span> <span class="cp">%}</span>
+        <span class="c">{# это содержимое, отображённое при наведении мыши на панель инструментов #}</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sf-toolbar-info-piece&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Method<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">collector.method</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sf-toolbar-info-piece&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Accepted content type<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">collector.acceptableContentTypes</span><span class="o">|</span><span class="nf">join</span><span class="o">(</span><span class="s1">&#39;, &#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="cp">{%</span> <span class="k">endset</span> <span class="cp">%}</span>
+
+    <span class="c">{# значение &#39;link&#39; установленное, как &#39;false&#39;, означает, что эта панель не</span>
+<span class="c">       отображает раздел в веб-профилировщике #}</span>
+    <span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="s1">&#39;@WebProfiler/Profiler/toolbar_item.html.twig&#39;</span><span class="o">,</span> <span class="o">{</span> <span class="nv">link</span><span class="o">:</span> <span class="kp">false</span> <span class="o">})</span> <span class="cp">}}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Встроенные шаблоны сборщиков определяют все свои изображения, как встроенные
+SVG файлы. Это позволяет им работать везде без вмешательства в ссылки веб-ресуров:</p>
+<div class="literal-block"><div class="last highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">icon</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="s1">&#39;data_collector/icon.svg&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">    </span><span class="c">{# ... #}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endset</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<p>Если панель инструментов включает расширенную информауию веб-профилировщика, то
+шаблон Twig должен также определять дополнительные блоки:</p>
+<div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;@WebProfiler/Profiler/layout.html.twig&#39;</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">toolbar</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">icon</span> <span class="cp">%}</span>
+        <span class="c">{# ... #}</span>
+    <span class="cp">{%</span> <span class="k">endset</span> <span class="cp">%}</span>
+
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">text</span> <span class="cp">%}</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sf-toolbar-info-piece&quot;</span><span class="p">&gt;</span>
+            <span class="c">{# ... #}</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="cp">{%</span> <span class="k">endset</span> <span class="cp">%}</span>
+
+    <span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="s1">&#39;@WebProfiler/Profiler/toolbar_item.html.twig&#39;</span><span class="o">,</span> <span class="o">{</span> <span class="s1">&#39;link&#39;</span><span class="o">:</span> <span class="kp">true</span> <span class="o">})</span> <span class="cp">}}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">head</span> <span class="cp">%}</span>
+    <span class="c">{# Необязательно. Тут вы можете дать ссылку или определить ваше собственное</span>
+<span class="c">       CSS и JS содержимое. #}</span>
+    <span class="c">{# Используйте {{ parent() }}, чтобы расширить стили по умолчанию, вместо того,</span>
+<span class="c">       чтобы переопределять их. #}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">menu</span> <span class="cp">%}</span>
+    <span class="c">{# Это левостороннее меню отображается при использовании полноэкранного</span>
+<span class="c">       профилировщика. #}</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;label&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;icon&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">/&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Request<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">panel</span> <span class="cp">%}</span>
+    <span class="c">{# Необязательно для отображения большинства деталей. #}</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Acceptable Content Types<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Content Type<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+
+        <span class="cp">{%</span> <span class="k">for</span> <span class="nv">type</span> <span class="k">in</span> <span class="nv">collector.acceptableContentTypes</span> <span class="cp">%}</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">type</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+    <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Блоки <tt class="docutils literal"><code>menu</code></tt> и <tt class="docutils literal"><code>panel</code></tt> являются единственными обязательными блоками для
+определения содержимого, отбражённого в панели веб-профилировщика, связанного
+с этим сборщиком данных. Все блоки имеют доступ к объекту <tt class="docutils literal"><code>collector</code></tt>.</p>
+<p>Наконец, чтобы включить шаблон сборщика данных, переопределите конфигурацию вашего
+сервиса, чтобы указать тег, содержащий шаблон:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/services.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\DataCollector\RequestCollector</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span>
+                <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">data_collector</span>
+                <span class="l l-Scalar l-Scalar-Plain">template</span><span class="p p-Indicator">:</span> <span class="s">&#39;data_collector/template.html.twig&#39;</span>
+                <span class="c1"># must match the value returned by the getName() method</span>
+                <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span>       <span class="s">&#39;app.request_collector&#39;</span>
+                <span class="c1"># optional priority</span>
+                <span class="c1"># priority: 300</span>
+        <span class="l l-Scalar l-Scalar-Plain">public</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\DataCollector\RequestCollector&quot;</span> <span class="na">public=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+            <span class="c">&lt;!-- priority=&quot;300&quot; --&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;data_collector&quot;</span>
+                <span class="na">template=</span><span class="s">&quot;data_collector/template.html.twig&quot;</span>
+                <span class="na">id=</span><span class="s">&quot;app.request_collector&quot;</span>
+            <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/services.php</span>
+<span class="k">use</span> <span class="nx">App\DataCollector\RequestCollector</span><span class="p">;</span>
+
+<span class="nv">$container</span>
+    <span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">RequestCollector</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">false</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;data_collector&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;template&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;data_collector/template.html.twig&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;id&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;app.request_collector&#39;</span><span class="p">,</span>
+        <span class="c1">// &#39;priority&#39; =&gt; 300,</span>
+    <span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Положение каждой панели в панели инструментов определяется приоритетом сборщика
+(чем выше приоритет, тем раньше отображается панель в нанели инструментов).</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

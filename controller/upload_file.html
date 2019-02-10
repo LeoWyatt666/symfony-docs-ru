@@ -1,0 +1,1013 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как загружать файлы &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Controller" href="..\controller.html">
+    <link rel="next" title="How to Restrict Route Matching through Conditions" href="..\routing\conditions.html">
+    <link rel="prev" title="How to Upload Files" href="upload_file.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="controller doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как загружать файлы</a><ul>
+<li><a class="reference internal" href="#id2">Создание сервиса загрузки</a></li>
+<li><a class="reference internal" href="#doctrine">Использование слушателя Doctrine</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\getting_started\index.html">Getting Started</a></li>
+                
+                <li><a href="..\setup.html">Installing &amp; Setting up the Symfony Framework</a></li>
+                
+                <li><a href="..\page_creation.html">Create your First Page in Symfony</a></li>
+                
+                <li><a href="..\routing.html">Routing</a></li>
+                
+                <li><a href="..\controller.html">Controller</a></li>
+                
+                <li class="active">Как загружать файлы</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как загружать файлы<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вместо того, чтобы заниматься обработкой файла самостоятельно, вы можете
+рассмотреть использование общественного пакета <a class="reference external" href="https://github.com/dustin10/VichUploaderBundle">VichUploaderBundle</a>. Этот
+пакет предоставляет все распространённые операции (такие как переименовывание
+файла, сохранение и удаление) и он тесно интегрирован с Doctrine ORM, MongoDB
+ODM, PHPCR ODM и Propel.</p>
+</div></div>
+<p>Представьте, что у вас в приложеии есть сущность <tt class="docutils literal"><code>Product</code></tt> и что вы хотите добавить
+PDF-брошюру для каждого продукта. Чтобы сделать это, добавьте новое свойство под
+названием <tt class="docutils literal"><code>brochure</code></tt> в сущность <tt class="docutils literal"><code>Product</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Product.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Doctrine\ORM\Mapping</span> <span class="k">as</span> <span class="nx">ORM</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Product</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Column(type=&quot;string&quot;)</span>
+<span class="sd">     *</span>
+<span class="sd">     * @Assert\NotBlank(message=&quot;Please, upload the product brochure as a PDF file.&quot;)</span>
+<span class="sd">     * @Assert\File(mimeTypes={ &quot;application/pdf&quot; })</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$brochure</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getBrochure</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">brochure</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setBrochure</span><span class="p">(</span><span class="nv">$brochure</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">brochure</span> <span class="o">=</span> <span class="nv">$brochure</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Отметьте, что тип столбца <tt class="docutils literal"><code>brochure</code></tt> - <tt class="docutils literal"><code>string</code></tt> вместо <tt class="docutils literal"><code>binary</code></tt> или <tt class="docutils literal"><code>blob</code></tt>,
+потому что он просто хранит имя PDF-файла, а не его содержание.</p>
+<p>Далее,  добавьте новое поле <tt class="docutils literal"><code>brochure</code></tt> к форме, которая управляет сущностью
+<tt class="docutils literal"><code>Product</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/ProductType.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Entity\Product</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\AbstractType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormBuilderInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\OptionsResolver\OptionsResolver</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\FileType</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ProductType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span>
+            <span class="c1">// ...</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;brochure&#39;</span><span class="p">,</span> <span class="nx">FileType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Brochure (PDF file)&#39;</span><span class="p">))</span>
+            <span class="c1">// ...</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;data_class&#39;</span> <span class="o">=&gt;</span> <span class="nx">Product</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, обновите шаблон, отображающий форму, чтобы он показывал новое поле
+<tt class="docutils literal"><code>brochure</code></tt> (то, какой именно код добавлять, зависит от метода, используемого
+вашим приложением для <a class="reference internal" href="..\form\form_customization.html"><em>настройки отображения формы</em></a>):</p>
+<div class="configuration-block">
+<ul class="simple">
+</ul>
+</div>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# templates/product/new.html.twig #}</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Добавление нового продукта<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+<span class="cp">{{</span> <span class="nv">form_start</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span>
+    <span class="c">{# ... #}</span>
+
+    <span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.brochure</span><span class="o">)</span> <span class="cp">}}</span>
+<span class="cp">{{</span> <span class="nv">form_end</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- templates/product/new.html.twig --&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Добавление нового продукта<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span><span class="nv">$form</span><span class="p">)</span> <span class="cp">?&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">row</span><span class="p">(</span><span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;brochure&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">(</span><span class="nv">$form</span><span class="p">)</span> <span class="cp">?&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Наконец, вам нужно обновить код контроллера, обрабатывающего форму:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Controller/ProductController.php</span>
+<span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\Controller</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Entity\Product</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Form\ProductType</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ProductController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Route(&quot;/product/new&quot;, name=&quot;app_product_new&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">new</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$product</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">();</span>
+        <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createForm</span><span class="p">(</span><span class="nx">ProductType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nv">$product</span><span class="p">);</span>
+        <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">handleRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isSubmitted</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">())</span> <span class="p">{</span>
+            <span class="c1">// $file сохраняет загруженный PDF файл</span>
+            <span class="sd">/** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */</span>
+            <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$product</span><span class="o">-&gt;</span><span class="na">getBrochure</span><span class="p">();</span>
+
+            <span class="nv">$fileName</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">generateUniqueFileName</span><span class="p">()</span><span class="o">.</span><span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="nv">$file</span><span class="o">-&gt;</span><span class="na">guessExtension</span><span class="p">();</span>
+
+            <span class="c1">// перемещает файл в каталог, где хранятся брошюры</span>
+            <span class="nv">$file</span><span class="o">-&gt;</span><span class="na">move</span><span class="p">(</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getParameter</span><span class="p">(</span><span class="s1">&#39;brochures_directory&#39;</span><span class="p">),</span>
+                <span class="nv">$fileName</span>
+            <span class="p">);</span>
+
+            <span class="c1">// обновляет свойство &#39;brochure&#39;, чтобы сохранить имя файла PDF</span>
+            <span class="c1">// вместо его содержаиия</span>
+            <span class="nv">$product</span><span class="o">-&gt;</span><span class="na">setBrochure</span><span class="p">(</span><span class="nv">$fileName</span><span class="p">);</span>
+
+            <span class="c1">// ... сохранить переменную $product или любую другую работу</span>
+
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">redirect</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">generateUrl</span><span class="p">(</span><span class="s1">&#39;app_product_list&#39;</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;product/new.html.twig&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;form&#39;</span> <span class="o">=&gt;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">createView</span><span class="p">(),</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @return string</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">generateUniqueFileName</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// md5() уменьшает схожесть имён файлов, сгенерированных</span>
+        <span class="c1">// uniqid(), которые основанный на временных отметках</span>
+        <span class="k">return</span> <span class="nb">md5</span><span class="p">(</span><span class="nb">uniqid</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, создайте параметр <tt class="docutils literal"><code>brochures_directory</code></tt>, который был использован в
+контроллере, чтобы указать каталог. в котором должны храниться брошюры:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/services.yaml</span>
+
+<span class="c1"># ...</span>
+<span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">brochures_directory</span><span class="p p-Indicator">:</span> <span class="s">&#39;%kernel.project_dir%/public/uploads/brochures&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Следует учесть некоторые важные вещи в коде вышеописанного контроллера:</p>
+<ol class="arabic simple">
+<li>Когда форма загружается, свойство <tt class="docutils literal"><code>brochure</code></tt> содержит всё содержание PDF-файла.
+Так как это свойство хранит только имя файла, вы должны установить его новое значение
+до того, как сохранять изменения сущности;</li>
+<li>В приложениях Symfony, загруженные файлы являются объектами класса
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/File/UploadedFile.html" title="Symfony\Component\HttpFoundation\File\UploadedFile">UploadedFile</a></code></tt>. Этот класс
+предоставляет методы для наиболее распространённых операций при работе с
+загруженными файлами;</li>
+<li>Широко известная лучшая практика безопасности - никогда не доверять информации,
+введеной пользователями. Это также применимо к файлам, загруженным вашими посетителями.
+Класс <tt class="docutils literal"><code>UploadedFile</code></tt> предоставляет методы для получения оргинального расширения
+(<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/File/UploadedFile.html#method_getExtension" title="Symfony\Component\HttpFoundation\File\UploadedFile::getExtension()">getExtension()</a></code></tt>),
+оригинального размера файла (<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/File/UploadedFile.html#method_getClientSize" title="Symfony\Component\HttpFoundation\File\UploadedFile::getClientSize()">getClientSize()</a></code></tt>)
+и оригинальгого имени файла (<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/File/UploadedFile.html#method_getClientOriginalName" title="Symfony\Component\HttpFoundation\File\UploadedFile::getClientOriginalName()">getClientOriginalName()</a></code></tt>).
+Однако, они считаются <em>небезопасными</em>, так как злоумышленный пользователь мог
+подделать эту информацию. Поэтому всегда лучше сгенерировать уникальное имя и использвать
+метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/File/UploadedFile.html#method_guessExtension" title="Symfony\Component\HttpFoundation\File\UploadedFile::guessExtension()">guessExtension()</a></code></tt>,
+чтобы дать Symfony угадать правильное расширение в соответствии с MIME-типом файла;</li>
+</ol>
+<p>Вы можете использовать следующий код, чтобы создать ссылку на PDF-брошюру продукта:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;uploads/brochures/&#39;</span> <span class="o">~</span> <span class="nv">product.brochure</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>View brochure (PDF)<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;assets&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="s1">&#39;uploads/brochures/&#39;</span><span class="o">.</span><span class="nv">$product</span><span class="o">-&gt;</span><span class="na">getBrochure</span><span class="p">())</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="p">&gt;</span>
+    Просмотреть брошюру (PDF)
+<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>При создании формы для редактуры уже сохранённого объекта, тип формы файла
+всё ещё ожидает экземпляр <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/File/File.html" title="Symfony\Component\HttpFoundation\File\File">File</a></code></tt>.
+Так как сохранённая сущность теперь содержит только относительный путь файла,
+то вы вначале должны связать сконфигурированный загруженный путь с сохранённым
+именем файла и создать новый класс <tt class="docutils literal"><code>File</code></tt>:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\File\File</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$product</span><span class="o">-&gt;</span><span class="na">setBrochure</span><span class="p">(</span>
+    <span class="k">new</span> <span class="nx">File</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getParameter</span><span class="p">(</span><span class="s1">&#39;brochures_directory&#39;</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="nv">$product</span><span class="o">-&gt;</span><span class="na">getBrochure</span><span class="p">())</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<div class="section" id="id2">
+<h2>Создание сервиса загрузки<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Чтобы избежать логики в контроллерах и не утяжелять их, вы можете извлечь логику
+загрузки в отдельный сервис:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Service/FileUploader.php</span>
+<span class="k">namespace</span> <span class="nx">App\Service</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\File\UploadedFile</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">FileUploader</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$targetDir</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$targetDir</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">targetDir</span> <span class="o">=</span> <span class="nv">$targetDir</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">upload</span><span class="p">(</span><span class="nx">UploadedFile</span> <span class="nv">$file</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$fileName</span> <span class="o">=</span> <span class="nb">md5</span><span class="p">(</span><span class="nb">uniqid</span><span class="p">())</span><span class="o">.</span><span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="nv">$file</span><span class="o">-&gt;</span><span class="na">guessExtension</span><span class="p">();</span>
+
+        <span class="nv">$file</span><span class="o">-&gt;</span><span class="na">move</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getTargetDir</span><span class="p">(),</span> <span class="nv">$fileName</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$fileName</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getTargetDir</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">targetDir</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Далее, определите сервис для этого класса:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/services.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">App\Service\FileUploader</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">$targetDir</span><span class="p p-Indicator">:</span> <span class="s">&#39;%brochures_directory%&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+
+    <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\FileUploader&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;argument&gt;</span>%brochures_directory%<span class="nt">&lt;/argument&gt;</span>
+    <span class="nt">&lt;/service&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/services.php</span>
+<span class="k">use</span> <span class="nx">App\Service\FileUploader</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">FileUploader</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArgument</span><span class="p">(</span><span class="s1">&#39;$targetDir&#39;</span><span class="p">,</span> <span class="s1">&#39;%brochures_directory%&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Теперь вы готовы использовать этот сервис в контроллере:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Controller/ProductController.php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Service\FileUploader</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">new</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">FileUploader</span> <span class="nv">$fileUploader</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isSubmitted</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$product</span><span class="o">-&gt;</span><span class="na">getBrochure</span><span class="p">();</span>
+        <span class="nv">$fileName</span> <span class="o">=</span> <span class="nv">$fileUploader</span><span class="o">-&gt;</span><span class="na">upload</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span>
+
+        <span class="nv">$product</span><span class="o">-&gt;</span><span class="na">setBrochure</span><span class="p">(</span><span class="nv">$fileName</span><span class="p">);</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="doctrine">
+<h2>Использование слушателя Doctrine<a class="headerlink" href="#doctrine" title="Permalink to this headline">¶</a></h2>
+<p>Если вы используете Doctrine для хранения сущности Продукта, вы можете создать
+<a class="reference internal" href="..\doctrine\event_listeners_subscribers.html"><em>слушателя Doctrine</em></a>, чтобы
+автоматически загружать файл при сохранении сущности:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/EventListener/BrochureUploadListener.php</span>
+<span class="k">namespace</span> <span class="nx">App\EventListener</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\File\UploadedFile</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\ORM\Event\LifecycleEventArgs</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\ORM\Event\PreUpdateEventArgs</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Entity\Product</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Service\FileUploader</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">BrochureUploadListener</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$uploader</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">FileUploader</span> <span class="nv">$uploader</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">uploader</span> <span class="o">=</span> <span class="nv">$uploader</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">prePersist</span><span class="p">(</span><span class="nx">LifecycleEventArgs</span> <span class="nv">$args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$entity</span> <span class="o">=</span> <span class="nv">$args</span><span class="o">-&gt;</span><span class="na">getEntity</span><span class="p">();</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">uploadFile</span><span class="p">(</span><span class="nv">$entity</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">preUpdate</span><span class="p">(</span><span class="nx">PreUpdateEventArgs</span> <span class="nv">$args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$entity</span> <span class="o">=</span> <span class="nv">$args</span><span class="o">-&gt;</span><span class="na">getEntity</span><span class="p">();</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">uploadFile</span><span class="p">(</span><span class="nv">$entity</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">uploadFile</span><span class="p">(</span><span class="nv">$entity</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// загрузка работает только для сущностей Product</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$entity</span> <span class="nx">instanceof</span> <span class="nx">Product</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">getBrochure</span><span class="p">();</span>
+
+        <span class="c1">// загружать только новые файлы</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$file</span> <span class="nx">instanceof</span> <span class="nx">UploadedFile</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$fileName</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">uploader</span><span class="o">-&gt;</span><span class="na">upload</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span>
+            <span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">setBrochure</span><span class="p">(</span><span class="nv">$fileName</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, зарегистрируйте этот класс, как слушателя Doctrine:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/services.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">_defaults</span><span class="p p-Indicator">:</span>
+        <span class="c1"># ... убедитесь, что включено автомонтирование</span>
+        <span class="l l-Scalar l-Scalar-Plain">autowire</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">App\EventListener\BrochureUploadListener</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">doctrine.event_listener</span><span class="p p-Indicator">,</span> <span class="nv">event</span><span class="p p-Indicator">:</span> <span class="nv">prePersist</span> <span class="p p-Indicator">}</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">doctrine.event_listener</span><span class="p p-Indicator">,</span> <span class="nv">event</span><span class="p p-Indicator">:</span> <span class="nv">preUpdate</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="c">&lt;!-- ... убедитесь, что включено автомонтирование --&gt;</span>
+        <span class="nt">&lt;defaults</span> <span class="na">autowire=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\EventListener\BrochureUploaderListener&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;doctrine.event_listener&quot;</span> <span class="na">event=</span><span class="s">&quot;prePersist&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;doctrine.event_listener&quot;</span> <span class="na">event=</span><span class="s">&quot;preUpdate&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/services.php</span>
+<span class="k">use</span> <span class="nx">App\EventListener\BrochureUploaderListener</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">BrochureUploaderListener</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;doctrine.event_listener&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;event&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;prePersist&#39;</span><span class="p">,</span>
+    <span class="p">))</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;doctrine.event_listener&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;event&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;preUpdate&#39;</span><span class="p">,</span>
+    <span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Теперь этот слушатель будет автоматически выполняться при сохранении новой
+сущности Продукта. Таким образом, вы можете удалить всё, относящееся к загрузке,
+из контроллера.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Этот слушатель также может создать экземпляр <tt class="docutils literal"><code>File</code></tt>, основанный на пути,
+при извлечении сущностей из БД:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\File\File</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">BrochureUploadListener</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">postLoad</span><span class="p">(</span><span class="nx">LifecycleEventArgs</span> <span class="nv">$args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$entity</span> <span class="o">=</span> <span class="nv">$args</span><span class="o">-&gt;</span><span class="na">getEntity</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$entity</span> <span class="nx">instanceof</span> <span class="nx">Product</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$fileName</span> <span class="o">=</span> <span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">getBrochure</span><span class="p">())</span> <span class="p">{</span>
+            <span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">setBrochure</span><span class="p">(</span><span class="k">new</span> <span class="nx">File</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">uploader</span><span class="o">-&gt;</span><span class="na">getTargetDir</span><span class="p">()</span><span class="o">.</span><span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="nv">$fileName</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p class="last">После добавления этих строк, сконфигурируйте слушателя так, чтобы он также
+слушал событие <tt class="docutils literal"><code>postLoad</code></tt>.</p>
+</div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="upload_file.html">« How to Upload Files</a>
+                <span class="separator">|</span>
+                <a href="..\routing\conditions.html">How to Restrict Route Matching through Conditions »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

@@ -1,0 +1,711 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как работать с множеством менеджеров сущностей и соединениями &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="doctrine doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как работать с множеством менеджеров сущностей и соединениями</a></li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Как работать с множеством менеджеров сущностей и соединениями</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как работать с множеством менеджеров сущностей и соединениями<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Вы можете использовать множество менеджеров сущностей Doctrine или соединений в
+приложении Symfony. Это необходимо, если вы используете разные базы данных, или
+даже поставщиков с абсолютно разными наборами сущностей. Другими словами, один
+менеджер сущностей, который соединяется с одной базой данных, будет управлять
+некоторыми сущностями, в то время как другой менеджер сущностей, который соединяется
+с другой базой данных, может управлять всеми остальными.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Использовать множество менеджеров сушностей достаточно просто, но это
+более продвинутый уровень, и обычно не требуется. Убедитесь в том, что вам
+на самм деле нужно множество менеджеров сушностей перед тем, как добавлять
+этот уровень сложности.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Сущности не могут определять ассоциации по разным менеджерам сущностей. Если
+вам нужно это, существует <a class="reference external" href="https://stackoverflow.com/a/11494543/2804294">несколько альтернатив</a>,
+которые требуют особенной установки.</p>
+</div></div>
+<p>Следующий код конфигурации показывает, как вы можете сконфигурироваь два менеджера
+сущностей:</p>
+<p>... configuration-block:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="nx">code</span><span class="o">-</span><span class="nx">block</span><span class="o">::</span> <span class="na">yaml</span>
+
+    <span class="c1"># config/packages/doctrine.yaml</span>
+    <span class="nx">doctrine</span><span class="o">:</span>
+        <span class="nx">dbal</span><span class="o">:</span>
+            <span class="nx">default_connection</span><span class="o">:</span> <span class="k">default</span>
+            <span class="nx">connections</span><span class="o">:</span>
+                <span class="k">default</span><span class="o">:</span>
+                    <span class="nx">driver</span><span class="o">:</span>   <span class="nx">pdo_mysql</span>
+                    <span class="nx">host</span><span class="o">:</span>     <span class="s1">&#39;%database_host%&#39;</span>
+                    <span class="nx">port</span><span class="o">:</span>     <span class="s1">&#39;%database_port%&#39;</span>
+                    <span class="nx">dbname</span><span class="o">:</span>   <span class="s1">&#39;%database_name%&#39;</span>
+                    <span class="nx">user</span><span class="o">:</span>     <span class="s1">&#39;%database_user%&#39;</span>
+                    <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;%database_password%&#39;</span>
+                    <span class="nx">charset</span><span class="o">:</span>  <span class="nx">UTF8</span>
+                <span class="nx">customer</span><span class="o">:</span>
+                    <span class="nx">driver</span><span class="o">:</span>   <span class="nx">pdo_mysql</span>
+                    <span class="nx">host</span><span class="o">:</span>     <span class="s1">&#39;%database_host2%&#39;</span>
+                    <span class="nx">port</span><span class="o">:</span>     <span class="s1">&#39;%database_port2%&#39;</span>
+                    <span class="nx">dbname</span><span class="o">:</span>   <span class="s1">&#39;%database_name2%&#39;</span>
+                    <span class="nx">user</span><span class="o">:</span>     <span class="s1">&#39;%database_user2%&#39;</span>
+                    <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;%database_password2%&#39;</span>
+                    <span class="nx">charset</span><span class="o">:</span>  <span class="nx">UTF8</span>
+
+        <span class="nx">orm</span><span class="o">:</span>
+            <span class="nx">default_entity_manager</span><span class="o">:</span> <span class="k">default</span>
+            <span class="nx">entity_managers</span><span class="o">:</span>
+                <span class="k">default</span><span class="o">:</span>
+                    <span class="nx">connection</span><span class="o">:</span> <span class="k">default</span>
+                    <span class="nx">mappings</span><span class="o">:</span>
+                        <span class="nx">Main</span><span class="o">:</span>
+                            <span class="nx">is_bundle</span><span class="o">:</span> <span class="k">false</span>
+                            <span class="nx">type</span><span class="o">:</span> <span class="nx">annotation</span>
+                            <span class="nb">dir</span><span class="o">:</span> <span class="s1">&#39;%kernel.project_dir%/src/Entity/Main&#39;</span>
+                            <span class="nx">prefix</span><span class="o">:</span> <span class="s1">&#39;App\Entity\Main&#39;</span>
+                            <span class="nx">alias</span><span class="o">:</span> <span class="nx">Main</span>
+                <span class="nx">customer</span><span class="o">:</span>
+                    <span class="nx">connection</span><span class="o">:</span> <span class="nx">customer</span>
+                    <span class="nx">mappings</span><span class="o">:</span>
+                        <span class="nx">Customer</span><span class="o">:</span>
+                            <span class="nx">is_bundle</span><span class="o">:</span> <span class="k">false</span>
+                            <span class="nx">type</span><span class="o">:</span> <span class="nx">annotation</span>
+                            <span class="nb">dir</span><span class="o">:</span> <span class="s1">&#39;%kernel.project_dir%/src/Entity/Customer&#39;</span>
+                            <span class="nx">prefix</span><span class="o">:</span> <span class="s1">&#39;App\Entity\Customer&#39;</span>
+                            <span class="nx">alias</span><span class="o">:</span> <span class="nx">Customer</span>
+
+<span class="o">..</span> <span class="nx">code</span><span class="o">-</span><span class="nx">block</span><span class="o">::</span> <span class="na">xml</span>
+
+    <span class="o">&lt;!--</span> <span class="nx">config</span><span class="o">/</span><span class="nx">packages</span><span class="o">/</span><span class="nx">doctrine</span><span class="o">.</span><span class="nx">xml</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;?</span><span class="nx">xml</span> <span class="nx">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="nx">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    &lt;container xmlns=&quot;http://symfony.com/schema/dic/services&quot;</span>
+<span class="x">        xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="x">        xmlns:doctrine=&quot;http://symfony.com/schema/dic/doctrine&quot;</span>
+<span class="x">        xsi:schemaLocation=&quot;http://symfony.com/schema/dic/services</span>
+<span class="x">            http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="x">            http://symfony.com/schema/dic/doctrine</span>
+<span class="x">            http://symfony.com/schema/dic/doctrine/doctrine-1.0.xsd&quot;&gt;</span>
+
+<span class="x">        &lt;doctrine:config&gt;</span>
+<span class="x">            &lt;doctrine:dbal default-connection=&quot;default&quot;&gt;</span>
+<span class="x">                &lt;doctrine:connection name=&quot;default&quot;</span>
+<span class="x">                    driver=&quot;pdo_mysql&quot;</span>
+<span class="x">                    host=&quot;%database_host%&quot;</span>
+<span class="x">                    port=&quot;%database_port%&quot;</span>
+<span class="x">                    dbname=&quot;%database_name%&quot;</span>
+<span class="x">                    user=&quot;%database_user%&quot;</span>
+<span class="x">                    password=&quot;%database_password%&quot;</span>
+<span class="x">                    charset=&quot;UTF8&quot;</span>
+<span class="x">                /&gt;</span>
+
+<span class="x">                &lt;doctrine:connection name=&quot;customer&quot;</span>
+<span class="x">                    driver=&quot;pdo_mysql&quot;</span>
+<span class="x">                    host=&quot;%database_host2%&quot;</span>
+<span class="x">                    port=&quot;%database_port2%&quot;</span>
+<span class="x">                    dbname=&quot;%database_name2%&quot;</span>
+<span class="x">                    user=&quot;%database_user2%&quot;</span>
+<span class="x">                    password=&quot;%database_password2%&quot;</span>
+<span class="x">                    charset=&quot;UTF8&quot;</span>
+<span class="x">                /&gt;</span>
+<span class="x">            &lt;/doctrine:dbal&gt;</span>
+
+<span class="x">            &lt;doctrine:orm default-entity-manager=&quot;default&quot;&gt;</span>
+<span class="x">                &lt;doctrine:entity-manager name=&quot;default&quot; connection=&quot;default&quot;&gt;</span>
+<span class="x">                    &lt;doctrine:mapping</span>
+<span class="x">                        name=&quot;Main&quot;</span>
+<span class="x">                        is_bundle=&quot;false&quot;</span>
+<span class="x">                        type=&quot;annotation&quot;</span>
+<span class="x">                        dir=&quot;%kernel.project_dir%/src/Entity/Main&quot;</span>
+<span class="x">                        prefix=&quot;App\Entity\Main&quot;</span>
+<span class="x">                        alias=&quot;Main&quot;</span>
+<span class="x">                    /&gt;</span>
+<span class="x">                &lt;/doctrine:entity-manager&gt;</span>
+
+<span class="x">                &lt;doctrine:entity-manager name=&quot;customer&quot; connection=&quot;customer&quot;&gt;</span>
+<span class="x">                    &lt;doctrine:mapping</span>
+<span class="x">                        name=&quot;Customer&quot;</span>
+<span class="x">                        is_bundle=&quot;false&quot;</span>
+<span class="x">                        type=&quot;annotation&quot;</span>
+<span class="x">                        dir=&quot;%kernel.project_dir%/src/Entity/Customer&quot;</span>
+<span class="x">                        prefix=&quot;App\Entity\Customer&quot;</span>
+<span class="x">                        alias=&quot;Customer&quot;</span>
+<span class="x">                    /&gt;</span>
+<span class="x">                &lt;/doctrine:entity-manager&gt;</span>
+<span class="x">            &lt;/doctrine:orm&gt;</span>
+<span class="x">        &lt;/doctrine:config&gt;</span>
+<span class="x">    &lt;/container&gt;</span>
+
+<span class="x">.. code-block:: php</span>
+
+<span class="x">    // config/packages/doctrine.php</span>
+<span class="x">    $container-&gt;loadFromExtension(&#39;doctrine&#39;, array(</span>
+<span class="x">        &#39;dbal&#39; =&gt; array(</span>
+<span class="x">            &#39;default_connection&#39; =&gt; &#39;default&#39;,</span>
+<span class="x">            &#39;connections&#39; =&gt; array(</span>
+<span class="x">                &#39;default&#39; =&gt; array(</span>
+<span class="x">                    &#39;driver&#39;   =&gt; &#39;pdo_mysql&#39;,</span>
+<span class="x">                    &#39;host&#39;     =&gt; &#39;%database_host%&#39;,</span>
+<span class="x">                    &#39;port&#39;     =&gt; &#39;%database_port%&#39;,</span>
+<span class="x">                    &#39;dbname&#39;   =&gt; &#39;%database_name%&#39;,</span>
+<span class="x">                    &#39;user&#39;     =&gt; &#39;%database_user%&#39;,</span>
+<span class="x">                    &#39;password&#39; =&gt; &#39;%database_password%&#39;,</span>
+<span class="x">                    &#39;charset&#39;  =&gt; &#39;UTF8&#39;,</span>
+<span class="x">                ),</span>
+<span class="x">                &#39;customer&#39; =&gt; array(</span>
+<span class="x">                    &#39;driver&#39;   =&gt; &#39;pdo_mysql&#39;,</span>
+<span class="x">                    &#39;host&#39;     =&gt; &#39;%database_host2%&#39;,</span>
+<span class="x">                    &#39;port&#39;     =&gt; &#39;%database_port2%&#39;,</span>
+<span class="x">                    &#39;dbname&#39;   =&gt; &#39;%database_name2%&#39;,</span>
+<span class="x">                    &#39;user&#39;     =&gt; &#39;%database_user2%&#39;,</span>
+<span class="x">                    &#39;password&#39; =&gt; &#39;%database_password2%&#39;,</span>
+<span class="x">                    &#39;charset&#39;  =&gt; &#39;UTF8&#39;,</span>
+<span class="x">                ),</span>
+<span class="x">            ),</span>
+<span class="x">        ),</span>
+
+<span class="x">        &#39;orm&#39; =&gt; array(</span>
+<span class="x">            &#39;default_entity_manager&#39; =&gt; &#39;default&#39;,</span>
+<span class="x">            &#39;entity_managers&#39; =&gt; array(</span>
+<span class="x">                &#39;default&#39; =&gt; array(</span>
+<span class="x">                    &#39;connection&#39; =&gt; &#39;default&#39;,</span>
+<span class="x">                    &#39;mappings&#39;   =&gt; array(</span>
+<span class="x">                        &#39;Main&#39;  =&gt; array(</span>
+<span class="x">                            is_bundle =&gt; false,</span>
+<span class="x">                            type =&gt; &#39;annotation&#39;,</span>
+<span class="x">                            dir =&gt; &#39;%kernel.project_dir%/src/Entity/Main&#39;,</span>
+<span class="x">                            prefix =&gt; &#39;App\Entity\Main&#39;,</span>
+<span class="x">                            alias =&gt; &#39;Main&#39;,</span>
+<span class="x">                        )</span>
+<span class="x">                    ),</span>
+<span class="x">                ),</span>
+<span class="x">                &#39;customer&#39; =&gt; array(</span>
+<span class="x">                    &#39;connection&#39; =&gt; &#39;customer&#39;,</span>
+<span class="x">                    &#39;mappings&#39;   =&gt; array(</span>
+<span class="x">                        &#39;Customer&#39;  =&gt; array(</span>
+<span class="x">                            is_bundle =&gt; false,</span>
+<span class="x">                            type =&gt; &#39;annotation&#39;,</span>
+<span class="x">                            dir =&gt; &#39;%kernel.project_dir%/src/Entity/Customer&#39;,</span>
+<span class="x">                            prefix =&gt; &#39;App\Entity\Customer&#39;,</span>
+<span class="x">                            alias =&gt; &#39;Customer&#39;,</span>
+<span class="x">                        )</span>
+<span class="x">                    ),</span>
+<span class="x">                ),</span>
+<span class="x">            ),</span>
+<span class="x">        ),</span>
+<span class="x">    ));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В этом случае, вы определили два менеджера сущностей и назвали их <tt class="docutils literal"><code>default</code></tt>
+и <tt class="docutils literal"><code>customer</code></tt>. Менеджер сущностей <tt class="docutils literal"><code>default</code></tt> управляет сущностями в каталоге
+<tt class="docutils literal"><code>src/Entity/Main</code></tt>, а менеджер сущностей <tt class="docutils literal"><code>customer</code></tt> - в <tt class="docutils literal"><code>src/Entity/Customer</code></tt>.
+Вы также определили два соединения, по одному для каждого менеджера.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">При работе со множественными соединениями и несколькими менеджерами сущностей,
+вы должны явно указывать, какую конфигурацию вы хотите. Если вы <em>упустите</em>
+имя соединения или менеджера сущностей, будет использовано имя по умолчанию
+(т.е. <tt class="docutils literal"><code>default</code></tt>).</p>
+</div></div>
+<p>При работе с множеством соединений, для создания ваших БД:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Играть только с соединением &quot;default&quot;</span>
+<span class="gp">$</span> php bin/console doctrine:database:create
+
+<span class="c1"># Играть только с соединением &quot;customer&quot;</span>
+<span class="gp">$</span> php bin/console doctrine:database:create --connection<span class="o">=</span>customer
+</pre></div>
+</td></tr></table></div></div>
+<p>При работе с множеством менеджеров сущностей для генерирования миграций.</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Играть только с отображениями &quot;default&quot;</span>
+<span class="gp">$</span> php bin/console doctrine:migrations:diff
+<span class="gp">$</span> php bin/console doctrine:migrations:migrate
+
+<span class="c1"># Играть только с отображениями &quot;customer&quot;</span>
+<span class="gp">$</span> php bin/console doctrine:migrations:diff --em<span class="o">=</span>customer
+<span class="gp">$</span> php bin/console doctrine:migrations:migrate --em<span class="o">=</span>customer
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы <em>упустите</em> имя менеджера сущностей при его запросе, будет
+возвращён менеджер сущностей по умолчанию (т.е. <tt class="docutils literal"><code>default</code></tt>):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+
+<span class="k">use</span> <span class="nx">Doctrine\ORM\EntityManagerInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">(</span><span class="nx">EntityManagerInterface</span> <span class="nv">$em</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Эти методы также возвращают менеджер сушностей по умолчанию, но предпочтительнее</span>
+        <span class="c1">// получать его, внедряя EntityManagerInterface в метод раздела</span>
+        <span class="nv">$em</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
+        <span class="nv">$em</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">);</span>
+        <span class="nv">$em</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;doctrine.orm.default_entity_manager&#39;</span><span class="p">);</span>
+
+        <span class="c1">// Оба возвращают менеджер сущностей &quot;customer&quot;</span>
+        <span class="nv">$customerEm</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">(</span><span class="s1">&#39;customer&#39;</span><span class="p">);</span>
+        <span class="nv">$customerEm</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;doctrine.orm.customer_entity_manager&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь вы можете использовать Doctrine так же, как и раньше - путём использования
+менеджера сущностей <tt class="docutils literal"><code>default</code></tt> для сохранения и возврата сущностей, которыми он
+управляет, и менеджера сущностей <tt class="docutils literal"><code>customer</code></tt> для сохранения и возврате его сущностей.</p>
+<p>То же самое применяется к вызовам хранилиша:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">AcmeStoreBundle\Entity\Customer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AcmeStoreBundle\Entity\Product</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="k">class</span> <span class="nc">UserController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Извлекает хранилище, управляемое менеджером сущностей &quot;default&quot;</span>
+        <span class="nv">$products</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Product</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">findAll</span><span class="p">()</span>
+        <span class="p">;</span>
+
+        <span class="c1">// Ясный способ разобраться с менеджером сущностей &quot;default&quot;</span>
+        <span class="nv">$products</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Product</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;default&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">findAll</span><span class="p">()</span>
+        <span class="p">;</span>
+
+        <span class="c1">// Извлекает хранилище, управляемое менеджером сущностей &quot;customer&quot;</span>
+        <span class="nv">$customers</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Customer</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;customer&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">findAll</span><span class="p">()</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

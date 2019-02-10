@@ -1,0 +1,589 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Управление сессиями &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+    <link rel="up" title="The HttpFoundation Component" href="..\http_foundation.html">
+    <link rel="next" title="Избегание запуска сессий для анонимных пользователей" href="../../session/avoid_session_start-ru.html">
+    <link rel="prev" title="Session Management" href="sessions.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Управление сессиями</a><ul>
+<li><a class="reference internal" href="#api">API Сессии</a><ul>
+<li><a class="reference internal" href="#id2">Рабочий процесс сессии</a></li>
+<li><a class="reference internal" href="#id3">Атрибуты сессии</a></li>
+<li><a class="reference internal" href="#id4">Метаданные сессии</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">Управление данными сессии</a></li>
+<li><a class="reference internal" href="#id6">Атрибуты</a></li>
+<li><a class="reference internal" href="#id7">Флеш-сообщения</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li><a href="..\index.html">The Components</a></li>
+                
+                <li><a href="..\http_foundation.html">The HttpFoundation Component</a></li>
+                
+                <li class="active">Управление сессиями</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Управление сессиями<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Компонент Symfony HttpFoundation имеет очень мощную и гибкую подсистему сессий,
+которая сроектирована для предоставления возможности управления сессиями через
+простой объектно-ориенттированный интерфейс, используя различные драйверы хранения
+сессий.</p>
+<p>Сессии используются через простую реализацию
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html" title="Symfony\Component\HttpFoundation\Session\Session">Session</a></code></tt> интерфейса
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/SessionInterface.html" title="Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</a></code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Убедитесь в том, что ваша PHP сессия ещё не запущена перед там, как
+использовать класс Session. Если у вас есть унаследованная система
+сессий, которая запускает вашу сессию, см.
+<a class="reference internal" href="session_php_bridge.html"><em>Унаследованные сессии</em></a>.</p>
+</div></div>
+<p>Быстрый пример:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Session\Session</span><span class="p">;</span>
+
+<span class="nv">$session</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Session</span><span class="p">();</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="c1">// устанавливать и получать атрибуты сессии</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Drak&#39;</span><span class="p">);</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+
+<span class="c1">// устанавливать флеш-сообщения</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getFlashBag</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;notice&#39;</span><span class="p">,</span> <span class="s1">&#39;Profile updated&#39;</span><span class="p">);</span>
+
+<span class="c1">// извлекать сообщения</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getFlashBag</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;notice&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">())</span> <span class="k">as</span> <span class="nv">$message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;&lt;div class=&quot;flash-notice&quot;&gt;&#39;</span><span class="o">.</span><span class="nv">$message</span><span class="o">.</span><span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Сессии Symfony созданы для замены нескольких оригинальных PHP функций.
+Приложениям стоит избегать использования <tt class="docutils literal"><code>session_start()</code></tt>, <tt class="docutils literal"><code>session_regenerate_id()</code></tt>,
+<tt class="docutils literal"><code>session_id()</code></tt>, <tt class="docutils literal"><code>session_name()</code></tt>, и <tt class="docutils literal"><code>session_destroy()</code></tt>, а вместо
+этого использовать API в следующем разделе.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Несмотря на то, что рекомендуется запускать сессию ясно, на самом деле она начнётся
+по требованию, то есть, если будет создан запрос к сессии прочитать или записать
+данные сессии.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Сессии Symfony несовместимы с директивой <tt class="docutils literal"><code>php.ini</code></tt> <tt class="docutils literal"><code>session.auto_start = 1</code></tt>.
+Эту директиву нужно выключить в <tt class="docutils literal"><code>php.ini</code></tt>, в директивах веб-сервера или в
+<tt class="docutils literal"><code>.htaccess</code></tt>.</p>
+</div></div>
+<div class="section" id="api">
+<h2>API Сессии<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<p>Класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html" title="Symfony\Component\HttpFoundation\Session\Session">Session</a></code></tt>  реализует
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/SessionInterface.html" title="Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</a></code></tt>.</p>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html" title="Symfony\Component\HttpFoundation\Session\Session">Session</a></code></tt> имеет простой API,
+который разделяется на несколько групп.</p>
+<div class="section" id="id2">
+<h3>Рабочий процесс сессии<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_start" title="Symfony\Component\HttpFoundation\Session\Session::start()">start()</a></code></tt></dt>
+<dd>Запускает сессию - не используйте <tt class="docutils literal"><code>session_start()</code></tt>.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_migrate" title="Symfony\Component\HttpFoundation\Session\Session::migrate()">migrate()</a></code></tt></dt>
+<dd>Повторно генерирует ID сессии - не используйте <tt class="docutils literal"><code>session_regenerate_id()</code></tt>.
+Этот метод может опционально изменять время жизни нового куки, который
+будет излучен путём вызова этого метода.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_invalidate" title="Symfony\Component\HttpFoundation\Session\Session::invalidate()">invalidate()</a></code></tt></dt>
+<dd>Очищает все данные сессии и повторно генерирует ID сессии. Не используйте
+<tt class="docutils literal"><code>session_destroy()</code></tt>.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_getId" title="Symfony\Component\HttpFoundation\Session\Session::getId()">getId()</a></code></tt></dt>
+<dd>Получает ID сессии. Не используйте <tt class="docutils literal"><code>session_id()</code></tt>.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_setId" title="Symfony\Component\HttpFoundation\Session\Session::setId()">setId()</a></code></tt></dt>
+<dd>Устанавливает ID сессии. Не используйте <tt class="docutils literal"><code>session_id()</code></tt>.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_getName" title="Symfony\Component\HttpFoundation\Session\Session::getName()">getName()</a></code></tt></dt>
+<dd>Получает имя сессии. Не используйте <tt class="docutils literal"><code>session_name()</code></tt>.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_setName" title="Symfony\Component\HttpFoundation\Session\Session::setName()">setName()</a></code></tt></dt>
+<dd>Устанавливает имя сессии. Не используйте <tt class="docutils literal"><code>session_name()</code></tt>.</dd>
+</dl>
+</div>
+<div class="section" id="id3">
+<h3>Атрибуты сессии<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_set" title="Symfony\Component\HttpFoundation\Session\Session::set()">set()</a></code></tt></dt>
+<dd>Устанавливает атрибут по ключу.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_get" title="Symfony\Component\HttpFoundation\Session\Session::get()">get()</a></code></tt></dt>
+<dd>Получает атрибут по ключу.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_all" title="Symfony\Component\HttpFoundation\Session\Session::all()">all()</a></code></tt></dt>
+<dd>Получает все атрибуты в виде массива ключ =&gt; значение.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_has" title="Symfony\Component\HttpFoundation\Session\Session::has()">has()</a></code></tt></dt>
+<dd>Возвращает &quot;true&quot;, если атрибут существует.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_replace" title="Symfony\Component\HttpFoundation\Session\Session::replace()">replace()</a></code></tt></dt>
+<dd>Устанавливает несколько атрибутов одновременно: берёт массив ключей и устанавливает
+в каждом пару ключ =&gt; значение.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_remove" title="Symfony\Component\HttpFoundation\Session\Session::remove()">remove()</a></code></tt></dt>
+<dd>Удаляет атрибут по ключу.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_clear" title="Symfony\Component\HttpFoundation\Session\Session::clear()">clear()</a></code></tt></dt>
+<dd>Очистить все атрибуты.</dd>
+</dl>
+<p>Атрибуты хранятся внутренне в &quot;Сумке&quot;, PHP объекте, который действует, как
+массив. Для управления &quot;Сумкой&quot; существует несколько методов:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_registerBag" title="Symfony\Component\HttpFoundation\Session\Session::registerBag()">registerBag()</a></code></tt></dt>
+<dd>Регистрирует <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/SessionBagInterface.html" title="Symfony\Component\HttpFoundation\Session\SessionBagInterface">SessionBagInterface</a></code></tt>.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_getBag" title="Symfony\Component\HttpFoundation\Session\Session::getBag()">getBag()</a></code></tt></dt>
+<dd>Получает <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/SessionBagInterface.html" title="Symfony\Component\HttpFoundation\Session\SessionBagInterface">SessionBagInterface</a></code></tt> по
+имени сумки.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_getFlashBag" title="Symfony\Component\HttpFoundation\Session\Session::getFlashBag()">getFlashBag()</a></code></tt></dt>
+<dd>Получает <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Flash/FlashBagInterface.html" title="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface">FlashBagInterface</a></code></tt>.
+Это просто сокращение для удобства.</dd>
+</dl>
+</div>
+<div class="section" id="id4">
+<h3>Метаданные сессии<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Session.html#method_getMetadataBag" title="Symfony\Component\HttpFoundation\Session\Session::getMetadataBag()">getMetadataBag()</a></code></tt></dt>
+<dd>Получает <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Storage/MetadataBag.html" title="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">MetadataBag</a></code></tt>,
+который подержит информацию о сессии.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Управление данными сессии<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Управление PHP сессией требует использование суперглобального <tt class="docutils literal"><code>$_SESSION</code></tt>,
+однако, это несколько противоречит тестируемости кода и инкаспуляции в парадигме
+OOP. Чобы преодолеть это, Symfony использует <em>сумки сессии</em>, связанные с сессией,
+чтобы инкапсулировать конкретный набор данных атрибутов или флеш-сообщений.</p>
+<p>Такой подход также уменьшает засорение пространства имён в рамках суперглобального
+<tt class="docutils literal"><code>$_SESSION</code></tt>, так как каждая сумка хранит все свои данные под уникальным пространством
+имён. Это позволяет Symfony мирно сосуществовать с другими приложениями или библиотеками,
+которые могут использовать суперглобальный <tt class="docutils literal"><code>$_SESSION</code></tt>, и все данные остаются полностью
+совмеситмыми с управлением сессий Symfony.</p>
+<p>Symfony предоставляет два вида сумок хранения, с двумя разными реализациями.
+Все написано с учетом интерфейсов, так что вы можете расширить или создать
+ваши собственные виды сумок, по необходимости.</p>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/SessionBagInterface.html" title="Symfony\Component\HttpFoundation\Session\SessionBagInterface">SessionBagInterface</a></code></tt>
+имеет следующий API, который в основном предназначен для внутренних целей:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/SessionBagInterface.html#method_getStorageKey" title="Symfony\Component\HttpFoundation\Session\SessionBagInterface::getStorageKey()">getStorageKey()</a></code></tt></dt>
+<dd>Возвращает ключ, под которым сумка будет хранить свой массив в <tt class="docutils literal"><code>$_SESSION</code></tt>.
+Обычно это значение может остаться в состоянии по умолчанию и используется
+только внутренне.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/SessionBagInterface.html#method_initialize" title="Symfony\Component\HttpFoundation\Session\SessionBagInterface::initialize()">initialize()</a></code></tt></dt>
+<dd>Вызывается внутренне классами хранения сессий Symfony, чтобы связать данные
+сумки с сессией.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/SessionBagInterface.html#method_getName" title="Symfony\Component\HttpFoundation\Session\SessionBagInterface::getName()">getName()</a></code></tt></dt>
+<dd>Возвращает имя сумки сессии.</dd>
+</dl>
+</div>
+<div class="section" id="id6">
+<h2>Атрибуты<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Целью сумок, реализующих <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Attribute/AttributeBagInterface.html" title="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface">AttributeBagInterface</a></code></tt>
+является обработка хранилища атрибутов сессии. Это может включать в себя такие вещи,
+как ID пользователя, настройки входа &quot;запомнить меня&quot; или другую информацию,
+основанную на состоянии пользователя.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Attribute/AttributeBag.html" title="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag">AttributeBag</a></code></tt></dt>
+<dd>Это стандартная реализация по умолчанию.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Attribute/NamespacedAttributeBag.html" title="Symfony\Component\HttpFoundation\Session\Attribute\NamespacedAttributeBag">NamespacedAttributeBag</a></code></tt></dt>
+<dd>Эта реализация позволяет хранение атрибутов в структурированном пространстве имён.</dd>
+</dl>
+<p>Любая система хранения ключ-значение ограничена в том, какие сложные данные
+могут храниться, так как каждый ключ должен быть уникален. Вы можете достичь
+организации простраства имён, введя соглашение об именовании ключей, чтобы
+разные части вашего приложения могли работать без сбоев. Например, <tt class="docutils literal"><code>module1.foo</code></tt>
+и <tt class="docutils literal"><code>module2.foo</code></tt>. Однако, иногда не очень практично, если данные атрибутов
+находятся в массиве, например, наборе токенов. В таком случае, управление массивом
+становится сложной обязанностью, так как вам нужно извлекать массив, потом
+обрабатывать его, а потом сохранять его снова:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$tokens</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;tokens&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;a&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;a6c1e0b6&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;b&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;f4a7b1f3&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Поэтому любая обработка этого может быстр остать некрасивой, даже простое добавление
+токена в массив:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$tokens</span> <span class="o">=</span> <span class="nv">$session</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;tokens&#39;</span><span class="p">);</span>
+<span class="nv">$tokens</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;tokens&#39;</span><span class="p">,</span> <span class="nv">$tokens</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Со структурированным пространством имён, ключ может быть переведен в
+структуру массива, вроде этого, используя символ пространства имён
+(по умолчанию <tt class="docutils literal"><code>/</code></tt>):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$session</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;tokens/c&#39;</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Таким образом вы можете с лёгкостью получить доступ к ключу в рамках сохранённого
+массива напрямую.</p>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Attribute/AttributeBagInterface.html" title="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface">AttributeBagInterface</a></code></tt>
+имеет простой API</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Attribute/AttributeBagInterface.html#method_set" title="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface::set()">set()</a></code></tt></dt>
+<dd>Устанавливает атрибут по ключу.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Attribute/AttributeBagInterface.html#method_get" title="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface::get()">get()</a></code></tt></dt>
+<dd>Получает атрибут по ключу.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Attribute/AttributeBagInterface.html#method_all" title="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface::all()">all()</a></code></tt></dt>
+<dd>Получает все атрибуты в виде массива ключ =&gt; значение.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Attribute/AttributeBagInterface.html#method_has" title="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface::has()">has()</a></code></tt></dt>
+<dd>Возвращает &quot;true&quot;, если атрибут существует.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Attribute/AttributeBagInterface.html#method_replace" title="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface::replace()">replace()</a></code></tt></dt>
+<dd>Устанавливает несколько атрибутов одновременно: берёт массив ключей и устанавливает для
+каждого пару ключ =&gt; значение.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Attribute/AttributeBagInterface.html#method_remove" title="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface::remove()">remove()</a></code></tt></dt>
+<dd>Удаляет атрибут по ключу.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Attribute/AttributeBagInterface.html#method_clear" title="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface::clear()">clear()</a></code></tt></dt>
+<dd>Очищает сумку.</dd>
+</dl>
+</div>
+<div class="section" id="id7">
+<h2>Флеш-сообщения<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>Цель <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Flash/FlashBagInterface.html" title="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface">FlashBagInterface</a></code></tt>
+- предоставить способ установки и извлечения сообщений на основанни каждой сессии.
+Обычный рабочий процесс выглядел бы, как установка флеш-сообщений в запросе и
+его отображение после перенаправления страницы. Например, пользователь отправляет
+форму, которая задействует контроллер обновлений, и после обработки контроллер
+перенаправляет страницу либо на обновлённую страницу, либо на страницу ошибки.
+Флеш-сообщения, установленные в запросе предыдущей страницы, будут отображены
+сразу же после того, как будет загружена последующая страница для этой сессии.
+Однако это только одно применение для флеш-сообщений.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Flash/AutoExpireFlashBag.html" title="Symfony\Component\HttpFoundation\Session\Flash\AutoExpireFlashBag">AutoExpireFlashBag</a></code></tt></dt>
+<dd>В этой реализации сообщения, установленные в одной загрузке страницы,
+будут доступны для отображения только при следующей загрузке страницы.
+Срок действия таких сообщений автоматически истечёт, независимо от того,
+будут они извлечены, или нет.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Flash/FlashBag.html" title="Symfony\Component\HttpFoundation\Session\Flash\FlashBag">FlashBag</a></code></tt></dt>
+<dd>В этой реализации, сообщения будут оставаться в сессии до тех пор,
+пока их ясно не извлекут или очистят. Это позволяет использовать
+ESI кеширование.</dd>
+</dl>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Flash/FlashBagInterface.html" title="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface">FlashBagInterface</a></code></tt>
+имеет простой API</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Flash/FlashBagInterface.html#method_add" title="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface::add()">add()</a></code></tt></dt>
+<dd>Добавляет флеш-сообщение в стек указанного типа.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Flash/FlashBagInterface.html#method_set" title="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface::set()">set()</a></code></tt></dt>
+<dd>Устанавливает флеши по типу; Этот метод удобным образом берёт как одиночные
+сообщения в качестве <tt class="docutils literal"><code>string</code></tt>, либо несколько сообщений в качестве <tt class="docutils literal"><code>array</code></tt>.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Flash/FlashBagInterface.html#method_get" title="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface::get()">get()</a></code></tt></dt>
+<dd>Получает флеши по типу и очищает те флеши в сумке.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Flash/FlashBagInterface.html#method_setAll" title="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface::setAll()">setAll()</a></code></tt></dt>
+<dd>Устанавливает все флеши, принимает массив массивов с ключами <tt class="docutils literal"><code>type =&gt; array(messages)</code></tt>.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Flash/FlashBagInterface.html#method_all" title="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface::all()">all()</a></code></tt></dt>
+<dd>Получает все флеши (как массив массивов с ключами) и очищает флеши из сумки.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Flash/FlashBagInterface.html#method_peek" title="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface::peek()">peek()</a></code></tt></dt>
+<dd>Получает флеши по типу (только для чтения).</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Flash/FlashBagInterface.html#method_peekAll" title="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface::peekAll()">peekAll()</a></code></tt></dt>
+<dd>Получает все флеши (только для чтения) в качестве массива массивов с ключами.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Flash/FlashBagInterface.html#method_has" title="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface::has()">has()</a></code></tt></dt>
+<dd>Возвращает &quot;true&quot;, если тип существует, и &quot;false&quot; - если нет.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Flash/FlashBagInterface.html#method_keys" title="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface::keys()">keys()</a></code></tt></dt>
+<dd>Возвращает массиво сохранённых типов флешей.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Session/Flash/FlashBagInterface.html#method_clear" title="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface::clear()">clear()</a></code></tt></dt>
+<dd>Очищает сумку.</dd>
+</dl>
+<p>Для обычных приложений обычно достаточно иметь одно флеш-сообщение на тип, например,
+уведомление о подтверждении после отправки формы. Однако, флеш-сообщения хранятся в
+массиве с ключами по <tt class="docutils literal"><code>$type</code></tt> флеша, что означает, что ваше приложение может выдавать
+несколько сообщений на заданный тип. Это позволяет использование API для более сложных
+сообщений в вашем приложении.</p>
+<p>Примеры установки нескольких флешей:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Session\Session</span><span class="p">;</span>
+
+<span class="nv">$session</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Session</span><span class="p">();</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="c1">// добавить флеш-сообщения</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getFlashBag</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span>
+    <span class="s1">&#39;warning&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Your config file is writable, it should be set read-only&#39;</span>
+<span class="p">);</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getFlashBag</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;Failed to update name&#39;</span><span class="p">);</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getFlashBag</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;Another error&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Отображение флеш-сообщений может выглядеть следующим образом.</p>
+<p>Просто отобразить один тип сообщений:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// отобразить предупреждения</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getFlashBag</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;warning&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">())</span> <span class="k">as</span> <span class="nv">$message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;&lt;div class=&quot;flash-warning&quot;&gt;&#39;</span><span class="o">.</span><span class="nv">$message</span><span class="o">.</span><span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// отобразить ошибки</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getFlashBag</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">())</span> <span class="k">as</span> <span class="nv">$message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;&lt;div class=&quot;flash-error&quot;&gt;&#39;</span><span class="o">.</span><span class="nv">$message</span><span class="o">.</span><span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Компактный метод для обработки отображения всех флешей одновременно:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getFlashBag</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">all</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$type</span> <span class="o">=&gt;</span> <span class="nv">$messages</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$messages</span> <span class="k">as</span> <span class="nv">$message</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;&lt;div class=&quot;flash-&#39;</span><span class="o">.</span><span class="nv">$type</span><span class="o">.</span><span class="s1">&#39;&quot;&gt;&#39;</span><span class="o">.</span><span class="nv">$message</span><span class="o">.</span><span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="sessions.html">« Session Management</a>
+                <span class="separator">|</span>
+                <a href="../../session/avoid_session_start-ru.html">Избегание запуска сессий для анонимных пользователей »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

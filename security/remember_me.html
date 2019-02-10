@@ -1,0 +1,609 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как добавить функциональность входа в систему &#34;Запомнить меня&#34; &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Security Component" href="..\components\security.html">
+    <link rel="next" title="Как защитить любой сервис или метод в вашем приложении" href="securing_services-ru.html">
+    <link rel="prev" title="Использование брандмауэров предварительной аутентификации" href="pre_authenticated-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="security doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как добавить функциональность входа в систему &quot;Запомнить меня&quot;</a><ul>
+<li><a class="reference internal" href="#id2">Принуждение пользователя отказаться от функции &quot;Запомнить меня&quot;</a></li>
+<li><a class="reference internal" href="#id3">Принуждение повторной аутентификации пользователя перед получением доступа к определённым ресурсам</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\components\index.html">The Components</a></li>
+                
+                <li><a href="../components/index-ru.html">The Components</a></li>
+                
+                <li><a href="..\components\security.html">The Security Component</a></li>
+                
+                <li class="active">Как добавить функциональность входа в систему &quot;Запомнить меня&quot;</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как добавить функциональность входа в систему &quot;Запомнить меня&quot;<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Когда пользователь был аутентифицирован, его удостоверения пользователя обычно
+хранятся в сессии. Это означает, что когда сессия заканчивается, пользователь
+выйдет из системы, и ему нужно будет снова предоставить детали входа в систему
+в следующий раз, когда ему понадобится доступ к приложению. Вы можете позволить
+пользователям оставаться в системе дольше, чем длится сессия, используя cookie
+с опцией брандмауэра <tt class="docutils literal"><code>remember_me</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/security.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">firewalls</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">main</span><span class="p p-Indicator">:</span>
+            <span class="c1"># ...</span>
+            <span class="l l-Scalar l-Scalar-Plain">remember_me</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">secret</span><span class="p p-Indicator">:</span>   <span class="s">&#39;%secret%&#39;</span>
+                <span class="l l-Scalar l-Scalar-Plain">lifetime</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">604800</span> <span class="c1"># 1 week in seconds</span>
+                <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">/</span>
+                <span class="c1"># по умолчанию, фунуция включается при установке</span>
+                <span class="c1"># флажка в поле формы входа (см. ниже), уберите комментарий</span>
+                <span class="c1"># из следующей строки, чтобы включать её всегда.</span>
+                <span class="c1">#always_remember_me: true</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;config&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="nt">&lt;firewall</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+            <span class="c">&lt;!-- ... --&gt;</span>
+
+            <span class="c">&lt;!-- 604800 is 1 week in seconds --&gt;</span>
+            <span class="nt">&lt;remember-me</span>
+                <span class="na">secret=</span><span class="s">&quot;%secret%&quot;</span>
+                <span class="na">lifetime=</span><span class="s">&quot;604800&quot;</span>
+                <span class="na">path=</span><span class="s">&quot;/&quot;</span> <span class="nt">/&gt;</span>
+            <span class="c">&lt;!-- по умолчанию, фунуция включается при установке</span>
+<span class="c">                 флажка в поле формы входа (см. ниже), добавьте</span>
+<span class="c">                 always-remember-me=&quot;true&quot;, чтобы включать её всегда. --&gt;</span>
+        <span class="nt">&lt;/firewall&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/security.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+
+    <span class="s1">&#39;firewalls&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;main&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="c1">// ...</span>
+            <span class="s1">&#39;remember_me&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;secret&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;%secret%&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;lifetime&#39;</span> <span class="o">=&gt;</span> <span class="mi">604800</span><span class="p">,</span> <span class="c1">// 1 week in seconds</span>
+                <span class="s1">&#39;path&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+                <span class="c1">// по умолчанию, фунуция включается при установке</span>
+                <span class="c1">// флажка в поле формы входа (см. ниже), уберите комментарий</span>
+                <span class="c1">// из следующей строки, чтобы включать её всегда.</span>
+                <span class="c1">//&#39;always_remember_me&#39; =&gt; true,</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Брандмауэр <tt class="docutils literal"><code>remember_me</code></tt> определяет следующие опции конфигурации:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>secret</code></tt> (<strong>обязательная</strong>)</dt>
+<dd>Значение, используемоя для шифрования содержимого cookie. Зачастую используется
+значение <tt class="docutils literal"><code>secret</code></tt>, определённое в файле <tt class="docutils literal"><code>app/config/parameters.yml</code></tt>.</dd>
+<dt><tt class="docutils literal"><code>name</code></tt> (значение по умолчанию: <tt class="docutils literal"><code>REMEMBERME</code></tt>)</dt>
+<dd>Имя cookie, используемого для того, чтобы пользователь оставался в системе.
+Если вы включаете функцию <tt class="docutils literal"><code>remember_me</code></tt> в нескольких брандмауэрах одного
+приложения, убедитесь, что вы выбираете разные именя для cookie каждого
+брандмауэра. Иначе вы столкнётесь со множеством проблем безопасности.</dd>
+<dt><tt class="docutils literal"><code>lifetime</code></tt> (значение по умолчанию: <tt class="docutils literal"><code>31536000</code></tt>)</dt>
+<dd>Количество секунд на которое пользователь остаётся в системе. По умолчанию,
+пользователи выполняют вход на один год.</dd>
+<dt><tt class="docutils literal"><code>path</code></tt> (значение по умолчанию: <tt class="docutils literal"><code>/</code></tt>)</dt>
+<dd>Путь, где используется cookie, связанный с этой функцией. По умолчанию,
+cookie будет применён ко всему сайту, но вы можете ограничить его конкретным
+разделом (например, <tt class="docutils literal"><code>/forum</code></tt>, <tt class="docutils literal"><code>/admin</code></tt>).</dd>
+<dt><tt class="docutils literal"><code>domain</code></tt> (значение по умолчанию: <tt class="docutils literal"><code>null</code></tt>)</dt>
+<dd>Домен, где используется cookie, связанный с этой функцией. По умолчанию,
+cookie используют текущий домен, полученный из <tt class="docutils literal"><code>$_SERVER</code></tt>.</dd>
+<dt><tt class="docutils literal"><code>secure</code></tt> (значение по умолчанию: <tt class="docutils literal"><code>false</code></tt>)</dt>
+<dd>Если значение - <tt class="docutils literal"><code>true</code></tt>, то cookie, связанный с этой функцией, отправляется
+пользователю через защищённое HTTPS-соединение.</dd>
+<dt><tt class="docutils literal"><code>httponly</code></tt> (значение по умолчанию: <tt class="docutils literal"><code>true</code></tt>)</dt>
+<dd>Если значение - <tt class="docutils literal"><code>true</code></tt>, то cookie, связанный с этой функцией, доступен только
+через HTTP-протокол. Это означает, что cookie не будет доступен через скриптовые
+языки, такие как JavaScript.</dd>
+<dt><tt class="docutils literal"><code>remember_me_parameter</code></tt> (значение по умолчанию: <tt class="docutils literal"><code>_remember_me</code></tt>)</dt>
+<dd>Имя поля формы, отмеченного для того, чтобы решить нужно ли активировать
+функцию &quot;Запомнить меня&quot;. Продолжайте читать эту статью, чтобы узнать, как
+включить эту функцию при определённых условиях.</dd>
+<dt><tt class="docutils literal"><code>always_remember_me</code></tt> (значение по умолчанию: <tt class="docutils literal"><code>false</code></tt>)</dt>
+<dd>Если значение - <tt class="docutils literal"><code>true</code></tt>, то значение``remember_me_parameter`` игнорируется,
+и функция &quot;Запомнить меня&quot; всегда активирована, независимо от желания конечного
+пользователя.</dd>
+<dt><tt class="docutils literal"><code>token_provider</code></tt> (значение по умолчанию: <tt class="docutils literal"><code>null</code></tt>)</dt>
+<dd>Определяет, какой id сервиса поставщика токенов использовать. По умолчанию,
+токены хранятся в cookie. Например, вы можете захотеть хранить токен в БД,
+чтобы не иметь (хешированную) версию пароля в cookie. DoctrineBridge поставляется
+с <tt class="docutils literal"><code>Symfony\Bridge\Doctrine\Security\RememberMe\DoctrineTokenProvider</code></tt>, который
+вы можете использовать.</dd>
+</dl>
+<div class="section" id="id2">
+<h2>Принуждение пользователя отказаться от функции &quot;Запомнить меня&quot;<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Хорошей идеей будет предоставить пользователю выбор - использовать или не использовать
+функцию &quot;Запомнить меня&quot;, так как она не всегда будет уместна. Обычный способ решения
+этого - добавить поле с флажком в форму входа. Если этому полю дать имя <tt class="docutils literal"><code>_remember_me</code></tt>
+(или имя, которое вы сконфигурировали, используя <tt class="docutils literal"><code>remember_me_parameter</code></tt>), cookie
+будет автоматически установлен, когда флажок будет установлен и пользователь успешно
+выполнит вход. Поэтому, ваша конкретная форма входа в систему может выглядеть так:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# app/Resources/views/security/login.html.twig #}</span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">error</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">error.message</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;login&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;username&quot;</span><span class="p">&gt;</span>Username:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;username&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;_username&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">last_username</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="p">/&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;password&quot;</span><span class="p">&gt;</span>Password:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;_password&quot;</span> <span class="p">/&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;remember_me&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;_remember_me&quot;</span> <span class="na">checked</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;remember_me&quot;</span><span class="p">&gt;</span>Keep me logged in<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;login&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/Resources/views/security/login.html.php --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$error</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$error</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">endif</span> <span class="cp">?&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;router&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">path</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="s">&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;username&quot;</span><span class="p">&gt;</span>Username:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;username&quot;</span>
+           <span class="na">name</span><span class="o">=</span><span class="s">&quot;_username&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$last_username</span> <span class="cp">?&gt;</span><span class="s">&quot;</span> <span class="p">/&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;password&quot;</span><span class="p">&gt;</span>Password:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;_password&quot;</span> <span class="p">/&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;remember_me&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;_remember_me&quot;</span> <span class="na">checked</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;remember_me&quot;</span><span class="p">&gt;</span>Keep me logged in<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;login&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Пользователь будет автоматически выполнять вход при последующих визитах,
+пока cookie будет валиден.</p>
+</div>
+<div class="section" id="id3">
+<h2>Принуждение повторной аутентификации пользователя перед получением доступа к определённым ресурсам<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Когда пользователь возвращается на ваш сайт, он автоматически аутентифицируется,
+основываясь на информации, которая хранится в cookie &quot;запомнить меня&quot;. Это позволяет
+пользователю получить доступ к защищённым ресурсам, как будто он действительно был
+аутентифицирован при посещении сайта.</p>
+<p>В некоторых случаях, однако, вы можете захотеть заставить пользователя пройти повтрную
+аутентификацию до того, как получить доступ к определённым ресурсам. Например, вы можете
+позволить пользователям, которые были &quot;запомнены&quot; видеть базовую информацию учётной записи,
+но потребовать повторную аутентификацию для изменения этой информации.</p>
+<p>Компонент Безопасность предоставляет лёгкий способ сделать это. В дополнение к ясно
+предписанным им ролям, пользователям автоматически даётся одна из следующих ролей,
+в зависимости от того, как они были аутентифицированы:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>IS_AUTHENTICATED_ANONYMOUSLY</code></tt></dt>
+<dd>Автоматически приписывается пользователю, который находится в защищённой
+брандмауэром части сайта, но на самом деле не выполнил вход. Это возможно
+только если был разрешён анонимный вход.</dd>
+<dt><tt class="docutils literal"><code>IS_AUTHENTICATED_REMEMBERED</code></tt></dt>
+<dd>Автоматически приписывается пользователю, который был аутентифицирован
+через cookie &quot;запомнить меня&quot;.</dd>
+<dt><tt class="docutils literal"><code>IS_AUTHENTICATED_FULLY</code></tt></dt>
+<dd>Автоматичеки приписывается пользователю, который предоставил детали входа
+в систему во время текущей сессии.</dd>
+</dl>
+<p>Вы можете использовать их для контроля доступа кроме ясно прдписанных ролей.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если у вас есть роль <tt class="docutils literal"><code>IS_AUTHENTICATED_REMEMBERED</code></tt>, то у вас также есть роль
+<tt class="docutils literal"><code>IS_AUTHENTICATED_ANONYMOUSLY</code></tt>. Если у вас есть роль <tt class="docutils literal"><code>IS_AUTHENTICATED_FULLY</code></tt>,
+то у вас также есть две другие роли. Другими словами, эти роли представляют собой
+три уровня увеличивающейся &quot;силы&quot; аутентификации.</p>
+</div></div>
+<p>Вы можете использовать эти дополнительные роли для более чувствительного контроля
+доступа к частям сайта. Например, вы можете хотеть, чтобы пользователь мог
+просматривать свою учётную запись в <tt class="docutils literal"><code>/account</code></tt>, когда он аутентифицирован через
+cookie, но для изменения деталей учётной записи требовать детали входа в систему.
+Вы можете сделать это, обезопасив некоторые действия контроллера, используя эти
+роли. Действие редактирования в контроллере можно обезопасить с помощью контекста
+сервиса.</p>
+<p>В следующем примере, действие разрешено только, если у пользователя есть роль
+<tt class="docutils literal"><code>IS_AUTHENTICATED_FULLY</code></tt>.</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\AccessDeniedException</span>
+
+<span class="c1">// ...</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">editAction</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">denyAccessUnlessGranted</span><span class="p">(</span><span class="s1">&#39;IS_AUTHENTICATED_FULLY&#39;</span><span class="p">);</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если ваше приложение основывается на стандартной версии Symfony, вы также можете
+обезопасить свой контроллер, используя аннотации:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Sensio\Bundle\FrameworkExtraBundle\Configuration\Security</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @Security(&quot;is_granted(&#39;IS_AUTHENTICATED_FULLY&#39;)&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">editAction</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Если у вас также был контроль доступа в вашей конфигурации безопасности,
+который требовал, чтобы пользователь имел роль <tt class="docutils literal"><code>ROLE_USER</code></tt> для того, чтобы
+иметь доступ к любой части учётной записи, у вас получится следующая ситуация:</p>
+<ul class="last simple">
+<li>Если не аутентифицированный (или анонимно аутентифицированный) пользователь
+попробует получить доступ к учётной записи, его попросят аутентифицироваться.</li>
+<li>Когда пользователь вводит своё имя и пароль (и предполагая, что по вашей
+конфигурации пользователь получит роль <tt class="docutils literal"><code>ROLE_USER</code></tt>), то он получает роль
+<tt class="docutils literal"><code>IS_AUTHENTICATED_FULLY</code></tt> и будет иметь доступ к любой странице учётной
+записи, включая контрролер <tt class="docutils literal"><code>editAction()</code></tt>.</li>
+<li>Если сессия пользователя заканчивается, то когда пользователь вернётся на
+сайт, он будет иметь доступ к каждой странице учётной записи, кроме страницы
+редактирования, без запроса на повторную аутентификацию. Однако, если он
+попробует получить доступ к контроллеру <tt class="docutils literal"><code>editAction()</code></tt>, он будет вынужден
+повторно аутентифицироваться, так как он ещё не полностью аутентифицирован.</li>
+</ul>
+</div></div>
+<p>Чтобы узнать больше о защите сервисов или методов таким образом, смотрите
+<a class="reference internal" href="securing_services.html"><em>How to Secure any Service or Method in your Application</em></a>.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="pre_authenticated-ru.html">« Использование брандмауэров предварительной аутентификации</a>
+                <span class="separator">|</span>
+                <a href="securing_services-ru.html">Как защитить любой сервис или метод в вашем приложении »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

@@ -1,0 +1,1772 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Сервис-контейнер &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="_static/" type="text/css">
+    <link rel="stylesheet" href="_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="index.html">
+
+<link rel="stylesheet" href="_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="service_container-r doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\index.html">
+                    <img src="..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Сервис-контейнер</a><ul>
+<li><a class="reference internal" href="#id2">Вызов и использование сервисов</a></li>
+<li><a class="reference internal" href="#service-container-creating-service-ru">Создание/конфигурация сервисов в контейнере</a></li>
+<li><a class="reference internal" href="#services-constructor-injection-ru">Внедрение сервисов/конфигурации в сервис</a><ul>
+<li><a class="reference internal" href="#id5">Управление множеством сервисов</a></li>
+<li><a class="reference internal" href="#services-manually-wire-args-ru">Подключение аргументов вручную</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#service-container-parameters-ru">Параметры сервиса</a></li>
+<li><a class="reference internal" href="#services-wire-specific-service-ru">Выбор особенного сервиса</a></li>
+<li><a class="reference internal" href="#services-autowire-ru">Опция автоподключения</a></li>
+<li><a class="reference internal" href="#services-autoconfigure-ru">Опция автоконфигурации</a></li>
+<li><a class="reference internal" href="#container-public-ru">Публичные сервисы против приватных</a></li>
+<li><a class="reference internal" href="#service-psr4-loader-ru">Одномоментный импорт множества сервисов с помощью источника</a></li>
+<li><a class="reference internal" href="#services-explicitly-configure-wire-services-ru">Ясная конфигурация сервисов и аргументов</a></li>
+<li><a class="reference internal" href="#id14">Узнайте больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="index.html">Документация</a></li>
+                
+                <li class="active">Сервис-контейнер</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Сервис-контейнер<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Ваше приложение <em>полно</em> полезных объектов: объект &quot;Mailer&quot; может помочь вам
+отправлять email'ы, в то время, как другой объект, может помочь вам сохранять
+данные базу данных. Почти <em>все</em>, что &quot;делает&quot; ваше приложение, на самом деле
+выполняется одним из этих объектов. И каждый раз, когда вы устанавливаете новый
+пакет, вы получаете доступ к новым объектам!</p>
+<p>В Symfony, эти полезные объекты называются <strong>сервисами</strong> и каждый сервис живет
+внутри очень особенного объекта под названием <strong>сервис-контейнер</strong>. Если у вас есть
+сервис-контейнер, тогда вы можете вызвать сервис, используя его id:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$logger</span> <span class="o">=</span> <span class="nv">$container</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;logger&#39;</span><span class="p">);</span>
+<span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$container</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;doctrine.orm.entity_manager&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Контейнер позволяет вам централизовать то, как создаются объектв. Он делает
+вашу жизнь легче, пропагандрует сильную архитектуру, а также он очень быстрый!</p>
+<div class="section" id="id2">
+<h2>Вызов и использование сервисов<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>В тот момент, когда вы запускаете приложение Symfony, ваш контейнер <em>уже</em> содержит
+много сервисов. Они очень похожи на <em>инструменты</em>: ждут, пока вы восползуетесь ими.
+В вашем контроллере, вы можете &quot;запросить&quot; сервис из контейнера, путем типизирования
+аргумента с классом сервиса или именем интерфейса. Хотите <a class="reference internal" href="logging.html"><em>сохранить что-то в журнал</em></a>?
+Не проблема:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Controller/ProductController.php</span>
+<span class="c1">// ...</span>
+
+<span class="k">use</span> <span class="nx">Psr\Log\LoggerInterface</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @Route(&quot;/products&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">listAction</span><span class="p">(</span><span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$logger</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s1">&#39;Look! I just used a service&#39;</span><span class="p">);</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 3.3: </span>Возможность типизировать сервис для его получения была добавлена в Symfony 3.3.
+См. <span class="xref std std-ref">главу о контроллере</span> для большей
+информации.</p>
+</div>
+<p id="container-debug-container-ru">Какие еще сервисы существуют? Узнайте, запустив:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console debug:container
+</pre></div>
+</td></tr></table></div></div>
+<p>Это только <em>маленький</em> образец того, что вы увидите:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%">
+<col width="70%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">ID сервиса</th>
+<th class="head">Имя класса</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>doctrine</td>
+<td><tt class="docutils literal"><code>Doctrine\Bundle\DoctrineBundle\Registry</code></tt></td>
+</tr>
+<tr class="row-odd"><td>filesystem</td>
+<td><tt class="docutils literal"><code>Symfony\Component\Filesystem\Filesystem</code></tt></td>
+</tr>
+<tr class="row-even"><td>form.factory</td>
+<td><tt class="docutils literal"><code>Symfony\Component\Form\FormFactory</code></tt></td>
+</tr>
+<tr class="row-odd"><td>logger</td>
+<td><tt class="docutils literal"><code>Symfony\Bridge\Monolog\Logger</code></tt></td>
+</tr>
+<tr class="row-even"><td>request_stack</td>
+<td><tt class="docutils literal"><code>Symfony\Component\HttpFoundation\RequestStack</code></tt></td>
+</tr>
+<tr class="row-odd"><td>router</td>
+<td><tt class="docutils literal"><code>Symfony\Bundle\FrameworkBundle\Routing\Router</code></tt></td>
+</tr>
+<tr class="row-even"><td>security.authorization_checker</td>
+<td><tt class="docutils literal"><code>Symfony\Component\Security\Core\Authorization\AuthorizationChecker</code></tt></td>
+</tr>
+<tr class="row-odd"><td>security.password_encoder</td>
+<td><tt class="docutils literal"><code>Symfony\Component\Security\Core\Encoder\UserPasswordEncoder</code></tt></td>
+</tr>
+<tr class="row-even"><td>session</td>
+<td><tt class="docutils literal"><code>Symfony\Component\HttpFoundation\Session\Session</code></tt></td>
+</tr>
+<tr class="row-odd"><td>translator</td>
+<td><tt class="docutils literal"><code>Symfony\Component\Translation\DataCollectorTranslator</code></tt></td>
+</tr>
+<tr class="row-even"><td>twig</td>
+<td><tt class="docutils literal"><code>Twig_Environment</code></tt></td>
+</tr>
+<tr class="row-odd"><td>validator</td>
+<td><tt class="docutils literal"><code>Symfony\Component\Validator\Validator\ValidatorInterface</code></tt></td>
+</tr>
+</tbody>
+</table>
+<p>Вы также можете использовать уникальный ID сервиса, чтобы получить доступ
+к сервису напрямую:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Controller/ProductController.php</span>
+<span class="k">namespace</span> <span class="nx">AppBundle\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\Controller</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ProductController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Route(&quot;/products&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">listAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$logger</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">container</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;logger&#39;</span><span class="p">);</span>
+        <span class="nv">$logger</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s1">&#39;Look! I just used a service&#39;</span><span class="p">);</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p><span class="xref std std-ref">Запрос сервиса напрямую из контейнера</span>
+таким образом работает только при расширении класса <tt class="docutils literal"><code>Controller</code></tt>.</p>
+<p>На протяжении всех документов, вы увидите, как использовать множество разных
+сервисов, которые живут в контейнере.</p>
+<div class="admonition-wrapper">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Контейнер: ленивая загрузка для скорости</p>
+<p class="last">Погодите! Неужели все сервисы (объекты) запускаются по <em>каждому</em> запросу? Нет!
+Контейнер ленив: он не запускает сервис, пока (и в случае если) вы не попросите
+об этом. Например, если вы никогда не используете сервис <tt class="docutils literal"><code>validator</code></tt> во время
+запроса, контейнер никогда его и не запустит.</p>
+</div></div>
+</div>
+<div class="section" id="service-container-creating-service-ru">
+<span id="index-1"></span><span id="id3"></span><h2>Создание/конфигурация сервисов в контейнере<a class="headerlink" href="#service-container-creating-service-ru" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Рекомендуемый способ конфигурации сервисов изменился в Symfony 3.3. Для более
+глубокого разъяснения, см. <a class="reference internal" href="service_container\3.3-di-changes.html"><em>The Symfony 3.3 DI Container Changes Explained (autowiring, _defaults, etc)</em></a>.</p>
+</div></div>
+<p>Вы также можете организовать <em>собственный</em> код в сервисах. Например, представьте,
+что вам нужно показать вашим пользователям случайное счастливое сообщене. Если вы
+вставите этот код в ваш контроллер, он не сможет быть использован повторно. Вместо
+этого, вы решаете создать новый класс:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Service/MessageGenerator.php</span>
+<span class="k">namespace</span> <span class="nx">AppBundle\Service</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MessageGenerator</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getHappyMessage</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$messages</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;You did it! You updated the system! Amazing!&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;That was one of the coolest updates I\&#39;ve seen all day!&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Great work! Keep going!&#39;</span><span class="p">,</span>
+        <span class="p">];</span>
+
+        <span class="nv">$index</span> <span class="o">=</span> <span class="nb">array_rand</span><span class="p">(</span><span class="nv">$messages</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$messages</span><span class="p">[</span><span class="nv">$index</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Поздравляем! Вы только что создали ваш первый класс сервисов! Вы можете
+использовать его сразу же в вашем контроллере:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">AppBundle\Service\MessageGenerator</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">newAction</span><span class="p">(</span><span class="nx">MessageGenerator</span> <span class="nv">$messageGenerator</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// благодаря типизированию, контейнер вызовет</span>
+    <span class="c1">// новый и передаст его вам!</span>
+    <span class="c1">// ...</span>
+
+    <span class="nv">$message</span> <span class="o">=</span> <span class="nv">$messageGenerator</span><span class="o">-&gt;</span><span class="na">getHappyMessage</span><span class="p">();</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">addFlash</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Когда вы запросите сервис <tt class="docutils literal"><code>MessageGenerator</code></tt>, контейнер создаст новый объект
+<tt class="docutils literal"><code>MessageGenerator</code></tt> и вернет его (смотрите объяснение ниже). Но если вы никогда
+не запросите этот сервис, он <em>никогда</em> не будет создан: экономия памяти и скорости.
+В качестве бонуса, сервис <tt class="docutils literal"><code>MessageGenerator</code></tt> создается только <em>единожды</em>: каждый
+раз, когда вы запрашиваете его, вам возващается один и тот же экземпляр.</p>
+<div class="admonition-wrapper" id="service-container-services-load-example-ru">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Автоматическая загрузка сервиса в services.yml</p>
+<dl class="docutils">
+<dt>Документация предполагает, что вы используете конфигурацию</dt>
+<dd><a class="reference external" href="https://github.com/symfony/symfony-standard/blob/3.3/app/config/services.yml">Symfony Standard Edition (version 3.3) services.yml</a>. Наиболее важной
+частью является эта:</dd>
+</dl>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/services.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># конфигурация по умолчанию в *этом* файле</span>
+    <span class="l l-Scalar l-Scalar-Plain">_defaults</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">autowire</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="l l-Scalar l-Scalar-Plain">autoconfigure</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="l l-Scalar l-Scalar-Plain">public</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+    <span class="c1"># делает классы в src/AppBundle доступными для использования</span>
+    <span class="c1">#в качестве сервисов</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="s">&#39;../../src/AppBundle/*&#39;</span>
+        <span class="c1"># you can exclude directories or files</span>
+        <span class="c1"># but if a service is unused, it&#39;s removed anyway</span>
+        <span class="l l-Scalar l-Scalar-Plain">exclude</span><span class="p p-Indicator">:</span> <span class="s">&#39;../../src/AppBundle/{Entity,Repository}&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="c">&lt;!-- Default configuration for services in *this* file --&gt;</span>
+        <span class="nt">&lt;defaults</span> <span class="na">autowire=</span><span class="s">&quot;true&quot;</span> <span class="na">autoconfigure=</span><span class="s">&quot;true&quot;</span> <span class="na">public=</span><span class="s">&quot;false&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="c">&lt;!-- Load services from whatever directories you want (you can update this!) --&gt;</span>
+        <span class="nt">&lt;prototype</span> <span class="na">namespace=</span><span class="s">&quot;AppBundle\&quot;</span> <span class="na">resource=</span><span class="s">&quot;../../src/AppBundle/*&quot;</span> <span class="na">exclude=</span><span class="s">&quot;../../src/AppBundle/{Entity,Repository}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/services.php</span>
+<span class="c1">// _defaults and loading entire directories is not possible with PHP configuration</span>
+<span class="c1">// you need to define your services one-by-one</span>
+<span class="k">use</span> <span class="nx">AppBundle\Service\MessageGenerator</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">MessageGenerator</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setAutoconfigured</span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Благодаря этой конфигурации, вы можете автоматически использовать любые классы
+из каталога <tt class="docutils literal"><code>src/AppBundle</code></tt> в качестве сервиса, и вам не нужно будет вручную
+конфигурировать их. Позже, вы узнаете больше об этом в <a class="reference internal" href="#service-psr4-loader-ru"><span>Одномоментный импорт множества сервисов с помощью источника</span></a>.</p>
+<p>Если вы предпочитаете создавать сервис вручную, это также возможно: см.
+<a class="reference internal" href="#services-explicitly-configure-wire-services-ru"><span>Ясная конфигурация сервисов и аргументов</span></a>.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 3.3: </span>Ключ <tt class="docutils literal"><code>_defaults</code></tt> <em>и</em> возможность загружать сервисы из каталога были
+добавлены в Symfony 3.3.</p>
+</div>
+</div></div>
+<p>Вы также можете вызвать сервис напрямую из контейнера с помощью его &quot;id&quot;, которыйru
+будет его классом имени в нашем случае:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">AppBundle\Service\MessageGenerator</span><span class="p">;</span>
+
+<span class="c1">// получение доступа к сервисам таким образом работает только,</span>
+<span class="c1">// если вы расширите контроллер</span>
+<span class="k">class</span> <span class="nc">ProductController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">newAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// only works if your service is public</span>
+        <span class="nv">$messageGenerator</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nx">MessageGenerator</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+        <span class="nv">$message</span> <span class="o">=</span> <span class="nv">$messageGenerator</span><span class="o">-&gt;</span><span class="na">getHappyMessage</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">addFlash</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Однако, это работает только если вы сделате ваш сервис <a class="reference internal" href="#container-public-ru"><span>общедоступным</span></a>.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">ID сервисов не чувствительны к регистру (т.е. <tt class="docutils literal"><code>AppBundle\Service\MessageGenerator</code></tt>
+и <tt class="docutils literal"><code>appbundle\service\messagegenerator</code></tt> ссылаются на один и тот же сервис).
+Но это было осуждено в Symfony 3.3. Начиная с версии 4.0,  id сервисов будут чувствительны
+к регистру.</p>
+</div></div>
+</div>
+<div class="section" id="services-constructor-injection-ru">
+<span id="id4"></span><h2>Внедрение сервисов/конфигурации в сервис<a class="headerlink" href="#services-constructor-injection-ru" title="Permalink to this headline">¶</a></h2>
+<p>Что, если вам нужно получить доступ к сервису <tt class="docutils literal"><code>logger</code></tt> из <tt class="docutils literal"><code>MessageGenerator</code></tt>?
+Ваш сервис <em>не</em> имеет прямого доступа к контейнеру, так что вы не можете вызвать
+его через <tt class="docutils literal"><code>$this-&gt;container-&gt;get()</code></tt>.</p>
+<p>Не проблема! Вместо этого, создайте метод <tt class="docutils literal"><code>__construct()</code></tt> с аргументом <tt class="docutils literal"><code>$logger</code></tt>,
+который имеет типизирование <tt class="docutils literal"><code>LoggerInterface</code></tt>. Установите это на новом свойстве
+<tt class="docutils literal"><code>$logger</code></tt> и используйте его позже:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Service/MessageGenerator.php</span>
+<span class="c1">// ...</span>
+
+<span class="k">use</span> <span class="nx">Psr\Log\LoggerInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MessageGenerator</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$logger</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getHappyMessage</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s1">&#39;About to find a happy message!&#39;</span><span class="p">);</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и все! Контейнер <em>автоматически</em> будет знать, что ему надо передать сервис
+<tt class="docutils literal"><code>logger</code></tt> при загруке  <tt class="docutils literal"><code>MessageGenerator</code></tt>. Откуда он это знает?
+<a class="reference internal" href="#services-autowire-ru"><span>Autowiring</span></a>. Ключом является титпизирование <tt class="docutils literal"><code>LoggerInterface</code></tt>
+в вашем методе <tt class="docutils literal"><code>__construct()</code></tt> и конфигурация <tt class="docutils literal"><code>autowire: true</code></tt> в <tt class="docutils literal"><code>services.yml</code></tt>.
+Когда вы типизируете аргумент, контейнер будет автоматически искать соответствующий
+сервис. Если это не удастся, вы увидите явное исключение с предложением помощи.</p>
+<p id="services-debug-container-types-ru">Как вам знать, что стоит использовать <tt class="docutils literal"><code>LoggerInterface</code></tt> для типизирования? Вы
+можете либо прочитать документы для той функции, что вы используете, или получить
+список автоматического типизирования, вызвав:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console debug:container --types
+</pre></div>
+</td></tr></table></div></div>
+<p>Это только малая часть того, что вы увидите:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="63%">
+<col width="37%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Service ID</th>
+<th class="head">Class name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><code>Psr\Cache\CacheItemPoolInterface</code></tt></td>
+<td>alias for &quot;cache.app.recorder&quot;</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>Psr\Log\LoggerInterface</code></tt></td>
+<td>alias for &quot;monolog.logger&quot;</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>Symfony\Component\EventDispatcher\EventDispatcherInterface</code></tt></td>
+<td>alias for &quot;debug.event_dispatcher&quot;</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>Symfony\Component\HttpFoundation\RequestStack</code></tt></td>
+<td>alias for &quot;request_stack&quot;</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>Symfony\Component\HttpFoundation\Session\SessionInterface</code></tt></td>
+<td>alias for &quot;session&quot;</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>Symfony\Component\Routing\RouterInterface</code></tt></td>
+<td>alias for &quot;router.default&quot;</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id5">
+<h3>Управление множеством сервисов<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Предположим, что вы также хотите писать email амдинистратору каждый раз, когда
+сайт обновляется. Чтобы сделать это, создайте новый класс:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Updates/SiteUpdateManager.php</span>
+<span class="k">namespace</span> <span class="nx">AppBundle\Updates</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">AppBundle\Service\MessageGenerator</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">SiteUpdateManager</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$messageGenerator</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$mailer</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">MessageGenerator</span> <span class="nv">$messageGenerator</span><span class="p">,</span> <span class="nx">\Swift_Mailer</span> <span class="nv">$mailer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">messageGenerator</span> <span class="o">=</span> <span class="nv">$messageGenerator</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mailer</span> <span class="o">=</span> <span class="nv">$mailer</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">notifyOfSiteUpdate</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$happyMessage</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">messageGenerator</span><span class="o">-&gt;</span><span class="na">getHappyMessage</span><span class="p">();</span>
+
+        <span class="nv">$message</span> <span class="o">=</span> <span class="nx">\Swift_Message</span><span class="o">::</span><span class="na">newInstance</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">setSubject</span><span class="p">(</span><span class="s1">&#39;Site update just happened!&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">setFrom</span><span class="p">(</span><span class="s1">&#39;<a href="..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="09686d646067496c71686479656c276a6664">[email&#160;protected]</a>&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">setTo</span><span class="p">(</span><span class="s1">&#39;<a href="..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="6508040b0402001725001d04081509004b060a08">[email&#160;protected]</a>&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">addPart</span><span class="p">(</span>
+                <span class="s1">&#39;Someone just updated the site. We told them: &#39;</span><span class="o">.</span><span class="nv">$happyMessage</span>
+            <span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mailer</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$message</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это использует сервисы <tt class="docutils literal"><code>MessageGenerator</code></tt> <em>и</em> <tt class="docutils literal"><code>Swift_Mailer</code></tt>. Если вы
+<a class="reference internal" href="#service-container-services-load-example-ru"><span>загружаете сервисы из src/AppBundle</span></a>,
+вы можете использовать сервис сразу же:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">AppBundle\Updates\SiteUpdateManager</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">newAction</span><span class="p">(</span><span class="nx">SiteUpdateManager</span> <span class="nv">$siteUpdateManager</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="nv">$message</span> <span class="o">=</span> <span class="nv">$siteUpdateManager</span><span class="o">-&gt;</span><span class="na">notifyOfSiteUpdate</span><span class="p">();</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">addFlash</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Благодаря автоподключению и типизированию в  <tt class="docutils literal"><code>__construct()</code></tt>, контейнер создает
+объект <tt class="docutils literal"><code>SiteUpdateManager</code></tt> и передает ему правильный аргумент. В большинстве
+случаев это работает идеально.</p>
+</div>
+<div class="section" id="services-manually-wire-args-ru">
+<span id="id6"></span><h3>Подключение аргументов вручную<a class="headerlink" href="#services-manually-wire-args-ru" title="Permalink to this headline">¶</a></h3>
+<p>Но существуют некоторые случаи, когда аргумент не может быть автоматически подключен
+к сервису. Например, представьте, что вы хотите сделать email админа конфигурируемым:</p>
+<div class="literal-block"><div class="highlight-diff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span>// src/AppBundle/Updates/SiteUpdateManager.php
+// ...
+
+class SiteUpdateManager
+{
+    // ...
+<span class="gi">+    private $adminEmail;</span>
+
+<span class="gd">-    public function __construct(MessageGenerator $messageGenerator, \Swift_Mailer $mailer)</span>
+<span class="gi">+    public function __construct(MessageGenerator $messageGenerator, \Swift_Mailer $mailer, $adminEmail)</span>
+    {
+        // ...
+<span class="gi">+        $this-&gt;adminEmail = $adminEmail;</span>
+    }
+
+    public function notifyOfSiteUpdate()
+    {
+        // ...
+
+        $message = \Swift_Message::newInstance()
+            // ...
+<span class="gd">-            -&gt;setTo(&#39;<a href="..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="ff929e919e989a8dbf9a879e928f939ad19c9092">[email&#160;protected]</a>&#39;)</span>
+<span class="gi">+            -&gt;setTo($this-&gt;adminEmail)</span>
+            // ...
+        ;
+        // ...
+    }
+}
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы внесете это изменение и обновите его, вы увидите ошибку:</p>
+<blockquote>
+<div>Cannot autowire service &quot;AppBundleUpdatesSiteUpdateManager&quot;: argument &quot;$adminEmail&quot;
+of method &quot;__construct()&quot; must have a type-hint or be given a value explicitly.
+(Невозможно автоматически подключить сервис &quot;AppBundleUpdatesSiteUpdateManager&quot;:
+аргумент &quot;$adminEmail&quot; метода method &quot;__construct()&quot; должен иметь типизирование или
+точно заданное значение).</div></blockquote>
+<p>Это имеет смысл! Не может быть так, чтобы контейнер знал, какое значение вы хотите
+тут передать. Не проблема! В вашей конфигурации, вы можете точно установить этот
+аргумент:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/services.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="c1"># same as before</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="s">&#39;../../src/AppBundle/*&#39;</span>
+        <span class="l l-Scalar l-Scalar-Plain">exclude</span><span class="p p-Indicator">:</span> <span class="s">&#39;../../src/AppBundle/{Entity,Repository}&#39;</span>
+
+    <span class="c1"># explicitly configure the service</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Updates\SiteUpdateManager</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">$adminEmail</span><span class="p p-Indicator">:</span> <span class="s">&#39;<a href="..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="29444847484e4c5b694c51484459454c074a4644">[email&#160;protected]</a>&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="c">&lt;!-- Same as before --&gt;</span>
+        <span class="nt">&lt;prototype</span> <span class="na">namespace=</span><span class="s">&quot;AppBundle\&quot;</span> <span class="na">resource=</span><span class="s">&quot;../../src/AppBundle/*&quot;</span> <span class="na">exclude=</span><span class="s">&quot;../../src/AppBundle/{Entity,Repository}&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="c">&lt;!-- Explicitly configure the service --&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Updates\SiteUpdateManager&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;argument</span> <span class="na">key=</span><span class="s">&quot;$adminEmail&quot;</span><span class="nt">&gt;</span><a href="..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="670a06090600021527021f060a170b024904080a">[email&#160;protected]</a><span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/services.php</span>
+<span class="k">use</span> <span class="nx">AppBundle\Updates\SiteUpdateManager</span><span class="p">;</span>
+
+<span class="c1">// _defaults и импортирование каталогов не работают в PHP</span>
+<span class="c1">// но точная регистрация сервиса - работает</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">SiteUpdateManager</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setAutoconfigured</span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">false</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArgument</span><span class="p">(</span><span class="s1">&#39;$adminEmail&#39;</span><span class="p">,</span> <span class="s1">&#39;<a href="..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="610c000f00060413210419000c110d044f020e0c">[email&#160;protected]</a>&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 3.3: </span>Возможность конфигурировать аргумент по имени (<tt class="docutils literal"><code>$adminEmail</code></tt>) была добавлена
+в Symfony 3.3. Ранее, вы могли конфигурировать его только по индексу (<tt class="docutils literal"><code>2</code></tt> в
+этом случае) или используя пустые кавычки для других аргументов.</p>
+</div>
+<p>Благодаря этому, контейнер будет передавать <tt class="docutils literal"><code>manager&#64;example.com</code></tt> в качестве третьего
+аргумента <tt class="docutils literal"><code>__construct</code></tt> при создании сервиса <tt class="docutils literal"><code>SiteUpdateManager</code></tt>. Другие аргументы
+всееще будут автоматизированы.</p>
+<p>Но разве это не зыбко? К счастью - нет! Если вы переименуете аргумент <tt class="docutils literal"><code>$adminEmail</code></tt>
+на что-то другое, например, <tt class="docutils literal"><code>$mainEmail</code></tt>, вы получите явное исключение при перезагрузке
+следующей страницы (даже если страницы не использует этот сервис).</p>
+</div>
+</div>
+<div class="section" id="service-container-parameters-ru">
+<span id="id7"></span><h2>Параметры сервиса<a class="headerlink" href="#service-container-parameters-ru" title="Permalink to this headline">¶</a></h2>
+<p>В дополнение к объектам сервиса, контейнер также содержит конфигурацию, под
+названием <tt class="docutils literal"><code>parameters</code></tt>. Чтобы создать параметр, добавьте его под ключом
+<tt class="docutils literal"><code>parameters</code></tt> и сошлитесь на него с помощью синтаксиса <tt class="docutils literal"><code>%parameter_name%</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/services.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">admin_email</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain"><a href="..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="771a16191610120537120f161a071b125914181a">[email&#160;protected]</a></span>
+
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Updates\SiteUpdateManager</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">$adminEmail</span><span class="p p-Indicator">:</span> <span class="s">&#39;%admin_email%&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;parameters&gt;</span>
+        <span class="nt">&lt;parameter</span> <span class="na">key=</span><span class="s">&quot;admin_email&quot;</span><span class="nt">&gt;</span><a href="..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="8ce1ede2edebe9fecce9f4ede1fce0e9a2efe3e1">[email&#160;protected]</a><span class="nt">&lt;/parameter&gt;</span>
+    <span class="nt">&lt;/parameters&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Updates\SiteUpdateManager&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;argument</span> <span class="na">key=</span><span class="s">&quot;$adminEmail&quot;</span><span class="nt">&gt;</span>%admin_email%<span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/services.php</span>
+<span class="k">use</span> <span class="nx">AppBundle\Updates\SiteUpdateManager</span><span class="p">;</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">&#39;admin_email&#39;</span><span class="p">,</span> <span class="s1">&#39;<a href="..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="8de0ece3eceae8ffcde8f5ece0fde1e8a3eee2e0">[email&#160;protected]</a>&#39;</span><span class="p">);</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">SiteUpdateManager</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="c1">// ...</span>
+    <span class="o">-&gt;</span><span class="na">setArgument</span><span class="p">(</span><span class="s1">&#39;$adminEmail&#39;</span><span class="p">,</span> <span class="s1">&#39;%admin_email%&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>На самом деле, как только вы определите параметр, на него можно сослаться с помощью
+синтаксиса <tt class="docutils literal"><code>%parameter_name%</code></tt> в <em>любом</em> другом файле конфигурации сервиса - типа
+<tt class="docutils literal"><code>config.yml</code></tt>. Многие параметры определены в <a class="reference internal" href="configuration-ru.html#config-parameters-yml-ru"><span>parameters.yml file</span></a>.</p>
+<p>Вы также можете вызвать параметры напрямую из контейнера:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">newAction</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="c1">// это работает ТОЛЬКО если вы расширите контроллер</span>
+    <span class="nv">$adminEmail</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">container</span><span class="o">-&gt;</span><span class="na">getParameter</span><span class="p">(</span><span class="s1">&#39;admin_email&#39;</span><span class="p">);</span>
+
+    <span class="c1">// или более короткий путь!</span>
+    <span class="c1">// $adminEmail = $this-&gt;getParameter(&#39;admin_email&#39;);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Чтобы узнать больше о параметрах, см <a class="reference internal" href="service_container\parameters.html"><em>Introduction to Parameters</em></a>.</p>
+</div>
+<div class="section" id="services-wire-specific-service-ru">
+<span id="id8"></span><h2>Выбор особенного сервиса<a class="headerlink" href="#services-wire-specific-service-ru" title="Permalink to this headline">¶</a></h2>
+<p>Сервис <tt class="docutils literal"><code>MessageGenerator</code></tt>, созданные ранее, требует аргумент <tt class="docutils literal"><code>LoggerInterface</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Service/MessageGenerator.php</span>
+<span class="c1">// ...</span>
+
+<span class="k">use</span> <span class="nx">Psr\Log\LoggerInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MessageGenerator</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$logger</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Однако, существует <em>множество</em> сервисов в контейнере, которые имплементируют <tt class="docutils literal"><code>LoggerInterface</code></tt>,
+например, <tt class="docutils literal"><code>logger</code></tt>, <tt class="docutils literal"><code>monolog.logger.request</code></tt>, <tt class="docutils literal"><code>monolog.logger.php</code></tt>, и др. Как контейнер
+знает, какие использовать?</p>
+<p>В таких ситуациях, контейнер обычно сконфигурирован так, чтобы автоматически выбирать
+один из сервисов - в этом случае <tt class="docutils literal"><code>logger</code></tt> (узнайте больше, почему в <a class="reference internal" href="service_container/autowiring-ru.html#service-autowiring-alias-ru"><span>Использование дополнительных имён для включения автомонтирования</span></a>).
+Но,вы можете контролировать это и передать другой logger:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/services.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ... такой же код как раньше</span>
+
+    <span class="c1"># точно сконфигурируйте сервис</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Service\MessageGenerator</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">$logger</span><span class="p p-Indicator">:</span> <span class="s">&#39;@monolog.logger.request&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="c">&lt;!-- ... same code as before --&gt;</span>
+
+        <span class="c">&lt;!-- Explicitly configure the service --&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Service\MessageGenerator&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;argument</span> <span class="na">key=</span><span class="s">&quot;$logger&quot;</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;monolog.logger.request&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/services.php</span>
+<span class="k">use</span> <span class="nx">AppBundle\Service\MessageGenerator</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Reference</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">MessageGenerator</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setAutoconfigured</span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">false</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArgument</span><span class="p">(</span><span class="s1">&#39;$logger&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;monolog.logger.request&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Это сообщает контейнеру, что аргумент <tt class="docutils literal"><code>$logger</code></tt> для <tt class="docutils literal"><code>__construct</code></tt> должен использовать
+сервис, id которого <tt class="docutils literal"><code>monolog.logger.request</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Символ <tt class="docutils literal"><code>&#64;</code></tt> оченьважен: это то, что сообщает контейнеру, что вы хотите передать
+<em>сервис</em>, id которого <tt class="docutils literal"><code>monolog.logger.request</code></tt>, а не просто <em>строку</em>
+<tt class="docutils literal"><code>monolog.logger.request</code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="services-autowire-ru">
+<span id="id9"></span><h2>Опция автоподключения<a class="headerlink" href="#services-autowire-ru" title="Permalink to this headline">¶</a></h2>
+<p>Выше, файл <tt class="docutils literal"><code>services.yml</code></tt> имеет <tt class="docutils literal"><code>autowire: true</code></tt> в разделе <tt class="docutils literal"><code>_defaults</code></tt>,так
+что это относится ко всем сервисам, определенным в этом файле. С этой настройкой, вы
+можете типизировать аргументы в методе <tt class="docutils literal"><code>__construct()</code></tt> ваших сервисов и контейнер
+автоматически будет передавать вам правильные аргументы. Эта вся запись была написана
+без автоматизации.</p>
+<p>Чтобы узнать больше, см <a class="reference internal" href="service_container\autowiring.html"><em>Defining Services Dependencies Automatically (Autowiring)</em></a>.</p>
+</div>
+<div class="section" id="services-autoconfigure-ru">
+<span id="id10"></span><h2>Опция автоконфигурации<a class="headerlink" href="#services-autoconfigure-ru" title="Permalink to this headline">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 3.3: </span>Опция <tt class="docutils literal"><code>autoconfigure</code></tt> была добавлена в Symfony 3.3.</p>
+</div>
+<p>Выше, файл <tt class="docutils literal"><code>services.yml</code></tt> имеет <tt class="docutils literal"><code>autoconfigure: true</code></tt> в секции <tt class="docutils literal"><code>_defaults</code></tt>,
+так что это относится ко всем сервисам, определенным в этом файле. С этой настройкой,
+контейнер будет автоматически применять определенную конфигурацию к вашим сервисам,
+основываясь на <em>классе</em> вашего сервиса. Это чаще всего используется для <em>авто-тегирования</em>
+ваших сервисов.</p>
+<p>Например, чтобы создать Twig Extension (Расширение Twig), вам нужно создать класс,
+зарегистрировать его в качестве сервиса, и <a class="reference internal" href="service_container\tags.html"><em>тегировать</em></a>
+его <tt class="docutils literal"><code>twig.extension</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/services.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Twig\MyTwigExtension</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">twig.extension</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Twig\MyTwigExtension&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;twig.extension&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/services.php</span>
+<span class="k">use</span> <span class="nx">AppBundle\Twig\MyTwigExtension</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">MyTwigExtension</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;twig.extension&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Однако с <tt class="docutils literal"><code>autoconfigure: true</code></tt>, вам не нужен тег. На самом деле, если вы используете
+<a class="reference internal" href="#service-container-services-load-example-ru"><span>Symfony Standard Edition services.yml config</span></a>,
+вам не нужно <em>ничего</em> делать: сервис будет загружен автоматически. Потом, <tt class="docutils literal"><code>autoconfigure</code></tt>
+добавит тег <tt class="docutils literal"><code>twig.extension</code></tt> <em>за</em> вас, так как вас класс имплементирует <tt class="docutils literal"><code>Twig_ExtensionInterface</code></tt>.
+И благодаря``autowire``, вы даже можете добавить аргументы-конструкторы без какой-либо
+конфигурации.</p>
+<p>Конечное же, вы все еще можете  <a class="reference internal" href="#services-manually-wire-args-ru"><span>сконфигурировать сервис вручную</span></a>,
+если вам это нужно.</p>
+</div>
+<div class="section" id="container-public-ru">
+<span id="id11"></span><h2>Публичные сервисы против приватных<a class="headerlink" href="#container-public-ru" title="Permalink to this headline">¶</a></h2>
+<p>Благодаря разделу <tt class="docutils literal"><code>_defaults</code></tt> в <tt class="docutils literal"><code>services.yml</code></tt>, каждый сервис, определенный в
+этом файле, <tt class="docutils literal"><code>public: false</code></tt> по умолчанию:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/services.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># конфигурация по умолчанию для сервисов в *этом* файле</span>
+    <span class="l l-Scalar l-Scalar-Plain">_defaults</span><span class="p p-Indicator">:</span>
+        <span class="c1"># ...</span>
+        <span class="l l-Scalar l-Scalar-Plain">public</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="c">&lt;!-- Default configuration for services in *this* file --&gt;</span>
+        <span class="nt">&lt;defaults</span> <span class="na">autowire=</span><span class="s">&quot;true&quot;</span> <span class="na">autoconfigure=</span><span class="s">&quot;true&quot;</span> <span class="na">public=</span><span class="s">&quot;false&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Что это значит? Когда сервис <strong>не</strong> публичен, вы не можете получить к нему доступ
+напрямую из контейнера:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">AppBundle\Service\MessageGenerator</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">newAction</span><span class="p">(</span><span class="nx">MessageGenerator</span> <span class="nv">$messageGenerator</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// типизирование его в качестве аргумента РАБОТАЕТ</span>
+
+    <span class="c1">// но доступ к нему напрямую из контейнера НЕ работает</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">container</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nx">MessageGenerator</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Обычно это нормально: существуют лучшие способы получить доступ к сервису. Но, если
+вам <em>надо</em> сделать ваш сервис публичным, просто перепишите эту установку:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/services.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ... same code as before</span>
+
+    <span class="c1"># точно сконфигурируйте сервис</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Service\MessageGenerator</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">public</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="c">&lt;!-- ... same code as before --&gt;</span>
+
+        <span class="c">&lt;!-- Explicitly configure the service --&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Service\MessageGenerator&quot;</span> <span class="na">public=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="service-psr4-loader-ru">
+<span id="id12"></span><h2>Одномоментный импорт множества сервисов с помощью источника<a class="headerlink" href="#service-psr4-loader-ru" title="Permalink to this headline">¶</a></h2>
+<p>Вы уже видели, что вы можете импортировать множество сервисов одновременно, используя
+ключ <tt class="docutils literal"><code>resource</code></tt>. Например, конфигурация Symfony по умолчанию, содержит следующее:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/services.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="c1"># префикс пространства имен для классов (должен заканчиваться \)</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\</span><span class="p p-Indicator">:</span>
+        <span class="c1"># принимает глобальный паттерн</span>
+        <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="s">&#39;../../src/AppBundle/*&#39;</span>
+        <span class="c1"># исключить некоторые пути</span>
+        <span class="l l-Scalar l-Scalar-Plain">exclude</span><span class="p p-Indicator">:</span> <span class="s">&#39;../../src/AppBundle/{Entity,Repository}&#39;</span>
+
+    <span class="c1"># были импортированы выше, но мы хотим дополнительную конфигурацию</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Controller\</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="s">&#39;../../src/AppBundle/Controller&#39;</span>
+        <span class="c1"># применить какую-то конфигурацию к этим сервисам</span>
+        <span class="l l-Scalar l-Scalar-Plain">public</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;controller.service_arguments&#39;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="nt">&lt;prototype</span> <span class="na">namespace=</span><span class="s">&quot;AppBundle\&quot;</span> <span class="na">resource=</span><span class="s">&quot;../../src/AppBundle/*&quot;</span> <span class="na">exclude=</span><span class="s">&quot;../../src/AppBundle/{Entity,Repository}&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;prototype</span> <span class="na">namespace=</span><span class="s">&quot;AppBundle\Controller\&quot;</span> <span class="na">resource=</span><span class="s">&quot;../../src/AppBundle/Controller&quot;</span> <span class="na">public=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;controller.service_arguments&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/prototype&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Это может быть использовано для того, чтобы быстро сделать много классов доступными
+в качестве сервисов, и применить какую-то конфигурацию по умолчанию. <tt class="docutils literal"><code>Id</code></tt> каждого
+сервиса - это его полностью квалифицированное имя класса. Вы можете переписать любой
+сервис, который был испортирован, используя его id (имя класса) ниже (например, см.
+<a class="reference internal" href="#services-manually-wire-args-ru"><span>Подключение аргументов вручную</span></a>). Если вы перепишите сервис, никакие из опций
+(например, <tt class="docutils literal"><code>public</code></tt>) не будут унаследованы из импорта (но переписанный сервис
+<em>наследует</em> из <tt class="docutils literal"><code>_defaults</code></tt>).</p>
+<p>Вы также можете <tt class="docutils literal"><code>exclude</code></tt> (исключить) определенные пути. Это не обязательно, но
+слегка увеличит производительность окружения <tt class="docutils literal"><code>dev</code></tt>: исключенные пути не отслеживаются,
+так что их изменение не приведет к перестройке контейнера.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Погодите, это что, значит, что <em>каждый</em> класс в <tt class="docutils literal"><code>src/AppBundle</code></tt> зарегистрирован
+как сервис? Даже модель или классы сущностей? На самом деле, нет. Если у вас есть
+<tt class="docutils literal"><code>public: false</code></tt> в вашем ключе <tt class="docutils literal"><code>_defaults</code></tt> (или вы можете добавить его в конкретном
+импорте), все импортированные сервисы являются <em>приватными</em>. Благодаря этому, все
+классы в <tt class="docutils literal"><code>src/AppBundle</code></tt>, которые <em>не</em> явно используются как сервисы, автоматически
+удаляются из финального контейнера. В действительности, импорт просто означает, что
+все классы &quot;доступны для <em>использования</em> в качестве сервисов, без необходимости
+ручной конфигурации.</p>
+</div></div>
+</div>
+<div class="section" id="services-explicitly-configure-wire-services-ru">
+<span id="id13"></span><h2>Ясная конфигурация сервисов и аргументов<a class="headerlink" href="#services-explicitly-configure-wire-services-ru" title="Permalink to this headline">¶</a></h2>
+<p>До появления Symfony 3.3, все сервисы и (обычно) аргументы, были ясно
+сконфигурированы: было невозможно <a class="reference internal" href="#service-container-services-load-example-ru"><span>загрузить сервисы автоматически</span></a>
+и <a class="reference internal" href="#services-autowire-ru"><span>автоподключение</span></a> было намного менее распространено.</p>
+<p>Обе эти функции не обязательны. И даже если вы используете их, могут быть некоторые
+случае, когда вы захотите вручную подключить сервис. Например, представьте, что вы
+хотите зарегистрировать <em>2</em> сервиса для класса  <tt class="docutils literal"><code>SiteUpdateManager</code></tt> - каждый с разным
+email админа. В этом случае, каждый должен иметь уникальный id сервиса:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/services.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="c1"># это id сервиса</span>
+    <span class="l l-Scalar l-Scalar-Plain">site_update_manager.superadmin</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">class</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">AppBundle\Updates\SiteUpdateManager</span>
+        <span class="c1"># you CAN still use autowiring: we just want to show what it looks like without</span>
+        <span class="l l-Scalar l-Scalar-Plain">autowire</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="c1"># manually wire all arguments</span>
+        <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="s">&#39;@AppBundle\Service\MessageGenerator&#39;</span>
+            <span class="p p-Indicator">-</span> <span class="s">&#39;@mailer&#39;</span>
+            <span class="p p-Indicator">-</span> <span class="s">&#39;<a href="..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="c2b1b7b2a7b0a3a6afabac82a7baa3afb2aea7eca1adaf">[email&#160;protected]</a>&#39;</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">site_update_manager.normal_users</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">class</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">AppBundle\Updates\SiteUpdateManager</span>
+        <span class="l l-Scalar l-Scalar-Plain">autowire</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="s">&#39;@AppBundle\Service\MessageGenerator&#39;</span>
+            <span class="p p-Indicator">-</span> <span class="s">&#39;@mailer&#39;</span>
+            <span class="p p-Indicator">-</span> <span class="s">&#39;<a href="..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="accfc3c2d8cdcfd8ecc9d4cdc1dcc0c982cfc3c1">[email&#160;protected]</a>&#39;</span>
+
+    <span class="c1"># создайте союзника, чтобы по умолчанию, если вы типизируете SiteUpdateManager,</span>
+    <span class="c1"># использовался the site_update_manager.superadmin</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Updates\SiteUpdateManager</span><span class="p p-Indicator">:</span> <span class="s">&#39;@site_update_manager.superadmin&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;site_update_manager.superadmin&quot;</span> <span class="na">class=</span><span class="s">&quot;AppBundle\Updates\SiteUpdateManager&quot;</span> <span class="na">autowire=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Service\MessageGenerator&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;mailer&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;argument&gt;</span><a href="..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="d2a1a7a2b7a0b3b6bfbbbc92b7aab3bfa2beb7fcb1bdbf">[email&#160;protected]</a><span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;site_update_manager.normal_users&quot;</span> <span class="na">class=</span><span class="s">&quot;AppBundle\Updates\SiteUpdateManager&quot;</span> <span class="na">autowire=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Service\MessageGenerator&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;mailer&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;argument&gt;</span><a href="..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="690a06071d080a1d290c11080419050c470a0604">[email&#160;protected]</a><span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+
+        <span class="nt">&lt;alias</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Updates\SiteUpdateManager&quot;</span> <span class="na">service=</span><span class="s">&quot;site_update_manager.superadmin&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/services.php</span>
+<span class="k">use</span> <span class="nx">AppBundle\Updates\SiteUpdateManager</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AppBundle\Service\MessageGenerator</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Reference</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;site_update_manager.superadmin&#39;</span><span class="p">,</span> <span class="nx">SiteUpdateManager</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setAutowire</span><span class="p">(</span><span class="k">false</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArguments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="nx">MessageGenerator</span><span class="o">::</span><span class="na">class</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;mailer&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;<a href="..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="0576707560776461686c6b45607d64687569602b666a68">[email&#160;protected]</a>&#39;</span>
+    <span class="p">));</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;site_update_manager.normal_users&#39;</span><span class="p">,</span> <span class="nx">SiteUpdateManager</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setAutowire</span><span class="p">(</span><span class="k">false</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArguments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="nx">MessageGenerator</span><span class="o">::</span><span class="na">class</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;mailer&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;<a href="..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="660509081207051226031e070b160a034805090b">[email&#160;protected]</a>&#39;</span>
+    <span class="p">));</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">setAlias</span><span class="p">(</span><span class="nx">SiteUpdateManager</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;site_update_manager.superadmin&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>В этом случае, <em>два</em> сервиса зарегистрированы: <tt class="docutils literal"><code>site_update_manager.superadmin</code></tt>
+и <tt class="docutils literal"><code>site_update_manager.normal_users</code></tt>. Благодаря союзнику, если вы типизируете
+<tt class="docutils literal"><code>SiteUpdateManager</code></tt> будет передано первое (<tt class="docutils literal"><code>site_update_manager.superadmin</code></tt>).
+Если вы хотите передать второе, то вам нужно <a class="reference internal" href="#services-wire-specific-service-ru"><span>вручную подключить сервис</span></a>.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Если вы <em>не</em> создадите союзника и <a class="reference internal" href="#service-container-services-load-example-ru"><span>загружаете все сервисы из src/AppBundle</span></a>,
+тогда <em>три</em> сервиса будут созданы (автоматический сервис + два ваших), и автоматически
+загруженный сервис будет передан - по умолчанию - когда вы типизируете <tt class="docutils literal"><code>SiteUpdateManager</code></tt>.
+Поэтому создание союзника - хорошая идея.</p>
+</div></div>
+</div>
+<div class="section" id="id14">
+<h2>Узнайте больше<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="service_container\3.3-di-changes.html">The Symfony 3.3 DI Container Changes Explained (autowiring, _defaults, etc)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/3.3-di-changes-ru.html">Объяснение изменений контейнера DI в Symfony 3.3 (autowiring, _defaults, и др.)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\alias_private.html">How to Create Service Aliases and Mark Services as Private</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/alias_private-ru.html">Как создавать альтернативные имена сервиса и отмечать сервисы, как приватные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\autowiring.html">Defining Services Dependencies Automatically (Autowiring)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/autowiring-ru.html">Автоматическое определение зависимостей сервиса (автомонтирование)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\calls.html">Service Method Calls and Setter Injection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/calls-ru.html">Вызовы метода сервиса и сеттер-внедрение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\compiler_passes.html">How to Work with Compiler Passes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/compiler_passes-ru.html">Как работать с пропусками компилятора в пакетах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\configurators.html">How to Configure a Service with a Configurator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/configurators-ru.html">Как сконфигурировать сервис с помощью конфигуратора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\debug.html">How to Debug the Service Container &amp; List Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/debug-ru.html">Как отлаживать сервис-контейнер и список сервисов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\definitions.html">How to work with Service Definition Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/definitions-ru.html">Как работать с объектами определений сервиса</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\expression_language.html">How to Inject Values Based on Complex Expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/expression_language-ru.html">Как внедрять значения, основанные на сложных выражениях</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\factories.html">Using a Factory to Create Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/factories-ru.html">Использование фабрики для созданя сервисов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\import.html">How to Import Configuration Files/Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/import-ru.html">Как импортировать файлы/ресурсы конфигурации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\injection_types.html">Types of Injection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/injection_types-ru.html">Типы внедрения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\lazy_services.html">Lazy Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/lazy_services-ru.html">Ленивые сервисы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\optional_dependencies.html">How to Make Service Arguments/References Optional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/optional_dependencies-ru.html">Как сделать аргументы/ссылки сервисов необязательными</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\parameters.html">Introduction to Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/parameters-ru.html">Введение в параметры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\parent_services.html">How to Manage Common Dependencies with Parent Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/parent_services-ru.html">Как управлять общими зависимостями с родительскими сервисами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\request.html">How to Retrieve the Request from the Service Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/request-ru.html">How to Retrieve the Request from the Service Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\service_decoration.html">How to Decorate Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/service_decoration-ru.html">Как декорировать сервисы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/service_locators-ru.html">Локаторы сервисов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\service_subscribers_locators.html">Service Subscribers &amp; Locators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\shared.html">How to Define Non Shared Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/shared-ru.html">Как определять необщие сервисы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\synthetic_services.html">How to Inject Instances into the Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/synthetic_services-ru.html">Как внедрять экземпляры в контейнер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container\tags.html">How to Work with Service Tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_container/tags-ru.html">Как работат с тегами сервисов</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  <script data-cfasync="false" src="..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script></body>
+</body></html>

@@ -1,0 +1,1407 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент OptionsResolver (Разрешитель опций) &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="Компонент PHPUnit Bridge" href="phpunit_bridge-ru.html">
+    <link rel="prev" title="Компонент Lock" href="lock-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент OptionsResolver (Разрешитель опций)</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#id2">Использование</a><ul>
+<li><a class="reference internal" href="#id3">Обязательные опции</a></li>
+<li><a class="reference internal" href="#id4">Валидация типа</a></li>
+<li><a class="reference internal" href="#id5">Валидация значения</a></li>
+<li><a class="reference internal" href="#id6">Нормализация опций</a></li>
+<li><a class="reference internal" href="#id7">Значения по умолчанию, которые зависят от другой опции</a></li>
+<li><a class="reference internal" href="#id8">Опции без значений по умолчанию</a></li>
+<li><a class="reference internal" href="#id9">Устаревание настройки</a></li>
+<li><a class="reference internal" href="#id10">Настройки производительности</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент OptionsResolver (Разрешитель опций)</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="optionsresolver">
+<span id="index-0"></span><h1>Компонент OptionsResolver (Разрешитель опций)<a class="headerlink" href="#optionsresolver" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Компонент OptionsResolver - это <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.array-replace.php" title="array_replace">array_replace</a></code></tt> на стероидах.
+Он позволяет вам создавать систему опций с обязательными опциями, значениями
+по умолчанию, валидацией (типа, значения), нормализаицей и больше.</div></blockquote>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/options-resolver
+</pre></div>
+</td></tr></table></div></div>
+<p>Также вы можете клонировать репозиторий <a class="reference external" href="https://github.com/symfony/options-resolver">https://github.com/symfony/options-resolver</a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Использование<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Представьте, что у вас есть класс <tt class="docutils literal"><code>Mailer</code></tt>, который имеет четыре опции: <tt class="docutils literal"><code>host</code></tt>,
+<tt class="docutils literal"><code>username</code></tt>, <tt class="docutils literal"><code>password</code></tt> и <tt class="docutils literal"><code>port</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$options</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">array</span> <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span> <span class="o">=</span> <span class="nv">$options</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>При получении доступа к``$options``, вам нужно добавить много рутинного кода, чтобы
+проверить, какие опции установлены:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">sendMail</span><span class="p">(</span><span class="nv">$from</span><span class="p">,</span> <span class="nv">$to</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$mail</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+        <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">setHost</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">])</span>
+            <span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">]</span>
+            <span class="o">:</span> <span class="s1">&#39;smtp.example.org&#39;</span><span class="p">);</span>
+
+        <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">setUsername</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+            <span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span>
+            <span class="o">:</span> <span class="s1">&#39;user&#39;</span><span class="p">);</span>
+
+        <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">setPassword</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">])</span>
+            <span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span>
+            <span class="o">:</span> <span class="s1">&#39;pa$$word&#39;</span><span class="p">);</span>
+
+        <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">setPort</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">])</span>
+            <span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>
+            <span class="o">:</span> <span class="mi">25</span><span class="p">);</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Эту рутину тяжело читать и она очень повторяется. Также, значения опций по умолчанию
+закапываются под бизнес-логику вашего кода. Используйте <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.array-replace.php" title="array_replace">array_replace</a></code></tt>,
+чтобы исправить это:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">array</span> <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span> <span class="o">=</span> <span class="nb">array_replace</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;host&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;smtp.example.org&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;pa$$word&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;port&#39;</span>     <span class="o">=&gt;</span> <span class="mi">25</span><span class="p">,</span>
+        <span class="p">),</span> <span class="nv">$options</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь все четыре опции точно будут установлены. Но что, если пользователь класса
+<tt class="docutils literal"><code>Mailer</code></tt> сделает ошибку?</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$mailer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Mailer</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;usernme&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;johndoe&#39;</span><span class="p">,</span>  <span class="c1">// usernme misspelled (instead of username)</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Ошибка не будет показана. В лучшем случае, баг проявится во время тестирования,
+но разработчик потратит время на поиск проблемы. В худшем случае- баг не появится,
+пока не бует развёрнут в живой системе.</p>
+<p>К счастью, класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html" title="Symfony\Component\OptionsResolver\OptionsResolver">OptionsResolver</a></code></tt>
+помогает вам исправить эту проблему:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\OptionsResolver\OptionsResolver</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">array</span> <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="nv">$resolver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OptionsResolver</span><span class="p">();</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;host&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;smtp.example.org&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;pa$$word&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;port&#39;</span>     <span class="o">=&gt;</span> <span class="mi">25</span><span class="p">,</span>
+        <span class="p">));</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span> <span class="o">=</span> <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">resolve</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Как и раньше, всеопции будут обязательно установлены. Кроме того, вызывается
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/Exception/UndefinedOptionsException.html" title="Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException">UndefinedOptionsException</a></code></tt>,
+если передаётся неизвестная опция:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$mailer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Mailer</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;usernme&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;johndoe&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="c1">// UndefinedOptionsException: Опция &quot;usernme&quot; не существует.</span>
+<span class="c1">// Известные опции: &quot;host&quot;, &quot;password&quot;, &quot;port&quot;, &quot;username&quot;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Остаток вашего кода может получить доступ к значениям опций без рутинного кода:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">sendMail</span><span class="p">(</span><span class="nv">$from</span><span class="p">,</span> <span class="nv">$to</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$mail</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+        <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">setHost</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">]);</span>
+        <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">setUsername</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]);</span>
+        <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">setPassword</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]);</span>
+        <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">setPort</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]);</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Хорошей практикой является разделение конфигурации опций в отдельные методы:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">array</span> <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="nv">$resolver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OptionsResolver</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">configureOptions</span><span class="p">(</span><span class="nv">$resolver</span><span class="p">);</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span> <span class="o">=</span> <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">resolve</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;host&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;smtp.example.org&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;username&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;pa$$word&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;port&#39;</span>       <span class="o">=&gt;</span> <span class="mi">25</span><span class="p">,</span>
+            <span class="s1">&#39;encryption&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Для начала, ваш код становится проще читать, особенно, если конструктор делает больше,
+чем просто обрабатывает опции. Во-вторых, подклассы теперь могут переопределять метод
+<tt class="docutils literal"><code>configureOptions()</code></tt>, чтобы подстроить конфигурацию опций:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">GoogleMailer</span> <span class="k">extends</span> <span class="nx">Mailer</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">configureOptions</span><span class="p">(</span><span class="nv">$resolver</span><span class="p">);</span>
+
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;host&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;smtp.google.com&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;encryption&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ssl&#39;</span><span class="p">,</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id3">
+<h3>Обязательные опции<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Если опция должна быть установлена инициатором вызова, передайте эту
+опцию методу <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_setRequired" title="Symfony\Component\OptionsResolver\OptionsResolver::setRequired()">setRequired()</a></code></tt>.
+Например, чтобы сделать опцию <tt class="docutils literal"><code>host</code></tt> обязательной, вы можете:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setRequired</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы опустите обязательную опцию, будет вызыван
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/Exception/MissingOptionsException.html" title="Symfony\Component\OptionsResolver\Exception\MissingOptionsException">MissingOptionsException</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$mailer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Mailer</span><span class="p">();</span>
+
+<span class="c1">// MissingOptionsException: Отсутствует обязательная опция &quot;host&quot;.</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_setRequired" title="Symfony\Component\OptionsResolver\OptionsResolver::setRequired()">setRequired()</a></code></tt>
+принимае одно имя или массив имён опций, еслиу вас более одной обязателной опции:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setRequired</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Используйте <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_isRequired" title="Symfony\Component\OptionsResolver\OptionsResolver::isRequired()">isRequired()</a></code></tt>, чтобы
+узнать, является ли опция обязательной. Вы можете использовать
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_getRequiredOptions" title="Symfony\Component\OptionsResolver\OptionsResolver::getRequiredOptions()">getRequiredOptions()</a></code></tt>, чтобы
+ищвлечь имена всех обзяательных опций:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">GoogleMailer</span> <span class="k">extends</span> <span class="nx">Mailer</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">configureOptions</span><span class="p">(</span><span class="nv">$resolver</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">isRequired</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// ...</span>
+        <span class="p">}</span>
+
+        <span class="nv">$requiredOptions</span> <span class="o">=</span> <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">getRequiredOptions</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы хотите проверить, отстствует ли всё ещё обязательная опция в опциях по умолчанию,
+вы можете использовать <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_isMissing" title="Symfony\Component\OptionsResolver\OptionsResolver::isMissing()">isMissing()</a></code></tt>.
+Разница между этим и <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_isRequired" title="Symfony\Component\OptionsResolver\OptionsResolver::isRequired()">isRequired()</a></code></tt>
+заключается в том, что этот метод вернёт &quot;false&quot;, если обязательная опция уже была установлена:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setRequired</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">GoogleMailer</span> <span class="k">extends</span> <span class="nx">Mailer</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">configureOptions</span><span class="p">(</span><span class="nv">$resolver</span><span class="p">);</span>
+
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">isRequired</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">);</span>
+        <span class="c1">// =&gt; true</span>
+
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">isMissing</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">);</span>
+        <span class="c1">// =&gt; true</span>
+
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefault</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">,</span> <span class="s1">&#39;smtp.google.com&#39;</span><span class="p">);</span>
+
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">isRequired</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">);</span>
+        <span class="c1">// =&gt; true</span>
+
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">isMissing</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">);</span>
+        <span class="c1">// =&gt; false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_getMissingOptions" title="Symfony\Component\OptionsResolver\OptionsResolver::getMissingOptions()">getMissingOptions()</a></code></tt>
+позволяет вам получить доступ к именам всех отсутствующих опций.</p>
+</div>
+<div class="section" id="id4">
+<h3>Валидация типа<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Вы можете провести дополнительные проверки опций, чтобы убедиться, что они были
+переданы правильно. Чтобы валидировать типы опций, вызовите
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_setAllowedTypes" title="Symfony\Component\OptionsResolver\OptionsResolver::setAllowedTypes()">setAllowedTypes()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+
+        <span class="c1">// укажите один разрешённый тип</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setAllowedTypes</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">);</span>
+
+        <span class="c1">// укажите несколько разрешённых типов</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setAllowedTypes</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;null&#39;</span><span class="p">,</span> <span class="s1">&#39;int&#39;</span><span class="p">));</span>
+
+        <span class="c1">// рекурсивно проверьте все объекты в массиве на тип</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setAllowedTypes</span><span class="p">(</span><span class="s1">&#39;dates&#39;</span><span class="p">,</span> <span class="s1">&#39;DateTime[]&#39;</span><span class="p">);</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setAllowedTypes</span><span class="p">(</span><span class="s1">&#39;ports&#39;</span><span class="p">,</span> <span class="s1">&#39;int[]&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы можете передать любой тип, для которого функция <tt class="docutils literal"><code>is_&lt;type&gt;()</code></tt> определена в PHP.
+Вы можете также передать полное имя класса или интерфейса (который проверяется, используя
+<tt class="docutils literal"><code>instanceof</code></tt>). Кроме того, вы можете валидировать все объекты в массиве рекурсивно,
+добавив к типу суффикс <tt class="docutils literal"><code>[]</code></tt>.</p>
+<p>Если вы сейчас передадите невалидную опцию, будет вызван
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/Exception/InvalidOptionsException.html" title="Symfony\Component\OptionsResolver\Exception\InvalidOptionsException">InvalidOptionsException</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$mailer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Mailer</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;host&#39;</span> <span class="o">=&gt;</span> <span class="mi">25</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="c1">// InvalidOptionsException: Опция &quot;host&quot; со значение &quot;25&quot; должна</span>
+<span class="c1">// иметь тип &quot;string&quot;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В подклассах вы можете использовать
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_addAllowedTypes" title="Symfony\Component\OptionsResolver\OptionsResolver::addAllowedTypes()">addAllowedTypes()</a></code></tt>,
+чтобы добавить дополнительные разрешённые типы, не стирая те, что уже установлены.</p>
+</div>
+<div class="section" id="id5">
+<h3>Валидация значения<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Некоторые опции могут использовать только один из списков предопределённых значений.
+Например, представьте, чтоб класс <tt class="docutils literal"><code>Mailer</code></tt> имеет опцию <tt class="docutils literal"><code>transport</code></tt>, которая может
+быть одним из <tt class="docutils literal"><code>sendmail</code></tt>, <tt class="docutils literal"><code>mail</code></tt> и <tt class="docutils literal"><code>smtp</code></tt>. Используйте метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_setAllowedValues" title="Symfony\Component\OptionsResolver\OptionsResolver::setAllowedValues()">setAllowedValues()</a></code></tt>,
+чтобы убедиться, что переданная опция содержит одно из этих значений:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefault</span><span class="p">(</span><span class="s1">&#39;transport&#39;</span><span class="p">,</span> <span class="s1">&#39;sendmail&#39;</span><span class="p">);</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setAllowedValues</span><span class="p">(</span><span class="s1">&#39;transport&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;sendmail&#39;</span><span class="p">,</span> <span class="s1">&#39;mail&#39;</span><span class="p">,</span> <span class="s1">&#39;smtp&#39;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы передадите невалидный транспорт, будет вызван
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/Exception/InvalidOptionsException.html" title="Symfony\Component\OptionsResolver\Exception\InvalidOptionsException">InvalidOptionsException</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$mailer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Mailer</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;transport&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;send-mail&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="c1">// InvalidOptionsException: Опция &quot;transport&quot; имеет значение</span>
+<span class="c1">// &quot;send-mail&quot;, но должна быть одним из &quot;sendmail&quot;, &quot;mail&quot;, &quot;smtp&quot;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Для опций с более сложными схемами валидации, передайте завершитель, который
+возвращает <tt class="docutils literal"><code>true</code></tt> для приемлемых значений, и <tt class="docutils literal"><code>false</code></tt> - для невалидных:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setAllowedValues</span><span class="p">(</span><span class="s1">&#39;transport&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// вернуть true или false</span>
+<span class="p">});</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В подклассах вы можете использовать
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_addAllowedValues" title="Symfony\Component\OptionsResolver\OptionsResolver::addAllowedValues()">addAllowedValues()</a></code></tt>,
+чтобы добавить дополнительные разрешённые значения, не стирая уже установленные.</p>
+</div>
+<div class="section" id="id6">
+<h3>Нормализация опций<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Иногда, значения опций нужно нормализовать перед тем, как использовать. Например,
+представьте, что <tt class="docutils literal"><code>host</code></tt> должен всегда начинаться с <tt class="docutils literal"><code>http://</code></tt>. Чтобы сделать
+это, вы можете написать нормализаторы. Нормализаторы выполняются после валидации
+опции. Вы можете сконфигурировать нормализатор, вызвав
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_setNormalizer" title="Symfony\Component\OptionsResolver\OptionsResolver::setNormalizer()">setNormalizer()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\OptionsResolver\Options</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setNormalizer</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Options</span> <span class="nv">$options</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;http://&#39;</span> <span class="o">!==</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span> <span class="p">{</span>
+                <span class="nv">$value</span> <span class="o">=</span> <span class="s1">&#39;http://&#39;</span><span class="o">.</span><span class="nv">$value</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="nv">$value</span><span class="p">;</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Нормализатор получает настоящее <tt class="docutils literal"><code>$value</code></tt> и возвращает нормализованную форму.
+Вы видите, что завершитель также использует параметр <tt class="docutils literal"><code>$options</code></tt>. Это полезно,
+если вам нужно использовать другие опции во время нормализации:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setNormalizer</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Options</span> <span class="nv">$options</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;http://&#39;</span> <span class="o">!==</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="s1">&#39;https://&#39;</span> <span class="o">!==</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;ssl&#39;</span> <span class="o">===</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">&#39;encryption&#39;</span><span class="p">])</span> <span class="p">{</span>
+                    <span class="nv">$value</span> <span class="o">=</span> <span class="s1">&#39;https://&#39;</span><span class="o">.</span><span class="nv">$value</span><span class="p">;</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="nv">$value</span> <span class="o">=</span> <span class="s1">&#39;http://&#39;</span><span class="o">.</span><span class="nv">$value</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="nv">$value</span><span class="p">;</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id7">
+<h3>Значения по умолчанию, которые зависят от другой опции<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Представтье, что вы хотите установить значение по умолчанию для опции <tt class="docutils literal"><code>port</code></tt>,
+основанное на шифровании, выбранном пользователем класса <tt class="docutils literal"><code>Mailer</code></tt>. Точнее, вы
+хотите установить порт <tt class="docutils literal"><code>465</code></tt>, если используется SSL, и <tt class="docutils literal"><code>25</code></tt> - в других случаях.</p>
+<p>Вы можете реализовать эту функцию, передав завершитель в качестве значения по
+умолчанию опции <tt class="docutils literal"><code>port</code></tt>. Завершитель получает опцию в качестве аргумента. Основываясь
+на этих опциях, вы можете вернуть желанное значение по умолчанию:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\OptionsResolver\Options</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefault</span><span class="p">(</span><span class="s1">&#39;encryption&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
+
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefault</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Options</span> <span class="nv">$options</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;ssl&#39;</span> <span class="o">===</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">&#39;encryption&#39;</span><span class="p">])</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="mi">465</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="mi">25</span><span class="p">;</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Аргумент вызываемоего должен быть типизирован как <tt class="docutils literal"><code>Options</code></tt>. Иначе,
+само вызываемое рассматривается, как значение опции по умолчанию.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Завершитель выполняется только, если опция <tt class="docutils literal"><code>port</code></tt> не установлена
+пользователем, или перезаписана в подклассе.</p>
+</div></div>
+<p>Доступ к ранее установленному значению по умолчанию можно получить, добавив
+к завершителю второй аргумент:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;encryption&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+            <span class="s1">&#39;host&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;example.org&#39;</span><span class="p">,</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">GoogleMailer</span> <span class="k">extends</span> <span class="nx">Mailer</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">configureOptions</span><span class="p">(</span><span class="nv">$resolver</span><span class="p">);</span>
+
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefault</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Options</span> <span class="nv">$options</span><span class="p">,</span> <span class="nv">$previousValue</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;ssl&#39;</span> <span class="o">===</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">&#39;encryption&#39;</span><span class="p">])</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="s1">&#39;secure.example.org&#39;</span>
+            <span class="p">}</span>
+
+            <span class="c1">// Взять значение по умолчанию, сконфигурированное в базовом классе</span>
+            <span class="k">return</span> <span class="nv">$previousValue</span><span class="p">;</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Как видно в примере, эта функция наиболее полезна, если вы хотите повторно использовать
+значения по умолчанию, установленные в родительских классах, в подклассах.</p>
+</div>
+<div class="section" id="id8">
+<h3>Опции без значений по умолчанию<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>В некоторых случаях, полезно определять опцию, не устанавливая значения по умолчанию.
+Это полезно, если вам нужно знать, <em>действительно</em> ли пользователь установил опцию.
+Например, если вы установите значене по умолчанию для опции, невозможно узнать, передал
+ли пользователь значение, или оно просто является значением по умолчанию:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefault</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">sendMail</span><span class="p">(</span><span class="nv">$from</span><span class="p">,</span> <span class="nv">$to</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Это значение по умолчанию, или инициатор вызова класса действительно</span>
+        <span class="c1">// установил порт 25?</span>
+        <span class="k">if</span> <span class="p">(</span><span class="mi">25</span> <span class="o">===</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">])</span> <span class="p">{</span>
+            <span class="c1">// ...</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы можете использовать <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_setDefined" title="Symfony\Component\OptionsResolver\OptionsResolver::setDefined()">setDefined()</a></code></tt>,
+чтобы определить опцию, не устанавливая значения по умолчанию. Тогда опция будет
+включена в разрешённые опции только если она действительно была передана
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_resolve" title="Symfony\Component\OptionsResolver\OptionsResolver::resolve()">resolve()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefined</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">sendMail</span><span class="p">(</span><span class="nv">$from</span><span class="p">,</span> <span class="nv">$to</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">array_key_exists</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s1">&#39;Set!&#39;</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s1">&#39;Not Set!&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$mailer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Mailer</span><span class="p">();</span>
+<span class="nv">$mailer</span><span class="o">-&gt;</span><span class="na">sendMail</span><span class="p">(</span><span class="nv">$from</span><span class="p">,</span> <span class="nv">$to</span><span class="p">);</span>
+<span class="c1">// =&gt; Не установлено!</span>
+
+<span class="nv">$mailer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Mailer</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;port&#39;</span> <span class="o">=&gt;</span> <span class="mi">25</span><span class="p">,</span>
+<span class="p">));</span>
+<span class="nv">$mailer</span><span class="o">-&gt;</span><span class="na">sendMail</span><span class="p">(</span><span class="nv">$from</span><span class="p">,</span> <span class="nv">$to</span><span class="p">);</span>
+<span class="c1">// =&gt; Установлено!</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы также можете передать массив имён опций, если вы хотите определять несколько
+опций за раз:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefined</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="s1">&#39;encryption&#39;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Методы <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_isDefined" title="Symfony\Component\OptionsResolver\OptionsResolver::isDefined()">isDefined()</a></code></tt>
+и <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_getDefinedOptions" title="Symfony\Component\OptionsResolver\OptionsResolver::getDefinedOptions()">getDefinedOptions()</a></code></tt>
+позволяют вам узнать, какие опции определены:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">GoogleMailer</span> <span class="k">extends</span> <span class="nx">Mailer</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">configureOptions</span><span class="p">(</span><span class="nv">$resolver</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">isDefined</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// Было вызвано одно из следующих:</span>
+
+            <span class="c1">// $resolver-&gt;setDefault(&#39;host&#39;, ...);</span>
+            <span class="c1">// $resolver-&gt;setRequired(&#39;host&#39;);</span>
+            <span class="c1">// $resolver-&gt;setDefined(&#39;host&#39;);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$definedOptions</span> <span class="o">=</span> <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">getDefinedOptions</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id9">
+<h3>Устаревание настройки<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.2: </span>Метод <tt class="docutils literal"><code>setDeprecated()</code></tt> появился в Symfony 4.2.</p>
+</div>
+<p>Как только настройка устарела или вы решили больше её не поддерживать, вы можете пометить её
+устаревшей используя метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html#method_setDeprecated" title="Symfony\Component\OptionsResolver\OptionsResolver::setDeprecated()">setDeprecated()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$resolver</span>
+    <span class="o">-&gt;</span><span class="na">setDefined</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;hostname&#39;</span><span class="p">,</span> <span class="s1">&#39;host&#39;</span><span class="p">))</span>
+    <span class="c1">// this outputs the following generic deprecation message:</span>
+    <span class="c1">// это выведет следующее общее сообщение об устаревании:</span>
+    <span class="c1">// The option &quot;hostname&quot; is deprecated.</span>
+    <span class="o">-&gt;</span><span class="na">setDeprecated</span><span class="p">(</span><span class="s1">&#39;hostname&#39;</span><span class="p">)</span>
+
+    <span class="c1">// вы можете также передать своё сообщение об устаревании</span>
+    <span class="o">-&gt;</span><span class="na">setDeprecated</span><span class="p">(</span><span class="s1">&#39;hostname&#39;</span><span class="p">,</span> <span class="s1">&#39;The option &quot;hostname&quot; is deprecated, use &quot;host&quot; instead.&#39;</span><span class="p">)</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вместо передачи сообщения вы можете также передать замыкание, которе вернёт
+строку (сообщение об устаревании) или пустую строку для игнорирования устаревания.
+Это замыкание удобно для устаревания только некоторых типов или значений
+настройки:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$resolver</span>
+    <span class="o">-&gt;</span><span class="na">setDefault</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setAllowedTypes</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;null&#39;</span><span class="p">,</span> <span class="s1">&#39;int&#39;</span><span class="p">))</span>
+    <span class="o">-&gt;</span><span class="na">setDeprecated</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">null</span> <span class="o">===</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s1">&#39;Passing &quot;null&quot; to option &quot;port&quot; is deprecated, pass an integer instead.&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="p">})</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это замыкание получает аргументом значение настройки после валидирования
+и нормализирования, когда настройка получена.</p>
+</div>
+<div class="section" id="id10">
+<h3>Настройки производительности<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>С текущей реализацией, методй <tt class="docutils literal"><code>configureOptions()</code></tt> будет вызываться для каждого
+экземпляра класса <tt class="docutils literal"><code>Mailer</code></tt>. В зависимости от объема конфигурации опции и количества
+созданных экземпляров, это может создать дополнительную нагрузку на ваше приложение.
+Если эта нагрузка станет проблемой, вы можете изменить ваш код, чтобы конфигурация
+делалась только один раз для одного класса:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="k">static</span> <span class="nv">$resolversByClass</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+
+    <span class="k">protected</span> <span class="nv">$options</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">array</span> <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="c1">// Какой это тип Mailer: Mailer, GoogleMailer, ... ?</span>
+        <span class="nv">$class</span> <span class="o">=</span> <span class="nb">get_class</span><span class="p">(</span><span class="nv">$this</span><span class="p">);</span>
+
+        <span class="c1">// Была ли выполнена configureOptions() до этого класса?</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nx">self</span><span class="o">::</span><span class="nv">$resolversByClass</span><span class="p">[</span><span class="nv">$class</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="nx">self</span><span class="o">::</span><span class="nv">$resolversByClass</span><span class="p">[</span><span class="nv">$class</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OptionsResolver</span><span class="p">();</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">configureOptions</span><span class="p">(</span><span class="nx">self</span><span class="o">::</span><span class="nv">$resolversByClass</span><span class="p">[</span><span class="nv">$class</span><span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$resolversByClass</span><span class="p">[</span><span class="nv">$class</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">resolve</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь экземпляр <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/OptionsResolver/OptionsResolver.html" title="Symfony\Component\OptionsResolver\OptionsResolver">OptionsResolver</a></code></tt>
+будет создан один раз для одного класса и далее использован повторно. Имейте в
+виду, что это может привести к пробелам в памяти в долгосрочных приложениях, если
+опции по умолчанию содержат ссылки на объекты или графики объектов. Если это такой
+случай, реализуйте метод <tt class="docutils literal"><code>clearOptionsConfig()</code></tt> и периодически вызывайте его:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Mailer</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="k">static</span> <span class="nv">$resolversByClass</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">clearOptionsConfig</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">self</span><span class="o">::</span><span class="nv">$resolversByClass</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и всё! Теперь у вас есть все инструменты и знания, необходимые для лёгкой
+обработки опций в вашем коде.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="lock-ru.html">« Компонент Lock</a>
+                <span class="separator">|</span>
+                <a href="phpunit_bridge-ru.html">Компонент PHPUnit Bridge »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

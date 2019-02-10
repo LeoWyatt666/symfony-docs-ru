@@ -1,0 +1,1012 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компиляция контейнера &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+    <link rel="up" title="The DependencyInjection Component" href="..\dependency_injection.html">
+    <link rel="next" title="Container Building Workflow" href="workflow.html">
+    <link rel="prev" title="Compiling the Container" href="compilation.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компиляция контейнера</a><ul>
+<li><a class="reference internal" href="#components-dependency-injection-extension">Управление конфигурацией с помощью расширений</a></li>
+<li><a class="reference internal" href="#components-dependency-injection-compiler-passes">Добавление к конфигурации, переданной расширению</a></li>
+<li><a class="reference internal" href="#components-di-compiler-pass">Выполнение кода во время компиляции</a><ul>
+<li><a class="reference internal" href="#components-di-separate-compiler-passes">Создание отдельных передач компилятора</a><ul>
+<li><a class="reference internal" href="#id6">Контроль порядка передач</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#components-dependency-injection-dumping">Сброс конфигурации для производительности</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li><a href="..\index.html">The Components</a></li>
+                
+                <li><a href="..\dependency_injection.html">The DependencyInjection Component</a></li>
+                
+                <li class="active">Компиляция контейнера</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Компиляция контейнера<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Сервис-контейнер может быть скомпилирован по множеству причин. Эти причины
+включают в себя проверку потенциальных проблем вроде цикличных ссылок,
+повышение эффективности контейнера путём разрешения параметров и удаления
+неиспользуемых сервисов. Также, определённые функции, вроде использования
+<a class="reference internal" href="..\..\service_container\parent_services.html"><em>родительских сервисов</em></a>, требуют
+компиляции контейнера.</p>
+<p>Он компилируется путём вызова:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$container</span><span class="o">-&gt;</span><span class="na">compile</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод компиляции использует <em>Передачи Compiler</em> для компиляции. Компонент
+DependencyInjection поствляется с несколькими передачами, которые автоматически
+регистрируются для компиляции. Например,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DependencyInjection/Compiler/CheckDefinitionValidityPass.html" title="Symfony\Component\DependencyInjection\Compiler\CheckDefinitionValidityPass">CheckDefinitionValidityPass</a></code></tt>
+проверяет на наличие различных проблем определений, установленных в контейнере.
+После этой и нескольких других передач, проверяющих валидность контейнера, последующие
+передачи используются для оптимизации конфигурации перед её кешированием. Например,
+приватные и абстрактные сервисы удаляются, а псевдонимы разрешаются.</p>
+<div class="section" id="components-dependency-injection-extension">
+<span id="id2"></span><h2>Управление конфигурацией с помощью расширений<a class="headerlink" href="#components-dependency-injection-extension" title="Permalink to this headline">¶</a></h2>
+<p>Кроме загрузки конфигурации напрямую в контейнер, как показано в
+<a class="reference internal" href="..\dependency_injection.html"><em>The DependencyInjection Component</em></a>, вы можете управлять ею путём
+регистрации расширений в контейнере. Первым шагом в процессе компиляции
+является загрузка конфигурации из любых классов расширений, зарегистрированных
+в контейнере. В отличие от конфигурации, загруженной напрямую, они обрабатываются
+только при компиляции контейнера. Если ваше приложение модульное, то расширения
+поволяют каждому модулю регистрировать и управлять собственной конфигурацией сервиса.</p>
+<p>Расширения должны реализовать
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DependencyInjection/Extension/ExtensionInterface.html" title="Symfony\Component\DependencyInjection\Extension\ExtensionInterface">ExtensionInterface</a></code></tt>
+и могут быть зарегистрированы в контейнере с помощью:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$container</span><span class="o">-&gt;</span><span class="na">registerExtension</span><span class="p">(</span><span class="nv">$extension</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Главная работа расширения проходит в методе <tt class="docutils literal"><code>load()</code></tt>. В методе <tt class="docutils literal"><code>load()</code></tt>
+вы можете загружать конфигурацию из одного или более файлов конфигурации,
+а также манипулировать определениями контейнера, используя методы, как
+показано в <a class="reference internal" href="..\..\service_container\definitions.html"><em>How to work with Service Definition Objects</em></a>.</p>
+<p>Методу <tt class="docutils literal"><code>load()</code></tt> передаётся свежий контейнер для установки, который потом
+слияется с контейнером, в котором он зарегистрирован. Это позволяет вам иметь
+несколько расширений, управляющих определениями контейнера независимо. Расширения
+не добавляют в конфигурацию контейнеров при добавлении, но обрабатываются при
+вызове метода контейнера <tt class="docutils literal"><code>compile()</code></tt>.</p>
+<p>Очень простое расширение может просто загружать файлы конфигурации в контейнер:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerBuilder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Loader\XmlFileLoader</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Extension\ExtensionInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Config\FileLocator</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AcmeDemoExtension</span> <span class="k">implements</span> <span class="nx">ExtensionInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="k">array</span> <span class="nv">$configs</span><span class="p">,</span> <span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XmlFileLoader</span><span class="p">(</span>
+            <span class="nv">$container</span><span class="p">,</span>
+            <span class="k">new</span> <span class="nx">FileLocator</span><span class="p">(</span><span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../Resources/config&#39;</span><span class="p">)</span>
+        <span class="p">);</span>
+        <span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;services.xml&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это не даёт многого по сравнению с загрузкой файла напрямую в общее построение
+контейнера. Просто позволяет файлам разделяться между модулями и пакетами.
+Возможность повлиять на конфигурацию модуля из файлов конфигурации вне модуля или
+пакета необходима для того, чтобы сложное приложение было конфигурируемым. Этого
+можно достичь указав разделы файлов конфигурации, загружаемых напрямую в контейнер,
+как для определённого расширения. Эти разделы конфигурации будут обработаны не
+напрямую контейнером, а соответствующим расширением.</p>
+<p>Расширение должно указывать метод <tt class="docutils literal"><code>getAlias()</code></tt> для реализации интерфейса:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+
+<span class="k">class</span> <span class="nc">AcmeDemoExtension</span> <span class="k">implements</span> <span class="nx">ExtensionInterface</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getAlias</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;acme_demo&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Для файлов конфигурации YAML, указание псевдонима расширения в качестве ключа будет
+означать, что эти значения передаются методу расширения <tt class="docutils literal"><code>load()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
+<span class="l l-Scalar l-Scalar-Plain">acme_demo</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">foo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">fooValue</span>
+    <span class="l l-Scalar l-Scalar-Plain">bar</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">barValue</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если этот файл загружается в конфигурацию, тогда значения в нём обрабатываются
+только когда контейнер компилируется, и тогда же загружаются расширения:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerBuilder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Config\FileLocator</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Loader\YamlFileLoader</span><span class="p">;</span>
+
+<span class="nv">$containerBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContainerBuilder</span><span class="p">();</span>
+<span class="nv">$containerBuilder</span><span class="o">-&gt;</span><span class="na">registerExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">AcmeDemoExtension</span><span class="p">);</span>
+
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">YamlFileLoader</span><span class="p">(</span><span class="nv">$containerBuilder</span><span class="p">,</span> <span class="k">new</span> <span class="nx">FileLocator</span><span class="p">(</span><span class="no">__DIR__</span><span class="p">));</span>
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;config.yaml&#39;</span><span class="p">);</span>
+
+<span class="c1">// ...</span>
+<span class="nv">$containerBuilder</span><span class="o">-&gt;</span><span class="na">compile</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">При загрузке файла конфигурации, использующего псведоним расширения в
+качестве ключа, расширение уже должно быть зарегистрировано в консрукторе
+контейнера, иначе будет вызвано исключение.</p>
+</div></div>
+<p>Значения из этих разделов файлов конфигурации передаются в первый аргумент метода
+расширения <tt class="docutils literal"><code>load()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="k">array</span> <span class="nv">$configs</span><span class="p">,</span> <span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$configs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;foo&#39;</span><span class="p">];</span> <span class="c1">//fooValue</span>
+    <span class="nv">$bar</span> <span class="o">=</span> <span class="nv">$configs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;bar&#39;</span><span class="p">];</span> <span class="c1">//barValue</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Аргумент <tt class="docutils literal"><code>$configs</code></tt> - это массив, содержащий каждый отличный файл конфигурации,
+который был загружен в контейнер. Вы загружаете только один файл конфигурации в
+примере выше, но он всё равно будет в массиве. Массив будет выглядеть так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">array</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;fooValue&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;barValue&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Несмотря на то, что вы можете вручную управлять слянием разных файлов, намного
+лучше слиять и валидировать значения конфигурации. Используя обработку конфигурации,
+выможете получить доступ к значению конфигурации таким образом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Config\Definition\Processor</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="k">array</span> <span class="nv">$configs</span><span class="p">,</span> <span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$configuration</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Configuration</span><span class="p">();</span>
+    <span class="nv">$processor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Processor</span><span class="p">();</span>
+    <span class="nv">$config</span> <span class="o">=</span> <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">processConfiguration</span><span class="p">(</span><span class="nv">$configuration</span><span class="p">,</span> <span class="nv">$configs</span><span class="p">);</span>
+
+    <span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">];</span> <span class="c1">//fooValue</span>
+    <span class="nv">$bar</span> <span class="o">=</span> <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">];</span> <span class="c1">//barValue</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Существует ещё два метода, которые вы должны реализовать. Один для возврата
+пространства имён XML, чтобы соответствующие части XML конфигурации передавались
+расширению. Второй - для указания основного пути к файлам XSD для валидации XML
+конфигурации:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">getXsdValidationBasePath</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../Resources/config/&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">getNamespace</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="s1">&#39;http://www.example.com/symfony/schema/&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">XSD валидация необязательна, возвращение <tt class="docutils literal"><code>false</code></tt> из метода <tt class="docutils literal"><code>getXsdValidationBasePath()</code></tt>
+отключит её.</p>
+</div></div>
+<p>XML версия конфигурации будет выглядеть так:</p>
+<div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:acme_demo=</span><span class="s">&quot;http://www.example.com/symfony/schema/&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.example.com/symfony/schema/ http://www.example.com/symfony/schema/hello-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;acme_demo:config&gt;</span>
+        <span class="nt">&lt;acme_demo:foo&gt;</span>fooValue<span class="nt">&lt;/acme_demo:foo&gt;</span>
+        <span class="nt">&lt;acme_demo:bar&gt;</span>barValue<span class="nt">&lt;/acme_demo:bar&gt;</span>
+    <span class="nt">&lt;/acme_demo:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">В комплексном фреймворке Symfony суещствует базовый класс Extension,
+реализующий эти методы,а также метод сокращения для обработки конфигурации.
+См. <a class="reference internal" href="..\..\bundles\extension.html"><em>How to Load Service Configuration inside a Bundle</em></a>, чтобы узнать больше.</p>
+</div></div>
+<p>Обработанное значение конфигурации теперь может быть доавлено в качестве параметров
+контейнера, как будто бы оно было перечислено в разделе <tt class="docutils literal"><code>parameters</code></tt> файла конфигурации,
+но с дополнительным преимуществом слияния нескольких файлов и валидации конфигурации:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="k">array</span> <span class="nv">$configs</span><span class="p">,</span> <span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$configuration</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Configuration</span><span class="p">();</span>
+    <span class="nv">$processor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Processor</span><span class="p">();</span>
+    <span class="nv">$config</span> <span class="o">=</span> <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">processConfiguration</span><span class="p">(</span><span class="nv">$configuration</span><span class="p">,</span> <span class="nv">$configs</span><span class="p">);</span>
+
+    <span class="nv">$container</span><span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">&#39;acme_demo.FOO&#39;</span><span class="p">,</span> <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]);</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Более сложные требования конфигурации могут быть сделаны для классов Extension.
+Например, вы можете выбрать загрузку файла конфигурации основного сервиса, но
+также загружать вторичную, если установлен определённый параметр:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="k">array</span> <span class="nv">$configs</span><span class="p">,</span> <span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$configuration</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Configuration</span><span class="p">();</span>
+    <span class="nv">$processor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Processor</span><span class="p">();</span>
+    <span class="nv">$config</span> <span class="o">=</span> <span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">processConfiguration</span><span class="p">(</span><span class="nv">$configuration</span><span class="p">,</span> <span class="nv">$configs</span><span class="p">);</span>
+
+    <span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XmlFileLoader</span><span class="p">(</span>
+        <span class="nv">$container</span><span class="p">,</span>
+        <span class="k">new</span> <span class="nx">FileLocator</span><span class="p">(</span><span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../Resources/config&#39;</span><span class="p">)</span>
+    <span class="p">);</span>
+    <span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;services.xml&#39;</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;advanced&#39;</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;advanced.xml&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p>Просто регистрации расширения в контейнере недостаточно для того, чтобы оно
+было включено в обработанные расширения при компиляции контейнера. Загрузка
+конфигурации, использующей псведоним расширения в качестве ключа, как в примерах
+выше, гарантирует его загрузку. Конструктору контейнера также можно указать
+загружать его с помощью метода
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DependencyInjection/ContainerBuilder.html#method_loadFromExtension" title="Symfony\Component\DependencyInjection\ContainerBuilder::loadFromExtension()">loadFromExtension()</a></code></tt>:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerBuilder</span><span class="p">;</span>
+
+<span class="nv">$containerBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContainerBuilder</span><span class="p">();</span>
+<span class="nv">$extension</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AcmeDemoExtension</span><span class="p">();</span>
+<span class="nv">$containerBuilder</span><span class="o">-&gt;</span><span class="na">registerExtension</span><span class="p">(</span><span class="nv">$extension</span><span class="p">);</span>
+<span class="nv">$containerBuilder</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="nv">$extension</span><span class="o">-&gt;</span><span class="na">getAlias</span><span class="p">());</span>
+<span class="nv">$containerBuilder</span><span class="o">-&gt;</span><span class="na">compile</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если вам нужно манипулировать конфигурацией, загруженной расширением, то
+вы не можете сделать этого из другого расширения, так как оно использует
+свежий контейнер. Вместо этого вы должны использовать передачу компилятора,
+которая работает со всем контейнером после обработки расширений.</p>
+</div></div>
+</div>
+<div class="section" id="components-dependency-injection-compiler-passes">
+<span id="id3"></span><h2>Добавление к конфигурации, переданной расширению<a class="headerlink" href="#components-dependency-injection-compiler-passes" title="Permalink to this headline">¶</a></h2>
+<p>Расширение может добавлять к конфигурации любого пакета перед вызовом метода
+<tt class="docutils literal"><code>load()</code></tt>, реализуя
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DependencyInjection/Extension/PrependExtensionInterface.html" title="Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface">PrependExtensionInterface</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="k">class</span> <span class="nc">AcmeDemoExtension</span> <span class="k">implements</span> <span class="nx">ExtensionInterface</span><span class="p">,</span> <span class="nx">PrependExtensionInterface</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">prepend</span><span class="p">(</span><span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+
+        <span class="nv">$container</span><span class="o">-&gt;</span><span class="na">prependExtensionConfig</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$config</span><span class="p">);</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Чтобы узнать больше, см. <a class="reference internal" href="..\..\bundles\prepend_extension.html"><em>How to Simplify Configuration of Multiple Bundles</em></a>, который относится
+к фреймворку Symfony, но содержит больше деталей об этой функции.</p>
+</div>
+<div class="section" id="components-di-compiler-pass">
+<span id="creating-a-compiler-pass"></span><span id="id4"></span><h2>Выполнение кода во время компиляции<a class="headerlink" href="#components-di-compiler-pass" title="Permalink to this headline">¶</a></h2>
+<p>Вы также можете выполнить пользовательский код во время компиляции, написав
+вашу собственную передачу компилятора. Реализовав
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DependencyInjection/Compiler/CompilerPassInterface.html" title="Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface">CompilerPassInterface</a></code></tt>
+в вашем расширении, добавленный метод <tt class="docutils literal"><code>process()</code></tt> будет вызван во время компиляции:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AcmeDemoExtension</span> <span class="k">implements</span> <span class="nx">ExtensionInterface</span><span class="p">,</span> <span class="nx">CompilerPassInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">process</span><span class="p">(</span><span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+    <span class="p">{</span>
+       <span class="c1">// ... сделать что-то во время компиляции</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Так как <tt class="docutils literal"><code>process()</code></tt> вызывается <em>после</em> загрузки всех расширений, он позволяет
+вам редактировать определения сервиса других расширений, а также получать информацию
+об определениях сервиса.</p>
+<p>Параметрами и определениями контейнера можно манипулровать, используя методы,
+описанные в <a class="reference internal" href="..\..\service_container\definitions.html"><em>How to work with Service Definition Objects</em></a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Пожалуйста, отметьте, что метод <tt class="docutils literal"><code>process()</code></tt> в классе расширения вызывается
+во время шага оптимизации. Вы можете прочитать
+<a class="reference internal" href="#components-di-separate-compiler-passes"><span>следующий раздел</span></a>, если вам
+нужно редактировать контейнер во время другого шага.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Возьмите себе за правило только работать с определениями сервисов в передаче
+компилятора, а не создавать экземпляры сервиса. На практике, это означает использование
+методов <tt class="docutils literal"><code>has()</code></tt>, <tt class="docutils literal"><code>findDefinition()</code></tt>, <tt class="docutils literal"><code>getDefinition()</code></tt>, <tt class="docutils literal"><code>setDefinition()</code></tt>,
+и др., вместо <tt class="docutils literal"><code>get()</code></tt>, <tt class="docutils literal"><code>set()</code></tt>, и др.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Убедитесь в том, что ваша передача компилятора не требует существования сервисов.
+Прервите вызов метода, если какой-то из требуемых сервисов недоступен.</p>
+</div></div>
+<p>Частым случаем использования передач компилятора является поиск всех определений
+сервиса, имеющих определённый тег, для того, чтобы динамически вставлять каждый
+в какой-то другой сервис. См. раздел <a class="reference internal" href="..\..\service_container\tags.html#service-container-compiler-pass-tags"><span>сервис-теги</span></a>,
+чтобы увидеть пример.</p>
+<div class="section" id="components-di-separate-compiler-passes">
+<span id="id5"></span><h3>Создание отдельных передач компилятора<a class="headerlink" href="#components-di-separate-compiler-passes" title="Permalink to this headline">¶</a></h3>
+<p>Иногда вам может понадобиться сделать более одного действия во время компиляции,
+использовать передачи компилятора без расширения или выполнить некоторый код во
+время другого шага процесса компиляции. В таких случаях вы можете создать новый
+класс, реализующий <tt class="docutils literal"><code>CompilerPassInterface</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerBuilder</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CustomPass</span> <span class="k">implements</span> <span class="nx">CompilerPassInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">process</span><span class="p">(</span><span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+    <span class="p">{</span>
+       <span class="c1">// ... сделать что-то во время компиляции</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Потом вам нужно зарегистрировать вашу пользовательскую передачу в
+контейнере:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerBuilder</span><span class="p">;</span>
+
+<span class="nv">$containerBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContainerBuilder</span><span class="p">();</span>
+<span class="nv">$containerBuilder</span><span class="o">-&gt;</span><span class="na">addCompilerPass</span><span class="p">(</span><span class="k">new</span> <span class="nx">CustomPass</span><span class="p">());</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Передачи компилятора регистрируются по-другому, если вы используете комплексный
+фреймворк, см. <a class="reference internal" href="..\..\service_container\compiler_passes.html"><em>How to Work with Compiler Passes</em></a>, чтобы узнать больше.</p>
+</div></div>
+<div class="section" id="id6">
+<h4>Контроль порядка передач<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>Передачи компилятора по умолчанию сгруппированы в передачи оптимизации и передачи
+удаления. Передачи оптимизации выполняются первыми и включают в себя задачи вроде
+разрешения ссылок в рамках определений. Передачи удаления выполняют задачи вроде
+удаления приватных псевдонимов и неиспользуемых сервисов. При регистрации передач
+компилятора с использованием <tt class="docutils literal"><code>addCompilerPass()</code></tt>, вы можете сконфигурировать, когда
+будет запущена ваша передача компилятора. По умолчанию, они выполняются перед передачами
+оптимизации.</p>
+<p>Вы можете использовать следующие константы для определения того, когда выполнить
+ваши передачи:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>PassConfig::TYPE_BEFORE_OPTIMIZATION</code></tt></li>
+<li><tt class="docutils literal"><code>PassConfig::TYPE_OPTIMIZE</code></tt></li>
+<li><tt class="docutils literal"><code>PassConfig::TYPE_BEFORE_REMOVING</code></tt></li>
+<li><tt class="docutils literal"><code>PassConfig::TYPE_REMOVE</code></tt></li>
+<li><tt class="docutils literal"><code>PassConfig::TYPE_AFTER_REMOVING</code></tt></li>
+</ul>
+<p>Например, чтобы выполнить вашу пользовательскую передачу после передачи удаления
+по умолчанию, используйте:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$containerBuilder</span><span class="o">-&gt;</span><span class="na">addCompilerPass</span><span class="p">(</span>
+    <span class="k">new</span> <span class="nx">CustomPass</span><span class="p">(),</span>
+    <span class="nx">PassConfig</span><span class="o">::</span><span class="na">TYPE_AFTER_REMOVING</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы также можете контролировать порядок, в котором выполняются передачи компилятора
+для каждой фазы компиляци. Используйте необязательный третий аргумент <tt class="docutils literal"><code>addCompilerPass()</code></tt>,
+чтобы установить приоритетность в виде числа. Приоритет по умолчанию <tt class="docutils literal"><code>0</code></tt>, и чем выше
+его значение, тем раньше он будет выполнен:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="c1">// FirstPass выполняется после SecondPass, так как его приоритет ниже</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">addCompilerPass</span><span class="p">(</span>
+    <span class="k">new</span> <span class="nx">FirstPass</span><span class="p">(),</span> <span class="nx">PassConfig</span><span class="o">::</span><span class="na">TYPE_AFTER_REMOVING</span><span class="p">,</span> <span class="mi">10</span>
+<span class="p">);</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">addCompilerPass</span><span class="p">(</span>
+    <span class="k">new</span> <span class="nx">SecondPass</span><span class="p">(),</span> <span class="nx">PassConfig</span><span class="o">::</span><span class="na">TYPE_AFTER_REMOVING</span><span class="p">,</span> <span class="mi">30</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="components-dependency-injection-dumping">
+<span id="id7"></span><h2>Сброс конфигурации для производительности<a class="headerlink" href="#components-dependency-injection-dumping" title="Permalink to this headline">¶</a></h2>
+<p>Использование файлов конфигурации для управления сервис-контейнером может быть
+намного проще для понимания, чем использовать PHP, когда существует уже множество
+сервисов. Эта лёгкость однако имеет свою цену, когда речь заходит о производительности,
+так как файлы конфигурации нужно анализировать, и из них строится конфигурация PHP.
+Процесс компиляции делает контейнер эффективнее, но забирает время на выполнение.
+Вы можете получить все преимущества,используя файлы конфигурации, а потом сбрасывая
+их и кешируя результирующую конфигурацию. <tt class="docutils literal"><code>PhpDumper</code></tt> делает сброс скомпилированного
+контенера простым:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerBuilder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Dumper\PhpDumper</span><span class="p">;</span>
+
+<span class="nv">$file</span> <span class="o">=</span> <span class="no">__DIR__</span> <span class="o">.</span><span class="s1">&#39;/cache/container.php&#39;</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">file_exists</span><span class="p">(</span><span class="nv">$file</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">require_once</span> <span class="nv">$file</span><span class="p">;</span>
+    <span class="nv">$container</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProjectServiceContainer</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nv">$containerBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContainerBuilder</span><span class="p">();</span>
+    <span class="c1">// ...</span>
+    <span class="nv">$containerBuilder</span><span class="o">-&gt;</span><span class="na">compile</span><span class="p">();</span>
+
+    <span class="nv">$dumper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PhpDumper</span><span class="p">(</span><span class="nv">$containerBuilder</span><span class="p">);</span>
+    <span class="nb">file_put_contents</span><span class="p">(</span><span class="nv">$file</span><span class="p">,</span> <span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p><tt class="docutils literal"><code>ProjectServiceContainer</code></tt> это данное классу сброшенного контейнера по умолчанию.
+Однако вы можете изменить его с опцией <tt class="docutils literal"><code>class</code></tt>, когда вы будете его сбрасывать:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$file</span> <span class="o">=</span> <span class="no">__DIR__</span> <span class="o">.</span><span class="s1">&#39;/cache/container.php&#39;</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">file_exists</span><span class="p">(</span><span class="nv">$file</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">require_once</span> <span class="nv">$file</span><span class="p">;</span>
+    <span class="nv">$container</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyCachedContainer</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nv">$containerBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContainerBuilder</span><span class="p">();</span>
+    <span class="c1">// ...</span>
+    <span class="nv">$containerBuilder</span><span class="o">-&gt;</span><span class="na">compile</span><span class="p">();</span>
+
+    <span class="nv">$dumper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PhpDumper</span><span class="p">(</span><span class="nv">$containerBuilder</span><span class="p">);</span>
+    <span class="nb">file_put_contents</span><span class="p">(</span>
+        <span class="nv">$file</span><span class="p">,</span>
+        <span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;MyCachedContainer&#39;</span><span class="p">))</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь вы получите скорость сконфигурированного в PHP контейнера с лёгкостью
+исползования файлов конфигурации. Кроме того, сброс контейнера таким образом
+ещё больше оптимизирует то, как создаются сервисы контейнером.</p>
+<p>В примере выше вам нужно будет удалять кеширвоанный файл контейнера каждый раз,
+когда вы будете вносить изменения. Добавление проверки переменной, определяющей,
+находитесь ли вы в режиме отладки, позволяет вам сохранять скорость кешированного
+контейнера в производстве, и получать актуальную конфигурацию во время разработки
+вашего приложения:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+
+<span class="c1">// основывается на чем-то в вашем проекте</span>
+<span class="nv">$isDebug</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="nv">$file</span> <span class="o">=</span> <span class="no">__DIR__</span> <span class="o">.</span><span class="s1">&#39;/cache/container.php&#39;</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$isDebug</span> <span class="o">&amp;&amp;</span> <span class="nb">file_exists</span><span class="p">(</span><span class="nv">$file</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">require_once</span> <span class="nv">$file</span><span class="p">;</span>
+    <span class="nv">$container</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyCachedContainer</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nv">$containerBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContainerBuilder</span><span class="p">();</span>
+    <span class="c1">// ...</span>
+    <span class="nv">$containerBuilder</span><span class="o">-&gt;</span><span class="na">compile</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$isDebug</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$dumper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PhpDumper</span><span class="p">(</span><span class="nv">$containerBuilder</span><span class="p">);</span>
+        <span class="nb">file_put_contents</span><span class="p">(</span>
+            <span class="nv">$file</span><span class="p">,</span>
+            <span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;MyCachedContainer&#39;</span><span class="p">))</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это можно улучшить ещё, просто перекомпилировав контейнер в режиме отладки,
+если в его конфигурации были сделаны изменения, а не делая это по каждому
+запросу. Это можно сделать путём кеширования файлов источников, использованных
+для конфигурации контейнера, описаным в документации компонента конфигурации
+&quot;<a class="reference internal" href="..\config\caching.html"><em>Caching based on Resources</em></a>&quot;.</p>
+<p>Вам не нужно выбират, какие файлы кешировать, так как конструктор контейнера
+хранит все источники, использованные для его конфигурации, не только файлы
+конфигурации, но и классы расширений и передачи компилятора. Это означает,
+что любые изменения в любом из этих файлов инвалидируют кеш и вызовут перестроение
+контейнера. Вам просто нужно запросить у контейнера эти источники и использовать
+их в качестве метаданных для кеша:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+
+<span class="c1">// основывается на чем-то в вашем проекте</span>
+<span class="nv">$isDebug</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="nv">$file</span> <span class="o">=</span> <span class="no">__DIR__</span> <span class="o">.</span><span class="s1">&#39;/cache/container.php&#39;</span><span class="p">;</span>
+<span class="nv">$containerConfigCache</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ConfigCache</span><span class="p">(</span><span class="nv">$file</span><span class="p">,</span> <span class="nv">$isDebug</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$containerConfigCache</span><span class="o">-&gt;</span><span class="na">isFresh</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nv">$containerBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContainerBuilder</span><span class="p">();</span>
+    <span class="c1">// ...</span>
+    <span class="nv">$containerBuilder</span><span class="o">-&gt;</span><span class="na">compile</span><span class="p">();</span>
+
+    <span class="nv">$dumper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PhpDumper</span><span class="p">(</span><span class="nv">$containerBuilder</span><span class="p">);</span>
+    <span class="nv">$containerConfigCache</span><span class="o">-&gt;</span><span class="na">write</span><span class="p">(</span>
+        <span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;MyCachedContainer&#39;</span><span class="p">)),</span>
+        <span class="nv">$containerBuilder</span><span class="o">-&gt;</span><span class="na">getResources</span><span class="p">()</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">require_once</span> <span class="nv">$file</span><span class="p">;</span>
+<span class="nv">$container</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyCachedContainer</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь кешированный сброшенный контейнер используется невзирая на то, включен
+ли режим отладки. Разница заключается в том, что <tt class="docutils literal"><code>ConfigCache</code></tt> установлен в
+режим отладки вторым аргументом конструктора. Когда кеш не находится в режиме
+отладки, всегда будет исползован кешированный контейнер, если он существует.
+В режиме отладки, пишется дополнительный файл метаданных с помощью временных отметок
+всех файлов источников. Потом они проверяются, чтобы увидеть, не изменялись ли
+файлы, и если они изменялись, то кеш будет считаться просроченным.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">В комплексном фреймворке о кешировании и компиляции контейнера позаботились
+за вас.</p>
+</div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="compilation.html">« Compiling the Container</a>
+                <span class="separator">|</span>
+                <a href="workflow.html">Container Building Workflow »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

@@ -1,0 +1,971 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент DomCrawler &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="The Dotenv Component" href="dotenv.html">
+    <link rel="prev" title="The DomCrawler Component" href="dom_crawler.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент DomCrawler</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#id2">Применение</a><ul>
+<li><a class="reference internal" href="#id3">Фильтрация узлов</a></li>
+<li><a class="reference internal" href="#id4">Траверсирование узлов</a></li>
+<li><a class="reference internal" href="#id5">Доступ к значениям узлов</a></li>
+<li><a class="reference internal" href="#id6">Добавление содержания</a></li>
+<li><a class="reference internal" href="#id7">оценка выражений</a></li>
+<li><a class="reference internal" href="#id8">Ссылки</a></li>
+<li><a class="reference internal" href="#id9">Изображения</a></li>
+<li><a class="reference internal" href="#id10">Формы</a><ul>
+<li><a class="reference internal" href="#id11">Использование данных формы</a></li>
+<li><a class="reference internal" href="#components-dom-crawler-invalid-ru">Выбор недопустимых значений выбора</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id13">Узнайте больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент DomCrawler</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="domcrawler">
+<span id="index-0"></span><h1>Компонент DomCrawler<a class="headerlink" href="#domcrawler" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Компонент DomCrawler облегчает DOM навигацию для документов HTML и
+XML.</div></blockquote>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Несмотря на то, что это возможно, компонент DomCrawler не был создан для
+управления DOM или повторного сброса HTML/XML.</p>
+</div></div>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/dom-crawler
+</pre></div>
+</td></tr></table></div></div>
+<p>Также вы можете клонировать репозиторий <a class="reference external" href="https://github.com/symfony/dom-crawler">https://github.com/symfony/dom-crawler</a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Применение<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Эта статья объясняет как использовать функции DomCrawler как независимого
+компонента в любом приложении PHP. Прочитайте статью <a class="reference internal" href="..\testing.html#functional-tests"><span>Функциональные тесты Symfony</span></a>
+для понимания как использовать его при создании тестов Symfony.</div></div>
+<p>Класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Crawler.html" title="Symfony\Component\DomCrawler\Crawler">Crawler</a></code></tt> предоставляет методы для запроса
+и обработки HTML и XML документов.</p>
+<p>Экземпляр Crawler представляет собой набор объектов <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.domelement.php" title="DOMElement">DOMElement</a></code></tt>, которые
+по сути являются узлами, которые вы можете с лёгкостью траверсировать.:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\DomCrawler\Crawler</span><span class="p">;</span>
+
+<span class="nv">$html</span> <span class="o">=</span> <span class="s">&lt;&lt;&lt;&#39;</span><span class="dl">HTML</span><span class="s">&#39;</span>
+<span class="s">&lt;!DOCTYPE html&gt;</span>
+<span class="s">&lt;html&gt;</span>
+<span class="s">    &lt;body&gt;</span>
+<span class="s">        &lt;p class=&quot;message&quot;&gt;Hello World!&lt;/p&gt;</span>
+<span class="s">        &lt;p&gt;Hello Crawler!&lt;/p&gt;</span>
+<span class="s">    &lt;/body&gt;</span>
+<span class="s">&lt;/html&gt;</span>
+<span class="dl">HTML</span><span class="p">;</span>
+
+<span class="nv">$crawler</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Crawler</span><span class="p">(</span><span class="nv">$html</span><span class="p">);</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$crawler</span> <span class="k">as</span> <span class="nv">$domElement</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$domElement</span><span class="o">-&gt;</span><span class="na">nodeName</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Специальные классы <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Link.html" title="Symfony\Component\DomCrawler\Link">Link</a></code></tt>,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Image.html" title="Symfony\Component\DomCrawler\Image">Image</a></code></tt> и
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Form.html" title="Symfony\Component\DomCrawler\Form">Form</a></code></tt> полезны для взаимодействия
+с html ссылками, изображениями и формами во время траверсирования через дерево
+HTML.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">DomCrawler попробует автоматически исправить ваш HTML, чтобы он совпадал
+с официальной спецификацией. Например, если вы вложите тег <tt class="docutils literal"><code>&lt;p&gt;</code></tt> в другой
+тег <tt class="docutils literal"><code>&lt;p&gt;</code></tt>, он будет перемещён, чтобы быть сестрой родительского тега. Это
+ожидаемо и является частью спецификации HTML5. И хотя DomCrawler не предназначен
+для сброса содержания,вы можете увидеть &quot;исправленную&quot; версию вашего HTML,
+<a class="reference internal" href="dom_crawler.html#component-dom-crawler-dumping"><span>сбросив её</span></a>.</p>
+</div></div>
+<div class="section" id="id3">
+<h3>Фильтрация узлов<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Использование выражений XPath очень просто:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$crawler</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filterXPath</span><span class="p">(</span><span class="s1">&#39;descendant-or-self::body/p&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last"><tt class="docutils literal"><code>DOMXPath::query</code></tt> используется внутренне, чтобы выполнять запрос XPath.</p>
+</div></div>
+<p>Фильтрация становится ещё проще, если у вас установлен компонент CssSelector.
+Это позволяет вам использовать селекторы, схожие с jQuery, для траверсирования:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$crawler</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;body &gt; p&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Для фильтрации с более сложными критериями, может быть использвана анонимная
+функция:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\DomCrawler\Crawler</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$crawler</span> <span class="o">=</span> <span class="nv">$crawler</span>
+    <span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;body &gt; p&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">reduce</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">Crawler</span> <span class="nv">$node</span><span class="p">,</span> <span class="nv">$i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// фильтрует узлы через один</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">});</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Чтобы удалить узел, анонимная функция должна вернуть &quot;false&quot;.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Все методы фильтрации возвращают новый экземпляр <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Crawler.html" title="Symfony\Component\DomCrawler\Crawler">Crawler</a></code></tt>
+с отфильтрованным содержанием.</p>
+</div></div>
+<p>Оба метода <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Crawler.html#method_filterXPath" title="Symfony\Component\DomCrawler\Crawler::filterXPath()">filterXPath()</a></code></tt> и
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Crawler.html#method_filter" title="Symfony\Component\DomCrawler\Crawler::filter()">filter()</a></code></tt> работают с пространствами
+имён XML, которые могут быть либо обнаружены автоматически, либо ясно зарегистрированы.</p>
+<p>Рассмотрите XML ниже:</p>
+<div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;entry</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/2005/Atom&quot;</span>
+    <span class="na">xmlns:media=</span><span class="s">&quot;http://search.yahoo.com/mrss/&quot;</span>
+    <span class="na">xmlns:yt=</span><span class="s">&quot;http://gdata.youtube.com/schemas/2007&quot;</span>
+<span class="nt">&gt;</span>
+    <span class="nt">&lt;id&gt;</span>tag:youtube.com,2008:video:kgZRZmEc9j4<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;yt:accessControl</span> <span class="na">action=</span><span class="s">&quot;comment&quot;</span> <span class="na">permission=</span><span class="s">&quot;allowed&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;yt:accessControl</span> <span class="na">action=</span><span class="s">&quot;videoRespond&quot;</span> <span class="na">permission=</span><span class="s">&quot;moderated&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;media:group&gt;</span>
+        <span class="nt">&lt;media:title</span> <span class="na">type=</span><span class="s">&quot;plain&quot;</span><span class="nt">&gt;</span>Chordates - CrashCourse Biology #24<span class="nt">&lt;/media:title&gt;</span>
+        <span class="nt">&lt;yt:aspectRatio&gt;</span>widescreen<span class="nt">&lt;/yt:aspectRatio&gt;</span>
+    <span class="nt">&lt;/media:group&gt;</span>
+<span class="nt">&lt;/entry&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это может быть отфильтровано с помощью  <tt class="docutils literal"><code>Crawler</code></tt> без необходимости регистрировать
+дополнительные именя просранства имён как с <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Crawler.html#method_filterXPath" title="Symfony\Component\DomCrawler\Crawler::filterXPath()">filterXPath()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$crawler</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filterXPath</span><span class="p">(</span><span class="s1">&#39;//default:entry/media:group//yt:aspectRatio&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>так и с <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Crawler.html#method_filter" title="Symfony\Component\DomCrawler\Crawler::filter()">filter()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$crawler</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;default|entry media|group yt|aspectRatio&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p>Пространство имён по умолчанию зарегистрировано с префиксом &quot;default&quot;. Оно может
+быть изменено методом <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Crawler.html#method_setDefaultNamespacePrefix" title="Symfony\Component\DomCrawler\Crawler::setDefaultNamespacePrefix()">setDefaultNamespacePrefix()</a></code></tt>.</p>
+<p class="last">Пространство имён по умолчанию удаляется при загрузке содержимого, если оно
+является единственым пространством имён в нём. Это делается для упрощения
+запросов xpath.</p>
+</div></div>
+<p>Пространства имён могут быть ясно зарегистрированы с методом
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Crawler.html#method_registerNamespace" title="Symfony\Component\DomCrawler\Crawler::registerNamespace()">registerNamespace()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">registerNamespace</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;http://search.yahoo.com/mrss/&#39;</span><span class="p">);</span>
+<span class="nv">$crawler</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filterXPath</span><span class="p">(</span><span class="s1">&#39;//m:group//yt:aspectRatio&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id4">
+<h3>Траверсирование узлов<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Получите доступ к узлу поего позиции в списке:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;body &gt; p&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Получите первый или последний узел текущего выбора:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;body &gt; p&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">first</span><span class="p">();</span>
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;body &gt; p&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">last</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Получите узлы того же уровня, что и текущий выбор:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;body &gt; p&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">siblings</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Получите узлы одного уровня до или после текущего выбора:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;body &gt; p&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">nextAll</span><span class="p">();</span>
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;body &gt; p&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">previousAll</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Получите все родительские или дочерные узлы:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">children</span><span class="p">();</span>
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;body &gt; p&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">parents</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Все траверсионные методы возвращают новый экзепмпляр <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Crawler.html" title="Symfony\Component\DomCrawler\Crawler">Crawler</a></code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="id5">
+<h3>Доступ к значениям узлов<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Доступ к имени узла (имени HTML тега) первого узла текущего выбора (например, &quot;p&quot; или &quot;div&quot;):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// возвращает имя узла (имя HTML тега) первого дочеренго элемента под &lt;body&gt;</span>
+<span class="nv">$tag</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filterXPath</span><span class="p">(</span><span class="s1">&#39;//body/*&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">nodeName</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Доступ к значению первого узла текущего выбора:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$message</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filterXPath</span><span class="p">(</span><span class="s1">&#39;//body/p&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Доступ к значению атрибута первого узла текущего выбора:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$class</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filterXPath</span><span class="p">(</span><span class="s1">&#39;//body/p&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">attr</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Извлечь значения атрибута и / или узлов из списка узлов:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$attributes</span> <span class="o">=</span> <span class="nv">$crawler</span>
+    <span class="o">-&gt;</span><span class="na">filterXpath</span><span class="p">(</span><span class="s1">&#39;//body/p&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">extract</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;_text&#39;</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span><span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Специальный атрибут <tt class="docutils literal"><code>_text</code></tt> представляет значение узла.</p>
+</div></div>
+<p>Вызвать анонимную функцию в каждом узле списка:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\DomCrawler\Crawler</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$nodeValues</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">each</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">Crawler</span> <span class="nv">$node</span><span class="p">,</span> <span class="nv">$i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$node</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Анонимная функция получает узел (как Crawler) и позицию аргументов. Результатом
+является массив значений, возвращённых анонимными функциональными вызовами.</p>
+</div>
+<div class="section" id="id6">
+<h3>Добавление содержания<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Сrawler поддерживает несколько способов добавления содержания:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$crawler</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Crawler</span><span class="p">(</span><span class="s1">&#39;&lt;html&gt;&lt;body /&gt;&lt;/html&gt;&#39;</span><span class="p">);</span>
+
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">addHtmlContent</span><span class="p">(</span><span class="s1">&#39;&lt;html&gt;&lt;body /&gt;&lt;/html&gt;&#39;</span><span class="p">);</span>
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">addXmlContent</span><span class="p">(</span><span class="s1">&#39;&lt;root&gt;&lt;node /&gt;&lt;/root&gt;&#39;</span><span class="p">);</span>
+
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">addContent</span><span class="p">(</span><span class="s1">&#39;&lt;html&gt;&lt;body /&gt;&lt;/html&gt;&#39;</span><span class="p">);</span>
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">addContent</span><span class="p">(</span><span class="s1">&#39;&lt;root&gt;&lt;node /&gt;&lt;/root&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;text/xml&#39;</span><span class="p">);</span>
+
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;&lt;html&gt;&lt;body /&gt;&lt;/html&gt;&#39;</span><span class="p">);</span>
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;&lt;root&gt;&lt;node /&gt;&lt;/root&gt;&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p>Методы <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Crawler.html#method_addHtmlContent" title="Symfony\Component\DomCrawler\Crawler::addHtmlContent()">addHtmlContent()</a></code></tt> и
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Crawler.html#method_addXmlContent" title="Symfony\Component\DomCrawler\Crawler::addXmlContent()">addXmlContent()</a></code></tt> по умолчанию
+имеют кодировку UTF-8, но вы можете изменить это поведение их вторым необязательным
+аргументом.</p>
+<p class="last">Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Crawler.html#method_addContent" title="Symfony\Component\DomCrawler\Crawler::addContent()">addContent()</a></code></tt> предполагает
+лучшую кодировку в соответствии с данным содержанием, и по умолчанию является
+<tt class="docutils literal"><code>ISO-8859-1</code></tt>, в случае, если невозможно предположить кодировку.</p>
+</div></div>
+<p>Так как реализация Crawler основывается на расширении DOM, то он также способен
+взаимодействовать с оригинальными объектами <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.domdocument.php" title="DOMDocument">DOMDocument</a></code></tt>, <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.domnodelist.php" title="DOMNodeList">DOMNodeList</a></code></tt>
+и <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.domnode.php" title="DOMNode">DOMNode</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$domDocument</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\DOMDocument</span><span class="p">();</span>
+<span class="nv">$domDocument</span><span class="o">-&gt;</span><span class="na">loadXml</span><span class="p">(</span><span class="s1">&#39;&lt;root&gt;&lt;node /&gt;&lt;node /&gt;&lt;/root&gt;&#39;</span><span class="p">);</span>
+<span class="nv">$nodeList</span> <span class="o">=</span> <span class="nv">$domDocument</span><span class="o">-&gt;</span><span class="na">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;node&#39;</span><span class="p">);</span>
+<span class="nv">$node</span> <span class="o">=</span> <span class="nv">$domDocument</span><span class="o">-&gt;</span><span class="na">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;node&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">item</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">addDocument</span><span class="p">(</span><span class="nv">$domDocument</span><span class="p">);</span>
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">addNodeList</span><span class="p">(</span><span class="nv">$nodeList</span><span class="p">);</span>
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">addNodes</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$node</span><span class="p">));</span>
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">addNode</span><span class="p">(</span><span class="nv">$node</span><span class="p">);</span>
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="nv">$domDocument</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper" id="component-dom-crawler-dumping-ru">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Управление и сброс <tt class="docutils literal"><code>Crawler</code></tt></p>
+<p>Эти методы в <tt class="docutils literal"><code>Crawler</code></tt> предназначаются для первоначального наполнения
+вашего <tt class="docutils literal"><code>Crawler</code></tt>, и не предназначены для дальнейшего управления DOM
+(хотя это возможно). Однако, так как <tt class="docutils literal"><code>Crawler</code></tt> - это набор объектов
+<tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.domelement.php" title="DOMElement">DOMElement</a></code></tt>, вы можете использовать любой доступный метод или
+свойство в <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.domelement.php" title="DOMElement">DOMElement</a></code></tt>, <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.domnode.php" title="DOMNode">DOMNode</a></code></tt> или <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.domdocument.php" title="DOMDocument">DOMDocument</a></code></tt>.
+Например, вы можете получить HTML <tt class="docutils literal"><code>Crawler</code></tt> с чем-то вроде этого:</p>
+<blockquote>
+<div><p>$html = '';</p>
+<dl class="docutils">
+<dt>foreach ($crawler as $domElement) {</dt>
+<dd>$html .= $domElement-&gt;ownerDocument-&gt;saveHTML($domElement);</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>Или вы можете получить HTML первого узла, используя
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Crawler.html#method_html" title="Symfony\Component\DomCrawler\Crawler::html()">html()</a></code></tt>:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$html</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">html</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+</div>
+<div class="section" id="id7">
+<h3>оценка выражений<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Метод <tt class="docutils literal"><code>evaluate()</code></tt> оценивает заданное выражение XPath. Возвратное значение
+зависит от выражения XPath. Если выражение по оценке является скалярным (например,
+атрибутами HTML), то будет возвращён массив результатов. Если выражение по оценке
+является документом DOM, то будет возвращён новый экземпляр <tt class="docutils literal"><code>Crawler</code></tt>.</p>
+<p>Это поведение лучше всего проиллюстрировать с помощью примеров:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\DomCrawler\Crawler</span><span class="p">;</span>
+
+<span class="nv">$html</span> <span class="o">=</span> <span class="s1">&#39;&lt;html&gt;</span>
+<span class="s1">&lt;body&gt;</span>
+<span class="s1">    &lt;span id=&quot;article-100&quot; class=&quot;article&quot;&gt;Article 1&lt;/span&gt;</span>
+<span class="s1">    &lt;span id=&quot;article-101&quot; class=&quot;article&quot;&gt;Article 2&lt;/span&gt;</span>
+<span class="s1">    &lt;span id=&quot;article-102&quot; class=&quot;article&quot;&gt;Article 3&lt;/span&gt;</span>
+<span class="s1">&lt;/body&gt;</span>
+<span class="s1">&lt;/html&gt;&#39;</span><span class="p">;</span>
+
+<span class="nv">$crawler</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Crawler</span><span class="p">();</span>
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">addHtmlContent</span><span class="p">(</span><span class="nv">$html</span><span class="p">);</span>
+
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filterXPath</span><span class="p">(</span><span class="s1">&#39;//span[contains(@id, &quot;article-&quot;)]&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">evaluate</span><span class="p">(</span><span class="s1">&#39;substring-after(@id, &quot;-&quot;)&#39;</span><span class="p">);</span>
+<span class="cm">/* array:3 [</span>
+<span class="cm">     0 =&gt; &quot;100&quot;</span>
+<span class="cm">     1 =&gt; &quot;101&quot;</span>
+<span class="cm">     2 =&gt; &quot;102&quot;</span>
+<span class="cm">   ]</span>
+<span class="cm"> */</span>
+
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">evaluate</span><span class="p">(</span><span class="s1">&#39;substring-after(//span[contains(@id, &quot;article-&quot;)]/@id, &quot;-&quot;)&#39;</span><span class="p">);</span>
+<span class="cm">/* array:1 [</span>
+<span class="cm">     0 =&gt; &quot;100&quot;</span>
+<span class="cm">   ]</span>
+<span class="cm"> */</span>
+
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filterXPath</span><span class="p">(</span><span class="s1">&#39;//span[@class=&quot;article&quot;]&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">evaluate</span><span class="p">(</span><span class="s1">&#39;count(@id)&#39;</span><span class="p">);</span>
+<span class="cm">/* array:3 [</span>
+<span class="cm">     0 =&gt; 1.0</span>
+<span class="cm">     1 =&gt; 1.0</span>
+<span class="cm">     2 =&gt; 1.0</span>
+<span class="cm">   ]</span>
+<span class="cm"> */</span>
+
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">evaluate</span><span class="p">(</span><span class="s1">&#39;count(//span[@class=&quot;article&quot;])&#39;</span><span class="p">);</span>
+<span class="cm">/* array:1 [</span>
+<span class="cm">     0 =&gt; 3.0</span>
+<span class="cm">   ]</span>
+<span class="cm"> */</span>
+
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">evaluate</span><span class="p">(</span><span class="s1">&#39;//span[1]&#39;</span><span class="p">);</span>
+<span class="c1">// Экземпляр Symfony\Component\DomCrawler\Crawler</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id8">
+<h3>Ссылки<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Чтобы найти ссылку по имени (или нажимаемое изображение по его атрибуту <tt class="docutils literal"><code>alt</code></tt>),
+используйте метод <tt class="docutils literal"><code>selectLink()</code></tt> в существующем crawler. Это вернёт экземпляр
+<tt class="docutils literal"><code>Crawler</code></tt> только с выбранной(ыми) ссылкой(ами). Вызов <tt class="docutils literal"><code>link()</code></tt> даст вам специальный
+объект <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Link.html" title="Symfony\Component\DomCrawler\Link">Link</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$linksCrawler</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">selectLink</span><span class="p">(</span><span class="s1">&#39;Go elsewhere...&#39;</span><span class="p">);</span>
+<span class="nv">$link</span> <span class="o">=</span> <span class="nv">$linksCrawler</span><span class="o">-&gt;</span><span class="na">link</span><span class="p">();</span>
+
+<span class="c1">// или сделать это всё одновременно</span>
+<span class="nv">$link</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">selectLink</span><span class="p">(</span><span class="s1">&#39;Go elsewhere...&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">link</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Объект <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Link.html" title="Symfony\Component\DomCrawler\Link">Link</a></code></tt> имеет несколько
+полезных методов, чтобы получить больше информации о самой выбранной
+ссылке:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// возвращает соответствующий URL, который может быть использован для создания другого запроса</span>
+<span class="nv">$uri</span> <span class="o">=</span> <span class="nv">$link</span><span class="o">-&gt;</span><span class="na">getUri</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal"><code>getUri()</code></tt> особенно полезен, так как очищает значение <tt class="docutils literal"><code>href</code></tt> и преобразует
+его в то, как оно действительно должно быть обработано. Например, для ссылки с
+<tt class="docutils literal"><code>href=&quot;#foo&quot;</code></tt>, будет возвращён полный URI текущей страницы, с суффиксом <tt class="docutils literal"><code>#foo</code></tt>.
+Возврат из <tt class="docutils literal"><code>getUri()</code></tt> - всегда полный URI, с которым вы можете работать.</p>
+</div></div>
+</div>
+<div class="section" id="id9">
+<h3>Изображения<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Чтобы найти изображения по его атрибуту <tt class="docutils literal"><code>alt</code></tt>, используйте метод <tt class="docutils literal"><code>selectImage</code></tt> в
+существующем crawler. Это вернёт экземпляр <tt class="docutils literal"><code>Crawler</code></tt> только с выбранным(и) изображением(ями).
+Вызов <tt class="docutils literal"><code>image()</code></tt> даёт вам специальный объект <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Image.html" title="Symfony\Component\DomCrawler\Image">Image</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$imagesCrawler</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">selectImage</span><span class="p">(</span><span class="s1">&#39;Kitten&#39;</span><span class="p">);</span>
+<span class="nv">$image</span> <span class="o">=</span> <span class="nv">$imagesCrawler</span><span class="o">-&gt;</span><span class="na">image</span><span class="p">();</span>
+
+<span class="c1">// или сделать это всё одновременно</span>
+<span class="nv">$image</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">selectImage</span><span class="p">(</span><span class="s1">&#39;Kitten&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">image</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Объект <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Image.html" title="Symfony\Component\DomCrawler\Image">Image</a></code></tt> имеет тот же метод
+<tt class="docutils literal"><code>getUri()</code></tt>, что и <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Link.html" title="Symfony\Component\DomCrawler\Link">Link</a></code></tt>.</p>
+</div>
+<div class="section" id="id10">
+<h3>Формы<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Особое внимание уделяется также и формам. Метод <tt class="docutils literal"><code>selectButton()</code></tt> доступен в
+Crawler, и возвращает другой Crawler, который совпадает с кнопкой (<tt class="docutils literal"><code>input[type=submit]</code></tt>,
+<tt class="docutils literal"><code>input[type=image]</code></tt>, или <tt class="docutils literal"><code>button</code></tt>) с заданным текстом. Этот метод особенно
+полезен, так как вы можете использовать его, чтобы вернуть объект
+a <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Form.html" title="Symfony\Component\DomCrawler\Form">Form</a></code></tt>, который представляет форму, в
+которой живёт кнопка:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// пример кнопки: &lt;button id=&quot;my-super-button&quot; type=&quot;submit&quot;&gt;Моя супер-кнопка&lt;/button&gt;</span>
+
+<span class="c1">// вы можете получить кнопку по её ярлыку</span>
+<span class="nv">$form</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">selectButton</span><span class="p">(</span><span class="s1">&#39;My super button&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">form</span><span class="p">();</span>
+
+<span class="c1">// или по id кнопки (#my-super-button), если ярлыка нет</span>
+<span class="nv">$form</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">selectButton</span><span class="p">(</span><span class="s1">&#39;my-super-button&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">form</span><span class="p">();</span>
+
+<span class="c1">// или вы можете отфильтровать всю форму, например, форма имеет атрибут класса: &lt;form class=&quot;form-vertical&quot; method=&quot;POST&quot;&gt;</span>
+<span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;.form-vertical&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">form</span><span class="p">();</span>
+
+<span class="c1">// или &quot;заполнить&quot; поля формы данными</span>
+<span class="nv">$form</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">selectButton</span><span class="p">(</span><span class="s1">&#39;my-super-button&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">form</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Ryan&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Объект <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Form.html" title="Symfony\Component\DomCrawler\Form">Form</a></code></tt> имеет множество очень полезных
+методов для работы с формами:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$uri</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getUri</span><span class="p">();</span>
+
+<span class="nv">$method</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DomCrawler/Form.html#method_getUri" title="Symfony\Component\DomCrawler\Form::getUri()">getUri()</a></code></tt> делает больше,
+чем просто возвращает атрибут формы <tt class="docutils literal"><code>action</code></tt>. Если метод формы - GET, то
+он имитирует поведение браузера и возвращает атрибут <tt class="docutils literal"><code>action</code></tt>, за которым
+следует строка запроса всех значений формы.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Поддерживаются необязательные атрибуты кнопки <tt class="docutils literal"><code>formaction</code></tt> и <tt class="docutils literal"><code>formmethod</code></tt>.
+Методы <tt class="docutils literal"><code>getUri()</code></tt> и <tt class="docutils literal"><code>getMethod()</code></tt> принимают во внимание эти атрибуты, чтобы
+всегда возвращать правильные действие и метод, в зависимости от кнопки, использованной
+для получения формы.</p>
+</div></div>
+<p>Вы можете виртуально установить и получить значения формы:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// устанавливает значения формы внутренне</span>
+<span class="nv">$form</span><span class="o">-&gt;</span><span class="na">setValues</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;registration[username]&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;symfonyfan&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;registration[terms]&#39;</span>    <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="c1">// получает обратно массив значений - в &quot;чистом&quot; массиве, как выше</span>
+<span class="nv">$values</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getValues</span><span class="p">();</span>
+
+<span class="c1">// возвращает значения такими, какими их будет видеть PHP,</span>
+<span class="c1">// где &quot;регистрация&quot; - отдельный массив</span>
+<span class="nv">$values</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getPhpValues</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Для работы с многомерными полями:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">form</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;multi[]&quot;</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;multi[]&quot;</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;multi[dimensional]&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="nx">form</span><span class="o">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Передать массив значений:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Устанавливает одно поле</span>
+<span class="nv">$form</span><span class="o">-&gt;</span><span class="na">setValues</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;multi&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)));</span>
+
+<span class="c1">// Устанавливает несколько полей одновременно</span>
+<span class="nv">$form</span><span class="o">-&gt;</span><span class="na">setValues</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;multi&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="mi">1</span>             <span class="o">=&gt;</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;dimensional&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;an other value&#39;</span>
+<span class="p">)));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это всё прекрасно, но дальше - лучше! Объект <tt class="docutils literal"><code>Form</code></tt> позволяет вам взаимодействовать
+с вашей формой, как браузером, выбирая значения радиокнопок, отмечая чекбоксы, и
+загружая файлы:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;registration[username]&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">setValue</span><span class="p">(</span><span class="s1">&#39;symfonyfan&#39;</span><span class="p">);</span>
+
+<span class="c1">// отмечает или убирает отметку чекбокса</span>
+<span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;registration[terms]&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">tick</span><span class="p">();</span>
+<span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;registration[terms]&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">untick</span><span class="p">();</span>
+
+<span class="c1">// выбирает опцию</span>
+<span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;registration[birthday][year]&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">select</span><span class="p">(</span><span class="mi">1984</span><span class="p">);</span>
+
+<span class="c1">// выбирает несколько опций в множественном &quot;селекте&quot;</span>
+<span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;registration[interests]&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">select</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;symfony&#39;</span><span class="p">,</span> <span class="s1">&#39;cookies&#39;</span><span class="p">));</span>
+
+<span class="c1">// имитирует загрузку файла</span>
+<span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;registration[photo]&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">upload</span><span class="p">(</span><span class="s1">&#39;/path/to/lucas.jpg&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id11">
+<h4>Использование данных формы<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<p>В чём смысл этого всего? Если вы тестируете внутренне, то вы можете получать
+информацию из формы, как будто бы она только была отправлена, используя PHP
+значения:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$values</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getPhpValues</span><span class="p">();</span>
+<span class="nv">$files</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getPhpFiles</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы используете внешний HTTP-клиент, то вы можете использовать форму,
+чтобы получить всю необходимую вам информацию для создания запроса POST
+для формы:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$uri</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getUri</span><span class="p">();</span>
+<span class="nv">$method</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">();</span>
+<span class="nv">$values</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getValues</span><span class="p">();</span>
+<span class="nv">$files</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getFiles</span><span class="p">();</span>
+
+<span class="c1">// теперь используйте некоторый HTTP клиент и сделайте пост, используя эту информацию</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Прекрасный пример интегрированной системы, использующей всё это - <a class="reference external" href="https://github.com/FriendsOfPHP/Goutte">Goutte</a>.
+Goutte понимает объект Symfony Crawler и может использовать его для отправки
+форм напрямую:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Goutte\Client</span><span class="p">;</span>
+
+<span class="c1">// делает настоящий запрос к внешнему сайту</span>
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Client</span><span class="p">();</span>
+<span class="nv">$crawler</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;https://github.com/login&#39;</span><span class="p">);</span>
+
+<span class="c1">// выбирает форму и заполнить некоторые значения</span>
+<span class="nv">$form</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">selectButton</span><span class="p">(</span><span class="s1">&#39;Sign in&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">form</span><span class="p">();</span>
+<span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;symfonyfan&#39;</span><span class="p">;</span>
+<span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;anypass&#39;</span><span class="p">;</span>
+
+<span class="c1">// отправляет эту форму</span>
+<span class="nv">$crawler</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">(</span><span class="nv">$form</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="components-dom-crawler-invalid-ru">
+<span id="id12"></span><h4>Выбор недопустимых значений выбора<a class="headerlink" href="#components-dom-crawler-invalid-ru" title="Permalink to this headline">¶</a></h4>
+<p>По умолчанию, поля выбора (селект, радио) имеют внутренню валидацию, которая
+активируется, чтобы уберечь вас от установки недопустимых значений. Если вы
+хотите иметь возможность устанавливать недопустимые значения, вы можете использовать
+метод <tt class="docutils literal"><code>disableValidation()</code></tt> либо во всей форме, либо в отдельном(ых) поле(ях):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Отключает валидацию для конкретного поля</span>
+<span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">disableValidation</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">select</span><span class="p">(</span><span class="s1">&#39;Invalid value&#39;</span><span class="p">);</span>
+
+<span class="c1">// Отключает валидацию для всей формы</span>
+<span class="nv">$form</span><span class="o">-&gt;</span><span class="na">disableValidation</span><span class="p">();</span>
+<span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">select</span><span class="p">(</span><span class="s1">&#39;Invalid value&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h2>Узнайте больше<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="..\testing.html"><em>Testing</em></a></li>
+<li><a class="reference internal" href="css_selector.html"><em>The CssSelector Component</em></a></li>
+</ul>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="dom_crawler.html">« The DomCrawler Component</a>
+                <span class="separator">|</span>
+                <a href="dotenv.html">The Dotenv Component »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

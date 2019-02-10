@@ -1,0 +1,500 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как создать SOAP веб-сервис в контроллере Symfony &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Controller" href="..\controller.html">
+    <link rel="next" title="How to Upload Files" href="upload_file.html">
+    <link rel="prev" title="How to Create a SOAP Web Service in a Symfony Controller" href="soap_web_service.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="controller doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как создать SOAP веб-сервис в контроллере Symfony</a></li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\getting_started\index.html">Getting Started</a></li>
+                
+                <li><a href="..\setup.html">Installing &amp; Setting up the Symfony Framework</a></li>
+                
+                <li><a href="..\page_creation.html">Create your First Page in Symfony</a></li>
+                
+                <li><a href="..\routing.html">Routing</a></li>
+                
+                <li><a href="..\controller.html">Controller</a></li>
+                
+                <li class="active">Как создать SOAP веб-сервис в контроллере Symfony</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="soap-symfony">
+<span id="how-to-create-a-soap-web-service-in-a-symfony2-controller-ru"></span><span id="index-0"></span><h1>Как создать SOAP веб-сервис в контроллере Symfony<a class="headerlink" href="#soap-symfony" title="Permalink to this headline">¶</a></h1>
+<p>Настройка контроллера таким образом, чтобы он вёл себя, как веб-сервис
+SOAP - это легко с помощью некоторых инструментов. Конечно же, у вас
+должно быть установлено расширение <a class="reference external" href="https://php.net/manual/ru/book.soap.php">PHP SOAP</a>. Так как расширение PHP
+SOAP не может на данный момент сгенерировать WSDL, то вы должны либо создать
+его с нуля, либо использовать сторонний генератор.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Существует несколько доступных к использованию реализаций SOAP-сервера
+с PHP. <a class="reference external" href="http://framework.zend.com/manual/current/en/modules/zend.soap.server.html">Zend SOAP</a> и <a class="reference external" href="http://sourceforge.net/projects/nusoap">NuSOAP</a> являются двумя примерами. Несмотря на то,
+что в этих примерах используется расширение PHP SOAP, общая идея должна
+быть применима к другим реализациям.</p>
+</div></div>
+<p>SOAP работает путём раскрытия методов PHP-объекта внешней сущности (т.е.
+пользователю, использующему SOAP-сервис). Для начала, создайте класс
+<tt class="docutils literal"><code>HelloService</code></tt>, представляющий функциональность, которую вы раскроете в
+вашем SOAP-сервисе. В этом случае, SOAP-сервис позволит клиенту вызывать
+метод по имени <tt class="docutils literal"><code>hello</code></tt>, который отправляет электронное письмо:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Service/HelloService.php</span>
+<span class="k">namespace</span> <span class="nx">App\Service</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">HelloService</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$mailer</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">\Swift_Mailer</span> <span class="nv">$mailer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mailer</span> <span class="o">=</span> <span class="nv">$mailer</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">hello</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+
+        <span class="nv">$message</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Swift_Message</span><span class="p">(</span><span class="s1">&#39;Hello Service&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">setTo</span><span class="p">(</span><span class="s1">&#39;<a href="..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="1e737b5e7b667f736e727b307d7173">[email&#160;protected]</a>&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">setBody</span><span class="p">(</span><span class="nv">$name</span><span class="o">.</span><span class="s1">&#39; says hi!&#39;</span><span class="p">);</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mailer</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="s1">&#39;Hello, &#39;</span><span class="o">.</span><span class="nv">$name</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Далее, убедитесь в том, что ваш новый класс зарегистрирован как сервис. Если вы
+используете <a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>конфигурацию сервисов по умолчанию</span></a>,
+то вам ничего не надо делать!</p>
+<p>Наконец, ниже вы увидите пример контроллера, способного обработать SOAP-запрос.
+Так как <tt class="docutils literal"><code>index()</code></tt> доступен через <tt class="docutils literal"><code>/soap</code></tt>, документ WSDL можетбыть вызван
+через <tt class="docutils literal"><code>/soap?wsdl</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\Controller</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Service\HelloService</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">HelloServiceController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Route(&quot;/soap&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">(</span><span class="nx">HelloService</span> <span class="nv">$helloService</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\SoapServer</span><span class="p">(</span><span class="s1">&#39;/path/to/hello.wsdl&#39;</span><span class="p">);</span>
+        <span class="nv">$server</span><span class="o">-&gt;</span><span class="na">setObject</span><span class="p">(</span><span class="nv">$helloService</span><span class="p">);</span>
+
+        <span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">();</span>
+        <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/xml; charset=ISO-8859-1&#39;</span><span class="p">);</span>
+
+        <span class="nb">ob_start</span><span class="p">();</span>
+        <span class="nv">$server</span><span class="o">-&gt;</span><span class="na">handle</span><span class="p">();</span>
+        <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="nb">ob_get_clean</span><span class="p">());</span>
+
+        <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Отметьте вызовы к <tt class="docutils literal"><code>ob_start()</code></tt> и <tt class="docutils literal"><code>ob_get_clean()</code></tt>. Эти методы контролируют
+<a class="reference external" href="http://php.net/manual/ru/book.outcontrol.php">буферизацию вывода</a>, что позволяет вам &quot;поймать в ловушку&quot; отражённый вывод
+<tt class="docutils literal"><code>$server-&gt;handle()</code></tt>. Это необходимо, так как Symfony ждёт, что ваш контроллер
+вернёт объект <tt class="docutils literal"><code>Response</code></tt> с выводом в качестве &quot;содержания&quot;. Вы также должны
+не забыть установить заголовок &quot;Content-Type&quot; (тип содержимого) как &quot;text/xml&quot;,
+так как это то, чего будет ожидать клиент. Таким образом, вы используете <tt class="docutils literal"><code>ob_start()</code></tt>,
+чтобы начать буферизацию STDOUT и используете <tt class="docutils literal"><code>ob_get_clean()</code></tt>, чтобы сбросить
+отражённый вовод в содержимое Ответа и очистить буфер вывода. Наконец, вы готовы
+вернуть <tt class="docutils literal"><code>Response</code></tt>.</p>
+<p>Ниже показан пример вызова сервиса с использованием клиента <a class="reference external" href="http://sourceforge.net/projects/nusoap">NuSOAP</a>. Этот
+пример предполагает, что метод <tt class="docutils literal"><code>index()</code></tt> в контроллере выше доступен по
+маршруту <tt class="docutils literal"><code>/soap</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Soapclient</span><span class="p">(</span><span class="s1">&#39;http://example.com/index.php/soap?wsdl&#39;</span><span class="p">);</span>
+
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">call</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Scott&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Пример WSDL ниже.</p>
+<div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span>
+<span class="nt">&lt;definitions</span> <span class="na">xmlns:SOAP-ENV=</span><span class="s">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>
+    <span class="na">xmlns:xsd=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:SOAP-ENC=</span><span class="s">&quot;http://schemas.xmlsoap.org/soap/encoding/&quot;</span>
+    <span class="na">xmlns:tns=</span><span class="s">&quot;urn:arnleadservicewsdl&quot;</span>
+    <span class="na">xmlns:soap=</span><span class="s">&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot;</span>
+    <span class="na">xmlns:wsdl=</span><span class="s">&quot;http://schemas.xmlsoap.org/wsdl/&quot;</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.xmlsoap.org/wsdl/&quot;</span>
+    <span class="na">targetNamespace=</span><span class="s">&quot;urn:helloservicewsdl&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;types&gt;</span>
+        <span class="nt">&lt;xsd:schema</span> <span class="na">targetNamespace=</span><span class="s">&quot;urn:hellowsdl&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;xsd:import</span> <span class="na">namespace=</span><span class="s">&quot;http://schemas.xmlsoap.org/soap/encoding/&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;xsd:import</span> <span class="na">namespace=</span><span class="s">&quot;http://schemas.xmlsoap.org/wsdl/&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/xsd:schema&gt;</span>
+    <span class="nt">&lt;/types&gt;</span>
+
+    <span class="nt">&lt;message</span> <span class="na">name=</span><span class="s">&quot;helloRequest&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;part</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">type=</span><span class="s">&quot;xsd:string&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/message&gt;</span>
+
+    <span class="nt">&lt;message</span> <span class="na">name=</span><span class="s">&quot;helloResponse&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;part</span> <span class="na">name=</span><span class="s">&quot;return&quot;</span> <span class="na">type=</span><span class="s">&quot;xsd:string&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/message&gt;</span>
+
+    <span class="nt">&lt;portType</span> <span class="na">name=</span><span class="s">&quot;hellowsdlPortType&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;operation</span> <span class="na">name=</span><span class="s">&quot;hello&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;documentation&gt;</span>Hello World<span class="nt">&lt;/documentation&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">message=</span><span class="s">&quot;tns:helloRequest&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;output</span> <span class="na">message=</span><span class="s">&quot;tns:helloResponse&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/operation&gt;</span>
+    <span class="nt">&lt;/portType&gt;</span>
+
+    <span class="nt">&lt;binding</span> <span class="na">name=</span><span class="s">&quot;hellowsdlBinding&quot;</span> <span class="na">type=</span><span class="s">&quot;tns:hellowsdlPortType&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;soap:binding</span> <span class="na">style=</span><span class="s">&quot;rpc&quot;</span> <span class="na">transport=</span><span class="s">&quot;http://schemas.xmlsoap.org/soap/http&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;operation</span> <span class="na">name=</span><span class="s">&quot;hello&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;soap:operation</span> <span class="na">soapAction=</span><span class="s">&quot;urn:arnleadservicewsdl#hello&quot;</span> <span class="na">style=</span><span class="s">&quot;rpc&quot;</span><span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;input&gt;</span>
+                <span class="nt">&lt;soap:body</span> <span class="na">use=</span><span class="s">&quot;encoded&quot;</span> <span class="na">namespace=</span><span class="s">&quot;urn:hellowsdl&quot;</span>
+                    <span class="na">encodingStyle=</span><span class="s">&quot;http://schemas.xmlsoap.org/soap/encoding/&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/input&gt;</span>
+
+            <span class="nt">&lt;output&gt;</span>
+                <span class="nt">&lt;soap:body</span> <span class="na">use=</span><span class="s">&quot;encoded&quot;</span> <span class="na">namespace=</span><span class="s">&quot;urn:hellowsdl&quot;</span>
+                    <span class="na">encodingStyle=</span><span class="s">&quot;http://schemas.xmlsoap.org/soap/encoding/&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/output&gt;</span>
+        <span class="nt">&lt;/operation&gt;</span>
+    <span class="nt">&lt;/binding&gt;</span>
+
+    <span class="nt">&lt;service</span> <span class="na">name=</span><span class="s">&quot;hellowsdl&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;port</span> <span class="na">name=</span><span class="s">&quot;hellowsdlPort&quot;</span> <span class="na">binding=</span><span class="s">&quot;tns:hellowsdlBinding&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;soap:address</span> <span class="na">location=</span><span class="s">&quot;http://example.com/index.php/soap&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/port&gt;</span>
+    <span class="nt">&lt;/service&gt;</span>
+<span class="nt">&lt;/definitions&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="soap_web_service.html">« How to Create a SOAP Web Service in a Symfony Controller</a>
+                <span class="separator">|</span>
+                <a href="upload_file.html">How to Upload Files »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  <script data-cfasync="false" src="..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script></body>
+</body></html>

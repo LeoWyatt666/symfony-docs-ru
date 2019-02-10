@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Создание воспроизводителя багов &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="contributing doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Создание воспроизводителя багов</a><ul>
+<li><a class="reference internal" href="#id2">Воспроизведение простых багов</a></li>
+<li><a class="reference internal" href="#id3">Воспроизведение сложных багов</a><ul>
+<li><a class="reference internal" href="#id4">Добавление минимально возможного количества кода</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li class="active">Создание воспроизводителя багов</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>Создание воспроизводителя багов<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Главное хранилище кода Symfony получает тысячи сообщений об ошибках каждый год.
+Некоторые из этих проблем такие очевидные и простые для понимания, что базовые
+разрсботчики Symfony могут исправить из без дополнительной информации. Однако,
+другие проблемы намного сложнее понять, так как разработчики не могут легко
+воспроизвести их на своих компьютерах. В таких случаях мы просим вас создать
+&quot;воспроизводитель бага&quot; - минимальное количество кода, необходимое для появления
+бага при выполнении.</p>
+<div class="section" id="id2">
+<h2>Воспроизведение простых багов<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Если вы сообщаете о баге, связанном с некоторым компонентом Symfony, используемом
+вне фреймворка Symfony, то достаточно поделиться небольшим PHP-скриптом, который
+при выполнении отображает баг:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Для начала, выполните &quot;composer require symfony/validator&quot;</span>
+<span class="c1">// Далее, выполните этот файл:</span>
+<span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">require_once</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span><span class="p">;</span>
+
+<span class="nv">$wrongUrl</span> <span class="o">=</span> <span class="s1">&#39;http://example.com/exploit.html?&lt;script&gt;alert(1);&lt;/script&gt;&#39;</span><span class="p">;</span>
+<span class="nv">$urlValidator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Constraints\UrlValidator</span><span class="p">();</span>
+<span class="nv">$urlConstraint</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Constraints\Url</span><span class="p">();</span>
+
+<span class="c1">// URL неправильный, так что var_dump() должен отобразить ошибку, но он вместо этого</span>
+<span class="c1">// отображает &quot;null&quot;, так как нет контекста для построения нарушения валидатора</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$urlValidator</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">(</span><span class="nv">$wrongUrl</span><span class="p">,</span> <span class="nv">$urlConstraint</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id3">
+<h2>Воспроизведение сложных багов<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Если баг относится к фреймворку Symfony, или если он слишком сложный для создания
+PHP скрипта, то лучше воспроизвести его, создав новый проект. Чтобы сделать это:</p>
+<ol class="arabic simple">
+<li>Создайте новый проект:</li>
+</ol>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/skeleton bug_app
+</pre></div>
+</td></tr></table></div></div>
+<ol class="arabic simple" start="2">
+<li>Теперь вы должны добавить минимальное количество кода, чтобы воспроизвести баг.
+Это самая сложная часть и она разъясняется больше далее.</li>
+<li>Добавьте и зафиксируйте свои изменения.</li>
+<li>Создайте <a class="reference external" href="https://github.com/new">новое хранилище</a> на GitHub (дайте ему любое имя).</li>
+<li>Следуйте инструкциям на GitHub, чтобы добавить удалённый <tt class="docutils literal"><code>origin</code></tt> к вашему
+локальному проекту и закрепите его.</li>
+<li>Добавьте комментарий к вашему исходному заявлению о проблеме, чтобы поделиться
+URL вашего отвевтлённого проекта (например, <tt class="docutils literal"><code>https://github.com/YOUR-GITHUB-USERNAME/symfony_issue_23567</code></tt>)
+и, если необходимо, объясните шаги для воспроизведение (например, &quot;перейдите по
+этому URL&quot;, &quot;заполните эти данные в форме и отправьте её&quot; и т.д.)</li>
+</ol>
+<div class="section" id="id4">
+<h3>Добавление минимально возможного количества кода<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Клюс к созданию воспроизводителя бага кроется в фокусировании на функции, которую
+вы подозреваете в ошибке. Например, представьте, что вы подозреваете, что баг относится
+к определению маршрута. Далее, после ответвления стандартной версии Symfony:</p>
+<ol class="arabic simple">
+<li>Не редактируйте никакие опции конфигурации Symfony по умолчанию.</li>
+<li>Не копируйте исходный код вашего приложения и не используйте ту же
+структуру пакетов, контроллеров, действий и т.д., как в вашем исходном
+приложении.</li>
+<li>Создайте простой контроллер и добавьте ваше определение маршрутизации,
+отображающее баг.</li>
+<li>Не создавайте и не изменяйте любой другой файл.</li>
+<li>Выполните <tt class="docutils literal"><code>composer require server</code></tt> и используйте команду <tt class="docutils literal"><code>server:run</code></tt>,
+чтобы перейти по новому маршруту и увидеть, появляется ли баг.</li>
+<li>Если вы видите баг, то вы закончили и уже можете делиться кодом с нами.</li>
+<li>Если вы не видите баг, то вам нужно продолжать делать маленькие изменения.
+Например, если ваш исходный маршрут был определён, используя XML, забудьте
+о предыдущем маршруте и определите его используя XML. Или может ваше приложение
+регистрирует некоторые слушатели событий и именно в этом заключается баг. В
+таком случае, добавьте слушатель событий, схожий с вашим настоящим приложением,
+чтобы увидеть, сможете ли вы найти баг.</li>
+</ol>
+<p>Короче говоря, идея в том, чтобы добавлять маленькие постепенные изменения к стандартной
+версии Symfony по умолчанию, пока вы не воспроизведёте баг.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

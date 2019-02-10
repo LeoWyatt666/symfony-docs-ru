@@ -1,0 +1,1239 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как создать пользовательского поставщика аутентификации &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Security Component" href="..\components\security.html">
+    <link rel="next" title="Как создать пользовательский аутентификатор пароля" href="custom_password_authenticator-ru.html">
+    <link rel="prev" title="Как реализовать защиту от CSRF" href="csrf-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="security doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как создать пользовательского поставщика аутентификации</a><ul>
+<li><a class="reference internal" href="#wsse">Знакомьтесь, WSSE</a></li>
+<li><a class="reference internal" href="#id2">Токен</a></li>
+<li><a class="reference internal" href="#id3">Слушатель</a></li>
+<li><a class="reference internal" href="#id4">Поставщик аутентификации</a></li>
+<li><a class="reference internal" href="#id5">Фабрика</a></li>
+<li><a class="reference internal" href="#id6">Конфигурация</a></li>
+<li><a class="reference internal" href="#id7">Немного дополнительного</a><ul>
+<li><a class="reference internal" href="#id8">Конфигурация</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\components\index.html">The Components</a></li>
+                
+                <li><a href="../components/index-ru.html">The Components</a></li>
+                
+                <li><a href="..\components\security.html">The Security Component</a></li>
+                
+                <li class="active">Как создать пользовательского поставщика аутентификации</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как создать пользовательского поставщика аутентификации<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Создание ползоательской системы аутентификации - это сложно, и эта запись
+проведёт вас через этот процесс. Но в зависимости от ваших нужд, возможно
+вы сможете решить вашу проблему более простым путём или через общественный
+пакет:</p>
+<ul class="last simple">
+<li><a class="reference internal" href="guard_authentication.html"><em>How to Create a Custom Authentication System with Guard</em></a></li>
+<li><a class="reference internal" href="custom_password_authenticator.html"><em>How to Create a Custom Form Password Authenticator</em></a></li>
+<li><a class="reference internal" href="api_key_authentication.html"><em>How to Authenticate Users with API Keys</em></a></li>
+<li>Чтобы аутентифицировать через OAuth, используя сторонний сервис, вроде
+Google, Facebook или Twitter, попробуйте использовать общественный пакет
+<a class="reference external" href="https://github.com/hwi/HWIOAuthBundle">HWIOAuthBundle</a>.</li>
+</ul>
+</div></div>
+<p>Если вы читали статью о <a class="reference internal" href="..\security.html"><em>Security</em></a>, то вы понимаете разницу, которую
+Symfony делает между аутентификацией и авторизацией в реализации безопасности.
+Эта статья обсуждает базовые классы, задействованные в процессе аутентификации,
+и как реализовывать пользовательского поставщика аутентификации. Так как
+аутентификация и авторизация - это разные концепты, то это расширение будет
+безразлично к поставщикам пользователей и будет функционировать с поставщиками
+пользователей вашео приложения, основываются они на пямати, БД или любом другом
+выбранном вами месте хранения.</p>
+<div class="section" id="wsse">
+<h2>Знакомьтесь, WSSE<a class="headerlink" href="#wsse" title="Permalink to this headline">¶</a></h2>
+<p>Следующая статья демонстрирует, как создавать пользовательского поставщика
+аутентификации для WSSE-аутентификации. Протокол безопасности для WSSE имеет
+несколько преимуществ безопасности:</p>
+<ol class="arabic simple">
+<li>Шифрование имени пользователя / пароля</li>
+<li>Защита от повторных атак</li>
+<li>Не требуется конфигурация веб-сервера</li>
+</ol>
+<p>WSSE очень полезна для защиты веб-сервисов, будь они SOAP или REST.</p>
+<p>Существует масса отличной документаци по <a class="reference external" href="http://www.xml.com/pub/a/2003/12/17/dive.html">WSSE</a>, но эта статья сфокусируется
+не на протоколе безопасности, а скорее на способе, которым в ваше приложение
+Symfony может быть добавлен пользовательский протокол. Основой WSSE является
+то, что заголовок запроса проверяется на зашифрованные учётные данные, проверяется
+с использованием временной метки и <a class="reference external" href="https://ru.wikipedia.org/wiki/Nonce">nonce</a> и аутентифицируется для запрашиваемого
+пользователя, используя дайджест пароля.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">WSSE также поддерживает валидацию ключа приложения, что полезно для
+веб-сервисов, но не охватывается в этой статье.</p>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Токен<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Роль токена в контексте безопасности Symfony очень важна. Токен представляет
+данные аутентификации пользователя, имеющиеся в запросе. Когда запрос аутенифицирован,
+токен удерживает данные пользователя и доставляет данные через контекст безопасности.
+Вначале вы создадите ваш класс токена. Это позволит передачу всей релевантной
+информации вашему поставщику аутентификации:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Security/Authentication/Token/WsseUserToken.php</span>
+<span class="k">namespace</span> <span class="nx">App\Security\Authentication\Token</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Token\AbstractToken</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">WsseUserToken</span> <span class="k">extends</span> <span class="nx">AbstractToken</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$created</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$digest</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$nonce</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">array</span> <span class="nv">$roles</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$roles</span><span class="p">);</span>
+
+        <span class="c1">// Если пользователь имеет роли, считайте его аутентифицированным</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setAuthenticated</span><span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$roles</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCredentials</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Класс <tt class="docutils literal"><code>WsseUserToken</code></tt> расширяет класс компонента Безопасность
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Token/AbstractToken.html" title="Symfony\Component\Security\Core\Authentication\Token\AbstractToken">AbstractToken</a></code></tt>,
+который предоставляет базовую функциональность токена. Реализуйте
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Token/TokenInterface.html" title="Symfony\Component\Security\Core\Authentication\Token\TokenInterface">TokenInterface</a></code></tt>
+в любом классе, чтобы использовать токен.</p>
+</div></div>
+</div>
+<div class="section" id="id3">
+<h2>Слушатель<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Далее, вам будет нужно, чтобы слушатель слушал брандмауэр. Слушатель отвечает
+за направление запросов к брандмауэру и вызов поставщика аутентификации. Слушатель
+должен быть экземпляром
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Http/Firewall/ListenerInterface.html" title="Symfony\Component\Security\Http\Firewall\ListenerInterface">ListenerInterface</a></code></tt>.
+Слушатель безопасности должен обрабатывать событие
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Event/GetResponseEvent.html" title="Symfony\Component\HttpKernel\Event\GetResponseEvent">GetResponseEvent</a></code></tt> и устанавливать
+аутентифицированный токен в хранилище токенов при успехе:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Security/Firewall/WsseListener.php</span>
+<span class="k">namespace</span> <span class="nx">App\Security\Firewall</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Event\GetResponseEvent</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\AuthenticationException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Http\Firewall\ListenerInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Security\Authentication\Token\WsseUserToken</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">WsseListener</span> <span class="k">implements</span> <span class="nx">ListenerInterface</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$tokenStorage</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$authenticationManager</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">TokenStorageInterface</span> <span class="nv">$tokenStorage</span><span class="p">,</span> <span class="nx">AuthenticationManagerInterface</span> <span class="nv">$authenticationManager</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tokenStorage</span> <span class="o">=</span> <span class="nv">$tokenStorage</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">authenticationManager</span> <span class="o">=</span> <span class="nv">$authenticationManager</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">handle</span><span class="p">(</span><span class="nx">GetResponseEvent</span> <span class="nv">$event</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$request</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getRequest</span><span class="p">();</span>
+
+        <span class="nv">$wsseRegex</span> <span class="o">=</span> <span class="s1">&#39;/UsernameToken Username=&quot;([^&quot;]+)&quot;, PasswordDigest=&quot;([^&quot;]+)&quot;, Nonce=&quot;([a-zA-Z0-9+\/]+={0,2})&quot;, Created=&quot;([^&quot;]+)&quot;/&#39;</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">has</span><span class="p">(</span><span class="s1">&#39;x-wsse&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="mi">1</span> <span class="o">!==</span> <span class="nb">preg_match</span><span class="p">(</span><span class="nv">$wsseRegex</span><span class="p">,</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;x-wsse&#39;</span><span class="p">),</span> <span class="nv">$matches</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$token</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WsseUserToken</span><span class="p">();</span>
+        <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">setUser</span><span class="p">(</span><span class="nv">$matches</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+
+        <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">digest</span>  <span class="o">=</span> <span class="nv">$matches</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+        <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">nonce</span>   <span class="o">=</span> <span class="nv">$matches</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+        <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">created</span> <span class="o">=</span> <span class="nv">$matches</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="nv">$authToken</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">authenticationManager</span><span class="o">-&gt;</span><span class="na">authenticate</span><span class="p">(</span><span class="nv">$token</span><span class="p">);</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tokenStorage</span><span class="o">-&gt;</span><span class="na">setToken</span><span class="p">(</span><span class="nv">$authToken</span><span class="p">);</span>
+
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">AuthenticationException</span> <span class="nv">$failed</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// ... здесь вы можете логировать что-то</span>
+
+            <span class="c1">// Чтобы отказать в аутентификации, очистите токен. Это перенаправит на странцу входа.</span>
+            <span class="c1">// Убедитесь, что вы очистили только ваш токен, а не токены других слушателей аутентификации.</span>
+            <span class="c1">// $token = $this-&gt;tokenStorage-&gt;getToken();</span>
+            <span class="c1">// если ($token instanceof WsseUserToken &amp;&amp; $this-&gt;providerKey === $token-&gt;getProviderKey()) {</span>
+            <span class="c1">//     $this-&gt;tokenStorage-&gt;setToken(null);</span>
+            <span class="c1">// }</span>
+            <span class="c1">// вернуть;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// По умолчанию отказать в авторизации</span>
+        <span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">();</span>
+        <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="nx">Response</span><span class="o">::</span><span class="na">HTTP_FORBIDDEN</span><span class="p">);</span>
+        <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setResponse</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Слушатель проверяет запрос на ожидаемый заголовок <tt class="docutils literal"><code>X-WSSE</code></tt>, сопоставляет
+значение, возвращённое для ожидаемой WSSE информации, создаёт токен, используя
+эту информацию и передает токен к менеджеру аутентификации. Если нужная информация
+не была предоставлена, менеджер аутентификации выдаёт
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Exception/AuthenticationException.html" title="Symfony\Component\Security\Core\Exception\AuthenticationException">AuthenticationException</a></code></tt>,
+возвращается ответ 403.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<dl class="last docutils">
+<dt>Класс, не ипользуемый выше, <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Http/Firewall/AbstractAuthenticationListener.html" title="Symfony\Component\Security\Http\Firewall\AbstractAuthenticationListener">AbstractAuthenticationListener</a></code></tt></dt>
+<dd><ul class="first simple">
+<li>это очень полезный базовый класс, который предоставляет часто необходимую</li>
+</ul>
+<p class="last">функциональность для расширений безопасности. Это включает обслуживание токена
+в сессии, предоставление обработчиков успеха / неудач, URL формы входа, и другое.
+Так как WSSE не требует обслуживания сессий аутентификации или форм входа, он
+не будет использован в этом примере.</p>
+</dd>
+</dl>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Слишком раннее возвращение из слушателя релевантно только если вы хотите связать
+поставщиков аутентификации (например, чтобы разрешить анонимных пользователей).
+Если вы хотите запретить доступ к анонимным пользователя и иметь красивую ошибку
+403, вам стоит установить статус-кодответа до его возвращения.</p>
+</div></div>
+</div>
+<div class="section" id="id4">
+<h2>Поставщик аутентификации<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Поставщик аутентификации проведёт верификацию <tt class="docutils literal"><code>WsseUserToken</code></tt>. А именно,
+поставщик верифицирует валидность значения заголовка <tt class="docutils literal"><code>Created</code></tt> в течение
+пяти минут, уникальность значения заголовка <tt class="docutils literal"><code>Nonce</code></tt> в течение пяти минут
+и совпадает  ли значение заголовка <tt class="docutils literal"><code>PasswordDigest</code></tt> с паролем пользователя:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Security/Authentication/Provider/WsseProvider.php</span>
+<span class="k">namespace</span> <span class="nx">App\Security\Authentication\Provider</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Psr\Cache\CacheItemPoolInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\UserProviderInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\AuthenticationException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\NonceExpiredException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Token\TokenInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Security\Authentication\Token\WsseUserToken</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">WsseProvider</span> <span class="k">implements</span> <span class="nx">AuthenticationProviderInterface</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$userProvider</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$cachePool</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">UserProviderInterface</span> <span class="nv">$userProvider</span><span class="p">,</span> <span class="nx">CacheItemPoolInterface</span> <span class="nv">$cachePool</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">userProvider</span> <span class="o">=</span> <span class="nv">$userProvider</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cachePool</span> <span class="o">=</span> <span class="nv">$cachePool</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">authenticate</span><span class="p">(</span><span class="nx">TokenInterface</span> <span class="nv">$token</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$user</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">userProvider</span><span class="o">-&gt;</span><span class="na">loadUserByUsername</span><span class="p">(</span><span class="nv">$token</span><span class="o">-&gt;</span><span class="na">getUsername</span><span class="p">());</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$user</span> <span class="o">&amp;&amp;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validateDigest</span><span class="p">(</span><span class="nv">$token</span><span class="o">-&gt;</span><span class="na">digest</span><span class="p">,</span> <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">nonce</span><span class="p">,</span> <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">created</span><span class="p">,</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getPassword</span><span class="p">()))</span> <span class="p">{</span>
+            <span class="nv">$authenticatedToken</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WsseUserToken</span><span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getRoles</span><span class="p">());</span>
+            <span class="nv">$authenticatedToken</span><span class="o">-&gt;</span><span class="na">setUser</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+
+            <span class="k">return</span> <span class="nv">$authenticatedToken</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">throw</span> <span class="k">new</span> <span class="nx">AuthenticationException</span><span class="p">(</span><span class="s1">&#39;The WSSE authentication failed.&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Эта функция характерна исключительно для аутентификации WSSE и используется только для помощи в этом примере</span>
+<span class="sd">     * Чтобы узнать больше информации об особенной логике здесь, см.</span>
+<span class="sd">     * https://github.com/symfony/symfony-docs/pull/3134#issuecomment-27699129</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">validateDigest</span><span class="p">(</span><span class="nv">$digest</span><span class="p">,</span> <span class="nv">$nonce</span><span class="p">,</span> <span class="nv">$created</span><span class="p">,</span> <span class="nv">$secret</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Проверить, чтобы созданное время не было в будущем</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">strtotime</span><span class="p">(</span><span class="nv">$created</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">time</span><span class="p">())</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Временная метка истекает через 5 минут</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nb">strtotime</span><span class="p">(</span><span class="nv">$created</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">300</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Попробовать извлечь объкт кеша из пула</span>
+        <span class="nv">$cacheItem</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cachePool</span><span class="o">-&gt;</span><span class="na">getItem</span><span class="p">(</span><span class="nb">md5</span><span class="p">(</span><span class="nv">$nonce</span><span class="p">));</span>
+
+        <span class="c1">// Валидировать, что nonce *не* в кеше</span>
+        <span class="c1">// если он там, это может быть повторной атакой</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$cacheItem</span><span class="o">-&gt;</span><span class="na">isHit</span><span class="p">())</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">NonceExpiredException</span><span class="p">(</span><span class="s1">&#39;Previously used nonce detected&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Сохранить объект в кеше на 5 минут</span>
+        <span class="nv">$cacheItem</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="k">null</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">expiresAfter</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cachePool</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$cacheItem</span><span class="p">);</span>
+
+        <span class="c1">// Валидировать секрет</span>
+        <span class="nv">$expected</span> <span class="o">=</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nb">sha1</span><span class="p">(</span><span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$nonce</span><span class="p">)</span><span class="o">.</span><span class="nv">$created</span><span class="o">.</span><span class="nv">$secret</span><span class="p">,</span> <span class="k">true</span><span class="p">));</span>
+
+        <span class="k">return</span> <span class="nx">hash_equals</span><span class="p">(</span><span class="nv">$expected</span><span class="p">,</span> <span class="nv">$digest</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">supports</span><span class="p">(</span><span class="nx">TokenInterface</span> <span class="nv">$token</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$token</span> <span class="nx">instanceof</span> <span class="nx">WsseUserToken</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Provider/AuthenticationProviderInterface.html" title="Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface">AuthenticationProviderInterface</a></code></tt>
+требует метода <tt class="docutils literal"><code>authenticate()</code></tt> в токене пользователя и метода <tt class="docutils literal"><code>supports()</code></tt>,
+который сообщает менеджеру аутентификации использовать ли этого поставщика
+для данного токена. В случае нескольких поставщиков, менеджер аутентификации
+будет потом перемещён к следующему поставщику в списке.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Несмотря на то, что функция <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.hash-equals.php" title="hash_equals">hash_equals</a></code></tt> была представлена
+в PHP 5.6, вы можете спокойно использовать её в любой PHP-версии вашего
+приложения Symfony. В версиях PHP до 5.6, <a class="reference external" href="https://github.com/symfony/polyfill">Symfony Polyfill</a> (который включен
+в Symfony) будет определять функцию за вас.</p>
+</div></div>
+</div>
+<div class="section" id="id5">
+<h2>Фабрика<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Вы создали пользовательский токен, пользовательского слушателя и пользовательского
+поставщика. Теперь вам нужно связать их между собой. Как сделать так, чтобы уникальный
+поставщик был доступен для каждого брандмауэра? Ответ: используя <em>фабрику</em>. Фабрика
+- это то, где вы подключаетесь к компоненту Безопасность, сообщаете ему имя вашего
+поставщика и любые опции конфигурации, доступные для него. Для начала, вы должны
+создать класс, реализующий
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/SecurityBundle/DependencyInjection/Security/Factory/SecurityFactoryInterface.html" title="Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SecurityFactoryInterface">SecurityFactoryInterface</a></code></tt>.</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/DependencyInjection/Security/Factory/WsseFactory.php</span>
+<span class="k">namespace</span> <span class="nx">App\DependencyInjection\Security\Factory</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ChildDefinition</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerBuilder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Reference</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Config\Definition\Builder\NodeDefinition</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SecurityFactoryInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Security\Authentication\Provider\WsseProvider</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Security\Firewall\WsseListener</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">WsseFactory</span> <span class="k">implements</span> <span class="nx">SecurityFactoryInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">(</span><span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">,</span> <span class="nv">$id</span><span class="p">,</span> <span class="nv">$config</span><span class="p">,</span> <span class="nv">$userProvider</span><span class="p">,</span> <span class="nv">$defaultEntryPoint</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$providerId</span> <span class="o">=</span> <span class="s1">&#39;security.authentication.provider.wsse.&#39;</span><span class="o">.</span><span class="nv">$id</span><span class="p">;</span>
+        <span class="nv">$container</span>
+            <span class="o">-&gt;</span><span class="na">setDefinition</span><span class="p">(</span><span class="nv">$providerId</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ChildDefinition</span><span class="p">(</span><span class="nx">WsseProvider</span><span class="o">::</span><span class="na">class</span><span class="p">))</span>
+            <span class="o">-&gt;</span><span class="na">replaceArgument</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="nv">$userProvider</span><span class="p">))</span>
+        <span class="p">;</span>
+
+        <span class="nv">$listenerId</span> <span class="o">=</span> <span class="s1">&#39;security.authentication.listener.wsse.&#39;</span><span class="o">.</span><span class="nv">$id</span><span class="p">;</span>
+        <span class="nv">$listener</span> <span class="o">=</span> <span class="nv">$container</span><span class="o">-&gt;</span><span class="na">setDefinition</span><span class="p">(</span><span class="nv">$listenerId</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ChildDefinition</span><span class="p">(</span><span class="nx">WsseListener</span><span class="o">::</span><span class="na">class</span><span class="p">));</span>
+
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span><span class="nv">$providerId</span><span class="p">,</span> <span class="nv">$listenerId</span><span class="p">,</span> <span class="nv">$defaultEntryPoint</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getPosition</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;pre_auth&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getKey</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;wsse&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">addConfiguration</span><span class="p">(</span><span class="nx">NodeDefinition</span> <span class="nv">$node</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/SecurityBundle/DependencyInjection/Security/Factory/SecurityFactoryInterface.html" title="Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SecurityFactoryInterface">SecurityFactoryInterface</a></code></tt>
+требует следующих методов:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>create()</code></tt></dt>
+<dd>Метод, который добавляет слушателя и поставщика аутентификации
+в контейнер DI для правильного контекста безопасности.</dd>
+<dt><tt class="docutils literal"><code>getPosition()</code></tt></dt>
+<dd>Возвращается, когда нужно вызвать поставщика. Это может быть один из
+<tt class="docutils literal"><code>pre_auth</code></tt>, <tt class="docutils literal"><code>form</code></tt>, <tt class="docutils literal"><code>http</code></tt> или <tt class="docutils literal"><code>remember_me</code></tt>.</dd>
+<dt><tt class="docutils literal"><code>getKey()</code></tt></dt>
+<dd>Метод, который определяет ключ конфигурации, использованный для
+ссылки на поставщика в конфигурации брандмауэра.</dd>
+<dt><tt class="docutils literal"><code>addConfiguration()</code></tt></dt>
+<dd>Метод, который используется для определения опций конфигурации под
+ключом конфигурации в вашей конфигурации безопасности. Установка опций
+конфигурации объясняется далее в этой статье.</dd>
+</dl>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">В этом примере не используется класс
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/SecurityBundle/DependencyInjection/Security/Factory/AbstractFactory.html" title="Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\AbstractFactory">AbstractFactory</a></code></tt>,
+это очень полезный базовый класс, который предоставляет часто необходимую
+функциональность для фабрик безопасности. Он может быть полезен при определении
+поставщика безопасности другого типа.</p>
+</div></div>
+<p>Теперь, когда у вас есть созданный класс фабрики, ключ <tt class="docutils literal"><code>wsse</code></tt> может быть использован,
+как брандмауэр в вашей конфигурации безопасности.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вы можете думать: &quot;почему мне нужен специальный класс фабрики, чтобы добавлять
+слушателей и поставщиков в контейнер внедрения зависимостей?&quot;. Это очень хороший
+вопрос. Причина в том, что вы можете использовать ваш брандмауэр много раз, чтобы
+обезопасить несколько частей вашего приложения. Из-за этого, каждый раз, когда
+используется ваш брандмауэр, создаётся новый сервис в контейнере DI. Фабрика - это
+то, что создаёт эти новые сервисы.</p>
+</div></div>
+</div>
+<div class="section" id="id6">
+<h2>Конфигурация<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Пора посмотреть на вашего поставщика аутентификации в действии. Вам нужно
+будет сделать несколько сещей, чтобы это сработало. Во-первых, добавьте
+вышеназыванные сервисы в контейнер DI. Ваш класс фабрики выше ссылается на
+id сервисов, которые ещё могут не существовать: <tt class="docutils literal"><code>App\Security\Authentication\Provider\WsseProvider</code></tt>
+и <tt class="docutils literal"><code>App\Security\Firewall\WsseListener</code></tt>. Пора определить эти сервисы.</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/services.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">App\Security\Authentication\Provider\WsseProvider</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">$cachePool</span><span class="p p-Indicator">:</span> <span class="s">&#39;@cache.app&#39;</span>
+        <span class="l l-Scalar l-Scalar-Plain">public</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">App\Security\Firewall\WsseListener</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;@security.token_storage&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;@security.authentication.manager&#39;</span><span class="p p-Indicator">]</span>
+        <span class="l l-Scalar l-Scalar-Plain">public</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\Security\Authentication\Provider\WsseProvider&quot;</span>
+            <span class="na">public=</span><span class="s">&quot;false&quot;</span>
+        <span class="nt">&gt;</span>
+            <span class="nt">&lt;argument</span> <span class="na">key=</span><span class="s">&quot;$cachePool&quot;</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;cache.app&quot;</span><span class="nt">&gt;&lt;/argument&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\Security\Firewall\WsseListener&quot;</span>
+            <span class="na">public=</span><span class="s">&quot;false&quot;</span>
+        <span class="nt">&gt;</span>
+            <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;security.token_storage&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;security.authentication.manager&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/services.php</span>
+<span class="k">use</span> <span class="nx">App\Security\Authentication\Provider\WsseProvider</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Security\Firewall\WsseListener</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Reference</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">WsseProvider</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArgument</span><span class="p">(</span><span class="s1">&#39;$cachePool&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;cache.app&#39;</span><span class="p">))</span>
+    <span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">WsseListener</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArguments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;security.token_storage&#39;</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;security.authentication.manager&#39;</span><span class="p">),</span>
+    <span class="p">))</span>
+    <span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Теперь, когда ваши сервисы определены, скажите вашему контексту безопасности
+о вашей фабрике в ядре:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Kernel.php</span>
+<span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\DependencyInjection\Security\Factory\WsseFactory</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="k">class</span> <span class="nc">Kernel</span> <span class="k">extends</span> <span class="nx">BaseKernel</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">build</span><span class="p">(</span><span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$extension</span> <span class="o">=</span> <span class="nv">$container</span><span class="o">-&gt;</span><span class="na">getExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">);</span>
+        <span class="nv">$extension</span><span class="o">-&gt;</span><span class="na">addSecurityListenerFactory</span><span class="p">(</span><span class="k">new</span> <span class="nx">WsseFactory</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы закончили! Теперь вы можете определять части вашего приложения под защитой WSSE.</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/security.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">firewalls</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">wsse_secured</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">pattern</span><span class="p p-Indicator">:</span>   <span class="l l-Scalar l-Scalar-Plain">^/api/</span>
+            <span class="l l-Scalar l-Scalar-Plain">stateless</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="l l-Scalar l-Scalar-Plain">wsse</span><span class="p p-Indicator">:</span>      <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;config&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="nt">&lt;firewall</span>
+            <span class="na">name=</span><span class="s">&quot;wsse_secured&quot;</span>
+            <span class="na">pattern=</span><span class="s">&quot;^/api/&quot;</span>
+            <span class="na">stateless=</span><span class="s">&quot;true&quot;</span>
+            <span class="na">wsse=</span><span class="s">&quot;true&quot;</span>
+        <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/security.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+
+    <span class="s1">&#39;firewalls&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;wsse_secured&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;pattern&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;^/api/&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;stateless&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+            <span class="s1">&#39;wsse&#39;</span>      <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Поздравляем! Вы написали вашего собственного поставщика аутентификации
+безопасности!</p>
+</div>
+<div class="section" id="id7">
+<h2>Немного дополнительного<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>Как на счёт того, чтобы сделать вашего поставщика аутентификации WSSE более
+интересным? Возможности бесконечны. Почему бы не начать с добавления блеска?</p>
+<div class="section" id="id8">
+<h3>Конфигурация<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Вы можете добавлять пользовательские опции под ключом <tt class="docutils literal"><code>wsse</code></tt> в вашей
+конфигурации безопасности. Например, время разрешённое до истечения срока
+объекта заголовка <tt class="docutils literal"><code>Created</code></tt> по умолчанию составляет 5 минут. Сделайте так,
+чтобы разные брандмауэры имели разную длину лимита времени.</p>
+<p>Вначале вам нужно будет редактировать <tt class="docutils literal"><code>WsseFactory</code></tt> и определить новую опцию
+в методе <tt class="docutils literal"><code>addConfiguration()</code></tt>.</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">WsseFactory</span> <span class="k">implements</span> <span class="nx">SecurityFactoryInterface</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">addConfiguration</span><span class="p">(</span><span class="nx">NodeDefinition</span> <span class="nv">$node</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="nv">$node</span>
+        <span class="o">-&gt;</span><span class="na">children</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">scalarNode</span><span class="p">(</span><span class="s1">&#39;lifetime&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">defaultValue</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, в методе фабрики <tt class="docutils literal"><code>create()</code></tt>, аргумент <tt class="docutils literal"><code>$config</code></tt> будет содержаться
+ключ <tt class="docutils literal"><code>lifetime</code></tt>, установленный на 5 минут (300 секунд), разве что в конфигурации
+не будет установлено другое. Передайте этот аргумент вашему поставщику аутентификации
+для того, чтобы использовать его в деле.</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Security\Authentication\Provider\WsseProvider</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">WsseFactory</span> <span class="k">implements</span> <span class="nx">SecurityFactoryInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">(</span><span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">,</span> <span class="nv">$id</span><span class="p">,</span> <span class="nv">$config</span><span class="p">,</span> <span class="nv">$userProvider</span><span class="p">,</span> <span class="nv">$defaultEntryPoint</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$providerId</span> <span class="o">=</span> <span class="s1">&#39;security.authentication.provider.wsse.&#39;</span><span class="o">.</span><span class="nv">$id</span><span class="p">;</span>
+        <span class="nv">$container</span>
+            <span class="o">-&gt;</span><span class="na">setDefinition</span><span class="p">(</span><span class="nv">$providerId</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ChildDefinition</span><span class="p">(</span><span class="nx">WsseProvider</span><span class="o">::</span><span class="na">class</span><span class="p">))</span>
+            <span class="o">-&gt;</span><span class="na">replaceArgument</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="nv">$userProvider</span><span class="p">))</span>
+            <span class="o">-&gt;</span><span class="na">replaceArgument</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;lifetime&#39;</span><span class="p">]);</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Класс <tt class="docutils literal"><code>WsseProvider</code></tt> теперь также будет должен принять третий аргумент
+конструктора - время жизни - который он должен использовать вместо жёстко
+закодированных 300 секунд. Этот шаг тут не показан.</p>
+</div></div>
+<p>Время жизни каждого WSSE-запроса теперь можно сконфигурировать и установить
+в любое желаемое значение для каждого брандмауэра.</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/security.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">firewalls</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">wsse_secured</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">pattern</span><span class="p p-Indicator">:</span>   <span class="l l-Scalar l-Scalar-Plain">^/api/</span>
+            <span class="l l-Scalar l-Scalar-Plain">stateless</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="l l-Scalar l-Scalar-Plain">wsse</span><span class="p p-Indicator">:</span>      <span class="p p-Indicator">{</span> <span class="nv">lifetime</span><span class="p p-Indicator">:</span> <span class="nv">30</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;config&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="nt">&lt;firewall</span> <span class="na">name=</span><span class="s">&quot;wsse_secured&quot;</span> <span class="na">pattern=</span><span class="s">&quot;^/api/&quot;</span> <span class="na">stateless=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;wsse</span> <span class="na">lifetime=</span><span class="s">&quot;30&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/firewall&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/security.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+
+    <span class="s1">&#39;firewalls&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;wsse_secured&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;pattern&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;^/api/&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;stateless&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+            <span class="s1">&#39;wsse&#39;</span>      <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;lifetime&#39;</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Остальное зависит от вас! Любые релевантные объекты конфигурации могут быть
+определены в фабрике и использованы или переданы другим классам в контейнере.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="csrf-ru.html">« Как реализовать защиту от CSRF</a>
+                <span class="separator">|</span>
+                <a href="custom_password_authenticator-ru.html">Как создать пользовательский аутентификатор пароля »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

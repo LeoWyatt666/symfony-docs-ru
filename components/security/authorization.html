@@ -1,0 +1,563 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Авторизация &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+    <link rel="up" title="The Security Component" href="..\security.html">
+    <link rel="next" title="The Firewall and Authorization" href="firewall.html">
+    <link rel="prev" title="Authorization" href="authorization.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Авторизация</a><ul>
+<li><a class="reference internal" href="#components-security-access-decision-manager">Доступ к менеджеру решений</a></li>
+<li><a class="reference internal" href="#id3">Избиратели</a><ul>
+<li><a class="reference internal" href="#authenticatedvoter">AuthenticatedVoter</a></li>
+<li><a class="reference internal" href="#rolevoter">RoleVoter</a></li>
+<li><a class="reference internal" href="#rolehierarchyvoter">RoleHierarchyVoter</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4">Роли</a></li>
+<li><a class="reference internal" href="#id5">Использование менеджера решений</a><ul>
+<li><a class="reference internal" href="#id6">Слушатель доступа</a></li>
+<li><a class="reference internal" href="#id7">Проверщик авторизации</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li><a href="..\index.html">The Components</a></li>
+                
+                <li><a href="../index-ru.html">The Components</a></li>
+                
+                <li><a href="..\security.html">The Security Component</a></li>
+                
+                <li class="active">Авторизация</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Авторизация<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Когда любой из поставщикой аутентификации (см. <a class="reference internal" href="authentication.html#authentication-providers"><span>Authentication Providers</span></a>)
+подтвердил все-еще-неавторизованный токен, будет возващён аутентифицированный
+токен. Слушатель аутентификации установит этот токен напрямую в
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Token/Storage/TokenStorageInterface.html" title="Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface">TokenStorageInterface</a></code></tt>,
+используя его метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Token/Storage/TokenStorageInterface.html#method_setToken" title="Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface::setToken()">setToken()</a></code></tt>.</p>
+<p>С этого момента пользователь будет аутентифицирован, т.е. идентифицирован.
+Теперь, другие части приложения могут использовать токен, чтобы решить,
+может ли пользователь запрашивать определённый URI или изменять определённый
+объект. Это решение будет принято экземпляром
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authorization/AccessDecisionManagerInterface.html" title="Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface">AccessDecisionManagerInterface</a></code></tt>.</p>
+<p>Решение авторизации будет всегда основываться на нескольких вещах:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Текущем токене</dt>
+<dd>Например, метод токена <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Token/TokenInterface.html#method_getRoles" title="Symfony\Component\Security\Core\Authentication\Token\TokenInterface::getRoles()">getRoles()</a></code></tt>
+может быть использован для извлечения ролей текущего пользователя
+(например, <tt class="docutils literal"><code>ROLE_SUPER_ADMIN</code></tt>), или решение может быть основано на
+классе токена.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Наборе атрибутов</dt>
+<dd>Каждый атрибут представляет определённое право, которое должен иметь
+пользователь, к примеру <tt class="docutils literal"><code>ROLE_ADMIN</code></tt>, чтобы гарантировать, что пользователь
+является администратором.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Объекте (опционально)</dt>
+<dd>Любой объект, для которого нужно проверять контроль доступа, вроде
+объекта статьи или комментария.</dd>
+</dl>
+</li>
+</ul>
+<div class="section" id="components-security-access-decision-manager">
+<span id="id2"></span><h2>Доступ к менеджеру решений<a class="headerlink" href="#components-security-access-decision-manager" title="Permalink to this headline">¶</a></h2>
+<p>Так как принятие решения о том, авторизирован ли пользователь производить
+определённое действие, может быть достаточно сложным процессом, сам стандартный
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authorization/AccessDecisionManager.html" title="Symfony\Component\Security\Core\Authorization\AccessDecisionManager">AccessDecisionManager</a></code></tt>
+зависит от нескольких избирателей и выносит финальный вердикт, основываясь на
+всех голосах (положительных, отрицательных или нейтральных), который он получил.
+Он признаёт несколько стратегий:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>affirmative</code></tt> (по умолчанию)</dt>
+<dd>предоставлять доступ, как только есть один избиратель, предоставляющий доступ;</dd>
+<dt><tt class="docutils literal"><code>consensus</code></tt></dt>
+<dd>предоставлять доступ, если больше избирателей предоставляют доступ, чем отказывают
+в нём;</dd>
+<dt><tt class="docutils literal"><code>unanimous</code></tt></dt>
+<dd>предоставлять доступ только, если ни один из избираетелей не отказал в нём;</dd>
+</dl>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authorization\AccessDecisionManager</span><span class="p">;</span>
+
+<span class="c1">// экземпляры Symfony\Component\Security\Core\Authorization\Voter\VoterInterface</span>
+<span class="nv">$voters</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+
+<span class="c1">// один из &quot;affirmative&quot;, &quot;consensus&quot;, &quot;unanimous&quot;</span>
+<span class="nv">$strategy</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="c1">// предоставлять ли доступ, если все избиратели удержались</span>
+<span class="nv">$allowIfAllAbstainDecisions</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="c1">// предоставлять ли доступ, когда нет большинства (применимо только к стратегии &quot;consensus&quot;)</span>
+<span class="nv">$allowIfEqualGrantedDeniedDecisions</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="nv">$accessDecisionManager</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccessDecisionManager</span><span class="p">(</span>
+    <span class="nv">$voters</span><span class="p">,</span>
+    <span class="nv">$strategy</span><span class="p">,</span>
+    <span class="nv">$allowIfAllAbstainDecisions</span><span class="p">,</span>
+    <span class="nv">$allowIfEqualGrantedDeniedDecisions</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Вы можете изменить стратегию по умолчанию в
+<a class="reference internal" href="../../security/voters-ru.html#security-voters-change-strategy"><span>конфигурации</span></a>.</div></div>
+</div>
+<div class="section" id="id3">
+<h2>Избиратели<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Избиратели являются экземплярами класса
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authorization/Voter/VoterInterface.html" title="Symfony\Component\Security\Core\Authorization\Voter\VoterInterface">VoterInterface</a></code></tt>,
+что означает, что они должны реализовывать несколько методов, что позволяет
+менеджеру решений использовать их:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>vote(TokenInterface $token, $object, array $attributes)</code></tt></dt>
+<dd>этот метод будет проводить голосование и возвращать значение, равное одной
+из констант класса <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authorization/Voter/VoterInterface.html" title="Symfony\Component\Security\Core\Authorization\Voter\VoterInterface">VoterInterface</a></code></tt>,
+т.е. <tt class="docutils literal"><code>VoterInterface::ACCESS_GRANTED</code></tt>, <tt class="docutils literal"><code>VoterInterface::ACCESS_DENIED</code></tt>
+или <tt class="docutils literal"><code>VoterInterface::ACCESS_ABSTAIN</code></tt>;</dd>
+</dl>
+<p>Компонент Security содержит несколько стандартных избирателей,
+которые охватывают множество случаев применения:</p>
+<div class="section" id="authenticatedvoter">
+<h3>AuthenticatedVoter<a class="headerlink" href="#authenticatedvoter" title="Permalink to this headline">¶</a></h3>
+<p>Избиратель <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authorization/Voter/AuthenticatedVoter.html" title="Symfony\Component\Security\Core\Authorization\Voter\AuthenticatedVoter">AuthenticatedVoter</a></code></tt>
+поддерживает атрибуты <tt class="docutils literal"><code>IS_AUTHENTICATED_FULLY</code></tt>, <tt class="docutils literal"><code>IS_AUTHENTICATED_REMEMBERED</code></tt>,
+и <tt class="docutils literal"><code>IS_AUTHENTICATED_ANONYMOUSLY</code></tt> и предоставляет доступ, основываясь на текущем
+уровне аутентификации, т.е. является ли пользователь полностью аутентифицированным,
+или только за счёт куки &quot;запомнить меня&quot;, или вообще аутентифицирован анонимно?</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Token\AnonymousToken</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Token\RememberMeToken</span><span class="p">;</span>
+
+<span class="nv">$trustResolver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AuthenticationTrustResolver</span><span class="p">(</span><span class="nx">AnonymousToken</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nx">RememberMeToken</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+<span class="nv">$authenticatedVoter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AuthenticatedVoter</span><span class="p">(</span><span class="nv">$trustResolver</span><span class="p">);</span>
+
+<span class="c1">// экземпляр Symfony\Component\Security\Core\Authentication\Token\TokenInterface</span>
+<span class="nv">$token</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="c1">// любой объект</span>
+<span class="nv">$object</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="nv">$vote</span> <span class="o">=</span> <span class="nv">$authenticatedVoter</span><span class="o">-&gt;</span><span class="na">vote</span><span class="p">(</span><span class="nv">$token</span><span class="p">,</span> <span class="nv">$object</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;IS_AUTHENTICATED_FULLY&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="rolevoter">
+<h3>RoleVoter<a class="headerlink" href="#rolevoter" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authorization/Voter/RoleVoter.html" title="Symfony\Component\Security\Core\Authorization\Voter\RoleVoter">RoleVoter</a></code></tt>
+поддерживает атрибуты, начинающиеся с <tt class="docutils literal"><code>ROLE_</code></tt> и предоставляет доступ пользователю,
+если все обязательные атрибуты <tt class="docutils literal"><code>ROLE_*</code></tt> могут быть найдены в массиве ролей, возвращённых
+методом токена <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Token/TokenInterface.html#method_getRoles" title="Symfony\Component\Security\Core\Authentication\Token\TokenInterface::getRoles()">getRoles()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authorization\Voter\RoleVoter</span><span class="p">;</span>
+
+<span class="nv">$roleVoter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RoleVoter</span><span class="p">(</span><span class="s1">&#39;ROLE_&#39;</span><span class="p">);</span>
+
+<span class="nv">$roleVoter</span><span class="o">-&gt;</span><span class="na">vote</span><span class="p">(</span><span class="nv">$token</span><span class="p">,</span> <span class="nv">$object</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ROLE_ADMIN&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="rolehierarchyvoter">
+<h3>RoleHierarchyVoter<a class="headerlink" href="#rolehierarchyvoter" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authorization/Voter/RoleHierarchyVoter.html" title="Symfony\Component\Security\Core\Authorization\Voter\RoleHierarchyVoter">RoleHierarchyVoter</a></code></tt>
+расширяет <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authorization/Voter/RoleVoter.html" title="Symfony\Component\Security\Core\Authorization\Voter\RoleVoter">RoleVoter</a></code></tt>
+и предоставляет некоторый дополнительный функционал: он знает, как работать с иерархией
+ролей. Например, роль <tt class="docutils literal"><code>ROLE_SUPER_ADMIN</code></tt> может иметь подроли <tt class="docutils literal"><code>ROLE_ADMIN</code></tt> и <tt class="docutils literal"><code>ROLE_USER</code></tt>,
+чтобы если определённый объект требует, чтобы у пользователя была роль <tt class="docutils literal"><code>ROLE_ADMIN</code></tt>, он
+предоставлял доступ пользователям, которые по факту имеют роль <tt class="docutils literal"><code>ROLE_ADMIN</code></tt>, а также
+пользователям, которые имеют роль <tt class="docutils literal"><code>ROLE_SUPER_ADMIN</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authorization\Voter\RoleHierarchyVoter</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Role\RoleHierarchy</span><span class="p">;</span>
+
+<span class="nv">$hierarchy</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;ROLE_SUPER_ADMIN&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ROLE_ADMIN&#39;</span><span class="p">,</span> <span class="s1">&#39;ROLE_USER&#39;</span><span class="p">),</span>
+<span class="p">);</span>
+
+<span class="nv">$roleHierarchy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RoleHierarchy</span><span class="p">(</span><span class="nv">$hierarchy</span><span class="p">);</span>
+
+<span class="nv">$roleHierarchyVoter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RoleHierarchyVoter</span><span class="p">(</span><span class="nv">$roleHierarchy</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Когда вы делаете собственного избирателя, вы можете конечно же использовать
+его конструктор, чтобы внедрить любые зависимости, необходимые для принятия
+решения.</p>
+</div></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Роли<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Роли - это объекты, которые предоставляют выражения определённому праву пользователя.
+Единственным требованием является,чтобы они реализовали
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Role/RoleInterface.html" title="Symfony\Component\Security\Core\Role\RoleInterface">RoleInterface</a></code></tt>, что означает, что
+они должны также иметь метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Role/RoleInterface.html#method_getRole" title="Symfony\Component\Security\Core\Role\RoleInterface::getRole()">getRole()</a></code></tt>,
+который возвращает строковое представление самой роли. По умолчанию,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Role/Role.html" title="Symfony\Component\Security\Core\Role\Role">Role</a></code></tt>  просто возвращает свой
+первый аргумент конструктора:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Role\Role</span><span class="p">;</span>
+
+<span class="nv">$role</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Role</span><span class="p">(</span><span class="s1">&#39;ROLE_ADMIN&#39;</span><span class="p">);</span>
+
+<span class="c1">// отображает &#39;ROLE_ADMIN&#39;</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$role</span><span class="o">-&gt;</span><span class="na">getRole</span><span class="p">());</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Больщинство токенов аутентификации расширяются из
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Token/AbstractToken.html" title="Symfony\Component\Security\Core\Authentication\Token\AbstractToken">AbstractToken</a></code></tt>,
+что означает, что роли, данные его конструктору, будут автоматически преобразованы
+из строк в эти простые объекты <tt class="docutils literal"><code>Role</code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="id5">
+<h2>Использование менеджера решений<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>Слушатель доступа<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Менеджер решений доступа может быть использован в любой момент запроса, чтобы решить,
+имеет ли текущий пользователь право доступа к заданному источнику. Одним необязательным,
+но полезным методом для ограничения доступа, основываясь на схеме URL, является
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Http/Firewall/AccessListener.html" title="Symfony\Component\Security\Http\Firewall\AccessListener">AccessListener</a></code></tt>, который
+является одним из слушателей брандмауэра (см. <a class="reference internal" href="firewall-ru.html#firewall-listeners"><span>Слушатели брандмауэра</span></a>), он
+вызывается для каждого запроса, совпадающего с картой брандмауэра (см. <a class="reference internal" href="firewall-ru.html#firewall"><span>Брандмауэр для HTTP запросов</span></a>).</p>
+<p>Он использует карту доступа (которая должна быть экземпляром
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Http/AccessMapInterface.html" title="Symfony\Component\Security\Http\AccessMapInterface">AccessMapInterface</a></code></tt>), содержащую
+сопоставиели запросов и соответствующий набор атрибутов, которые требуются для
+того, чтобы текущий пользователь получил доступ к приложению:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Security\Http\AccessMap</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\RequestMatcher</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Http\Firewall\AccessListener</span><span class="p">;</span>
+
+<span class="nv">$accessMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccessMap</span><span class="p">();</span>
+<span class="nv">$requestMatcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RequestMatcher</span><span class="p">(</span><span class="s1">&#39;^/admin&#39;</span><span class="p">);</span>
+<span class="nv">$accessMap</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="nv">$requestMatcher</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ROLE_ADMIN&#39;</span><span class="p">));</span>
+
+<span class="nv">$accessListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AccessListener</span><span class="p">(</span>
+    <span class="nv">$securityContext</span><span class="p">,</span>
+    <span class="nv">$accessDecisionManager</span><span class="p">,</span>
+    <span class="nv">$accessMap</span><span class="p">,</span>
+    <span class="nv">$authenticationManager</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id7">
+<h3>Проверщик авторизации<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Менеджер решений доступа также доступен в других частях приложения через метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authorization/AuthorizationChecker.html#method_isGranted" title="Symfony\Component\Security\Core\Authorization\AuthorizationChecker::isGranted()">isGranted()</a></code></tt>
+класса <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authorization/AuthorizationChecker.html" title="Symfony\Component\Security\Core\Authorization\AuthorizationChecker">AuthorizationChecker</a></code></tt>.
+Вызов этого метода напрямую делегирует вопрос менеджеру решений доступа:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authorization\AuthorizationChecker</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\AccessDeniedException</span><span class="p">;</span>
+
+<span class="nv">$authorizationChecker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AuthorizationChecker</span><span class="p">(</span>
+    <span class="nv">$tokenStorage</span><span class="p">,</span>
+    <span class="nv">$authenticationManager</span><span class="p">,</span>
+    <span class="nv">$accessDecisionManager</span>
+<span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$authorizationChecker</span><span class="o">-&gt;</span><span class="na">isGranted</span><span class="p">(</span><span class="s1">&#39;ROLE_ADMIN&#39;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nx">AccessDeniedException</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="authorization.html">« Authorization</a>
+                <span class="separator">|</span>
+                <a href="firewall.html">The Firewall and Authorization »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

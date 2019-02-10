@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Проблемы безопасности &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="contributing doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Проблемы безопасности</a><ul>
+<li><a class="reference internal" href="#id2">Заявление о проблеме безопасности</a></li>
+<li><a class="reference internal" href="#id3">Процесс решения</a></li>
+<li><a class="reference internal" href="#id4">Коллаборация с общедоступными целевыми проектами</a></li>
+<li><a class="reference internal" href="#id5">Консультанты безопасности</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li class="active">Проблемы безопасности</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>Проблемы безопасности<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Этот документ объясняет, как базовая команда Symfony справляется с проблемами
+безопасности (Symfony - это код, находящийся в главном <a class="reference external" href="https://github.com/symfony/symfony">хранилище Git</a>)
+<tt class="docutils literal"><code>symfony/symfony</code></tt>.</p>
+<div class="section" id="id2">
+<h2>Заявление о проблеме безопасности<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Если вы думаете, что вы нашли проблему безопасности в Symfony, то не используйте
+трегер багов и не публикуйте её для общественности. Вместо этого, все проблемы
+безопасности должны быть отправлены по адресу <strong>security [at] symfony.com</strong>. Письма,
+отправленные по этому адресу, пересылаются по частному списку электронных адресов
+базовой команды Symfony.</p>
+</div>
+<div class="section" id="id3">
+<h2>Процесс решения<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>С каждым заявлением, мы вначаел пытаемся подтвердить уязвимость. Когда
+она подтверждена, базовая команда начинает работу над решением, следуя
+этим шагам:</p>
+<ol class="arabic simple">
+<li>Отправка признательности отправителю;</li>
+<li>Работа над патчем;</li>
+<li>Получение CVE-идентификатора с <a class="reference external" href="https://cveform.mitre.org/">mitre.org</a>;</li>
+<li>Написание объявления безопасности об уязвимости для официального <a class="reference external" href="https://symfony.com/blog/">блога</a>
+Symfony. Этот пост должен содержать следующую информацию:<ul>
+<li>заголовок, всегда включающий в себя строку &quot;Релиз безопасности&quot;;</li>
+<li>описание уязвимости;</li>
+<li>затронутые версии;</li>
+<li>возможное использование;</li>
+<li>как запатчить, обновить или обойти затронутые приложения;</li>
+<li>CVE-идентификатор;</li>
+<li>благодарности.</li>
+</ul>
+</li>
+<li>Отправка патча и объявления отправителю для отзыва;</li>
+<li>Применение патча ко всем поддерживаемым версиям Symfony;</li>
+<li>Запаковать новые версии для всех затронутых версий;</li>
+<li>Публикация поста в официальном <a class="reference external" href="https://symfony.com/blog/">блоге</a> Symfony (он также должен
+быть добавлен в категорию &quot;<a class="reference external" href="https://symfony.com/blog/category/security-advisories">Консультация по вопросам безопасности</a>&quot;);</li>
+<li>Обновить список консультантов безопасности (см. ниже);</li>
+<li>Обновить публичную <a class="reference external" href="https://github.com/FriendsOfPHP/security-advisories">БД консультаций безопасности</a>, содержающуюся организацией
+FriendsOfPHP, которая используется командой <tt class="docutils literal"><code>security:check</code></tt>.</li>
+</ol>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Релизы, которые включают в себя проблемы безопасности, не должны выпускаться
+по выходным, кроме случаев, когда об уязвимости заявили публично.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Пока мы работаем над патчем, пожалуйста, не сообщайте о проблеме публично.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Решение проблемы занимает от нескольких дней до месяца, в зависимости от сложности
+и координации с целевыми приложениями (см. следующий раздел).</p>
+</div></div>
+</div>
+<div class="section" id="id4">
+<h2>Коллаборация с общедоступными целевыми проектами<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Так как Symfony используется в основном в больших общедоступных проектах, мы
+стандартизировали то, как команда безопасности Symfony сотрудничает с целевыми
+проектами по вопросам безопасности. Этот процесс работает следующим образом:</p>
+<ol class="arabic simple">
+<li>После того, как команда безопасности Symfony признала проблему безопасности,
+она немедленно отправляет письмо командам безопасности целевых проектов, чтобы
+проинформировать их о проблеме;</li>
+<li>Команда безопасности Symfony создаёт приватное хранилище Git, чтобы облегчить
+сотрудничество над проблемой и доступ к этому хранилищу предоставляется команде
+безопасности Symfony, вкладчикам Symfony, которых затронула проблема, и к одному
+представителю из каждого целевого проекта;</li>
+<li>Все люди с доступом к приватному хранилищу работают над решением, чтобы решить
+проблему через запросы вызова, обзоры кода и комментарии;</li>
+<li>Когда решение найдено, все затронутые проекты объединяются, чтобы выбрать
+лучшую дату общего релиза (нет гарантий, что все релизы будут в одно время,
+но мы очень стараемся выпускать их примерно одновременно). Когда неизвестно,
+что проблема эксплуатируется в &quot;дикой жизни&quot;, период двух недель выглядит
+вполне разумно.</li>
+</ol>
+<p>Список целевых проектов, участвующих в этом процессе держится максимально коротким,
+чтобы лучше справляться с потоком конфиденциальной информации до её оглашения. Поэтому
+проекты добавляются под полной секретностью со стороны команды безопасности Symfony.</p>
+<p>Сегодня, следующие проекты валидировали этот процесс и являются частью целевых
+проектов, включённых в этот процесс:</p>
+<ul class="simple">
+<li>Drupal (релизы обычно происходят по средам)</li>
+<li>eZPublish</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>Консультанты безопасности<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Вы можете проверить ваше приложение Symfony на известные уязвимости безопасности,
+используя команду <tt class="docutils literal"><code>security:check</code></tt> (см. <a class="reference internal" href="..\..\security\security_checker.html"><em>How to Check for Known Security Vulnerabilities in Your Dependencies</em></a>).</p>
+</div></div>
+<p>Этот раздел содержит перечень уязвимостей, которые были исправлены в релизах
+Symfony, начиная с Symfony 1.0.0:</p>
+<ul class="simple">
+<li>Июль 17, 2017, <a class="reference external" href="https://symfony.com/blog/cve-2017-11365-empty-passwords-validation-issue">CVE-2017-11365: Проблема валидаии пустых паролей</a> (2.7.30, 2.7.31, 2.8.23, 2.8.24, 3.2.10, 3.2.11, 3.3.3, and 3.3.4)</li>
+<li>Май 9, 2016: <a class="reference external" href="https://symfony.com/blog/cve-2016-2403-unauthorized-access-on-a-misconfigured-ldap-server-when-using-an-empty-password">CVE-2016-2403: Неавторизованный доступ к неправильно сконфигурированному Ldap серверу при использовании пустого пароля</a> (2.8.0-2.8.5, 3.0.0-3.0.5)</li>
+<li>Май 9, 2016: <a class="reference external" href="https://symfony.com/blog/cve-2016-4423-large-username-storage-in-session">CVE-2016-4423: Долгое хранение имени пользователя в сессии</a> (2.3.0-2.3.40, 2.7.0-2.7.12, 2.8.0-2.8.5, 3.0.0-3.0.5)</li>
+<li>Январь 18, 2016: <a class="reference external" href="https://symfony.com/blog/cve-2016-1902-securerandom-s-fallback-not-secure-when-openssl-fails">CVE-2016-1902: Резервный SecureRandom небезопасен при ошибке OpenSSL</a> (2.3.0-2.3.36, 2.6.0-2.6.12, 2.7.0-2.7.8)</li>
+<li>Ноябрь 23, 2015: <a class="reference external" href="https://symfony.com/blog/cve-2015-8125-potential-remote-timing-attack-vulnerability-in-security-remember-me-service">CVE-2015-8125: Потенциальная уязвимость атаки удалённого времени в сервисе безопасности &quot;запомнить меня&quot;</a> (2.3.35, 2.6.12 and 2.7.7)</li>
+<li>Ноябрь 23, 2015: <a class="reference external" href="https://symfony.com/blog/cve-2015-8124-session-fixation-in-the-remember-me-login-feature">CVE-2015-8124: Фиксация сесси в функции логина &quot;Запомнить меня&quot;</a> (2.3.35, 2.6.12 and 2.7.7)</li>
+<li>May 26, 2015: <a class="reference external" href="https://symfony.com/blog/cve-2015-4050-esi-unauthorized-access">CVE-2015-4050: Неавторизованный доступ ESI</a> (Symfony 2.3.29, 2.5.12 and 2.6.8)</li>
+<li>Апрель 1, 2015: <a class="reference external" href="https://symfony.com/blog/cve-2015-2309-unsafe-methods-in-the-request-class">CVE-2015-2309: Небезопасные методы в классе Request</a> (Symfony 2.3.27, 2.5.11 and 2.6.6)</li>
+<li>Апрель 1, 2015: <a class="reference external" href="https://symfony.com/blog/cve-2015-2308-esi-code-injection">CVE-2015-2308: Внедрение Esi кода</a> (Symfony 2.3.27, 2.5.11 and 2.6.6)</li>
+<li>Сентябрь 3, 2014: <a class="reference external" href="https://symfony.com/blog/cve-2014-6072-csrf-vulnerability-in-the-web-profiler">CVE-2014-6072: CSRF уязвимость в веб-профилировщике</a> (Symfony 2.3.19, 2.4.9 and 2.5.4)</li>
+<li>Сентябрь 3, 2014: <a class="reference external" href="https://symfony.com/blog/cve-2014-6061-security-issue-when-parsing-the-authorization-header">CVE-2014-6061: Проблема безопасности при анализе заголовка Authorization</a> (Symfony 2.3.19, 2.4.9 and 2.5.4)</li>
+<li>Сентябрь 3, 2014: <a class="reference external" href="https://symfony.com/blog/cve-2014-5245-direct-access-of-esi-urls-behind-a-trusted-proxy">CVE-2014-5245: Прямой доступ ESI URL за доверенным прокси</a> (Symfony 2.3.19, 2.4.9 and 2.5.4)</li>
+<li>Сентябрь 3, 2014: <a class="reference external" href="https://symfony.com/blog/cve-2014-5244-denial-of-service-with-a-malicious-http-host-header">CVE-2014-5244: Отказ сервиса с вредоносным заголовком HTTP хоста</a> (Symfony 2.3.19, 2.4.9 and 2.5.4)</li>
+<li>Июль 15, 2014: <a class="reference external" href="https://symfony.com/blog/security-releases-cve-2014-4931-symfony-2-3-18-2-4-8-and-2-5-2-released">Релиз безопасности: выпущены Symfony 2.3.18, 2.4.8, и 2.5.2</a> (<a class="reference external" href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4931">CVE-2014-4931</a>)</li>
+<li>Октябрь 10, 2013: <a class="reference external" href="https://symfony.com/blog/security-releases-cve-2013-5958-symfony-2-0-25-2-1-13-2-2-9-and-2-3-6-released">Релиз безопасности: выпущены Symfony 2.0.25, 2.1.13, 2.2.9, м 2.3.6</a> (<a class="reference external" href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5958">CVE-2013-5958</a>)</li>
+<li>Август 7, 2013: <a class="reference external" href="https://symfony.com/blog/security-releases-symfony-2-0-24-2-1-12-2-2-5-and-2-3-3-released">Релиз безопасности: выпущены Symfony 2.0.24, 2.1.12, 2.2.5, и 2.3.3</a> (<a class="reference external" href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4751">CVE-2013-4751</a> and <a class="reference external" href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4752">CVE-2013-4752</a>)</li>
+<li>Январь 17, 2013: <a class="reference external" href="https://symfony.com/blog/security-release-symfony-2-0-22-and-2-1-7-released">Релиз безопасности: выпущены Symfony 2.0.22 и 2.1.7</a> (<a class="reference external" href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1348">CVE-2013-1348</a> and <a class="reference external" href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1397">CVE-2013-1397</a>)</li>
+<li>Декабрь 20, 2012: <a class="reference external" href="https://symfony.com/blog/security-release-symfony-2-0-20-and-2-1-5-released">Релиз безопасности: выпущены Symfony 2.0.20 и 2.1.5</a>  (<a class="reference external" href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6431">CVE-2012-6431</a> and <a class="reference external" href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6432">CVE-2012-6432</a>)</li>
+<li>Ноябрь 29, 2012: <a class="reference external" href="https://symfony.com/blog/security-release-symfony-2-0-19-and-2-1-4">Релиз безопасности: выпущены Symfony 2.0.19 и 2.1.4</a></li>
+<li>Ноябрь 25, 2012: <a class="reference external" href="https://symfony.com/blog/security-release-symfony-1-4-20-released">Релиз безопасности: выпущена Symfony 1.4.20</a> (<a class="reference external" href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5574">CVE-2012-5574</a>)</li>
+<li>Август 28, 2012: <a class="reference external" href="https://symfony.com/blog/security-release-symfony-2-0-17-released">Релиз безопасности: выпущена Symfony 2.0.17</a></li>
+<li>Май 30, 2012: <a class="reference external" href="https://symfony.com/blog/security-release-symfony-1-4-18-released">Релиз безопасности: выпущена Symfony 1.4.18</a> (<a class="reference external" href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2667">CVE-2012-2667</a>)</li>
+<li>Февраль 24, 2012: <a class="reference external" href="https://symfony.com/blog/security-release-symfony-2-0-11-released">Релиз безопасности: выпущена Symfony 2.0.11</a></li>
+<li>Ноябрь 16, 2011: <a class="reference external" href="https://symfony.com/blog/security-release-symfony-2-0-6">Релиз безопасности: выпущена Symfony 2.0.6</a></li>
+<li>Март 21, 2011: <a class="reference external" href="https://symfony.com/blog/symfony-1-3-10-and-1-4-10-security-releases">symfony 1.3.10 и 1.4.10: релизы безопасности</a></li>
+<li>Июнь 29, 2010: <a class="reference external" href="https://symfony.com/blog/security-release-symfony-1-3-6-and-1-4-6">Релиз безопасности: symfony 1.3.6 и 1.4.6</a></li>
+<li>Май 31, 2010: <a class="reference external" href="https://symfony.com/blog/symfony-1-3-5-and-1-4-5">symfony 1.3.5 и 1.4.5</a></li>
+<li>Февраль 25, 2010: <a class="reference external" href="https://symfony.com/blog/security-release-1-2-12-1-3-3-and-1-4-3">Релиз безопасности: 1.2.12, 1.3.3 и 1.4.3</a></li>
+<li>February 13, 2010: <a class="reference external" href="https://symfony.com/blog/symfony-1-3-2-and-1-4-2">symfony 1.3.2 и 1.4.2</a></li>
+<li>April 27, 2009: <a class="reference external" href="https://symfony.com/blog/symfony-1-2-6-security-fix">symfony 1.2.6: Исправление безопасности</a></li>
+<li>October 03, 2008: <a class="reference external" href="https://symfony.com/blog/symfony-1-1-4-released-security-fix">symfony 1.1.4 выпущена: Исправление безопасности</a></li>
+<li>May 14, 2008: <a class="reference external" href="https://symfony.com/blog/symfony-1-0-16-is-out">symfony 1.0.16 вышла</a></li>
+<li>April 01, 2008: <a class="reference external" href="https://symfony.com/blog/symfony-1-0-13-is-out">symfony 1.0.13 вышла</a></li>
+<li>March 21, 2008: <a class="reference external" href="https://symfony.com/blog/symfony-1-0-12-is-finally-out">symfony 1.0.12 (наконец) вышла !</a></li>
+<li>June 25, 2007: <a class="reference external" href="https://symfony.com/blog/symfony-1-0-5-released-security-fix">symfony 1.0.5 выпущена (исправление безопасности)</a></li>
+</ul>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

@@ -1,0 +1,819 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Конфигурация TwigBundle (&#34;twig&#34;) &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="reference doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Конфигурация TwigBundle (&quot;twig&quot;)</a><ul>
+<li><a class="reference internal" href="#id1">Конфигурация</a><ul>
+<li><a class="reference internal" href="#auto-reload">auto_reload</a></li>
+<li><a class="reference internal" href="#autoescape">autoescape</a></li>
+<li><a class="reference internal" href="#autoescape-service">autoescape_service</a></li>
+<li><a class="reference internal" href="#autoescape-service-method">autoescape_service_method</a></li>
+<li><a class="reference internal" href="#base-template-class">base_template_class</a></li>
+<li><a class="reference internal" href="#cache">cache</a></li>
+<li><a class="reference internal" href="#charset">charset</a></li>
+<li><a class="reference internal" href="#date">date</a><ul>
+<li><a class="reference internal" href="#format">format</a></li>
+<li><a class="reference internal" href="#internal-format">internal_format</a></li>
+<li><a class="reference internal" href="#timezone">timezone</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#debug">debug</a></li>
+<li><a class="reference internal" href="#exception-controller">exception_controller</a></li>
+<li><a class="reference internal" href="#number-format">number_format</a><ul>
+<li><a class="reference internal" href="#decimals">decimals</a></li>
+<li><a class="reference internal" href="#decimal-point">decimal_point</a></li>
+<li><a class="reference internal" href="#thousands-separator">thousands_separator</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optimizations">optimizations</a></li>
+<li><a class="reference internal" href="#default-path">default_path</a></li>
+<li><a class="reference internal" href="#paths">paths</a></li>
+<li><a class="reference internal" href="#strict-variables">strict_variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li class="active">Конфигурация TwigBundle (&quot;twig&quot;)</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="twigbundle-twig">
+<span id="index-0"></span><h1>Конфигурация TwigBundle (&quot;twig&quot;)<a class="headerlink" href="#twigbundle-twig" title="Permalink to this headline">¶</a></h1>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/twig.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">twig</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">exception_controller</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">twig.controller.exception:showAction</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">form_themes</span><span class="p p-Indicator">:</span>
+
+        <span class="c1"># По умолчанию:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">form_div_layout.html.twig</span>
+
+        <span class="c1"># Bootstrap:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bootstrap_3_layout.html.twig</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bootstrap_3_horizontal_layout.html.twig</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bootstrap_4_layout.html.twig</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bootstrap_4_horizontal_layout.html.twig</span>
+
+        <span class="c1"># Основание</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">foundation_5_layout.html.twig</span>
+
+        <span class="c1"># Пример:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">form.html.twig</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">globals</span><span class="p p-Indicator">:</span>
+
+        <span class="c1"># Примеры:</span>
+        <span class="l l-Scalar l-Scalar-Plain">foo</span><span class="p p-Indicator">:</span>                 <span class="s">&#39;@bar&#39;</span>
+        <span class="l l-Scalar l-Scalar-Plain">pi</span><span class="p p-Indicator">:</span>                  <span class="l l-Scalar l-Scalar-Plain">3.14</span>
+
+        <span class="c1"># Опции примеров, но наиболее простой в использовании показан выше</span>
+        <span class="l l-Scalar l-Scalar-Plain">some_variable_name</span><span class="p p-Indicator">:</span>
+            <span class="c1"># id сервиса, который должен быть значением</span>
+            <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span>                   <span class="l l-Scalar l-Scalar-Plain">~</span>
+            <span class="c1"># устновить сервис или оставить пустым</span>
+            <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span>                 <span class="l l-Scalar l-Scalar-Plain">~</span>
+            <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span>                <span class="l l-Scalar l-Scalar-Plain">~</span>
+    <span class="l l-Scalar l-Scalar-Plain">autoescape</span><span class="p p-Indicator">:</span>                <span class="l l-Scalar l-Scalar-Plain">~</span>
+
+    <span class="c1"># См. http://twig.sensiolabs.org/doc/recipes.html#using-the-template-name-to-set-the-default-escaping-strategy</span>
+    <span class="l l-Scalar l-Scalar-Plain">autoescape_service</span><span class="p p-Indicator">:</span>        <span class="l l-Scalar l-Scalar-Plain">~</span> <span class="c1"># Example: &#39;my_service&#39;</span>
+    <span class="l l-Scalar l-Scalar-Plain">autoescape_service_method</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span> <span class="c1"># use in combination with autoescape_service option</span>
+    <span class="l l-Scalar l-Scalar-Plain">base_template_class</span><span class="p p-Indicator">:</span>       <span class="l l-Scalar l-Scalar-Plain">~</span> <span class="c1"># Example: Twig_Template</span>
+    <span class="l l-Scalar l-Scalar-Plain">cache</span><span class="p p-Indicator">:</span>                     <span class="s">&#39;%kernel.cache_dir%/twig&#39;</span>
+    <span class="l l-Scalar l-Scalar-Plain">charset</span><span class="p p-Indicator">:</span>                   <span class="s">&#39;%kernel.charset%&#39;</span>
+    <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span>                     <span class="s">&#39;%kernel.debug%&#39;</span>
+    <span class="l l-Scalar l-Scalar-Plain">strict_variables</span><span class="p p-Indicator">:</span>          <span class="l l-Scalar l-Scalar-Plain">~</span>
+    <span class="l l-Scalar l-Scalar-Plain">auto_reload</span><span class="p p-Indicator">:</span>               <span class="l l-Scalar l-Scalar-Plain">~</span>
+    <span class="l l-Scalar l-Scalar-Plain">optimizations</span><span class="p p-Indicator">:</span>             <span class="l l-Scalar l-Scalar-Plain">~</span>
+    <span class="l l-Scalar l-Scalar-Plain">default_path</span><span class="p p-Indicator">:</span> <span class="s">&#39;%kernel.project_dir%/templates&#39;</span>
+    <span class="l l-Scalar l-Scalar-Plain">paths</span><span class="p p-Indicator">:</span>
+        <span class="s">&#39;%kernel.project_dir%/vendor/acme/foo-bar/templates&#39;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">foo_bar</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">date</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">format</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">d.m.Y, H:i:s</span>
+        <span class="l l-Scalar l-Scalar-Plain">interval_format</span><span class="p p-Indicator">:</span> <span class="s">&#39;%%d</span><span class="nv"> </span><span class="s">days&#39;</span>
+        <span class="l l-Scalar l-Scalar-Plain">timezone</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Asia/Tokyo</span>
+    <span class="l l-Scalar l-Scalar-Plain">number_format</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">decimals</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+        <span class="l l-Scalar l-Scalar-Plain">decimal_point</span><span class="p p-Indicator">:</span> <span class="s">&#39;,&#39;</span>
+        <span class="l l-Scalar l-Scalar-Plain">thousands_separator</span><span class="p p-Indicator">:</span> <span class="s">&#39;.&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/twig.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; charset=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:twig=</span><span class="s">&quot;http://symfony.com/schema/dic/twig&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/twig http://symfony.com/schema/dic/twig/twig-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;twig:config</span>
+        <span class="na">auto-reload=</span><span class="s">&quot;%kernel.debug%&quot;</span>
+        <span class="na">autoescape=</span><span class="s">&quot;name&quot;</span>
+        <span class="na">base-template-class=</span><span class="s">&quot;Twig_Template&quot;</span>
+        <span class="na">cache=</span><span class="s">&quot;%kernel.cache_dir%/twig&quot;</span>
+        <span class="na">charset=</span><span class="s">&quot;%kernel.charset%&quot;</span>
+        <span class="na">debug=</span><span class="s">&quot;%kernel.debug%&quot;</span>
+        <span class="na">strict-variables=</span><span class="s">&quot;false&quot;</span>
+        <span class="na">optimizations=</span><span class="s">&quot;true&quot;</span>
+        <span class="na">default-path=</span><span class="s">&quot;%kernel.project_dir%/templates&quot;</span>
+    <span class="nt">&gt;</span>
+        <span class="nt">&lt;twig:form-theme&gt;</span>form_div_layout.html.twig<span class="nt">&lt;/twig:form-theme&gt;</span> <span class="c">&lt;!-- Default --&gt;</span>
+        <span class="nt">&lt;twig:form-theme&gt;</span>form.html.twig<span class="nt">&lt;/twig:form-theme&gt;</span>
+
+        <span class="nt">&lt;twig:global</span> <span class="na">key=</span><span class="s">&quot;foo&quot;</span> <span class="na">id=</span><span class="s">&quot;bar&quot;</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;twig:global</span> <span class="na">key=</span><span class="s">&quot;pi&quot;</span><span class="nt">&gt;</span>3.14<span class="nt">&lt;/twig:global&gt;</span>
+
+        <span class="nt">&lt;twig:date</span> <span class="na">format=</span><span class="s">&quot;d.m.Y, H:i:s&quot;</span> <span class="na">interval-format=</span><span class="s">&quot;%d days&quot;</span> <span class="na">timezone=</span><span class="s">&quot;Asia/Tokyo&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;twig:number-format</span> <span class="na">decimals=</span><span class="s">&quot;2&quot;</span> <span class="na">decimal-point=</span><span class="s">&quot;,&quot;</span> <span class="na">thousands-separator=</span><span class="s">&quot;.&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;twig:exception-controller&gt;</span>AcmeFooBundle:Exception:showException<span class="nt">&lt;/twig:exception-controller&gt;</span>
+        <span class="nt">&lt;twig:path</span> <span class="na">namespace=</span><span class="s">&quot;foo_bar&quot;</span><span class="nt">&gt;</span>%kernel.project_dir%/vendor/acme/foo-bar/templates<span class="nt">&lt;/twig:path&gt;</span>
+    <span class="nt">&lt;/twig:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/twig.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;twig&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;form_themes&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;form_div_layout.html.twig&#39;</span><span class="p">,</span> <span class="c1">// Default</span>
+        <span class="s1">&#39;form.html.twig&#39;</span><span class="p">,</span>
+     <span class="p">),</span>
+     <span class="s1">&#39;globals&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+         <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;@bar&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;pi&#39;</span>  <span class="o">=&gt;</span> <span class="mf">3.14</span><span class="p">,</span>
+     <span class="p">),</span>
+     <span class="s1">&#39;auto_reload&#39;</span>          <span class="o">=&gt;</span> <span class="s1">&#39;%kernel.debug%&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;autoescape&#39;</span>           <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;base_template_class&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;Twig_Template&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;cache&#39;</span>                <span class="o">=&gt;</span> <span class="s1">&#39;%kernel.cache_dir%/twig&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;charset&#39;</span>              <span class="o">=&gt;</span> <span class="s1">&#39;%kernel.charset%&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;debug&#39;</span>                <span class="o">=&gt;</span> <span class="s1">&#39;%kernel.debug%&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;strict_variables&#39;</span>     <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+     <span class="s1">&#39;exception_controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;AcmeFooBundle:Exception:showException&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;optimizations&#39;</span>        <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+     <span class="s1">&#39;paths&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+         <span class="s1">&#39;%kernel.project_dir%/vendor/acme/foo-bar/templates&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;foo_bar&#39;</span><span class="p">,</span>
+     <span class="p">),</span>
+    <span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;d.m.Y, H:i:s&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;interval_format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;%%d days&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;timezone&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Asia/Tokyo&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;number_format&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;decimals&#39;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;decimal_point&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;thousands_separator&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;default_path&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;%kernel.project_dir%/templates&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Конфигурация<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="auto-reload">
+<h3>auto_reload<a class="headerlink" href="#auto-reload" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>'%kernel.debug%'</code></tt></p>
+<p>Если <tt class="docutils literal"><code>true</code></tt>, то каждый раз при отображении шаблона Symfony вначале проверяет,
+изменился ли исходный код после последней компиляции. Если изменился, то шаблон
+компилируется снова автоматически.</p>
+</div>
+<div class="section" id="autoescape">
+<h3>autoescape<a class="headerlink" href="#autoescape" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> or <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>'name'</code></tt></p>
+<p>Если <tt class="docutils literal"><code>false</code></tt>, то автоматическое экранирование отключено (вы всё
+равно можете экранировать содержимое индивидуально в шаблонах).</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Установка этой опции, как <tt class="docutils literal"><code>false</code></tt> опасна, и сделает ваше приложение уязвимым
+к эксплуатации XSS, так как большинство сторонних пакетов предполагают, что
+экранирование подключено и самостоятельно не экранируют содержимое.</p>
+</div></div>
+<p>Если оно установлено, как строка, то содержимое шаблона экранируется с использованием
+стратегии с этим имеем. Разрешённые значения: <tt class="docutils literal"><code>html</code></tt>, <tt class="docutils literal"><code>js</code></tt>, <tt class="docutils literal"><code>css</code></tt>, <tt class="docutils literal"><code>url</code></tt>,
+<tt class="docutils literal"><code>html_attr</code></tt> и <tt class="docutils literal"><code>name</code></tt>. Значение по умолчанию - <tt class="docutils literal"><code>name</code></tt>. Эта стратегия экранирует
+содержимое в соответствии с расширением имени шаблона (например, использует <tt class="docutils literal"><code>html</code></tt>
+для шаблонов <tt class="docutils literal"><code>*.html.twig</code></tt>, и <tt class="docutils literal"><code>js</code></tt> для шаблонов <tt class="docutils literal"><code>*.js.html</code></tt>).</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">См. <a class="reference internal" href="#autoescape-service">autoescape_service</a> и <a class="reference internal" href="#autoescape-service-method">autoescape_service_method</a> чтобы определить вашу
+собственную стратегию экранирования.</p>
+</div></div>
+</div>
+<div class="section" id="autoescape-service">
+<h3>autoescape_service<a class="headerlink" href="#autoescape-service" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>Начиная с Twig 1.17, стратегия экранирования, применённая по умолчанию к шаблону,
+определяется во время компиляции, основываясь на имени файла щаблона. Это означает,
+к примеру, что содержимое шаблона <tt class="docutils literal"><code>*.html.twig</code></tt> экранируется для HTML, а содержимое
+<tt class="docutils literal"><code>*.js.twig</code></tt> - для JavaScript.</p>
+<p>Эта опция позволяет определить сервис Symfony, который будет использован, чтобы
+определить экранирование по умолчанию, применённое к шаблону.</p>
+</div>
+<div class="section" id="autoescape-service-method">
+<h3>autoescape_service_method<a class="headerlink" href="#autoescape-service-method" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>Если определена опция <tt class="docutils literal"><code>autoescape_service</code></tt>, то эта опция определяет метод,
+вызываемый для определения экранирования по умолчанию, применённого к шаблону.</p>
+</div>
+<div class="section" id="base-template-class">
+<h3>base_template_class<a class="headerlink" href="#base-template-class" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>'Twig_Template'</code></tt></p>
+<p>Шаблоны Twig компилируются в PHP-классы до использования их для отображения
+содержимого. Эта опция определяет базовый класс, из которого расширяются все
+классы шаблонов. Использование пользовательского базового шаблона не одобряется,
+так как это усложнит содержание вашео приложения.</p>
+</div>
+<div class="section" id="cache">
+<h3>cache<a class="headerlink" href="#cache" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>'%kernel.cache_dir%/twig'</code></tt></p>
+<p>До использования шаблонов Twig для отображения некоторого содержимого, они
+компилиряются в обычный PHP-код. Компиляция - это затратный процесс, так что
+результат кешируется в каталог, определённый этой опцией конфигурации.</p>
+<p>Установите эту опцию как <tt class="docutils literal"><code>null</code></tt>, чтоб отключить компиляцию шаблона Twig. Однако,
+это не рекомендуется; даже в окружении <tt class="docutils literal"><code>dev</code></tt>, так как опация <tt class="docutils literal"><code>auto_reload</code></tt>
+гарантирует, что изменённые кешированные шаблоны будут скомпилированы опять.</p>
+</div>
+<div class="section" id="charset">
+<h3>charset<a class="headerlink" href="#charset" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>'%kernel.charset%'</code></tt></p>
+<p>Набор символов, используемый файлами шаблонов. По умолчанию, это то же самое, что
+и значение параметра контейнера <tt class="docutils literal"><code>kernel.charset</code></tt>, который по умолчанию в приложениях
+Symfony установлен, как <tt class="docutils literal"><code>UTF-8</code></tt>.</p>
+</div>
+<div class="section" id="date">
+<h3>date<a class="headerlink" href="#date" title="Permalink to this headline">¶</a></h3>
+<p>Эти опции определяют значения по умолчанию, используемые фильтром <tt class="docutils literal"><code>date</code></tt>
+для форматирования значений даты и времени. Они полезны для избежания передачи
+одних и тех же аргументов на каждый вызов фильтра <tt class="docutils literal"><code>date</code></tt>.</p>
+<div class="section" id="format">
+<h4>format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>F j, Y H:i</code></tt></p>
+<p>Формат, используемый фильтром <tt class="docutils literal"><code>date</code></tt> для отображения значений, когда не
+передан никакой формат в качестве аргумента.</p>
+</div>
+<div class="section" id="internal-format">
+<h4>internal_format<a class="headerlink" href="#internal-format" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>%d days</code></tt></p>
+<p>Формат, используемый фильтром <tt class="docutils literal"><code>date</code></tt> для отображения экземпляров <tt class="docutils literal"><code>DateInterval</code></tt>,
+когда не передан никакой формат в качестве аргумента.</p>
+</div>
+<div class="section" id="timezone">
+<h4>timezone<a class="headerlink" href="#timezone" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: (значение, возвращённое <tt class="docutils literal"><code>date_default_timezone_get()</code></tt>)</p>
+<p>Часовой пояс, используемый, при форматировании значений дат с фильтром <tt class="docutils literal"><code>date</code></tt>,
+и когда не передан никакой часовой пояс в качестве аргумента.</p>
+</div>
+</div>
+<div class="section" id="debug">
+<h3>debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>'%kernel.debug%'</code></tt></p>
+<p>Если <tt class="docutils literal"><code>true</code></tt>, то скомпилированные шаблоны включают в себя метод <tt class="docutils literal"><code>__toString()</code></tt>,
+который может быть использован для отображения их узлов.</p>
+</div>
+<div class="section" id="exception-controller">
+<span id="config-twig-exception-controller-ru"></span><h3>exception_controller<a class="headerlink" href="#exception-controller" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>twig.controller.exception:showAction</code></tt></p>
+<p>Это контроллер, который активируется после того, как вызывается исключение где-либо
+в вашем приложении. Контроллер по умолчанию
+(<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/TwigBundle/Controller/ExceptionController.html" title="Symfony\Bundle\TwigBundle\Controller\ExceptionController">ExceptionController</a></code></tt>) отвечает за
+отображение конкретных шаблонов при разных условиях ошибок (см. <a class="reference internal" href="..\..\controller\error_pages.html"><em>How to Customize Error Pages</em></a>).
+Изменения этой опции - продвинутый уровень. Если вам нужно настроить страницу ошибки,
+вам стоит использовать предыдущую ссылку. Если вам нужно выполнить некоторое поведение
+в исключении, вам стоит добавить слушателя к событию <tt class="docutils literal"><code>kernel.exception</code></tt>
+(см. <a class="reference internal" href="..\dic_tags.html#dic-tags-kernel-event-listener"><span>kernel.event_listener</span></a>).</p>
+</div>
+<div class="section" id="number-format">
+<h3>number_format<a class="headerlink" href="#number-format" title="Permalink to this headline">¶</a></h3>
+<p>Эти опции определяет значения по умолчанию, используемые фильтром <tt class="docutils literal"><code>number_format</code></tt>
+для форматирования числовых значений. Они полезны для избежаия передачи одних и тех
+же аргументов по каждому вызову фильтра <tt class="docutils literal"><code>number_format</code></tt>.</p>
+<div class="section" id="decimals">
+<h4>decimals<a class="headerlink" href="#decimals" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>integer</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>0</code></tt></p>
+<p>Количество десятичных знаков, используемых для форматирования числовых значений, когда
+не передано никакое число в качестве аргумента фильтра <tt class="docutils literal"><code>number_format</code></tt>.</p>
+</div>
+<div class="section" id="decimal-point">
+<h4>decimal_point<a class="headerlink" href="#decimal-point" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>.</code></tt></p>
+<p>Символ, используемый для разделения десятичных знаком от целой части числовых
+значений, когда не передан никакой конкретный символ в качестве аргумента к
+фильтру <tt class="docutils literal"><code>number_format</code></tt>.</p>
+</div>
+<div class="section" id="thousands-separator">
+<h4>thousands_separator<a class="headerlink" href="#thousands-separator" title="Permalink to this headline">¶</a></h4>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>,</code></tt></p>
+<p>Символ, используемый для отделения каждой группы тысяч в числовых зачениях, когда
+не передан никакой конкретный символ в качестве аргумента к фильтру <tt class="docutils literal"><code>number_format</code></tt>.</p>
+</div>
+</div>
+<div class="section" id="optimizations">
+<h3>optimizations<a class="headerlink" href="#optimizations" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>int</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>-1</code></tt></p>
+<p>Twig включает в себя расширение под названием <tt class="docutils literal"><code>optimizer</code></tt>, которое подключается
+по умолчанию в приложениях Symfony. Это расширение анализирует шаблоны для их
+оптимизации при компиляции. Например, если ваш шаблон не использует специальную
+переменную <tt class="docutils literal"><code>loop</code></tt> внутри тега <tt class="docutils literal"><code>for</code></tt>, то это расширение удаляет инициализацию
+неиспользованной переменной.</p>
+<p>По умолчаниб, эта опция - <tt class="docutils literal"><code>-1</code></tt>, что означает, что все оптимизации включены.
+Установите её как <tt class="docutils literal"><code>0</code></tt>, чтобы отключить все оптимизации. Вы даже можете включить
+или отключить эти оптимизации выборочно, как объясняется в документации Twig о
+<a class="reference external" href="http://twig.sensiolabs.org/doc/api.html#optimizer-extension">the optimizer extension</a>.</p>
+</div>
+<div class="section" id="default-path">
+<h3>default_path<a class="headerlink" href="#default-path" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>'%kernel.project_dir%/templates'</code></tt></p>
+<p>Каталог по умолчанию, где Symfony будет искать шаблоны Twig.</p>
+</div>
+<div class="section" id="paths">
+<span id="config-twig-paths-ru"></span><h3>paths<a class="headerlink" href="#paths" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>Эта опция определяет каталоги, где Symfony будет искать шаблоны Twig в дополнение
+к локациям по умолчанию. Symfony ищет шаблоны в следующем порядке:</p>
+<ol class="arabic simple">
+<li>Каталоги, определённые в этой опции;</li>
+<li>Каталоги <tt class="docutils literal"><code>Resources/views/</code></tt> пакетов, использованных в приложении;</li>
+<li>Каталог <tt class="docutils literal"><code>src/Resources/views/</code></tt> приложения;</li>
+<li>Каталог, определённый в опции <tt class="docutils literal"><code>default_path</code></tt>.</li>
+</ol>
+<p>Значения опции <tt class="docutils literal"><code>paths</code></tt> определяются как пары <tt class="docutils literal"><code>key: value</code></tt>, где часть <tt class="docutils literal"><code>value</code></tt>
+может быть <tt class="docutils literal"><code>null</code></tt>. Например:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/twig.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">twig</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+    <span class="l l-Scalar l-Scalar-Plain">paths</span><span class="p p-Indicator">:</span>
+        <span class="s">&#39;%kernel.project_dir%/vendor/acme/foo-bar/templates&#39;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/twig.xml --&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:twig=</span><span class="s">&quot;http://symfony.com/schema/dic/twig&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/twig http://symfony.com/schema/dic/twig/twig-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;twig:config&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+        <span class="nt">&lt;twig:path&gt;</span>%kernel.project_dir%/vendor/acme/foo-bar/templates<span class="nt">&lt;/twig:path&gt;</span>
+    <span class="nt">&lt;/twig:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/twig.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;twig&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+    <span class="s1">&#39;paths&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+       <span class="s1">&#39;%kernel.project_dir%/vendor/acme/foo-bar/templates&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Каталоги, определённые в опции <tt class="docutils literal"><code>paths</code></tt> имеют более высокий приоритет, чем каталоги
+по умолчанию, определённые Symfony. В примере выше, если щаблон существует в каталоге
+<tt class="docutils literal"><code>acme/foo-bar/templates/</code></tt> внутри каталога кашего приложения <tt class="docutils literal"><code>vendor/</code></tt>, то он будет
+использован Symfony.</p>
+<p>Если вы предоставите значение для любого пути, Symfony примет его, как пространство имён
+Twig для этого каталога:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/twig.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">twig</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+    <span class="l l-Scalar l-Scalar-Plain">paths</span><span class="p p-Indicator">:</span>
+        <span class="s">&#39;%kernel.project_dir%/vendor/acme/foo-bar/templates&#39;</span><span class="p p-Indicator">:</span> <span class="s">&#39;foo_bar&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/twig.xml --&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:twig=</span><span class="s">&quot;http://symfony.com/schema/dic/twig&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/twig http://symfony.com/schema/dic/twig/twig-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;twig:config&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+        <span class="nt">&lt;twig:path</span> <span class="na">namespace=</span><span class="s">&quot;foo_bar&quot;</span><span class="nt">&gt;</span>%kernel.project_dir%/vendor/acme/foo-bar/templates<span class="nt">&lt;/twig:path&gt;</span>
+    <span class="nt">&lt;/twig:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/twig.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;twig&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+    <span class="s1">&#39;paths&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+       <span class="s1">&#39;%kernel.project_dir%/vendor/acme/foo-bar/templates&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;foo_bar&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Эта опция полезна, чтобы не путаться с каталогами шаблонов по умолчанию, определёнными
+Symfony. Кроме того, она упрощает то, как вы ссылаетесь на эти щаблоны:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>@foo_bar/template_name.html.twig
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="strict-variables">
+<h3>strict_variables<a class="headerlink" href="#strict-variables" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>false</code></tt></p>
+<p>Если установлена, как <tt class="docutils literal"><code>true</code></tt>, Symfony отображает исключение каждый раз, когда не
+существует переменной, атрибута или метода Twig. Если установлена, как <tt class="docutils literal"><code>false</code></tt>, то
+эти ошибки игнорируются, а несуществующие значение заменяются <tt class="docutils literal"><code>null</code></tt>.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

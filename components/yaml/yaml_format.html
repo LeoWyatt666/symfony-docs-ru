@@ -1,0 +1,581 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Формат YAML &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+    <link rel="up" title="The Yaml Component" href="..\yaml.html">
+    <link rel="next" title="Компонент Intl" href="../intl-ru.html">
+    <link rel="prev" title="The YAML Format" href="yaml_format.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Формат YAML</a><ul>
+<li><a class="reference internal" href="#id1">Скаляры</a><ul>
+<li><a class="reference internal" href="#id2">Строки</a></li>
+<li><a class="reference internal" href="#id3">Числа</a></li>
+<li><a class="reference internal" href="#null">Null</a></li>
+<li><a class="reference internal" href="#id4">Булевы значения</a></li>
+<li><a class="reference internal" href="#id5">Даты</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#yaml-format-collections-ru">Коллекции</a></li>
+<li><a class="reference internal" href="#id7">Комментарии</a></li>
+<li><a class="reference internal" href="#id8">Ясное типизирование</a></li>
+<li><a class="reference internal" href="#id9">Неподдерживаемые фунции YAML</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li><a href="..\index.html">The Components</a></li>
+                
+                <li><a href="../index-ru.html">The Components</a></li>
+                
+                <li><a href="..\yaml.html">The Yaml Component</a></li>
+                
+                <li class="active">Формат YAML</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="yaml">
+<span id="index-0"></span><h1>Формат YAML<a class="headerlink" href="#yaml" title="Permalink to this headline">¶</a></h1>
+<p>В соответствии с официальным сайтом <a class="reference external" href="http://yaml.org/">YAML</a>, YAML - это &quot;дружелюбный для
+человека стандарт сериализации данных для всех языков программирования&quot;.
+Компонент Symfony Yaml реализует поднабор <a class="reference external" href="http://www.yaml.org/spec/1.2/spec.html">спецификации YAML</a>. В особенности,
+он реализует минимальный набор функций, необходимых для использования YAML
+в качестве формата конфигурации файла.</p>
+<div class="section" id="id1">
+<h2>Скаляры<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Синтаксис для скаляров схож с синтаксисом PHP.</p>
+<div class="section" id="id2">
+<h3>Строки<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Строки в YAML могут быть заключены как в одинарные, так и в двойные кавычки. В
+некоторых случаях, они также могут быть без кавычек:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Строка в YAML</span>
+
+<span class="l l-Scalar l-Scalar-Plain">&#39;Строка в одинарных кавычках в YAML&#39;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">&quot;Строка в двойных кавычках в YAML&quot;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Стили кавычек полезны, когда строка начинается или заканчивается одним или более
+важным пробелом, так как строки без кавычек обрезаются с обеих сторон при анализе
+их содержания. Кавычки обязательны, когда строка содержит специальные или зарезервированные
+символы.</p>
+<p>При использовании строк с одинарными кавычками, любая кавычка внутри их содержания
+должна быть продублирована для экранирования:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="s">&#39;Одна</span><span class="nv"> </span><span class="s">кавычка</span><span class="nv"> </span><span class="se">&#39;&#39;</span><span class="nv"> </span><span class="s">внутри</span><span class="nv"> </span><span class="s">строки</span><span class="nv"> </span><span class="s">с</span><span class="nv"> </span><span class="s">одинарными</span><span class="nv"> </span><span class="s">кавычками&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Строки, содержащие любые из следующих символов, должны быть в кавычках. Несмотря
+на то, что вы можете использовать двойные кавычки, для этих символов удобнее
+использовать одинарные, что помогает избежать экранирования обратного слэша
+<tt class="docutils literal"><code>\</code></tt>:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>:</code></tt>, <tt class="docutils literal"><code>{</code></tt>, <tt class="docutils literal"><code>}</code></tt>, <tt class="docutils literal"><code>[</code></tt>, <tt class="docutils literal"><code>]</code></tt>, <tt class="docutils literal"><code>,</code></tt>, <tt class="docutils literal"><code>&amp;</code></tt>, <tt class="docutils literal"><code>*</code></tt>, <tt class="docutils literal"><code>#</code></tt>, <tt class="docutils literal"><code>?</code></tt>, <tt class="docutils literal"><code>|</code></tt>,
+<tt class="docutils literal"><code>-</code></tt>, <tt class="docutils literal"><code>&lt;</code></tt>, <tt class="docutils literal"><code>&gt;</code></tt>, <tt class="docutils literal"><code>=</code></tt>, <tt class="docutils literal"><code>!</code></tt>, <tt class="docutils literal"><code>%</code></tt>, <tt class="docutils literal"><code>&#64;</code></tt>, <tt class="docutils literal"><code>`</code></tt></li>
+</ul>
+<p>Стиль двойных кавычек предоставляет способ выразить произвольные строки, используя
+<tt class="docutils literal"><code>\</code></tt> для экранирования символов и последовательностей. Например, это очень полезно,
+когда вам нужно встроить <tt class="docutils literal"><code>\n</code></tt> или символ Unicode в строку.</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="s">&quot;Строка</span><span class="nv"> </span><span class="s">с</span><span class="nv"> </span><span class="s">двойными</span><span class="nv"> </span><span class="s">кавычками</span><span class="nv"> </span><span class="s">в</span><span class="nv"> </span><span class="s">YAML\n&quot;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если строка содержит любые их следующих символов управления, он должен быть
+экранирован двойными кавычками:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>\0</code></tt>, <tt class="docutils literal"><code>\x01</code></tt>, <tt class="docutils literal"><code>\x02</code></tt>, <tt class="docutils literal"><code>\x03</code></tt>, <tt class="docutils literal"><code>\x04</code></tt>, <tt class="docutils literal"><code>\x05</code></tt>, <tt class="docutils literal"><code>\x06</code></tt>, <tt class="docutils literal"><code>\a</code></tt>,
+<tt class="docutils literal"><code>\b</code></tt>, <tt class="docutils literal"><code>\t</code></tt>, <tt class="docutils literal"><code>\n</code></tt>, <tt class="docutils literal"><code>\v</code></tt>, <tt class="docutils literal"><code>\f</code></tt>, <tt class="docutils literal"><code>\r</code></tt>, <tt class="docutils literal"><code>\x0e</code></tt>, <tt class="docutils literal"><code>\x0f</code></tt>, <tt class="docutils literal"><code>\x10</code></tt>,
+<tt class="docutils literal"><code>\x11</code></tt>, <tt class="docutils literal"><code>\x12</code></tt>, <tt class="docutils literal"><code>\x13</code></tt>, <tt class="docutils literal"><code>\x14</code></tt>, <tt class="docutils literal"><code>\x15</code></tt>, <tt class="docutils literal"><code>\x16</code></tt>, <tt class="docutils literal"><code>\x17</code></tt>, <tt class="docutils literal"><code>\x18</code></tt>,
+<tt class="docutils literal"><code>\x19</code></tt>, <tt class="docutils literal"><code>\x1a</code></tt>, <tt class="docutils literal"><code>\e</code></tt>, <tt class="docutils literal"><code>\x1c</code></tt>, <tt class="docutils literal"><code>\x1d</code></tt>, <tt class="docutils literal"><code>\x1e</code></tt>, <tt class="docutils literal"><code>\x1f</code></tt>, <tt class="docutils literal"><code>\N</code></tt>,
+<tt class="docutils literal"><code>\_</code></tt>, <tt class="docutils literal"><code>\L</code></tt>, <tt class="docutils literal"><code>\P</code></tt></li>
+</ul>
+<p>Наконец, существуют другие случаи, когда строки должны иметь кавычки, независимо
+от того, используете вы двойные или одинарные:</p>
+<ul class="simple">
+<li>Когда строка - <tt class="docutils literal"><code>true</code></tt> или <tt class="docutils literal"><code>false</code></tt> (иначе она будет рассмотрена, как булево
+значение);</li>
+<li>Когда строка - <tt class="docutils literal"><code>null</code></tt> или <tt class="docutils literal"><code>~</code></tt> (иначе она будет рассмотрена, как значение
+<tt class="docutils literal"><code>null</code></tt>);</li>
+<li>Когда строка выглядит, как число, например целое число (например, <tt class="docutils literal"><code>2</code></tt>, <tt class="docutils literal"><code>14</code></tt>, и
+т.д.), плавающее число (например, <tt class="docutils literal"><code>2.6</code></tt>, <tt class="docutils literal"><code>14.9</code></tt>) и экспоненциальное число
+(например, <tt class="docutils literal"><code>12e7</code></tt>, и т.д.) (иначе она будет рассмотрена, как числовое значение);</li>
+<li>Когда строка выглядит, как дата (например, <tt class="docutils literal"><code>2014-12-31</code></tt>) (иначе, она будет автоматически
+преобразована во временную метку Unix).</li>
+</ul>
+<p>Если строка содержит разрывы строчки, вы можете использовать литеральный стиль,
+обозначенный вертикальной линией (<tt class="docutils literal"><code>|</code></tt>), чтобы обозначить, что строка будет
+длиться несколько строчек. В литералах сохранаются новые строчки:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p p-Indicator">|</span>
+  <span class="no">\/ /| |\/| |</span>
+  <span class="no">/ / | |  | |__</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Как вариант, строки могут быть написаны в свёрнутом стиле, помеченным <tt class="docutils literal"><code>&gt;</code></tt>,
+где каждый разрыв строчки заменяется пробелом:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p p-Indicator">&gt;</span>
+  <span class="no">Это очень длинное предложение,</span>
+  <span class="no">которое длится в YAML несколько строчек,</span>
+  <span class="no">но которое будет отображено, как строка</span>
+  <span class="no">без разрывов.</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Отметьте два пробела перед каждой строчкой в предыдущих примерах. Они
+не будут отображаться в результирующих PHP строках.</p>
+</div></div>
+</div>
+<div class="section" id="id3">
+<h3>Числа<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># целое число</span>
+<span class="l l-Scalar l-Scalar-Plain">12</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># октальное число</span>
+<span class="l l-Scalar l-Scalar-Plain">014</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># шестнадцатиричное число</span>
+<span class="l l-Scalar l-Scalar-Plain">0xC</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># плавающее число</span>
+<span class="l l-Scalar l-Scalar-Plain">13.4</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># экспоненциальное число</span>
+<span class="l l-Scalar l-Scalar-Plain">1.2e+34</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># бесконечность</span>
+<span class="l l-Scalar l-Scalar-Plain">.inf</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="null">
+<h3>Null<a class="headerlink" href="#null" title="Permalink to this headline">¶</a></h3>
+<p>Null в YAML могут быть выражены с помощью <tt class="docutils literal"><code>null</code></tt> или <tt class="docutils literal"><code>~</code></tt>.</p>
+</div>
+<div class="section" id="id4">
+<h3>Булевы значения<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Булевы значения в YAML выражены с помощью <tt class="docutils literal"><code>true</code></tt> и <tt class="docutils literal"><code>false</code></tt>.</p>
+</div>
+<div class="section" id="id5">
+<h3>Даты<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>YAML использует стандарт ISO-8601 для выражения дат:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">2001-12-14T21:59:43.10-05:00</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># простая дата</span>
+<span class="l l-Scalar l-Scalar-Plain">2002-12-14</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="yaml-format-collections-ru">
+<span id="id6"></span><h2>Коллекции<a class="headerlink" href="#yaml-format-collections-ru" title="Permalink to this headline">¶</a></h2>
+<p>Файл YAML редко используется для описания обычного скаляра. В большинстве
+случаев, он описывает коллекцию. Коллекции YAML могут быть последовательностью
+(индексированные массивы в PHP) или отображением элементов (ассоциативные
+массивы в PHP).</p>
+<p>Последовательности используют дефис с пробелом после него:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">PHP</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Perl</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Python</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Предыдущий файл YAML эквивалентен следующему PHP коду:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;PHP&#39;</span><span class="p">,</span> <span class="s1">&#39;Perl&#39;</span><span class="p">,</span> <span class="s1">&#39;Python&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Отображения используют двоеточие с пробелом после него (<tt class="docutils literal"><code>:</code></tt> ), чтобы отметить
+каждую пару ключ-значение:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">PHP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5.2</span>
+<span class="l l-Scalar l-Scalar-Plain">MySQL</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5.1</span>
+<span class="l l-Scalar l-Scalar-Plain">Apache</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2.2.20</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>что эквивалентно этому PHP коду:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;PHP&#39;</span> <span class="o">=&gt;</span> <span class="mf">5.2</span><span class="p">,</span> <span class="s1">&#39;MySQL&#39;</span> <span class="o">=&gt;</span> <span class="mf">5.1</span><span class="p">,</span> <span class="s1">&#39;Apache&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;2.2.20&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">В отображении ключ может быть любым валидням скаляром.</p>
+</div></div>
+<p>Количество пробелов между двоеточием и значением не важно:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">PHP</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">5.2</span>
+<span class="l l-Scalar l-Scalar-Plain">MySQL</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">5.1</span>
+<span class="l l-Scalar l-Scalar-Plain">Apache</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2.2.20</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>YAML использует отступ с одним или более пробелами для описания вложенных
+коллекций:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="s">&#39;symfony</span><span class="nv"> </span><span class="s">1.0&#39;</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">PHP</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">5.0</span>
+  <span class="l l-Scalar l-Scalar-Plain">Propel</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1.2</span>
+<span class="s">&#39;symfony</span><span class="nv"> </span><span class="s">1.2&#39;</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">PHP</span><span class="p p-Indicator">:</span>    <span class="l l-Scalar l-Scalar-Plain">5.2</span>
+  <span class="l l-Scalar l-Scalar-Plain">Propel</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1.3</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вышенаписанный YAML эквивалентен следующему PHP коду:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;symfony 1.0&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;PHP&#39;</span>    <span class="o">=&gt;</span> <span class="mf">5.0</span><span class="p">,</span>
+        <span class="s1">&#39;Propel&#39;</span> <span class="o">=&gt;</span> <span class="mf">1.2</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;symfony 1.2&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;PHP&#39;</span>    <span class="o">=&gt;</span> <span class="mf">5.2</span><span class="p">,</span>
+        <span class="s1">&#39;Propel&#39;</span> <span class="o">=&gt;</span> <span class="mf">1.3</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вам нужно помнить одну важную вещь при использовании отступов в файле YAML:
+<em>Отступ должен быть сделан одним или более прбелами, но не табулятором</em>.</p>
+<p>Вы можете вкладывать последовательности и отображения так, как вам хочется:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="s">&#39;Chapter</span><span class="nv"> </span><span class="s">1&#39;</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Introduction</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Event Types</span>
+<span class="s">&#39;Chapter</span><span class="nv"> </span><span class="s">2&#39;</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Introduction</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Helpers</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>YAML может также использовать свободные стили для коллекций, используя
+полные индикаторы, а не отступы, для указания спектра.</p>
+<p>Последовательность может быть написана в виде списка в квадратных скобках
+(<tt class="docutils literal"><code>[]</code></tt>), разделенного запятыми:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="nv">PHP</span><span class="p p-Indicator">,</span> <span class="nv">Perl</span><span class="p p-Indicator">,</span> <span class="nv">Python</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Отображение может быть написано в виде списка ключей / значений в фигурных
+скобках (<tt class="docutils literal"><code>{}</code></tt>), разделенного запятыми:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p p-Indicator">{</span> <span class="nv">PHP</span><span class="p p-Indicator">:</span> <span class="nv">5.2</span><span class="p p-Indicator">,</span> <span class="nv">MySQL</span><span class="p p-Indicator">:</span> <span class="nv">5.1</span><span class="p p-Indicator">,</span> <span class="nv">Apache</span><span class="p p-Indicator">:</span> <span class="nv">2.2.20</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы можете смешивать и объединять стили для достижения лучшей читаемости:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="s">&#39;Chapter</span><span class="nv"> </span><span class="s">1&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">Introduction</span><span class="p p-Indicator">,</span> <span class="nv">Event Types</span><span class="p p-Indicator">]</span>
+<span class="s">&#39;Chapter</span><span class="nv"> </span><span class="s">2&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">Introduction</span><span class="p p-Indicator">,</span> <span class="nv">Helpers</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="s">&#39;symfony</span><span class="nv"> </span><span class="s">1.0&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">PHP</span><span class="p p-Indicator">:</span> <span class="nv">5.0</span><span class="p p-Indicator">,</span> <span class="nv">Propel</span><span class="p p-Indicator">:</span> <span class="nv">1.2</span> <span class="p p-Indicator">}</span>
+<span class="s">&#39;symfony</span><span class="nv"> </span><span class="s">1.2&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">PHP</span><span class="p p-Indicator">:</span> <span class="nv">5.2</span><span class="p p-Indicator">,</span> <span class="nv">Propel</span><span class="p p-Indicator">:</span> <span class="nv">1.3</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id7">
+<h2>Комментарии<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>Комментарии могут быть добавлены в YAML с помощью префикса в виде хеша (<tt class="docutils literal"><code>#</code></tt>):</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Комментарий к строчке</span>
+<span class="s">&quot;symfony</span><span class="nv"> </span><span class="s">1.0&quot;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">PHP</span><span class="p p-Indicator">:</span> <span class="nv">5.0</span><span class="p p-Indicator">,</span> <span class="nv">Propel</span><span class="p p-Indicator">:</span> <span class="nv">1.2</span> <span class="p p-Indicator">}</span> <span class="c1"># Комментарий в конце строчки</span>
+<span class="s">&quot;symfony</span><span class="nv"> </span><span class="s">1.2&quot;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">PHP</span><span class="p p-Indicator">:</span> <span class="nv">5.2</span><span class="p p-Indicator">,</span> <span class="nv">Propel</span><span class="p p-Indicator">:</span> <span class="nv">1.3</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Комментарии просто игнорируются анализатором YAML и не должны иметь
+отступов в соответствии с текущим уровнем вложения в коллекцию.</p>
+</div></div>
+</div>
+<div class="section" id="id8">
+<h2>Ясное типизирование<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>Спецификация YAML определяет некоторые теги для ясной установки типа любых данных:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">данные</span><span class="p p-Indicator">:</span>
+    <span class="c1"># это значение анализируется, как строка (не преобразуется в дату и время)</span>
+    <span class="l l-Scalar l-Scalar-Plain">start_date</span><span class="p p-Indicator">:</span> <span class="kt">!!str</span> <span class="l l-Scalar l-Scalar-Plain">2002-12-14</span>
+
+    <span class="c1"># это значение анализируется, как плавающее число (буде 3.0 вместо 3)</span>
+    <span class="l l-Scalar l-Scalar-Plain">price</span><span class="p p-Indicator">:</span> <span class="kt">!!float</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+
+    <span class="c1"># это значение анализируется, как бинарные данные, зашифрованные в base64</span>
+    <span class="l l-Scalar l-Scalar-Plain">picture</span><span class="p p-Indicator">:</span> <span class="kt">!!binary</span> <span class="p p-Indicator">|</span>
+        <span class="no">R0lGODlhDAAMAIQAAP//9/X</span>
+        <span class="no">17unp5WZmZgAAAOfn515eXv</span>
+        <span class="no">Pz7Y6OjuDg4J+fn5OTk6enp</span>
+        <span class="no">56enmleECcgggoBADs=</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id9">
+<h2>Неподдерживаемые фунции YAML<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>Следующие функции YAML не поддерживаются компонентом Symfony Yaml:</p>
+<ul class="simple">
+<li>Мульти-документы (маркеры <tt class="docutils literal"><code>---</code></tt> и <tt class="docutils literal"><code>...</code></tt>);</li>
+<li>Сложные ключи маршрутизации сложные значения, начинающиеся с <tt class="docutils literal"><code>?</code></tt>;</li>
+<li>Значения, тегированные, как ключи;</li>
+<li>Следующие теги и типы: <cite>!!set</cite>, <cite>!!omap</cite>, <cite>!!pairs</cite>, <cite>!!set</cite>, <cite>!!seq</cite>,
+<cite>!!bool</cite>, <cite>!!int</cite>, <cite>!!merge</cite>, <cite>!!null</cite>, <cite>!!timestamp</cite>, <cite>!!value</cite>, <cite>!!yaml</cite>;</li>
+<li>Теги (директива <tt class="docutils literal"><code>TAG</code></tt>; например: <tt class="docutils literal"><code>%TAG ! tag:example.com,2000:app/</code></tt>)
+и ссылки на теги (например: <tt class="docutils literal"><code>!&lt;tag:example.com,2000:app/foo&gt;</code></tt>);</li>
+<li>Использование последовательного синтаксиса для элементов маршрутизации
+(например: <tt class="docutils literal"><code>{foo, bar}</code></tt>; вместо этого используйте <tt class="docutils literal"><code>{foo: ~, bar: ~}</code></tt>).</li>
+</ul>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="yaml_format.html">« The YAML Format</a>
+                <span class="separator">|</span>
+                <a href="../intl-ru.html">Компонент Intl »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

@@ -1,0 +1,1070 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент Routing &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="Компонент Security" href="security-ru.html">
+    <link rel="prev" title="Мост PSR-7" href="psr7-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент Routing</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#id2">Использование</a><ul>
+<li><a class="reference internal" href="#id3">Определение маршрутов</a></li>
+<li><a class="reference internal" href="#id4">Использование префиксов</a></li>
+<li><a class="reference internal" href="#id5">Установка параметров запроса</a></li>
+<li><a class="reference internal" href="#url">Генерирование URL</a></li>
+<li><a class="reference internal" href="#id6">Проверка существования пути</a></li>
+<li><a class="reference internal" href="#id7">Загрузка маршрутов из файла</a><ul>
+<li><a class="reference internal" href="#id8">Маршруты, как завершители</a></li>
+<li><a class="reference internal" href="#id9">Маршруты, как аннотации</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10">Маршрутизавтор &quot;всё-в-одном&quot;</a></li>
+<li><a class="reference internal" href="#unicode">Поддержка маршрутизации Unicode</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id11">Узнать больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент Routing</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="routing">
+<span id="index-0"></span><h1>Компонент Routing<a class="headerlink" href="#routing" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Компонент Routing соединяет HTTP запрос с набором переменных
+конфигурации.</div></blockquote>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/routing
+</pre></div>
+</td></tr></table></div></div>
+<p>Также вы можете клонировать репозиторий <a class="reference external" href="https://github.com/symfony/routing">https://github.com/symfony/routing</a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Использование<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Эта статья объясняет как использовать функции Routing как независимого
+компонента в любом приложении PHP. Прочитайте статью <a class="reference internal" href="..\routing.html"><em>Routing</em></a>
+для понимания как использовать его в приложениях Symfony.</div></div>
+<p>Для тог, чтобы установить базову систему маршрутизации, вам нужно
+три составляющие:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/RouteCollection.html" title="Symfony\Component\Routing\RouteCollection">RouteCollection</a></code></tt>, который содержит определения маршрутов
+(экземпляры класса <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Route.html" title="Symfony\Component\Routing\Route">Route</a></code></tt>)</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/RequestContext.html" title="Symfony\Component\Routing\RequestContext">RequestContext</a></code></tt>, который содержит информацию о запросе</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Matcher/UrlMatcher.html" title="Symfony\Component\Routing\Matcher\UrlMatcher">UrlMatcher</a></code></tt>, который выполняет соединение запроса
+с единственным маршрутом</li>
+</ul>
+<p>Вот быстрый пример. Заметьте, что предполагается, что вы уже сконфигурировали ваш
+автозагрузчик, чтобы он загружал компонент Routing:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Matcher\UrlMatcher</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\RequestContext</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\RouteCollection</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Route</span><span class="p">;</span>
+
+<span class="nv">$route</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">&#39;/foo&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;_controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;MyController&#39;</span><span class="p">));</span>
+<span class="nv">$routes</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteCollection</span><span class="p">();</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;route_name&#39;</span><span class="p">,</span> <span class="nv">$route</span><span class="p">);</span>
+
+<span class="nv">$context</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RequestContext</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">);</span>
+
+<span class="nv">$matcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UrlMatcher</span><span class="p">(</span><span class="nv">$routes</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
+
+<span class="nv">$parameters</span> <span class="o">=</span> <span class="nv">$matcher</span><span class="o">-&gt;</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;/foo&#39;</span><span class="p">);</span>
+<span class="c1">// массив (&#39;_controller&#39; =&gt; &#39;MyController&#39;, &#39;_route&#39; =&gt; &#39;route_name&#39;)</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Параметры <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/RequestContext.html" title="Symfony\Component\Routing\RequestContext">RequestContext</a></code></tt> могут быть наполнены
+значениями, хранящимися в <tt class="docutils literal"><code>$_SERVER</code></tt>, но легче использовать компонент HttpFoundation,
+как объясняется <a class="reference internal" href="routing.html#components-routing-http-foundation"><span>ниже</span></a>.</p>
+</div></div>
+<p>Вы можете добавлять к <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/RouteCollection.html" title="Symfony\Component\Routing\RouteCollection">RouteCollection</a></code></tt>
+столько маршрутов, сколько хотите.</p>
+<p>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/RouteCollection.html#method_add" title="Symfony\Component\Routing\RouteCollection::add()">RouteCollection::add()</a></code></tt>
+берёт два аргумента. Первый - это имя маршрута. Второй - объект
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Route.html" title="Symfony\Component\Routing\Route">Route</a></code></tt>, который ожидает URL путь и некоторый
+массив пользовательских переменных в своём конструкторе. Этот массив пользовательских
+переменных может быть <em>чем угодно</em> важным для вашего приложения и возвращаться при
+сопоставлении маршрута.</p>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Matcher.html#method_match" title="Symfony\Component\Routing\Matcher::match()">UrlMatcher::match()</a></code></tt>
+возвращает переменные, которые вы установили в маршруте, а также рандомные заполнители
+(см. ниже). Теперь ваше приложение может использовать эту информацию, чтобы продолжать
+обработку запроса. В дополенение к сконфигурированным переменным, добавляется ключ
+<tt class="docutils literal"><code>_route</code></tt>, который содержит имя соответствующего маршрута.</p>
+<p>Если соответствующий маршрут не может быть найден, будет вызвано
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Exception/ResourceNotFoundException.html" title="Symfony\Component\Routing\Exception\ResourceNotFoundException">ResourceNotFoundException</a></code></tt>.</p>
+<div class="section" id="id3">
+<h3>Определение маршрутов<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Полное определение маршрута может содержать до семи частей:</p>
+<ol class="arabic simple">
+<li>Маршрут пути URL. Он сопоставляется с URL, переданным <cite>RequestContext</cite>,
+и может содержать названные рандомные заполнители (например, <tt class="docutils literal"><code>{placeholders}</code></tt>),
+чтобы соответствовать динамическим частям URL.</li>
+<li>Массив значений по умолчанию. Содержит массив арбитражных значений,
+которые будут возвращены, когда запрос соответствует маршруту.</li>
+<li>Массив требований. Он определяет ограничения значений заполнителей в
+виде регулярных выражений.</li>
+<li>Массив опций. Они содержит внутренние настройки для маршрута и является
+наименее необходимыми.</li>
+<li>Хост. Сопоставляется с хостом запроса. Смотрите <a class="reference internal" href="..\routing\hostname_pattern.html"><em>How to Match a Route Based on the Host</em></a>,
+чтобы узнать больше.</li>
+<li>Массив схем. Форсирует определённую HTTP схему (<tt class="docutils literal"><code>http</code></tt>, <tt class="docutils literal"><code>https</code></tt>).</li>
+<li>Массив методов. Форсирует определённый метод HTTP запроса (<tt class="docutils literal"><code>HEAD</code></tt>,
+<tt class="docutils literal"><code>GET</code></tt>, <tt class="docutils literal"><code>POST</code></tt>, ...).</li>
+</ol>
+<p>Рассмотрите следующий маршрут, который объединяет несколько из этих идей:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$route</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Route</span><span class="p">(</span>
+    <span class="s1">&#39;/archive/{month}&#39;</span><span class="p">,</span> <span class="c1">// path</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;_controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;showArchive&#39;</span><span class="p">),</span> <span class="c1">// default values</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;month&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;[0-9]{4}-[0-9]{2}&#39;</span><span class="p">,</span> <span class="s1">&#39;subdomain&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;www|m&#39;</span><span class="p">),</span> <span class="c1">// requirements</span>
+    <span class="k">array</span><span class="p">(),</span> <span class="c1">// options</span>
+    <span class="s1">&#39;{subdomain}.example.com&#39;</span><span class="p">,</span> <span class="c1">// host</span>
+    <span class="k">array</span><span class="p">(),</span> <span class="c1">// schemes</span>
+    <span class="k">array</span><span class="p">()</span> <span class="c1">// methods</span>
+<span class="p">);</span>
+
+<span class="c1">// ...</span>
+
+<span class="nv">$parameters</span> <span class="o">=</span> <span class="nv">$matcher</span><span class="o">-&gt;</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;/archive/2012-01&#39;</span><span class="p">);</span>
+<span class="c1">// array(</span>
+<span class="c1">//     &#39;_controller&#39; =&gt; &#39;showArchive&#39;,</span>
+<span class="c1">//     &#39;month&#39; =&gt; &#39;2012-01&#39;,</span>
+<span class="c1">//     &#39;subdomain&#39; =&gt; &#39;www&#39;,</span>
+<span class="c1">//     &#39;_route&#39; =&gt; ...</span>
+<span class="c1">//  )</span>
+
+<span class="nv">$parameters</span> <span class="o">=</span> <span class="nv">$matcher</span><span class="o">-&gt;</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;/archive/foo&#39;</span><span class="p">);</span>
+<span class="c1">// вызывает ResourceNotFoundException</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В этом случае, маршрут сопоставляется с <tt class="docutils literal"><code>/archive/2012-01</code></tt>, так как метасимвол
+<tt class="docutils literal"><code>{month}</code></tt> соответствует регулярному выражению заданного метасимвола. Однако,
+<tt class="docutils literal"><code>/archive/foo</code></tt> <em>не</em> соответствует, так как  &quot;foo&quot; не подходит метасимволу месяца.</p>
+<p>При использовании метасимволов, они возвращаются в виде массива, при вызове <tt class="docutils literal"><code>match</code></tt>.
+Часть пути, с которой сопоставляется метасимвол (например, <tt class="docutils literal"><code>2012-01</code></tt>), используется
+в качестве значения.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Если вы хотите сопоставить все URL, которые начинаются с определённого пути
+и заканчиваются произвольным суффиксом, вы можете использовать следующее
+определение маршрута:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$route</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Route</span><span class="p">(</span>
+    <span class="s1">&#39;/start/{suffix}&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;suffix&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;suffix&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;.*&#39;</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+</div>
+<div class="section" id="id4">
+<h3>Использование префиксов<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Вы можете добавлять маршруты или другие экземпляры <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/RouteCollection.html" title="Symfony\Component\Routing\RouteCollection">RouteCollection</a></code></tt>
+к <em>другой</em> коллекции. Таким образом, вы можете построить древо маршрутов. Кроме того,
+вы можете определить префикс и значение по умолчанию для параметров, требований, опций,
+схем и хоста для всех маршрутов поддрева, используя методы, предоставленные классом
+<tt class="docutils literal"><code>RouteCollection</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$rootCollection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteCollection</span><span class="p">();</span>
+
+<span class="nv">$subCollection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteCollection</span><span class="p">();</span>
+<span class="nv">$subCollection</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+<span class="nv">$subCollection</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+<span class="nv">$subCollection</span><span class="o">-&gt;</span><span class="na">addPrefix</span><span class="p">(</span><span class="s1">&#39;/prefix&#39;</span><span class="p">);</span>
+<span class="nv">$subCollection</span><span class="o">-&gt;</span><span class="na">addDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="o">...</span><span class="p">));</span>
+<span class="nv">$subCollection</span><span class="o">-&gt;</span><span class="na">addRequirements</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="o">...</span><span class="p">));</span>
+<span class="nv">$subCollection</span><span class="o">-&gt;</span><span class="na">addOptions</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="o">...</span><span class="p">));</span>
+<span class="nv">$subCollection</span><span class="o">-&gt;</span><span class="na">setHost</span><span class="p">(</span><span class="s1">&#39;admin.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$subCollection</span><span class="o">-&gt;</span><span class="na">setMethods</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">));</span>
+<span class="nv">$subCollection</span><span class="o">-&gt;</span><span class="na">setSchemes</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;https&#39;</span><span class="p">));</span>
+
+<span class="nv">$rootCollection</span><span class="o">-&gt;</span><span class="na">addCollection</span><span class="p">(</span><span class="nv">$subCollection</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id5">
+<h3>Установка параметров запроса<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/RequestContext.html" title="Symfony\Component\Routing\RequestContext">RequestContext</a></code></tt> предоставляет информацию о
+текущем запросе. Вы можете определить все параметры HTTP запроса с этим классом
+через его конструктор:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span>
+    <span class="nv">$baseUrl</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nv">$method</span> <span class="o">=</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+    <span class="nv">$host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+    <span class="nv">$scheme</span> <span class="o">=</span> <span class="s1">&#39;http&#39;</span><span class="p">,</span>
+    <span class="nv">$httpPort</span> <span class="o">=</span> <span class="mi">80</span><span class="p">,</span>
+    <span class="nv">$httpsPort</span> <span class="o">=</span> <span class="mi">443</span><span class="p">,</span>
+    <span class="nv">$path</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+    <span class="nv">$queryString</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p id="components-routing-http-foundation-ru">Обычно вы можете передать значения из переменной <tt class="docutils literal"><code>$_SERVER</code></tt>, чтобы наполнить
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/RequestContext.html" title="Symfony\Component\Routing\RequestContext">RequestContext</a></code></tt>. Но если вы используете компонент
+<a class="reference internal" href="http_foundation.html"><em>HttpFoundation</em></a> , вы можете использовать его класс
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Request.html" title="Symfony\Component\HttpFoundation\Request">Request</a></code></tt>, чтобы наполнить
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/RequestContext.html" title="Symfony\Component\Routing\RequestContext">RequestContext</a></code></tt> с помощью сокращения:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+
+<span class="nv">$context</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RequestContext</span><span class="p">();</span>
+<span class="nv">$context</span><span class="o">-&gt;</span><span class="na">fromRequest</span><span class="p">(</span><span class="nx">Request</span><span class="o">::</span><span class="na">createFromGlobals</span><span class="p">());</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="url">
+<h3>Генерирование URL<a class="headerlink" href="#url" title="Permalink to this headline">¶</a></h3>
+<p>В то время как <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Matcher/UrlMatcher.html" title="Symfony\Component\Routing\Matcher\UrlMatcher">UrlMatcher</a></code></tt>, пытается
+найти маршрут, который соответствует заданному запросу, вы можете также построить
+URL из определённого маршрута:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Generator\UrlGenerator</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\RequestContext</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\RouteCollection</span><span class="p">;</span>
+
+<span class="nv">$routes</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteCollection</span><span class="p">();</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;show_post&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">&#39;/show/{slug}&#39;</span><span class="p">));</span>
+
+<span class="nv">$context</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RequestContext</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">);</span>
+
+<span class="nv">$generator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UrlGenerator</span><span class="p">(</span><span class="nv">$routes</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
+
+<span class="nv">$url</span> <span class="o">=</span> <span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="s1">&#39;show_post&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;slug&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;my-blog-post&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+<span class="c1">// /show/my-blog-post</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если вы определили схему, генерируются абсолютный URL, если схема текущего
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/RequestContext.html" title="Symfony\Component\Routing\RequestContext">RequestContext</a></code></tt> не соответствует требованию.</p>
+</div></div>
+</div>
+<div class="section" id="id6">
+<h3>Проверка существования пути<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>В динамично развивающихся приложениях может быть необходимо проверить
+существование пути перед генерации URL. В данных случаях не используйте метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Router.html#method_getRouteCollection" title="Symfony\Component\Routing\Router::getRouteCollection()">getRouteCollection()</a></code></tt> потому что
+он пересоздаёт кеш таблицы маршрутизации и замедляет приложение.</p>
+<p>Вместо этого попробуйте создать URL и ловите исключение
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Exception/RouteNotFoundException.html" title="Symfony\Component\Routing\Exception\RouteNotFoundException">RouteNotFoundException</a></code></tt>, которое выбросится
+если маршрут не существует:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Exception\RouteNotFoundException</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$url</span> <span class="o">=</span> <span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="nv">$dynamicRouteName</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">RouteNotFoundException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// маршрут не определён...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id7">
+<h3>Загрузка маршрутов из файла<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Вы уже видели, как вы с лёгкостью можете добавлять маршруты в коллекцию прямо внутри
+PHP. Но вы также можете загружать маршруты из множества различных файлов.</p>
+<p>Компонент Routing поставляется с определённым количеством классов загрузчиков,
+и каждый предоставляет вам возможность загружать коллекцию определения маршрутов из
+внешнего файла какого-либо формата.
+Каждый загрузчик ожидает экземпляр <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Config/FileLocator.html" title="Symfony\Component\Config\FileLocator">FileLocator</a></code></tt>,
+в качестве аргумента конструктора. Вы можете использовать <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Config/FileLocator.html" title="Symfony\Component\Config\FileLocator">FileLocator</a></code></tt>,
+чтобы определить массив путей, в которых загрузчик будет искать запрошенные файлы.
+Если файл найден, загрузчик возвращает <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/RouteCollection.html" title="Symfony\Component\Routing\RouteCollection">RouteCollection</a></code></tt>.</p>
+<p>Если вы используете <tt class="docutils literal"><code>YamlFileLoader</code></tt>, то определения маршрута будут выглядеть так:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># routes.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">route1</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">/foo</span>
+    <span class="l l-Scalar l-Scalar-Plain">defaults</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">_controller</span><span class="p p-Indicator">:</span> <span class="s">&#39;MyController::fooAction&#39;</span> <span class="p p-Indicator">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">route2</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">/foo/bar</span>
+    <span class="l l-Scalar l-Scalar-Plain">defaults</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">_controller</span><span class="p p-Indicator">:</span> <span class="s">&#39;MyController::foobarAction&#39;</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Чтобы загрузить этот файл, вы можете использовать следующий код. Предполагается,
+что ваш файл <tt class="docutils literal"><code>routes.yaml</code></tt> находится в том же каталоге, что и в коде ниже:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Config\FileLocator</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Loader\YamlFileLoader</span><span class="p">;</span>
+
+<span class="c1">// ищет внутри *этого* каталога</span>
+<span class="nv">$fileLocator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileLocator</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="no">__DIR__</span><span class="p">));</span>
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">YamlFileLoader</span><span class="p">(</span><span class="nv">$fileLocator</span><span class="p">);</span>
+<span class="nv">$routes</span> <span class="o">=</span> <span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;routes.yaml&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Кроме <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Loader/YamlFileLoader.html" title="Symfony\Component\Routing\Loader\YamlFileLoader">YamlFileLoader</a></code></tt>,
+существует два других загрузчика, которые работают таким же образом:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Loader/XmlFileLoader.html" title="Symfony\Component\Routing\Loader\XmlFileLoader">XmlFileLoader</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Loader/PhpFileLoader.html" title="Symfony\Component\Routing\Loader\PhpFileLoader">PhpFileLoader</a></code></tt></li>
+</ul>
+<p>Если вы используете  <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Loader/PhpFileLoader.html" title="Symfony\Component\Routing\Loader\PhpFileLoader">PhpFileLoader</a></code></tt>,
+то вам нужно предоставить имя PHP файла, который возвращает <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/RouteCollection.html" title="Symfony\Component\Routing\RouteCollection">RouteCollection</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// RouteProvider.php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\RouteCollection</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Route</span><span class="p">;</span>
+
+<span class="nv">$routes</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteCollection</span><span class="p">();</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span>
+    <span class="s1">&#39;route_name&#39;</span><span class="p">,</span>
+    <span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">&#39;/foo&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;_controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ExampleController&#39;</span><span class="p">))</span>
+<span class="p">);</span>
+<span class="c1">// ...</span>
+
+<span class="k">return</span> <span class="nv">$routes</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id8">
+<h4>Маршруты, как завершители<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>Также существует <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Loader/ClosureLoader.html" title="Symfony\Component\Routing\Loader\ClosureLoader">ClosureLoader</a></code></tt>, который
+вызывает завершитель, и использует результат в качестве <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/RouteCollection.html" title="Symfony\Component\Routing\RouteCollection">RouteCollection</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Loader\ClosureLoader</span><span class="p">;</span>
+
+<span class="nv">$closure</span> <span class="o">=</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">RouteCollection</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClosureLoader</span><span class="p">();</span>
+<span class="nv">$routes</span> <span class="o">=</span> <span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="nv">$closure</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id9">
+<h4>Маршруты, как аннотации<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>Наконец, существует <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Loader/AnnotationDirectoryLoader.html" title="Symfony\Component\Routing\Loader\AnnotationDirectoryLoader">AnnotationDirectoryLoader</a></code></tt>
+и <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Loader/AnnotationFileLoader.html" title="Symfony\Component\Routing\Loader\AnnotationFileLoader">AnnotationFileLoader</a></code></tt>, для загрузки
+определений маршрута из аннотаций класса. Конкретные детали здесь не рассматриваются.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">In order to use the annotation loader, you should have installed the
+<tt class="docutils literal"><code>doctrine/annotations</code></tt> and <tt class="docutils literal"><code>doctrine/cache</code></tt> packages with Composer.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Annotation classes aren't loaded automatically, so you must load them
+using a class loader like this:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Composer\Autoload\ClassLoader</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\Common\Annotations\AnnotationRegistry</span><span class="p">;</span>
+
+<span class="sd">/** @var ClassLoader $loader */</span>
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">require</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../vendor/autoload.php&#39;</span><span class="p">;</span>
+
+<span class="nx">AnnotationRegistry</span><span class="o">::</span><span class="na">registerLoader</span><span class="p">([</span><span class="nv">$loader</span><span class="p">,</span> <span class="s1">&#39;loadClass&#39;</span><span class="p">]);</span>
+
+<span class="k">return</span> <span class="nv">$loader</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>Маршрутизавтор &quot;всё-в-одном&quot;<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Router.html" title="Symfony\Component\Routing\Router">Router</a></code></tt> является пакетом &quot;всё-в-одном&quot;,
+для быстрого использования компонента Routing. Конструктор ожидают экземпляр
+загрузчика, путь к главному определению маршрута и некоторые другие настройки:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span>
+    <span class="nx">LoaderInterface</span> <span class="nv">$loader</span><span class="p">,</span>
+    <span class="nv">$resource</span><span class="p">,</span>
+    <span class="k">array</span> <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(),</span>
+    <span class="nx">RequestContext</span> <span class="nv">$context</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+    <span class="nx">LoggerInterface</span> <span class="nv">$logger</span> <span class="o">=</span> <span class="k">null</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>С опцией <tt class="docutils literal"><code>cache_dir</code></tt>, вы можете включить кеширование маршрута (если вы
+предоставите путь), или отключить кеширование (если оно установлено, как
+<tt class="docutils literal"><code>null</code></tt>). Кеширование производится фоново автоматически, если вы хотите
+его использовать. Базовым примером класса <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Routing/Router.html" title="Symfony\Component\Routing\Router">Router</a></code></tt>
+будет:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$fileLocator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileLocator</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="no">__DIR__</span><span class="p">));</span>
+<span class="nv">$requestContext</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RequestContext</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">);</span>
+
+<span class="nv">$router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Router</span><span class="p">(</span>
+    <span class="k">new</span> <span class="nx">YamlFileLoader</span><span class="p">(</span><span class="nv">$fileLocator</span><span class="p">),</span>
+    <span class="s1">&#39;routes.yaml&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;cache_dir&#39;</span> <span class="o">=&gt;</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/cache&#39;</span><span class="p">),</span>
+    <span class="nv">$requestContext</span>
+<span class="p">);</span>
+<span class="nv">$router</span><span class="o">-&gt;</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;/foo/bar&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если вы используете кэширование, компонент Routing скомпилирует новые
+классы, которые сохраняются в <tt class="docutils literal"><code>cache_dir</code></tt>. Это значит, что ваш скрипт должен
+иметь разрешение на запись в этой локации.</p>
+</div></div>
+</div>
+<div class="section" id="unicode">
+<h3>Поддержка маршрутизации Unicode<a class="headerlink" href="#unicode" title="Permalink to this headline">¶</a></h3>
+<p>Компонент Routing поддерживает символы UTF-8 в путях маршрута и требованиях.
+Благодаря опции маршрута <tt class="docutils literal"><code>utf8</code></tt> , вы можете сделать так, чтобы Symfony сопоставляла
+и генерировала маршрут с использованием UTF-8 символов:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\Controller</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">DefaultController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Route(&quot;/category/{name}&quot;, name=&quot;route1&quot;, options={&quot;utf8&quot;: true})</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">category</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">route1</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">/category/{name}</span>
+    <span class="l l-Scalar l-Scalar-Plain">defaults</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">_controller</span><span class="p p-Indicator">:</span> <span class="s">&#39;App\Controller\DefaultController::category&#39;</span> <span class="p p-Indicator">}</span>
+    <span class="l l-Scalar l-Scalar-Plain">options</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">utf8</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;routes</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/routing&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/routing</span>
+<span class="s">        http://symfony.com/schema/routing/routing-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;route</span> <span class="na">id=</span><span class="s">&quot;route1&quot;</span> <span class="na">path=</span><span class="s">&quot;/category/{name}&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;default</span> <span class="na">key=</span><span class="s">&quot;_controller&quot;</span><span class="nt">&gt;</span>App\Controller\DefaultController::category<span class="nt">&lt;/default&gt;</span>
+        <span class="nt">&lt;option</span> <span class="na">key=</span><span class="s">&quot;utf8&quot;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;/route&gt;</span>
+<span class="nt">&lt;/routes&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Routing\RouteCollection</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Route</span><span class="p">;</span>
+
+<span class="nv">$routes</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteCollection</span><span class="p">();</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;route1&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">&#39;/category/{name}&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;_controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;App\Controller\DefaultController::category&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="k">array</span><span class="p">(),</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;utf8&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">));</span>
+
+<span class="c1">// ...</span>
+
+<span class="k">return</span> <span class="nv">$routes</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>В этом маршруте, опция <tt class="docutils literal"><code>utf8</code></tt> установлена как <tt class="docutils literal"><code>true</code></tt>, что заставляет
+Symfony рассмотреть требование <tt class="docutils literal"><code>.</code></tt> на соответствие каким-либо символам
+UTF-8, вместо одного символа байта. Это означает, что следующие URL будут
+соответствовать: <tt class="docutils literal"><code>/category/日本語</code></tt>, <tt class="docutils literal"><code>/category/فارسی</code></tt>, <tt class="docutils literal"><code>/category/한국어</code></tt>,
+и т.д. В случае, если вы хотели знать, эта опция также позволяет включать и сопоставлять
+эмоджи в URL.</p>
+<p>Вы можете тоже включать  UTF-8 строки в качестве требований маршрутизации:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\Controller</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">DefaultController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Route(</span>
+<span class="sd">     *     &quot;/category/{name}&quot;,</span>
+<span class="sd">     *     name=&quot;route2&quot;,</span>
+<span class="sd">     *     requirements={&quot;default&quot;=&quot;한국어&quot;},</span>
+<span class="sd">     *     options={&quot;utf8&quot;: true}</span>
+<span class="sd">     * )</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">default</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">route2</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span>     <span class="l l-Scalar l-Scalar-Plain">/default/{default}</span>
+    <span class="l l-Scalar l-Scalar-Plain">defaults</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">_controller</span><span class="p p-Indicator">:</span> <span class="s">&#39;App\Controller\DefaultController::default&#39;</span> <span class="p p-Indicator">}</span>
+    <span class="l l-Scalar l-Scalar-Plain">requirements</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">default</span><span class="p p-Indicator">:</span> <span class="s">&quot;한국어&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">options</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">utf8</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;routes</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/routing&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/routing</span>
+<span class="s">        http://symfony.com/schema/routing/routing-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;route</span> <span class="na">id=</span><span class="s">&quot;route2&quot;</span> <span class="na">path=</span><span class="s">&quot;/default/{default}&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;default</span> <span class="na">key=</span><span class="s">&quot;_controller&quot;</span><span class="nt">&gt;</span>App\Controller\DefaultController::default<span class="nt">&lt;/default&gt;</span>
+        <span class="nt">&lt;requirement</span> <span class="na">key=</span><span class="s">&quot;default&quot;</span><span class="nt">&gt;</span>한국어<span class="nt">&lt;/requirement&gt;</span>
+        <span class="nt">&lt;option</span> <span class="na">key=</span><span class="s">&quot;utf8&quot;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;/route&gt;</span>
+<span class="nt">&lt;/routes&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Routing\RouteCollection</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Route</span><span class="p">;</span>
+
+<span class="nv">$routes</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteCollection</span><span class="p">();</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;route2&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">&#39;/default/{default}&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;_controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;App\Controller\DefaultController::default&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;default&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;한국어&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;utf8&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">));</span>
+
+<span class="c1">// ...</span>
+
+<span class="k">return</span> <span class="nv">$routes</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Кроме символов UTF-8, компонент Routing также поддерживает все
+<a class="reference external" href="http://php.net/manual/en/regexp.reference.unicode.php">свойства PCRE Unicode</a>, которые экранируют последовательности, соответствующие
+общим типам символов. Например, <tt class="docutils literal"><code>\p{Lu}</code></tt> соответствует любым символам верхнего
+регистра на любом языке, <tt class="docutils literal"><code>\p{Greek}</code></tt> соответствует любому греческому символу,
+<tt class="docutils literal"><code>\P{Han}</code></tt> соответствует любому символу, не включённому в скрипт Chinese Han.</p>
+</div></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>Узнать больше<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..\routing.html">Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\routing\conditions.html">How to Restrict Route Matching through Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/conditions-ru.html">Как ограничить сопоставление маршрутов с помощью условий</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\routing\custom_route_loader.html">How to Create a custom Route Loader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/custom_route_loader-ru.html">Как создать пользовательский загрузчик маршрутов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\routing\debug.html">How to Visualize And Debug Routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/debug-ru.html">Как визуализиовать и отлаживать маршруты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\routing\external_resources.html">How to Include External Routing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/external_resources-ru.html">Как подключать внешние источники маршрутизации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\routing\extra_information.html">How to Pass Extra Information from a Route to a Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/extra_information-ru.html">Как передать дополнительную информацию из маршрута в контроллер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\routing\generate_url_javascript.html">How to Generate Routing URLs in JavaScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/generate_url_javascript-ru.html">Как генерировать URL маршрутизации в JavaScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\routing\hostname_pattern.html">How to Match a Route Based on the Host</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/hostname_pattern-ru.html">Как сделать так, чтобы маршрут соответствовал на основании хоста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\routing\optional_placeholders.html">How to Define Optional Placeholders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/optional_placeholders-ru.html">Как определять необязательные заполнители</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\routing\redirect_in_config.html">How to Configure a Redirect without a custom Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/redirect_in_config-ru.html">Как сконфигурировать перенаправление без пользовательского контроллера</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\routing\redirect_trailing_slash.html">Redirect URLs with a Trailing Slash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/redirect_trailing_slash-ru.html">Перенаправление URL с замыкающим слешем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\routing\requirements.html">How to Define Route Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/requirements-ru.html">Как определять требования маршрутов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\routing\routing_from_database.html">Looking up Routes from a Database: Symfony CMF DynamicRouter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/routing_from_database-ru.html">Поиск маршрутов из базы данных: Symfony CMF DynamicRouter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\routing\scheme.html">How to Force Routes to Always Use HTTPS or HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/scheme-ru.html">Как заставить маршруты всегда использовать HTTPS или HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\routing\service_container_parameters.html">How to Use Service Container Parameters in your Routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/service_container_parameters-ru.html">Как использовать параметры сервис-контейнера в ваших маршрутах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\routing\slash_in_parameter.html">How to Allow a &quot;/&quot; Character in a Route Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/slash_in_parameter-ru.html">Как позволить знак &quot;/&quot; в параметре маршрута</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\controller.html">Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\controller\argument_value_resolver.html">Extending Action Argument Resolving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controller/argument_value_resolver-ru.html">Расширения разрешения аргумента действия</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\controller\error_pages.html">How to Customize Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controller/error_pages-ru.html">Как настроить страницы ошибок</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\controller\forwarding.html">How to Forward Requests to another Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controller/forwarding-ru.html">Как пересылать запросы другому контроллеру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\controller\service.html">How to Define Controllers as Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controller/service-ru.html">Как определять контроллеры как сервисы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\controller\soap_web_service.html">How to Create a SOAP Web Service in a Symfony Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controller/soap_web_service-ru.html">Как создать SOAP веб-сервис в контроллере Symfony</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\controller\upload_file.html">How to Upload Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controller/upload_file-ru.html">Как загружать файлы</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="psr7-ru.html">« Мост PSR-7</a>
+                <span class="separator">|</span>
+                <a href="security-ru.html">Компонент Security »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

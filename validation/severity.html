@@ -1,0 +1,486 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как справляться с разными уровнями ошибок &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Validation" href="..\validation.html">
+    <link rel="next" title="How to Translate Validation Constraint Messages" href="translations.html">
+    <link rel="prev" title="How to Handle Different Error Levels" href="severity.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="validation doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как справляться с разными уровнями ошибок</a><ul>
+<li><a class="reference internal" href="#id2">1. Назначение уровня ошибки</a></li>
+<li><a class="reference internal" href="#id3">2. Персонализация шаблона сообщения об ошибке</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\validation.html">Validation</a></li>
+                
+                <li class="active">Как справляться с разными уровнями ошибок</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как справляться с разными уровнями ошибок<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Иногда, вам может захотеться отобразить сообщения об ошибках ограничений валидации
+по-разному, основываясь на некоторых правилах. Например, у вас есть форма регистрации
+для новых пользователей, где они вводят некоторую личную информацию и выбирают свои
+аттестаты аутнетификации. Им нужно будет выбрать имя пользователя и безопасный пароль,
+но предоставление информации о банковском счёте будет необязательной. Несмотря на это,
+вы хотите убедиться, что эти необзяательные поля, если будут заполнены, будут валидны,
+но чтобы ошибки в них отображались по-другому.</p>
+<p>Процесс достижения такого поведения состоит из двух шагов:</p>
+<ol class="arabic simple">
+<li>Примените разные уровни ошибок к ограничениям валидации;</li>
+<li>Персонализируйте ваши сообщения об ошибках, в зависимости от уровня
+сконфигурированной ошибки.</li>
+</ol>
+<div class="section" id="id2">
+<h2>1. Назначение уровня ошибки<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Используйте опцию <tt class="docutils literal"><code>payload</code></tt>, чтобы сконфигурировать уровень ошибки для каждого ограничения:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Entity/User.php</span>
+<span class="k">namespace</span> <span class="nx">AppBundle\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Assert\NotBlank(payload = {&quot;severity&quot; = &quot;error&quot;})</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$username</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @Assert\NotBlank(payload = {&quot;severity&quot; = &quot;error&quot;})</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$password</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @Assert\Iban(payload = {&quot;severity&quot; = &quot;warning&quot;})</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$bankAccountNumber</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># src/AppBundle/Resources/config/validation.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">AppBundle\Entity\User</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">properties</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">username</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">NotBlank</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">payload</span><span class="p p-Indicator">:</span>
+                    <span class="l l-Scalar l-Scalar-Plain">severity</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">error</span>
+        <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">NotBlank</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">payload</span><span class="p p-Indicator">:</span>
+                    <span class="l l-Scalar l-Scalar-Plain">severity</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">error</span>
+        <span class="l l-Scalar l-Scalar-Plain">bankAccountNumber</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Iban</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">payload</span><span class="p p-Indicator">:</span>
+                    <span class="l l-Scalar l-Scalar-Plain">severity</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">warning</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- src/AppBundle/Resources/config/validation.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;constraint-mapping</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;AppBundle\Entity\User&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;NotBlank&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;payload&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;value</span> <span class="na">key=</span><span class="s">&quot;severity&quot;</span><span class="nt">&gt;</span>error<span class="nt">&lt;/value&gt;</span>
+                <span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;/constraint&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;password&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;NotBlank&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;payload&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;value</span> <span class="na">key=</span><span class="s">&quot;severity&quot;</span><span class="nt">&gt;</span>error<span class="nt">&lt;/value&gt;</span>
+                <span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;/constraint&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;bankAccountNumber&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Iban&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;payload&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;value</span> <span class="na">key=</span><span class="s">&quot;severity&quot;</span><span class="nt">&gt;</span>warning<span class="nt">&lt;/value&gt;</span>
+                <span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;/constraint&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/class&gt;</span>
+<span class="nt">&lt;/constraint-mapping&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Entity/User.php</span>
+<span class="k">namespace</span> <span class="nx">AppBundle\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Mapping\ClassMetadata</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">loadValidatorMetadata</span><span class="p">(</span><span class="nx">ClassMetadata</span> <span class="nv">$metadata</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$metadata</span><span class="o">-&gt;</span><span class="na">addPropertyConstraint</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Assert\NotBlank</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;payload&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;severity&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;error&#39;</span><span class="p">),</span>
+        <span class="p">)));</span>
+        <span class="nv">$metadata</span><span class="o">-&gt;</span><span class="na">addPropertyConstraint</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Assert\NotBlank</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;payload&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;severity&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;error&#39;</span><span class="p">),</span>
+        <span class="p">)));</span>
+        <span class="nv">$metadata</span><span class="o">-&gt;</span><span class="na">addPropertyConstraint</span><span class="p">(</span><span class="s1">&#39;bankAccountNumber&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Assert\Iban</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;payload&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;severity&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;warning&#39;</span><span class="p">),</span>
+        <span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>2. Персонализация шаблона сообщения об ошибке<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Когда валидация объекта <tt class="docutils literal"><code>User</code></tt> будет неуспешной, вы можете вернуть ограничение, которое
+вызвало определённую ошибку, используя метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Validator/ConstraintViolation.html#method_getConstraint" title="Symfony\Component\Validator\ConstraintViolation::getConstraint()">getConstraint()</a></code></tt>. Каждое ограничение
+показывает прикрепленную полезную нагрузку, как публичное свойство:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// a constraint validation failure, instance of</span>
+<span class="c1">// Symfony\Component\Validator\ConstraintViolation</span>
+<span class="nv">$constraintViolation</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+<span class="nv">$constraint</span> <span class="o">=</span> <span class="nv">$constraintViolation</span><span class="o">-&gt;</span><span class="na">getConstraint</span><span class="p">();</span>
+<span class="nv">$severity</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$constraint</span><span class="o">-&gt;</span><span class="na">payload</span><span class="p">[</span><span class="s1">&#39;severity&#39;</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$constraint</span><span class="o">-&gt;</span><span class="na">payload</span><span class="p">[</span><span class="s1">&#39;severity&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="k">null</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Например, вы можете использовать это, чтобы настроить блок <tt class="docutils literal"><code>form_errors</code></tt> так,
+чтобы значимость была добавлена как дополнительный HTML-класс:</p>
+<div class="literal-block"><div class="highlight-html+jinja"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span>- <span class="k">block</span> <span class="nv">form_errors</span> -<span class="cp">%}</span>
+    <span class="cp">{%</span>- <span class="k">if</span> <span class="nv">errors</span><span class="o">|</span><span class="nf">length</span> <span class="o">&gt;</span> <span class="m">0</span> -<span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+        <span class="cp">{%</span>- <span class="k">for</span> <span class="nv">error</span> <span class="k">in</span> <span class="nv">errors</span> -<span class="cp">%}</span>
+            <span class="cp">{%</span> <span class="k">if</span> <span class="nv">error.cause.constraint.payload.severity</span> <span class="k">is</span> <span class="nf">defined</span> <span class="cp">%}</span>
+                <span class="cp">{%</span> <span class="k">set</span> <span class="nv">severity</span> <span class="o">=</span> <span class="nv">error.cause.constraint.payload.severity</span> <span class="cp">%}</span>
+            <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+            <span class="p">&lt;</span><span class="nt">li</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">severity</span> <span class="k">is</span> <span class="nf">defined</span> <span class="cp">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">severity</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">error.message</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+        <span class="cp">{%</span>- <span class="k">endfor</span> -<span class="cp">%}</span>
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="cp">{%</span>- <span class="k">endif</span> -<span class="cp">%}</span>
+<span class="cp">{%</span>- <span class="k">endblock</span> <span class="nv">form_errors</span> -<span class="cp">%}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Чтобы узнать больше информациюю о настройке оотображения форм, см. <a class="reference internal" href="..\form\form_customization.html"><em>How to Customize Form Rendering</em></a>.</div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="severity.html">« How to Handle Different Error Levels</a>
+                <span class="separator">|</span>
+                <a href="translations.html">How to Translate Validation Constraint Messages »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

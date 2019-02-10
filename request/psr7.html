@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Мост PSR-7 &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments-1.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index-2.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="request doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index-49.html">
+                    <img src="..\..\..\_images\header-logo-1.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support-1.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index-2.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index-1.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index-1.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index-1.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index-1.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex-1.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index-1.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Мост PSR-7</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#id2">Использование</a><ul>
+<li><a class="reference internal" href="#httpfoundation-objects-psr-7">Конвертация из HttpFoundation Objects в PSR-7</a></li>
+<li><a class="reference internal" href="#psr-7-interfaces-httpfoundation">Конвертация объектов, внедряя интерфейсы PSR-7 Interfaces в HttpFoundation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini-1.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index-2.html">Документация</a></li>
+                
+                <li class="active">Мост PSR-7</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="psr-7">
+<span id="index-0"></span><h1>Мост PSR-7<a class="headerlink" href="#psr-7" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Мост PSR-7 конвертирует из объектов <a class="reference internal" href="..\components\http_foundation-1.html"><em>HttpFoundation</em></a>
+и в объекты, внедряющие интерфейсы HTTP-сообщений, определённые <a class="reference external" href="http://www.php-fig.org/psr/psr-7/">PSR-7</a>.</div></blockquote>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Вы можете установить компонент 2 разными способами:</p>
+<ul class="simple">
+<li><a class="reference internal" href="..\components\using_components-1.html"><em>Установить его через Composer</em></a> (<a class="reference external" href="https://packagist.org/packages/symfony/psr-http-message-bridge">symfony/psr-http-message-bridge on Packagist</a>);</li>
+<li>Использовать официальное хранилище Git (<a class="reference external" href="https://github.com/symfony/psr-http-message-bridge">https://github.com/symfony/psr-http-message-bridge</a>).</li>
+</ul>
+<p>Мосту также потребуется внедрение PSR-7, чтобы разрешить конвертацию объектов
+HttpFoundation в объекты PSR-7. Он предоставляет родную поддержку для <a class="reference external" href="https://github.com/zendframework/zend-diactoros">Zend Diactoros</a>.
+Используйте Composer (<a class="reference external" href="https://packagist.org/packages/zendframework/zend-diactoros">zendframework/zend-diactoros on Packagist</a>)
+или обратитесь к документации проекта для установки.</p>
+</div>
+<div class="section" id="id2">
+<h2>Использование<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="httpfoundation-objects-psr-7">
+<h3>Конвертация из HttpFoundation Objects в PSR-7<a class="headerlink" href="#httpfoundation-objects-psr-7" title="Permalink to this headline">¶</a></h3>
+<p>Мост предоставляет интерфейс для фабрики (производства) по имени
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bridge/PsrHttpMessage/HttpMessageFactoryInterface.html" title="Symfony\Bridge\PsrHttpMessage\HttpMessageFactoryInterface">HttpMessageFactoryInterface</a></code></tt>,
+которая строит объекты, внедряя интерфейсы PSR-7 из объектов HttpFoundation.
+Она также предоставляет внедрение по умолчанию, внутренне используя Zend Diactoros.</p>
+<p>Следующий отрезок кода объясняет, как конвертировать <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Request.html" title="Symfony\Component\HttpFoundation\Request">Request</a></code></tt>
+в Zend Diactoros <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Zend/Diactoros/ServerRequest.html" title="Zend\Diactoros\ServerRequest">ServerRequest</a></code></tt>, внедряя интерфейс
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Psr/Http/Message/ServerRequestInterface.html" title="Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Bridge\PsrHttpMessage\Factory\DiactorosFactory</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+
+<span class="nv">$symfonyRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Request</span><span class="p">(</span><span class="k">array</span><span class="p">(),</span> <span class="k">array</span><span class="p">(),</span> <span class="k">array</span><span class="p">(),</span> <span class="k">array</span><span class="p">(),</span> <span class="k">array</span><span class="p">(),</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;HTTP_HOST&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;dunglas.fr&#39;</span><span class="p">),</span> <span class="s1">&#39;Content&#39;</span><span class="p">);</span>
+<span class="c1">// ключ сервера HTTP_HOST должен быть установлен так, чтобы избежать неожиданной ошибки</span>
+
+<span class="nv">$psr7Factory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DiactorosFactory</span><span class="p">();</span>
+<span class="nv">$psrRequest</span> <span class="o">=</span> <span class="nv">$psr7Factory</span><span class="o">-&gt;</span><span class="na">createRequest</span><span class="p">(</span><span class="nv">$symfonyRequest</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>А теперь от <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Response.html" title="Symfony\Component\HttpFoundation\Response">Response</a></code></tt> к Zend
+Diactoros <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Zend/Diactoros/Response.html" title="Zend\Diactoros\Response">Response</a></code></tt>, внедряя интерфейс
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Psr/Http/Message/ResponseInterface.html" title="Psr\Http\Message\ResponseInterface">ResponseInterface</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Bridge\PsrHttpMessage\Factory\DiactorosFactory</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+
+<span class="nv">$symfonyResponse</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s1">&#39;Content&#39;</span><span class="p">);</span>
+
+<span class="nv">$psr7Factory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DiactorosFactory</span><span class="p">();</span>
+<span class="nv">$psrResponse</span> <span class="o">=</span> <span class="nv">$psr7Factory</span><span class="o">-&gt;</span><span class="na">createResponse</span><span class="p">(</span><span class="nv">$symfonyResponse</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="psr-7-interfaces-httpfoundation">
+<h3>Конвертация объектов, внедряя интерфейсы PSR-7 Interfaces в HttpFoundation<a class="headerlink" href="#psr-7-interfaces-httpfoundation" title="Permalink to this headline">¶</a></h3>
+<p>С другой стороны, мост предоставляет фабрике интерфейс под названием
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bridge/PsrHttpMessage/HttpFoundationFactoryInterface.html" title="Symfony\Bridge\PsrHttpMessage\HttpFoundationFactoryInterface">HttpFoundationFactoryInterface</a></code></tt>,
+который строит объекты HttpFoundation из объектов, внедряющих интерфейсы
+PSR-7.</p>
+<p>Следующий отрезок кода объясняет, как конвертировать объект, внедряющий
+интерфейс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Psr/Http/Message/ServerRequestInterface.html" title="Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</a></code></tt> в экземпляр
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Request.html" title="Symfony\Component\HttpFoundation\Request">Request</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory</span><span class="p">;</span>
+
+<span class="c1">// $psrRequest - это экземпляр Psr\Http\Message\ServerRequestInterface</span>
+
+<span class="nv">$httpFoundationFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpFoundationFactory</span><span class="p">();</span>
+<span class="nv">$symfonyRequest</span> <span class="o">=</span> <span class="nv">$httpFoundationFactory</span><span class="o">-&gt;</span><span class="na">createRequest</span><span class="p">(</span><span class="nv">$psrRequest</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Из объекта, внедряющего <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Psr/Http/Message/ResponseInterface.html" title="Psr\Http\Message\ResponseInterface">ResponseInterface</a></code></tt>
+в экземпляр <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Response.html" title="Symfony\Component\HttpFoundation\Response">Response</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory</span><span class="p">;</span>
+
+<span class="c1">// $psrResponse - это экземпляр Psr\Http\Message\ResponseInterface</span>
+
+<span class="nv">$httpFoundationFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpFoundationFactory</span><span class="p">();</span>
+<span class="nv">$symfonyResponse</span> <span class="o">=</span> <span class="nv">$httpFoundationFactory</span><span class="o">-&gt;</span><span class="na">createResponse</span><span class="p">(</span><span class="nv">$psrResponse</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

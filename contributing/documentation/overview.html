@@ -1,0 +1,519 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Внесение вклада в документацию &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="contributing doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Внесение вклада в документацию</a><ul>
+<li><a class="reference internal" href="#id2">До вашего первого вклада</a></li>
+<li><a class="reference internal" href="#minor-changes-e-g-typos-ru">Быстрые онлайн вклады</a></li>
+<li><a class="reference internal" href="#id4">Ваш первый вклад в документацию</a></li>
+<li><a class="reference internal" href="#id5">Ваши последующие вклады в документацию</a></li>
+<li><a class="reference internal" href="#id6">Пересмотрите свои изменения</a><ul>
+<li><a class="reference internal" href="#id7">Стройте документацию локально</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">Часто задаваемые вопросы</a><ul>
+<li><a class="reference internal" href="#id9">Почему мои изменения так долго рассматривают и / или слияют?</a></li>
+<li><a class="reference internal" href="#id10">Почему я должен использовать старшую содержащуюся ветку, а не главную ветку?</a></li>
+<li><a class="reference internal" href="#id11">Что, если я хочу отправить свою работу незаконченной?</a></li>
+<li><a class="reference internal" href="#id12">Примете ли вы огромный запрос на включение со многими изменениями?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li class="active">Внесение вклада в документацию</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>Внесение вклада в документацию<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>До вашего первого вклада<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>До того, как вносить свой вклад</strong>, вам нужно:</p>
+<ul class="simple">
+<li>Бесплатно зарегитрироваться на <a class="reference external" href="https://github.com/">GitHub</a> - сервисе, где хранится документация
+Symfony.</li>
+<li>Быть ознакомлеными с языком разметки <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>, который используется
+для написания документов Symfony. Прочтите <a class="reference internal" href="format.html"><em>эту статью</em></a>,
+для краткой сводки.</li>
+</ul>
+</div>
+<div class="section" id="minor-changes-e-g-typos-ru">
+<span id="id3"></span><h2>Быстрые онлайн вклады<a class="headerlink" href="#minor-changes-e-g-typos-ru" title="Permalink to this headline">¶</a></h2>
+<p>Если вы делаете относительно маленькое изменение - вроде исправление опечатки
+или изменения порядка слов - самый простой способ сделать это - прямо на GitHub!
+Вы можете сделать это в процессе чтения документации Symfony.</p>
+<p><strong>Шаг 1.</strong> Нажмите кнопку <strong>Редактировать эту страницу</strong> в правом верхнем углу, и
+вы будете перенаправлены на GitHub:</p>
+<img alt="../../_images/docs-github-edit-page.png" class="with-browser align-center" src="..\..\_images\docs-github-edit-page.png">
+<p><strong>Шаг 2.</strong> Отредактируйте содержимое, опишите ваши изменения и нажмите на
+кнопку <strong>Предложить изменение файла</strong>.</p>
+<p><strong>Шаг 3.</strong> Теперь GitHub создаст ветку и добавит фиксацию для ваших изменений
+(вначале разветвив хранилище, если это ваш первый вклад), а также отобразит
+предпросмотр ваших изменений:</p>
+<img alt="../../_images/docs-github-create-pr.png" class="with-browser align-center" src="..\..\_images\docs-github-create-pr.png">
+<p>Если всё правильно, нажмите на кнопку <strong>Создать запрос на включение</strong>.</p>
+<p><strong>Шаг 4.</strong> GitHub отобразит новую страницу, на которой вы можете сделать
+поледние изменения в вашем запроса на включение до его создания. Для простых
+вкладов, вы можете спокойно игнорировать эти опции и просто нажать на кнопку
+<strong>Создать запрос на включение</strong> снова.</p>
+<p><strong>Поздравляем!</strong> Вы только что создали запрос на включение в официальную
+документацию Symfony! Теперь сообщество просмотрит ваш запрос и (возможно)
+предложит доработки.</p>
+<p>Если ваш вклад большой, или если вы предпочитаете работать на вашем собственном
+компьютере, то продолжайте читать этот справочник, чтобы узнать альтернативный
+способ отправки запросов на включение в Документацию Symfony.</p>
+</div>
+<div class="section" id="id4">
+<h2>Ваш первый вклад в документацию<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>В этом разделе вы узнаете о том, как делать вклад в документацию Symfony впервые.
+Следующий раздел объяснит более краткий процесс, которому вы будете следовать в
+будущем для каждого вклада после вашего первого.</p>
+<p>Давайте представим, что вы хотите улучшить справочник Установки. Для того, чтобысделать ваши изменение, следуйте этим шагам:</p>
+<p><strong>Шаг 1.</strong> Перейдите в официальное хранилище документации Symfony, расположенное
+тут <a class="reference external" href="https://github.com/symfony/symfony-docs">github.com/symfony/symfony-docs</a> и нажмите кнопку <strong>Создать ветвь</strong> , чтобы
+<a class="reference external" href="https://help.github.com/articles/fork-a-repo">разветвить хранилище</a> в вашей личной учётной записи. Это необходимо только в первый
+раз, когда вы делаете вклад в Symfony.</p>
+<p><strong>Шаг 2.</strong> <strong>Клонируйте</strong> ответвлённое хранилище на вашу локальную машину (этот
+пример использует каталог <tt class="docutils literal"><code>projects/symfony-docs/</code></tt> для хранения документации;
+соответственно измените это значение):</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> projects/
+<span class="gp">$</span> git clone git://github.com/YOUR-GITHUB-USERNAME/symfony-docs.git
+</pre></div>
+</td></tr></table></div></div>
+<p><strong>Шаг 3.</strong> Добавьте исходное храилище документов Symfony в качестве &quot;удалённого Git&quot;,
+выполнив эту команду:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> symfony-docs/
+<span class="gp">$</span> git remote add upstream https://github.com/symfony/symfony-docs.git
+</pre></div>
+</td></tr></table></div></div>
+<p>Если всё пошло правильно, то вы увидите следующее при перечислении &quot;удалённых&quot;
+объектов вашего проекта:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> git remote -v
+<span class="go">origin  <a href="..\..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="10777964507779647865723e737f7d">[email&#160;protected]</a>:YOUR-GITHUB-USERNAME/symfony-docs.git (fetch)</span>
+<span class="go">origin  <a href="..\..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="8deae4f9cdeae4f9e5f8efa3eee2e0">[email&#160;protected]</a>:YOUR-GITHUB-USERNAME/symfony-docs.git (push)</span>
+<span class="go">upstream  https://github.com/symfony/symfony-docs.git (fetch)</span>
+<span class="go">upstream  https://github.com/symfony/symfony-docs.git (push)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вызовите все фиксации целевых ветвей, выполнив эту команду:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> git fetch upstream
+</pre></div>
+</td></tr></table></div></div>
+<p>Цель этого шага - позволить вам работать одновременно в официальном храилище
+Symfony и вашей собственной ветке. Через минуту вы увидите это в действии.</p>
+<p><strong>Шаг 4.</strong> Создайте специальную <strong>новую ветку</strong> для ващих изменений. Используйте
+короткое и запоминающееся имя (если вы исправляете заявленную ошибку, используйте
+в качестве имени <tt class="docutils literal"><code>fix_XXX</code></tt>, где <tt class="docutils literal"><code>XXX</code></tt> - номер ошибки):</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> git checkout -b improve_install_article upstream/2.7
+</pre></div>
+</td></tr></table></div></div>
+<p>В этом примере, имя ветки - <tt class="docutils literal"><code>improve_install_article</code></tt> , а значение
+<tt class="docutils literal"><code>upstream/2.7</code></tt> сообщает Git о том, что нужно создать ветку, основанную на
+ветке <tt class="docutils literal"><code>2.7</code></tt> удалённого <tt class="docutils literal"><code>upstream</code></tt>, который является исходным хранилищем
+документов Symfony.</p>
+<p>Исправления должны быть всегда основаны на <strong>старшей содержащейся ветке</strong>, которая
+содержит ошибку. На сегодня это ветка <tt class="docutils literal"><code>2.7</code></tt>. Если вместо этого вы документируете
+новую функцию, переключитесь на первую версию Symfony, которая включала её, например
+<tt class="docutils literal"><code>upstream/3.1</code></tt>. Не уверены? Всё нормально! Просто используйте ветку <tt class="docutils literal"><code>upstream/master</code></tt>.</p>
+<p><strong>Шаг 5.</strong> Теперь внесите свои изменения в документацию. Добавляйте, настраивайте,
+перефразируйте и даже удаляйте содержимое, и постарайтесь делать это в рамках
+<a class="reference internal" href="standards.html"><em>Documentation Standards</em></a>. Потом зафиксируйте свои изменения!</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># если изменённое содержимое существовало ранее</span>
+<span class="gp">$</span> git add setup.rst
+<span class="gp">$</span> git commit setup.rst
+</pre></div>
+</td></tr></table></div></div>
+<p><strong>Шаг 6.</strong> <strong>Примите</strong> изменения в вашем ответвлённом хранилище:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> git push origin improve_install_article
+</pre></div>
+</td></tr></table></div></div>
+<p>Значение <tt class="docutils literal"><code>origin</code></tt> это имя удалённого Git, которое соответствует вашему ответвлённому
+хранилищу, а <tt class="docutils literal"><code>improve_install_article</code></tt> - имя ветки, которую вы создали ранее.</p>
+<p><strong>Шаг 7.</strong> Теперь всё готово к инциированию <strong>запроса на включение</strong>. Перейдите
+в ваше ответвлённое хранилище <tt class="docutils literal"><code>https//github.com/YOUR-GITHUB-USERNAME/symfony-docs</code></tt>
+и нажмите ссылку <strong>Запросы на включение</strong>, расположенную в боковой панели.</p>
+<p>Далее, нажмите на большую кнопку <strong>Новый запрос на включение</strong>. Так как GitHub
+не может предугадать точные изменения, которые вы хотите предложить, выберите
+соответствующие ветки, в которых нужно применить изменения:</p>
+<img alt="../../_images/docs-pull-request-change-base.png" class="align-center" src="..\..\_images\docs-pull-request-change-base.png">
+<p>В этом примере, <strong>базовым ответвлением</strong> должно быть <tt class="docutils literal"><code>symfony/symfony-docs</code></tt>, а
+<strong>базовой</strong> веткой - <tt class="docutils literal"><code>2.7</code></tt>, которую вы выбрали для своих изменений.
+to base your changes on. <strong>Главное ответвление</strong> должно быть вашим ответвлением
+<tt class="docutils literal"><code>symfony-docs</code></tt>, с <strong>сравнительная</strong> ветка - <tt class="docutils literal"><code>improve_install_article</code></tt>,
+то есть имя созданной вами ветки, в которой вы делали ваши изменения.</p>
+<p id="pull-request-format"><strong>Шаг 8.</strong> Последний шаг - это приготовить <strong>описание</strong> запроса на включение.
+Короткой фразы или абзаца, описывающего предложенные изменения, будет достаточно,
+чтобы гарантировать, что ваш вклад будет рассмотрен.</p>
+<p><strong>Шаг 9.</strong> Теперь, когда вы успешно отправили ваш первый вклад в документацию
+Symfony, <strong>идите праздновать!</strong> Менеджеры документации внимательно просмотрят
+вашу работу и вскоре дадут вам знать о необходимых изменениях.</p>
+<p>В случае, если вас попросят изменить или добавить что-то, не создавайте новый
+запрос на включение. Вместо этого, убедитесь, что вы находитесь в правильной
+ветке, внесите изменения, и отправьте их:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> projects/symfony-docs/
+<span class="gp">$</span> git checkout improve_install_article
+
+<span class="c1"># ... внесите изменения</span>
+
+<span class="gp">$</span> git push
+</pre></div>
+</td></tr></table></div></div>
+<p><strong>Шаг 10.</strong> После того, как ваш запрос на включение в итоге примут и
+слияют с документацией Symfony, вы будете включены в список
+<a class="reference external" href="https://symfony.com/contributors/doc">Вкладчиков в документацию Symfony</a>. Более того, если у вас есть профиль
+<a class="reference external" href="https://connect.sensiolabs.com/">SensioLabsConnect</a>, то вы получите прикольный <a class="reference external" href="https://connect.sensiolabs.com/badge/36/symfony-documentation-contributor">Значок документации Symfony</a>.</p>
+</div>
+<div class="section" id="id5">
+<h2>Ваши последующие вклады в документацию<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Вы только посмотрите! Вы сделали ваш первый вклад в документацию Symfony! Кто-нибудь,
+устройте вечеринку! Ваш первый вклад потребовал немного больше времени, так как вам
+нужно было узнать несколько стандартов и настроить ваш компьютер. Но теперь ваши
+вклады будет делать намного проще.</p>
+<p>Вот <strong>контрольный перечень</strong> шагов, которые помогут вам пройти процесс
+вашего следующего вклада в документы Symfony:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># создайте новую ветку, основанную на старшей содержащейся версии</span>
+<span class="gp">$</span> <span class="nb">cd</span> projects/symfony-docs/
+<span class="gp">$</span> git fetch upstream
+<span class="gp">$</span> git checkout -b my_changes upstream/2.7
+
+<span class="c1"># ... внесите изменения</span>
+
+<span class="c1"># (необязательно) добавьте ваши изменения, если это новое содержимое</span>
+<span class="gp">$</span> git add xxx.rst
+
+<span class="c1"># зафиксируйте ваши изменения и отправьте их в своё отвевтление</span>
+<span class="gp">$</span> git commit xxx.rst
+<span class="gp">$</span> git push origin my_changes
+
+<span class="c1"># ... перейдите на GitHub и создайте Запрос на включение</span>
+
+<span class="c1"># (необязательно) внесите изменения, запрошенные референтами и зафиксируйте их</span>
+<span class="gp">$</span> git commit xxx.rst
+<span class="gp">$</span> git push
+</pre></div>
+</td></tr></table></div></div>
+<p>После завершения ваших следующих вкладов вы сможете наблюдать за улучшением
+вашего рейтнга в списке <a class="reference external" href="https://symfony.com/contributors/doc">Вкладчиков в документацию Symfony</a>. Вы угадали: после
+всей этой тяжёой работы <strong>снова пришло время праздновать!</strong></p>
+</div>
+<div class="section" id="id6">
+<h2>Пересмотрите свои изменения<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Каждый Запрос на включение GitHub автоматически строит и развёртывается
+<a class="reference external" href="https://platform.sh">Platform.sh</a> в одном окружении, к которому вы можете получить доступ в
+вашем браузере, чтобы просмотреть изменения.</p>
+<img alt="Platform.sh Pull Request Deployment" class="align-center" src="..\..\_images\docs-pull-request-platformsh.png">
+<p>Чтобы получить доступ к URL окружения <a class="reference external" href="https://platform.sh">Platform.sh</a>, перейдите на сраницу
+вашего Запроса на включение на GitHub, нажмите ссылку <strong>Показать все проверки</strong>
+и, наконец, нажмите ссылку <tt class="docutils literal"><code>Details</code></tt>, отображённую для сервиса Platform.sh.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Platform.sh автоматически строит только Запросы на включение в содержащиеся
+ветки. Смотрите <a class="reference external" href="https://symfony.com/roadmap">карту</a>, чтобы узнать, какие ветки содержатся.</p>
+</div></div>
+<div class="section" id="id7">
+<h3>Стройте документацию локально<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Как вариант, вы можете построить документацию на вашем собственном компьютере
+в целях тестирования, следуя этим шагам:</p>
+<ol class="arabic">
+<li><p class="first">Установите <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>, как объяснено в статье <a class="reference external" href="https://pip.pypa.io/en/stable/installing/">установка pip</a>;</p>
+</li>
+<li><p class="first">Установите <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> и <a class="reference external" href="https://github.com/fabpot/sphinx-php">Расширения Sphinx для PHP и Symfony</a>
+(в зависимости от вашей системы, вам может понадобиться выполнить
+эту команду от лица пользователя, с неограниченным доступом):</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> pip install sphinx~<span class="o">=</span><span class="m">1</span>.3.0 git+https://github.com/fabpot/sphinx-php.git
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><p class="first">Выполните следующую команду, чтобы построить документацию в формате HTML:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> _build/
+<span class="gp">$</span> make html
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ol>
+<p>Сгенерированная документация доступна в каталоге <tt class="docutils literal"><code>_build/html</code></tt>.</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>Часто задаваемые вопросы<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>Почему мои изменения так долго рассматривают и / или слияют?<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Пожалуйста, будьте терпеливы. Рассмотрение вашего запроса может занять до нескольких
+дней. После слияния изменений, их появление на вебсайте symfony.com может занять до
+нескольких часов.</p>
+</div>
+<div class="section" id="id10">
+<h3>Почему я должен использовать старшую содержащуюся ветку, а не главную ветку?<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>В соответствии с исходным кодом Symfony, хранилище документации разделено на
+несколько веток, соответствующих разным версиям самой Symfony. Ветка <tt class="docutils literal"><code>master</code></tt>
+содержит документацию для ветки разработки кода.</p>
+<p>Кроме случаев, когда вы документируете функцию, которая была представлена
+после Symfony 2.7, ваши изменения должны всегда основываться на ветке <tt class="docutils literal"><code>2.7</code></tt>.
+Менеджеры документации будут использовать необходимую магию Git, чтобы также
+применить ваши изменения ко всем активным веткам документации.</p>
+</div>
+<div class="section" id="id11">
+<h3>Что, если я хочу отправить свою работу незаконченной?<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>Вы можете сделать это. Но, пожалуйста, используйте один из этих префиксов,
+чтобы дать референтам знать о состоянии вашей работы:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>[WIP]</code></tt> (Работа в процессе) используется, когда вы ещё не закончили с
+вашим запросом на включене, но вы хотите получить отзыв. ЗВ не будет
+слияться, пока вы не скажете, что он готов.</li>
+<li><tt class="docutils literal"><code>[WCM]</code></tt> (Ожидает слияния кода) используется, когда вы документируете
+новую функцию или изменение, которое ещё не было принято в базовом коде.
+Запрос на включение не будет влияться, пока он не будет включён в базовый
+код (или закрыт, если изменение будет отклонено).</li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3>Примете ли вы огромный запрос на включение со многими изменениями?<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>Для начала, убедитесь, что изменения хоть как-то связаны. В обратном случае,
+пожалуйста, создайте отдельные запросы на включение. В любом случае, перед
+отправкой огромной изменения, скорее всего хорошей идеет будет открыть вопрос
+в хранилище Документации Symfony, чтобы спросить менеджеров, согласны ли они
+с предложенными вами изменениями. Иначе они могут отвергнуть ваше предложение
+после того, как вы вложите свой труд в создание изменений. Мы точно не хотим,
+чтобы вы зря тратили время!</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  <script data-cfasync="false" src="..\..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script></body>
+</body></html>

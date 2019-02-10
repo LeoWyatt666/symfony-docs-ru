@@ -1,0 +1,926 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Аутентификация с LDAP-сервером &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Security Component" href="..\components\security.html">
+    <link rel="next" title="Как использовать несколько аутентификаторов защиты" href="multiple_guard_authenticators-ru.html">
+    <link rel="prev" title="Как построить точку конечную точку JSON аутентификации" href="json_login_setup-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="security doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Аутентификация с LDAP-сервером</a><ul>
+<li><a class="reference internal" href="#id1">Справочник Ldap-конфигурации</a></li>
+<li><a class="reference internal" href="#id2">Конфигурация LDAP-клиента</a></li>
+<li><a class="reference internal" href="#id3">Выборка пользователей с использованием поставщика пользователя LDAP</a><ul>
+<li><a class="reference internal" href="#service">service</a></li>
+<li><a class="reference internal" href="#base-dn">base_dn</a></li>
+<li><a class="reference internal" href="#search-dn">search_dn</a></li>
+<li><a class="reference internal" href="#search-password">search_password</a></li>
+<li><a class="reference internal" href="#default-roles">default_roles</a></li>
+<li><a class="reference internal" href="#uid-key">uid_key</a></li>
+<li><a class="reference internal" href="#filter">filter</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4">Аутентификация с LDAP-сервером</a><ul>
+<li><a class="reference internal" href="#id5">service</a></li>
+<li><a class="reference internal" href="#dn-string">dn_string</a></li>
+<li><a class="reference internal" href="#query-string">query_string</a></li>
+<li><a class="reference internal" href="#id6">Пример конфигурации для формы входа</a></li>
+<li><a class="reference internal" href="#http">Пример конфигурации для базового HTTP</a></li>
+<li><a class="reference internal" href="#id7">Пример конфигурации для формы входа и query_string</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\components\index.html">The Components</a></li>
+                
+                <li><a href="../components/index-ru.html">The Components</a></li>
+                
+                <li><a href="..\components\security.html">The Security Component</a></li>
+                
+                <li class="active">Аутентификация с LDAP-сервером</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="ldap">
+<span id="index-0"></span><h1>Аутентификация с LDAP-сервером<a class="headerlink" href="#ldap" title="Permalink to this headline">¶</a></h1>
+<p>Symfony предоставляет разные способы работы с LDAP-сервером.</p>
+<p>Компонент Безопасность предлагает:</p>
+<ul class="simple">
+<li>Поставщика пользователя <tt class="docutils literal"><code>ldap</code></tt>, использующего класс
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/User/LdapUserProvider.html" title="Symfony\Component\Security\Core\User\LdapUserProvider">LdapUserProvider</a></code></tt>.
+Как и все другие поставщики пользователей, он может быть использован
+с любым поставщиком аутентификации.</li>
+<li>Поставщик аутентификации <tt class="docutils literal"><code>form_login_ldap</code></tt>, для аутентификации с
+LDAP-сервером, используя форму входа. Как и все другие поставщики
+аутентификации, может быть использован с любым поставщиком пользователя.</li>
+<li>Поставщик аутентификации <tt class="docutils literal"><code>http_basic_ldap</code></tt>, для аутентификации с
+LDAP-сервером, используя Базовый HTTP. Как и все другие поставщики
+аутентификации, может быть использован с любым поставщиком пользователя.</li>
+</ul>
+<p>Это означает, что следующие сценарии будут работать:</p>
+<ul class="simple">
+<li>Проверка пароля пользователя и выборка информации пользователя с
+LDAP-сервером. Это может быть сделано с использованием как поставщика
+пользователя LDAP, так и с формой входа LDAP или поставщиками аутентификации
+LDAP базового HTTP.</li>
+<li>Проверка пароля пользователя с LDAP-сервером во время выборки информации
+из другого источника (БД, использующей FOSUserBundle, например).</li>
+<li>Загрузка информации пользователя с LDAP-сервера вовремя использования
+другой стратегии аутентификации (например, предварительной аутентификации
+на основании токена).</li>
+</ul>
+<div class="section" id="id1">
+<h2>Справочник Ldap-конфигурации<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Смотрите <a class="reference internal" href="..\reference\configuration\security.html"><em>Security Configuration Reference (SecurityBundle)</em></a>, чтобы увидеть полный
+справочник LDAP-конфигурации (<tt class="docutils literal"><code>form_login_ldap</code></tt>, <tt class="docutils literal"><code>http_basic_ldap</code></tt>,
+<tt class="docutils literal"><code>ldap</code></tt>). Некоторые наиболее интересные опции разъясняются ниже.</p>
+</div>
+<div class="section" id="id2">
+<h2>Конфигурация LDAP-клиента<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Все механизмы на самом деле нуждаются в предварительно сконфигурированном
+LDAP-клиенте. Поставщики конфигурируются так, чтобы по умолчанию использовать
+сервис под названием <tt class="docutils literal"><code>ldap</code></tt>, но вы можете переопределить эту настройку в
+конфигурации компонента безопасности.</p>
+<p>LDAP-клиент может быть просто сконфигурирован, используя встроенное
+<a class="reference external" href="http://ua2.php.net/manual/ru/intro.ldap.php">PHP-расширение LDAP</a> со следующим определением сервиса:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/services.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Symfony\Component\Ldap\Ldap</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;@Symfony\Component\Ldap\Adapter\ExtLdap\Adapter&#39;</span><span class="p p-Indicator">]</span>
+    <span class="l l-Scalar l-Scalar-Plain">Symfony\Component\Ldap\Adapter\ExtLdap\Adapter</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span>   <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-server</span>
+                <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">389</span>
+                <span class="l l-Scalar l-Scalar-Plain">encryption</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tls</span>
+                <span class="l l-Scalar l-Scalar-Plain">options</span><span class="p p-Indicator">:</span>
+                    <span class="l l-Scalar l-Scalar-Plain">protocol_version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+                    <span class="l l-Scalar l-Scalar-Plain">referrals</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;Symfony\Component\Ldap\Ldap&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;Symfony\Component\Ldap\Adapter\ExtLdap\Adapter&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;Symfony\Component\Ldap\Adapter\ExtLdap\Adapter&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;collection&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;argument</span> <span class="na">key=</span><span class="s">&quot;host&quot;</span><span class="nt">&gt;</span>my-server<span class="nt">&lt;/argument&gt;</span>
+                <span class="nt">&lt;argument</span> <span class="na">key=</span><span class="s">&quot;port&quot;</span><span class="nt">&gt;</span>389<span class="nt">&lt;/argument&gt;</span>
+                <span class="nt">&lt;argument</span> <span class="na">key=</span><span class="s">&quot;encryption&quot;</span><span class="nt">&gt;</span>tls<span class="nt">&lt;/argument&gt;</span>
+                <span class="nt">&lt;argument</span> <span class="na">key=</span><span class="s">&quot;options&quot;</span> <span class="na">type=</span><span class="s">&quot;collection&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;argument</span> <span class="na">key=</span><span class="s">&quot;protocol_version&quot;</span><span class="nt">&gt;</span>3<span class="nt">&lt;/argument&gt;</span>
+                    <span class="nt">&lt;argument</span> <span class="na">key=</span><span class="s">&quot;referrals&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/argument&gt;</span>
+                <span class="nt">&lt;/argument&gt;</span>
+            <span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/services.php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Ldap\Ldap</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Ldap\Adapter\ExtLdap\Adapter</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Definition</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">Ldap</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addArgument</span><span class="p">(</span><span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="nx">Adapter</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+<span class="nv">$container</span>
+    <span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">Adapter</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArguments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;host&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;my-server&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;port&#39;</span> <span class="o">=&gt;</span> <span class="mi">389</span><span class="p">,</span>
+        <span class="s1">&#39;encryption&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;tls&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;protocol_version&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s1">&#39;referrals&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span>
+        <span class="p">),</span>
+    <span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Выборка пользователей с использованием поставщика пользователя LDAP<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Если вы хотите извлечь информацию пользователя с LDAP-сервера, вы можете
+захотеть использовать поставщика пользователя <tt class="docutils literal"><code>ldap</code></tt>.</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/security.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">providers</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">my_ldap</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">ldap</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">service</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Symfony\Component\Ldap\Ldap</span>
+                <span class="l l-Scalar l-Scalar-Plain">base_dn</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">dc=example,dc=com</span>
+                <span class="l l-Scalar l-Scalar-Plain">search_dn</span><span class="p p-Indicator">:</span> <span class="s">&quot;cn=read-only-admin,dc=example,dc=com&quot;</span>
+                <span class="l l-Scalar l-Scalar-Plain">search_password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">password</span>
+                <span class="l l-Scalar l-Scalar-Plain">default_roles</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ROLE_USER</span>
+                <span class="l l-Scalar l-Scalar-Plain">uid_key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">uid</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;config&gt;</span>
+        <span class="nt">&lt;provider</span> <span class="na">name=</span><span class="s">&quot;my_ldap&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;ldap</span>
+                    <span class="na">service=</span><span class="s">&quot;Symfony\Component\Ldap\Ldap&quot;</span>
+                    <span class="na">base-dn=</span><span class="s">&quot;dc=example,dc=com&quot;</span>
+                    <span class="na">search-dn=</span><span class="s">&quot;cn=read-only-admin,dc=example,dc=com&quot;</span>
+                    <span class="na">search-password=</span><span class="s">&quot;password&quot;</span>
+                    <span class="na">default-roles=</span><span class="s">&quot;ROLE_USER&quot;</span>
+                    <span class="na">uid-key=</span><span class="s">&quot;uid&quot;</span>
+            <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/provider&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Ldap\Ldap</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;providers&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;ldap_users&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;ldap&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;service&#39;</span> <span class="o">=&gt;</span> <span class="nx">Ldap</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+                <span class="s1">&#39;base_dn&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;dc=example,dc=com&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;search_dn&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;cn=read-only-admin,dc=example,dc=com&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;search_password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;default_roles&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ROLE_USER&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;uid_key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;uid&#39;</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Компонент Безопасность экранирует предоставленные данные ввода, когда
+используется LDAP-пользователь. Однако, компонент LDAP сам по себе пока
+не предоставляет никакого экранрования. Поэтому, ваша задача - предотвратить
+внедрение LDAP-атак при использовании компонента напрямую.</p>
+</div></div>
+<p>Поставщик пользователя <tt class="docutils literal"><code>ldap</code></tt> поддерживает много различных опций конфигурации:</p>
+<div class="section" id="service">
+<h3>service<a class="headerlink" href="#service" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>ldap</code></tt></p>
+<p>Это имя вашего сконфигурированного LDAP-клиента. Вы можете свободно выбирать
+имя, но оно должно быть уникальным в вашемприложении и не может начинаться с
+цифры или содержать пробелы.</p>
+</div>
+<div class="section" id="base-dn">
+<h3>base_dn<a class="headerlink" href="#base-dn" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>Это базовое отличительное имя для каталога.</p>
+</div>
+<div class="section" id="search-dn">
+<h3>search_dn<a class="headerlink" href="#search-dn" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>Это отличительное имя вашего пользователя, доступное только для чтения,
+которое будет использовано для аутентификации с LDAP-сервером, чтобы
+извлечь информацию пользователя.</p>
+</div>
+<div class="section" id="search-password">
+<h3>search_password<a class="headerlink" href="#search-password" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>Это пароль вашего пользователя, доступный только для чтения, который будет
+аутентифицирован с LDAP-сервером для того, чтобы извлечь информацию пользователя.</p>
+</div>
+<div class="section" id="default-roles">
+<h3>default_roles<a class="headerlink" href="#default-roles" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></p>
+<p>Это роль по умолчанию, которую вы хотите дать пользователю, извлечённому
+с LDAP-сервера. Если вы не сконфигурируете этот включ, ваши пользователи
+не будут иметь никаких ролей ине будут приняты, как полностью аутентифицированные.</p>
+</div>
+<div class="section" id="uid-key">
+<h3>uid_key<a class="headerlink" href="#uid-key" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>sAMAccountName</code></tt></p>
+<p>Это ключ входа для использования в качестве идентификатора пользователя.
+Зависит от реализации вашего LDAP-сервера. Наиболее часто используемыми
+значениями являются:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>sAMAccountName</code></tt></li>
+<li><tt class="docutils literal"><code>userPrincipalName</code></tt></li>
+<li><tt class="docutils literal"><code>uid</code></tt></li>
+</ul>
+</div>
+<div class="section" id="filter">
+<h3>filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>({uid_key}={username})</code></tt></p>
+<p>Этот ключ позволяет вам сконфигурировать, какой LDAP-запрос будет использован.
+Строка <tt class="docutils literal"><code>{uid_key}</code></tt> будет заменена значением конфигурации <tt class="docutils literal"><code>uid_key``(по умолчанию,
+``sAMAccountName</code></tt>), а строка <tt class="docutils literal"><code>{username}</code></tt> будет заменена именем пользователя,
+которого вы пытаетесь загрузить.</p>
+<p>Например, с <tt class="docutils literal"><code>uid_key</code></tt> в <tt class="docutils literal"><code>uid</code></tt>, и если вы пытаетесь загрузить пользователя
+<tt class="docutils literal"><code>fabpot</code></tt>, финальной строкой будет <tt class="docutils literal"><code>(uid=fabpot)</code></tt>.</p>
+<p>Конечно же, имя пользователя будет экранировано, чтобы предотвратить <a class="reference external" href="http://projects.webappsec.org/w/page/13246947/LDAP%20Injection">внедрение LDAP</a>.</p>
+<p>Синтаксис для ключа <tt class="docutils literal"><code>filter</code></tt> определяется <a class="reference external" href="http://www.faqs.org/rfcs/rfc4515.html">RFC4515</a>.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Аутентификация с LDAP-сервером<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Аутентификация с LDAP-сервром может быть проведена с использованием либо
+формы входа или базовых поставщиков аутентификации HTTP.</p>
+<p>Они конфигурируются точно так же, как их копии, не имеющие отношения к LDAP,
+с добавлением двух ключей конфигурации и одного необязательного ключа:</p>
+<div class="section" id="id5">
+<h3>service<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>ldap</code></tt></p>
+<p>Это имя вашего сконфигурированного LDAP-клиента. Вы можете свободно выбирать
+имя, но оно должно быть уникальным в вашемприложении и не может начинаться с
+цифры или содержать пробелы.</p>
+</div>
+<div class="section" id="dn-string">
+<h3>dn_string<a class="headerlink" href="#dn-string" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>{username}</code></tt></p>
+<p>Этот ключ определяет форму строки, использованной для составления
+отличительного имени пользователя из имени пользователя. Строка
+<tt class="docutils literal"><code>{username}</code></tt> заменяется настоящим именем пользователя человека,
+который проходит аутентификацию.</p>
+<p>Например, если ваши пользователи имеют строки отличительного имени
+в виде <tt class="docutils literal"><code>uid=einstein,dc=example,dc=com</code></tt>, то <tt class="docutils literal"><code>dn_string</code></tt> будет
+<tt class="docutils literal"><code>uid={username},dc=example,dc=com</code></tt>.</p>
+</div>
+<div class="section" id="query-string">
+<h3>query_string<a class="headerlink" href="#query-string" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>Этот (необязательый) ключ заставляет вашего поставщика пользоваеля искать
+пользователя а потом использовать найденное отличительное имя для процесса
+связывания. Это полезно при использовании нескольких поставщиков пользователей
+LDAP с разными <tt class="docutils literal"><code>base_dn</code></tt>. Значение этой опции должно быть валидной строкой
+поиска (например, <tt class="docutils literal"><code>uid=&quot;{username}&quot;</code></tt>). Значение заполнителя будет заменено
+настоящим именем пользователя.</p>
+<p>Когда используется эта опция, <tt class="docutils literal"><code>dn_string</code></tt> должен быть соответствующе обновлён.
+Следуя предыдущему примеру, если ваши пользователи имеют два таких отличительных
+имени: <tt class="docutils literal"><code>dc=companyA,dc=example,dc=com</code></tt> и <tt class="docutils literal"><code>dc=companyB,dc=example,dc=com</code></tt>, то
+<tt class="docutils literal"><code>dn_string</code></tt> должен быть <tt class="docutils literal"><code>dc=example,dc=com</code></tt>. Если опция <tt class="docutils literal"><code>query_string</code></tt> -
+<tt class="docutils literal"><code>uid=&quot;{username}&quot;</code></tt>, то поставщик аутентификации может аутентифицировать пользователей
+из обоих отличительных имён.</p>
+<p>Помните, что имена пользователей должны быть уникальными в обоих отличительных именах,
+так как поставщик аутентификации не сможет выбрать правильного пользователя для процесса
+связывания, если будет найдено более одного.</p>
+<p>Примеры приведены ниже как для <tt class="docutils literal"><code>form_login_ldap</code></tt>, так и для
+<tt class="docutils literal"><code>http_basic_ldap</code></tt>.</p>
+</div>
+<div class="section" id="id6">
+<h3>Пример конфигурации для формы входа<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/security.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">firewalls</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">main</span><span class="p p-Indicator">:</span>
+            <span class="c1"># ...</span>
+            <span class="l l-Scalar l-Scalar-Plain">form_login_ldap</span><span class="p p-Indicator">:</span>
+                <span class="c1"># ...</span>
+                <span class="l l-Scalar l-Scalar-Plain">service</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Symfony\Component\Ldap\Ldap;</span>
+                <span class="l l-Scalar l-Scalar-Plain">dn_string</span><span class="p p-Indicator">:</span> <span class="s">&#39;uid={username},dc=example,dc=com&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;config&gt;</span>
+        <span class="nt">&lt;firewall</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;form-login-ldap</span>
+                    <span class="na">service=</span><span class="s">&quot;Symfony\Component\Ldap\Ldap&quot;</span>
+                    <span class="na">dn-string=</span><span class="s">&quot;uid={username},dc=example,dc=com&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/firewall&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Ldap\Ldap</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;firewalls&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;main&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;form_login_ldap&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;service&#39;</span> <span class="o">=&gt;</span> <span class="nx">Ldap</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+                <span class="s1">&#39;dn_string&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;uid={username},dc=example,dc=com&#39;</span><span class="p">,</span>
+                <span class="c1">// ...</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="http">
+<h3>Пример конфигурации для базового HTTP<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h3>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/security.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">firewalls</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">main</span><span class="p p-Indicator">:</span>
+            <span class="c1"># ...</span>
+            <span class="l l-Scalar l-Scalar-Plain">http_basic_ldap</span><span class="p p-Indicator">:</span>
+                <span class="c1"># ...</span>
+                <span class="l l-Scalar l-Scalar-Plain">service</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Symfony\Component\Ldap\Ldap</span>
+                <span class="l l-Scalar l-Scalar-Plain">dn_string</span><span class="p p-Indicator">:</span> <span class="s">&#39;uid={username},dc=example,dc=com&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;config&gt;</span>
+        <span class="nt">&lt;firewall</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span> <span class="na">stateless=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;http-basic-ldap</span> <span class="na">service=</span><span class="s">&quot;Symfony\Component\Ldap\Ldap&quot;</span> <span class="na">dn-string=</span><span class="s">&quot;uid={username},dc=example,dc=com&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/firewall&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Ldap\Ldap</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;firewalls&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;main&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;http_basic_ldap&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;service&#39;</span> <span class="o">=&gt;</span> <span class="nx">Ldap</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+                <span class="s1">&#39;dn_string&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;uid={username},dc=example,dc=com&#39;</span><span class="p">,</span>
+                <span class="c1">// ...</span>
+            <span class="p">),</span>
+            <span class="s1">&#39;stateless&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>Пример конфигурации для формы входа и query_string<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/security.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">firewalls</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">main</span><span class="p p-Indicator">:</span>
+            <span class="c1"># ...</span>
+            <span class="l l-Scalar l-Scalar-Plain">form_login_ldap</span><span class="p p-Indicator">:</span>
+                <span class="c1"># ...</span>
+                <span class="l l-Scalar l-Scalar-Plain">service</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Symfony\Component\Ldap\Ldap</span>
+                <span class="l l-Scalar l-Scalar-Plain">dn_string</span><span class="p p-Indicator">:</span> <span class="s">&#39;dc=example,dc=com&#39;</span>
+                <span class="l l-Scalar l-Scalar-Plain">query_string</span><span class="p p-Indicator">:</span> <span class="s">&#39;(&amp;(uid={username})(memberOf=cn=users,ou=Services,dc=example,dc=com))&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;config&gt;</span>
+        <span class="nt">&lt;firewall</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;form-login-ldap</span>
+                    <span class="na">service=</span><span class="s">&quot;Symfony\Component\Ldap\Ldap&quot;</span>
+                    <span class="na">dn-string=</span><span class="s">&quot;dc=example,dc=com&quot;</span>
+                    <span class="na">query-string=</span><span class="s">&quot;(&amp;amp;(uid={username})(memberOf=cn=users,ou=Services,dc=example,dc=com))&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/firewall&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/security.php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Ldap\Ldap</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;firewalls&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;main&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;form_login_ldap&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;service&#39;</span> <span class="o">=&gt;</span> <span class="nx">Ldap</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+                <span class="s1">&#39;dn_string&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;dc=example,dc=com&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;query_string&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;(&amp;(uid={username})(memberOf=cn=users,ou=Services,dc=example,dc=com))&#39;</span><span class="p">,</span>
+                <span class="c1">// ...</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="json_login_setup-ru.html">« Как построить точку конечную точку JSON аутентификации</a>
+                <span class="separator">|</span>
+                <a href="multiple_guard_authenticators-ru.html">Как использовать несколько аутентификаторов защиты »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

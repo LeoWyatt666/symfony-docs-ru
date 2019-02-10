@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Брандмауэр и авторизация &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+    <link rel="up" title="The Security Component" href="..\security.html">
+    <link rel="next" title="Securely Generating Random Values" href="secure_tools.html">
+    <link rel="prev" title="The Firewall and Authorization" href="firewall.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Брандмауэр и авторизация</a><ul>
+<li><a class="reference internal" href="#http">Брандмауэр для HTTP запросов</a><ul>
+<li><a class="reference internal" href="#id2">Конфигурация брандмауэра</a></li>
+<li><a class="reference internal" href="#firewall-listeners">Слушатели брандмауэра</a></li>
+<li><a class="reference internal" href="#id4">Слушатель исключений</a></li>
+<li><a class="reference internal" href="#id5">Точки входа</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">Процесс: Брандмауэр, Аутентификация, Авторизация</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li><a href="..\index.html">The Components</a></li>
+                
+                <li><a href="../index-ru.html">The Components</a></li>
+                
+                <li><a href="..\security.html">The Security Component</a></li>
+                
+                <li class="active">Брандмауэр и авторизация</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Брандмауэр и авторизация<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Основным элементом компонента Security является авторизация. Она обрабатывается экземпляром
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authorization/AuthorizationCheckerInterface.html" title="Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface">AuthorizationCheckerInterface</a></code></tt>.
+Когда все шаги аутентификации пользователя были пройдены успешно, вы можете спросить проверщика
+авторизации, имеет ли аутентифицированній пользовательдоступ к определённому действию или
+источнику приложения:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authorization\AuthorizationChecker</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Exception\AccessDeniedException</span><span class="p">;</span>
+
+<span class="c1">// экземпляр Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface</span>
+<span class="nv">$tokenStorage</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="c1">// экземпляр Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface</span>
+<span class="nv">$authenticationManager</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="c1">// экземпляр Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface</span>
+<span class="nv">$accessDecisionManager</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="nv">$authorizationChecker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AuthorizationChecker</span><span class="p">(</span>
+    <span class="nv">$tokenStorage</span><span class="p">,</span>
+    <span class="nv">$authenticationManager</span><span class="p">,</span>
+    <span class="nv">$accessDecisionManager</span>
+<span class="p">);</span>
+
+<span class="c1">// ... аутентифицировать пользователя</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$authorizationChecker</span><span class="o">-&gt;</span><span class="na">isGranted</span><span class="p">(</span><span class="s1">&#39;ROLE_ADMIN&#39;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nx">AccessDeniedException</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Прочтите соответствующие разделы, чтобы узнать больше о
+<a class="reference internal" href="authentication.html"><em>Authentication</em></a> и
+<a class="reference internal" href="authorization.html"><em>Authorization</em></a>.</p>
+</div></div>
+<div class="section" id="http">
+<span id="firewall"></span><h2>Брандмауэр для HTTP запросов<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h2>
+<p>Аутентификация пользователя проводится брандмауэром. Приложение может иметь
+несколько безопасных областей, поэтому брандмауэр конфигурируется с использованием
+карты этих областей. Для каждой из них карта содержит сопоставитель запросов и
+набор слушателей. Сопоставитель запросов предоставляет брандмауэру возможность
+узавать, указывает ли текущий запрос на безопасную область. После этого слушателей
+спрашивают, может ли текущий запрос быть использован для аутентификации пользователя:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Security\Http\FirewallMap</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\RequestMatcher</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Http\Firewall\ExceptionListener</span><span class="p">;</span>
+
+<span class="nv">$firewallMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FirewallMap</span><span class="p">();</span>
+
+<span class="nv">$requestMatcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RequestMatcher</span><span class="p">(</span><span class="s1">&#39;^/secured-area/&#39;</span><span class="p">);</span>
+
+<span class="c1">// экземпляры Symfony\Component\Security\Http\Firewall\ListenerInterface</span>
+<span class="nv">$listeners</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+
+<span class="nv">$exceptionListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExceptionListener</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+
+<span class="nv">$firewallMap</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="nv">$requestMatcher</span><span class="p">,</span> <span class="nv">$listeners</span><span class="p">,</span> <span class="nv">$exceptionListener</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Карта брандмауэра будет передана брандмауэру в качестве его первого аргумента,
+вместе с диспетчером событий она будет использована классом
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/HttpKernel.html" title="Symfony\Component\HttpKernel\HttpKernel">HttpKernel</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Security\Http\Firewall</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\KernelEvents</span><span class="p">;</span>
+
+<span class="c1">// EventDispatcher используемый HttpKernel</span>
+<span class="nv">$dispatcher</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="nv">$firewall</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firewall</span><span class="p">(</span><span class="nv">$firewallMap</span><span class="p">,</span> <span class="nv">$dispatcher</span><span class="p">);</span>
+
+<span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">addListener</span><span class="p">(</span>
+    <span class="nx">KernelEvents</span><span class="o">::</span><span class="na">REQUEST</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="nv">$firewall</span><span class="p">,</span> <span class="s1">&#39;onKernelRequest&#39;</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Брандмауэр регистрируется для того, чтобы слушать событие  <tt class="docutils literal"><code>kernel.request</code></tt>,
+которое будет запущено HttpKernel в начале каждого запроса, который он обрабатывает.
+Таким образом, брандмауэр может предотвратить пользователя от перехода дальше,
+чем ему позволено.</p>
+<div class="section" id="id2">
+<h3>Конфигурация брандмауэра<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Информация о заданном брандмауэре, вроде его имени, провайдера, контекста,
+точки входа и URL запрещённого доступа, предоставляется экземплярами класса
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/SecurityBundle/Security/FirewallConfig.html" title="Symfony\Bundle\SecurityBundle\Security\FirewallConfig">FirewallConfig</a></code></tt>.</p>
+<p>К этому объекту можно получить доступ через метод
+<tt class="docutils literal"><code>getFirewallConfig(Request $request)</code></tt> класса
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Http/FirewallMap.html" title="Symfony\Component\Security\Http\FirewallMap">FirewallMap</a></code></tt> и через метод
+<tt class="docutils literal"><code>getConfig()</code></tt>  класса <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/SecurityBundle/Security/FirewallContext.html" title="Symfony\Bundle\SecurityBundle\Security\FirewallContext">FirewallContext</a></code></tt>.</p>
+</div>
+<div class="section" id="firewall-listeners">
+<span id="id3"></span><h3>Слушатели брандмауэра<a class="headerlink" href="#firewall-listeners" title="Permalink to this headline">¶</a></h3>
+<p>Когда брандмауэр получает уведомление о событии <tt class="docutils literal"><code>kernel.request</code></tt>, он спрашивает
+карту брандмауэера, совпадает ли запрос с одной из безопасных областей. Первая безопасная
+область, которая совпадает с запросом, вернёт набор соответствующих слушателей
+брандмауэра (каждый из которых реализует
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Http/Firewall/ListenerInterface.html" title="Symfony\Component\Security\Http\Firewall\ListenerInterface">ListenerInterface</a></code></tt>). Эти
+слушатели все будут обрабатывать текущий запрос. Это на самом деле означает:
+узнайте, содержит ли текущий запрос какую-либо информацию, по которой пользователь
+может быть аутентифицирован (например Базовый слушатель аутентификации HTTP проверяет,
+имеет ли запрос заголовок под названием <tt class="docutils literal"><code>PHP_AUTH_USER</code></tt>).</p>
+</div>
+<div class="section" id="id4">
+<h3>Слушатель исключений<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Если любой из слушателей вызовет <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Exception/AuthenticationException.html" title="Symfony\Component\Security\Core\Exception\AuthenticationException">AuthenticationException</a></code></tt>,
+то слушатель исключений, который был предоставлен при добавлении безопасных
+областей в карту брандмауэра, начнёт свою работу.</p>
+<p>Слущатель исключений определяет, что произойдет дальше, основываясь на аргументах,
+который он получил при создании. Он может начать процедуру аутентификации, возможно
+попросить пользователя повторно предоставить личные данные (если он был аутентифицирован
+только основываясь на куки &quot;запомнить меня&quot;), или преобразовать исключение в
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Exception/AccessDeniedHttpException.html" title="Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException">AccessDeniedHttpException</a></code></tt>,
+которое в итоге приведёт к ответу &quot;HTTP/1.1 403: Отказ в доступе&quot;.</p>
+</div>
+<div class="section" id="id5">
+<h3>Точки входа<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Если пользователь вообще не аутентифицирован (т.е. когда хранилище токенов
+ещё не имеет ни одного токена), точка входа брандмауэра будет вызвана для
+&quot;запуска&quot; процесса аутентификации. Точка входа должна релизовать
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Http/EntryPoint/AuthenticationEntryPointInterface.html" title="Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface">AuthenticationEntryPointInterface</a></code></tt>,
+который имеет только один метод: <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Http/EntryPoint/AuthenticationEntryPointInterface.html#method_start" title="Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface::start()">start()</a></code></tt>.
+Этот метод получает текущий объект <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Request.html" title="Symfony\Component\HttpFoundation\Request">Request</a></code></tt>
+и исключение, по которому будет вызываться слушатель исключений. Метод также
+должен возвращать объект <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Response.html" title="Symfony\Component\HttpFoundation\Response">Response</a></code></tt>.
+Это может быть, к примеру, страница, содержащая форму входа, или в случае с базовой
+HTTP аутенификацией, ответ с заголовком <tt class="docutils literal"><code>WWW-Authenticate</code></tt>, который попросит
+пользователя предоставить его имя и пароль.</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>Процесс: Брандмауэр, Аутентификация, Авторизация<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Надеемся, что теперь вы можете увидеть немного о том, как идёт &quot;процесс&quot; в
+контексте безопасности:</p>
+<ol class="arabic simple">
+<li>Firewall регистрируется, как слушатель события <tt class="docutils literal"><code>kernel.request</code></tt>;</li>
+<li>В начале запроса, Firewall проверяет карту брандмауэра, чтобы увидеть,
+нужно ли активировать какой-либо из брандмауэров для этого URL;</li>
+<li>Если в карте для этого URL был найден брандмауэр, то уведомляются его слушатели;</li>
+<li>Каждый слушатель проверяет, содержит ли текущий запрос какую-либо информацию
+аутентификации - слушатель может (а) аутентифицировать пользователя, (б)
+вызвать <tt class="docutils literal"><code>AuthenticationException</code></tt>, или (в) ничего не делать (так как в запросе
+нет никакой информации аутентификации);</li>
+<li>Как только пользователь будет аутентифицирован, вы будете использовать
+<a class="reference internal" href="authorization.html"><em>Authorization</em></a>, чтобы отказать в доступе к определённым
+источникам.</li>
+</ol>
+<p>Прочтите следующие разделы, чтобы узнать больше о <a class="reference internal" href="authentication.html"><em>Authentication</em></a>
+и <a class="reference internal" href="authorization.html"><em>Authorization</em></a>.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="firewall.html">« The Firewall and Authorization</a>
+                <span class="separator">|</span>
+                <a href="secure_tools.html">Securely Generating Random Values »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

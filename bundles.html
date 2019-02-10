@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Система пакетов &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="_static/" type="text/css">
+    <link rel="stylesheet" href="_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="index.html">
+
+<link rel="stylesheet" href="_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="bundles-r doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\index.html">
+                    <img src="..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Система пакетов</a><ul>
+<li><a class="reference internal" href="#c">Cоздание пакета</a></li>
+<li><a class="reference internal" href="#id2">Структура каталога пакета</a></li>
+<li><a class="reference internal" href="#id3">Узнайте больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="index.html">Документация</a></li>
+                
+                <li class="active">Система пакетов</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="page-creation-bundles-ru">
+<span id="index-0"></span><span id="id1"></span><h1>Система пакетов<a class="headerlink" href="#page-creation-bundles-ru" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">В версиях Symfony до 4.0, было рекомендовано упорядочивать ваш код, используя
+пакеты. Это более не рекомендуется и пакеты должны быть использованы только для
+того, чтобы делиться кодом и функциями между многими приложениями.</p>
+</div></div>
+<p>Пакет похож на плагин в других ПО, только лучше. Базовые функции фреймворка Symfony
+релизуются с помощью пакетов FrameworkBundle, SecurityBundle, DebugBundle, и др.).
+Они также используются для добавления новых функций в ваше приложение через
+<a class="reference external" href="https://github.com/search?q=topic%3Asymfony-bundle&amp;type=Repositories">сторонние пакеты</a>.</p>
+<p>Пакеты, используемые в вашем приложении, должны быть подключены для каждого
+<a class="reference internal" href="configuration\environments.html"><em>окружения</em></a> в файле <tt class="docutils literal"><code>config/bundles.php</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/bundles.php</span>
+<span class="k">return</span> <span class="p">[</span>
+    <span class="c1">// &#39;all&#39; means that the bundle is enabled for any Symfony environment</span>
+    <span class="nx">Symfony\Bundle\FrameworkBundle\FrameworkBundle</span><span class="o">::</span><span class="na">class</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">],</span>
+    <span class="nx">Symfony\Bundle\SecurityBundle\SecurityBundle</span><span class="o">::</span><span class="na">class</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">],</span>
+    <span class="nx">Symfony\Bundle\TwigBundle\TwigBundle</span><span class="o">::</span><span class="na">class</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">],</span>
+    <span class="nx">Symfony\Bundle\MonologBundle\MonologBundle</span><span class="o">::</span><span class="na">class</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">],</span>
+    <span class="nx">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</span><span class="o">::</span><span class="na">class</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">],</span>
+    <span class="nx">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</span><span class="o">::</span><span class="na">class</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">],</span>
+    <span class="nx">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</span><span class="o">::</span><span class="na">class</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">],</span>
+    <span class="c1">// this bundle is enabled only in &#39;dev&#39;  and &#39;test&#39;, so you can&#39;t use it in &#39;prod&#39;</span>
+    <span class="nx">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</span><span class="o">::</span><span class="na">class</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;dev&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">],</span>
+<span class="p">];</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">В приложении Symfony по умолчанию, которое использует <a class="reference internal" href="setup\flex.html"><em>Symfony Flex</em></a>,
+пакеты подключаются и отключаются для вас автоматически при их установке или
+удалении, поэтому вам не нужно искать или редактировать файл <tt class="docutils literal"><code>bundles.php</code></tt>.</p>
+</div></div>
+<div class="section" id="c">
+<h2>Cоздание пакета<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h2>
+<p>Этот раздел создаёт и включает новый пакет, чтобы продемонстрировать, как это
+легко сделать. Новый пакет называется AcmeTestBundle, где часть <tt class="docutils literal"><code>Acme</code></tt> - просто
+шаблонное имя, которое нужно заменить неким именем &quot;поставщика&quot;, который представляет
+вас или вашу организацию (например, ABCTestBundle для компании по имени <tt class="docutils literal"><code>ABC</code></tt>).</p>
+<p>Начните с создания каталога  <tt class="docutils literal"><code>src/Acme/TestBundle/</code></tt> и добавьте в него новый
+файл под названием <tt class="docutils literal"><code>AcmeTestBundle.php</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Acme/TestBundle/AcmeTestBundle.php</span>
+<span class="k">namespace</span> <span class="nx">App\Acme\TestBundle</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Bundle\Bundle</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AcmeTestBundle</span> <span class="k">extends</span> <span class="nx">Bundle</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Имя AcmeTestBundle следует
+<a class="reference internal" href="bundles\best_practices.html#bundles-naming-conventions"><span>стандартным договоренностям присваивания имен пакетам</span></a>.
+Вы также можете решить укоротить имя пакета до TestBundle, назвав этот класс
+TestBundle (и назвав файл  <tt class="docutils literal"><code>TestBundle.php</code></tt>).</p>
+</div></div>
+<p>Этот пустой класс – единственное, что вам понадобится для создания нового пакета.
+Несмотря на то, что чаще всего он пуст, этот класс мощный по возможностям и может
+быть использован для настройки поведения пакета. Теперь, когда вы создали пакет,
+подключите его:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/bundles.php</span>
+<span class="k">return</span> <span class="p">[</span>
+    <span class="c1">// ...</span>
+    <span class="nx">App\Acme\TestBundle\AcmeTestBundle</span><span class="o">::</span><span class="na">class</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">],</span>
+<span class="p">];</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>И хотя он пока ничего не делает, AcmeTestBundle готов к использованию.</p>
+</div>
+<div class="section" id="id2">
+<h2>Структура каталога пакета<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Структура каталога пакета простая и гибкая. По умолчанию, система пакетов
+следует набору договоренностей, которые помогают создавать единообразный код
+для всех пакетов Symfony. Посмотрите на AcmeDemoBundle, так как он содержит
+некоторые самые распространенные элементы пакета:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>Controller/</code></tt></dt>
+<dd>Содержит контроллеры пакета (например, <tt class="docutils literal"><code>RandomController.php</code></tt>).</dd>
+<dt><tt class="docutils literal"><code>DependencyInjection/</code></tt></dt>
+<dd>Содержит некоторые классы расширения внедрения зависимости, которые могут
+импортировать конфигурацию сервиса, регистрировать пропуски компилятора и
+т.д. (этот каталог не является обязательным).</dd>
+<dt><tt class="docutils literal"><code>Resources/config/</code></tt></dt>
+<dd>Содержит конфигурацию, включая конфигурацию маршрутов (например, <tt class="docutils literal"><code>routing.yaml</code></tt>).</dd>
+<dt><tt class="docutils literal"><code>Resources/views/</code></tt></dt>
+<dd>Содержит шаблоны, расположенные в алфавитном порядке по имени контроллера
+(например, <tt class="docutils literal"><code>Random/index.html.twig</code></tt>).</dd>
+<dt><tt class="docutils literal"><code>Resources/public/</code></tt></dt>
+<dd>Содержит веб-ресурсы (изображения, таблицы стилей и т.д.); он копируется
+или символически привязывается к каталогу проекта <tt class="docutils literal"><code>public/</code></tt> с помощью командной
+строки <tt class="docutils literal"><code>assets:install</code></tt>.</dd>
+<dt><tt class="docutils literal"><code>Tests/</code></tt></dt>
+<dd>Содержит все тесты пакета.</dd>
+</dl>
+<p>Пакет может быть настолько большим или маленьким, насколько это диктует
+реализуемая им функция. Он содержит только те файлы, которые вам нужны, и
+ничего более.</p>
+<p>По ходу прочтения книги, вы узнаете, как сохранять объекты в базе данных,
+создавать и валидировать формы, создавать переводы вашего приложения, писать
+тесты и многое другое. Каждая такая возможность имеет свое место и роль в
+рамках пакета.</p>
+</div>
+<div class="section" id="id3">
+<h2>Узнайте больше<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="bundles\override.html"><em>How to Override any Part of a Bundle</em></a></li>
+<li><a class="reference internal" href="bundles\best_practices.html"><em>Best Practices for Reusable Bundles</em></a></li>
+<li><a class="reference internal" href="bundles\configuration.html"><em>How to Create Friendly Configuration for a Bundle</em></a></li>
+<li><a class="reference internal" href="bundles\extension.html"><em>How to Load Service Configuration inside a Bundle</em></a></li>
+<li><a class="reference internal" href="bundles\prepend_extension.html"><em>How to Simplify Configuration of Multiple Bundles</em></a></li>
+</ul>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

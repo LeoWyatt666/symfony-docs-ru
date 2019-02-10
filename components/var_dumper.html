@@ -1,0 +1,657 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент VarDumper (сброс переменной) &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="Компонент Workflow" href="workflow-ru.html">
+    <link rel="prev" title="Компонент Validator" href="validator-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент VarDumper (сброс переменной)</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#dump">Функция dump()</a></li>
+<li><a class="reference internal" href="#id2">Сервер дампов</a></li>
+<li><a class="reference internal" href="#debugbundle-twig">Интеграция DebugBundle и Twig</a></li>
+<li><a class="reference internal" href="#vardumper-phpunit">Использование компонента VarDumper в вашем наборе тестов PHPUnit</a></li>
+<li><a class="reference internal" href="#id3">Примеры сброса и вывод</a></li>
+<li><a class="reference internal" href="#id4">Узнать больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент VarDumper (сброс переменной)</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="vardumper">
+<span id="index-0"></span><h1>Компонент VarDumper (сброс переменной)<a class="headerlink" href="#vardumper" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Компонент VarDumper предоставляет механизмы для извлечения состояния из
+любой переменной PHP. Так как он надстраивается, он предоставляет улучшенную
+функцию <tt class="docutils literal"><code>dump()</code></tt>, которую вы можете использовать вместо <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.var-dump.php" title="var_dump">var_dump</a></code></tt>.</div></blockquote>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/var-dumper --dev
+</pre></div>
+</td></tr></table></div></div>
+<p>Alternatively, you can clone the <a class="reference external" href="https://github.com/symfony/var-dumper">https://github.com/symfony/var-dumper</a> repository.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если вы используете его внутри приложения Symfony, убедитесь, что
+был установлен DebugBundle (или запустите <tt class="docutils literal"><code>composer require symfony/debug-bundle</code></tt>,
+чтобы установить его).</p>
+</div></div>
+</div>
+<div class="section" id="dump">
+<span id="components-var-dumper-dump-ru"></span><h2>Функция dump()<a class="headerlink" href="#dump" title="Permalink to this headline">¶</a></h2>
+<p>Компонент VarDumper создаёт глобальную функцию <tt class="docutils literal"><code>dump()</code></tt>, которую вы
+можете использовать вместо, например. <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.var-dump.php" title="var_dump">var_dump</a></code></tt>. Используя
+её, вы получаете:</p>
+<ul class="simple">
+<li>Специализированный просмотр по объектам и источникам, чтобы, к
+примеру, отфильтровать внутренние объекты Doctrine при сбросе одной
+сущности прокси, или получить больше информации об открытых с помощью
+<tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.stream-get-meta-data.php" title="stream_get_meta_data">stream_get_meta_data</a></code></tt> файлах;</li>
+<li>Конфигурируемые форматы вывода: вывод HTML или цветной командной строки;</li>
+<li>Возможность сбрасывать внутренние ссылки, мягкие (объекты или источники)
+или жёсткие (<tt class="docutils literal"><code>=&amp;</code></tt> в свойствах массивов или объектов). Повторяемое появление
+одного и того же объекта/масива/истоничка не будут больше появляться снова и
+снова. Более того, вы сможете исследовать структуру ссылок ваших данных;</li>
+<li>Возможность оперировать в контексте обработчика буферизации вывода.</li>
+</ul>
+<p>Например:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">require</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
+
+<span class="c1">// создать переменную, которая может быть чем угодно!</span>
+<span class="nv">$someVar</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="nx">dump</span><span class="p">(</span><span class="nv">$someVar</span><span class="p">);</span>
+
+<span class="c1">// dump() возвращает переданное значение, чтобы вы могли сбросить объект и продолжать использовать его</span>
+<span class="nx">dump</span><span class="p">(</span><span class="nv">$someObject</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">someMethod</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>По умолчанию, формат вывода и направление выбираются исходя из вашего текущего
+PHP SAPI:</p>
+<ul class="simple">
+<li>В командной строке (CLI SAPI), вывод пишется в <tt class="docutils literal"><code>STDOUT</code></tt>. Это может быть
+удивительно для некоторых, так как это обходит механизм буферизации вывода
+PHP;</li>
+<li>В других SAPI, сбросы пишутся в виде HTML в обычном выводе.</li>
+</ul>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если вы хотите поймать вывод сброса в виде строки, пожалуйста, прочтите
+<a class="reference internal" href="var_dumper\advanced.html"><em>продвинутую документацию</em></a>, которая
+содержит такие примеры. Вы также узнаете, как изменять формат или перенаправлять
+вывод туда, куда вам нужно.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Для того, чтобы функция <tt class="docutils literal"><code>dump()</code></tt> всегда была доступна при выполнении любого
+PHP кода, вы можете установить её на вашем компьютере глобально:</p>
+<ol class="last arabic simple">
+<li>Запустите <tt class="docutils literal"><code>composer global require symfony/var-dumper</code></tt>;</li>
+<li>Добавьте <tt class="docutils literal"><code>auto_prepend_file = ${HOME}/.composer/vendor/autoload.php</code></tt>
+к вашему файлу <tt class="docutils literal"><code>php.ini</code></tt>;</li>
+<li>Иногда запускайте <tt class="docutils literal"><code>composer global update symfony/var-dumper</code></tt>, чтобы
+иметь последние исправления багов.</li>
+</ol>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Компонент VarDumper также предоставляет функцию <tt class="docutils literal"><code>dd()</code></tt> (&quot;dump and die&quot; - &quot;сбрось и умри&quot;).
+Эта функция отображает переменные используя <tt class="docutils literal"><code>dump()</code></tt> и
+сразу прекращает исполнение скрипта (используя функцию PHP <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.exit.php" title="exit">exit</a></code></tt>).</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Метод <tt class="docutils literal"><code>dd()</code></tt> появился в Symfony 4.1.</p>
+</div>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Сервер дампов<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Сервер дампов появился в Symfony 4.1.</p>
+</div>
+<p>Функция <tt class="docutils literal"><code>dump()</code></tt> выводит своё содержимое в то же окно браузера или
+консольный терминал, что и ваше приложение. Иногда смешение настоящего вывода
+с выводом отладочной информации может запутывать. Поэтому этот компонент предоставляет
+сервер для сбора всей отладочной информации.</p>
+<p>Запустите сервер командой <tt class="docutils literal"><code>server:dump</code></tt> и когда вы будете вызывать
+<tt class="docutils literal"><code>dump()</code></tt>, отладочная информация не будет отображаться в потоке вывода, а отправится на этот
+сервер, который будет отображать это в своей конслоли или HTML-файле:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># отображает отладочную информацию в консоли:</span>
+<span class="gp">$</span> ./bin/console server:dump
+<span class="go">  [OK] Server listening on tcp://0.0.0.0:9912</span>
+
+<span class="c1"># сохраняет отладочную информацию в файле используя формат HTML:</span>
+<span class="gp">$</span> ./bin/console server:dump --format<span class="o">=</span>html &gt; dump.html
+</pre></div>
+</td></tr></table></div></div>
+<p>Внути приложения Symfony, вывод дамп-сервера настраивается с помощью
+<a class="reference internal" href="..\reference\configuration\debug.html#configuration-debug-dump-destination"><span>настройки dump_destination</span></a>
+пакета <tt class="docutils literal"><code>debug</code></tt>.</p>
+</div>
+<div class="section" id="debugbundle-twig">
+<h2>Интеграция DebugBundle и Twig<a class="headerlink" href="#debugbundle-twig" title="Permalink to this headline">¶</a></h2>
+<p>DebugBundle позволяет большую интеграцию компонента в приложения Symfony.</p>
+<p>Так как генрировние вывода (даже отладки) в контроллере или модели вашего
+приложения может просто его сломать (например, отправка HTTP заголовков или
+нарушение вашего просмотра), пакет конфигурирует функцию <tt class="docutils literal"><code>dump()</code></tt>, чтобы
+переменные сбрасывались в панели инструментов веб-отладки.</p>
+<p>Но если панель инструментов нельзя отобразить так как вы, к примеру, вызвали
+<tt class="docutils literal"><code>die()</code></tt>/<tt class="docutils literal"><code>exit()</code></tt>/<tt class="docutils literal"><code>dd()</code></tt> или возникла фатальная ошибка, тогда дампы пишутся в
+обычном потоке вывода.</p>
+<p>В шаблоне Twig доступны две конструкции для сброса переменной. Выбор между
+двумя в основном зависит от ваших личных предпочтейни, и всё же:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>{% dump foo.bar %}</code></tt> стоит использовать, когда исходный вывод шаблона не
+стоит изменять: переменные сбрасываются не встроено, а в панели инструментов
+веб отладки;</li>
+<li>и наоборот, <tt class="docutils literal"><code>{{ dump(foo.bar) }}</code></tt> сбрастывает встроено и поэтому может подходить
+или не подходить в вашем случае (например, не стоит использовать его в атрибуте HTML
+или теге <tt class="docutils literal"><code>&lt;script&gt;</code></tt>).</li>
+</ul>
+<p>Это поведение можно изменить, сконфигурировав опцию <tt class="docutils literal"><code>debug.dump_destination</code></tt>.
+Прочтите больше об этом и других опциях в
+<a class="reference internal" href="..\reference\configuration\debug.html"><em>справочнике конфигурации DebugBundle</em></a>.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если сброшенное содержание сложное, рассмотрите использование локальное поле
+поиска, чтобы найти определённые переменные или значения. Для начала, нажмите
+где угодно в сброшенном содержании, а потом нажмите <tt class="kbd docutils literal"><code>Ctrl. + F</code></tt> или
+<tt class="kbd docutils literal"><code>Cmd. + F</code></tt>, чтобы появилось локальное поле поиска. Все общие сокращения
+для поиска результата поддерживаются (<tt class="kbd docutils literal"><code>Ctrl. + G</code></tt> или <tt class="kbd docutils literal"><code>Cmd. + G</code></tt>,
+<tt class="kbd docutils literal"><code>F3</code></tt>, и др.) Когда закончите, нажмите <tt class="kbd docutils literal"><code>Esc.</code></tt>, чтобы спрятать поле.</p>
+</div></div>
+</div>
+<div class="section" id="vardumper-phpunit">
+<h2>Использование компонента VarDumper в вашем наборе тестов PHPUnit<a class="headerlink" href="#vardumper-phpunit" title="Permalink to this headline">¶</a></h2>
+<p>Компонент VarDumper предоставляет
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Test/VarDumperTestTrait.html" title="Symfony\Component\VarDumper\Test\VarDumperTestTrait">a trait</a></code></tt>,
+который может помочь написать некоторые из ваших тестов для PHPUnit.</p>
+<p>Это предоставит вам два новых утверждения:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Test/VarDumperTestTrait.html#method_assertDumpEquals" title="Symfony\Component\VarDumper\Test\VarDumperTestTrait::assertDumpEquals()">assertDumpEquals()</a></code></tt></dt>
+<dd>верифицирует, чтобы сброс переменной, данный в виде второго аргументы, соответствовал
+ожидаемому сбросу, предоставленному в качестве первого аргумента.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/VarDumper/Test/VarDumperTestTrait.html#method_assertDumpMatchesFormat" title="Symfony\Component\VarDumper\Test\VarDumperTestTrait::assertDumpMatchesFormat()">assertDumpMatchesFormat()</a></code></tt></dt>
+<dd>такой же, как и предыдущий метод, но принимает заполнители в ожидаемом сбросе,
+основанном на методе <tt class="docutils literal"><code>assertStringMatchesFormat()</code></tt>, предоставленном PHPUnit.</dd>
+</dl>
+<p>Пример:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ExampleTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+<span class="p">{</span>
+    <span class="k">use</span> <span class="nx">\Symfony\Component\VarDumper\Test\VarDumperTestTrait</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testWithDumpEquals</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$testedVar</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+
+        <span class="nv">$expectedDump</span> <span class="o">=</span> <span class="s">&lt;&lt;&lt;</span><span class="dl">EOTXT</span><span class="s"></span>
+<span class="s">array:2 [</span>
+<span class="s">  0 =&gt; 123</span>
+<span class="s">  1 =&gt; &quot;foo&quot;</span>
+<span class="s">]</span>
+<span class="dl">EOTXT</span><span class="p">;</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertDumpEquals</span><span class="p">(</span><span class="nv">$expectedDump</span><span class="p">,</span> <span class="nv">$testedVar</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+        <span class="c1">// если первый аругмент - строка, он должен быть всем ожидаемым сбросом</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertDumpEquals</span><span class="p">(</span><span class="nv">$expectedDump</span><span class="p">,</span> <span class="nv">$testedVar</span><span class="p">);</span>
+
+        <span class="c1">// если первый аргумент - не строка, assertDumpEquals() сбрасывает его,</span>
+        <span class="c1">// и сопоставляет со сбросом второго аргумента</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertDumpEquals</span><span class="p">(</span><span class="nv">$testedVar</span><span class="p">,</span> <span class="nv">$testedVar</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Возможность передачи нестроковых переменных в качестве первого аргумента
+<tt class="docutils literal"><code>assertDumpEquals()</code></tt> была представлена в Symfony 4.1.</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Примеры сброса и вывод<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Для простых переменных, чтение вывода должно быть прямолинейным. Вот
+некоторые примеры, отображающие первую переменную, определённую в PHP,
+а потом его представление сброса:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$var</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;a simple string&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;in an array of 5 elements&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;a float&#39;</span> <span class="o">=&gt;</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="s1">&#39;an integer&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;a boolean&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="s1">&#39;an empty array&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(),</span>
+<span class="p">);</span>
+<span class="nx">dump</span><span class="p">(</span><span class="nv">$var</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<img alt="../_images/01-simple.png" src="..\_images\01-simple.png">
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Серая стрелка - это кнопка переключателя для показа / скрытия
+детей встроенных структур.</p>
+</div></div>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$var</span> <span class="o">=</span> <span class="s2">&quot;Это многострочная строка.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="nv">$var</span> <span class="o">.=</span> <span class="s2">&quot;Наведение на строку показывает её длину.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="nv">$var</span> <span class="o">.=</span> <span class="s2">&quot;Длина UTF-8 строк считается в рамках символов UTF-8.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="nv">$var</span> <span class="o">.=</span> <span class="s2">&quot;Длина не-UTF-8 строк считается октетами.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="nv">$var</span> <span class="o">.=</span> <span class="s2">&quot;Из-за этого `</span><span class="se">\xE9</span><span class="s2">` октет (</span><span class="se">\\</span><span class="s2">xE9),</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="nv">$var</span> <span class="o">.=</span> <span class="s2">&quot;Эта строка не UTF-8 валидна,  поэтому `b` prefix.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="nx">dump</span><span class="p">(</span><span class="nv">$var</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<img alt="../_images/02-multi-line-str.png" src="..\_images\02-multi-line-str.png">
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PropertyExample</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$publicProperty</span> <span class="o">=</span> <span class="s1">&#39;The `+` prefix denotes public properties,&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$protectedProperty</span> <span class="o">=</span> <span class="s1">&#39;`#` protected ones and `-` private ones.&#39;</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$privateProperty</span> <span class="o">=</span> <span class="s1">&#39;Hovering a property shows a reminder.&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$var</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PropertyExample</span><span class="p">();</span>
+<span class="nx">dump</span><span class="p">(</span><span class="nv">$var</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<img alt="../_images/03-object.png" src="..\_images\03-object.png">
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last"><cite>#14</cite> это внутренний объект для обработки. Он позволяет сранвивать два
+последовательных сброса одного и того же объекта.</p>
+</div></div>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DynamicPropertyExample</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$declaredProperty</span> <span class="o">=</span> <span class="s1">&#39;Это свойство объявлено в определении класса&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$var</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DynamicPropertyExample</span><span class="p">();</span>
+<span class="nv">$var</span><span class="o">-&gt;</span><span class="na">undeclaredProperty</span> <span class="o">=</span> <span class="s1">&#39;Runtime added dynamic properties have `&quot;` around their name.&#39;</span><span class="p">;</span>
+<span class="nx">dump</span><span class="p">(</span><span class="nv">$var</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<img alt="../_images/04-dynamic-property.png" src="..\_images\04-dynamic-property.png">
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ReferenceExample</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$info</span> <span class="o">=</span> <span class="s2">&quot;Цикличные и родственные ссылки отображаются, как `#number`.</span><span class="se">\n</span><span class="s2"> Наведение на них выделяет все экземпляры в одном сбросе.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nv">$var</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ReferenceExample</span><span class="p">();</span>
+<span class="nv">$var</span><span class="o">-&gt;</span><span class="na">aCircularReference</span> <span class="o">=</span> <span class="nv">$var</span><span class="p">;</span>
+<span class="nx">dump</span><span class="p">(</span><span class="nv">$var</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<img alt="../_images/05-soft-ref.png" src="..\_images\05-soft-ref.png">
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$var</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ErrorException</span><span class="p">(</span>
+    <span class="s2">&quot;Для некоторых объектов свойства имеют специальные значения,</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="o">.</span><span class="s2">&quot;которые лучше всего отображаются в виде ограничений, вроде</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="o">.</span><span class="s2">&quot;`severity` ниже. Наведение на них отображает значение (`2`).</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="k">E_WARNING</span>
+<span class="p">);</span>
+<span class="nx">dump</span><span class="p">(</span><span class="nv">$var</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<img alt="../_images/06-constants.png" src="..\_images\06-constants.png">
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$var</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+<span class="nv">$var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nv">$var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=&amp;</span> <span class="nv">$var</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nv">$var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nv">$var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;Hard references (circular or sibling)&quot;</span><span class="p">);</span>
+<span class="nv">$var</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=&amp;</span> <span class="nv">$var</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="nv">$var</span><span class="p">[</span><span class="mi">3</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;are dumped using `&amp;number` prefixes.&quot;</span><span class="p">;</span>
+<span class="nx">dump</span><span class="p">(</span><span class="nv">$var</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<img alt="../_images/07-hard-ref.png" src="..\_images\07-hard-ref.png">
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$var</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ArrayObject</span><span class="p">();</span>
+<span class="nv">$var</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">&quot;Некоторые источники и специальные объекты, как текущий&quot;</span><span class="p">;</span>
+<span class="nv">$var</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">&quot;иногда лучше всего представить, используя виртуальные&quot;</span><span class="p">;</span>
+<span class="nv">$var</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">&quot;свойства, описывающие их внутреннее сстояние.&quot;</span><span class="p">;</span>
+<span class="nx">dump</span><span class="p">(</span><span class="nv">$var</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<img alt="../_images/08-virtual-property.png" src="..\_images\08-virtual-property.png">
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$var</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AcmeController</span><span class="p">(</span>
+    <span class="s2">&quot;Когда сброс превышает максимальный лимит объектов,</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="o">.</span><span class="s2">&quot;или когда встречаются специальные объекты,</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="o">.</span><span class="s2">&quot;дети могут быть заменены эллипсами и</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="o">.</span><span class="s2">&quot;опционально иметь число, которое сообщает как</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="o">.</span><span class="s2">&quot;и сколько было удалено; В этом случае `9`.</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="p">);</span>
+<span class="nx">dump</span><span class="p">(</span><span class="nv">$var</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<img alt="../_images/09-cut.png" src="..\_images\09-cut.png">
+</div>
+<div class="section" id="id4">
+<h2>Узнать больше<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="var_dumper\advanced.html">Advanced Usage of the VarDumper Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="var_dumper/advanced-ru.html">Продвинутое использование компонента VarDumper</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="validator-ru.html">« Компонент Validator</a>
+                <span class="separator">|</span>
+                <a href="workflow-ru.html">Компонент Workflow »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

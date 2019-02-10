@@ -1,0 +1,804 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Наше обещание обратной совместимости &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="contributing doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Наше обещание обратной совместимости</a><ul>
+<li><a class="reference internal" href="#symfony">Использование кода Symfony</a><ul>
+<li><a class="reference internal" href="#id2">Использование наших интерфейсов</a></li>
+<li><a class="reference internal" href="#id3">Использование наших классов</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4">Работа над кодом Symfony</a><ul>
+<li><a class="reference internal" href="#id5">Изменение интерфейсов</a></li>
+<li><a class="reference internal" href="#id10">Изменение классов</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li class="active">Наше обещание обратной совместимости</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>Наше обещание обратной совместимости<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Гарантирование плавного обновления ваших проектов является нашим главным приоритетом.
+Поэтому мы обещаем вам обратную совместимость (ОС) для всех небольших релизов Symfony.
+Вы скорее всего знаете эту стратегию, как <a class="reference external" href="http://semver.org/">Семантическое версионирование</a>. Кратко говоря,
+Семантическое версионирование означает, что только крупные релизы (вроде 2.0, 3.0 и т.д.)
+могут нарушать обратную совместимость. Небольшие релизы (вроде 2.5, 2.6 и т.д.) могут
+представлять новые функции, но должны делать это не нарушая существующий API этой ветки
+релиза (в предыдущем примере - 2.x).</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Это обещание было представлено в Symfony 2.3 и не применяется к предыдущим версиям
+Symfony.</p>
+</div></div>
+<p>Однако, обратная совместимость имеет множество разных форм. На самом деле, почти
+каждое изменение, которое мы делаем в фреймворке, может потенциально сломать приложение.
+Например, если мы добавим новый метод в класс, это сломает приложение, которое
+расширяло этот класс и добавляло тот же метод, но с другой подписью метода.</p>
+<p>Также, не каждая ОС имеет одинаковое влияние на код приложения. В то время, как
+некоторые поломки ОС требуют существенных изменений в ваших классах или архитектуре,
+другие исправляются простым изменением имени метода.</p>
+<p>Поэтому мы создали эту страницу для вас. Раздел &quot;Использование кода Symfony&quot;
+расскажет вам о том, как вы можете гарантировать, что ваше приложение не сломается
+полностью при обновлении на более новую версию одной ветки большого релиза.</p>
+<p>Второй раздел, &quot;Работа над кодом Symfony&quot;, направлена на вкладчиков Symfony. Этот
+раздел печисляет подробные правила, которым дожен следовать каждый вкладчик, чтобы
+гарантировать плавные обновления для наших пользователей.</p>
+<div class="admonition-wrapper">
+<div class="warning"></div><div class="admonition admonition-warning"><p class="first admonition-title">Warning</p>
+<p><a class="reference internal" href="experimental.html"><em>Экспериментальные функции</em></a> и код,
+маркированный тегами <tt class="docutils literal"><code>&#64;internal</code></tt>, исключаются из нашего обещания обратной
+совместимости.</p>
+<p class="last">Также отметьте, что нарушения обратной совместимости прощаются, если они
+необходимы для починки проблемы безопасности.</p>
+</div></div>
+<div class="section" id="symfony">
+<h2>Использование кода Symfony<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h2>
+<p>Если вы используете Symfony в ваших проектах, то следующие правила помогут
+вам гарантировать плавные обновления до всех небольших релизов вашей версии
+Symfony.</p>
+<div class="section" id="id2">
+<h3>Использование наших интерфейсов<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Все интерфейсы, поставляющиеся с Symfony могут быть использованы в типизации. Вы
+также можете вызвать любой из заявленных ими методов. Мы гарантируем,что это не
+сломает код, следующий этим правилам.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Исключением из этого правила являются интерфейсы, тегированные <tt class="docutils literal"><code>&#64;internal</code></tt>. Такие
+интерфейсы не должны быть использованы или реализованы.</p>
+</div></div>
+<p>Если вы реализуете интерфейс, мы обещаем, что никогда не сломаем ваш код.</p>
+<p>Следующая таблица в деталях объясняет, какие случаи использования охватываются
+нашим обещанием обратной совместимости:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="62%">
+<col width="38%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Случай использования</th>
+<th class="head">Обратная совместимость</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Если вы...</strong></td>
+<td><strong>То мы гарантируем ОС...</strong></td>
+</tr>
+<tr class="row-odd"><td>Типизируете в интерфейсе</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Вызываете метод</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td><strong>Если вы реализуете интерфейс и...</strong></td>
+<td><strong>То мы гарантируем ОС...</strong></td>
+</tr>
+<tr class="row-even"><td>Реализуете метод</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Добавляете аргумент в реализованный метод</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Добавляете значение по умолчанию в аргумент</td>
+<td>Да</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h3>Использование наших классов<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Все классы, предоставленные Symfony могут быть инстанциированы и доступны через их
+публичные методы и свойства.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Классы, свойства и методы, которые хранят тег <tt class="docutils literal"><code>&#64;internal</code></tt>, а также классы,
+расположенные в различных пространствах имён <tt class="docutils literal"><code>*\\Tests\\</code></tt> являются исключением
+из этого правила. Они предназначены только для внутреннего использования и не
+должны быть доступны из вашего собственного кода.</p>
+</div></div>
+<p>Чтобы перестраховаться, просмотрите следующую таблицу, чтобы знать, какие случаи
+использования охватываются нашим обещанием обратной совместимости:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="62%">
+<col width="38%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Случай использования</th>
+<th class="head">Обратная совместимость</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Если вы...</strong></td>
+<td><strong>То мы гаранируем ОС...</strong></td>
+</tr>
+<tr class="row-odd"><td>Типизириуете в классе</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Создаёте новый экземпляр</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Расширяете класс</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Получаете доступ к публичному свойству</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Вызываете публичный метод</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td><strong>Если вы расширяете класс и...</strong></td>
+<td><strong>То мы гаранируем ОС...</strong></td>
+</tr>
+<tr class="row-odd"><td>Получаете доступ к защищённому свойству</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Вызываете защищённый метод</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Переопределяете публичное свойство</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Переопределяете защищённое свойство</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Переопределяете публичный метод</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Переопределяете защищённый метод</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Добавляете новое свойство</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td>Добавляете новый метод</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Добавляете аргумен к переопределённому методу</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Добалвяете к аргументу значение по умолчанию</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Вызываете приватный метод (через Reflection)</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td>Получаете доступ к частному свойству
+(через Reflection)</td>
+<td>Нет</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Работа над кодом Symfony<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Вы хотите помочь нам улучшить Symfony? Это прекрасно! Однако, пожалуйста,
+придерживайтесь правил, перечисленных ниже, чтобы гаранировать плавные
+обновления для наших пользователей.</p>
+<div class="section" id="id5">
+<h3>Изменение интерфейсов<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Эта таблица сообщает вам, какие изменения вам можно делать при работе с
+интерфейсами Symfony:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="71%">
+<col width="29%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Тип изменения</th>
+<th class="head">Изменение разрешено</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Удалить полностью</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Изменить имя или пространство имён</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td>Добавить родительский интерфейс</td>
+<td>Да  <a class="footnote-reference" href="#id53" id="id6">[2]</a></td>
+</tr>
+<tr class="row-odd"><td>Удалить родительский интерфейс</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td><strong>Методы</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Добавить метод</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td>Удалить метод</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Изменить имя</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td>Переместить родительский интерфейс</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Добавить аргумент без значения по умолчанию</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td>Добавить аргумент со значением по умолчанию</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Удалить аргумент</td>
+<td>Да  <a class="footnote-reference" href="#id54" id="id7">[3]</a></td>
+</tr>
+<tr class="row-even"><td>Добавить значение по умолчанию к аргументу</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Удалить значение по умолчанию из аргумента</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td>Добавить типизирование к аргументу</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Удалить типизирование аргумента</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td>Изменить тип аргумента</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Изменить тип возврата</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td><strong>Константы</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Добавить константу</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Удалить константу</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Изменить значение константы</td>
+<td>Да  <a class="footnote-reference" href="#id52" id="id8">[1]</a> <a class="footnote-reference" href="#id56" id="id9">[5]</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h3>Изменение классов<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Эта таблица расскажет вамо том, какие изменения разрешены при работе с
+классами Symfony:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="72%">
+<col width="28%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Тип изменения</th>
+<th class="head">Изменение разрешено</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Удалить полностью</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Сделать финальным</td>
+<td>Нет <a class="footnote-reference" href="#id57" id="id11">[6]</a></td>
+</tr>
+<tr class="row-even"><td>Сделать абстрактным</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Изменить имя или пространство имён</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td>Изменить родительский класс</td>
+<td>Да <a class="footnote-reference" href="#id55" id="id12">[4]</a></td>
+</tr>
+<tr class="row-odd"><td>Добавить интерфейс</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Удалить интерфейс</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td><strong>Публичные свойства</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Добавить публичное свойство</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Удалить публичное свойство</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id13">[7]</a></td>
+</tr>
+<tr class="row-even"><td>Уменьшить видимость</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id14">[7]</a></td>
+</tr>
+<tr class="row-odd"><td>Переместить в родительский класс</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td><strong>Защищённые свойства</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Добавить защищённое свойство</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Удалить защищённое свойство</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Уменьшить видимость</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td>Переместить в родительский класс</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td><strong>Приватные свойства</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Добавить приватное свойство</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Удалить приватное свойство</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td><strong>Конструкторы</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Добавить конструктор без обязательных аргументов</td>
+<td>Да <a class="footnote-reference" href="#id52" id="id15">[1]</a></td>
+</tr>
+<tr class="row-even"><td>Удалить конструктор</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Уменьшить видимость публичного конструктора</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td>Уменьшить видимость защищённого конструктора</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id16">[7]</a></td>
+</tr>
+<tr class="row-odd"><td>Переместить в родительский класс</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td><strong>Публичные методы</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Добавить публичный метод</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Удалить публичный метод</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Изменить имя</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td>Уменьшить видимость</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Переместить в родительский класс</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td>Добавить аргумент без значения по умолчанию</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Добавить аргумент со значением по умолчанию</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id17">[7]</a> <a class="footnote-reference" href="#id59" id="id18">[8]</a></td>
+</tr>
+<tr class="row-even"><td>Удалить аргумент</td>
+<td>Да <a class="footnote-reference" href="#id54" id="id19">[3]</a></td>
+</tr>
+<tr class="row-odd"><td>Добавить к аргументу значение по умолчанию</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id20">[7]</a> <a class="footnote-reference" href="#id59" id="id21">[8]</a></td>
+</tr>
+<tr class="row-even"><td>Удалить из аргумента значение по умолчанию</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Добавить типизрование к аргументу</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id22">[7]</a> <a class="footnote-reference" href="#id59" id="id23">[8]</a></td>
+</tr>
+<tr class="row-even"><td>Удалить типизирование из аргумента</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id24">[7]</a> <a class="footnote-reference" href="#id59" id="id25">[8]</a></td>
+</tr>
+<tr class="row-odd"><td>Изменить тип аргумента</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id26">[7]</a> <a class="footnote-reference" href="#id59" id="id27">[8]</a></td>
+</tr>
+<tr class="row-even"><td>Изменить тип возврата</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id28">[7]</a> <a class="footnote-reference" href="#id59" id="id29">[8]</a></td>
+</tr>
+<tr class="row-odd"><td><strong>Защищённые методы</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Добавить защищённый метод</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Удалить защищённый метод</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id30">[7]</a></td>
+</tr>
+<tr class="row-even"><td>Изменить имя</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id31">[7]</a></td>
+</tr>
+<tr class="row-odd"><td>Уменьшить видимость</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id32">[7]</a></td>
+</tr>
+<tr class="row-even"><td>Переместить в родительский класс</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Добавить аргумент без значения по умолчанию</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id33">[7]</a></td>
+</tr>
+<tr class="row-even"><td>Добавить аргумент со значением по умолчанию</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id34">[7]</a> <a class="footnote-reference" href="#id59" id="id35">[8]</a></td>
+</tr>
+<tr class="row-odd"><td>Удалить аргумент</td>
+<td>Да <a class="footnote-reference" href="#id54" id="id36">[3]</a></td>
+</tr>
+<tr class="row-even"><td>Добавить к аргументу значение по умолчанию</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id37">[7]</a> <a class="footnote-reference" href="#id59" id="id38">[8]</a></td>
+</tr>
+<tr class="row-odd"><td>Удалить из аргумента значение по умолчанию</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id39">[7]</a></td>
+</tr>
+<tr class="row-even"><td>Добавить типизрование к аргументу</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id40">[7]</a> <a class="footnote-reference" href="#id59" id="id41">[8]</a></td>
+</tr>
+<tr class="row-odd"><td>Удалить типизирование из аргумента</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id42">[7]</a> <a class="footnote-reference" href="#id59" id="id43">[8]</a></td>
+</tr>
+<tr class="row-even"><td>Изменить тип аргумента</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id44">[7]</a> <a class="footnote-reference" href="#id59" id="id45">[8]</a></td>
+</tr>
+<tr class="row-odd"><td>Изменить тип возврата</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id46">[7]</a> <a class="footnote-reference" href="#id59" id="id47">[8]</a></td>
+</tr>
+<tr class="row-even"><td><strong>Приватные методы</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Добавить приватный метод</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Удалить приватный метод</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Изменить имя</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Добавить аргумент без значения по умолчанию</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Добавить аргумент со значением по умолчанию</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Удалить аргумент</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Добавить к аргументу значение по умолчанию</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Удалить из аргумента значение по умолчанию</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Добавить типизрование к аргументу</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Удалить типизирование из аргумента</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td>Изменить тип аргумента</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Изменить тип возврата</td>
+<td>Да</td>
+</tr>
+<tr class="row-odd"><td><strong>Статичные методы</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Превратить нестатичный в статичный</td>
+<td>Нет <a class="footnote-reference" href="#id58" id="id48">[7]</a> <a class="footnote-reference" href="#id59" id="id49">[8]</a></td>
+</tr>
+<tr class="row-odd"><td>Превратить статичный в нестатичный</td>
+<td>Нет</td>
+</tr>
+<tr class="row-even"><td><strong>Константы</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Добавить константу</td>
+<td>Да</td>
+</tr>
+<tr class="row-even"><td>Удалить константу</td>
+<td>Нет</td>
+</tr>
+<tr class="row-odd"><td>Изменить значение константы</td>
+<td>Да <a class="footnote-reference" href="#id52" id="id50">[1]</a> <a class="footnote-reference" href="#id56" id="id51">[5]</a></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id52" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id8">1</a>, <a class="fn-backref" href="#id15">2</a>, <a class="fn-backref" href="#id50">3</a>)</em> Стоит избегать. Если же изменение сделано, оно должно быть
+задокументировано в файле UPGRADE.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id53" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[2]</a></td><td>Добавленный родительский интерфейс не должен представлять никаких
+новых методов, не существующих в интерфейсе ранее.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id54" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id7">1</a>, <a class="fn-backref" href="#id19">2</a>, <a class="fn-backref" href="#id36">3</a>)</em> Только последний(ие) арумент(ы) метода могут быть удалены, так как
+PHP не волнуют дополнительные аргументы, которые вы передаёте методу.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id55" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id12">[4]</a></td><td>При изменении родительского класса, исходные родительский класс должен
+оставаться предшественником класса.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id56" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label">[5]</td><td><em>(<a class="fn-backref" href="#id9">1</a>, <a class="fn-backref" href="#id51">2</a>)</em> Значение константы может быть изменено только когда константы не
+используют в конфигурации (например, файлах Yaml и XML), так как они
+не поддерживают константы и должны жёстко кодировать значение. Например,
+константы имён событий не могут изменять значение без поломки ОС. Кроме
+того, если константа будет скорее всего использована в сериализованных
+объектах, значение константы не должно быть изменено.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id57" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id11">[6]</a></td><td>Позволено использование аннотации <tt class="docutils literal"><code>&#64;final</code></tt>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id58" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label">[7]</td><td><em>(<a class="fn-backref" href="#id13">1</a>, <a class="fn-backref" href="#id14">2</a>, <a class="fn-backref" href="#id16">3</a>, <a class="fn-backref" href="#id17">4</a>, <a class="fn-backref" href="#id20">5</a>, <a class="fn-backref" href="#id22">6</a>, <a class="fn-backref" href="#id24">7</a>, <a class="fn-backref" href="#id26">8</a>, <a class="fn-backref" href="#id28">9</a>, <a class="fn-backref" href="#id30">10</a>, <a class="fn-backref" href="#id31">11</a>, <a class="fn-backref" href="#id32">12</a>, <a class="fn-backref" href="#id33">13</a>, <a class="fn-backref" href="#id34">14</a>, <a class="fn-backref" href="#id37">15</a>, <a class="fn-backref" href="#id39">16</a>, <a class="fn-backref" href="#id40">17</a>, <a class="fn-backref" href="#id42">18</a>, <a class="fn-backref" href="#id44">19</a>, <a class="fn-backref" href="#id46">20</a>, <a class="fn-backref" href="#id48">21</a>)</em> Разрешено, если класс финальный. Классы, получившие аннотацию <tt class="docutils literal"><code>&#64;final</code></tt>
+после своего первого релиза, считаются финмальными в следующей полноценной
+версии.
+Изменение типа аргумента возможно только с родительским типом.
+Изменение типа возврата возможно только с дочерним типом.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id59" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label">[8]</td><td><em>(<a class="fn-backref" href="#id18">1</a>, <a class="fn-backref" href="#id21">2</a>, <a class="fn-backref" href="#id23">3</a>, <a class="fn-backref" href="#id25">4</a>, <a class="fn-backref" href="#id27">5</a>, <a class="fn-backref" href="#id29">6</a>, <a class="fn-backref" href="#id35">7</a>, <a class="fn-backref" href="#id38">8</a>, <a class="fn-backref" href="#id41">9</a>, <a class="fn-backref" href="#id43">10</a>, <a class="fn-backref" href="#id45">11</a>, <a class="fn-backref" href="#id47">12</a>, <a class="fn-backref" href="#id49">13</a>)</em> Разрешено, если метод финальный. Метод, получивший <tt class="docutils literal"><code>&#64;final</code></tt>
+после своего первого релиза, считается финмальным в следующей полноценной
+версии.
+Изменение типа аргумента возможно только с родительским типом.
+Изменение типа возврата возможно только с дочерним типом.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

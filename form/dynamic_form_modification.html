@@ -1,0 +1,1222 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как динамически модифицировать формы, используя события форм &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Forms" href="..\forms.html">
+    <link rel="next" title="How to Embed Forms" href="embedded.html">
+    <link rel="prev" title="How to Dynamically Modify Forms Using Form Events" href="dynamic_form_modification.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="form doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как динамически модифицировать формы, используя события форм</a><ul>
+<li><a class="reference internal" href="#form-events-underlying-data-ru">Настройка вашей формы, основанная на базовых данных</a><ul>
+<li><a class="reference internal" href="#id3">Добавление слушателя событий к классу формы</a></li>
+<li><a class="reference internal" href="#id4">Добавление подписика событий в класс формы</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#form-events-user-data-ru">Как динамически генерировать формы, основываясь на пользовательских данных</a><ul>
+<li><a class="reference internal" href="#id6">Создание типа формы</a></li>
+<li><a class="reference internal" href="#id7">Настройка типа формы</a></li>
+<li><a class="reference internal" href="#id8">Использование формы</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#form-events-submitted-data-ru">Динамическое генерирование для отправленной формы</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\forms.html">Forms</a></li>
+                
+                <li class="active">Как динамически модифицировать формы, используя события форм</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как динамически модифицировать формы, используя события форм<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Зачастую, форма не может быть создана статичной. В этой статье, вы узнаете,
+как настроить вашу форму, основываясь на трёх распространённых случаях использования:</p>
+<ol class="arabic">
+<li><p class="first"><a class="reference internal" href="dynamic_form_modification.html#form-events-underlying-data"><span>Customizing your Form Based on the Underlying Data</span></a></p>
+<blockquote>
+<div><p>Пример: у вас есть форма &quot;Продукт&quot; и потребность изменить/добавить/
+удалить поле, основываясь на данных основного продукта, который редактируется.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="dynamic_form_modification.html#form-events-user-data"><span>How to dynamically Generate Forms Based on user Data</span></a></p>
+<p>Пример: вы создали форму &quot;Сообщение другу&quot; и хотите построить выпадающее меню,
+которое содержит только пользователей, которые являются друзьями <em>текущего</em>
+аутентифицированного пользователя.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="dynamic_form_modification.html#form-events-submitted-data"><span>Dynamic Generation for Submitted Forms</span></a></p>
+<p>Пример: в форме регистрации, у вас есть поле &quot;страна&quot; и поле &quot;город&quot;, которое
+должно динамически изменяться, в зависимости от значения в поле &quot;страна&quot;.</p>
+</li>
+</ol>
+<p>Если вы хотите узнать больше об основах, стоящих за событиями форм, вы
+можете посмотреть документацию <a class="reference internal" href="events.html"><em>События форм</em></a>.</p>
+<div class="section" id="form-events-underlying-data-ru">
+<span id="id2"></span><h2>Настройка вашей формы, основанная на базовых данных<a class="headerlink" href="#form-events-underlying-data-ru" title="Permalink to this headline">¶</a></h2>
+<p>Перед тем, как начать генерирование динамической формы, вспомните,
+как выглядит голый класс формы:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/Type/ProductType.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form\Type</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Entity\Product</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\AbstractType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormBuilderInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\OptionsResolver\OptionsResolver</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ProductType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;data_class&#39;</span> <span class="o">=&gt;</span> <span class="nx">Product</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если эта часть кода не выглядит знакомой, то вам скорее всего нужно вернуться
+на шаг назад и перечитать <a class="reference internal" href="..\forms.html"><em>статью Формы</em></a> перед тем, как продолжать.</p>
+</div></div>
+<p>На минуту предположите, что эта форма использует воображаемый класс &quot;Продукт&quot;,
+который имеет только два свойства (&quot;имя&quot; и &quot;цена&quot;). Форма, сгенерированная из
+этого класса, будетвыглядеть абсолютно одинаково, независимо от того, был ли
+создан новый Продукт или редактируется старый (например, продукт, полученный из БД).</p>
+<p>Теперь предположите, что вы не хотите, чтобы пользователь могу изменять значение
+<tt class="docutils literal"><code>name</code></tt>, когда объект уже был создан. Чтобы сделать это, вы можете положиться на
+систему Symfony
+<a class="reference internal" href="..\components\event_dispatcher.html"><em>компонент Диспетчер событий (EventDispatcher)</em></a>,
+чтобы проанализировать данные в объекте и изменить форму, основываясь на данных объекта
+Продукт. В этой статье вы узнаете, как добавлять этот уровень гибкости к вашим формам.</p>
+<div class="section" id="id3">
+<h3>Добавление слушателя событий к классу формы<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Итак, вмето того, чтобы напрямую добавить виджет <tt class="docutils literal"><code>name</code></tt>, ответственность за
+создание этого конкретного поля делегируется слушателю событий:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/Type/ProductType.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form\Type</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormEvent</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormEvents</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ProductType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">);</span>
+
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">addEventListener</span><span class="p">(</span><span class="nx">FormEvents</span><span class="o">::</span><span class="na">PRE_SET_DATA</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">FormEvent</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// ... добавлеие имени поля при необходимости</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Целью является создание поля <tt class="docutils literal"><code>name</code></tt> <em>только</em> в случае, если базовый объект
+<tt class="docutils literal"><code>Product</code></tt> - новый (например, не был сохранён в БД). Основываясь на этом,
+слушатель событий может выглядеть следующим образом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">addEventListener</span><span class="p">(</span><span class="nx">FormEvents</span><span class="o">::</span><span class="na">PRE_SET_DATA</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">FormEvent</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$product</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
+        <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getForm</span><span class="p">();</span>
+
+        <span class="c1">// проверяет, является ли объект Продукт &quot;новым&quot;</span>
+        <span class="c1">// Если в форму не были переданы данные, то данные - &quot;null&quot;.</span>
+        <span class="c1">// Это должно быть воспринято, как новый &quot;Продукт&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$product</span> <span class="o">||</span> <span class="k">null</span> <span class="o">===</span> <span class="nv">$product</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">())</span> <span class="p">{</span>
+            <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Строчка <tt class="docutils literal"><code>FormEvents::PRE_SET_DATA</code></tt> на самом деле разрешает строку
+<tt class="docutils literal"><code>form.pre_set_data</code></tt>. <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Form/FormEvents.html" title="Symfony\Component\Form\FormEvents">FormEvents</a></code></tt>
+служит в целях организации. Это централизованная локация, в которой
+вы можете найти все доступные виды событий форм. Вы можете просмотреть
+полный список событий форм, с помощью класса <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Form/FormEvents.html" title="Symfony\Component\Form\FormEvents">FormEvents</a></code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="id4">
+<h3>Добавление подписика событий в класс формы<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Для улучшения повторного использования или при наличии тяжелой логики в вашем
+слушателе событий, вы также можете переместить логику для создания поля <tt class="docutils literal"><code>name</code></tt>
+в <a class="reference internal" href="..\components\event_dispatcher.html#event-dispatcher-using-event-subscribers"><span>подписчик событий</span></a>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/EventListener/AddNameFieldSubscriber.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form\EventListener</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormEvent</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormEvents</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\EventDispatcher\EventSubscriberInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextType</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AddNameFieldSubscriber</span> <span class="k">implements</span> <span class="nx">EventSubscriberInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getSubscribedEvents</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Сообщает диспетчеру, что вы хотите слушать событие form.pre_set_data</span>
+        <span class="c1">// и что должен быть вызван метод preSetData.</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span><span class="nx">FormEvents</span><span class="o">::</span><span class="na">PRE_SET_DATA</span> <span class="o">=&gt;</span> <span class="s1">&#39;preSetData&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">preSetData</span><span class="p">(</span><span class="nx">FormEvent</span> <span class="nv">$event</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$product</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
+        <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getForm</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$product</span> <span class="o">||</span> <span class="k">null</span> <span class="o">===</span> <span class="nv">$product</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">())</span> <span class="p">{</span>
+            <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>ОТлично! Теперь используйте это в вашем классе формы:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/Type/ProductType.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form\Type</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">App\Form\EventListener\AddNameFieldSubscriber</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ProductType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">);</span>
+
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">addEventSubscriber</span><span class="p">(</span><span class="k">new</span> <span class="nx">AddNameFieldSubscriber</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="form-events-user-data-ru">
+<span id="id5"></span><h2>Как динамически генерировать формы, основываясь на пользовательских данных<a class="headerlink" href="#form-events-user-data-ru" title="Permalink to this headline">¶</a></h2>
+<p>Иногда вам может захотеться, чтобы форма была сгенерирована динамически основываясь
+не только на данных из формы, но и на чём-то ещё - например, данных от текущего
+пользователя. Представьте, что у вас есть социальный веб-сайт, где пользовать может
+отправлять сообщения только людям, отмеченным, как друзья на сайте. В этом случае,
+&quot;список избранных&quot;, которым можно написать, должен содержать только пользователей,
+которые являются друзьями текущего пользователя.</p>
+<div class="section" id="id6">
+<h3>Создание типа формы<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>С использованием слушателя событий, ваша форма может выглядеть так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/Type/FriendMessageFormType.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form\Type</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\AbstractType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormBuilderInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormEvents</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormEvent</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextareaType</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">FriendMessageFormType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">,</span> <span class="nx">TextareaType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="p">;</span>
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">addEventListener</span><span class="p">(</span><span class="nx">FormEvents</span><span class="o">::</span><span class="na">PRE_SET_DATA</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">FormEvent</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// ... добавьте сптсок выбранных друзей текущего пользователя приложения</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь проблема в том, чтобы получить текущего пользователя и создать поле
+выбора, которое содержит только друзей пользователя.</p>
+<p>К счастью, достаточно просто внедрить сервис внутри формы. Это можно сделать
+в конструкторе:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">private</span> <span class="nv">$tokenStorage</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">TokenStorageInterface</span> <span class="nv">$tokenStorage</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tokenStorage</span> <span class="o">=</span> <span class="nv">$tokenStorage</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вам может быть интересно, почему теперь, когда у вас есть доступ к пользователю
+(через токен хранилища), вы не можете просто использовать его напрямую в <tt class="docutils literal"><code>buildForm()</code></tt>
+и опустить слушателя событий? Потому что сделав так в методе <tt class="docutils literal"><code>buildForm()</code></tt>, вы
+придёте к тому, что весь тип формы будет изменён, а не только один экземпляр формы.
+Обычно это может не стать проблемой, но чисто технически, один тип формы можеть быть
+использован по одному запросу для создания многих форм или полей.</p>
+</div></div>
+</div>
+<div class="section" id="id7">
+<h3>Настройка типа формы<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Теперь, когда у вас есть всё основное, вы можете воспользоваться преимуществами
+<tt class="docutils literal"><code>TokenStorageInterface</code></tt> и заполнить логику слушателя:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/Type/FriendMessageFormType.php</span>
+
+<span class="k">use</span> <span class="nx">App\Entity\User</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\ORM\EntityRepository</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Bridge\Doctrine\Form\Type\EntityType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextareaType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="k">class</span> <span class="nc">FriendMessageFormType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$tokenStorage</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">TokenStorageInterface</span> <span class="nv">$tokenStorage</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tokenStorage</span> <span class="o">=</span> <span class="nv">$tokenStorage</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">,</span> <span class="nx">TextareaType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+        <span class="p">;</span>
+
+        <span class="c1">// возьмите пользователя и проведите быструю проверку на предмет его существовани</span>
+        <span class="nv">$user</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tokenStorage</span><span class="o">-&gt;</span><span class="na">getToken</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getUser</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">\LogicException</span><span class="p">(</span>
+                <span class="s1">&#39;The FriendMessageFormType cannot be used without an authenticated user!&#39;</span>
+            <span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">addEventListener</span><span class="p">(</span>
+            <span class="nx">FormEvents</span><span class="o">::</span><span class="na">PRE_SET_DATA</span><span class="p">,</span>
+            <span class="k">function</span> <span class="p">(</span><span class="nx">FormEvent</span> <span class="nv">$event</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getForm</span><span class="p">();</span>
+
+                <span class="nv">$formOptions</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+                    <span class="s1">&#39;class&#39;</span>         <span class="o">=&gt;</span> <span class="nx">User</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+                    <span class="s1">&#39;choice_label&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;fullName&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;query_builder&#39;</span> <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">(</span><span class="nx">EntityRepository</span> <span class="nv">$er</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="c1">// построить пользовательский запрос</span>
+                        <span class="c1">// вернуть $er-&gt;createQueryBuilder(&#39;u&#39;)-&gt;addOrderBy(&#39;fullName&#39;, &#39;DESC&#39;);</span>
+
+                        <span class="c1">// или вызвать метод в вашем хранилище, который возвращает разработчик запросов</span>
+                        <span class="c1">// $er - экземпляр вашего UserRepository</span>
+                        <span class="c1">// вернуть $er-&gt;createOrderByFullNameQueryBuilder();</span>
+                    <span class="p">},</span>
+                <span class="p">);</span>
+
+                <span class="c1">// создать поле, схожее с $builder-&gt;add()</span>
+                <span class="c1">// имя поля, тип поля, данные, опции</span>
+                <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;friend&#39;</span><span class="p">,</span> <span class="nx">EntityType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nv">$formOptions</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Опции формы <tt class="docutils literal"><code>multiple</code></tt> и <tt class="docutils literal"><code>expanded</code></tt> будут по умолчанию установлены, как
+&quot;false&quot;, потому что тип поля друзья - <tt class="docutils literal"><code>EntityType::class</code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="id8">
+<h3>Использование формы<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Если вы используете <a class="reference internal" href="..\service_container.html#services-autowire"><span>автомонтирование</span></a> и
+<a class="reference internal" href="..\service_container.html#services-autoconfigure"><span>автоконфигурацию</span></a>, то ваша форма готова
+к использованию!</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если вы не используете автомонтирование и автоконфигурацию, смотрите
+<a class="reference internal" href="form_dependencies.html"><em>How to Access Services or Config from Inside a Form</em></a>, чтобы узнать, как зарегистрировать ваш
+тип формы в качестве сервиса.</p>
+</div></div>
+<p>В контроллере, создайте форму, как обычно:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\Controller</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">FriendMessageController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">new</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createForm</span><span class="p">(</span><span class="nx">FriendMessageFormType</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы также можете встроить тип формы в другую форму:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// внутри какого-то другого класса &quot;тип формы&quot;</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nx">FriendMessageFormType</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="form-events-submitted-data-ru">
+<span id="id9"></span><h2>Динамическое генерирование для отправленной формы<a class="headerlink" href="#form-events-submitted-data-ru" title="Permalink to this headline">¶</a></h2>
+<p>Ещё один случай, который может возникнуть, это если вы хотите настроить форму конкретно
+для даных, отправленных пользователем. Например, представьте, что у вас есть форма регистрации
+на спортивные собрания. Некоторые события позволят вам указывать предпочитаемую позицию
+на поле. Это будет, например, поле <tt class="docutils literal"><code>choice</code></tt>. Однако, возможные варианты выбора будут зависеть
+от каждого вида спорта. Футбол будет иметь атаку, защиту, вратаря и т.д. Бейсбол - питчера, но
+не вратаря. Вам нужны будут правильные опции, чтобы провести валидацию.</p>
+<p>Собрание передаётся форме как сущность поля. Так что мы можем получить доступ
+к каждому спорту таким образом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/Type/SportMeetupType.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form\Type</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\AbstractType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormBuilderInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormEvent</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormEvents</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Bridge\Doctrine\Form\Type\EntityType</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="k">class</span> <span class="nc">SportMeetupType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;sport&#39;</span><span class="p">,</span> <span class="nx">EntityType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;class&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;App\Entity\Sport&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;placeholder&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="p">))</span>
+        <span class="p">;</span>
+
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">addEventListener</span><span class="p">(</span>
+            <span class="nx">FormEvents</span><span class="o">::</span><span class="na">PRE_SET_DATA</span><span class="p">,</span>
+            <span class="k">function</span> <span class="p">(</span><span class="nx">FormEvent</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getForm</span><span class="p">();</span>
+
+                <span class="c1">// это будет ваша сущность, т.е. SportMeetup</span>
+                <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
+
+                <span class="nv">$sport</span> <span class="o">=</span> <span class="nv">$data</span><span class="o">-&gt;</span><span class="na">getSport</span><span class="p">();</span>
+                <span class="nv">$positions</span> <span class="o">=</span> <span class="k">null</span> <span class="o">===</span> <span class="nv">$sport</span> <span class="o">?</span> <span class="k">array</span><span class="p">()</span> <span class="o">:</span> <span class="nv">$sport</span><span class="o">-&gt;</span><span class="na">getAvailablePositions</span><span class="p">();</span>
+
+                <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="nx">EntityType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                    <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;App\Entity\Position&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;placeholder&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;choices&#39;</span> <span class="o">=&gt;</span> <span class="nv">$positions</span><span class="p">,</span>
+                <span class="p">));</span>
+            <span class="p">}</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Когда вы создаёте эту форму, чтобы она отображала пользователя впервые,
+этот пример будет работать идеально.</p>
+<p>Однако, всё становится сложнее, когда вы работаете с отправкой формы. Потому
+что событие <tt class="docutils literal"><code>PRE_SET_DATA</code></tt> сообщает нам данные, с которыми вы начинаете
+(например, пустой объект <tt class="docutils literal"><code>SportMeetup</code></tt>), а <em>не</em> отправленные данные.</p>
+<p>В форме мы обычно можем слушать следующие события:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>PRE_SET_DATA</code></tt></li>
+<li><tt class="docutils literal"><code>POST_SET_DATA</code></tt></li>
+<li><tt class="docutils literal"><code>PRE_SUBMIT</code></tt></li>
+<li><tt class="docutils literal"><code>SUBMIT</code></tt></li>
+<li><tt class="docutils literal"><code>POST_SUBMIT</code></tt></li>
+</ul>
+<p>Главное - добавлять слушателя <tt class="docutils literal"><code>POST_SUBMIT</code></tt> в поле, от которого зависит ваше новое
+поле. Если вы добавите слушателя <tt class="docutils literal"><code>POST_SUBMIT</code></tt> в дочернюю форму (например, <tt class="docutils literal"><code>sport</code></tt>),
+и добавите еще дочерние формы к родительской, компонент Формы обнаружит новое поле
+автоматически и свяжет его с отправленными пользовательскими данными.</p>
+<p>Тип будет выглядеть так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/Type/SportMeetupType.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form\Type</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Entity\Sport</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Bridge\Doctrine\Form\Type\EntityType</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="k">class</span> <span class="nc">SportMeetupType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;sport&#39;</span><span class="p">,</span> <span class="nx">EntityType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;class&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;App\Entity\Sport&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;placeholder&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="p">));</span>
+        <span class="p">;</span>
+
+        <span class="nv">$formModifier</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nx">FormInterface</span> <span class="nv">$form</span><span class="p">,</span> <span class="nx">Sport</span> <span class="nv">$sport</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$positions</span> <span class="o">=</span> <span class="k">null</span> <span class="o">===</span> <span class="nv">$sport</span> <span class="o">?</span> <span class="k">array</span><span class="p">()</span> <span class="o">:</span> <span class="nv">$sport</span><span class="o">-&gt;</span><span class="na">getAvailablePositions</span><span class="p">();</span>
+
+            <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="nx">EntityType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;App\Entity\Position&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;placeholder&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;choices&#39;</span> <span class="o">=&gt;</span> <span class="nv">$positions</span><span class="p">,</span>
+            <span class="p">));</span>
+        <span class="p">};</span>
+
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">addEventListener</span><span class="p">(</span>
+            <span class="nx">FormEvents</span><span class="o">::</span><span class="na">PRE_SET_DATA</span><span class="p">,</span>
+            <span class="k">function</span> <span class="p">(</span><span class="nx">FormEvent</span> <span class="nv">$event</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$formModifier</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// Это будет ваша сущность, т.е. SportMeetup</span>
+                <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
+
+                <span class="nv">$formModifier</span><span class="p">(</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getForm</span><span class="p">(),</span> <span class="nv">$data</span><span class="o">-&gt;</span><span class="na">getSport</span><span class="p">());</span>
+            <span class="p">}</span>
+        <span class="p">);</span>
+
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;sport&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">addEventListener</span><span class="p">(</span>
+            <span class="nx">FormEvents</span><span class="o">::</span><span class="na">POST_SUBMIT</span><span class="p">,</span>
+            <span class="k">function</span> <span class="p">(</span><span class="nx">FormEvent</span> <span class="nv">$event</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$formModifier</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// Тут важно вызвать $event-&gt;getForm()-&gt;getData(), так как</span>
+                <span class="c1">// $event-&gt;getData() предоставит вам пользовательские данные (т.е. ID)</span>
+                <span class="nv">$sport</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getForm</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
+
+                <span class="c1">// так как мы добавили слушателя в дочернюю форму, нам нужно передать</span>
+                <span class="c1">// родительской форме функции обратнго вызова!</span>
+                <span class="nv">$formModifier</span><span class="p">(</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getForm</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getParent</span><span class="p">(),</span> <span class="nv">$sport</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы можете увидеть, что вам нужно слушать эти два события и иметь разные обратные
+вызовы только потому, что в двух разных сценариях данные, которые вы можете
+использовать доступны в разных событиях. В отрыве от этого, слушатели всегда
+делают одно и тоже в данной форме.</p>
+<p>Единственное, чего ещё не хватает, это чтобы клиентская сторона обновила вашу
+форму после выбора спорта. Это нужно сделать, заставив AJAX сделать обратный вызов
+в вашем приложении. Представьте, что у вас есть контроллер создания спортивного
+собрания:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Controller/MeetupController.php</span>
+<span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\Controller</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Entity\SportMeetup</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Form\Type\SportMeetupType</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="k">class</span> <span class="nc">MeetupController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$meetup</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SportMeetup</span><span class="p">();</span>
+        <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createForm</span><span class="p">(</span><span class="nx">SportMeetupType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nv">$meetup</span><span class="p">);</span>
+        <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">handleRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isSubmitted</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">())</span> <span class="p">{</span>
+            <span class="c1">// ... сохранить собрание, переадресовать и т.д.</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span>
+            <span class="s1">&#39;meetup/create.html.twig&#39;</span><span class="p">,</span>
+            <span class="k">array</span><span class="p">(</span><span class="s1">&#39;form&#39;</span> <span class="o">=&gt;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">createView</span><span class="p">())</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Ассоциированый шаблон использует JavaScript, чтобы обновить поле формы``position``
+в соответствии с текущим выбором в поле <tt class="docutils literal"><code>sport</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# templates/meetup/create.html.twig #}</span>
+<span class="cp">{{</span> <span class="nv">form_start</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span>
+    <span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.sport</span><span class="o">)</span> <span class="cp">}}</span>    <span class="c">{# &lt;select id=&quot;meetup_sport&quot; ... #}</span>
+    <span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.position</span><span class="o">)</span> <span class="cp">}}</span> <span class="c">{# &lt;select id=&quot;meetup_position&quot; ... #}</span>
+    <span class="c">{# ... #}</span>
+<span class="cp">{{</span> <span class="nv">form_end</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kd">var</span> <span class="nx">$sport</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#meetup_sport&#39;</span><span class="p">);</span>
+<span class="c1">// Когда выбран спорт ...</span>
+<span class="nx">$sport</span><span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// ... вызвать соответствуюущую форму.</span>
+  <span class="kd">var</span> <span class="nx">$form</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">closest</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">);</span>
+  <span class="c1">// Симулировать данные формы, но включать только значение выбранного спорта.</span>
+  <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="nx">data</span><span class="p">[</span><span class="nx">$sport</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="nx">$sport</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
+  <span class="c1">// Отправить данные через AJAX по пути действия формы.</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="nx">url</span> <span class="o">:</span> <span class="nx">$form</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;action&#39;</span><span class="p">),</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="nx">$form</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;method&#39;</span><span class="p">),</span>
+    <span class="nx">data</span> <span class="o">:</span> <span class="nx">data</span><span class="p">,</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Заменить текущую позицию на поле ...</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#meetup_position&#39;</span><span class="p">).</span><span class="nx">replaceWith</span><span class="p">(</span>
+        <span class="c1">// ... той, что вернулась из ответа AJAX.</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nx">html</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;#meetup_position&#39;</span><span class="p">)</span>
+      <span class="p">);</span>
+      <span class="c1">// Теперь поле позиций отображает правильные позиции.</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- templates/meetup/create.html.php --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span><span class="nv">$form</span><span class="p">)</span> <span class="cp">?&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">row</span><span class="p">(</span><span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;sport&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span>    <span class="c">&lt;!-- &lt;select id=&quot;meetup_sport&quot; ... --&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">row</span><span class="p">(</span><span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span> <span class="c">&lt;!-- &lt;select id=&quot;meetup_position&quot; ... --&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">(</span><span class="nv">$form</span><span class="p">)</span> <span class="cp">?&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kd">var</span> <span class="nx">$sport</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#meetup_sport&#39;</span><span class="p">);</span>
+<span class="c1">// Когда выбран спорт ...</span>
+<span class="nx">$sport</span><span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// ... вызвать соответствуюущую форму.</span>
+  <span class="kd">var</span> <span class="nx">$form</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">closest</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">);</span>
+  <span class="c1">// Симулировать данные формы, но включать только значение выбранного спорта.</span>
+  <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="nx">data</span><span class="p">[</span><span class="nx">$sport</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="nx">$sport</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
+  <span class="c1">// Отправить данные через AJAX по пути действия формы.</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="nx">url</span> <span class="o">:</span> <span class="nx">$form</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;action&#39;</span><span class="p">),</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="nx">$form</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;method&#39;</span><span class="p">),</span>
+    <span class="nx">data</span> <span class="o">:</span> <span class="nx">data</span><span class="p">,</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//  Заменить текущую позицию на поле ...</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#meetup_position&#39;</span><span class="p">).</span><span class="nx">replaceWith</span><span class="p">(</span>
+        <span class="c1">// ... той, что вернулась из ответа AJAX.</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nx">html</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;#meetup_position&#39;</span><span class="p">)</span>
+      <span class="p">);</span>
+      <span class="c1">// Теперь поле позиций отображает правильные позиции.</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Главным преимуществом отправки формы целиком, вместо простого извлечения
+обновлённого поля <tt class="docutils literal"><code>position</code></tt>, является то, что не требуется дополнительного
+кода серверской стороны; весь код использованный для генерирования отправленной
+формы выше, можно использовать повторно.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="dynamic_form_modification.html">« How to Dynamically Modify Forms Using Form Events</a>
+                <span class="separator">|</span>
+                <a href="embedded.html">How to Embed Forms »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

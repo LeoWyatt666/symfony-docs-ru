@@ -1,0 +1,557 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Адаптер кеша Memcached &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\..\index.html">
+    <link rel="up" title="Cache Pools and Supported Adapters" href="..\cache_pools.html">
+    <link rel="next" title="PDO &amp; Doctrine DBAL Cache Adapter" href="pdo_doctrine_dbal_adapter.html">
+    <link rel="prev" title="Memcached Cache Adapter" href="memcached_adapter.html">
+
+<link rel="stylesheet" href="..\..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\..\index.html">
+                    <img src="..\..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Адаптер кеша Memcached</a><ul>
+<li><a class="reference internal" href="#id1">Сконфигурируйте соединение</a></li>
+<li><a class="reference internal" href="#id2">Сконфигурируйте опции</a><ul>
+<li><a class="reference internal" href="#id3">Доступные опции</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\..\index.html">Документация</a></li>
+                
+                <li><a href="..\..\index.html">The Components</a></li>
+                
+                <li><a href="..\..\cache.html">The Cache Component</a></li>
+                
+                <li><a href="..\cache_pools.html">Cache Pools and Supported Adapters</a></li>
+                
+                <li class="active">Адаптер кеша Memcached</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="memcached">
+<span id="memcached-adapter"></span><span id="index-0"></span><h1>Адаптер кеша Memcached<a class="headerlink" href="#memcached" title="Permalink to this headline">¶</a></h1>
+<p>Этот адаптер сохраняет значения в оперативной памяти, используя один (или больше)
+экземпляр <a href="#id6"><span class="problematic" id="id7">`сервера Memcached`_</span></a>. В отличие от <a class="reference internal" href="apcu_adapter-ru.html#apcu-adapter"><span>адаптера APCu</span></a>,
+и схоже с <a class="reference internal" href="redis_adapter-ru.html#redis-adapter"><span>адаптером Redis</span></a>, он не ограничен общей памятью
+текушего сервера; вы можете хранить содержание независимо от вашего PHP окружения.
+Возможность использовать кластер серверов для предоставляения избыточности и / или
+восстановления после отказа, также доступна.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last"><strong>Требования:</strong> <a href="#id8"><span class="problematic" id="id9">`PHP расширение Memcached`_</span></a>, а также <a href="#id10"><span class="problematic" id="id11">`сервер Memcached`_</span></a>
+должны быть установлены, активны и запущены для использования этого адаптера.
+Для этого адаптера требуется версия <a href="#id12"><span class="problematic" id="id13">`PHP адаптера Memcached`_</span></a> <tt class="docutils literal"><code>2.2</code></tt> и выше.</p>
+</div></div>
+<p>Этот адаптер ожидает передачи экземпляра <a class="reference external" href="http://php.net/manual/en/class.memcached.php">Memcached</a> в качестве первого параметра.
+Пространство имён и время жизни кеша по умолчанию могут быть опционально переданы
+в качестве второго и третьего параметров:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Cache\Adapter\MemcachedAdapter</span><span class="p">;</span>
+
+<span class="nv">$cache</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MemcachedAdapter</span><span class="p">(</span>
+    <span class="c1">// объект клиента, который устанавливает опции и добавляет экземпляр(ы) сервера</span>
+    <span class="nx">\Memcached</span> <span class="nv">$client</span><span class="p">,</span>
+
+    <span class="c1">// строка-префикс ключей объектов, хранящихся в этом кеше</span>
+    <span class="nv">$namespace</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+
+    <span class="c1">// время жизни по умолчанию (в секундах) для объектов кеша, которые не определяют</span>
+    <span class="c1">// собственное время жизни, со значением 0, вызывающим бесконечное хранение объектов</span>
+    <span class="c1">// (т.е. пока не вызывается MemcachedAdapter::clear() или не перезапускается сервер(ы))</span>
+    <span class="nv">$defaultLifetime</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id1">
+<h2>Сконфигурируйте соединение<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Метод помощника <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Adapter/MemcachedAdapter.html#method_createConnection" title="Symfony\Component\Cache\Adapter\MemcachedAdapter::createConnection()">createConnection()</a></code></tt>
+позволяет создание и конфигурацию экзепмпляра класса <a class="reference external" href="http://php.net/manual/en/class.memcached.php">Memcached</a>, используя <a href="#id14"><span class="problematic" id="id15">`Систему доменных имён (DSN)`_</span></a>
+или массив DSN:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Cache\Adapter\MemcachedAdapter</span><span class="p">;</span>
+
+<span class="c1">// передайте одну строку DSN, чтобы зарегистрировать один сервер для клиента</span>
+<span class="nv">$client</span> <span class="o">=</span> <span class="nx">MemcachedAdapter</span><span class="o">::</span><span class="na">createConnection</span><span class="p">(</span>
+    <span class="s1">&#39;memcached://localhost&#39;</span>
+    <span class="c1">// DSN может включать в себя опции конфигурации (передайте их в качестве строки запроса):</span>
+    <span class="c1">// &#39;memcached://localhost:11222?retry_timeout=10&#39;</span>
+    <span class="c1">// &#39;memcached://localhost:11222?socket_recv_size=1&amp;socket_send_size=2&#39;</span>
+<span class="p">);</span>
+
+<span class="c1">// передайте массив строк DSN, чтобы зарегистрировать несколько серверов для клиента</span>
+<span class="nv">$client</span> <span class="o">=</span> <span class="nx">MemcachedAdapter</span><span class="o">::</span><span class="na">createConnection</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;memcached://10.0.0.100&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;memcached://10.0.0.101&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;memcached://10.0.0.102&#39;</span><span class="p">,</span>
+    <span class="c1">// и др...</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p><a href="#id16"><span class="problematic" id="id17">`Система доменных имён (DSN)`_</span></a> для этого адаптера должна использовать следующий
+формат:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>memcached://[user:<a href="..\..\..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="e595849696a5">[email&#160;protected]</a>][ip|host|socket[:port]][?weight=int]
+</pre></div>
+</td></tr></table></div></div>
+<p>DSN должна включать в себя IP/хост (и необязательный порт) или путь сокета, необязательное
+имя пользователя и пароль(для SASL аутентификации; она требует, чтобы расширение memcached
+было скомпилировано используя <tt class="docutils literal"><code>--enable-memcached-sasl</code></tt>) и необязательным весом (для
+приоретизации серверов в кластере; его значение - это число между <tt class="docutils literal"><code>0</code></tt> и <tt class="docutils literal"><code>100</code></tt>, которое
+по умолчанию <tt class="docutils literal"><code>null</code></tt>; чем выше значение, тем выше приоритет).</p>
+<p>Ниже предоставлены распространённые примеры валидных DSN, демонстрирующих комбинацию
+доступных значений:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Cache\Adapter\MemcachedAdapter</span><span class="p">;</span>
+
+<span class="nv">$client</span> <span class="o">=</span> <span class="nx">MemcachedAdapter</span><span class="o">::</span><span class="na">createConnection</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="c1">// имя хоста + порт</span>
+    <span class="s1">&#39;memcached://my.server.com:11211&#39;</span>
+
+    <span class="c1">// имя хоста без порта + имя пользователя и пароль SASL</span>
+    <span class="s1">&#39;memcached://rmf:<a href="..\..\..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="f4959697909192b4989b9795989c9b8780">[email&#160;protected]</a>&#39;</span>
+
+    <span class="c1">// IP адеса вместо имени хоста + вес</span>
+    <span class="s1">&#39;memcached://127.0.0.1?weight=50&#39;</span>
+
+    <span class="c1">// сокет вместо имени хоста/IP + имя пользователя и пароль SASL</span>
+    <span class="s1">&#39;memcached://janesmith:<a href="..\..\..\..\..\cdn-cgi\l\email-protection.html" class="__cf_email__" data-cfemail="600d1910011313170f120420">[email&#160;protected]</a>/var/run/memcached.sock&#39;</span>
+
+    <span class="c1">// сокет вместо имени хоста/IP + вес</span>
+    <span class="s1">&#39;memcached:///var/run/memcached.sock?weight=20&#39;</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id2">
+<h2>Сконфигурируйте опции<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Метод помощника <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Cache/Adapter/MemcachedAdapter.html#method_createConnection" title="Symfony\Component\Cache\Adapter\MemcachedAdapter::createConnection()">createConnection()</a></code></tt>
+также принимает массив опций в качестве второго аргумента. Ожидаемый формат - это
+ассоцитивный массив пар <tt class="docutils literal"><code>key =&gt; value</code></tt>, представляющих имена опций и их соответствующие
+значения:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Cache\Adapter\MemcachedAdapter</span><span class="p">;</span>
+
+<span class="nv">$client</span> <span class="o">=</span> <span class="nx">MemcachedAdapter</span><span class="o">::</span><span class="na">createConnection</span><span class="p">(</span>
+    <span class="c1">// DSN-строка или массив DSN-строк</span>
+    <span class="k">array</span><span class="p">(),</span>
+
+    <span class="c1">// ассоциативный массив опций конфигурации</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;compression&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s1">&#39;libketama_compatible&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s1">&#39;serializer&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;igbinary&#39;</span><span class="p">,</span>
+     <span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id3">
+<h3>Доступные опции<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>auto_eject_hosts</code></tt> (тип: <tt class="docutils literal"><code>bool</code></tt>, по умолчанию: <tt class="docutils literal"><code>false</code></tt>)</dt>
+<dd>Включает или отключает константу, автоматизацию, повторную балансировку
+кластера, путём авто-извлечения хостов, превысивших сконфигурированный
+<tt class="docutils literal"><code>server_failure_limit</code></tt>.</dd>
+<dt><tt class="docutils literal"><code>buffer_writes</code></tt> (тип: <tt class="docutils literal"><code>bool</code></tt>, по умолчанию: <tt class="docutils literal"><code>false</code></tt>)</dt>
+<dd>Включает или отключает буферищированные операции ввода и вывода, что
+приводит к сохранению команд в буфер вместо немедленной отправки на
+удалённый(е) сервер(ы). Любое действие, извлекающее данные, прекращающее
+соединение или закрывающее соединение, приведёт к фиксации буфера.</dd>
+<dt><tt class="docutils literal"><code>compression</code></tt> (тип: <tt class="docutils literal"><code>bool</code></tt>, по умолчанию: <tt class="docutils literal"><code>true</code></tt>)</dt>
+<dd>Включает или отключает сжатие нагрузки, когда значения объектов,
+превышающие 100 байтов, сжимаются во время хранения и проходят
+обратный процесс во время извлечения.</dd>
+<dt><tt class="docutils literal"><code>compression_type</code></tt> (тип: <tt class="docutils literal"><code>string</code></tt>)</dt>
+<dd><p class="first">Указывает метод сжатия, используемый в значениях нагрузки при
+включённой опции <strong>сжатие</strong> (<strong>compression</strong>).</p>
+<p class="last">Валидные значения опции включают в себя <tt class="docutils literal"><code>fastlz</code></tt> и <tt class="docutils literal"><code>zlib</code></tt>, со значением
+по умолчанию, которое <em>колеблется в зависимости от флажков, используемых во
+время компиляции</em>.</p>
+</dd>
+<dt><tt class="docutils literal"><code>connect_timeout</code></tt> (тип: <tt class="docutils literal"><code>int</code></tt>, по умолчанию: <tt class="docutils literal"><code>1000</code></tt>)</dt>
+<dd><p class="first">Указывает тайм-аут (в милисекундах) операций соединения сокета, при включённой
+опции <tt class="docutils literal"><code>no_block</code></tt>.</p>
+<p class="last">Валидные значения опции включают в себя <em>любое положительное целое число</em>.</p>
+</dd>
+<dt><tt class="docutils literal"><code>distribution</code></tt> (тип: <tt class="docutils literal"><code>string</code></tt>, по умолчанию: <tt class="docutils literal"><code>consistent</code></tt>)</dt>
+<dd><p class="first">Указывает метод распространения ключа объекта среди серверов. Постоянное
+хеширование предоставляет лучшее распределение и позволяет добавлять серверы
+вкластеры с минимальными потерями кеша.</p>
+<p class="last">Валидные значения опции включают в себя <tt class="docutils literal"><code>modula</code></tt>, <tt class="docutils literal"><code>consistent</code></tt>, и
+<tt class="docutils literal"><code>virtual_bucket</code></tt>.</p>
+</dd>
+<dt><tt class="docutils literal"><code>hash</code></tt> (тип: <tt class="docutils literal"><code>string</code></tt>, по умолчанию: <tt class="docutils literal"><code>md5</code></tt>)</dt>
+<dd><p class="first">Указывает алгоритм хеширования, использованный для ключей объектов. Каждый алгоритм
+хеша имеет свои преимущества и недостатки. Вариант по умолчанию предлагается для
+совместимости с другими клиентами.</p>
+<p class="last">Валидные значения включают в себя <tt class="docutils literal"><code>default</code></tt>, <tt class="docutils literal"><code>md5</code></tt>, <tt class="docutils literal"><code>crc</code></tt>, <tt class="docutils literal"><code>fnv1_64</code></tt>,
+<tt class="docutils literal"><code>fnv1a_64</code></tt>, <tt class="docutils literal"><code>fnv1_32</code></tt>, <tt class="docutils literal"><code>fnv1a_32</code></tt>, <tt class="docutils literal"><code>hsieh</code></tt>, и <tt class="docutils literal"><code>murmur</code></tt>.</p>
+</dd>
+<dt><tt class="docutils literal"><code>libketama_compatible</code></tt> (тип: <tt class="docutils literal"><code>bool</code></tt>, по умолчанию: <tt class="docutils literal"><code>true</code></tt>)</dt>
+<dd>Включает или отключает поведение, совместимое с &quot;libketama&quot;, что позволяет
+другим клиентам, основанным на libketama, свободно получать доступ к ключам,
+сохранённым экземпляром клиента (вроде Python и Ruby). Подключение этой опции
+устанавливает опцию <tt class="docutils literal"><code>hash</code></tt>, как <tt class="docutils literal"><code>md5</code></tt>, а опцию <tt class="docutils literal"><code>distribution</code></tt> - как <tt class="docutils literal"><code>consistent</code></tt>.</dd>
+<dt><tt class="docutils literal"><code>no_block</code></tt> (тип: <tt class="docutils literal"><code>bool</code></tt>, по умолчанию: <tt class="docutils literal"><code>true</code></tt>)</dt>
+<dd>Включает или отключает асинхронные операции ввода и вывода. Это наиболее
+быстрая транспортная опция, доступная для функций хранения.</dd>
+<dt><tt class="docutils literal"><code>number_of_replicas</code></tt> (тип: <tt class="docutils literal"><code>int</code></tt>, по умолчанию: <tt class="docutils literal"><code>0</code></tt>)</dt>
+<dd><p class="first">Указывает количество реплик, которые должны сохраняться для каждого объекта
+(на разных серверах). Это не обязывает определенные мем-кешированные серверы
+хранить реплики, а вемсто этого сохраняет реплики вместе со всеми другими
+объектами (на &quot;n&quot; - следующих зарегистрированных серверах).</p>
+<p class="last">Валидные значения опции включают в себя <em>любое положительное число</em>.</p>
+</dd>
+<dt><tt class="docutils literal"><code>prefix_key</code></tt> (тип: <tt class="docutils literal"><code>string</code></tt>, по умолчанию: an empty string)</dt>
+<dd><p class="first">Указывает &quot;домен&quot; (или &quot;пространство имён&quot;), досбавленный к вашим ключам.
+Он не может быть длиннее 128 знаков и уменьшает максимальный размер ключа.</p>
+<p class="last">Валидные значения опции включают в себя <em>любую буквенно-цифровую</em> строку.</p>
+</dd>
+<dt><tt class="docutils literal"><code>poll_timeout</code></tt> (тип: <tt class="docutils literal"><code>int</code></tt>, по умолчанию: <tt class="docutils literal"><code>1000</code></tt>)</dt>
+<dd><p class="first">Указывает количество времени (в секундах) перед тайм-аутом во время операции
+опроса сокетов.</p>
+<p class="last">Валидные значения опции включают в себя <em>любое положительное число</em>.</p>
+</dd>
+<dt><tt class="docutils literal"><code>randomize_replica_read</code></tt> (тип: <tt class="docutils literal"><code>bool</code></tt>, по умолчанию: <tt class="docutils literal"><code>false</code></tt>)</dt>
+<dd>Включает или отключает рандомизацию отправной точки чтения реплики. Обычно
+чтение происходит с основного сервера, а в случае ошибки - с  &quot;primary+1&quot;,
+потом &quot;primary+2&quot;, и так до &quot;н&quot; реплик.
+Эта опция устанавливает чтения реплик рандомизированно между всеми доступными
+серверами; это позволяет распределять нагрузку чтений на несколько серверов
+за счёт увеличения трафика записи.</dd>
+<dt><tt class="docutils literal"><code>recv_timeout</code></tt> (тип: <tt class="docutils literal"><code>int</code></tt>, по умолчанию: <tt class="docutils literal"><code>0</code></tt>)</dt>
+<dd><p class="first">Указывает количество времени (в микросекундах) до тайм-аута во время операции исходящего сокета (чтения).
+Когда опция <tt class="docutils literal"><code>no_block</code></tt> не включена, это позволит вам всё равно иметь тайм-ауты во время чтения данных.</p>
+<p class="last">Валидные значения опции включают в себя <tt class="docutils literal"><code>0</code></tt> или <em>любое положительное число</em>.</p>
+</dd>
+<dt><tt class="docutils literal"><code>retry_timeout</code></tt> (тип: <tt class="docutils literal"><code>int</code></tt>, по умолчанию: <tt class="docutils literal"><code>0</code></tt>)</dt>
+<dd><p class="first">Указывает количество времени (в секундах) до тайм-аута и повторной попытки установки
+соединения.</p>
+<p class="last">Валидные значения опции включают в себя <em>любое положительное число</em>.</p>
+</dd>
+<dt><tt class="docutils literal"><code>send_timeout</code></tt> (тип: <tt class="docutils literal"><code>int</code></tt>, по умолчанию: <tt class="docutils literal"><code>0</code></tt>)</dt>
+<dd><p class="first">Указывает количество времени (в микросекундах) до тайм-аута во время операций
+входящего сокета (отправки). Когда опция <tt class="docutils literal"><code>no_block</code></tt> е включена, это позволит
+вам всё равно иметь тайм-ауты во время отправки данных.</p>
+<p class="last">Валидные значения опции включают в себя <tt class="docutils literal"><code>0</code></tt> или <em>любое положительное число</em>.</p>
+</dd>
+<dt><tt class="docutils literal"><code>serializer</code></tt> (тип: <tt class="docutils literal"><code>string</code></tt>, по умолчанию: <tt class="docutils literal"><code>php</code></tt>)</dt>
+<dd><p class="first">Указывает, как сериализатор использовать для сериализации нескалярных значений.
+Опции <tt class="docutils literal"><code>igbinary</code></tt> требуют включения ig-бинарного PHP расширения, а также компиляции
+мем-кешированного расширения для его поддержки.</p>
+<p class="last">Валидные значения опции включают в себя <tt class="docutils literal"><code>php</code></tt> и <tt class="docutils literal"><code>igbinary</code></tt>.</p>
+</dd>
+<dt><tt class="docutils literal"><code>server_failure_limit</code></tt> (тип: <tt class="docutils literal"><code>int</code></tt>, по умолчанию: <tt class="docutils literal"><code>0</code></tt>)</dt>
+<dd><p class="first">Указывает лимит неудачных попыток установить соединение с сервером до того,
+как отметить сервер, как &quot;мёртвый&quot;. Сервер будет оставаться в пуле серверов,
+если не включена опция <tt class="docutils literal"><code>auto_eject_hosts</code></tt>.</p>
+<p class="last">Валидные значения опции включают в себя <em>любое положительное число</em>.</p>
+</dd>
+<dt><tt class="docutils literal"><code>socket_recv_size</code></tt> (тип: <tt class="docutils literal"><code>int</code></tt>)</dt>
+<dd><p class="first">Указывает максимальный размер буфера (в байтах) в контексте входящих
+(полученных) данных соединения сокета.</p>
+<p class="last">Валидные значения опции включают в себя <em>любое положительное число</em>, со
+значением по умолчанию, которое <em>колеблется в зависимости от платформы и
+конфигурации ядра</em>.</p>
+</dd>
+<dt><tt class="docutils literal"><code>socket_send_size</code></tt> (тип: <tt class="docutils literal"><code>int</code></tt>)</dt>
+<dd><p class="first">Указанный максимальный размер буфера (в байтах) в контексте исходящиз (отправленных)
+данных соединения сокета.</p>
+<p class="last">Валидные значения опции включают в себя <em>любое положительное число</em>, со
+значением по умолчанию, которое <em>колеблется в зависимости от платформы и
+конфигурации ядра</em>..</p>
+</dd>
+<dt><tt class="docutils literal"><code>tcp_keepalive</code></tt> (тип: <tt class="docutils literal"><code>bool</code></tt>, по умолчанию: <tt class="docutils literal"><code>false</code></tt>)</dt>
+<dd>Включает или отключает функцию &quot;<a class="reference external" href="https://en.wikipedia.org/wiki/Keepalive">keep-alive</a>&quot; <a href="#id18"><span class="problematic" id="id19">`Протокола управления передачей (TCP)`_</span></a>,
+которая помогает определить, не перестала ли отвечать другая сторона, путём отправки
+проб узлу сети после периода ожидания, и закрытия или сохранения сокета, в зависимости
+от ответа (или его отсутствия).</dd>
+<dt><tt class="docutils literal"><code>tcp_nodelay</code></tt> (тип: <tt class="docutils literal"><code>bool</code></tt>, по умолчанию: <tt class="docutils literal"><code>false</code></tt>)</dt>
+<dd>Включает или отключает алогоритм &quot;<a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%9D%D0%B5%D0%B9%D0%B3%D0%BB%D0%B0">no-delay</a>&quot; (алогоритм Нейгла) <a href="#id20"><span class="problematic" id="id21">`Протокола управления передачей (TCP)`_</span></a>,
+который является механизмом для улучшения проихводительности сетей путём снижения
+перенагрузки заголовков TPC, объединяя неколько небольших исходящих сообщений и отправляя
+их одновременно.</dd>
+<dt><tt class="docutils literal"><code>use_udp</code></tt> (тип: <tt class="docutils literal"><code>bool</code></tt>, по умолчанию: <tt class="docutils literal"><code>false</code></tt>)</dt>
+<dd><p class="first">Включает или отключает  использование режима <a class="reference external" href="https://ru.wikipedia.org/wiki/UDP">Протокол пользовательских датаграм (UDP)</a> (вместо
+режима <a href="#id22"><span class="problematic" id="id23">`Протокола управления передачей (TCP)`_</span></a>), где все операции исполняются
+в режиме &quot;выстрелил и забыл&quot;; после исполнение клиентом, не будет сделано ни
+одной попытки убедиться, что операция была получена или получила обратной
+воздействие.</p>
+<div class="last admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Не все операции библиотек тестируются в этом режиме. Смешанные серверы
+TCP и UDP не разрешены.</p>
+</div></div>
+</dd>
+<dt><tt class="docutils literal"><code>verify_key</code></tt> (тип: <tt class="docutils literal"><code>bool</code></tt>, по умолчанию: <tt class="docutils literal"><code>false</code></tt>)</dt>
+<dd>Включает или отключает тестирование и верификацию для всех использованных ключей,
+чтобы зарантировать, что они валидны и подходят под используемый протокол.</dd>
+</dl>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Обратитесь к документации <a class="reference external" href="http://php.net/manual/en/memcached.constants.php">предопределённые константы</a> расширения
+<a class="reference external" href="http://php.net/manual/en/class.memcached.php">Memcached</a>, чтобы узнать больше о доступных опциях.</p>
+</div></div>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="memcached_adapter.html">« Memcached Cache Adapter</a>
+                <span class="separator">|</span>
+                <a href="pdo_doctrine_dbal_adapter.html">PDO &amp; Doctrine DBAL Cache Adapter »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  <script data-cfasync="false" src="..\..\..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script></body>
+</body></html>

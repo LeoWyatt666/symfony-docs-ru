@@ -1,0 +1,591 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Работа с включениями крайней стороны &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="HTTP Cache" href="..\http_cache.html">
+    <link rel="next" title="HTTP Cache Expiration" href="expiration.html">
+    <link rel="prev" title="Working with Edge Side Includes" href="esi.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="http_cache doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Работа с включениями крайней стороны</a><ul>
+<li><a class="reference internal" href="#esi-symfony">Использование ESI в Symfony</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\http_cache.html">HTTP Cache</a></li>
+                
+                <li class="active">Работа с включениями крайней стороны</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="edge-side-includes-ru">
+<span id="index-0"></span><span id="id1"></span><h1>Работа с включениями крайней стороны<a class="headerlink" href="#edge-side-includes-ru" title="Permalink to this headline">¶</a></h1>
+<p>Шлюзовые кеши - это отличный способ повысить производительность вашего вебсайта.
+Но они имеют одно ограничение: они могут кешировать только страницу целиком. Если
+ваши страницы содержат динамические секции, такие как имя пользователя или корзину
+покупок, то вам не повезло. К счастью, Symfony предоставляет решение для таких случаев,
+основанное на технологии под названием <a class="reference external" href="http://www.w3.org/TR/esi-lang">ESI</a>, или Включения крайней стороны. Akamai
+написал эту спецификацию почти 10 лет назад и она позволяет определённым частям страницы
+иметь другие кеширующие стратегии, чем главная страница.</p>
+<p>Спецификация ESI описывает теги, которые вы можете встраивать в ваши страницы, чтобы
+коммуницировать со шлюзовым кешем. Только один тег реализован в Symfony, <tt class="docutils literal"><code>include</code></tt>,
+так как он единственный полезен вне контекста Akamai:</p>
+<div class="literal-block"><div class="highlight-html"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="c">&lt;!-- ... некоторое содержание --&gt;</span>
+
+        <span class="c">&lt;!-- Встроить содержание другой страницы здесь --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">esi:include</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://...&quot;</span> <span class="p">/&gt;</span>
+
+        <span class="c">&lt;!-- ... больше содержания --&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Отметьте в примере, что каждый тег ESI требует полностью квалифицированного
+URL. ESI-тег представляет фрагмент страницы, который можно получить через
+заданный URL.</p>
+</div></div>
+<p>Когда обрабатывается запрос, кеширующий шлюз вызывает целую страницу из кеша
+или запрашивает её из приложения выходного буфера. Если ответсодержит один или
+более ESI-тегов, то они обрабатываются таким же образом. Другими словами, кеширующий
+шлюз либо извлекает включённый фрагмент страницы из его кеша, или запрашивает
+фрагмент страницы из приложения выходного буфера опять. Когда будут разрешены все
+ESI-теги, кеширующий шлюз объеиняет каждый из них с главной страницей и отправляет
+окончательное содержимое клиенту.</p>
+<p>Всё это происходит прозрачно на уровне кеширующего шлюза (т.е. вне вашего
+приложения). Как вы увидите, если вы решите воспользоваться преимуществами
+ESI-тегов, Symfony сделает професс включения их почти не требущим усилий.</p>
+<div class="section" id="esi-symfony">
+<span id="using-esi-in-symfony2-ru"></span><h2>Использование ESI в Symfony<a class="headerlink" href="#esi-symfony" title="Permalink to this headline">¶</a></h2>
+<p>Для начала, чтобы использовать ESI, включите их в конфигурации вашего приложения:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/framework.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">framework</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+    <span class="l l-Scalar l-Scalar-Plain">esi</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">enabled</span><span class="p p-Indicator">:</span> <span class="nv">true</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/framework.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/symfony&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:framework=</span><span class="s">&quot;http://symfony.com/schema/dic/symfony&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/symfony</span>
+<span class="s">        http://symfony.com/schema/dic/symfony/symfony-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;framework:config&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+        <span class="nt">&lt;framework:esi</span> <span class="na">enabled=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/framework:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/framework.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;framework&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+    <span class="s1">&#39;esi&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Теперь, представьте, что у вас есть страница, которая относительно статична,
+кроме бегущей новостной строки внизу содержимого. С ESI вы можете кешировать
+эту бегущую строку независимо от остальной страницы.</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Controller/DefaultController.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">DefaultController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">about</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;static/about.html.twig&#39;</span><span class="p">);</span>
+        <span class="c1">// устанавливает общий максимальный возраст, который также помечает ответ, как публичный</span>
+        <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setSharedMaxAge</span><span class="p">(</span><span class="mi">600</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В этом примере, кеш всей страницы имеет жизненный цикл в десять минут.
+Далее, включите новостную бегущую строку в шаблон, встроив действие. Это
+делается через помощник <tt class="docutils literal"><code>render</code></tt> (см. <a class="reference internal" href="..\templating\embedding_controllers.html"><em>How to Embed Controllers in a Template</em></a>,
+чтобы узнать больше).</p>
+<p>Так как встроенное содержимое поступает с другой страницы (или контроллера,
+раз на то пошло), Symfony использует стандартного помощника <tt class="docutils literal"><code>render</code></tt>, чтобы
+сконфигурировать ESI-теги:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# templates/static/about.html.twig #}</span><span class="x"></span>
+
+<span class="c">{# вы можете использовать ссылку на контроллер #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">render_esi</span><span class="o">(</span><span class="nv">controller</span><span class="o">(</span><span class="s1">&#39;App\Controller\NewsController::latest&#39;</span><span class="o">,</span> <span class="o">{</span> <span class="s1">&#39;maxPerPage&#39;</span><span class="o">:</span> <span class="m">5</span> <span class="o">}))</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="c">{# ... или на URL #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">render_esi</span><span class="o">(</span><span class="nv">url</span><span class="o">(</span><span class="s1">&#39;latest_news&#39;</span><span class="o">,</span> <span class="o">{</span> <span class="s1">&#39;maxPerPage&#39;</span><span class="o">:</span> <span class="m">5</span> <span class="o">}))</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- templates/static/about.html.php --&gt;</span>
+
+<span class="c">&lt;!-- вы можете использовать ссылку на контроллер --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;actions&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span>
+    <span class="k">new</span> <span class="nx">Symfony\Component\HttpKernel\Controller\ControllerReference</span><span class="p">(</span>
+        <span class="s1">&#39;AppBundle:News:latest&#39;</span><span class="p">,</span>
+        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;maxPerPage&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;strategy&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;esi&#39;</span><span class="p">)</span>
+<span class="p">)</span> <span class="cp">?&gt;</span>
+
+<span class="c">&lt;!-- ... или на URL --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;actions&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span>
+    <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;router&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">path</span><span class="p">(</span>
+        <span class="s1">&#39;latest_news&#39;</span><span class="p">,</span>
+        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;maxPerPage&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;strategy&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;esi&#39;</span><span class="p">)</span>
+<span class="p">)</span> <span class="cp">?&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Используя рендерер <tt class="docutils literal"><code>esi</code></tt> (через функцию Twig <tt class="docutils literal"><code>render_esi()</code></tt>), вы сообщаете
+Symfony, что действие должно быть отображено, как ESI-тег. Вы можете недоумевать,
+почему вам может захотеться использовать помощника вместо того, чтобы просто
+написать ESI-тег самостоятельно. Это потому, что использование помощника заставляет
+ваше приложение работать ровно, даже если не установлен кеширующий шлюз.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Как вы увидите ниже, переменная <tt class="docutils literal"><code>maxPerPage</code></tt>, которую вы передаёте,
+доступна в качестве аргумента вашего контроллера (т.е. <tt class="docutils literal"><code>$maxPerPage</code></tt>).
+Переменные, переданные через <tt class="docutils literal"><code>render_esi</code></tt> также становятся частью
+ключа кеша, чтобы у вас были уникальные кеши для каждой комбинации
+переменных и значений.</p>
+</div></div>
+<p>Нри использовании функции <tt class="docutils literal"><code>render()</code></tt> по умолчанию (или установке рендерера как
+<tt class="docutils literal"><code>inline</code></tt>), Symfony объединяет включённое содержание страницы с главной страницей
+до отправки ответа клиенту. Но если вы используете рендерер <tt class="docutils literal"><code>esi</code></tt> (т.е. вызываете
+<tt class="docutils literal"><code>render_esi()</code></tt>) <em>и</em> если Symfony определяет, что она имеет дело со шлюзовым кешем,
+поддерживающим ESI, она сгенерирует тег включения ESI. Но если шлюзового кеша нет,
+или если он не поддерживает ESI, то Symfony просто объединит включённое содержание
+страницы с главной, так же, как было бы, если бы вы использовали <tt class="docutils literal"><code>render()</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Symfony определяет, использует ли кеширующий шлюз ESI через другую спецификацию
+Akamai, которая поддерживается сразу же после установки Symfony её обратным
+прокси.</p>
+</div></div>
+<p>Встроенное действие теперь может указать свои собственные правила кеширования,
+полностью не зависящие от главной страницы.</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Controller/NewsController.php</span>
+<span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">NewsController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">latest</span><span class="p">(</span><span class="nv">$maxPerPage</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setSharedMaxAge</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>С ESI, кеш целой страницы будет валиден в течение 600, но компонент новостей
+будет кешировать только последие 60 секунд.</p>
+<p id="http-cache-fragments-ru">При использовании ссылки на контроллер, ESI-тег должен ссылаться на встроенное
+действие, как доступный URL, чтобы кеширующий шлюз могу извлечь его независимо
+от остальной страницы. Symfony заботится о том, чтобы сгенерировать уникальный
+URL для любой ссылки контроллера, может правильно проложить маршруты, благодаря
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/EventListener/FragmentListener.html" title="Symfony\Component\HttpKernel\EventListener\FragmentListener">FragmentListener</a></code></tt>, который
+должен быть включен в вашу конфигурацию:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/framework.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">framework</span><span class="p p-Indicator">:</span>
+    <span class="c1"># ...</span>
+    <span class="l l-Scalar l-Scalar-Plain">fragments</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">path</span><span class="p p-Indicator">:</span> <span class="nv">/_fragment</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/framework.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:framework=</span><span class="s">&quot;http://symfony.com/schema/dic/symfony&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/symfony</span>
+<span class="s">        http://symfony.com/schema/dic/symfony/symfony-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;framework:config&gt;</span>
+        <span class="nt">&lt;framework:fragment</span> <span class="na">path=</span><span class="s">&quot;/_fragment&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/framework:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/framework.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;framework&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+    <span class="s1">&#39;fragments&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;path&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/_fragment&#39;</span><span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Одним замечательным преимуществом ESI-рендерера является то, что вы можете сделать
+ваши приложения настолько динамичными, насколько это нужно, и одновременно с этим,
+обращаться к приложению настолько редко, насколько это возможно.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Слушатель фрагментов отвечает только на подписанные запросы. Запросы подписываются
+только при использовании рендерера фрагмента и функции Twig <tt class="docutils literal"><code>render_esi</code></tt>.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Когда вы начнёте использовать ESI, не забывайте всегда использовать директиву
+<tt class="docutils literal"><code>s-maxage</code></tt> вместо <tt class="docutils literal"><code>max-age</code></tt>. Так как браузер получает только агрегированный
+ресурс, он не знает о субкомпонентах, и поэтому будет повиноваться директиве
+<tt class="docutils literal"><code>max-age</code></tt> и кешировать страницу целиком. А вам это не нужно.</p>
+</div></div>
+<p>Помощник <tt class="docutils literal"><code>render_esi</code></tt> поддерживает две другие полезные опции:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>alt</code></tt></dt>
+<dd>Используется как атрибут <tt class="docutils literal"><code>alt</code></tt> в ESI-теге, который позволяет вам указывать
+альтернативный URL для использования, если нельзя найти <tt class="docutils literal"><code>src</code></tt>.</dd>
+<dt><tt class="docutils literal"><code>ignore_errors</code></tt></dt>
+<dd>Если установлен как &quot;true&quot;, к ESI будет добавлен атрибут <tt class="docutils literal"><code>onerror</code></tt> со значением
+<tt class="docutils literal"><code>continue</code></tt>, обозначающим, что в случае неудачи, кеширующий шлюз просто тихо удалит
+ESI-тег.</dd>
+</dl>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="esi.html">« Working with Edge Side Includes</a>
+                <span class="separator">|</span>
+                <a href="expiration.html">HTTP Cache Expiration »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

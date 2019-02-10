@@ -1,0 +1,734 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Таблица &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\..\index.html">
+
+<link rel="stylesheet" href="..\..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\..\index.html">
+                    <img src="..\..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Таблица</a><ul>
+<li><a class="reference internal" href="#id2">Объединение нескольких столбцов и строк</a></li>
+<li><a class="reference internal" href="#console-modify-rendered-tables">Изменение отображённых таблиц</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\..\index.html">Документация</a></li>
+                
+                <li class="active">Таблица</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Таблица<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>При построении приложения консоли может быть полезным отображать данные
+в табличном виде:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>+---------------+--------------------------+------------------+
+| ISBN          | Название                 | Автор            |
++---------------+--------------------------+------------------+
+| 99921-58-10-7 | Божественная комедия     | Данте Алигьери   |
+| 9971-5-0210-0 | Рассказ о двух городах   | Чарльз Дикенс    |
+| 960-425-059-0 | Властелин колец          | Дж. Р. Р. Толкиен|
+| 80-902734-1-6 | И никого не стало        | Агата Кристи     |
++---------------+--------------------------+------------------+
+</pre></div>
+</td></tr></table></div></div>
+<p>Чтобы отобразить таблицу, используйте <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/Table.html" title="Symfony\Component\Console\Helper\Table">Table</a></code></tt>,
+чтобы установить заголовки, установить ряды, а потом отобразить таблицу:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Console\Helper\Table</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="k">class</span> <span class="nc">SomeCommand</span> <span class="k">extends</span> <span class="nx">Command</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nx">InputInterface</span> <span class="nv">$input</span><span class="p">,</span> <span class="nx">OutputInterface</span> <span class="nv">$output</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Table</span><span class="p">(</span><span class="nv">$output</span><span class="p">);</span>
+        <span class="nv">$table</span>
+            <span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;ISBN&#39;</span><span class="p">,</span> <span class="s1">&#39;Название&#39;</span><span class="p">,</span> <span class="s1">&#39;Автор&#39;</span><span class="p">))</span>
+            <span class="o">-&gt;</span><span class="na">setRows</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+                <span class="k">array</span><span class="p">(</span><span class="s1">&#39;99921-58-10-7&#39;</span><span class="p">,</span> <span class="s1">&#39;Божественная комедия&#39;</span><span class="p">,</span> <span class="s1">&#39;Данте Алигьери&#39;</span><span class="p">),</span>
+                <span class="k">array</span><span class="p">(</span><span class="s1">&#39;9971-5-0210-0&#39;</span><span class="p">,</span> <span class="s1">&#39;Рассказ о двух городах&#39;</span><span class="p">,</span> <span class="s1">&#39;Чарльз Дикенс&#39;</span><span class="p">),</span>
+                <span class="k">array</span><span class="p">(</span><span class="s1">&#39;960-425-059-0&#39;</span><span class="p">,</span> <span class="s1">&#39;Властелин колец&#39;</span><span class="p">,</span> <span class="s1">&#39;Дж. Р. Р. Толкиен&#39;</span><span class="p">),</span>
+                <span class="k">array</span><span class="p">(</span><span class="s1">&#39;80-902734-1-6&#39;</span><span class="p">,</span> <span class="s1">&#39;И никого не стало&#39;</span><span class="p">,</span> <span class="s1">&#39;Агата Кристи&#39;</span><span class="p">),</span>
+            <span class="p">))</span>
+        <span class="p">;</span>
+        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы можете добавлять разделитель таблицы где-угодно в выводе, передав экземпляр
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/TableSeparator.html" title="Symfony\Component\Console\Helper\TableSeparator">TableSeparator</a></code></tt> в качестве строки:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Console\Helper\TableSeparator</span><span class="p">;</span>
+
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setRows</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;99921-58-10-7&#39;</span><span class="p">,</span> <span class="s1">&#39;Божественная комедия&#39;</span><span class="p">,</span> <span class="s1">&#39;Данте Алигьери&#39;</span><span class="p">),</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;9971-5-0210-0&#39;</span><span class="p">,</span> <span class="s1">&#39;Рассказ о двух городах&#39;</span><span class="p">,</span> <span class="s1">&#39;Чарльз Дикенс&#39;</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nx">TableSeparator</span><span class="p">(),</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;960-425-059-0&#39;</span><span class="p">,</span> <span class="s1">&#39;Властелин колец&#39;</span><span class="p">,</span> <span class="s1">&#39;Дж. Р. Р. Толкиен&#39;</span><span class="p">),</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;80-902734-1-6&#39;</span><span class="p">,</span> <span class="s1">&#39;И никого не стало&#39;</span><span class="p">,</span> <span class="s1">&#39;Агата Кристи&#39;</span><span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>+---------------+--------------------------+------------------+
+| ISBN          | Название                 | Автор            |
++---------------+--------------------------+------------------+
+| 99921-58-10-7 | Божественная комедия     | Данте Алигьери   |
+| 9971-5-0210-0 | Рассказ о двух городах   | Чарльз Дикенс    |
++---------------+--------------------------+------------------+
+| 960-425-059-0 | Властелин колец          | Дж. Р. Р. Толкиен|
+| 80-902734-1-6 | И никого не стало        | Агата Кристи     |
++---------------+--------------------------+------------------+
+</pre></div>
+</td></tr></table></div></div>
+<p>По умолчанию, ширина столбцов вычисляется автоматически, основываясь на их содержании.
+Используйте метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/Table.html#method_setColumnWidths" title="Symfony\Component\Console\Helper\Table::setColumnWidths()">setColumnWidths()</a></code></tt>,
+чтобы ясно установить ширину столбцов:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setColumnWidths</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">));</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В этом примере, ширина первого столбца будет <tt class="docutils literal"><code>10</code></tt>, последнего - <tt class="docutils literal"><code>30</code></tt>, а
+ширина второго будет вычисляться автоматически, в связи со значением <tt class="docutils literal"><code>0</code></tt>.
+Выводом этой команды будет:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>+---------------+--------------------------+--------------------------------+
+| ISBN          | Название                 | Автор                          |
++---------------+--------------------------+--------------------------------+
+| 99921-58-10-7 | Божественная комедия     | Данте Алигьери                 |
+| 9971-5-0210-0 | Рассказ о двух городах   | Чарльз Дикенс                  |
++---------------+--------------------------+--------------------------------+
+| 960-425-059-0 | Властелин колец          | Дж. Р. Р. Толкиен              |
+| 80-902734-1-6 | И никого не стало        | Агата Кристи                   |
++---------------+--------------------------+--------------------------------+
+</pre></div>
+</td></tr></table></div></div>
+<p>Заметьте, что определённая ширина столбцов всегда воспринимается, как минимальная
+ширина столбца. Если содержание не помещается, заданная ширина будет увеличена до
+максимальной длины содержания. Поэтому в предыдущем примере первый столбец имеет
+ширину в <tt class="docutils literal"><code>13</code></tt> знаков, хотя пользователь определил <tt class="docutils literal"><code>10</code></tt>.</p>
+<p>Вы также можете устанавливать ширину индивидуально для каждого столбца с помощью
+метода <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/Table.html#method_setColumnWidth" title="Symfony\Component\Console\Helper\Table::setColumnWidth()">setColumnWidth()</a></code></tt>. Его
+первым аргументом будет индекс столбца (начиная с <tt class="docutils literal"><code>0</code></tt>), а вторым - ширина столбца:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setColumnWidth</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setColumnWidth</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Стиль таблицы может быть изменён на любой встроенный стиль через
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/Table.html#method_setStyle" title="Symfony\Component\Console\Helper\Table::setStyle()">setStyle()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// то же самое, что ничего не вызывать</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setStyle</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">);</span>
+
+<span class="c1">// изменяет стиль по умолчанию на компактный</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setStyle</span><span class="p">(</span><span class="s1">&#39;compact&#39;</span><span class="p">);</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Этот код приводит к:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ISBN          Название                 Автор
+99921-58-10-7 Божественная комедия     Данте Алигьери
+9971-5-0210-0 Рассказ о двух городах   Чарльз Дикенс
+960-425-059-0 Властелин колец          Дж. Р. Р. Толкиен
+80-902734-1-6 И никого не стало        Агата Кристи
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы также можете установить стиль <tt class="docutils literal"><code>borderless</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setStyle</span><span class="p">(</span><span class="s1">&#39;borderless&#39;</span><span class="p">);</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Что выведет:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>=============== ========================== ==================
+ ISBN            Название                   Автор
+=============== ========================== ==================
+ 99921-58-10-7   Божественная комедия       Данте Алигьери
+ 9971-5-0210-0   Рассказ о двух городах     Чарльз Дикенс
+ 960-425-059-0   Властелин колец            Дж. Р. Р. Толкиен
+ 80-902734-1-6   И никого не стало          Агата Кристи
+=============== ========================== ==================
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы также можете установить стиль <tt class="docutils literal"><code>box</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setStyle</span><span class="p">(</span><span class="s1">&#39;box&#39;</span><span class="p">);</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Что выведет:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>┌───────────────┬──────────────────────────┬──────────────────┐
+│ ISBN          │ Название                 │ Автор            │
+├───────────────┼──────────────────────────┼──────────────────┤
+│ 99921-58-10-7 │ Божественная комедия     │ Данте Алигьери   │
+│ 9971-5-0210-0 │ Рассказ о двух городах   │ Чарльз Дикенс    │
+│ 960-425-059-0 │ Властелин колец          │ Дж. Р. Р. Толкиен│
+│ 80-902734-1-6 │ И никого не стало        │ Агата Кристи     │
+└───────────────┴──────────────────────────┴──────────────────┘
+</pre></div>
+</td></tr></table></div></div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Стиль <tt class="docutils literal"><code>box</code></tt> был представлен в Symfony 4.1.</p>
+</div>
+<p>Вы также можете установить стиль <tt class="docutils literal"><code>box-double</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setStyle</span><span class="p">(</span><span class="s1">&#39;box-double&#39;</span><span class="p">);</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Что выведет:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>╔═══════════════╤══════════════════════════╤══════════════════╗
+║ ISBN          │ Название                 │ Автор            ║
+╠═══════════════╪══════════════════════════╪══════════════════╣
+║ 99921-58-10-7 │ Божественная комедия     │ Данте Алигьери   ║
+║ 9971-5-0210-0 │ Рассказ о двух городах   │ Чарльз Дикенс    ║
+║ 960-425-059-0 │ Властелин колец          │ Дж. Р. Р. Толкиен║
+║ 80-902734-1-6 │  И никого не стало       │ Агата Кристи     ║
+╚═══════════════╧══════════════════════════╧══════════════════╝
+</pre></div>
+</td></tr></table></div></div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Стиль <tt class="docutils literal"><code>box-double</code></tt> был представлен в Symfony 4.1.</p>
+</div>
+<p>Если встроенные стили не соответствуют вашим нуждам, определите
+свой собственный:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Console\Helper\TableStyle</span><span class="p">;</span>
+
+<span class="c1">// по умолчанию, базируется на стиле по умолчанию</span>
+<span class="nv">$tableStyle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TableStyle</span><span class="p">();</span>
+
+<span class="c1">// настраивает стиль</span>
+<span class="nv">$tableStyle</span>
+    <span class="o">-&gt;</span><span class="na">setDefaultCrossingChars</span><span class="p">(</span><span class="s1">&#39;&lt;fg=magenta&gt;|&lt;/&gt;&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setVerticalBorderChars</span><span class="p">(</span><span class="s1">&#39;&lt;fg=magenta&gt;-&lt;/&gt;&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setDefaultCrossingChar</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="p">;</span>
+
+<span class="c1">// использует стиль по умолчанию для этой таблицы</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setStyle</span><span class="p">(</span><span class="nv">$tableStyle</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот полный список того, что вы можете настроить:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/TableStyle.html#method_setPaddingChar" title="Symfony\Component\Console\Helper\TableStyle::setPaddingChar()">setPaddingChar()</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/TableStyle.html#method_setDefaultCrossingChars" title="Symfony\Component\Console\Helper\TableStyle::setDefaultCrossingChars()">setDefaultCrossingChars()</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/TableStyle.html#method_setVerticalBorderChars" title="Symfony\Component\Console\Helper\TableStyle::setVerticalBorderChars()">setVerticalBorderChars()</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/TableStyle.html#method_setCrossingChars" title="Symfony\Component\Console\Helper\TableStyle::setCrossingChars()">setCrossingChars()</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/TableStyle.html#method_setDefaultCrossingChar" title="Symfony\Component\Console\Helper\TableStyle::setDefaultCrossingChar()">setDefaultCrossingChar()</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/TableStyle.html#method_setCellHeaderFormat" title="Symfony\Component\Console\Helper\TableStyle::setCellHeaderFormat()">setCellHeaderFormat()</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/TableStyle.html#method_setCellRowFormat" title="Symfony\Component\Console\Helper\TableStyle::setCellRowFormat()">setCellRowFormat()</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/TableStyle.html#method_setBorderFormat" title="Symfony\Component\Console\Helper\TableStyle::setBorderFormat()">setBorderFormat()</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/TableStyle.html#method_setPadType" title="Symfony\Component\Console\Helper\TableStyle::setPadType()">setPadType()</a></code></tt></li>
+</ul>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Метод <tt class="docutils literal"><code>setDefaultCrossingChars</code></tt> был представлен в Symfony 4.1. Он
+замещает устаревший метод <tt class="docutils literal"><code>setHorizontalBorderChar</code></tt>.</p>
+<p>Также, был представлен метод <tt class="docutils literal"><code>setVerticalBorderChars</code></tt>. Используйте
+его вместо устаревшего метода <tt class="docutils literal"><code>setVerticalBorderChar</code></tt>.</p>
+<p>Методы <tt class="docutils literal"><code>setCrossingChars()</code></tt> и <tt class="docutils literal"><code>setDefaultCrossingChar()</code></tt> также новые.
+Ранее вы могли использовать только уже устаревший метод <tt class="docutils literal"><code>setCrossingChar()</code></tt>.</p>
+</div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Вы также можете зарегистрировать стиль глобально:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// регистрирует стиль под цветным названием</span>
+<span class="nx">Table</span><span class="o">::</span><span class="na">setStyleDefinition</span><span class="p">(</span><span class="s1">&#39;colorful&#39;</span><span class="p">,</span> <span class="nv">$tableStyle</span><span class="p">);</span>
+
+<span class="c1">// применяет пользовательский стиль для заданной таблицы</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setStyle</span><span class="p">(</span><span class="s1">&#39;colorful&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p class="last">Этот метод также может быть использован для переопределения встроенного стиля.</p>
+</div></div>
+<div class="section" id="id2">
+<h2>Объединение нескольких столбцов и строк<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Чтобы сделать ячейку таблицы, объединяющую несколько столбцов, вы можете
+использовать <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/TableCell.html" title="Symfony\Component\Console\Helper\TableCell">TableCell</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Console\Helper\Table</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Console\Helper\TableSeparator</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Console\Helper\TableCell</span><span class="p">;</span>
+
+<span class="nv">$table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Table</span><span class="p">(</span><span class="nv">$output</span><span class="p">);</span>
+<span class="nv">$table</span>
+    <span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;ISBN&#39;</span><span class="p">,</span> <span class="s1">&#39;Название&#39;</span><span class="p">,</span> <span class="s1">&#39;Автор&#39;</span><span class="p">))</span>
+    <span class="o">-&gt;</span><span class="na">setRows</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;99921-58-10-7&#39;</span><span class="p">,</span> <span class="s1">&#39;Божественная комедия&#39;</span><span class="p">,</span> <span class="s1">&#39;Данте Алигьери&#39;</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nx">TableSeparator</span><span class="p">(),</span>
+        <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">TableCell</span><span class="p">(</span><span class="s1">&#39;Это значение объединяет три столбца.&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;colspan&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">))),</span>
+    <span class="p">))</span>
+<span class="p">;</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это приводит к:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>+---------------+----------------------+-----------------+
+| ISBN          | Название             | Автор           |
++---------------+----------------------+-----------------+
+| 99921-58-10-7 | Божественная комедия | Данте Алигьери  |
++---------------+----------------------+-----------------+
+| Это значение объединяет 3 столбца.                     |
++---------------+----------------------+-----------------+
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Вы можете создать название страницы в несколько строк, используя ячейку,
+объединяющую всю ширину таблицы:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$table</span><span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">TableCell</span><span class="p">(</span><span class="s1">&#39;Главное название таблицы&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;colspan&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">))),</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ISBN&#39;</span><span class="p">,</span> <span class="s1">&#39;Название&#39;</span><span class="p">,</span> <span class="s1">&#39;Автор&#39;</span><span class="p">),</span>
+<span class="p">))</span>
+<span class="c1">// ...</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это генерирует:</p>
+<div class="literal-block"><div class="last highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>+-------+----------+--------+
+| Главное название таблицы  |
++-------+----------+--------+
+| ISBN  | Название | Автор  |
++-------+----------+--------+
+| ...                       |
++-------+----------+--------+
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<p>Схожим образом вы можете объединять несколько рядов:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Console\Helper\Table</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Console\Helper\TableCell</span><span class="p">;</span>
+
+<span class="nv">$table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Table</span><span class="p">(</span><span class="nv">$output</span><span class="p">);</span>
+<span class="nv">$table</span>
+    <span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;ISBN&#39;</span><span class="p">,</span> <span class="s1">&#39;Название&#39;</span><span class="p">,</span> <span class="s1">&#39;Автор&#39;</span><span class="p">))</span>
+    <span class="o">-&gt;</span><span class="na">setRows</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;978-0521567817&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;De Monarchia&#39;</span><span class="p">,</span>
+            <span class="k">new</span> <span class="nx">TableCell</span><span class="p">(</span><span class="s2">&quot;Данте Алигьери</span><span class="se">\n</span><span class="s2">spans multiple rows&quot;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;rowspan&#39;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">)),</span>
+        <span class="p">),</span>
+        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;978-0804169127&#39;</span><span class="p">,</span> <span class="s1">&#39;Divine Comedy&#39;</span><span class="p">),</span>
+    <span class="p">))</span>
+<span class="p">;</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это выводит:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span>+----------------+----------------------+----------------------------+
+| ISBN           | Название             | Автор                      |
++----------------+----------------------+----------------------------+
+| 978-0521567817 | Монархия             | Данте Алигьери             |
+| 978-0804169127 | Божественная комедия | объединяет несколько строк |
++----------------+----------------------+----------------------------+
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы можете использовать опции <tt class="docutils literal"><code>colspan</code></tt> и <tt class="docutils literal"><code>rowspan</code></tt> одновременно, что
+позволяет вам создавать любой желаемый макет таблицы.</p>
+</div>
+<div class="section" id="console-modify-rendered-tables">
+<span id="id3"></span><h2>Изменение отображённых таблиц<a class="headerlink" href="#console-modify-rendered-tables" title="Permalink to this headline">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Функция изменять отображённые таблицы была представлена в Symfony 4.1.</p>
+</div>
+<p>Метод <tt class="docutils literal"><code>render()</code></tt> требует передачи всего содержания таблицы. Однако, иногда
+эта информация недоступна заранее, так как она генерируется динамически. В
+таких случаях, используйте метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/Table.html#method_appendRow" title="Symfony\Component\Console\Helper\Table::appendRow()">appendRow()</a></code></tt>, который берёт
+те же аргументы, что и метод <tt class="docutils literal"><code>addRow()</code></tt>, чтобы добавить ряды внизу уже отображённой
+таблицы.</p>
+<p>Единственным требованием для добавления рядов является отображение таблицы
+внутри <a class="reference internal" href="..\..\..\console.html#console-output-sections"><span>Раздела вывода Console</span></a>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Console\Helper\Table</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="k">class</span> <span class="nc">SomeCommand</span> <span class="k">extends</span> <span class="nx">Command</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nx">InputInterface</span> <span class="nv">$input</span><span class="p">,</span> <span class="nx">OutputInterface</span> <span class="nv">$output</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$section</span> <span class="o">=</span> <span class="nv">$output</span><span class="o">-&gt;</span><span class="na">section</span><span class="p">();</span>
+        <span class="nv">$table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Table</span><span class="p">(</span><span class="nv">$section</span><span class="p">);</span>
+
+        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">addRow</span><span class="p">([</span><span class="s1">&#39;Row 1&#39;</span><span class="p">]);</span>
+        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">();</span>
+
+        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">addRow</span><span class="p">([</span><span class="s1">&#39;Row 2&#39;</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это отобразит следующую таблицу в терминале:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="go">+-------+</span>
+<span class="go">| Ряд 1 |</span>
+<span class="go">| Ряд 2 |</span>
+<span class="go">+-------+</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

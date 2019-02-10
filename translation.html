@@ -1,0 +1,821 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Переводы &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="_static/" type="text/css">
+    <link rel="stylesheet" href="_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="index.html">
+
+<link rel="stylesheet" href="_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="translation-r doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\index.html">
+                    <img src="..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Переводы</a><ul>
+<li><a class="reference internal" href="#translation-configuration-ru">Конфигурирование</a></li>
+<li><a class="reference internal" href="#translation-basic-ru">Базовый перевод</a><ul>
+<li><a class="reference internal" href="#id4">Процесс перевода</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">Заполнители в сообщениях</a></li>
+<li><a class="reference internal" href="#id6">Множественность</a></li>
+<li><a class="reference internal" href="#id7">Переводы в шаблонах</a><ul>
+<li><a class="reference internal" href="#twig">Шаблоны Twig</a></li>
+<li><a class="reference internal" href="#hp">РHP-шаблоны</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#translation-resource-locations-ru">Имена ресурса/файла и расположение перевода</a></li>
+<li><a class="reference internal" href="#translation-fallback-ru">Резервные локали перевода</a></li>
+<li><a class="reference internal" href="#id10">Работа с локалью пользователя</a></li>
+<li><a class="reference internal" href="#id11">Перевод контента базы данных</a></li>
+<li><a class="reference internal" href="#debugging-translations">Debugging Translations</a></li>
+<li><a class="reference internal" href="#id12">Заключение</a></li>
+<li><a class="reference internal" href="#id13">Узнать больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="index.html">Документация</a></li>
+                
+                <li class="active">Переводы</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Переводы<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Термин &quot;интернационализация&quot; (часто сокращаемый как <a class="reference external" href="https://en.wikipedia.org/wiki/Internationalization_and_localization">i18n</a>) относится к процессу
+абстрагирования строк и прочих специфичных для конкретной локали частей из вашего
+приложения, и перемещения их на такой уровень, где они могут быть переведены и
+конвертированы на основании локали пользователя (т.е. в зависимости от языка и
+страны). Для текста это означает, что его нужно окружить специальной функцией,
+способной переводить текст (или &quot;сообщение&quot;) на язык пользователя:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// текст будет *всегда* отображаться на английском</span>
+<span class="nx">dump</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">);</span>
+<span class="k">die</span><span class="p">();</span>
+
+<span class="c1">// текст может быть переведен на язык конечного пользователя или</span>
+<span class="c1">// по умолчанию на английский</span>
+<span class="nx">dump</span><span class="p">(</span><span class="nv">$translator</span><span class="o">-&gt;</span><span class="na">trans</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">));</span>
+<span class="k">die</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Термин <em>локаль</em> в общих чертах относится к языку и стране пользователя.
+Это может быть любая строка, испоьльзуемая вашим приложением для управления
+переводами и прочими различиями форматов (например, формат валюты).
+Рекомендуется использовать стандарт <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1</a> для <em>языковых</em> кодов,
+подчеркивание (<tt class="docutils literal"><code>_</code></tt>) и затем <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes">ISO 3166-1 alpha-2</a> для кодов <em>стран</em>
+(например, для French/France (французский, Франция) получится  <tt class="docutils literal"><code>fr_FR</code></tt>).</p>
+</div></div>
+<p>В этой главе вы узнаете, как использовать компонент перевод (Translation)
+в фреймворке Symfony. Вы можете прочитать документацию
+<a class="reference internal" href="components\translation\usage.html"><em>Компонент перевод</em></a>, чтобы узнать еще
+больше. В общем, процесс имеет несколько шагов:</p>
+<ol class="arabic simple">
+<li><a class="reference internal" href="translation.html#translation-configuration"><span>Подключить и настроить</span></a>  сервис Symfony перевод;</li>
+</ol>
+<ol class="arabic simple" start="4">
+<li></li>
+<li>Абстрагировать строки (т.н. &quot;сообщения&quot;), обернув их в вызовы <tt class="docutils literal"><code>Translator</code></tt>
+(&quot;<span class="xref std std-ref">Базовый перевод translation-basic</span>&quot;);</li>
+<li><a class="reference internal" href="translation.html#translation-resources"><span>Создать ресурсы/файлы</span></a> перевода для каждой
+поддерживаемой локали, которые будут переводить каждое сообщение в приложении;</li>
+<li>Определить, <a class="reference internal" href="translation\locale.html"><em>установить и управлять локалью пользователя</em></a>
+для запроса, и по желанию, <a class="reference internal" href="session\locale_sticky_session.html"><em>для всей сессии пользователя</em></a>.</li>
+</ol>
+<div class="section" id="translation-configuration-ru">
+<span id="id2"></span><h2>Конфигурирование<a class="headerlink" href="#translation-configuration-ru" title="Permalink to this headline">¶</a></h2>
+<p>Переводы обрабатываются сервисом <tt class="docutils literal"><code>translator</code></tt>, который использует локаль
+пользователя для поиска и отображения переведенных сообщений. Перед тем как
+его использовать, активируйте <tt class="docutils literal"><code>translator</code></tt> в файле конфигурации:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/config.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">framework</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">translator</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="nv">fallbacks</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">en</span><span class="p p-Indicator">]</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/config.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:framework=</span><span class="s">&quot;http://symfony.com/schema/dic/symfony&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/symfony</span>
+<span class="s">        http://symfony.com/schema/dic/symfony/symfony-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;framework:config&gt;</span>
+        <span class="nt">&lt;framework:translator&gt;</span>
+            <span class="nt">&lt;framework:fallback&gt;</span>en<span class="nt">&lt;/framework:fallback&gt;</span>
+        <span class="nt">&lt;/framework:translator&gt;</span>
+    <span class="nt">&lt;/framework:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/config.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;framework&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;translator&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;fallbacks&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">)),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Смотрите <span class="xref std std-ref">Резервные локали перевода translation-fallback</span> для того,
+чтобы узнать детали о ключе <tt class="docutils literal"><code>fallbacks</code></tt>, и что делает Symfony, когда
+не может найти перевод.</p>
+<p>Локаль, используемая в переводах, та же, которая сохраняется по запросу.
+Она обычно устанавливается с помощью атрибута <tt class="docutils literal"><code>_locale</code></tt>  на ваших маршрутах
+(смотрите <span class="xref std std-ref">Локаль и URL translation-locale-url</span>).</p>
+</div>
+<div class="section" id="translation-basic-ru">
+<span id="id3"></span><h2>Базовый перевод<a class="headerlink" href="#translation-basic-ru" title="Permalink to this headline">¶</a></h2>
+<p>Перевод текста осуществляется сервисом  <tt class="docutils literal"><code>translator</code></tt>
+(<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Translator.html" title="Symfony\Component\Translation\Translator">Translator</a></code></tt>). Для перевода текстового
+блока (называемого <em>сообщением</em>) используйте метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Translator.html#method_trans" title="Symfony\Component\Translation\Translator::trans()">trans()</a></code></tt>. Предположим, например,
+что вы переводите простое сообщение внутри контроллера:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nv">$translated</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;translator&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">trans</span><span class="p">(</span><span class="s1">&#39;Symfony is great&#39;</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="nv">$translated</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p id="translation-resources-ru">При выполнении этого кода, Symfony попытается перевести сообщение &quot;Symfony
+is great&quot; («Symfony замечательный»), основываясь на <tt class="docutils literal"><code>locale</code></tt> пользователя.
+Для этого вам необходимо указать Symfony как перевести это сообщение при помощи
+&quot;ресурса для перевода&quot;, который обычно представляет собой набор переведенных
+сообщений для данной локали. Этот &quot;словарь&quot; переводов может быть создан в
+нескольких различных форматах, рекомендуемым является формат XLIFF:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- messages.fr.xlf --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;xliff</span> <span class="na">version=</span><span class="s">&quot;1.2&quot;</span> <span class="na">xmlns=</span><span class="s">&quot;urn:oasis:names:tc:xliff:document:1.2&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;file</span> <span class="na">source-language=</span><span class="s">&quot;en&quot;</span> <span class="na">datatype=</span><span class="s">&quot;plaintext&quot;</span> <span class="na">original=</span><span class="s">&quot;file.ext&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;body&gt;</span>
+            <span class="nt">&lt;trans-unit</span> <span class="na">id=</span><span class="s">&quot;symfony_is_great&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;source&gt;</span>Symfony is great<span class="nt">&lt;/source&gt;</span>
+                <span class="nt">&lt;target&gt;</span>J&#39;aime Symfony<span class="nt">&lt;/target&gt;</span>
+            <span class="nt">&lt;/trans-unit&gt;</span>
+        <span class="nt">&lt;/body&gt;</span>
+    <span class="nt">&lt;/file&gt;</span>
+<span class="nt">&lt;/xliff&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># messages.fr.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">Symfony is great</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">J&#39;aime Symfony</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// messages.fr.php</span>
+<span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;Symfony is great&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;J\&#39;aime Symfony&#39;</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Чтобы узнать, где эти файлы должны быть расположены, смотрите
+<span class="xref std std-ref">Местоположение ресурсов перевода translation-resource-locations</span>.</p>
+<p>Теперь, если языковой локалью пользователя будет Французская (например, <tt class="docutils literal"><code>fr_FR</code></tt>
+или <tt class="docutils literal"><code>fr_BE</code></tt>), это сообщение будет переведено как <tt class="docutils literal"><code>J'aime Symfony</code></tt>. Вы также можете
+переводит сообщение внутри ваших <a class="reference internal" href="translation.html#translation-tags"><span>шаблонов</span></a>.</p>
+<div class="section" id="id4">
+<h3>Процесс перевода<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Для того, чтобы перевести сообщение, Symfony использует простой процесс:</p>
+<ul class="simple">
+<li>Определяется <tt class="docutils literal"><code>locale</code></tt> текущего пользователя, которая хранится в запросе;</li>
+<li>Загружается каталог (т.е. большая коллекция) переводов сообщений из соответствующих
+ресурсов, определяемого <tt class="docutils literal"><code>locale</code></tt> (например, <tt class="docutils literal"><code>fr_FR</code></tt>). Сообщения, соответствующие
+<a class="reference internal" href="translation.html#translation-fallback"><span>резервные локали</span></a>, также загружаются и добавляются в каталог
+(если они еще были созданы). В конечном итоге получается большой &quot;словарь&quot; с переводами.</li>
+<li>Если сообщение есть в каталоге, то возвращается его перевод. Если же нет, переводчик
+возвращает оригинал сообщения.</li>
+</ul>
+<p>При использовании метода <tt class="docutils literal"><code>trans()</code></tt>, Symfony ищет точно такую же строку в подходящем
+каталоге сообщений и возвращает его (при условии, что оно существует).</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Заполнители в сообщениях<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Иногда, сообщение, которое нужно перевести, содержит переменную:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$translated</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;translator&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">trans</span><span class="p">(</span><span class="s1">&#39;Hello &#39;</span><span class="o">.</span><span class="nv">$name</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="nv">$translated</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Тем не менее, создание перевода для этой строки невозможно, так как переводчик
+будет искать точно такое же сообщение, включая переменную (например, <em>&quot;Hello Ryan&quot;</em>
+или <em>&quot;Hello Fabien&quot;</em>).</p>
+<dl class="docutils">
+<dt>Для того, чтобы узнать, как справиться с такой ситуацией, смотрите</dt>
+<dd><span class="xref std std-ref">Заполнители в сообщениях component-translation-placeholders</span> в
+документации компонентов. Для того, чтобы узнать, как сделать это в
+шаблонах, смотрите <a class="reference internal" href="translation.html#translation-tags"><span>Twig Templates</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="id6">
+<h2>Множественность<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Еще одной сложностью может стать перевод, который может быть как множественным,
+так и нет, в зависимости от какой-то переменной:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>Есть одно яблоко.
+Есть 5 яблок.
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt>Для того, чтобы справиться с этим, используйте метод</dt>
+<dd><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Translator.html#method_transChoice" title="Symfony\Component\Translation\Translator::transChoice()">transChoice()</a></code></tt> или тег/фильтр
+<tt class="docutils literal"><code>transchoice</code></tt> в вашем <a class="reference internal" href="translation.html#translation-tags"><span>шаблоне</span></a>.</dd>
+<dt>Чтобы узнать намного больше информации, смотрите</dt>
+<dd><span class="xref std std-ref">Множественность в переводе component-translation-pluralization</span> в документации компонентов.</dd>
+</dl>
+</div>
+<div class="section" id="id7">
+<h2>Переводы в шаблонах<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>В большинстве случаев, перевод происходит в шаблонах. Symfony предоставляет
+родную поддержку как для шаблонов Twig, так и для PHP-шаблонов.</p>
+<div class="section" id="twig">
+<span id="translation-tags-ru"></span><h3>Шаблоны Twig<a class="headerlink" href="#twig" title="Permalink to this headline">¶</a></h3>
+<p>Symfony предоставляет специальные теги для Twig (<tt class="docutils literal"><code>trans</code></tt> и <tt class="docutils literal"><code>transchoice</code></tt>)
+для того, чтобы помочь с переводом сообщений <em>статичного блочного текста</em>:</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">trans</span> <span class="cp">%}</span><span class="x">Hello %name%</span><span class="cp">{%</span> <span class="k">endtrans</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">transchoice</span> <span class="nv">count</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    {0} There are no apples|{1} There is one apple|]1,Inf[ There are %count% apples</span>
+<span class="cp">{%</span> <span class="k">endtranschoice</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Тег <tt class="docutils literal"><code>transchoice</code></tt> автоматически получает переменную <tt class="docutils literal"><code>%count%</code></tt> из текущего
+контекста и передает ее переводчику. Этот механизм работает только если вы
+используете заполнитель после шаблона <tt class="docutils literal"><code>%var%</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Обозначение заполнителей <tt class="docutils literal"><code>%var%</code></tt> обязательно при переводе в шаблонах
+Twig, использующих тег.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если вам нужно использовать символ процента (<tt class="docutils literal"><code>%</code></tt>) в коде, избегайте его
+с помощью дублирования: <tt class="docutils literal"><code>{% trans %}Percent: %percent%%%{% endtrans %}</code></tt>.</p>
+</div></div>
+<p>Вы также можете указать домен сообщения и указать некоторые дополнительные переменные:</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">trans</span> <span class="nv">with</span> <span class="o">{</span><span class="s1">&#39;%name%&#39;</span><span class="o">:</span> <span class="s1">&#39;Fabien&#39;</span><span class="o">}</span> <span class="nv">from</span> <span class="s2">&quot;app&quot;</span> <span class="cp">%}</span><span class="x">Hello %name%</span><span class="cp">{%</span> <span class="k">endtrans</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">trans</span> <span class="nv">with</span> <span class="o">{</span><span class="s1">&#39;%name%&#39;</span><span class="o">:</span> <span class="s1">&#39;Fabien&#39;</span><span class="o">}</span> <span class="nv">from</span> <span class="s2">&quot;app&quot;</span> <span class="nv">into</span> <span class="s2">&quot;fr&quot;</span> <span class="cp">%}</span><span class="x">Hello %name%</span><span class="cp">{%</span> <span class="k">endtrans</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">transchoice</span> <span class="nv">count</span> <span class="nv">with</span> <span class="o">{</span><span class="s1">&#39;%name%&#39;</span><span class="o">:</span> <span class="s1">&#39;Fabien&#39;</span><span class="o">}</span> <span class="nv">from</span> <span class="s2">&quot;app&quot;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    {0} %name%, there are no apples|{1} %name%, there is one apple|]1,Inf[ %name%, there are %count% apples</span>
+<span class="cp">{%</span> <span class="k">endtranschoice</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p id="translation-filters-ru">Фильтры  <tt class="docutils literal"><code>trans</code></tt> и <tt class="docutils literal"><code>transchoice</code></tt> могут быть использованы для перевода
+<em>изменяющихся текстов</em> и сложных выражений:</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">message</span><span class="o">|</span><span class="nf">trans</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="cp">{{</span> <span class="nv">message</span><span class="o">|</span><span class="nf">transchoice</span><span class="o">(</span><span class="m">5</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="cp">{{</span> <span class="nv">message</span><span class="o">|</span><span class="nf">trans</span><span class="o">({</span><span class="s1">&#39;%name%&#39;</span><span class="o">:</span> <span class="s1">&#39;Fabien&#39;</span><span class="o">},</span> <span class="s2">&quot;app&quot;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="cp">{{</span> <span class="nv">message</span><span class="o">|</span><span class="nf">transchoice</span><span class="o">(</span><span class="m">5</span><span class="o">,</span> <span class="o">{</span><span class="s1">&#39;%name%&#39;</span><span class="o">:</span> <span class="s1">&#39;Fabien&#39;</span><span class="o">},</span> <span class="s1">&#39;app&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Использования тегов или фильтров перевода имеет такой же эффект, с
+одним маленьким различием: автоматическое экранирование вывода применяется
+только к переводам, использующим фильтр. Другими словами, если вам
+нужно быть уверенными, что вывод вашего переведенного сообщения <em>не</em>
+будет экранирован, вы должны применить фильтр <tt class="docutils literal"><code>raw</code></tt> после фильтра перевода:</p>
+<div class="literal-block"><div class="last highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# текст, переведенный между тегов, никогда не избегается #}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">trans</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;h3&gt;foo&lt;/h3&gt;</span>
+<span class="cp">{%</span> <span class="k">endtrans</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">message</span> <span class="o">=</span> <span class="s1">&#39;&lt;h3&gt;foo&lt;/h3&gt;&#39;</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="c">{# строки и переменные, переведенные с помощью фильтра, избегаются по умолчанию #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">message</span><span class="o">|</span><span class="nf">trans</span><span class="o">|</span><span class="nf">raw</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="s1">&#39;&lt;h3&gt;bar&lt;/h3&gt;&#39;</span><span class="o">|</span><span class="nf">trans</span><span class="o">|</span><span class="nf">raw</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Вы можете установить домен перевода для целого шаблона Twig с помощью единственного тега:</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">trans_default_domain</span> <span class="s2">&quot;app&quot;</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p class="last">Заметьте, что это влияет только на текущий шаблон, а не на «включенный»
+шаблон (чтобы избежать побочных эффектов).</p>
+</div></div>
+</div>
+<div class="section" id="hp">
+<h3>РHP-шаблоны<a class="headerlink" href="#hp" title="Permalink to this headline">¶</a></h3>
+<p>В PHP-шаблонах сервис перевода доступен через помощник <tt class="docutils literal"><code>translator</code></tt>:</p>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;translator&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">trans</span><span class="p">(</span><span class="s1">&#39;Symfony is great&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;translator&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">transChoice</span><span class="p">(</span>
+    <span class="s1">&#39;{0} There are no apples|{1} There is one apple|]1,Inf[ There are %count% apples&#39;</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;%count%&#39;</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">)</span> <span class="cp">?&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="translation-resource-locations-ru">
+<span id="id8"></span><h2>Имена ресурса/файла и расположение перевода<a class="headerlink" href="#translation-resource-locations-ru" title="Permalink to this headline">¶</a></h2>
+<p>Symfony ищет файлы сообщений (т.е. переводы) в следующих местах по умолчанию:</p>
+<ul class="simple">
+<li>каталоги <tt class="docutils literal"><code>app/Resources/translations</code></tt>;</li>
+<li>каталоги <tt class="docutils literal"><code>app/Resources/&lt;bundle name&gt;/translations</code></tt>;</li>
+<li>каталоги <tt class="docutils literal"><code>Resources/translations/</code></tt> внутри любого пакета.</li>
+</ul>
+<p>Места расположения перечислены в порядке приоритета. То есть, вы можете заменить
+перевод сообщений пакета в любом из первых 2 дирекотрий.</p>
+<p>Механизм замещения работает на уровне ключей: только замененные ключи нужно
+указывать в файле сообщения с наивысшим приоритетом. Если ключ не найден в
+файле сообщения, переводчик автоматически обратится к файлам сообщений с более
+низким приоритетом.</p>
+<p>Наименование файлов переводов также важно: каждый файл должен быть назван в
+соответствии со следующим шаблоном: <tt class="docutils literal"><code>domain.locale.loader</code></tt>:</p>
+<ul class="simple">
+<li><strong>domain</strong>: Опциональный способ для объединения сообщений в группы
+(например, <tt class="docutils literal"><code>admin</code></tt>, <tt class="docutils literal"><code>navigation</code></tt> или же по умолчанию  <tt class="docutils literal"><code>messages</code></tt>)
+- см. <span class="xref std std-ref">Использование доменов сообщений using-message-domains</span>;</li>
+<li><strong>locale</strong>:  Локаль, которой соответствует перевод (например, <tt class="docutils literal"><code>en_GB</code></tt>,
+<tt class="docutils literal"><code>en</code></tt>, и т.д.);</li>
+<li><strong>loader</strong>: Как Symfony должен загрузить и анализировать файл (например,
+<tt class="docutils literal"><code>xlf</code></tt>,  <tt class="docutils literal"><code>php</code></tt>, <tt class="docutils literal"><code>yml</code></tt> и т.д.).</li>
+</ul>
+<p>Загрузчик (loader) может быть наименованием любого зарегистрированного загрузчика.
+По умолчанию в Symfony представлены многие загрузчики, включая следующие:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>xlf</code></tt>: XLIFF-файл;</li>
+<li><tt class="docutils literal"><code>php</code></tt>: PHP-файл;</li>
+<li><tt class="docutils literal"><code>yml</code></tt>: YAML-файл.</li>
+</ul>
+<p>Выбор загрузчика зависит только от вас и вашего вкуса. Рекомендуемым вариантом
+является использование <tt class="docutils literal"><code>xlf</code></tt> для переводов. Чтобы узнать больше вариантов,
+смотрите <span class="xref std std-ref">Загрузка каталогов сообщений component-translator-message-catalogs</span>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p>вы можете добавлять другие каталоги с опцией <a class="reference internal" href="reference\configuration\framework.html#reference-translator-paths"><span>paths</span></a>
+в конфигурацию:</p>
+<div class="last configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/config.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">framework</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">translator</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">paths</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="s">&#39;%kernel.project_dir%/translations&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/config.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:framework=</span><span class="s">&quot;http://symfony.com/schema/dic/symfony&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-Instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/symfony</span>
+<span class="s">        http://symfony.com/schema/dic/symfony/symfony-1.0.xsd&quot;</span>
+<span class="nt">&gt;</span>
+
+    <span class="nt">&lt;framework:config&gt;</span>
+        <span class="nt">&lt;framework:translator&gt;</span>
+            <span class="nt">&lt;framework:path&gt;</span>%kernel.project_dir%/translations<span class="nt">&lt;/framework:path&gt;</span>
+        <span class="nt">&lt;/framework:translator&gt;</span>
+    <span class="nt">&lt;/framework:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/config.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;framework&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;translator&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;paths&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;%kernel.project_dir%/translations&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вы также можете хранить переводы в базе данных, или любом другом хранилище
+при помощи вашего собственного класса, реализующего интерфейс
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Loader/LoaderInterface.html" title="Symfony\Component\Translation\Loader\LoaderInterface">LoaderInterface</a></code></tt>. Смотрите
+тег  See the <a class="reference internal" href="reference\dic_tags.html#dic-tags-translation-loader"><span>translation.loader</span></a> для более подробной информации.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p>Каждый раз, когда вы создаете <em>новый</em> ресурс перевода (или устанавливаете
+пакет, который включает в себя ресурс перевода), не забудьте очистить ваш
+кеш, чтобы Symfony мог обнаружить новые ресурсы перевода.</p>
+<div class="literal-block"><div class="last highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console cache:clear
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+</div>
+<div class="section" id="translation-fallback-ru">
+<span id="id9"></span><h2>Резервные локали перевода<a class="headerlink" href="#translation-fallback-ru" title="Permalink to this headline">¶</a></h2>
+<p>Представьте себе, что локаль пользователя – <tt class="docutils literal"><code>fr_FR</code></tt>, и что вы переводите ключ
+<tt class="docutils literal"><code>Symfony is great</code></tt>. Для того, чтобы найти французский перевод, Symfony проверяет
+ресурсы перевода для нескольких локалей:</p>
+<ol class="arabic simple">
+<li>Для начала, Symfony ищет перевод в ресурсе <tt class="docutils literal"><code>fr_FR</code></tt> (например,
+<tt class="docutils literal"><code>messages.fr_FR.xlf</code></tt>);</li>
+<li>Если перевод не был найден, Symfony ищет перевод в ресурсе <tt class="docutils literal"><code>fr</code></tt>
+(например, <tt class="docutils literal"><code>messages.fr.xlf</code></tt>);</li>
+<li>Если перевод все еще не был найден, Symfony использует параметр конфигурации
+<tt class="docutils literal"><code>fallbacks</code></tt> (резерв), который по умолчанию обращается к ресурсу <tt class="docutils literal"><code>en</code></tt>
+(см. <a class="reference internal" href="#id2">Конфигурирование</a>).</li>
+</ol>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Когда Symfony не находит перевод в данной локали, он добавляет недостающий
+перевод в файл логов. Для того, чтобы узнать детали, смотрите
+<span class="xref std std-ref">Ведение журнала записей reference-framework-translator-logging</span>.</p>
+</div></div>
+</div>
+<div class="section" id="id10">
+<h2>Работа с локалью пользователя<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>Перевод осуществвляется исходя из локали пользователя. См. <a class="reference internal" href="translation\locale.html"><em>How to Work with the User's Locale</em></a>,
+чтобы узнать больше о том, как управлять ею.</p>
+</div>
+<div class="section" id="id11">
+<h2>Перевод контента базы данных<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>The translation of database content should be handled by Doctrine through
+the <a class="reference external" href="http://atlantic18.github.io/DoctrineExtensions/doc/translatable.html">Translatable Extension</a> or the <a class="reference external" href="https://github.com/KnpLabs/DoctrineBehaviors">Translatable Behavior</a> (PHP 5.4+).
+For more information, see the documentation for these libraries.</p>
+</div>
+<div class="section" id="debugging-translations">
+<h2>Debugging Translations<a class="headerlink" href="#debugging-translations" title="Permalink to this headline">¶</a></h2>
+<p>Когда вы работаете со множеством сообщений перевода на разных языках,
+может быть тяжело уследить, каких переводов не хватает, а какие больше
+не используются. Прочтите <a class="reference internal" href="translation\debug.html"><em>How to Find Missing or Unused Translation Messages</em></a>, чтобы узнать, как
+определять такие сообщения.</p>
+</div>
+<div class="section" id="id12">
+<h2>Заключение<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>При помощи компонента переводчика, создание интернационального приложения больше
+не должно быть болезненным процессом и заключается в следующих базовых шагах:</p>
+<ul class="simple">
+<li>Извлеките сообщения вашего приложения, завернув каждое в методы
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Translator.html#method_trans" title="Symfony\Component\Translation\Translator::trans()">trans()</a></code></tt> или
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Translator.html#method_transChoice" title="Symfony\Component\Translation\Translator::transChoice()">transChoice()</a></code></tt>,
+(узнайте об этом в разделе <a class="reference internal" href="components\translation\usage.html"><em>Использование переводчика</em></a>);</li>
+<li>Переведите каждое сообщение для различных локалей, создав файлы переводов
+сообщений. Symfony найдёт и обработает каждый файл, так как их имена следуют
+специфическим соглашениям;</li>
+<li>Управляйте локалью пользователя, которая хранится в запросе, но также может
+быть установлена в пользовательской сессии.</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h2>Узнать больше<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="translation\debug.html">How to Find Missing or Unused Translation Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation/debug-ru.html">Как найти отсутствующие или неиспользованные сообщения перевода</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation\lint.html">How to Find Errors in Translation Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation/lint-ru.html">Как находить ошибки в файлах перевода</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation\locale.html">How to Work with the User's Locale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation/locale-ru.html">Как работать с локалью пользователя</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

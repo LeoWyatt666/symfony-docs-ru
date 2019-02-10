@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент Security &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="Компонент Serializer" href="serializer-ru.html">
+    <link rel="prev" title="Компонент Routing" href="routing-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент Security</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#id2">Узнать больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент Security</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="security">
+<span id="index-0"></span><h1>Компонент Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Компонент Security предоставляет полную систему безопасности для вашего
+веб-приложения. Он поставляется с инструментами для аутентификации, используя
+базовую HTTP-аутентификацию, интерактивную форму входа в систему или сертификат
+входа в систему X.509, но он также позволяет вам реализовать вашу собственную
+стратегию аутентификации. Более того, компонент предоставляет способы для
+авторизации аутентифицированных пользователей, основываясь на их ролях, и содержит
+продвинутую систему СКД.</div></blockquote>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/security
+</pre></div>
+</td></tr></table></div></div>
+<p>Alternatively, you can clone the <a class="reference external" href="https://github.com/symfony/security">https://github.com/symfony/security</a> repository.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+<p>Компонент Security делится на четыре меньших подкомпонента, которые могут
+быть использованы отдельно:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>symfony/security-core</code></tt></dt>
+<dd>Предоставляет все общие функции безопасности, от аутентификации до авторизации,
+и от шифрования паролей до загрузки пользователей.</dd>
+<dt><tt class="docutils literal"><code>symfony/security-http</code></tt></dt>
+<dd>Интегрирует базовый подкомпонент с протоколом HTTP, для обработки HTTP запросов
+и ответов.</dd>
+<dt><tt class="docutils literal"><code>symfony/security-csrf</code></tt></dt>
+<dd>Предоставляет защиту от <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF атак</a>.</dd>
+<dt><tt class="docutils literal"><code>symfony/security-acl</code></tt></dt>
+<dd>Предоставляет тонко настраиваемый механизм разрешений, основанный на списках
+контроля доступа.</dd>
+</dl>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Эта статья объясняет как использовать функции Security как независимого
+компонента в любом приложении PHP. Прочитайте статью <a class="reference internal" href="..\security.html"><em>Security</em></a>
+для понимания как использовать его в приложениях Symfony.</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Узнать больше<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security\authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security/authentication-ru.html">Аутентификация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security\authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security/authorization-ru.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security\firewall.html">The Firewall and Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security/firewall-ru.html">Брандмауэр и авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security\secure_tools.html">Securely Generating Random Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security/secure_tools-ru.html">Безопасное генерирование произвольных значений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\access_control.html">How Does the Security access_control Work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/access_control-ru.html">Как работает безопасность access_control?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\access_denied_handler.html">How to Create a Custom Access Denied Handler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/access_denied_handler-ru.html">Как создать пользовательский обработчик отказа в доступе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\acl.html">How to Use Access Control Lists (ACLs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/acl-ru.html">Как использовать списки контроля доступа (СКД)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\acl_advanced.html">How to Use advanced ACL Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/acl_advanced-ru.html">Как использовать продвинутые концепты СКД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\api_key_authentication.html">How to Authenticate Users with API Keys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/api_key_authentication-ru.html">Как аутентифицировать пользователей с ключами API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\csrf.html">How to Implement CSRF Protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/csrf-ru.html">Как реализовать защиту от CSRF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\custom_authentication_provider.html">How to Create a custom Authentication Provider</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/custom_authentication_provider-ru.html">Как создать пользовательского поставщика аутентификации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\custom_password_authenticator.html">How to Create a Custom Form Password Authenticator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/custom_password_authenticator-ru.html">Как создать пользовательский аутентификатор пароля</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\custom_provider.html">How to Create a custom User Provider</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/custom_provider-ru.html">Как создать пользовательского поставщика пользователей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\entity_provider.html">How to Load Security Users from the Database (the Entity Provider)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/entity_provider-ru.html">Как загружать пользователей безопасности из БД (поставщик сущностей)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\expressions.html">Security: Complex Access Controls with Expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/expressions-ru.html">Безопасность: Сложный контроль доступа с выражениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\firewall_restriction.html">How to Restrict Firewalls to a Specific Request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/firewall_restriction-ru.html">Как ограничить брандмауэры по конкретному запросу</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\force_https.html">How to Force HTTPS or HTTP for different URLs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/force_https-ru.html">Как форсировать HTTPS или HTTP для разных URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\form_login.html">How to Customize Redirect After Form Login</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/form_login-ru.html">Как настроить вашу форму входа в систему</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\form_login_setup.html">How to Build a Traditional Login Form</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/form_login_setup-ru.html">Как построить традиционную форму входа в систему</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\guard_authentication.html">How to Create a Custom Authentication System with Guard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/guard_authentication-ru.html">Как создать пользовательскую аутентификацию с защитой</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\host_restriction.html">How to Restrict Firewalls to a Specific Host</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/host_restriction-ru.html">Как ограничить брандмауэры для конкретного хоста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\impersonating_user.html">How to Impersonate a User</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/impersonating_user-ru.html">Как олицетворить пользователя</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\json_login_setup.html">How to Build a JSON Authentication Endpoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/json_login_setup-ru.html">Как построить точку конечную точку JSON аутентификации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\ldap.html">Authenticating against an LDAP server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/ldap-ru.html">Аутентификация с LDAP-сервером</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\multiple_guard_authenticators.html">How to Use Multiple Guard Authenticators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/multiple_guard_authenticators-ru.html">Как использовать несколько аутентификаторов защиты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\multiple_user_providers.html">How to Use multiple User Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/multiple_user_providers-ru.html">Как использовать несколько поставщиков пользователей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\named_encoders.html">How to Choose the Password Encoder Algorithm Dynamically</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/named_encoders-ru.html">Как динамически выбирать алогоритм кодировщика пароля</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\password_encoding.html">How to Manually Encode a Password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/password_encoding-ru.html">Как зашифровать пароль вручную</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\pre_authenticated.html">Using pre Authenticated Security Firewalls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/pre_authenticated-ru.html">Использование брандмауэров предварительной аутентификации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\remember_me.html">How to Add &quot;Remember Me&quot; Login Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/remember_me-ru.html">Как добавить функциональность входа в систему &quot;Запомнить меня&quot;</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\securing_services.html">How to Secure any Service or Method in your Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/securing_services-ru.html">Как защитить любой сервис или метод в вашем приложении</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\security_checker.html">How to Check for Known Security Vulnerabilities in Your Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/security_checker-ru.html">Как проверить на известные уязвимости защиты в ваших зависимостях</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\user_checkers.html">How to Create and Enable Custom User Checkers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/user_checkers-ru.html">Как создавать и подключать пользовательские программы проверки пользователя</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\security\voters.html">How to Use Voters to Check User Permissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/voters-ru.html">Как использовать избирателей для проверки разрешений данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\reference\configuration\security.html">Security Configuration Reference (SecurityBundle)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\reference\constraints\UserPassword.html">UserPassword</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="routing-ru.html">« Компонент Routing</a>
+                <span class="separator">|</span>
+                <a href="serializer-ru.html">Компонент Serializer »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

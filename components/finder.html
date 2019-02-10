@@ -1,0 +1,622 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент Finder &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="The Form Component" href="form.html">
+    <link rel="prev" title="The Finder Component" href="finder.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент Finder</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#id2">Применение</a></li>
+<li><a class="reference internal" href="#id3">Критерии</a><ul>
+<li><a class="reference internal" href="#id4">Локация</a></li>
+<li><a class="reference internal" href="#id5">Файлы или каталоги</a></li>
+<li><a class="reference internal" href="#id6">Сортировка</a></li>
+<li><a class="reference internal" href="#id7">Имя файла</a></li>
+<li><a class="reference internal" href="#id8">Содержание файла</a></li>
+<li><a class="reference internal" href="#id9">Путь</a></li>
+<li><a class="reference internal" href="#id10">Размер файла</a></li>
+<li><a class="reference internal" href="#id11">Данные файла</a></li>
+<li><a class="reference internal" href="#id12">Глубина каталога</a></li>
+<li><a class="reference internal" href="#id13">Пользовательское фильтрование</a></li>
+<li><a class="reference internal" href="#id14">Чтение содержания возвращённых файлов</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент Finder</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="finder">
+<span id="index-0"></span><h1>Компонент Finder<a class="headerlink" href="#finder" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Компонент Finder находит файлы и каталоги через интуитивный fluent
+интерфейс.</div></blockquote>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/finder
+</pre></div>
+</td></tr></table></div></div>
+<p>Также вы можете клонировать репозиторий <a class="reference external" href="https://github.com/symfony/finder">https://github.com/symfony/finder</a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Применение<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/Finder.html" title="Symfony\Component\Finder\Finder">Finder</a></code></tt> находит файлы и/или каталоги:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Finder\Finder</span><span class="p">;</span>
+
+<span class="nv">$finder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Finder</span><span class="p">();</span>
+<span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">files</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">in</span><span class="p">(</span><span class="no">__DIR__</span><span class="p">);</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$finder</span> <span class="k">as</span> <span class="nv">$file</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Сбрасывает абсолютный путь</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$file</span><span class="o">-&gt;</span><span class="na">getRealPath</span><span class="p">());</span>
+
+    <span class="c1">// Сбрасывает относительный путь к файлу, опустив имя файла</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$file</span><span class="o">-&gt;</span><span class="na">getRelativePath</span><span class="p">());</span>
+
+    <span class="c1">// Сбрасывает относительный путь к файлу</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$file</span><span class="o">-&gt;</span><span class="na">getRelativePathname</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p><tt class="docutils literal"><code>$file</code></tt> является экземпляром <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/SplFileInfo.html" title="Symfony\Component\Finder\SplFileInfo">SplFileInfo</a></code></tt>, который
+расширяет собственный <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.splfileinfo.php" title="SplFileInfo">SplFileInfo</a></code></tt> PHP, чтобы предоставить методы для работы
+с относительными путями.</p>
+<p>Код выше отображает имена всех файлов в текущем каталоге в обратном порядке. Класс
+Поисковика использует свободный интерфейс, так что все методы возвращают экземпляр
+Поисковика.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Экземпляр Поисковика - это <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.iterator.php" title="Iterator">Iterator</a></code></tt>. Так что в дополнение к итерации
+Поисковика с помощью <tt class="docutils literal"><code>foreach</code></tt>, вы также можете конвертировать его в массив методом
+<tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.iterator-to-array.php" title="iterator_to_array">iterator_to_array</a></code></tt>, или получить количество объектов с <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.iterator-count.php" title="iterator_count">iterator_count</a></code></tt>.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Объект <tt class="docutils literal"><code>Finder</code></tt> не перезагружает внутреннее состояние автоматически. Это
+означает, что вам нужно создать новый экземпляр, если вы не хотите получить
+смешнанный результат.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">При поиске в нескольких локациях, переданных методу
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/Finder.html#method_in" title="Symfony\Component\Finder\Finder::in()">in()</a></code></tt>, для каждой локации внутренне
+создаётся отдельный итератор. Это означает, что у нас несколько наборов результатов
+собираются в один.
+Так как <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.iterator-to-array.php" title="iterator_to_array">iterator_to_array</a></code></tt> использует ключи наборов результатов по
+умолчанию при конвертации в массив, некоторые ключи могут быть продублированы, а
+их значения - перезаписаны. Этого можно избежать передав <tt class="docutils literal"><code>false</code></tt> в качестве второго
+параметра <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.iterator-to-array.php" title="iterator_to_array">iterator_to_array</a></code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="id3">
+<h2>Критерии<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Существует множество способов фильтровать и сортировать ваши результаты. Вы
+можете также использовать метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/Finder.html#method_hasResults" title="Symfony\Component\Finder\Finder::hasResults()">hasResults()</a></code></tt>,
+чтобы проверить, существует ли файл или каталог, соответствующий критериям поиска.</p>
+<div class="section" id="id4">
+<h3>Локация<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Локация - единственный обязательный критерий. Она сообщает поискоивку,
+какой каталог использовать для поиска:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">in</span><span class="p">(</span><span class="no">__DIR__</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Искать в нескльких локациях, изменяя вызов на
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/Finder.html#method_in" title="Symfony\Component\Finder\Finder::in()">in()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// искать внутри *обоих* каталогов</span>
+<span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">in</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="no">__DIR__</span><span class="p">,</span> <span class="s1">&#39;/elsewhere&#39;</span><span class="p">));</span>
+
+<span class="c1">// то же, что и выше</span>
+<span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">in</span><span class="p">(</span><span class="no">__DIR__</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">in</span><span class="p">(</span><span class="s1">&#39;/elsewhere&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Используйте символы-заполнители, чтобы искать в каталогах, соответствующих
+шаблону:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">in</span><span class="p">(</span><span class="s1">&#39;src/Symfony/*/*/Resources&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Каждый шаблон должен разрешать как минимум один путь каталога.</p>
+<p>Исключить каталоги, совпадающие с методом <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/Finder.html#method_exclude" title="Symfony\Component\Finder\Finder::exclude()">exclude()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// каталоги, переданные в качестве аргумента, должны быть связаны с теми, что определены в методе in()</span>
+<span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">in</span><span class="p">(</span><span class="no">__DIR__</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">exclude</span><span class="p">(</span><span class="s1">&#39;ruby&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Также возможно игнорировать каталоги, на чтение которых у вас нет разрешения:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">ignoreUnreadableDirs</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">in</span><span class="p">(</span><span class="no">__DIR__</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Так как Поисковик использует PHP итераторы, вы можете передать любой URL,
+поддерживаемым <a class="reference external" href="https://php.net/manual/en/wrappers.php">protocol</a>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// всегда добавляйте закрывающий слеш, когда ищете dir корна FTP</span>
+<span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">in</span><span class="p">(</span><span class="s1">&#39;ftp://example.com/&#39;</span><span class="p">);</span>
+
+<span class="c1">// вы можете также искать в каталоге FTP</span>
+<span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">in</span><span class="p">(</span><span class="s1">&#39;ftp://example.com/pub/&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>И это также работает с потоками, определёнными пользователями:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Finder\Finder</span><span class="p">;</span>
+
+<span class="nv">$s3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Zend_Service_Amazon_S3</span><span class="p">(</span><span class="nv">$key</span><span class="p">,</span> <span class="nv">$secret</span><span class="p">);</span>
+<span class="nv">$s3</span><span class="o">-&gt;</span><span class="na">registerStreamWrapper</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">);</span>
+
+<span class="nv">$finder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Finder</span><span class="p">();</span>
+<span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;photos*&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">size</span><span class="p">(</span><span class="s1">&#39;&lt; 100K&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">date</span><span class="p">(</span><span class="s1">&#39;since 1 hour ago&#39;</span><span class="p">);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">in</span><span class="p">(</span><span class="s1">&#39;s3://bucket-name&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$file</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ... сделать что-то с файлом</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Простите документацию <a class="reference external" href="https://php.net/streams">Потоки</a>, чтобы узнать, как создавать собственные потоки.</p>
+</div></div>
+</div>
+<div class="section" id="id5">
+<h3>Файлы или каталоги<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>По умолчанию, Поисковик возвращает файлы и каталоги; но методы
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/Finder.html#method_files" title="Symfony\Component\Finder\Finder::files()">files()</a></code></tt> и
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/Finder.html#method_directories" title="Symfony\Component\Finder\Finder::directories()">directories()</a></code></tt> контролируют это:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">files</span><span class="p">();</span>
+
+<span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">directories</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы хотите следовать ссылкам, используйте метод <tt class="docutils literal"><code>followLinks()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">files</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">followLinks</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>По умолчанию, итератор игнорирует поплуярные VCS файлы. Это можно изменить методом
+<tt class="docutils literal"><code>ignoreVCS()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">ignoreVCS</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id6">
+<h3>Сортировка<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Сортируйте результат по имени или типу (вначале каталоги, потом файлы):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">sortByName</span><span class="p">();</span>
+
+<span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">sortByType</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>По умолчанию метод <tt class="docutils literal"><code>sortByName()</code></tt> использует функцию PHP <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.strcmp.php" title="strcmp">strcmp</a></code></tt>
+(то есть, <tt class="docutils literal"><code>file1.txt</code></tt>, <tt class="docutils literal"><code>file10.txt</code></tt>, <tt class="docutils literal"><code>file2.txt</code></tt>). Передайте аргумент <tt class="docutils literal"><code>true</code></tt>
+для использования алгоритма PHP <a class="reference external" href="https://en.wikipedia.org/wiki/Natural_sort_order">Естественный порядок сортировки</a> (то есть,
+<tt class="docutils literal"><code>file1.txt</code></tt>, <tt class="docutils literal"><code>file2.txt</code></tt>, <tt class="docutils literal"><code>file10.txt</code></tt>).</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 4.2: </span>Возможность использования естественного порядка сортировки появилась в Symfony 4.2.</p>
+</div>
+</div></div>
+<p>Вы можете также определить собственный алгоритм сортировки в методе <tt class="docutils literal"><code>sort()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">sort</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">\SplFileInfo</span> <span class="nv">$a</span><span class="p">,</span> <span class="nx">\SplFileInfo</span> <span class="nv">$b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">strcmp</span><span class="p">(</span><span class="nv">$a</span><span class="o">-&gt;</span><span class="na">getRealPath</span><span class="p">(),</span> <span class="nv">$b</span><span class="o">-&gt;</span><span class="na">getRealPath</span><span class="p">());</span>
+<span class="p">});</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Заметьте, что методы <tt class="docutils literal"><code>sort*</code></tt> должны получить все подходящие элементы для своей работы.
+Для больших итераторов это может быть медленно.</p>
+</div></div>
+</div>
+<div class="section" id="id7">
+<h3>Имя файла<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Ограничьте файлы по имени методом
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/Finder.html#method_name" title="Symfony\Component\Finder\Finder::name()">name()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">files</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;*.php&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code>name()</code></tt> принимает маски, строки или регулярные выражения:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">files</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;/\.php$/&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code>notName()</code></tt> исключает файлы, совпадающие со схемой:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">files</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">notName</span><span class="p">(</span><span class="s1">&#39;*.rb&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id8">
+<h3>Содержание файла<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Ограничьте файлы по содержанию, методом
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/Finder.html#method_contains" title="Symfony\Component\Finder\Finder::contains()">contains()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">files</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">contains</span><span class="p">(</span><span class="s1">&#39;lorem ipsum&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code>contains()</code></tt> принимает строки или регулярные выражения:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">files</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">contains</span><span class="p">(</span><span class="s1">&#39;/lorem\s+ipsum$/i&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code>notContains()</code></tt> исключает файлы, содержащие заданную схему:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">files</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">notContains</span><span class="p">(</span><span class="s1">&#39;dolor sit amet&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id9">
+<h3>Путь<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Ограничьте файлы и папки по пути, методом
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/Finder.html#method_path" title="Symfony\Component\Finder\Finder::path()">path()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// сопоставляет файлы, содержащие &quot;data&quot; где-либо в их путях (файлах или каталогах)</span>
+<span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">path</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">);</span>
+<span class="c1">// например, это будет соответстсовать data/*.xml и data.xml, если они существуют</span>
+<span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">path</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;*.xml&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>На всех платформах слеш (т.е. <tt class="docutils literal"><code>/</code></tt>) нужно использвать как разделитель каталогов.</p>
+<p>Метод <tt class="docutils literal"><code>path()</code></tt> принимает строку или регулярное выражение:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">path</span><span class="p">(</span><span class="s1">&#39;foo/bar&#39;</span><span class="p">);</span>
+<span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">path</span><span class="p">(</span><span class="s1">&#39;/^foo\/bar/&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Внутренне, строки преобразуются в регулярные выражения, экранируя слеши и добавляя
+разграничители:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>dirname    ===&gt;    /dirname/
+a/b/c      ===&gt;    /a\/b\/c/
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/Finder.html#method_notPath" title="Symfony\Component\Finder\Finder::notPath()">notPath()</a></code></tt> исключает файлы по пути:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">notPath</span><span class="p">(</span><span class="s1">&#39;other/dir&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id10">
+<h3>Размер файла<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Ограничьте файлы по размеру, методом
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/Finder.html#method_size" title="Symfony\Component\Finder\Finder::size()">size()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">files</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">size</span><span class="p">(</span><span class="s1">&#39;&lt; 1.5K&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Ограничьте по диапазону размера, изменив вызовы:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">files</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">size</span><span class="p">(</span><span class="s1">&#39;&gt;= 1K&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">size</span><span class="p">(</span><span class="s1">&#39;&lt;= 2K&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Оператор сравнения может быть чем-либо из следующего: <tt class="docutils literal"><code>&gt;</code></tt>, <tt class="docutils literal"><code>&gt;=</code></tt>, <tt class="docutils literal"><code>&lt;</code></tt>, <tt class="docutils literal"><code>&lt;=</code></tt>,
+<tt class="docutils literal"><code>==</code></tt>, <tt class="docutils literal"><code>!=</code></tt>.</p>
+<p>Целевое значение может использовать величины килобайтов (<tt class="docutils literal"><code>k</code></tt>, <tt class="docutils literal"><code>ki</code></tt>), мегабайтов
+(<tt class="docutils literal"><code>m</code></tt>, <tt class="docutils literal"><code>mi</code></tt>), или гигабайтов (<tt class="docutils literal"><code>g</code></tt>, <tt class="docutils literal"><code>gi</code></tt>). Те, что имеют суффикс <tt class="docutils literal"><code>i</code></tt>, используют
+соответствующую версию <tt class="docutils literal"><code>2**n</code></tt> в соответствии со <a class="reference external" href="https://physics.nist.gov/cuu/Units/binary.html">стандартом IEC</a>.</p>
+</div>
+<div class="section" id="id11">
+<h3>Данные файла<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>Ограничьте файлы по датам последних изменений, методом
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/Finder.html#method_date" title="Symfony\Component\Finder\Finder::date()">date()</a></code></tt></p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">date</span><span class="p">(</span><span class="s1">&#39;since yesterday&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Оператор сравнения может быть любым из следующих: <tt class="docutils literal"><code>&gt;</code></tt>, <tt class="docutils literal"><code>&gt;=</code></tt>, <tt class="docutils literal"><code>&lt;</code></tt>, <tt class="docutils literal"><code>&lt;=</code></tt>,
+<tt class="docutils literal"><code>==</code></tt>. Вы можете также использовать <tt class="docutils literal"><code>since</code></tt> или <tt class="docutils literal"><code>after</code></tt> в качестве дополнительного
+имени <tt class="docutils literal"><code>&gt;</code></tt>, и <tt class="docutils literal"><code>until</code></tt> или <tt class="docutils literal"><code>before</code></tt> в качестве дополнительного имени <tt class="docutils literal"><code>&lt;</code></tt>.</p>
+<p>Целевое значение может быть любыми данными, поддерживаемыми функцией <a class="reference external" href="https://php.net/manual/en/datetime.formats.php">strtotime</a>.</p>
+</div>
+<div class="section" id="id12">
+<h3>Глубина каталога<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>По умолчанию, Поисковик траверсирует каталоги в обратном порядке. Ограничьте
+глубину траверсирования методом <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/Finder.html#method_depth" title="Symfony\Component\Finder\Finder::depth()">depth()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">depth</span><span class="p">(</span><span class="s1">&#39;== 0&#39;</span><span class="p">);</span>
+<span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">depth</span><span class="p">(</span><span class="s1">&#39;&lt; 3&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id13">
+<h3>Пользовательское фильтрование<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>Чтобы ограничить совпадающий файл вашей собственной стратегией,
+используйте <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/Finder.html#method_filter" title="Symfony\Component\Finder\Finder::filter()">filter()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$filter</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nx">\SplFileInfo</span> <span class="nv">$file</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$file</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">files</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="nv">$filter</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code>filter()</code></tt> берёт Closure в качестве аргумента. Для каждого совпадающего
+файла, он вызываетя с файлом <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/SplFileInfo.html" title="Symfony\Component\Finder\SplFileInfo">SplFileInfo</a></code></tt> в
+качестве экземпляра. Файл исключается из набора результатов, если замыкание возвращает
+<tt class="docutils literal"><code>false</code></tt>.</p>
+</div>
+<div class="section" id="id14">
+<h3>Чтение содержания возвращённых файлов<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>Содержание возвращённых файлов можно прочитать с помощью
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Finder/SplFileInfo.html#method_getContents" title="Symfony\Component\Finder\SplFileInfo::getContents()">getContents()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Finder\Finder</span><span class="p">;</span>
+
+<span class="nv">$finder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Finder</span><span class="p">();</span>
+<span class="nv">$finder</span><span class="o">-&gt;</span><span class="na">files</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">in</span><span class="p">(</span><span class="no">__DIR__</span><span class="p">);</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$finder</span> <span class="k">as</span> <span class="nv">$file</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$contents</span> <span class="o">=</span> <span class="nv">$file</span><span class="o">-&gt;</span><span class="na">getContents</span><span class="p">();</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="finder.html">« The Finder Component</a>
+                <span class="separator">|</span>
+                <a href="form.html">The Form Component »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

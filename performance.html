@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Производительность &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="_static/" type="text/css">
+    <link rel="stylesheet" href="_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="index.html">
+
+<link rel="stylesheet" href="_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="performance-r doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\index.html">
+                    <img src="..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Производительность</a><ul>
+<li><a class="reference internal" href="#symfony">Контрольный список приложений Symfony</a></li>
+<li><a class="reference internal" href="#id2">Контрольный список сервера производства</a><ul>
+<li><a class="reference internal" href="#apcu-polyfill-apc">Устновите APCu Polyfill, если ваш сервер использует APC</a></li>
+<li><a class="reference internal" href="#opcache">Используйте кеш байтового кода OPcache</a></li>
+<li><a class="reference internal" href="#performance-configure-opcache-ru">Сконфигурируйте OPcache для максимальной производительности</a></li>
+<li><a class="reference internal" href="#php">Не проверяйте временные отметки PHP файлов</a></li>
+<li><a class="reference internal" href="#performance-configure-realpath-cache-ru">Сконфигурируйте кеш реального пути PHP</a></li>
+<li><a class="reference internal" href="#composer">Оптимизируйте автозагрузчик Composer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">Узнайте больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="index.html">Документация</a></li>
+                
+                <li class="active">Производительность</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Производительность<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Symfony быстрая сразу после установки. Однако, вы можете сделать её ещё
+быстрее, если вы оптимизируете ваши сервера и приложения, как объясняется
+в следующих контрольных списках производительности.</p>
+<div class="section" id="symfony">
+<h2>Контрольный список приложений Symfony<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><a class="reference internal" href="performance.html#performance-install-apcu-polyfill"><span>Установите APCu Polyfill, если ваш сервер использует APC</span></a></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>Контрольный список сервера производства<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><a class="reference internal" href="performance.html#performance-use-opcache"><span>Используйте кеш байтового кода OPcache</span></a></li>
+<li><a class="reference internal" href="performance.html#performance-configure-opcache"><span>Сконфигурируйте OPcache для максимальной производительности</span></a></li>
+<li><a class="reference internal" href="performance.html#performance-dont-check-timestamps"><span>Не проверяйте временные отметки PHP файлов</span></a></li>
+<li><a class="reference internal" href="performance.html#performance-configure-realpath-cache"><span>Сконфигурируйте кеш реального пути PHP</span></a></li>
+<li><a class="reference internal" href="performance.html#performance-optimize-composer-autoloader"><span>Оптимизируйте автозагрузчик Composer</span></a></li>
+</ol>
+<div class="section" id="apcu-polyfill-apc">
+<span id="performance-install-apcu-polyfill-ru"></span><h3>Устновите APCu Polyfill, если ваш сервер использует APC<a class="headerlink" href="#apcu-polyfill-apc" title="Permalink to this headline">¶</a></h3>
+<p>Если ваш сервер производства всё ещё использует наследуемое расширение PHP APC
+вместо OPcache, установите <a class="reference external" href="https://github.com/symfony/polyfill-apcu">компоненет APCu Polyfill</a> в вашем приложении, чтобы
+подключить совместимость с <a class="reference external" href="https://php.net/manual/en/ref.apcu.php">функциями PHP APCu</a> и разблокировать поддержку продвинутых
+функций Symfony, вроде адаптера кеша APCu.</p>
+</div>
+<div class="section" id="opcache">
+<span id="performance-use-opcache-ru"></span><h3>Используйте кеш байтового кода OPcache<a class="headerlink" href="#opcache" title="Permalink to this headline">¶</a></h3>
+<p>OPcache хранит скомпилированные PHP файлы, чтобы избежать их повторной компиляции
+на каждый запрос. Существуют некоторые доступные <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_PHP_accelerators">кеши байтового кода</a> , но начиная
+с PHP 5.5, PHP поставляется со встроенным <a class="reference external" href="https://php.net/manual/en/book.opcache.php">OPcache</a>. Для более старых версий,
+наиболее используемым кешем байтового кода является <a class="reference external" href="https://php.net/manual/en/book.apc.php">APC</a>.</p>
+</div>
+<div class="section" id="performance-configure-opcache-ru">
+<span id="id3"></span><h3>Сконфигурируйте OPcache для максимальной производительности<a class="headerlink" href="#performance-configure-opcache-ru" title="Permalink to this headline">¶</a></h3>
+<p>Конфигурация OPcache по умолчанию не подходит для приложений Symfony, поэтому
+реокмендуется изменить следующие настройки таким образом:</p>
+<div class="literal-block"><div class="highlight-ini"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">; php.ini</span>
+<span class="c1">; максимальная память, которую может использовать OPcache для хранения скомпилированных PHP файлов</span>
+<span class="na">opcache.memory_consumption</span><span class="o">=</span><span class="s">256</span>
+
+<span class="c1">; максимальное количество файлов, которое может храниться в кеше</span>
+<span class="na">opcache.max_accelerated_files</span><span class="o">=</span><span class="s">20000</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="php">
+<span id="performance-dont-check-timestamps-ru"></span><h3>Не проверяйте временные отметки PHP файлов<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h3>
+<p>На серверах производства, PHP файлы никогда не должны изменяться, кроме случаев
+развёртывания новой версии приложения. Однако, по умолчанию, OPcache проверяет,
+не изменили ли файлы своё содержание с тех пор, как они были кешированы. Эта проверка
+вводит некоторую перенагрузку, которую можно избежать таким образом:</p>
+<div class="literal-block"><div class="highlight-ini"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">; php.ini</span>
+<span class="na">opcache.validate_timestamps</span><span class="o">=</span><span class="s">0</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>После каждого развёртывания, вам нужно опустощать и регенерировать кеш OPcache.
+Иначе вы не будете видеть обновления, сделанные в приложении. Учитывая,что в PHP
+CLI и веб-процессы не имеют общего OPcache, вы не можете очистить веб-сервер OPcache
+выполнив некотрую команду в вашем терминале. Вот некоторые из возможных решений:</p>
+<ol class="arabic simple">
+<li>Перезапустите веб-сервер;</li>
+<li>Вызовите функции <tt class="docutils literal"><code>apc_clear_cache()</code></tt> или <tt class="docutils literal"><code>opcache_reset()</code></tt> через веб-сервер
+(т.е. имея их в скрипте, который вы выполняете через сеть);</li>
+<li>Используйте утилиту <a class="reference external" href="https://github.com/gordalina/cachetool">cachetool</a>, чтобы контролировать APC и OPcache из CLI.</li>
+</ol>
+</div>
+<div class="section" id="performance-configure-realpath-cache-ru">
+<span id="id4"></span><h3>Сконфигурируйте кеш реального пути PHP<a class="headerlink" href="#performance-configure-realpath-cache-ru" title="Permalink to this headline">¶</a></h3>
+<p>Когда относительный путь трансформируется в настоящий и абсолютный, PHP кеширует
+результат, чтобы улучшить производительность. Приложения, которые открывают много
+PHP файлов, например, проекты Symfony, должы использновать хотя бы эти значения:</p>
+<div class="literal-block"><div class="highlight-ini"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">; php.ini</span>
+<span class="c1">; максимальная память, отведенная под хранение результатов</span>
+<span class="na">realpath_cache_size</span><span class="o">=</span><span class="s">4096K</span>
+
+<span class="c1">; сохранять результаты на 10 минут (600 секунд)</span>
+<span class="na">realpath_cache_ttl</span><span class="o">=</span><span class="s">600</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="composer">
+<span id="performance-optimize-composer-autoloader-ru"></span><h3>Оптимизируйте автозагрузчик Composer<a class="headerlink" href="#composer" title="Permalink to this headline">¶</a></h3>
+<p>Загрузчик класса, используемый во время разработки приложения, оптимизирован
+для поиска новых и изменённых классов. На серверах производства, PHP файлы
+никогда не должны изменяться, разве что развёртывается новая версия приложения.
+Поэтому вы можете оптимизировать автозагрузчик Composer, чтобы один раз сканировать
+приложение полностью и построить &quot;карту класса&quot;, которая является большим массивом
+расположений всех классов и хранится в <tt class="docutils literal"><code>vendor/composer/autoload_classmap.php</code></tt>.</p>
+<p>Выполните эту команду, чтобы сгенерировать карту класса (и также сделать её частью
+вашего процесса развёртывания):</p>
+<div class="literal-block"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>$ composer dump-autoload --optimize --no-dev --classmap-authoritative
+</pre></div>
+</td></tr></table></div></div>
+<ul class="simple">
+<li><tt class="docutils literal"><code>--optimize</code></tt> сбрасывает все совместимые с PSR-0 и PSR-4 классы, используемые
+в вашем приложении;</li>
+<li><tt class="docutils literal"><code>--no-dev</code></tt> исключает классы, которые нужны только в окружении разработки (например,
+тесты);</li>
+<li><tt class="docutils literal"><code>--classmap-authoritative</code></tt> предотвращает Composer от сканирования файловой системы
+на предмет классов, которые не найдены в карте классов.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Узнайте больше<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="http_cache\varnish.html"><em>How to Use Varnish to Speed up my Website</em></a></li>
+<li><a class="reference internal" href="http_cache\form_csrf_caching.html"><em>Caching Pages that Contain CSRF Protected Forms</em></a></li>
+</ul>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

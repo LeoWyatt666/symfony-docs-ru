@@ -1,0 +1,837 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент Lock &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="Компонент OptionsResolver (Разрешитель опций)" href="options_resolver-ru.html">
+    <link rel="prev" title="Компонент Ldap" href="ldap-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент Lock</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#id2">Использование</a></li>
+<li><a class="reference internal" href="#id3">Блокировка блокировок</a></li>
+<li><a class="reference internal" href="#id4">Блокировки с истечением срока действия</a></li>
+<li><a class="reference internal" href="#id5">Доступные хранилища</a><ul>
+<li><a class="reference internal" href="#flockstore">FlockStore</a></li>
+<li><a class="reference internal" href="#memcachedstore">MemcachedStore</a></li>
+<li><a class="reference internal" href="#redisstore">RedisStore</a></li>
+<li><a class="reference internal" href="#semaphorestore">SemaphoreStore</a></li>
+<li><a class="reference internal" href="#combinedstore">CombinedStore</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reliability">Reliability</a><ul>
+<li><a class="reference internal" href="#remote-stores">Remote Stores</a></li>
+<li><a class="reference internal" href="#expiring-stores">Expiring Stores</a></li>
+<li><a class="reference internal" href="#id6">FlockStore</a></li>
+<li><a class="reference internal" href="#id7">MemcachedStore</a></li>
+<li><a class="reference internal" href="#id8">RedisStore</a></li>
+<li><a class="reference internal" href="#id9">CombinedStore</a></li>
+<li><a class="reference internal" href="#id10">SemaphoreStore</a></li>
+<li><a class="reference internal" href="#overall">Overall</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент Lock</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="lock">
+<span id="index-0"></span><h1>Компонент Lock<a class="headerlink" href="#lock" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Компонент Lock создаёт и управляет <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%91%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)">блокировками</a> - механизмом, который предоставляет
+эксклюзивный доступ к общему источнику.</div></blockquote>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/lock
+</pre></div>
+</td></tr></table></div></div>
+<p>Также вы можете клонировать репозиторий <a class="reference external" href="https://github.com/symfony/lock">https://github.com/symfony/lock</a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Использование<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Блокировки используются для гарантии эксклюзивного доступа к некоторыми общим
+источникам. В приложениях Symfony вы можете использовать блокировки, к примеру,
+чтобы гарантировать, что одномоментно команда не будет выполнена больше, чем
+единожды (на одном или разных серверах).</p>
+<p>Блокировки создаются классом <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Lock/Factory.html" title="Symfony\Component\Lock\Factory">Factory</a></code></tt>,
+который в свою очередь подключает другой класс для управление хранением блокировок:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Lock\Factory</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Lock\Store\SemaphoreStore</span><span class="p">;</span>
+
+<span class="nv">$store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SemaphoreStore</span><span class="p">();</span>
+<span class="nv">$factory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Factory</span><span class="p">(</span><span class="nv">$store</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Блокировка создаётся вызовом метода <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Lock/Factory.html#method_createLock" title="Symfony\Component\Lock\Factory::createLock()">createLock()</a></code></tt>.
+Её первый аргумент - произвольная строка, которая представляет заблокированный
+ресурс. Потом вызов метода <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Lock/LockInterface.html#method_acquire" title="Symfony\Component\Lock\LockInterface::acquire()">acquire()</a></code></tt>
+попытается получить блокировку:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$lock</span> <span class="o">=</span> <span class="nv">$factory</span><span class="o">-&gt;</span><span class="na">createLock</span><span class="p">(</span><span class="s1">&#39;pdf-invoice-generation&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$lock</span><span class="o">-&gt;</span><span class="na">acquire</span><span class="p">())</span> <span class="p">{</span>
+    <span class="c1">// Источник &quot;pdf-invoice-generation&quot; заблокирован.</span>
+    <span class="c1">// Здесь вы можете безопасно вычислять и генерировать счёт.</span>
+
+    <span class="nv">$lock</span><span class="o">-&gt;</span><span class="na">release</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если блокировку нельзя вычислить, метод возвращает <tt class="docutils literal"><code>false</code></tt>. Метод <tt class="docutils literal"><code>acquire()</code></tt>
+может быть безопасно вызван несколько раз, даже если блокировка уже вычислена.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">В отличие от других реализаций, Компонент Lock различает экземпляры
+блокировок даже когда они создаются для одного и того же источника. Если
+блокировка должны быть использована несколькими сервисами, они должны иметь
+одинаковый экземпляр <tt class="docutils literal"><code>Lock</code></tt>, возвращённый методом <tt class="docutils literal"><code>Factory::createLock</code></tt>.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если вы не выпустите блокировку ясно, то он будет автоматически выпущен при
+разрушении экземпляра. В некоторых случаях, может быть полезно заблокировать
+источник по нескольким запросам. Чтобы отключить поведение автоматичекого релиза,
+установите третий аргумент метода <tt class="docutils literal"><code>createLock()</code></tt>, как <tt class="docutils literal"><code>false</code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="id3">
+<h2>Блокировка блокировок<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>По умолчанию, когда блокировку нельзя извлечь, метод <tt class="docutils literal"><code>acquire</code></tt> немедленно
+возвращает <tt class="docutils literal"><code>false</code></tt>. Чтобы (бесконечно) ждать, пока будет создана блокировка,
+передайте <tt class="docutils literal"><code>true</code></tt> в качестве аргумента метода <tt class="docutils literal"><code>acquire()</code></tt>. Это называется
+<strong>блокировка блокировки</strong>, так как выполнение вашего приложения останавливается,
+пока не будет вычислена блокировка.</p>
+<p>Некоторые из встроенных классов <tt class="docutils literal"><code>Store</code></tt> поддерживают эту функцию. Когда
+этого нет, они могут быть украшены классом <tt class="docutils literal"><code>RetryTillSaveStore</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Lock\Factory</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Lock\Store\RedisStore</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Lock\Store\RetryTillSaveStore</span><span class="p">;</span>
+
+<span class="nv">$store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RedisStore</span><span class="p">(</span><span class="k">new</span> <span class="nx">\Predis\Client</span><span class="p">(</span><span class="s1">&#39;tcp://localhost:6379&#39;</span><span class="p">));</span>
+<span class="nv">$store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RetryTillSaveStore</span><span class="p">(</span><span class="nv">$store</span><span class="p">);</span>
+<span class="nv">$factory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Factory</span><span class="p">(</span><span class="nv">$store</span><span class="p">);</span>
+
+<span class="nv">$lock</span> <span class="o">=</span> <span class="nv">$factory</span><span class="o">-&gt;</span><span class="na">createLock</span><span class="p">(</span><span class="s1">&#39;notification-flush&#39;</span><span class="p">);</span>
+<span class="nv">$lock</span><span class="o">-&gt;</span><span class="na">acquire</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id4">
+<h2>Блокировки с истечением срока действия<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Блокировками, созданными удалённо, тяжело управлять, так как удалённому <tt class="docutils literal"><code>Store</code></tt>
+невозможно знать, жив ли ещё процесс блокировки. В связи с багами, неустранимыми
+ошибками или ошибками сегментации, невозможно гарантировать, что метод <tt class="docutils literal"><code>release()</code></tt>
+будет вызван, что приведёт к неограниченной блокировке источника.</p>
+<p>Лучшим решением в этом случае будет создание <strong>блокировок с истечением срока действия</strong>,
+которые выпускаются автоматически после того, как прошло некоторое время (называемые
+ВЖ - <em>Время Жизни</em>). Это время (в секундах) конфигурируется в качестве второго аргумента
+метода <tt class="docutils literal"><code>createLock()</code></tt>. Если необходимо, эти блокировки также могут быт выпущены раньше,
+с помощью метода <tt class="docutils literal"><code>release()</code></tt>.</p>
+<p>Самая сложная часть при работе с блокировками со сроком действия - это выбор правильного
+ВЖ. Если оно слишком короткое, другие процессы могут получить блокировку до окончания
+работы; если оно слишком длинное и процесс вызовет сбой до вызова метода <tt class="docutils literal"><code>release()</code></tt>,
+источник останется заблокирован до тайм-аута:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="c1">// создать блокировку со сроком действия 30 секунд</span>
+<span class="nv">$lock</span> <span class="o">=</span> <span class="nv">$factory</span><span class="o">-&gt;</span><span class="na">createLock</span><span class="p">(</span><span class="s1">&#39;charts-generation&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+
+<span class="nv">$lock</span><span class="o">-&gt;</span><span class="na">acquire</span><span class="p">();</span>
+<span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// выполнить работу быстрее, чем за 30 секунд</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+    <span class="nv">$lock</span><span class="o">-&gt;</span><span class="na">release</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Чтобы не оставлять блокировку в состоянии блокировки, рекомендуется обернуть
+задачу в блок try/catch/finally, чтобы всегда пытаться выпускать блокировку
+с истекающим сроком действия.</p>
+</div></div>
+<p>В случае долгосрочных задач, лучше начинать с не очень долгого ВЖ и потом использовать
+метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Lock/LockInterface.html#method_refresh" title="Symfony\Component\Lock\LockInterface::refresh()">refresh()</a></code></tt>, чтобы переустановить
+ВЖ в его изначальное значение:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$lock</span> <span class="o">=</span> <span class="nv">$factory</span><span class="o">-&gt;</span><span class="na">createLock</span><span class="p">(</span><span class="s1">&#39;charts-generation&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+
+<span class="nv">$lock</span><span class="o">-&gt;</span><span class="na">acquire</span><span class="p">();</span>
+<span class="k">try</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nv">$finished</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// выполнить маленькую часть задачи.</span>
+
+        <span class="c1">// обновить блокировку ещё на 30 секунд.</span>
+        <span class="nv">$lock</span><span class="o">-&gt;</span><span class="na">refresh</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+    <span class="nv">$lock</span><span class="o">-&gt;</span><span class="na">release</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Другая полезная техника для долгоработающих задач - передача своего TTL как
+аргумента метода <tt class="docutils literal"><code>refresh()</code></tt> для изменения TTL блокировки по умолчанию:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$lock</span> <span class="o">=</span> <span class="nv">$factory</span><span class="o">-&gt;</span><span class="na">createLock</span><span class="p">(</span><span class="s1">&#39;charts-generation&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="c1">// ...</span>
+<span class="c1">// обновить блокировку на 30 секунд</span>
+<span class="nv">$lock</span><span class="o">-&gt;</span><span class="na">refresh</span><span class="p">();</span>
+<span class="c1">// ...</span>
+<span class="c1">// обновить блокировку на 600 секунд (следующий вызов refresh() будет опять на 30 секунд)</span>
+<span class="nv">$lock</span><span class="o">-&gt;</span><span class="na">refresh</span><span class="p">(</span><span class="mi">600</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Возможность передать своего TTL как аргумента метода <tt class="docutils literal"><code>refresh()</code></tt>
+появилась в Symfony 4.1.</p>
+</div>
+</div></div>
+</div>
+<div class="section" id="id5">
+<h2>Доступные хранилища<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Блокировки создаются и управляются в <tt class="docutils literal"><code>Stores</code></tt>, которые являются классами,
+реализующими <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Lock/StoreInterface.html" title="Symfony\Component\Lock\StoreInterface">StoreInterface</a></code></tt>. Компонент
+включает в себя следующие встроенные типы хранилищ:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="57%">
+<col width="9%">
+<col width="14%">
+<col width="19%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Хранилище</th>
+<th class="head">Область</th>
+<th class="head">Блокировка</th>
+<th class="head">Истечение срока</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="lock.html#lock-store-flock"><span>FlockStore</span></a></td>
+<td>local</td>
+<td>да</td>
+<td>нет</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="lock.html#lock-store-memcached"><span>MemcachedStore</span></a></td>
+<td>remote</td>
+<td>нет</td>
+<td>да</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="lock.html#lock-store-redis"><span>RedisStore</span></a></td>
+<td>remote</td>
+<td>нет</td>
+<td>да</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="lock.html#lock-store-semaphore"><span>SemaphoreStore</span></a></td>
+<td>local</td>
+<td>да</td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="flockstore">
+<span id="lock-store-flock-ru"></span><h3>FlockStore<a class="headerlink" href="#flockstore" title="Permalink to this headline">¶</a></h3>
+<p>FlockStore использует файловую систему на локальном компьютере для создания блокировок.
+Он не поддерживает истечение срока, но блокировка автоматически выпускается, когда
+прерывается PHP процесс:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Lock\Store\FlockStore</span><span class="p">;</span>
+
+<span class="c1">// аргумент - это путь каталога, где создаются блокировки</span>
+<span class="nv">$store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FlockStore</span><span class="p">(</span><span class="nb">sys_get_temp_dir</span><span class="p">());</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Имейте в виду, что некоторые файловые системы (например, некоторые типы NFS),
+не поддерживают блокировку. В таких случаях, лучше использовать каталог на
+локальном диске или удалённом хранилище, основанном на Redis или Memcached.</p>
+</div></div>
+</div>
+<div class="section" id="memcachedstore">
+<span id="lock-store-memcached-ru"></span><h3>MemcachedStore<a class="headerlink" href="#memcachedstore" title="Permalink to this headline">¶</a></h3>
+<p>MemcachedStore сохраняет блокировки на сервере Memcached, он требует подключения
+Memcached, реализующего класс <tt class="docutils literal"><code>\Memcached</code></tt>. Это хранилище не поддерживает блокировку,
+и ожидает TTL (Time To Live - время жизни), чтобы избежать затянутых блокировок:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Lock\Store\MemcachedStore</span><span class="p">;</span>
+
+<span class="nv">$memcached</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Memcached</span><span class="p">();</span>
+<span class="nv">$memcached</span><span class="o">-&gt;</span><span class="na">addServer</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">11211</span><span class="p">);</span>
+
+<span class="nv">$store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MemcachedStore</span><span class="p">(</span><span class="nv">$memcached</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Memcached не поддерживает TTL менее 1 секунды.</p>
+</div></div>
+</div>
+<div class="section" id="redisstore">
+<span id="lock-store-redis-ru"></span><h3>RedisStore<a class="headerlink" href="#redisstore" title="Permalink to this headline">¶</a></h3>
+<p>RedisStore сохраняет блокировки на сервере Redis, он требует подключения
+Redis, реализующего классы <tt class="docutils literal"><code>\Redis</code></tt>, <tt class="docutils literal"><code>\RedisArray</code></tt>, <tt class="docutils literal"><code>\RedisCluster</code></tt> или
+<tt class="docutils literal"><code>\Predis</code></tt>. Это хранилище не поддерживает блокировку, и ожидает TTL, чтобы
+избежать затянутых блокировок:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Lock\Store\RedisStore</span><span class="p">;</span>
+
+<span class="nv">$redis</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Redis</span><span class="p">();</span>
+<span class="nv">$redis</span><span class="o">-&gt;</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">);</span>
+
+<span class="nv">$store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RedisStore</span><span class="p">(</span><span class="nv">$redis</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="semaphorestore">
+<span id="lock-store-semaphore-ru"></span><h3>SemaphoreStore<a class="headerlink" href="#semaphorestore" title="Permalink to this headline">¶</a></h3>
+<p>SemaphoreStore использует <a class="reference external" href="http://php.net/manual/en/book.sem.php">функции PHP-семафора</a> для создания блокировок:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Lock\Store\SemaphoreStore</span><span class="p">;</span>
+
+<span class="nv">$store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SemaphoreStore</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="combinedstore">
+<span id="lock-store-combined-ru"></span><h3>CombinedStore<a class="headerlink" href="#combinedstore" title="Permalink to this headline">¶</a></h3>
+<p>CombinedStore создан для приложений Высокой Доступности, так как он синхронно
+управляет несколькими хранилищами (например, несколькими серверами Redis). Когда
+блокировка обнаружена, он перенаправляет вызов ко всем управляемым хранилищам, и
+собирает их ответы. Если простое большинство хранилищ обнаружили блокировку,
+то она считается обнаруженной; иначе - нет:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Lock\Strategy\ConsensusStrategy</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Lock\Store\CombinedStore</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Lock\Store\RedisStore</span><span class="p">;</span>
+
+<span class="nv">$stores</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;server1&#39;</span><span class="p">,</span> <span class="s1">&#39;server2&#39;</span><span class="p">,</span> <span class="s1">&#39;server3&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$server</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$redis</span><span class="o">=</span> <span class="k">new</span> <span class="nx">\Redis</span><span class="p">();</span>
+    <span class="nv">$redis</span><span class="o">-&gt;</span><span class="na">connect</span><span class="p">(</span><span class="nv">$server</span><span class="p">);</span>
+
+    <span class="nv">$stores</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RedisStore</span><span class="p">(</span><span class="nv">$redis</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nv">$store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CombinedStore</span><span class="p">(</span><span class="nv">$stores</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ConsensusStrategy</span><span class="p">());</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вместо простой стратегии простого большинства (<tt class="docutils literal"><code>ConsensusStrategy</code></tt>) можно
+использовать <tt class="docutils literal"><code>UnanimousStrategy</code></tt> для запроса обнаружения блокировки во всех
+хранилищах.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">In order to get high availability when using the <tt class="docutils literal"><code>ConsensusStrategy</code></tt>, the
+minimum cluster size must be three servers. This allows the cluster to keep
+working when a single server fails (because this strategy requires that the
+lock is acquired in more than half of the servers).</p>
+</div></div>
+</div>
+</div>
+<div class="section" id="reliability">
+<h2>Reliability<a class="headerlink" href="#reliability" title="Permalink to this headline">¶</a></h2>
+<p>The component guarantees that the same resource can't be lock twice as long as
+the component is used in the following way.</p>
+<div class="section" id="remote-stores">
+<h3>Remote Stores<a class="headerlink" href="#remote-stores" title="Permalink to this headline">¶</a></h3>
+<p>Remote stores (<a class="reference internal" href="lock.html#lock-store-memcached"><span>MemcachedStore</span></a> and
+<a class="reference internal" href="lock.html#lock-store-redis"><span>RedisStore</span></a>) use an unique token to recognize the true
+owner of the lock. This token is stored in the
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Lock/Key.html" title="Symfony\Component\Lock\Key">Key</a></code></tt> object and is used internally by the
+<tt class="docutils literal"><code>Lock</code></tt>, therefore this key must not be shared between processes (session,
+caching, fork, ...).</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Do not share a key between processes.</p>
+</div></div>
+<p>Every concurrent process must store the <tt class="docutils literal"><code>Lock</code></tt> in the same server. Otherwise two
+different machines may allow two different processes to acquire the same <tt class="docutils literal"><code>Lock</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">To guarantee that the same server will always be safe, do not use Memcached
+behind a LoadBalancer, a cluster or round-robin DNS. Even if the main server
+is down, the calls must not be forwarded to a backup or failover server.</p>
+</div></div>
+</div>
+<div class="section" id="expiring-stores">
+<h3>Expiring Stores<a class="headerlink" href="#expiring-stores" title="Permalink to this headline">¶</a></h3>
+<p>Expiring stores (<a class="reference internal" href="lock.html#lock-store-memcached"><span>MemcachedStore</span></a> and
+<a class="reference internal" href="lock.html#lock-store-redis"><span>RedisStore</span></a>) guarantee that the lock is acquired
+only for the defined duration of time. If the task takes longer to be
+accomplished, then the lock can be released by the store and acquired by
+someone else.</p>
+<p>The <tt class="docutils literal"><code>Lock</code></tt> provides several methods to check its health. The <tt class="docutils literal"><code>isExpired()</code></tt>
+method checks whether or not it lifetime is over and the <tt class="docutils literal"><code>getRemainingLifetime()</code></tt>
+method returns its time to live in seconds.</p>
+<p>Using the above methods, a more robust code would be:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$lock</span> <span class="o">=</span> <span class="nv">$factory</span><span class="o">-&gt;</span><span class="na">createLock</span><span class="p">(</span><span class="s1">&#39;invoice-publication&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+
+<span class="nv">$lock</span><span class="o">-&gt;</span><span class="na">acquire</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nv">$finished</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$lock</span><span class="o">-&gt;</span><span class="na">getRemainingLifetime</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$lock</span><span class="o">-&gt;</span><span class="na">isExpired</span><span class="p">())</span> <span class="p">{</span>
+            <span class="c1">// lock was lost, perform a rollback or send a notification</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">\RuntimeException</span><span class="p">(</span><span class="s1">&#39;Lock lost during the overall process&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$lock</span><span class="o">-&gt;</span><span class="na">refresh</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Perform the task whose duration MUST be less than 5 minutes</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Choose wisely the lifetime of the <tt class="docutils literal"><code>Lock</code></tt> and check whether its remaining
+time to leave is enough to perform the task.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Storing a <tt class="docutils literal"><code>Lock</code></tt> usually takes a few milliseconds, but network conditions
+may increase that time a lot (up to a few seconds). Take that into account
+when choosing the right TTL.</p>
+</div></div>
+<p>By design, locks are stored in servers with a defined lifetime. If the date or
+time of the machine changes, a lock could be released sooner than expected.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">To guarantee that date won't change, the NTP service should be disabled
+and the date should be updated when the service is stopped.</p>
+</div></div>
+</div>
+<div class="section" id="id6">
+<h3>FlockStore<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>By using the file system, this <tt class="docutils literal"><code>Store</code></tt> is reliable as long as concurrent
+processes use the same physical directory to stores locks.</p>
+<p>Processes must run on the same machine, virtual machine or container.
+Be careful when updating a Kubernetes or Swarm service because for a short
+period of time, there can be two running containers in parallel.</p>
+<p>The absolute path to the directory must remain the same. Be careful of symlinks
+that could change at anytime: Capistrano and blue/green deployment often use
+that trick. Be careful when the path to that directory changes between two
+deployments.</p>
+<p>Some file systems (such as some types of NFS) do not support locking.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p>All concurrent processes must use the same physical file system by running
+on the same machine and using the same absolute path to locks directory.</p>
+<p class="last">By definition, usage of <tt class="docutils literal"><code>FlockStore</code></tt> in an HTTP context is incompatible
+with multiple front servers, unless to ensure that the same resource will
+always be locked on the same machine or to use a well configured shared file
+system.</p>
+</div></div>
+<p>Files on file system can be removed during a maintenance operation. For instance
+to cleanup the <tt class="docutils literal"><code>/tmp</code></tt> directory or after a reboot of the machine when directory
+uses tmpfs. It's not an issue if the lock is released when the process ended, but
+it is in case of <tt class="docutils literal"><code>Lock</code></tt> reused between requests.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Do not store locks on a volatile file system if they have to be reused in
+several requests.</p>
+</div></div>
+</div>
+<div class="section" id="id7">
+<h3>MemcachedStore<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>The way Memcached works is to store items in memory. That means that by using
+the <a class="reference internal" href="lock.html#lock-store-memcached"><span>MemcachedStore</span></a> the locks are not persisted
+and may disappear by mistake at anytime.</p>
+<p>If the Memcached service or the machine hosting it restarts, every lock would
+be lost without notifying the running processes.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">To avoid that someone else acquires a lock after a restart, it's recommended
+to delay service start and wait at least as long as the longest lock TTL.</p>
+</div></div>
+<p>By default Memcached uses a LRU mechanism to remove old entries when the service
+needs space to add new items.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Number of items stored in the Memcached must be under control. If it's not
+possible, LRU should be disabled and Lock should be stored in a dedicated
+Memcached service away from Cache.</p>
+</div></div>
+<p>When the Memcached service is shared and used for multiple usage, Locks could be
+removed by mistake. For instance some implementation of the PSR-6 <tt class="docutils literal"><code>clear()</code></tt>
+method uses the Memcached's <tt class="docutils literal"><code>flush()</code></tt> method which purges and removes everything.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">The method <tt class="docutils literal"><code>flush()</code></tt> must not be called, or locks should be stored in a
+dedicated Memcached service away from Cache.</p>
+</div></div>
+</div>
+<div class="section" id="id8">
+<h3>RedisStore<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>The way Redis works is to store items in memory. That means that by using
+the <a class="reference internal" href="lock.html#lock-store-redis"><span>RedisStore</span></a> the locks are not persisted
+and may disappear by mistake at anytime.</p>
+<p>If the Redis service or the machine hosting it restarts, every locks would
+be lost without notifying the running processes.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">To avoid that someone else acquires a lock after a restart, it's recommended
+to delay service start and wait at least as long as the longest lock TTL.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Redis can be configured to persist items on disk, but this option would
+slow down writes on the service. This could go against other uses of the
+server.</p>
+</div></div>
+<p>When the Redis service is shared and used for multiple usages, locks could be
+removed by mistake.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">The command <tt class="docutils literal"><code>FLUSHDB</code></tt> must not be called, or locks should be stored in a
+dedicated Redis service away from Cache.</p>
+</div></div>
+</div>
+<div class="section" id="id9">
+<h3>CombinedStore<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Combined stores allow to store locks across several backends. It's a common
+mistake to think that the lock mechanism will be more reliable. This is wrong
+The <tt class="docutils literal"><code>CombinedStore</code></tt> will be, at best, as reliable as the least reliable of
+all managed stores. As soon as one managed store returns erroneous information,
+the <tt class="docutils literal"><code>CombinedStore</code></tt> won't be reliable.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">All concurrent processes must use the same configuration, with the same
+amount of managed stored and the same endpoint.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Instead of using a cluster of Redis or Memcached servers, it's better to use
+a <tt class="docutils literal"><code>CombinedStore</code></tt> with a single server per managed store.</p>
+</div></div>
+</div>
+<div class="section" id="id10">
+<h3>SemaphoreStore<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Semaphores are handled by the Kernel level. In order to be reliable, processes
+must run on the same machine, virtual machine or container. Be careful when
+updating a Kubernetes or Swarm service because for a short period of time, there
+can be two running containers in parallel.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">All concurrent processes must use the same machine. Before starting a
+concurrent process on a new machine, check that other process are stopped
+on the old one.</p>
+</div></div>
+</div>
+<div class="section" id="overall">
+<h3>Overall<a class="headerlink" href="#overall" title="Permalink to this headline">¶</a></h3>
+<p>Changing the configuration of stores should be done very carefully. For
+instance, during the deployment of a new version. Processes with new
+configuration must not be started while old processes with old configuration
+are still running.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="ldap-ru.html">« Компонент Ldap</a>
+                <span class="separator">|</span>
+                <a href="options_resolver-ru.html">Компонент OptionsResolver (Разрешитель опций) »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

@@ -1,0 +1,651 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Symfony и основы HTTP &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Create your First Page in Symfony" href="..\page_creation.html">
+    <link rel="next" title="Using Symfony with Homestead/Vagrant" href="..\setup\homestead.html">
+    <link rel="prev" title="Symfony and HTTP Fundamentals" href="http_fundamentals.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="introduction doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Symfony и основы HTTP</a><ul>
+<li><a class="reference internal" href="#index-1">Шаг 1: Клиент отправляет запрос</a></li>
+<li><a class="reference internal" href="#id2">Шаг 2: Сервер возвращает ответ</a></li>
+<li><a class="reference internal" href="#id3">Запросы, ответы и веб-разработка</a><ul>
+<li><a class="reference internal" href="#php">Запросы и ответы в PHP</a></li>
+<li><a class="reference internal" href="#symfony">Запросы и ответы в Symfony</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#symfony-request">Объект Symfony Request</a></li>
+<li><a class="reference internal" href="#symfony-response">Объект Symfony Response</a><ul>
+<li><a class="reference internal" href="#id4">Путешествие от запроса до ответа</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#index-3">Фронт-контроллер</a></li>
+<li><a class="reference internal" href="#index-4">Поток в приложении Symfony</a><ul>
+<li><a class="reference internal" href="#id7">Итог: Поток запрос-ответ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\getting_started\index.html">Getting Started</a></li>
+                
+                <li><a href="..\setup.html">Installing &amp; Setting up the Symfony Framework</a></li>
+                
+                <li><a href="..\page_creation.html">Create your First Page in Symfony</a></li>
+                
+                <li class="active">Symfony и основы HTTP</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="symfony-http">
+<span id="symfony2-and-http-fundamentals-ru"></span><span id="index-0"></span><h1>Symfony и основы HTTP<a class="headerlink" href="#symfony-http" title="Permalink to this headline">¶</a></h1>
+<p>Поздравляем! Изучая Symfony, вы <em>заодно</em> изучаете основы <em>сети</em>. Symfony построена
+по модели HTTP Request-Response: это <em>фундаментальная</em> парадигма, которая стоит
+почти за <em>всей</em> коммуникацией в сети.</p>
+<p>В этой статье вы пройдёте по основам HTTP и узнаете как они применяются в Symfony.</p>
+<p>HTTP (Hypertext Transfer Protocol или протокол передачи гипертекста) - это текстовый
+язык, позволяющий двум компьютерам обмениваться сообщениями друг с другом. Например, при
+просмотре свежего комикса <a class="reference external" href="http://xkcd.com/">xkcd</a>, происходит (примерно) такой диалог:</p>
+<img alt="../_images/xkcd-full.png" class="align-center" src="..\_images\xkcd-full.png">
+<p>И хотя настоящий язык более формальный, всё предельно просто. HTTP - это термин, используемый
+для описания этого простого языка, основанного на тексте. Цель вашего сервера <em>всегда</em>
+одна и та же - понимать простые текстовые запросы (requests) и возвращать текстовые ответы
+(responses).</p>
+<p>Symfony построен вокруг этой реальности. Осознаете вы этот факт или нет, но вы используете
+HTTP каждый день. С помощью Symfony вы сможете вывести это умение на новый уровень.</p>
+<div class="section" id="index-1">
+<span id="id1"></span><h2>Шаг 1: Клиент отправляет запрос<a class="headerlink" href="#index-1" title="Permalink to this headline">¶</a></h2>
+<p>Любой диалог в сети начинается с <em>запроса</em>. Запрос - это текстовое сообщение,
+созданное клиентом (это может быть браузер, приложение на смартфоне и т.д.) в
+специальном формате, известном как HTTP. Клиент отправляет этот запрос серверу,
+а затем ждет ответ.</p>
+<p>Взгляните на первую часть взаимодействия (запрос) между браузером и веб-сервером xkcd:</p>
+<img alt="../_images/xkcd-request.png" class="align-center" src="..\_images\xkcd-request.png">
+<p>На языке HTTP этот запрос будет выглядеть примерно так:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>GET / HTTP/1.1
+Host: xkcd.com
+Accept: text/html
+User-Agent: Mozilla/5.0 (Macintosh)
+</pre></div>
+</td></tr></table></div></div>
+<p>Это простое сообщение содержит <em>всю</em> необходимую информацию о том, какой именно ресурс
+запрашивает клиент. Первая строка HTTP запроса наиболее важна - она содержит 2 вещи:
+HTTP-метод (GET) и URL (<tt class="docutils literal"><code>/</code></tt>).</p>
+<p>URI (например <tt class="docutils literal"><code>/</code></tt>, <tt class="docutils literal"><code>/contact</code></tt> и т.д.) - это уникальный адрес или место, которое
+определяет запрошенный клиентом ресурс. HTTP-метод (например, <tt class="docutils literal"><code>GET</code></tt>) определяет,
+что именно клиент хочет <em>сделать</em> с запрошенным ресурсом. HTTP-методы (их иногда
+называют глаголами) определяют несколько типичных способов взаимодействия с запрошенным
+ресурсом. Самые используемые:</p>
+<dl class="docutils">
+<dt><strong>GET</strong></dt>
+<dd>Получить ресурс с сервера (например, при просмотре страницы);</dd>
+<dt><strong>POST</strong></dt>
+<dd>Создать ресурс на сервере (например, при отправке формы);</dd>
+<dt><strong>PUT</strong>/<strong>PATCH</strong></dt>
+<dd>Обновить ресурс на сервере (используется в API);</dd>
+<dt><strong>DELETE</strong></dt>
+<dd>Удалить ресурс с сервера (используется в API).</dd>
+</dl>
+<p>Запомнив эти типы HTTP-методов, вы можете представить себе, как будет выглядеть
+HTTP-запрос на удаление записи в блоге:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>DELETE /blog/15 HTTP/1.1
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">На самом деле всего существует девять HTTP-методов, определённых в спецификации
+протокола HTTP, но многие из них очень мало распространены или же ограниченно
+поддерживаются. В реальном мире, многие современные браузеры поддерживают только
+методы <tt class="docutils literal"><code>POST</code></tt> и <tt class="docutils literal"><code>GET</code></tt> в HTML-формах. Тем не менее остальные HTTP-методы
+поддерживаются в <a class="reference external" href="https://en.wikipedia.org/wiki/XMLHttpRequest">XMLHttpRequest</a>.</p>
+</div></div>
+<p>В дополнение к первой строке, HTTP-запрос всегда содержит несколько информационных строк,
+именуемых <strong>заголовками запроса</strong> (headers). В заголовках может содержаться различная
+информация, например, запрошенный <tt class="docutils literal"><code>Host</code></tt>, форматы ответа, которые поддерживает клиент
+(<tt class="docutils literal"><code>Accept</code></tt>) или же там может быть описание приложения, которое клиент использует для
+выполнения запроса (<tt class="docutils literal"><code>User-Agent</code></tt>). Существует также много других заголовков,
+перечень которых вы можете найти в Википедии на странице <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields">List of HTTP header fields</a>.</p>
+</div>
+<div class="section" id="id2">
+<h2>Шаг 2: Сервер возвращает ответ<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Как только сервер получил запрос, он точно знает, какой ресурс нужен клиенту
+(основываясь на URI) и что клиент хочет с этим ресурсом сделать (на основании HTTP-метода).
+Например, если мы имеем дело с GET-запросом, сервер готовит запрошенный ресурс и возвращает
+его в виде HTTP-ответа. Рассмотрим ответ от web-сервера xkcd:</p>
+<img alt="../_images/xkcd-full.png" class="align-center" src="..\_images\xkcd-full.png">
+<p>Переведя на язык HTTP, ответ, отправленный назад в браузер, будет выглядеть примерно так:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>HTTP/1.1 200 OK
+Date: Sat, 02 Apr 2011 21:05:05 GMT
+Server: lighttpd/1.4.19
+Content-Type: text/html
+
+&lt;html&gt;
+  &lt;!-- ... HTML для комикса xkcd --&gt;
+&lt;/html&gt;
+</pre></div>
+</td></tr></table></div></div>
+<p>HTTP-ответ (response) содержит запрошенный ресурс (в данном случае это HTML-код страницы),
+а также дополнительные данные о самом ответе. Первая строка особенно важна - она
+содержит код состояния (status code) HTTP ответа (в данном случае 200).</p>
+<p>Статус-код доносит информацию о результате выполнения запроса обратно к клиенту.
+Запрос был выполнен успешно? Или в ходе выполнения запроса была допущена ошибка?
+Существуют разнообразные коды состояния, одни из которых говорят об успешном выполнении
+запроса, другие - указывают на ошибки, третьи сообщают, что клиенту необходимо выполнить
+какое-то дополнительное действие (например, перейти на другую страницу в случае редиректа).
+Полный список статус-кодов вы можете найти странице в Википедии <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">list of HTTP status codes</a>.</p>
+<p>Подобно запросу, HTTP-ответ содержит дополнительную информацию, называемую HTTP-заголовками.
+Тело одного и того же ресурса может быть возвращено во множестве различных форматов,
+включая HTML, XML или JSON. Для того, чтобы сообщить клиенту, какой именно формат использется,
+применятся заголовок <tt class="docutils literal"><code>Content-Type</code></tt> со значением вроде <tt class="docutils literal"><code>text/html</code></tt>. Просмотреть список
+основных типов данных можно на IANA: <a class="reference external" href="https://www.iana.org/assignments/media-types/media-types.xhtml">List of common media types</a>.</p>
+<p>Существует много различных заголовков, и некоторые из них предоставляют важный функционал.
+Например, некоторые заголовки могут быть использованы для создания системы кэширования.</p>
+</div>
+<div class="section" id="id3">
+<h2>Запросы, ответы и веб-разработка<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Обмен запросами-ответами - это фундаментальный процесс, на котором основывается вся
+коммуникация в сети. Этот процесс настолько важен и функционален, что его простота изумляет.</p>
+<p>Самое важное заключается в следующем: независимо от того, какой язык программирования вы
+используете, какое приложение создаёте (web, мобильное, JSON API) и даже какой философии
+программирования придерживаетесь, конечной целью приложения <strong>всегда</strong> будет понять
+запрос, а потом создать и вернуть подходящий ответ.</p>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Чтобы узнать больше про спецификацию HTTP, почитайте оригинальную спецификацию <a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">HTTP 1.1 RFC</a>
+или <a class="reference external" href="http://datatracker.ietf.org/wg/httpbis/">HTTP Bis</a>, который является попыткой разъяснить исходную спецификацию и, кроме того,
+постоянно обновляется.</div></div>
+<div class="section" id="php">
+<span id="index-2"></span><h3>Запросы и ответы в PHP<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h3>
+<p>Как же вам обработать &quot;запрос&quot; и создать &quot;ответ&quot; с помощью PHP? На самом деле PHP
+немного абстрагирует вас от всего процесса:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$uri</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REQUEST_URI&#39;</span><span class="p">];</span>
+<span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">];</span>
+
+<span class="nb">header</span><span class="p">(</span><span class="s1">&#39;Content-Type: text/html&#39;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s1">&#39;Запрошенный URI: &#39;</span><span class="o">.</span><span class="nv">$uri</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s1">&#39;Значение параметра &quot;foo&quot;: &#39;</span><span class="o">.</span><span class="nv">$foo</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Как бы странно это ни звучало, это крохотное приложение на самом деле получает информацию
+из HTTP-запроса и использует её для создания HTTP-ответа. Вместо того, чтобы обрабатывать
+&quot;сырой&quot; HTTP-запрос, PHP готовит суперглобальные переменные, такие как <tt class="docutils literal"><code>$_SERVER</code></tt> и <tt class="docutils literal"><code>$_GET</code></tt>,
+которые содержат всю информацию о запросе. Аналогично, вместо того, чтобы возвращать текст
+ответа, отформатированный по правилам HTTP, вы можете использовать PHP функцию
+<tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.header.php" title="header">header</a></code></tt> для создания заголовков ответов и просто вывести на печать
+основной контент, который станет телом ответа. PHP создаст правильный HTTP-ответ и вернет
+его клиенту:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>HTTP/1.1 200 OK
+Date: Sat, 03 Apr 2011 02:14:33 GMT
+Server: Apache/2.2.17 (Unix)
+Content-Type: text/html
+
+Запрошенный URI: /testing?foo=symfony
+Значение параметра &quot;foo&quot;: symfony
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="symfony">
+<h3>Запросы и ответы в Symfony<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h3>
+<p>В отличие от прямолинейного подхода PHP, Symfony предоставляет два класса, которые
+упрощают взаимодействие с HTTP-запросом и ответом.</p>
+</div>
+</div>
+<div class="section" id="symfony-request">
+<h2>Объект Symfony Request<a class="headerlink" href="#symfony-request" title="Permalink to this headline">¶</a></h2>
+<p>Класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Request.html" title="Symfony\Component\HttpFoundation\Request">Request</a></code></tt> - это объекто-ориентированное
+представление HTTP-запроса. С его помощью вся информация из запроса находится
+прямо у вас перед глазами:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+
+<span class="nv">$request</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">createFromGlobals</span><span class="p">();</span>
+
+<span class="c1">// запрошенный URI (например, /about) без query параметров</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getPathInfo</span><span class="p">();</span>
+
+<span class="c1">// извлекает переменные GET и POST соответственно</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;default category&#39;</span><span class="p">);</span>
+
+<span class="c1">// извлекает переменные $_SERVER</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">server</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;HTTP_HOST&#39;</span><span class="p">);</span>
+
+<span class="c1">// извлекает экземпляр UploadedFile по идентификатору &quot;attachment&quot;</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">files</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;attachment&#39;</span><span class="p">);</span>
+
+<span class="c1">// извлекает значение $_COOKIE</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">cookies</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;PHPSESSID&#39;</span><span class="p">);</span>
+
+<span class="c1">// извлекает HTTP-заголовок запроса с нормализованными ключами в нижнем регистре</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;content_type&#39;</span><span class="p">);</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">();</span>    <span class="c1">// например, GET, POST, PUT, DELETE или HEAD</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getLanguages</span><span class="p">();</span> <span class="c1">// список языков, принимаемых клиентом, в массиве</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В качестве бонуса, класс <tt class="docutils literal"><code>Request</code></tt> выполняет большой объём работы в фоновом режиме,
+так что вам не придется заботиться о многих вещах. Например, метод <tt class="docutils literal"><code>isSecure()</code></tt>
+проверяет <em>три</em> различных значения в PHP, которые указывают, подключается ли пользователь
+по защищенному протоколу (HTTPS).</p>
+</div>
+<div class="section" id="symfony-response">
+<h2>Объект Symfony Response<a class="headerlink" href="#symfony-response" title="Permalink to this headline">¶</a></h2>
+<p>Symfony также предоставляет класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation/Response.html" title="Symfony\Component\HttpFoundation\Response">Response</a></code></tt>:
+простое РHP-представление HTTP-ответа. Это позволяет вашему приложению использовать
+объектно-ориентированный интерфейс для создания ответа, который затем нужно будет
+вернуть клиенту:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">();</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="s1">&#39;&lt;html&gt;&lt;body&gt;&lt;h1&gt;Привет, мир!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;&#39;</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="nx">Response</span><span class="o">::</span><span class="na">HTTP_OK</span><span class="p">);</span>
+
+<span class="c1">// устанавливает заголовок HTTP ответа</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/html&#39;</span><span class="p">);</span>
+
+<span class="c1">// выдаёт HTTP заголовок, а следом за ним содержимое</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Также существуют особые <em>под-классы</em> ответов, которые упрощают создание:
+<a class="reference internal" href="..\components\http_foundation.html#component-http-foundation-json-response"><span>JSON</span></a>,
+<a class="reference internal" href="..\components\http_foundation.html#redirect-response"><span>редиректов</span></a>,
+<a class="reference internal" href="..\components\http_foundation.html#component-http-foundation-serving-files"><span>стриминга файлов</span></a></p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Классы <tt class="docutils literal"><code>Request</code></tt> и <tt class="docutils literal"><code>Response</code></tt> являются частью самостоятельного компонента под названием
+<a class="reference internal" href="..\components\http_foundation.html"><em>symfony/http-foundation</em></a>, который вы можете использовать
+в <em>любом</em> проекте PHP (независимо от Symfony). Он также предоставляет классы для работы
+с сессиями, загруженными файлами и др.</p>
+</div></div>
+<p>Если бы возможности Symfony заканчивались на вышеперечисленном, у вас уже был бы
+на руках набор инструментов для простого и быстрого получения доступа к информации
+из запроса, а также объектно-ориентированный интерфейс для создания ответа.
+Даже когда вы освоите более мощные возможности Symfony, постарайтесь не забывать,
+что цель вашего приложения всегда заключается в <em>интерпретации запроса и создании
+соответствующего ответа, основываясь на логике вашего приложения</em>.</p>
+<div class="section" id="id4">
+<h3>Путешествие от запроса до ответа<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Как и HTTP-протокол, объекты <tt class="docutils literal"><code>Request</code></tt> и <tt class="docutils literal"><code>Response</code></tt> достаточно просты.
+Самая сложная часть создания приложения заключается в описании процессов, которые
+происходят между получением запроса и отправкой ответа. Другими словами, настоящая
+работа заключается в том, чтобы написать код, который интерпретирует информацию из
+запроса и создаёт ответ.</p>
+<p>Ваше приложение наверняка выполняет много функций, таких как отправка email'ов,
+обработка отправленных форм, сохранение чего-либо в базу данных, отображение HTML-страниц
+и защита контента правилами безопасности. Можно ли справиться со всеми этими задачами
+таким образом, чтобы ваш код остался хорошо организованным и легко поддерживаемым?
+Symfony была создана специально чтобы решение этих проблем больше не ложилось на ваши плечи.</p>
+</div>
+</div>
+<div class="section" id="index-3">
+<span id="id5"></span><h2>Фронт-контроллер<a class="headerlink" href="#index-3" title="Permalink to this headline">¶</a></h2>
+<p>Традиционно приложения создавались таким образом, чтобы каждая &quot;страница&quot; сайта
+имела свой собственный файл: (например, <tt class="docutils literal"><code>index.php</code></tt>, <tt class="docutils literal"><code>contact.php</code></tt>, и т.д.).</p>
+<p>При таком подходе имеется целый ряд проблем, включая негибкость URLов (вдруг вам
+потребуется изменить <tt class="docutils literal"><code>blog.php</code></tt> на <tt class="docutils literal"><code>news.php</code></tt> и при этом сохранить все ваши
+ссылки?). Еще одной проблемой является необходимость вручную дополнять каждый файл
+определенным набором ключевых файлов, отвечающих за безопасность, работу с базами
+данных и дизайн сайта.</p>
+<p>Гораздо лучшим решением будет использовать фронт-контроллер, единственный PHP-файл,
+который отвечает за каждый запрос, поступающий к вашему приложению. Например,</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%">
+<col width="51%">
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="docutils literal"><code>/index.php</code></tt></td>
+<td>выполняет <tt class="docutils literal"><code>index.php</code></tt></td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>/index.php/contact</code></tt></td>
+<td>выполняет <tt class="docutils literal"><code>index.php</code></tt></td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>/index.php/blog</code></tt></td>
+<td>выполняет <tt class="docutils literal"><code>index.php</code></tt></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Используя правила перенаправления (rewrite) в
+<a class="reference internal" href="..\setup\web_server_configuration.html"><em>настройках веб-сервера</em></a>,
+<tt class="docutils literal"><code>index.php</code></tt> в адресе не будет нужен и у вас будут красивые, чистые URLы
+(например, <tt class="docutils literal"><code>/show</code></tt>).</p>
+</div></div>
+<p>Теперь, каждый запрос обрабатывается по одному и тому же принципу. Вместо того, чтобы
+каждый URL соответствовал отдельному PHP-файлу - фронт-контроллер выполняется всегда
+и посредством маршрутизатора вызывает различные части вашего приложения, в зависимости
+от URL.</p>
+<p>Очень простой фронт-контроллер может выглядеть так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// index.php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+
+<span class="nv">$request</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">createFromGlobals</span><span class="p">();</span>
+<span class="nv">$path</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getPathInfo</span><span class="p">();</span> <span class="c1">// запрашиваемый URI</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$path</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)))</span> <span class="p">{</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s1">&#39;Добро пожаловать на главную страницу&#39;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="s1">&#39;/contact&#39;</span> <span class="o">===</span> <span class="nv">$path</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s1">&#39;Обратная связь&#39;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s1">&#39;Страница не найдена&#39;</span><span class="p">,</span> <span class="nx">Response</span><span class="o">::</span><span class="na">HTTP_NOT_FOUND</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это лучше, но всё равно много одинаковой работы! К счастью, Symfony опять спешит
+помощь.</p>
+</div>
+<div class="section" id="index-4">
+<span id="id6"></span><h2>Поток в приложении Symfony<a class="headerlink" href="#index-4" title="Permalink to this headline">¶</a></h2>
+<p>Приложение, использующее фреймоворк Symfony <em>тоже</em> использует файл фронт-контроллера.
+Но внутри, <em>Symfony</em> ответствена за обработку каждого входящего запроса и
+решение, что надо сделать:</p>
+<div class="figure align-center" id="id8">
+<span id="request-flow-figure-ru"></span><img alt="Поток запроса в Symfony" src="..\_images\request-flow.png">
+<p class="caption"><span class="caption-text">Входящие запросы обрабатываются <a class="reference internal" href="..\routing.html"><em>Routing component</em></a> и
+передаются в PHP-функции, которые возвращают объекты <tt class="docutils literal"><code>Response</code></tt>.</span></p>
+</div>
+<p>Пока что может казаться, что в этом нет смысла, но если вы продолжите читать, вы узнаете о
+<a class="reference internal" href="..\routing.html"><em>путях</em></a> и <a class="reference internal" href="..\controller.html"><em>контроллерах</em></a>: двух фундаментальных частях для создания страницы.
+Но в процессе изучения не забывайте, что не важно <em>насколько</em> сложным становится ваше приложение,
+ваша работа остаётся той же: читать информацию из запроса и создавать ответ.</p>
+<div class="section" id="id7">
+<h3>Итог: Поток запрос-ответ<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Что мы поняли на данный момент:</p>
+<ol class="arabic simple">
+<li>Клиент (например, браузер) отправляет HTTP запрос (Request);</li>
+<li>Каждый запрос запускает один и тот же файл, называемый &quot;фронт-контроллером&quot;;</li>
+<li>Фронт-контроллер загружает Symfony и передаёт информацию о запросе;</li>
+<li>Внутри, Symfony использует <em>пути</em> и <em>контроллеры</em> для создания ответа (Response):
+мы узнаем об этом позже</li>
+<li>Symfony превращает ваш объект <tt class="docutils literal"><code>Response</code></tt> в текстовые заголовки и тело ответа
+(то есть, HTTP-ответ), который отправляется обратно клиенту.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="http_fundamentals.html">« Symfony and HTTP Fundamentals</a>
+                <span class="separator">|</span>
+                <a href="..\setup\homestead.html">Using Symfony with Homestead/Vagrant »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

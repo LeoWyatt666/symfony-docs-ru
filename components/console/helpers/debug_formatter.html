@@ -1,0 +1,383 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Помощник Debug Formatter &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\..\index.html">
+
+<link rel="stylesheet" href="..\..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\..\index.html">
+                    <img src="..\..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Помощник Debug Formatter</a><ul>
+<li><a class="reference internal" href="#id1">Использование debug_formatter</a></li>
+<li><a class="reference internal" href="#id2">Запуск программы</a></li>
+<li><a class="reference internal" href="#id3">Информация по выполнению вывода</a></li>
+<li><a class="reference internal" href="#id4">Остановка программы</a></li>
+<li><a class="reference internal" href="#id5">Использование нескольких программ</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\..\index.html">Документация</a></li>
+                
+                <li class="active">Помощник Debug Formatter</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="debug-formatter">
+<span id="index-0"></span><h1>Помощник Debug Formatter<a class="headerlink" href="#debug-formatter" title="Permalink to this headline">¶</a></h1>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/DebugFormatterHelper.html" title="Symfony\Component\Console\Helper\DebugFormatterHelper">DebugFormatterHelper</a></code></tt> предоставляет
+функции для вывода информации отладки при запуске внешней программы, например,
+в процессе HTTP запроса. Например, если вы использовали его для вывода результатов
+запуска <tt class="docutils literal"><code>ls -la</code></tt> в системе UNIX, он может вывести что-то вроде:</p>
+<img alt="../../../_images/debug_formatter.png" class="align-center" src="..\..\..\_images\debug_formatter.png">
+<div class="section" id="id1">
+<h2>Использование debug_formatter<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Форматироващик включён в набор помощника по умолчанию, и вы можете получить
+его, вызвав <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Command/Command.html#method_getHelper" title="Symfony\Component\Console\Command\Command::getHelper()">getHelper()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$debugFormatter</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getHelper</span><span class="p">(</span><span class="s1">&#39;debug_formatter&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Форматироващик принимает строки и возвращает форматированную строку, которую вы
+потом выводите в консоль (или даже записываете лог информации или делаете что-то
+ещё).</p>
+<p>Все методы этого помощника имеют идентификатор в качестве первого аргумента.
+Это уникальное значение для каждой программы. Таким образом, помощник может
+отлаживать информацию для нескольких программ одновременно. При использовании
+<a class="reference internal" href="..\..\process.html"><em>Компонента Process</em></a>, вы вероятнее всего захотите
+использовать <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.spl-object-hash.php" title="spl_object_hash">spl_object_hash</a></code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Эта информация зачастую слишком детализирована для того, чтобы отображаться
+по умолчанию. Вы можете использовать <a class="reference internal" href="..\..\..\console\verbosity.html"><em>уровни детализации</em></a>,
+чтобы показывать её только в режиме отладки (<tt class="docutils literal"><code>-vvv</code></tt>).</p>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Запуск программы<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Как только вы запускаете программу, вы можете использовать
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/DebugFormatterHelper.html#method_start" title="Symfony\Component\Console\Helper\DebugFormatterHelper::start()">start()</a></code></tt>,
+чтобы отобразить информацию о том, что программа запущена:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+
+<span class="nv">$output</span><span class="o">-&gt;</span><span class="na">writeln</span><span class="p">(</span><span class="nv">$debugFormatter</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span>
+    <span class="nb">spl_object_hash</span><span class="p">(</span><span class="nv">$process</span><span class="p">),</span>
+    <span class="s1">&#39;Some process description&#39;</span>
+<span class="p">));</span>
+
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это выведет:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>RUN Some process description
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы можете настроить префикс, используя третий аргумент:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$output</span><span class="o">-&gt;</span><span class="na">writeln</span><span class="p">(</span><span class="nv">$debugFormatter</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span>
+    <span class="nb">spl_object_hash</span><span class="p">(</span><span class="nv">$process</span><span class="p">),</span>
+    <span class="s1">&#39;Some process description&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;STARTED&#39;</span>
+<span class="p">));</span>
+<span class="c1">// выведет:</span>
+<span class="c1">//  STARTED Описание некоторого процесса</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id3">
+<h2>Информация по выполнению вывода<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Некоторые программы дают вывод во время работы. Эта информация может быть отображена
+с использованием
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/DebugFormatterHelper.html#method_progress" title="Symfony\Component\Console\Helper\DebugFormatterHelper::progress()">progress()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Process\Process</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="nv">$process</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Process</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+
+<span class="nv">$process</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$type</span><span class="p">,</span> <span class="nv">$buffer</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$output</span><span class="p">,</span> <span class="nv">$debugFormatter</span><span class="p">,</span> <span class="nv">$process</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$output</span><span class="o">-&gt;</span><span class="na">writeln</span><span class="p">(</span>
+        <span class="nv">$debugFormatter</span><span class="o">-&gt;</span><span class="na">progress</span><span class="p">(</span>
+            <span class="nb">spl_object_hash</span><span class="p">(</span><span class="nv">$process</span><span class="p">),</span>
+            <span class="nv">$buffer</span><span class="p">,</span>
+            <span class="nx">Process</span><span class="o">::</span><span class="na">ERR</span> <span class="o">===</span> <span class="nv">$type</span>
+        <span class="p">)</span>
+    <span class="p">);</span>
+<span class="p">});</span>
+<span class="c1">// ...</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В случае удачи, будет выведено:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>OUT Вывод процесса
+</pre></div>
+</td></tr></table></div></div>
+<p>А в случае неудачи:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="nx">code</span><span class="o">-</span><span class="nx">block</span><span class="o">::</span> <span class="na">text</span>
+</pre></div>
+</td></tr></table></div></div>
+<blockquote>
+<div>ERR Вывод процесса</div></blockquote>
+<p>Третий аргумент - булево значение, которое сообщает функции, является ли вывод
+ошибкой или нет. Если <tt class="docutils literal"><code>true</code></tt>, то вывод считается выводом ошибки.</p>
+<p>Четвертый и пятый аргументы позволяют вам перезаписат префикс для нормального
+вывода и вывода ошибки, соответственно.</p>
+</div>
+<div class="section" id="id4">
+<h2>Остановка программы<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Когда программа остановлена, вы можете использовать
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/DebugFormatterHelper.html#method_stop" title="Symfony\Component\Console\Helper\DebugFormatterHelper::stop()">stop()</a></code></tt>,
+чтобы уведомить об этом пользователя:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$output</span><span class="o">-&gt;</span><span class="na">writeln</span><span class="p">(</span>
+    <span class="nv">$debugFormatter</span><span class="o">-&gt;</span><span class="na">stop</span><span class="p">(</span>
+        <span class="nb">spl_object_hash</span><span class="p">(</span><span class="nv">$process</span><span class="p">),</span>
+        <span class="s1">&#39;Some command description&#39;</span><span class="p">,</span>
+        <span class="nv">$process</span><span class="o">-&gt;</span><span class="na">isSuccessful</span><span class="p">()</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Будет выведено:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>RES Некоторое описание команды
+</pre></div>
+</td></tr></table></div></div>
+<p>В случае неудачи, это будет написано красным, а в случае удачи - зеленым.</p>
+</div>
+<div class="section" id="id5">
+<h2>Использование нескольких программ<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Как было сказано ранее, вы также можете использовать помощнк, чтобы отобразить
+больше программ одновременно. Информацию о разных программах будет отображена
+разными цветами, чтобы ясно обозначить, какой вывод принадлежит какой команде.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

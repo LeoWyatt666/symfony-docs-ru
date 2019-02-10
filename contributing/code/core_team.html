@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Базовая команда Symfony &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="contributing doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Базовая команда Symfony</a><ul>
+<li><a class="reference internal" href="#id1">Базовая организация</a><ul>
+<li><a class="reference internal" href="#id2">Активные базовые члены</a></li>
+<li><a class="reference internal" href="#id3">Бывшие базовые члены</a></li>
+<li><a class="reference internal" href="#id4">Заявка на базовое членство</a></li>
+<li><a class="reference internal" href="#id5">Аннулирование базового членства</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">Правила базовой разработки</a><ul>
+<li><a class="reference internal" href="#id7">Политика голосования по запросам на включение</a></li>
+<li><a class="reference internal" href="#id8">Политика слияния запросов на включение</a></li>
+<li><a class="reference internal" href="#id10">Процесс слияния запросов на включение</a></li>
+<li><a class="reference internal" href="#id12">Политика релизов</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id13">Базовые правила Symfony и исключеня из протокола</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li class="active">Базовая команда Symfony</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="symfony">
+<h1>Базовая команда Symfony<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h1>
+<p><strong>Базовая команда Symfony</strong> - это группа разработчиков, которая определяет
+направление и развитие проекта Symfony. Их голоса решают, будут ли приняти
+функции и патчи, предложенные обществом Symfony.</p>
+<p>Все базовые члены Symfony являются давними вкладчиками с отличными
+техническими знаниями и демонстрируют сильное желание развивать проект.</p>
+<p>Этот документ перечисляет правила, которым следует базовая команда Symfony.
+Это правила вступают в силу с момента публикации этого документа, и все базовые
+члены Symfony обязаны придерживаться нижеизложеных правил и протокола.</p>
+<div class="section" id="id1">
+<h2>Базовая организация<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Базовые члены Symfony делятся на три группы. Каждый член может одномоментно
+принадлежать только к одной группе. Привелегии, доступные группе, автоматически
+становятся доступными всем группам, имеющим высший приоритет.</p>
+<p>Вот базовые группы Symfony в порядке снижения приоритета:</p>
+<ol class="arabic simple">
+<li><strong>Лидер проекта</strong></li>
+</ol>
+<ul class="simple">
+<li>Выбирает членов в любую другую группу;</li>
+<li>Слияет запросы на включение во всех хранилищах Symfony.</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><strong>Слиятели</strong></li>
+</ol>
+<ul class="simple">
+<li>Слияют запросы на включение для компонента или компонентов, в которых имеют
+привелегии.</li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><strong>Решители</strong></li>
+</ol>
+<ul class="simple">
+<li>Решают, слиять ли запрос на включение, или отклонить.</li>
+</ul>
+<div class="section" id="id2">
+<h3>Активные базовые члены<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Лидер проекта</strong>:<ul>
+<li><strong>Фабьен Потенсье</strong> (<a class="reference external" href="https://github.com/fabpot/">fabpot</a>).</li>
+</ul>
+</li>
+<li><strong>Слиятели</strong> (<tt class="docutils literal"><code>&#64;symfony/mergers</code></tt> на GitHub):<ul>
+<li><strong>Тобиас Шульце</strong> (<a class="reference external" href="https://github.com/Tobion/">Tobion</a>) может слиять в компонентах <a class="reference external" href="https://github.com/symfony/routing">Routing</a>,
+<a class="reference external" href="https://github.com/symfony/options-resolver">OptionsResolver</a> и <a class="reference external" href="https://github.com/symfony/property-access">PropertyAccess</a>;</li>
+<li><strong>Ромен Нютрон</strong> (<a class="reference external" href="https://github.com/romainneutron/">romainneutron</a>) может слиять в компоненте <a class="reference external" href="https://github.com/symfony/process">Process</a>;</li>
+<li><strong>Николас Грекас</strong> (<a class="reference external" href="https://github.com/nicolas-grekas/">nicolas-grekas</a>) может слиять в компонентах <a class="reference external" href="https://github.com/symfony/cache">Cache</a>,
+<a class="reference external" href="https://github.com/symfony/debug">Debug</a>, <a class="reference external" href="https://github.com/symfony/process">Process</a>, <a class="reference external" href="https://github.com/symfony/property-access">PropertyAccess</a>, <a class="reference external" href="https://github.com/symfony/var-dumper">VarDumper</a>, а также <a class="reference external" href="https://github.com/symfony/phpunit-bridge">PhpUnitBridge</a> и
+<a class="reference external" href="https://github.com/symfony/debug-bundle">DebugBundle</a>;</li>
+<li><strong>Кристоф Кёве</strong> (<a class="reference external" href="https://github.com/stof/">stof</a>) может слиять во всех компонентах, мостах и пакетах;</li>
+<li><strong>Кевин Дунглас</strong> (<a class="reference external" href="https://github.com/dunglas/">dunglas</a>) может слиять в <a class="reference external" href="https://github.com/symfony/property-info">PropertyInfo</a> и компоненте <a class="reference external" href="https://github.com/symfony/serializer">Serializer</a>;</li>
+<li><strong>Якуб Залас</strong> (<a class="reference external" href="https://github.com/jakzal/">jakzal</a>) может слиять в компоненте <a class="reference external" href="https://github.com/symfony/dom-crawler">DomCrawler</a>;</li>
+<li><strong>Кристиан Флотманн</strong> (<a class="reference external" href="https://github.com/xabbuh/">xabbuh</a>) может слиять в компоненте <a class="reference external" href="https://github.com/symfony/yaml">Yaml</a>;</li>
+<li><strong>Хавьер Эгуилуз</strong> (<a class="reference external" href="https://github.com/javiereguiluz/">javiereguiluz</a>) может слиять в пакете <a class="reference external" href="https://github.com/symfony/web-profiler-bundle">WebProfilerBundle</a>;</li>
+<li><strong>Грегори Пенё</strong> (<a class="reference external" href="https://github.com/lyrixx/">lyrixx</a>) может слиять в компоненте <a class="reference external" href="https://github.com/symfony/workflow">Workflow</a>.</li>
+<li><strong>Райан Уивер</strong> (<a class="reference external" href="https://github.com/weaverryan/">weaverryan</a>) может слиять в компоненте <a class="reference external" href="https://github.com/symfony/security">Security</a> и пакете
+<a class="reference external" href="https://github.com/symfony/security-bundle">SecurityBundle</a>;</li>
+<li><strong>Робин Чэлэс</strong> (<a class="reference external" href="https://github.com/chalasr/">chalasr</a>) может слиять в компонентах <a class="reference external" href="https://github.com/symfony/console">Console</a> и <a class="reference external" href="https://github.com/symfony/security">Security</a> и
+пакете <a class="reference external" href="https://github.com/symfony/security-bundle">SecurityBundle</a>;</li>
+<li><strong>Максим Штайнхауссер</strong> (<a class="reference external" href="https://github.com/ogizanagi/">ogizanagi</a>)  может слиять в компонентах <a class="reference external" href="https://github.com/symfony/config">Config</a>,
+<a class="reference external" href="https://github.com/symfony/console">Console</a>, <a class="reference external" href="https://github.com/symfony/form">Form</a>, <a class="reference external" href="https://github.com/symfony/serializer">Serializer</a>, <a class="reference external" href="https://github.com/symfony/dependency-injection">DependencyInjection</a>, и <a class="reference external" href="https://github.com/symfony/http-kernel">HttpKernel</a>;</li>
+<li><strong>Тобиас Найхолм</strong> (<cite>Nyholm</cite>) управляет официальными и предложенными рецептами и
+хранилищами.</li>
+</ul>
+</li>
+<li><strong>Решители</strong> (<tt class="docutils literal"><code>&#64;symfony/deciders</code></tt> на GitHub):<ul>
+<li><strong>Джорди Боггиано</strong> (<a class="reference external" href="https://github.com/Seldaek/">seldaek</a>);</li>
+<li><strong>Лукас Каве Смит</strong> (<a class="reference external" href="https://github.com/lsmith77/">lsmith77</a>).</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>Бывшие базовые члены<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Они больше не являются частью Базовой команды, но мы очень признательны за весь их
+вклад в Symfony:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Бернхард Шуссек</strong> (<a class="reference external" href="https://github.com/webmozart/">webmozart</a>);</li>
+<li><strong>Абделлатиф АитБудад</strong> (<a class="reference external" href="https://github.com/aitboudad/">aitboudad</a>).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h3>Заявка на базовое членство<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>В настоящее время новые заявки на базовое членство не принимаются.</p>
+</div>
+<div class="section" id="id5">
+<h3>Аннулирование базового членства<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Базовое членство Symfony может быть аннулировано по любой из следующих
+причин:</p>
+<ul class="simple">
+<li>Отказ следовать правилам и политике, указанным в этом документе;</li>
+<li>Недостаток активности последние шесть месяцев;</li>
+<li>Осознанное игнорирование или намерение навредить проекту Symfony;</li>
+<li>По решению <strong>Лидера проекта</strong>.</li>
+</ul>
+<p>Если в будущем будут приняты новые базовые члены Symfony,
+аннулированные пользователи должны будут выждать 12 месяцев
+до подачи повторной заявки на членство.</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>Правила базовой разработки<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Разработка проекта Symfony основана на запросах на включение, предложенных
+любым членом общества Symfony. Одобрение или отклонение запроса на включение
+решается исходя из голосов базовых членов Symfony.</p>
+<div class="section" id="id7">
+<h3>Политика голосования по запросам на включение<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><code>-1</code></tt> голоса должны быть всегда обоснованы техническими и объективными причинами;</li>
+<li><tt class="docutils literal"><code>+1</code></tt> голоса не требуют обоснования, кроме случаев, когда есть хоть один голос <tt class="docutils literal"><code>-1</code></tt>;</li>
+<li>Базовые члены могут изменять свои голоса сколько угодно раз в процессе обсуждения
+запроса на включение;</li>
+<li>Базовым членам запрещено голосовать по собственным запросам на включение.</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>Политика слияния запросов на включение<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Запрос на включение <strong>может слияться</strong>, если:</p>
+<ul class="simple">
+<li>Это мелкое изменение <a class="footnote-reference" href="#id14" id="id9">[1]</a>;</li>
+<li>Было предоставлено достаточно времени для отзывов коллег (как минимум
+2 дня для &quot;обычных&quot; запросов и 4 дня для запросов &quot;со значительным
+влияением&quot;);</li>
+<li>Как минимум один <strong>Слиятель</strong> компонента или два других базовых члена
+проголосовали <tt class="docutils literal"><code>+1</code></tt>, и ни один член не проглосовал <tt class="docutils literal"><code>-1</code></tt>.</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>Процесс слияния запросов на включение<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Весь код должен быть отправлен в хранилище через запросы на включение, кроме
+мелких изменений <a class="footnote-reference" href="#id14" id="id11">[1]</a>, которые могут быть отправлены напрямую в хранилище.</p>
+<p><strong>Слиятели</strong> должны всегда использовать инструмент командной строки <tt class="docutils literal"><code>gh</code></tt>,
+предоставленный <strong>Лидером проекта</strong>, чтобы слиять запросы на включение.</p>
+</div>
+<div class="section" id="id12">
+<h3>Политика релизов<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p><strong>Лидер проекта</strong> также является менеджером релизов каждой версии Symfony.</p>
+</div>
+</div>
+<div class="section" id="id13">
+<h2>Базовые правила Symfony и исключеня из протокола<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>Правила, описанные в этом документе, можно опустить в любое время по
+решению <strong>Лидера проекта</strong>.</p>
+<table class="docutils footnote" frame="void" id="id14" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id9">1</a>, <a class="fn-backref" href="#id11">2</a>)</em> Небольшие изменения включают в себя опечатки, исправления DocBlock, нарушения
+стандартов кода и небольшие изменения CSS, JavaScript и HTML.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

@@ -1,0 +1,837 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как реализовать простую форму регистрации &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="doctrine doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как реализовать простую форму регистрации</a><ul>
+<li><a class="reference internal" href="#create-a-form-for-the-model-ru">Создание формы для сущности</a></li>
+<li><a class="reference internal" href="#id3">Управление отправкой форм</a></li>
+<li><a class="reference internal" href="#id4">Обновление вашей схемы БД</a></li>
+<li><a class="reference internal" href="#registration-form-via-email-ru">Форма регистрации только с электронной почты (без имени пользователя)</a></li>
+<li><a class="reference internal" href="#id6">Добавление поля (чекбокса) &quot;принятие условий&quot;</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Как реализовать простую форму регистрации</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как реализовать простую форму регистрации<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Создать форму регистрации достаточно просто - это <em>действительно</em> значит просто
+создать форму, которая будет обновлять некоторый объект модели <tt class="docutils literal"><code>User</code></tt> (сущность
+Doctrine в этом примере) и потом сохранять его.</p>
+<p>Для начала, убедитесь, что у вас установлены все необходимые зависимости:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require doctrine form security validator
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Популярный <a class="reference external" href="https://github.com/FriendsOfSymfony/FOSUserBundle">FOSUserBundle</a> предоставляет форму регистрации, форму сброса
+пароля и другой функционал управления пользователем.</p>
+</div></div>
+<p>Если у вас еще нет сущности <tt class="docutils literal"><code>User</code></tt> и работающей системы входа, начните с
+<a class="reference internal" href="..\security\entity_provider.html"><em>провайдера сущностей</em></a>.</p>
+<p>Ваша сущность <tt class="docutils literal"><code>User</code></tt> скорее всего будет иметь хотя бы одно из следущих полей:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>username</code></tt></dt>
+<dd>Будет использовано для выполнения входа, разве что вы вместо этого
+захотите, чтобы ваш пользователь <a class="reference internal" href="registration_form.html#registration-form-via-email"><span>выполнял вход через электронную почту</span></a>
+(в таком случае, это поле не нужно).</dd>
+<dt><tt class="docutils literal"><code>email</code></tt></dt>
+<dd>Хорошая информация для сбора. Вы также можете позволить пользователям
+<a class="reference internal" href="registration_form.html#registration-form-via-email"><span>выполнять вход через электронную почту</span></a>.</dd>
+<dt><tt class="docutils literal"><code>password</code></tt></dt>
+<dd>Зашифрованный пароль.</dd>
+<dt><tt class="docutils literal"><code>plainPassword</code></tt></dt>
+<dd>Это поле <em>не</em> сохраняется: (заметьте, что над ним нет <tt class="docutils literal"><code>&#64;ORM\Column</code></tt>). Оно
+временно сохраняет простой пароль из формы регистрации. Это поле может быть
+валидировано и потом использовано, для заполнения поля <tt class="docutils literal"><code>password</code></tt>.</dd>
+</dl>
+<p>С добавлением некоторой валидации, вам класс может выглядеть как-то так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/User.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Doctrine\ORM\Mapping</span> <span class="k">as</span> <span class="nx">ORM</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\User\UserInterface</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @ORM\Entity</span>
+<span class="sd"> * @UniqueEntity(fields=&quot;email&quot;, message=&quot;Email already taken&quot;)</span>
+<span class="sd"> * @UniqueEntity(fields=&quot;username&quot;, message=&quot;Username already taken&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">User</span> <span class="k">implements</span> <span class="nx">UserInterface</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Id</span>
+<span class="sd">     * @ORM\Column(type=&quot;integer&quot;)</span>
+<span class="sd">     * @ORM\GeneratedValue(strategy=&quot;AUTO&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$id</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Column(type=&quot;string&quot;, length=255, unique=true)</span>
+<span class="sd">     * @Assert\NotBlank()</span>
+<span class="sd">     * @Assert\Email()</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$email</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Column(type=&quot;string&quot;, length=255, unique=true)</span>
+<span class="sd">     * @Assert\NotBlank()</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$username</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @Assert\NotBlank()</span>
+<span class="sd">     * @Assert\Length(max=4096)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$plainPassword</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Нижеуказанная длина зависит от &quot;алгоритма&quot;, который вы используете для шифрования</span>
+<span class="sd">     * пароля, но это также хорошо работает с bcrypt.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @ORM\Column(type=&quot;string&quot;, length=64)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$password</span><span class="p">;</span>
+
+    <span class="c1">// другие свойства и методы</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getEmail</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setEmail</span><span class="p">(</span><span class="nv">$email</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">email</span> <span class="o">=</span> <span class="nv">$email</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getUsername</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setUsername</span><span class="p">(</span><span class="nv">$username</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">username</span> <span class="o">=</span> <span class="nv">$username</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getPlainPassword</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">plainPassword</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setPlainPassword</span><span class="p">(</span><span class="nv">$password</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">plainPassword</span> <span class="o">=</span> <span class="nv">$password</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getPassword</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">password</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setPassword</span><span class="p">(</span><span class="nv">$password</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">password</span> <span class="o">=</span> <span class="nv">$password</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getSalt</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Алгоритмы bcrypt и argon2i не требуют отдельной соли.</span>
+        <span class="c1">// Вам *может* понадобиться настоящая соль, если вы выберете другой кодировшик.</span>
+        <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// другие методы, включая методы безопасности вроде getRoles()</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/User/UserInterface.html" title="Symfony\Component\Security\Core\User\UserInterface">UserInterface</a></code></tt> требует
+несколько других методов и ваш файл  <tt class="docutils literal"><code>security.yml</code></tt> должен быть сконфигурирован
+соответственно, чтобы работать с сущностью <tt class="docutils literal"><code>User</code></tt>. Для более полного примера,
+см. статью <a class="reference internal" href="..\security\entity_provider.html#security-crete-user-entity"><span>Провайдер сущностей</span></a>.</p>
+<div class="admonition-wrapper" id="registration-password-max-ru">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Почему лимит пароля 4096?</p>
+<p>Отметьте, что поле <tt class="docutils literal"><code>plainPassword</code></tt> имеет максимальную длину в 4096 символов.
+По соображениям безопасности (<a class="reference external" href="https://symfony.com/blog/cve-2013-5750-security-issue-in-fosuserbundle-login-form">CVE-2013-5750</a>), Symfony ограничивает длину
+простого пароля до 4096 символов при шифровании. Добавление этого ограничения
+помогает убедиться в том, что ваша форма будет выдавать ошибку валидации, если
+кто-либо попробует использовать очень длинный пароль.</p>
+<p class="last">Вам понадобится добавлять это ограничение везде в вашем приложении, где
+ваш пользователь отправляет нешифрованный пароль (например, форма смены
+пароля). Единственное место, где вам не нужно беспокоиться об этом -
+это ваша форма входа, так как компонент безопасности Symfony заботится об
+этом за вас.</p>
+</div></div>
+<div class="section" id="create-a-form-for-the-model-ru">
+<span id="id2"></span><h2>Создание формы для сущности<a class="headerlink" href="#create-a-form-for-the-model-ru" title="Permalink to this headline">¶</a></h2>
+<p>Залее, создайте форму для сущности <tt class="docutils literal"><code>User</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/UserType.php</span>
+<span class="k">namespace</span> <span class="nx">App\Form</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Entity\User</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\AbstractType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\FormBuilderInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\OptionsResolver\OptionsResolver</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\EmailType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\RepeatedType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\PasswordType</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nx">EmailType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;plainPassword&#39;</span><span class="p">,</span> <span class="nx">RepeatedType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="nx">PasswordType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+                <span class="s1">&#39;first_options&#39;</span>  <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Password&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;second_options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Repeat Password&#39;</span><span class="p">),</span>
+            <span class="p">))</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;data_class&#39;</span> <span class="o">=&gt;</span> <span class="nx">User</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Существуют всего три поля: <tt class="docutils literal"><code>email</code></tt>, <tt class="docutils literal"><code>username</code></tt> и <tt class="docutils literal"><code>plainPassword</code></tt>
+(повторяемое, чтобы подтвердить введенный пароль).</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Чтобы изучить больше вещей о компонентне Формы, прочтите справочник
+<a class="reference internal" href="..\forms.html"><em>Forms</em></a> guide.</p>
+</div></div>
+</div>
+<div class="section" id="id3">
+<h2>Управление отправкой форм<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Далее вам понадобится контроллер, чтобы управлять отображением и оправкой формы.
+Если форма отправлена, контроллер выполняет валидацию и сохраняет данные в БД:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Controller/RegistrationController.php</span>
+<span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Form\UserType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Entity\User</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\Controller</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">RegistrationController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Route(&quot;/register&quot;, name=&quot;user_registration&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">registerAction</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">UserPasswordEncoderInterface</span> <span class="nv">$passwordEncoder</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// 1) постройте форму</span>
+        <span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">();</span>
+        <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createForm</span><span class="p">(</span><span class="nx">UserType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nv">$user</span><span class="p">);</span>
+
+        <span class="c1">// 2) обработайте отправку (произойдёт только в POST)</span>
+        <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">handleRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isSubmitted</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">())</span> <span class="p">{</span>
+
+            <span class="c1">// 3) Зашифруйте пароль (вы также можете сделать это через слушатель Doctrine)</span>
+            <span class="nv">$password</span> <span class="o">=</span> <span class="nv">$passwordEncoder</span><span class="o">-&gt;</span><span class="na">encodePassword</span><span class="p">(</span><span class="nv">$user</span><span class="p">,</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getPlainPassword</span><span class="p">());</span>
+            <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">setPassword</span><span class="p">(</span><span class="nv">$password</span><span class="p">);</span>
+
+            <span class="c1">// 4) сохраните Пользователя!</span>
+            <span class="nv">$em</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
+            <span class="nv">$em</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+            <span class="nv">$em</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
+
+            <span class="c1">// ... сделайте любую другую работу - вроде отправки письма и др</span>
+            <span class="c1">// может, установите &quot;флеш&quot; сообщение об успешном выполнении для пользователя</span>
+
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">redirectToRoute</span><span class="p">(</span><span class="s1">&#39;replace_with_some_route&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span>
+            <span class="s1">&#39;registration/register.html.twig&#39;</span><span class="p">,</span>
+            <span class="k">array</span><span class="p">(</span><span class="s1">&#39;form&#39;</span> <span class="o">=&gt;</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">createView</span><span class="p">())</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Чтобы определить алгоритм, использованный для шифрования пароля в 3-ем шаге,
+сконфигурируйте кодировщик в конфигурации безопасности:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/security.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">encoders</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">App\Entity\User</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bcrypt</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/security.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; charset=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;srv:container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/security&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:srv=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;config&gt;</span>
+        <span class="nt">&lt;encoder</span> <span class="na">class=</span><span class="s">&quot;App\Entity\User&quot;</span><span class="nt">&gt;</span>bcrypt<span class="nt">&lt;/encoder&gt;</span>
+    <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/srv:container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/security.php</span>
+<span class="k">use</span> <span class="nx">App\Entity\User</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;security&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;encoders&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="nx">User</span><span class="o">::</span><span class="na">class</span> <span class="o">=&gt;</span> <span class="s1">&#39;bcrypt&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>В этом случае, используется рекомендованный алгоритм <tt class="docutils literal"><code>bcrypt</code></tt>. Если нужно,
+просмотрите статью <a class="reference internal" href="..\security.html#security-encoding-user-password"><span>шифрование пользовательских паролей</span></a>.</p>
+<p>Далее, создайте шаблон:</p>
+<div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# templates/registration/register.html.twig #}</span>
+
+<span class="cp">{{</span> <span class="nv">form_start</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span>
+    <span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.username</span><span class="o">)</span> <span class="cp">}}</span>
+    <span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.email</span><span class="o">)</span> <span class="cp">}}</span>
+    <span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.plainPassword.first</span><span class="o">)</span> <span class="cp">}}</span>
+    <span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.plainPassword.second</span><span class="o">)</span> <span class="cp">}}</span>
+
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Register!<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="cp">{{</span> <span class="nv">form_end</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>См. <a class="reference internal" href="..\form\form_customization.html"><em>How to Customize Form Rendering</em></a>, чтобы узнать больше.</p>
+</div>
+<div class="section" id="id4">
+<h2>Обновление вашей схемы БД<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Если во время этого туториала вы обновляли сущность <tt class="docutils literal"><code>User</code></tt>, то вам нужно
+обновить вашу схему БД, используя эту команду:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console doctrine:migrations:diff
+<span class="gp">$</span> php bin/console doctrine:migrations:migrate
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и всё! Переходите к <tt class="docutils literal"><code>/register</code></tt>, чтобы опробовать!</p>
+</div>
+<div class="section" id="registration-form-via-email-ru">
+<span id="id5"></span><h2>Форма регистрации только с электронной почты (без имени пользователя)<a class="headerlink" href="#registration-form-via-email-ru" title="Permalink to this headline">¶</a></h2>
+<p>Если вы хотите, чтобы ваши пользователи выполняли вход через электронную почту, и
+вам не нужно имя пользователя, то вы можете полностью удалить его из вашей сущности
+<tt class="docutils literal"><code>User</code></tt>. Вместо этого, заставьте <tt class="docutils literal"><code>getUsername()</code></tt> возвращать свойство``email``:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/User.php</span>
+<span class="c1">// ...</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">implements</span> <span class="nx">UserInterface</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getUsername</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Далее, просто обновите раздел``providers`` вашего файла <tt class="docutils literal"><code>security.yml</code></tt>, чтобы
+Symfony знала, как загружать ваших пользователей через свойство <tt class="docutils literal"><code>email</code></tt> в качестве
+логина. См. <a class="reference internal" href="..\security\entity_provider.html#authenticating-someone-with-a-custom-entity-provider"><span>Аутентификация с пользовательским провайдером сущностей</span></a>.</p>
+</div>
+<div class="section" id="id6">
+<h2>Добавление поля (чекбокса) &quot;принятие условий&quot;<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Иногда вам может захотеться добавить поле &quot;Принимаете ли вы условия&quot; в вашу форму
+регистрации. Фокус в том, что вы хотите добавить это поле к форме, не добавляя нового
+ненужного свойства <tt class="docutils literal"><code>termsAccepted</code></tt> к вашей сущности <tt class="docutils literal"><code>User</code></tt>, так как оно вам никогда
+не понадобится.</p>
+<p>Чтобы сделать это, добавьте в вашу форму поле <tt class="docutils literal"><code>termsAccepted</code></tt>, но установите его опцию
+<a class="reference internal" href="..\reference\forms\types\form.html#reference-form-option-mapped"><span>отображение</span></a> как <tt class="docutils literal"><code>false</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Form/UserType.php</span>
+<span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints\IsTrue</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\CheckboxType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\EmailType</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserType</span> <span class="k">extends</span> <span class="nx">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">buildForm</span><span class="p">(</span><span class="nx">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nx">EmailType</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+            <span class="c1">// ...</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;termsAccepted&#39;</span><span class="p">,</span> <span class="nx">CheckboxType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;mapped&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+                <span class="s1">&#39;constraints&#39;</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">IsTrue</span><span class="p">(),</span>
+            <span class="p">))</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Опция <a class="reference internal" href="..\form\without_class.html#form-option-constraints"><span>ограничений</span></a> также может быть использована, что
+позволяет нам добавлять валидацию, несмотря на то, что у <tt class="docutils literal"><code>User</code></tt> нет свойства <tt class="docutils literal"><code>termsAccepted</code></tt>.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

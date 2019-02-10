@@ -1,0 +1,1842 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Встроенные сервис-теги Symfony &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="reference doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Встроенные сервис-теги Symfony</a><ul>
+<li><a class="reference internal" href="#auto-alias">auto_alias</a></li>
+<li><a class="reference internal" href="#console-command">console.command</a></li>
+<li><a class="reference internal" href="#controller-argument-value-resolver">controller.argument_value_resolver</a></li>
+<li><a class="reference internal" href="#data-collector">data_collector</a></li>
+<li><a class="reference internal" href="#doctrine-event-listener">doctrine.event_listener</a></li>
+<li><a class="reference internal" href="#doctrine-event-subscriber">doctrine.event_subscriber</a></li>
+<li><a class="reference internal" href="#form-type">form.type</a></li>
+<li><a class="reference internal" href="#form-type-extension">form.type_extension</a></li>
+<li><a class="reference internal" href="#form-type-guesser">form.type_guesser</a></li>
+<li><a class="reference internal" href="#kernel-cache-clearer">kernel.cache_clearer</a></li>
+<li><a class="reference internal" href="#kernel-cache-warmer">kernel.cache_warmer</a><ul>
+<li><a class="reference internal" href="#id1">Базовые разогреватели кеша</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#kernel-event-listener">kernel.event_listener</a><ul>
+<li><a class="reference internal" href="#id2">Справочник базовых слушателей событий</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#kernel-event-subscriber">kernel.event_subscriber</a></li>
+<li><a class="reference internal" href="#kernel-fragment-renderer">kernel.fragment_renderer</a></li>
+<li><a class="reference internal" href="#monolog-logger">monolog.logger</a></li>
+<li><a class="reference internal" href="#monolog-processor">monolog.processor</a></li>
+<li><a class="reference internal" href="#routing-loader">routing.loader</a></li>
+<li><a class="reference internal" href="#routing-expression-language-provider">routing.expression_language_provider</a></li>
+<li><a class="reference internal" href="#security-expression-language-provider">security.expression_language_provider</a></li>
+<li><a class="reference internal" href="#security-remember-me-aware">security.remember_me_aware</a></li>
+<li><a class="reference internal" href="#security-voter">security.voter</a></li>
+<li><a class="reference internal" href="#serializer-encoder">serializer.encoder</a></li>
+<li><a class="reference internal" href="#serializer-normalizer">serializer.normalizer</a></li>
+<li><a class="reference internal" href="#swiftmailer-default-plugin">swiftmailer.default.plugin</a></li>
+<li><a class="reference internal" href="#templating-helper">templating.helper</a></li>
+<li><a class="reference internal" href="#translation-loader">translation.loader</a></li>
+<li><a class="reference internal" href="#translation-extractor">translation.extractor</a></li>
+<li><a class="reference internal" href="#translation-dumper">translation.dumper</a></li>
+<li><a class="reference internal" href="#twig-extension">twig.extension</a></li>
+<li><a class="reference internal" href="#twig-loader">twig.loader</a></li>
+<li><a class="reference internal" href="#validator-constraint-validator">validator.constraint_validator</a></li>
+<li><a class="reference internal" href="#validator-initializer">validator.initializer</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Встроенные сервис-теги Symfony</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="symfony">
+<h1>Встроенные сервис-теги Symfony<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="..\service_container\tags.html"><em>Сервис-теги</em></a> - это механизм, используемый
+<a class="reference internal" href="..\components\dependency_injection.html"><em>компонентом DependencyInjection component</em></a>,
+чтобы отмечать сервисы, которые требуют особой обработки, вроде консольных
+команд или расширений Twig.</p>
+<p>Это наиболее распространённые теги, предоставленные компонентами Symfony, но
+в вашем приложении может быть доступно больше тегов, предоставленных сторонними
+пакетами:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%">
+<col width="67%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Имя тега</th>
+<th class="head">Использование</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="#auto-alias">auto_alias</a></td>
+<td>Определить союзников, основываясь на значении параметров контейнера</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#console-command">console.command</a></td>
+<td>Добавить команду</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#controller-argument-value-resolver">controller.argument_value_resolver</a></td>
+<td>Зарегистрировать разрешитель значений для аргументов контроллера вроде <tt class="docutils literal"><code>Request</code></tt></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#data-collector">data_collector</a></td>
+<td>Создать класс, собирающий пользовательские данные для профилировщика</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#doctrine-event-listener">doctrine.event_listener</a></td>
+<td>Добавить слушателя событий Doctrine</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#doctrine-event-subscriber">doctrine.event_subscriber</a></td>
+<td>Добавить подписчика событий Doctrine</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#form-type">form.type</a></td>
+<td>Создать пользовательский тип поля формы</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#form-type-extension">form.type_extension</a></td>
+<td>Создать пользовательское &quot;расширение формы&quot;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#form-type-guesser">form.type_guesser</a></td>
+<td>Добавить вашу собственную логику для &quot;отгадывания типа формы&quot;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#kernel-cache-clearer">kernel.cache_clearer</a></td>
+<td>Зарегистрировать ваш сервис для вызова во время процесса очистки кеша</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#kernel-cache-warmer">kernel.cache_warmer</a></td>
+<td>Зарегистрировать ваш сервис для вызова во время процесса разогрева кеша</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#kernel-event-listener">kernel.event_listener</a></td>
+<td>Слушать разные события/привязки в Symfony</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#kernel-event-subscriber">kernel.event_subscriber</a></td>
+<td>Подписаться на набор разных событий/привязок в Symfony</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#kernel-fragment-renderer">kernel.fragment_renderer</a></td>
+<td>Доавить новые стратегии отображение HTTP-содержимого</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#monolog-logger">monolog.logger</a></td>
+<td>Логировать пользовательским каналом логирования</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#monolog-processor">monolog.processor</a></td>
+<td>Добавить пользовательский процессор для логирования</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#routing-loader">routing.loader</a></td>
+<td>Зарегистрировать пользовательский сервис, загружающий маршруты</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#routing-expression-language-provider">routing.expression_language_provider</a></td>
+<td>Зарегистрировать провайдер для функций языка выражений в маршрутизации</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#security-expression-language-provider">security.expression_language_provider</a></td>
+<td>Зарегистрировать провайдер для функций языка выражений в безопасности</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#security-voter">security.voter</a></td>
+<td>Добавить пользовательского избирателя в логику авторизации Symfony</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#security-remember-me-aware">security.remember_me_aware</a></td>
+<td>Разрешить аутентификацию &quot;запомнить меня&quot;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#serializer-encoder">serializer.encoder</a></td>
+<td>Зарегистрировать новый кодировщик в сервисе <tt class="docutils literal"><code>serializer</code></tt></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#serializer-normalizer">serializer.normalizer</a></td>
+<td>Зарегистрировать новый нормализатор в сервисе <tt class="docutils literal"><code>serializer</code></tt></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#swiftmailer-default-plugin">swiftmailer.default.plugin</a></td>
+<td>Зарегистрировать пользовательский плагин SwiftMailer</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#templating-helper">templating.helper</a></td>
+<td>Сделать ваш сервис доступным в PHP-шаблонах</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#translation-loader">translation.loader</a></td>
+<td>Зарегистрировать пользовательский сервис, загружающий переводы</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#translation-extractor">translation.extractor</a></td>
+<td>Зарегистрировать пользовательский сервис, извлекающий сообщения перевода из файла</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#translation-dumper">translation.dumper</a></td>
+<td>Зарегистрировать пользоветельский сервис, сбрасывающий сообщения перевода</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#twig-extension">twig.extension</a></td>
+<td>Зарегистрировать пользовательское расширение Twig</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#twig-loader">twig.loader</a></td>
+<td>Зарегистрировать пользовательский сервис, загружающий шаблоны Twig</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#validator-constraint-validator">validator.constraint_validator</a></td>
+<td>Создать собственное пользовательское ограничение валидации</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#validator-initializer">validator.initializer</a></td>
+<td>Зарегистрировать сервис, инициализирующий объекты до валидации</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="auto-alias">
+<h2>auto_alias<a class="headerlink" href="#auto-alias" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Определить союзников, основываясь на значении параметров контейнера</p>
+<p>Рассмотрите следующую конфигурацию, определяющие три разных, но связанных сервиса:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">app.mysql_lock</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">class</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">AppBundle\Lock\MysqlLock</span>
+        <span class="l l-Scalar l-Scalar-Plain">public</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="l l-Scalar l-Scalar-Plain">app.postgresql_lock</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">class</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">AppBundle\Lock\PostgresqlLock</span>
+        <span class="l l-Scalar l-Scalar-Plain">public</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="l l-Scalar l-Scalar-Plain">app.sqlite_lock</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">class</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">AppBundle\Lock\SqliteLock</span>
+        <span class="l l-Scalar l-Scalar-Plain">public</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;app.mysql_lock&quot;</span> <span class="na">public=</span><span class="s">&quot;false&quot;</span>
+                 <span class="na">class=</span><span class="s">&quot;AppBundle\Lock\MysqlLock&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;app.postgresql_lock&quot;</span> <span class="na">public=</span><span class="s">&quot;false&quot;</span>
+                 <span class="na">class=</span><span class="s">&quot;AppBundle\Lock\PostgresqlLock&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;app.sqlite_lock&quot;</span> <span class="na">public=</span><span class="s">&quot;false&quot;</span>
+                 <span class="na">class=</span><span class="s">&quot;AppBundle\Lock\SqliteLock&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">AppBundle\Lock\MysqlLock</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AppBundle\Lock\PostgresqlLock</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AppBundle\Lock\SqliteLock</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;app.mysql_lock&#39;</span><span class="p">,</span> <span class="nx">MysqlLock</span><span class="o">::</span><span class="na">class</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;app.postgresql_lock&#39;</span><span class="p">,</span> <span class="nx">PostgresqlLock</span><span class="o">::</span><span class="na">class</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;app.sqlite_lock&#39;</span><span class="p">,</span> <span class="nx">SqliteLock</span><span class="o">::</span><span class="na">class</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Вместо того, чтобы работать с этими сервисами, вашему приложению требуется общий
+сервис <tt class="docutils literal"><code>app.lock</code></tt>, который будет союзником одного из этих сервисов, в зависимости
+от некоторой конфигурации. Благодаря опции <tt class="docutils literal"><code>auto_alias</code></tt>, вы можете автоматически
+создать этого союзника, основываясь на значении параметра конфигурации.</p>
+<p>Предположим, что параметр конфигурации, под названием <tt class="docutils literal"><code>database_type</code></tt>, существует.
+Тогда, общий сервис <tt class="docutils literal"><code>app.lock</code></tt> может быть определён следующим образом:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">app.mysql_lock</span><span class="p p-Indicator">:</span>
+        <span class="c1"># ...</span>
+    <span class="l l-Scalar l-Scalar-Plain">app.postgresql_lock</span><span class="p p-Indicator">:</span>
+        <span class="c1"># ...</span>
+    <span class="l l-Scalar l-Scalar-Plain">app.sqlite_lock</span><span class="p p-Indicator">:</span>
+        <span class="c1"># ...</span>
+    <span class="l l-Scalar l-Scalar-Plain">app.lock</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">auto_alias</span><span class="p p-Indicator">,</span> <span class="nv">format</span><span class="p p-Indicator">:</span> <span class="s">&quot;app.%database_type%_lock&quot;</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;app.mysql_lock&quot;</span> <span class="na">public=</span><span class="s">&quot;false&quot;</span>
+                 <span class="na">class=</span><span class="s">&quot;App\Lock\MysqlLock&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;app.postgresql_lock&quot;</span> <span class="na">public=</span><span class="s">&quot;false&quot;</span>
+                 <span class="na">class=</span><span class="s">&quot;App\Lock\PostgresqlLock&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;app.sqlite_lock&quot;</span> <span class="na">public=</span><span class="s">&quot;false&quot;</span>
+                 <span class="na">class=</span><span class="s">&quot;App\Lock\SqliteLock&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;app.lock&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;auto_alias&quot;</span> <span class="na">format=</span><span class="s">&quot;app.%database_type%_lock&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Lock\MysqlLock</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Lock\PostgresqlLock</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Lock\SqliteLock</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;app.mysql_lock&#39;</span><span class="p">,</span> <span class="nx">MysqlLock</span><span class="o">::</span><span class="na">class</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;app.postgresql_lock&#39;</span><span class="p">,</span> <span class="nx">PostgresqlLock</span><span class="o">::</span><span class="na">class</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;app.sqlite_lock&#39;</span><span class="p">,</span> <span class="nx">SqliteLock</span><span class="o">::</span><span class="na">class</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;app.lock&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;auto_alias&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;app.%database_type%_lock&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Опция <tt class="docutils literal"><code>format</code></tt> определяет выражение, использованное для создания имени
+сервиса для союзника. Это выражение может использовать любой параметр контейнера
+(как обычно, заключая их имена в символы <tt class="docutils literal"><code>%</code></tt>).</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">При использовании тега <tt class="docutils literal"><code>auto_alias</code></tt>,определять союзные сервисы приватными не
+обязательно. Однако, это в большинстве случаев имеет смысл сделать (как в примере
+выше), чтобы предотвратить полчение доступа к этим сервисам напрямую вместо
+использования общего союзника сервиса.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вам нужно вручную добавить пропуск компилировщика
+<tt class="docutils literal"><code>Symfony\Component\DependencyInjection\Compiler\AutoAliasServicePass</code></tt>
+к контейнеру для того, чтобы эта функция работала.</p>
+</div></div>
+</div>
+<div class="section" id="console-command">
+<h2>console.command<a class="headerlink" href="#console-command" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Добавить команду в приложение</p>
+<p>Чтобы узнать детали о регистрации ваших собственных команд в сервис-контейнере,
+прочтите <a class="reference internal" href="..\console\commands_as_services.html"><em>How to Define Commands as Services</em></a>.</p>
+</div>
+<div class="section" id="controller-argument-value-resolver">
+<h2>controller.argument_value_resolver<a class="headerlink" href="#controller-argument-value-resolver" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: RЗарегистрировать разрешитель значений для аргументов контроллера вроде <tt class="docutils literal"><code>Request</code></tt></p>
+<p>Разрешители значений реализуют
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Controller/ArgumentValueResolverInterface.html" title="Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface">ArgumentValueResolverInterface</a></code></tt>
+и используются для разрешения значений аргументов для контроллеров, как описано тут:
+<a class="reference internal" href="..\controller\argument_value_resolver.html"><em>Extending Action Argument Resolving</em></a>.</p>
+</div>
+<div class="section" id="data-collector">
+<h2>data_collector<a class="headerlink" href="#data-collector" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Создать класс, собирающий пользовательские данные для профилировщика</p>
+<p>Для того, чтобы узнать детали о создании вашей собственной пользовательской коллекции
+данных, прочтите статью <a class="reference internal" href="..\profiler\data_collector.html"><em>How to Create a custom Data Collector</em></a>.</p>
+</div>
+<div class="section" id="doctrine-event-listener">
+<h2>doctrine.event_listener<a class="headerlink" href="#doctrine-event-listener" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Добавить слушателя событий Doctrine</p>
+<p>Для того, чтобы узнать детали о создании слушателей событий Doctrine,
+прочтите статью <a class="reference internal" href="..\doctrine\event_listeners_subscribers.html"><em>Doctrine Event Listeners and Subscribers</em></a>.</p>
+</div>
+<div class="section" id="doctrine-event-subscriber">
+<h2>doctrine.event_subscriber<a class="headerlink" href="#doctrine-event-subscriber" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Добавить подписчика событий Doctrine</p>
+<p>Для того, чтобы узнать детали о создании подписчиков событий Doctrine,
+прочтите статью <a class="reference internal" href="..\doctrine\event_listeners_subscribers.html"><em>Doctrine Event Listeners and Subscribers</em></a>.</p>
+</div>
+<div class="section" id="form-type">
+<span id="dic-tags-form-type-ru"></span><h2>form.type<a class="headerlink" href="#form-type" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: CСоздать пользовательский тип поля формы</p>
+<p>Для того, чтобы узнать детали о создании вашего собственного пользовательского
+типа формы, прочтите статью <a class="reference internal" href="..\form\create_custom_field_type.html"><em>How to Create a Custom Form Field Type</em></a>.</p>
+</div>
+<div class="section" id="form-type-extension">
+<h2>form.type_extension<a class="headerlink" href="#form-type-extension" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Создать пользовательское &quot;расширение формы&quot;</p>
+<p>Для того, чтобы узнать детали о создании расширений типов формы,
+прочтите статью <a class="reference internal" href="..\form\create_form_type_extension.html"><em>How to Create a Form Type Extension</em></a>.</p>
+</div>
+<div class="section" id="form-type-guesser">
+<span id="reference-dic-type-guesser-ru"></span><h2>form.type_guesser<a class="headerlink" href="#form-type-guesser" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Добавить вашу собственную логику для &quot;отгадывания типа формы&quot;</p>
+<p>Этот тег позволяет вам добавлять вашу собственную логику в процесс
+<a class="reference internal" href="..\forms.html#forms-field-guessing"><span>угадывания формы</span></a>. По умолчанию, угадывание
+угадывание формы проводится &quot;отгадывателями&quot;, основываясь на метаданных
+валидации и Doctrine (если вы используете Doctrine) или Propel (если вы
+используете Propel).</p>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Чтобы узнать, как создать ваш собственный отгадыватель типов,
+см. <a class="reference internal" href="..\form\type_guesser.html"><em>Creating a custom Type Guesser</em></a>.</div></div>
+</div>
+<div class="section" id="kernel-cache-clearer">
+<h2>kernel.cache_clearer<a class="headerlink" href="#kernel-cache-clearer" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Зарегистрировать ваш сервис для вызова во время процесса очистки кеша</p>
+<p>Очистка кеша происходит каждый раз, когда вы вызываете команду <tt class="docutils literal"><code>cache:clear</code></tt>.
+Если ваш пакет кеширует файлы, вам нужно добавить пользовательского очистителя
+кеша для очистки этих файлов во время процесса очистки кеша.</p>
+<p>Для того, чтобы зарегистрировать вашего пользовательского очистителя кеша, для
+начала вам нужно создать класс сервиса:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Cache/MyClearer.php</span>
+<span class="k">namespace</span> <span class="nx">App\Cache</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\CacheClearer\CacheClearerInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyClearer</span> <span class="k">implements</span> <span class="nx">CacheClearerInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">clear</span><span class="p">(</span><span class="nv">$cacheDir</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// очистите ваш кеш</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы используетет <a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>конфигурацию services.yaml по умолчанию</span></a>,
+то ваш сервис будет автоматически тегирован <tt class="docutils literal"><code>kernel.cache_clearer</code></tt>. Но, вы также
+можете зарегистрировать его вручную:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\Cache\MyClearer</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">kernel.cache_clearer</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\Cache\MyClearer&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;kernel.cache_clearer&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Cache\MyClearer</span><span class="p">;</span>
+
+<span class="nv">$container</span>
+    <span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">MyClearer</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;kernel.cache_clearer&#39;</span><span class="p">)</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="kernel-cache-warmer">
+<h2>kernel.cache_warmer<a class="headerlink" href="#kernel-cache-warmer" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Зарегистрировать ваш сервис для вызова во время процесса разогрева кеша</p>
+<p>Разогрев кеша происходит каждый раз, когда вы выполняете команду <tt class="docutils literal"><code>cache:warmup</code></tt>
+или <tt class="docutils literal"><code>cache:clear</code></tt> (разве только вы не передаёте <tt class="docutils literal"><code>--no-warmup</code></tt> в <tt class="docutils literal"><code>cache:clear</code></tt>).
+Он также выполняется при обработке запроса, если он ещё не был проведен одной из
+команд.</p>
+<p>Целью является инициализация любого кеша, который будет необходим приложению,
+и предотвратить первого пользователя от существенной &quot;нагрузки кеша&quot;. когда
+кеш генерируется динамически.</p>
+<p>Зарегистрируйте ваш собственный разогреватель кеша, для начала создайте сервис,
+реализующий интерфейс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/CacheWarmer/CacheWarmerInterface.html" title="Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface">CacheWarmerInterface</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Cache/MyCustomWarmer.php</span>
+<span class="k">namespace</span> <span class="nx">App\Cache</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyCustomWarmer</span> <span class="k">implements</span> <span class="nx">CacheWarmerInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">warmUp</span><span class="p">(</span><span class="nv">$cacheDir</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ... сделайте какие-то оперции, чтобы &quot;разогреть&quot; ваш кеш</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">isOptional</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code>isOptional()</code></tt> должен возвращать true, если возможо использовать приложение
+не вызывая этого разогревателя кеша. В Symfony, необязательные разогреватели всегда
+выполняются по умолчанию (вы можете изменить это, используя опцию <tt class="docutils literal"><code>--no-optional-warmers</code></tt>
+при выполнении команды).</p>
+<p>Если вы используете <a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>конфигурацию services.yaml по умолчанию</span></a>,
+то ваш сервис будет автоматически тегирован <tt class="docutils literal"><code>kernel.cache_warmer</code></tt>. Но вы также
+можете зарегистрировать его вручную:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\Cache\MyCustomWarmer</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">kernel.cache_warmer</span><span class="p p-Indicator">,</span> <span class="nv">priority</span><span class="p p-Indicator">:</span> <span class="nv">0</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\Cache\MyCustomWarmer&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;kernel.cache_warmer&quot;</span> <span class="na">priority=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Cache\MyCustomWarmer</span><span class="p">;</span>
+
+<span class="nv">$container</span>
+    <span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">MyCustomWarmer</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;kernel.cache_warmer&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;priority&#39;</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Значение <tt class="docutils literal"><code>priority</code></tt> необязательно, и по умолчанию равняется 0.
+Чем выше приоритет, тем скорее оно будет выполнено.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Если ваш разогреватель кеша не будет выполнен из-за исключения, то Symfony
+не будет пытаться выполнить его опять для следующих запросов. Следовательно,
+ваше приложение и/или пакеты должны быть готовы к тому, что содержимое, сгенерированное
+разогревателем кеша, может быть недоступно.</p>
+</div></div>
+<div class="section" id="id1">
+<h3>Базовые разогреватели кеша<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="89%">
+<col width="11%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Имя класса разогревателя кеша</th>
+<th class="head">Приоритет</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/FrameworkBundle/CacheWarmer/TemplatePathsCacheWarmer.html" title="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer">TemplatePathsCacheWarmer</a></code></tt></td>
+<td>20</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/FrameworkBundle/CacheWarmer/RouterCacheWarmer.html" title="Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer">RouterCacheWarmer</a></code></tt></td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/TwigBundle/CacheWarmer/TemplateCacheCacheWarmer.html" title="Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer">TemplateCacheCacheWarmer</a></code></tt></td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="kernel-event-listener">
+<span id="dic-tags-kernel-event-listener-ru"></span><h2>kernel.event_listener<a class="headerlink" href="#kernel-event-listener" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: TСлушать разные события/привязки в Symfony</p>
+<p>Во время выполнения приложения Symfony, вызываются разные события, и вы также
+можете диспетчеризировать пользовательские события. Этот тег позволяе вам <em>привязать</em>
+ваши собственные классы к любому из этих событий.</p>
+<p>Для того, чтобы увидеть полный пример этого слушателя, прочтите статью
+<a class="reference internal" href="..\event_dispatcher.html"><em>Events and Event Listeners</em></a>.</p>
+<div class="section" id="id2">
+<h3>Справочник базовых слушателей событий<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Чтобы увидеть справочник слушателей событий, связанных с каждым событием
+ядра, смотрите <a class="reference internal" href="events.html"><em>Справочник событий Symfony</em></a>.</p>
+</div>
+</div>
+<div class="section" id="kernel-event-subscriber">
+<span id="dic-tags-kernel-event-subscriber-ru"></span><h2>kernel.event_subscriber<a class="headerlink" href="#kernel-event-subscriber" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Подписаться на набор разных событий/привязок в Symfony</p>
+<p>Это альтернативный способ создать слушателя событий, и он является рекомендованным
+(вместо использования <tt class="docutils literal"><code>kernel.event_listener</code></tt>). См. <a class="reference internal" href="..\event_dispatcher.html#events-subscriber"><span>Creating an Event Subscriber</span></a>.</p>
+</div>
+<div class="section" id="kernel-fragment-renderer">
+<h2>kernel.fragment_renderer<a class="headerlink" href="#kernel-fragment-renderer" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Добавить новые стратегии отображение HTTP-содержимого</p>
+<p>Для того, чтобы добавить новую стратегию отображения - в дополнение к базовым
+стратегиям вроде <tt class="docutils literal"><code>EsiFragmentRenderer</code></tt> - создайте класс, реализующий
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Fragment/FragmentRendererInterface.html" title="Symfony\Component\HttpKernel\Fragment\FragmentRendererInterface">FragmentRendererInterface</a></code></tt>,
+зарегистрируйте его как сервис, а потом тегируйте его <tt class="docutils literal"><code>kernel.fragment_renderer</code></tt>.</p>
+</div>
+<div class="section" id="monolog-logger">
+<span id="dic-tags-monolog-ru"></span><h2>monolog.logger<a class="headerlink" href="#monolog-logger" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Логировать пользовательским каналом логирования c Monolog</p>
+<p>Monolog позволяет вам делить обработчиковм между несколькими каналами
+логирования. Сервис логирования использует канал <tt class="docutils literal"><code>app</code></tt>, но вы можете
+изменить канал при внедрении логгера в сервис.</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\Log\CustomLogger</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;@logger&#39;</span><span class="p p-Indicator">]</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">monolog.logger</span><span class="p p-Indicator">,</span> <span class="nv">channel</span><span class="p p-Indicator">:</span> <span class="nv">app</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\Log\CustomLogger&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;logger&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;monolog.logger&quot;</span> <span class="na">channel=</span><span class="s">&quot;app&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Log\CustomLogger</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Reference</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">CustomLogger</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addArgument</span><span class="p">(</span><span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;logger&#39;</span><span class="p">))</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;monolog.logger&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;channel&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;app&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Вы также можете сконфигурировать пользовательские каналы в конфигурации
+и извлечь соответствующий сервис логирования напрямую из сервис-контейнера
+(см. <a class="reference internal" href="..\logging\channels_handlers.html#monolog-channels-config"><span>Configure Additional Channels without Tagged Services</span></a>).</p>
+</div></div>
+</div>
+<div class="section" id="monolog-processor">
+<span id="dic-tags-monolog-processor-ru"></span><h2>monolog.processor<a class="headerlink" href="#monolog-processor" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Добавить пользовательский процессор для логирования</p>
+<p>Monolog позволяет вам добавлять процессы в логгер или в обработчики для
+добавления дополнительных данных в записи. Процессор получает запись в
+качестве аргумента и должен вернуть его после добавления некоторых дополнительных
+данных в атрибуте записи <tt class="docutils literal"><code>extra</code></tt>.</p>
+<p>Встроенный <tt class="docutils literal"><code>IntrospectionProcessor</code></tt> может быть использован, чтобы добавить
+файл, строку, класс и метод, где был вызван логгер.</p>
+<p>Вы можете добавить процессор глобально:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Monolog\Processor\IntrospectionProcessor</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">monolog.processor</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;Monolog\Processor\IntrospectionProcessor&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;monolog.processor&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Monolog\Processor\IntrospectionProcessor</span><span class="p">;</span>
+
+<span class="nv">$container</span>
+    <span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">IntrospectionProcessor</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;monolog.processor&#39;</span><span class="p">)</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если ваш сервис не является вызываемым (используя <tt class="docutils literal"><code>__invoke()</code></tt>), то вы
+можете добавить атрибут <tt class="docutils literal"><code>method</code></tt> в тег, чтобы использовать специальный
+метод.</p>
+</div></div>
+<p>Вы также можете добавить процессор для конкретного обработчика, используя
+атрибут <tt class="docutils literal"><code>handler</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Monolog\Processor\IntrospectionProcessor</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">monolog.processor</span><span class="p p-Indicator">,</span> <span class="nv">handler</span><span class="p p-Indicator">:</span> <span class="nv">firephp</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;Monolog\Processor\IntrospectionProcessor&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;monolog.processor&quot;</span> <span class="na">handler=</span><span class="s">&quot;firephp&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Monolog\Processor\IntrospectionProcessor</span><span class="p">;</span>
+
+<span class="nv">$container</span>
+    <span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">IntrospectionProcessor</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;monolog.processor&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;handler&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;firephp&#39;</span><span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Вы также можете добавить процессор для конкретного канала логирования, используя
+атрибут <tt class="docutils literal"><code>channel</code></tt>. Он зарегистрирует процессор только для канала логирования
+<tt class="docutils literal"><code>security</code></tt>, используемого в компоненте Безопасность:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Monolog\Processor\IntrospectionProcessor</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">monolog.processor</span><span class="p p-Indicator">,</span> <span class="nv">channel</span><span class="p p-Indicator">:</span> <span class="nv">security</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;Monolog\Processor\IntrospectionProcessor&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;monolog.processor&quot;</span> <span class="na">channel=</span><span class="s">&quot;security&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Monolog\Processor\IntrospectionProcessor</span><span class="p">;</span>
+
+<span class="nv">$container</span>
+    <span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">IntrospectionProcessor</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;monolog.processor&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;channel&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;security&#39;</span><span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Вы не можете использовать оба атрибута <tt class="docutils literal"><code>handler</code></tt> и <tt class="docutils literal"><code>channel</code></tt> для одного
+тега, так как обработчики общие для всех каналов.</p>
+</div></div>
+</div>
+<div class="section" id="routing-loader">
+<h2>routing.loader<a class="headerlink" href="#routing-loader" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Зарегистрировать пользовательский сервис, загружающий маршруты</p>
+<p>Чтобы подключить пользовательский загрузчик маршрутов, добавьте его в качестве
+регулярного сервиса к одной из ваших конфигураций, и тегируйте его <tt class="docutils literal"><code>routing.loader</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\Routing\CustomLoader</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">routing.loader</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\Routing\CustomLoader&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;routing.loader&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Routing\CustomLoader</span><span class="p">;</span>
+
+<span class="nv">$container</span>
+    <span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">CustomLoader</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;routing.loader&#39;</span><span class="p">)</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Чтобы узнать больше, см. <a class="reference internal" href="..\routing\custom_route_loader.html"><em>How to Create a custom Route Loader</em></a>.</p>
+</div>
+<div class="section" id="routing-expression-language-provider">
+<h2>routing.expression_language_provider<a class="headerlink" href="#routing-expression-language-provider" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Зарегистрировать провайдер для функций языка выражений в маршрутизации</p>
+<p>Этот тег используется для автоматической регистрации
+<a class="reference internal" href="..\components\expression_language\extending.html#components-expression-language-provider"><span>провайдеров функции выражений</span></a>
+для компонента маршрутизации выражений. Используя эти провайдеры, вы можете
+добавлять пользовательские функции в язык маршрутизации выражений.</p>
+</div>
+<div class="section" id="security-expression-language-provider">
+<h2>security.expression_language_provider<a class="headerlink" href="#security-expression-language-provider" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Зарегистрировать провайдер для функций языка выражений в безопасности</p>
+<p>Этот тег используется для автоматической регистрации
+<a class="reference internal" href="..\components\expression_language\extending.html#components-expression-language-provider"><span>провайдеров функции выражений</span></a>
+для компонента безопасности выражений. Используя эти провайдеры, вы можете
+добавлять пользовательские функции в язык безопасности выражений.</p>
+</div>
+<div class="section" id="security-remember-me-aware">
+<h2>security.remember_me_aware<a class="headerlink" href="#security-remember-me-aware" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Разрешить аутентификацию &quot;запомнить меня&quot;</p>
+<p>Этот тег используется внутренне, чтобы разрешить работу аутентификации
+&quot;запомнить меня&quot;. Если у вас есть пользовательский метод аутентификации,
+где пользователь может пройти аутентификацию &quot;запомнить меня&quot;, то вам
+может понадобится использовать этот тег.</p>
+<p>Если ваша пользовательская фабрика аутентификации расширяет
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/SecurityBundle/DependencyInjection/Security/Factory/AbstractFactory.html" title="Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\AbstractFactory">AbstractFactory</a></code></tt>,
+а ваш пользовательский слушатель аутентификации расширяет
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Http/Firewall/AbstractAuthenticationListener.html" title="Symfony\Component\Security\Http\Firewall\AbstractAuthenticationListener">AbstractAuthenticationListener</a></code></tt>,
+то ваш пользовательский слушатель аутентификации автоматически применит этот тег
+и будет функционировать автоматически.</p>
+</div>
+<div class="section" id="security-voter">
+<h2>security.voter<a class="headerlink" href="#security-voter" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Добавить пользовательского избирателя в логику авторизации Symfony</p>
+<p>Когда вы вызываете <tt class="docutils literal"><code>isGranted()</code></tt> в контролёре авторизации Symfony, за кулисами
+используется система &quot;избирателей&quot;, чтобы определить, есть ли у пользователя доступ.
+Тег <tt class="docutils literal"><code>security.voter</code></tt> позволяет вам добавлять вашего пользователького избирателя в
+эту систему.</p>
+<p>Чтобы узнать больше, прочтите статью <a class="reference internal" href="..\security\voters.html"><em>How to Use Voters to Check User Permissions</em></a>.</p>
+</div>
+<div class="section" id="serializer-encoder">
+<span id="reference-dic-tags-serializer-encoder-ru"></span><h2>serializer.encoder<a class="headerlink" href="#serializer-encoder" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Зарегистрировать новый кодировщик в сервисе <tt class="docutils literal"><code>serializer</code></tt></p>
+<p>Тегированный класс должен реализовать <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Encoder/EncoderInterface.html" title="Symfony\Component\Serializer\Encoder\EncoderInterface">EncoderInterface</a></code></tt>
+и <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Encoder/DecoderInterface.html" title="Symfony\Component\Serializer\Encoder\DecoderInterface">DecoderInterface</a></code></tt>.</p>
+<p>Чтобы узнать больше, см. <a class="reference internal" href="..\serializer.html"><em>How to Use the Serializer</em></a>.</p>
+</div>
+<div class="section" id="serializer-normalizer">
+<span id="reference-dic-tags-serializer-normalizer-ru"></span><h2>serializer.normalizer<a class="headerlink" href="#serializer-normalizer" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Зарегистрировать новый нормализатор в сервисе <tt class="docutils literal"><code>serializer</code></tt></p>
+<p>Тегированный класс должен реализовать <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/NormalizerInterface.html" title="Symfony\Component\Serializer\Normalizer\NormalizerInterface">NormalizerInterface</a></code></tt>
+и <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/DenormalizerInterface.html" title="Symfony\Component\Serializer\Normalizer\DenormalizerInterface">DenormalizerInterface</a></code></tt>.</p>
+<p>Чтобы узнать больше, см. <a class="reference internal" href="..\serializer.html"><em>How to Use the Serializer</em></a>.</p>
+<p>Приоритеты нормализаторов по умолчанию могут быть найдены в методе
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/FrameworkBundle/DependencyInjection/FrameworkExtension.html#method_registerSerializerConfiguration" title="Symfony\Bundle\FrameworkBundle\DependencyInjection\FrameworkExtension::registerSerializerConfiguration()">registerSerializerConfiguration()</a></code></tt>.</p>
+</div>
+<div class="section" id="swiftmailer-default-plugin">
+<h2>swiftmailer.default.plugin<a class="headerlink" href="#swiftmailer-default-plugin" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Зарегистрировать пользовательский плагин SwiftMailer</p>
+<p>Если вы используете пользовательский плагин SwiftMailer (или хотите его создать),
+то вы можете зарегистрировать его в SwiftMailer, создав сервис для вашего плагина
+и тегировав его с помощью <tt class="docutils literal"><code>swiftmailer.default.plugin</code></tt> (не имеет опций).</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal"><code>default</code></tt> в этом теге - это имя почтовой программы. Если у вас
+сконфигурировано несколько почтовых программ, или вы именили имя
+программы по умолчанию по какой-то причине, товам нужно изменить
+его на имя вашей почтовой программы, чтобы использовать этот тег.</p>
+</div></div>
+<p>Плагин SwiftMailer должен реализовать интерфейс <tt class="docutils literal"><code>Swift_Events_EventListener</code></tt>.
+Чтобы узнать больше о плагинах, см. <a class="reference external" href="http://swiftmailer.org/docs/plugins.html">Документацию плагина SwiftMailer</a>.</p>
+<p>Несколько плагинов SwiftMailer являются базовыми в Symfony и могу быть активированы
+через разные конфигурации. Чтобы узнать больше, см. <a class="reference internal" href="configuration\swiftmailer.html"><em>Mailer Configuration Reference (SwiftmailerBundle)</em></a>.</p>
+</div>
+<div class="section" id="templating-helper">
+<h2>templating.helper<a class="headerlink" href="#templating-helper" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Сделать ваш сервис доступным в PHP-шаблонах</p>
+<p>Чтобы подключить пользовательский помощник шаблонов, добавьте его в качестве
+регулярного сервиса в одну из ваших конфигураций, тегируйте его с
+<tt class="docutils literal"><code>templating.helper</code></tt> и определите атрибут <tt class="docutils literal"><code>alias</code></tt> (помощник будет доступен
+через это дополнительное имя в шаблонах):</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\Templating\AppHelper</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">templating.helper</span><span class="p p-Indicator">,</span> <span class="nv">alias</span><span class="p p-Indicator">:</span> <span class="nv">alias_name</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\Templating\AppHelper&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;templating.helper&quot;</span> <span class="na">alias=</span><span class="s">&quot;alias_name&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Templating\AppHelper</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">AppHelper</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;templating.helper&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;alias&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;alias_name&#39;</span><span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="translation-loader">
+<span id="dic-tags-translation-loader-ru"></span><h2>translation.loader<a class="headerlink" href="#translation-loader" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Зарегистрировать пользовательский сервис, загружающий переводы</p>
+<p>По умолчанию, переводы загрузаются из файловой системы во множестве разных
+форматов (YAML, XLIFF, PHP, и др.).</p>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Узнайте, как <a class="reference internal" href="../components/translation/custom_formats-ru.html#components-translation-custom-loader"><span>загружать пользовательские форматы</span></a>
+в разделе компонентов.</div></div>
+<p>Теперь, зарегистрируйте ваш загрузчик как сервис и тегируйте его <tt class="docutils literal"><code>translation.loader</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\Translation\MyCustomLoader</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">translation.loader</span><span class="p p-Indicator">,</span> <span class="nv">alias</span><span class="p p-Indicator">:</span> <span class="nv">bin</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\Translation\MyCustomLoader&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;translation.loader&quot;</span> <span class="na">alias=</span><span class="s">&quot;bin&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Translation\MyCustomLoader</span><span class="p">;</span>
+
+<span class="nv">$container</span>
+    <span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">MyCustomLoader</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;translation.loader&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;alias&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bin&#39;</span><span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Опция <tt class="docutils literal"><code>alias</code></tt> обязательна и очень важна: она определяет &quot;суффикс&quot; файла, который
+будет использован для файлов-источников, использующих этот загрузчик. Например,
+представьте, что у вас есть некоторый пользовательский формат <tt class="docutils literal"><code>bin</code></tt>, который вам
+нужно загрузить. Если у ввс есть файл <tt class="docutils literal"><code>bin</code></tt>, содержащий французские переводы для
+домена <tt class="docutils literal"><code>messages</code></tt>, то у вас может быть файл <tt class="docutils literal"><code>translations/messages.fr.bin</code></tt>.</p>
+<p>Когда Symfony пытается загрузить файл <tt class="docutils literal"><code>bin</code></tt>, то она передаёт путь вашему
+пользовательскому загрузчику в качестве аргумента <tt class="docutils literal"><code>$resource</code></tt>. Вы можете
+выполнить любую необходимую вам логику в этом файле, чтобы загрузить ваши
+переводы.</p>
+<p>Если вы загружаете переводы из БД, то вам всё равно нужен файл-источник, но
+он может быть либо пустым, либо содержать немного информации о загрузке этих
+источников из БД. Цель файла - запустить метод <tt class="docutils literal"><code>load()</code></tt> в вашем пользовательском
+загрузчике.</p>
+</div>
+<div class="section" id="translation-extractor">
+<span id="reference-dic-tags-translation-extractor-ru"></span><h2>translation.extractor<a class="headerlink" href="#translation-extractor" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Зарегистрировать пользовательский сервис, извлекающий сообщения перевода из файла</p>
+<p>При выполненни команды <tt class="docutils literal"><code>translation:update</code></tt> он использует  функции извлечения,
+чтобы извлечь сообщения переводов из файла. По умолчанию, фреймворк Symfony имеет
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bridge/Twig/Translation/TwigExtractor.html" title="Symfony\Bridge\Twig\Translation\TwigExtractor">TwigExtractor</a></code></tt> и
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/FrameworkBundle/Translation/PhpExtractor.html" title="Symfony\Bundle\FrameworkBundle\Translation\PhpExtractor">PhpExtractor</a></code></tt>, которые помогают
+найти и извлечь ключи переводов из шаблонов Twig и PHP-файлов.</p>
+<p>Вы можете создать собственную функцию извлечения, создав класс, реализующий
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Extractor/ExtractorInterface.html" title="Symfony\Component\Translation\Extractor\ExtractorInterface">ExtractorInterface</a></code></tt>
+и тегировав сервис <tt class="docutils literal"><code>translation.extractor</code></tt>. Тег имеет одну обязательную
+опцию: <tt class="docutils literal"><code>alias</code></tt>, которая определяет имя функции извлечения:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Acme/DemoBundle/Translation/FooExtractor.php</span>
+<span class="k">namespace</span> <span class="nx">Acme\DemoBundle\Translation</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Translation\Extractor\ExtractorInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Translation\MessageCatalogue</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">FooExtractor</span> <span class="k">implements</span> <span class="nx">ExtractorInterface</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$prefix</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Extracts translation messages from a template directory to the catalogue.</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">extract</span><span class="p">(</span><span class="nv">$directory</span><span class="p">,</span> <span class="nx">MessageCatalogue</span> <span class="nv">$catalogue</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Sets the prefix that should be used for new found messages.</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setPrefix</span><span class="p">(</span><span class="nv">$prefix</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prefix</span> <span class="o">=</span> <span class="nv">$prefix</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\Translation\CustomExtractor</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">translation.extractor</span><span class="p p-Indicator">,</span> <span class="nv">alias</span><span class="p p-Indicator">:</span> <span class="nv">foo</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\Translation\CustomExtractor&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;translation.extractor&quot;</span> <span class="na">alias=</span><span class="s">&quot;foo&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Translation\CustomExtractor</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">CustomExtractor</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;translation.extractor&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;alias&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;foo&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="translation-dumper">
+<h2>translation.dumper<a class="headerlink" href="#translation-dumper" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Зарегистрировать пользоветельский сервис, сбрасывающий сообщения перевода</p>
+<p>После того, как <a class="reference internal" href="dic_tags.html#reference-dic-tags-translation-extractor"><span>извлекатель переводов</span></a>
+извлёк все сообщения из шаблонов, выполняется сброссообщений в файл перевода в
+специальном формате.</p>
+<p>Symfony уже имеет несколько дамперов:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Dumper/CsvFileDumper.html" title="Symfony\Component\Translation\Dumper\CsvFileDumper">CsvFileDumper</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Dumper/IcuResFileDumper.html" title="Symfony\Component\Translation\Dumper\IcuResFileDumper">IcuResFileDumper</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Dumper/IniFileDumper.html" title="Symfony\Component\Translation\Dumper\IniFileDumper">IniFileDumper</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Dumper/MoFileDumper.html" title="Symfony\Component\Translation\Dumper\MoFileDumper">MoFileDumper</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Dumper/PoFileDumper.html" title="Symfony\Component\Translation\Dumper\PoFileDumper">PoFileDumper</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Dumper/QtFileDumper.html" title="Symfony\Component\Translation\Dumper\QtFileDumper">QtFileDumper</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Dumper/XliffFileDumper.html" title="Symfony\Component\Translation\Dumper\XliffFileDumper">XliffFileDumper</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Dumper/YamlFileDumper.html" title="Symfony\Component\Translation\Dumper\YamlFileDumper">YamlFileDumper</a></code></tt></li>
+</ul>
+<p>Вы можете создать пользовательский дампер, расширив
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Dumper/FileDumper.html" title="Symfony\Component\Translation\Dumper\FileDumper">FileDumper</a></code></tt> или реализовав
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Translation/Dumper/DumperInterface.html" title="Symfony\Component\Translation\Dumper\DumperInterface">DumperInterface</a></code></tt> и тегировав
+сервис с помощью <tt class="docutils literal"><code>translation.dumper</code></tt>. Тег имеет одну опцию: <tt class="docutils literal"><code>alias</code></tt>. Это
+имя, которое использовалось для определения, какой дампер применять.</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\Translation\JsonFileDumper</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">translation.dumper</span><span class="p p-Indicator">,</span> <span class="nv">alias</span><span class="p p-Indicator">:</span> <span class="nv">json</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\Translation\JsonFileDumper&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;translation.dumper&quot;</span> <span class="na">alias=</span><span class="s">&quot;json&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Translation\JsonFileDumper</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">JsonFileDumper</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;translation.dumper&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;alias&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;json&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Узнайте, как <a class="reference internal" href="../components/translation/custom_formats-ru.html#components-translation-custom-dumper"><span>сбрасывать пользовательские форматы</span></a>
+в разделе компонентов.</div></div>
+</div>
+<div class="section" id="twig-extension">
+<span id="reference-dic-tags-twig-extension-ru"></span><h2>twig.extension<a class="headerlink" href="#twig-extension" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Зарегистрировать пользовательское расширение Twig</p>
+<p>Чтобы подключить расширение Twig, добавьте его в качестве регулярного сервиса
+к одной из ваших конфигураций и тегируйте его с помощью <tt class="docutils literal"><code>twig.extension</code></tt>.
+Если вы используете <a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>конфигурацию services.yaml по умолчанию</span></a>,
+то сервис регистрируется и тегируется автоматически. Но вы также можете зарегистрировать
+его вручную:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\Twig\AppExtension</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">twig.extension</span><span class="p p-Indicator">]</span>
+
+    <span class="c1"># по желанию вы можете определить приоритетность расширения (по умолчанию = 0).</span>
+    <span class="c1"># Расширения с более высокими приоритетами регистрируются раньше. Наиболее</span>
+    <span class="c1"># полезно регистрировать поздние расширения, переопределяющие другие расширения.</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\Twig\AnotherExtension</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">twig.extension</span><span class="p p-Indicator">,</span> <span class="nv">priority</span><span class="p p-Indicator">:</span> <span class="nv">-100</span> <span class="p p-Indicator">}]</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\Twig\AppExtension&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;twig.extension&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\Twig\AnotherExtension&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;twig.extension&quot;</span> <span class="na">priority=</span><span class="s">&quot;-100&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Twig\AppExtension</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Twig\AnotherExtension</span><span class="p">;</span>
+
+<span class="nv">$container</span>
+    <span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">AppExtension</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;twig.extension&#39;</span><span class="p">)</span>
+<span class="p">;</span>
+<span class="nv">$container</span>
+    <span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">AnotherExtension</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;twig.extension&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;priority&#39;</span> <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">100</span><span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Атрибут <tt class="docutils literal"><code>priority</code></tt> тега <tt class="docutils literal"><code>twig.extension</code></tt> был представлен в
+Symfony 4.1.</p>
+</div>
+<p>Чтобы узнать, как создать сам класс расширения Twig, см. <a class="reference external" href="http://twig.sensiolabs.org/doc/advanced.html#creating-an-extension">Документацию Twig</a>
+по этой теме, или прочтите статью <a class="reference internal" href="..\templating\twig_extension.html"><em>How to Write a custom Twig Extension</em></a>.</p>
+<p>До того, как писать собственные расширения, посмотрите на
+<a class="reference external" href="https://github.com/fabpot/Twig-extensions">Официальное хранилище расширений Twig</a>, которое уже включает в себя
+несколько полезных расширений. Например, <tt class="docutils literal"><code>Intl</code></tt> и его фильтр  <tt class="docutils literal"><code>localizeddate</code></tt>,
+который форматирует дату, в соответствии с локалью пользователя. Эти официальные
+расширения Twig также должны быть добавлены как регулярные сервисы:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Twig_Extensions_Extension_Intl</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">twig.extension</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;Twig_Extensions_Extension_Intl&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;twig.extension&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$container</span>
+    <span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;Twig_Extensions_Extension_Intl&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;twig.extension&#39;</span><span class="p">)</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="twig-loader">
+<h2>twig.loader<a class="headerlink" href="#twig-loader" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Зарегистрировать пользовательский сервис, загружающий шаблоны Twig</p>
+<p>По умолчанию, Symfony использует только один <a class="reference external" href="http://twig.sensiolabs.org/doc/api.html#loaders">загрузчик Twig</a> -
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/TwigBundle/Loader/FilesystemLoader.html" title="Symfony\Bundle\TwigBundle\Loader\FilesystemLoader">FilesystemLoader</a></code></tt>. Если вам нужно
+загрузить шаблоны Twig из другого источника, вы можете создать сервис для нового
+загрузчика, и тегировать его <tt class="docutils literal"><code>twig.loader</code></tt>.</p>
+<p>Если вы используете <a class="reference internal" href="..\service_container.html#service-container-services-load-example"><span>конфигурацию services.yaml по умолчанию</span></a>,
+то сервис будет автоматически тегирован благодаря автоконфигурации. Но вы можете
+также зарегистрировать его вручную:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">App\Twig\CustomLoader</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">twig.loader</span><span class="p p-Indicator">,</span> <span class="nv">priority</span><span class="p p-Indicator">:</span> <span class="nv">0</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;App\Twig\CustomLoader&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;twig.loader&quot;</span> <span class="na">priority=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Twig\CustomLoader</span><span class="p">;</span>
+
+<span class="nv">$container</span>
+    <span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">CustomLoader</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;twig.loader&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;priority&#39;</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Значение <tt class="docutils literal"><code>priority</code></tt> необязательно и по умолчанию равняется 0.
+Загрузчики с более высоким приоритетом загрудаются первыми.</p>
+</div></div>
+</div>
+<div class="section" id="validator-constraint-validator">
+<h2>validator.constraint_validator<a class="headerlink" href="#validator-constraint-validator" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Создать собственное пользовательское ограничение валидации</p>
+<p>Этот тег позволяет вам создавать и регистрировать ваше собственное ограничение
+валидации. Чтобы узнать больше, прочтите статью <a class="reference internal" href="..\validation\custom_constraint.html"><em>How to Create a custom Validation Constraint</em></a>.</p>
+</div>
+<div class="section" id="validator-initializer">
+<h2>validator.initializer<a class="headerlink" href="#validator-initializer" title="Permalink to this headline">¶</a></h2>
+<p><strong>Цель</strong>: Зарегистрировать сервис, инициализирующий объекты до валидации</p>
+<p>Этот тег предоставляет очень нетипичную часть функциональности, позволяющую
+вам выполнять некоторые действия с объектом прямо перед его валидацие. Например,
+он используется Doctrine, чтобы запросить все лениво загруженные данные объекта
+до его валидации. Без этого, некоторые данные в сущности Doctrine будут казаться
+&quot;отсутствующими&quot; при валидации, несмотря на то, что это не так.</p>
+<p>Если вам нужно использовать этот тег, просто создайте новый класс, реализующий
+интерфейс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Validator/ObjectInitializerInterface.html" title="Symfony\Component\Validator\ObjectInitializerInterface">ObjectInitializerInterface</a></code></tt>.
+Потом, тегируйте его тегом <tt class="docutils literal"><code>validator.initializer</code></tt> (не имеет опций).</p>
+<p>Для того, чтобы увидеть пример, смотрите класс <tt class="docutils literal"><code>DoctrineInitializer</code></tt> внутри
+Doctrine Bridge.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

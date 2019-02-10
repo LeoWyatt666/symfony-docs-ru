@@ -1,0 +1,2198 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент Serializer &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="Компонент Stopwatch" href="stopwatch-ru.html">
+    <link rel="prev" title="Компонент Security" href="security-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент Serializer</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#id2">Использование</a></li>
+<li><a class="reference internal" href="#id3">Сериализация объекта</a></li>
+<li><a class="reference internal" href="#id4">Десериализация объекта</a><ul>
+<li><a class="reference internal" href="#id5">Десериализация в существующем объекте</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#component-serializer-attributes-groups-ru">Группы атрибутов</a></li>
+<li><a class="reference internal" href="#ignoring-attributes-when-serializing-ru">Выбор определённых атрибутов</a></li>
+<li><a class="reference internal" href="#id8">Игнорирование атрибутов</a></li>
+<li><a class="reference internal" href="#component-serializer-converting-property-names-when-serializing-and-deserializing-ru">Преобразование имён свойств при сериализации и десериализации</a><ul>
+<li><a class="reference internal" href="#camelcase-snake-case">Из CamelCase в snake_case</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10">Сериализация булевых атрибутов</a></li>
+<li><a class="reference internal" href="#id11">Использование обратных вызовов для сериализации свойств с экземплярами объектов</a></li>
+<li><a class="reference internal" href="#component-serializer-normalizers-ru">Нормализаторы</a></li>
+<li><a class="reference internal" href="#component-serializer-encoders-ru">Кодировщики</a><ul>
+<li><a class="reference internal" href="#id14">Встроенные кодировщики</a></li>
+<li><a class="reference internal" href="#jsonencoder">Кодировщик <tt class="docutils literal"><code>JsonEncoder</code></tt></a></li>
+<li><a class="reference internal" href="#csvencoder">Кодировщик <tt class="docutils literal"><code>CsvEncoder</code></tt></a></li>
+<li><a class="reference internal" href="#xmlencoder">Кодировщик <tt class="docutils literal"><code>XmlEncoder</code></tt></a></li>
+<li><a class="reference internal" href="#yamlencoder">Кодировщик <tt class="docutils literal"><code>YamlEncoder</code></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#component-serializer-handling-circular-references-ru">Работа с циклическими ссылками</a></li>
+<li><a class="reference internal" href="#id16">Работа с глубиной сериализации</a></li>
+<li><a class="reference internal" href="#id17">Раббота с массивами</a></li>
+<li><a class="reference internal" href="#id18">Кодировщик <tt class="docutils literal"><code>XmlEncoder</code></tt></a><ul>
+<li><a class="reference internal" href="#id19">Контекст</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id20">Обработка аргументов конструктора</a></li>
+<li><a class="reference internal" href="#id21">Рекурсивная денормализация и безопасность типа</a></li>
+<li><a class="reference internal" href="#id22">Сериализация интерфейсов и абстрактных классов</a></li>
+<li><a class="reference internal" href="#id23">Узнать больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент Serializer</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="serializer">
+<span id="index-0"></span><h1>Компонент Serializer<a class="headerlink" href="#serializer" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Компонент Serializer предназначается для того, чтобы превращать
+объекты в определённый формат (XML, JSON, YAML, ...) и наоборот.</div></blockquote>
+<p>Для того, чтобы сделать это, компонент Serializer следует такой
+простой схеме.</p>
+<img alt="../_images/serializer_workflow.png" src="..\_images\serializer_workflow.png">
+<p>Как вы можете увидеть на изображении выше, массив используются в качестве
+посредника между объектами и сериализованным содержанием. Таким образом,
+кодировщики (Encoders) будут работать только с превращением
+конкретных <strong>форматов</strong> в <strong>массивы</strong> и наоборот. Таким же образом, нормализаторы (Normalizers)
+будут работать с превращением определённых <strong>объектов</strong> в <strong>массивы</strong> и наоборот.</p>
+<p>Сериализация - это сложная тема. Этот компонент может не охватить все ваши случаи
+применения, но может быть полезным для разработки инструментов для сериализации и
+десериализации ваших объектов.</p>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/serializer
+</pre></div>
+</td></tr></table></div></div>
+<p>Alternatively, you can clone the <a class="reference external" href="https://github.com/symfony/serializer">https://github.com/symfony/serializer</a> repository.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+<p>Для использования <tt class="docutils literal"><code>ObjectNormalizer</code></tt>, должен быть также установлен
+<a class="reference internal" href="property_access.html"><em>PropertyAccess component</em></a>.</p>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Эта статья объясняет как использовать функции Serializer как независимого
+компонента в любом приложении PHP. Прочитайте статью <a class="reference internal" href="..\serializer.html"><em>How to Use the Serializer</em></a>
+для понимания как использовать его в приложениях Symfony.</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Использование<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Использовать компонент Сериализация очень просто. Вам просто нужно установить
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Serializer.html" title="Symfony\Component\Serializer\Serializer">Serializer</a></code></tt>, указывая, какие кодировщики
+и нормализатор будут доступны:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Serializer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Encoder\XmlEncoder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Encoder\JsonEncoder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Normalizer\ObjectNormalizer</span><span class="p">;</span>
+
+<span class="nv">$encoders</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">XmlEncoder</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">JsonEncoder</span><span class="p">());</span>
+<span class="nv">$normalizers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">ObjectNormalizer</span><span class="p">());</span>
+
+<span class="nv">$serializer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Serializer</span><span class="p">(</span><span class="nv">$normalizers</span><span class="p">,</span> <span class="nv">$encoders</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Предпочитаемый нормализатор - <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/ObjectNormalizer.html" title="Symfony\Component\Serializer\Normalizer\ObjectNormalizer">ObjectNormalizer</a></code></tt>,
+но другие нормализаторы также доступны. Все примеры, показанные ниже, используют
+<tt class="docutils literal"><code>ObjectNormalizer</code></tt>.</p>
+</div>
+<div class="section" id="id3">
+<h2>Сериализация объекта<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Ради этого примера, предположите, что следующий класс уже существует
+в AppModelпроекте:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">App\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Person</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$age</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$sportsperson</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$createdAt</span><span class="p">;</span>
+
+    <span class="c1">// Геттеры</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getName</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getAge</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">age</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Иссеры</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">isSportsperson</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">sportsperson</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Сеттеры</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setName</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setAge</span><span class="p">(</span><span class="nv">$age</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">age</span> <span class="o">=</span> <span class="nv">$age</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setSportsperson</span><span class="p">(</span><span class="nv">$sportsperson</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">sportsperson</span> <span class="o">=</span> <span class="nv">$sportsperson</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setCreatedAt</span><span class="p">(</span><span class="nv">$createdAt</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createdAt</span> <span class="o">=</span> <span class="nv">$createdAt</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, если вы хотите сериализовать этот объект в JSON, вам просто нужно
+использовать сервис Serializer, созданный ранее:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">App\Model\Person</span><span class="p">();</span>
+<span class="nv">$person</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="nv">$person</span><span class="o">-&gt;</span><span class="na">setAge</span><span class="p">(</span><span class="mi">99</span><span class="p">);</span>
+<span class="nv">$person</span><span class="o">-&gt;</span><span class="na">setSportsperson</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+
+<span class="nv">$jsonContent</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">serialize</span><span class="p">(</span><span class="nv">$person</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">);</span>
+
+<span class="c1">// $jsonContent содержит {&quot;name&quot;:&quot;foo&quot;,&quot;age&quot;:99,&quot;sportsperson&quot;:false,&quot;createdAt&quot;:null}</span>
+
+<span class="k">echo</span> <span class="nv">$jsonContent</span><span class="p">;</span> <span class="c1">// или вернуть его в Ответе</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Первый параметр <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Serializer.html#method_serialize" title="Symfony\Component\Serializer\Serializer::serialize()">serialize()</a></code></tt> -
+это объект, который должен быть сериализован, а второй - используются для выбора
+правильного кодировщика, в этом случае -
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Encoder/JsonEncoder.html" title="Symfony\Component\Serializer\Encoder\JsonEncoder">JsonEncoder</a></code></tt>.</p>
+</div>
+<div class="section" id="id4">
+<h2>Десериализация объекта<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Теперь вы узнаете, как делать с точностью до наоборот. В этот раз, информация
+класса <tt class="docutils literal"><code>Person</code></tt> будет зашифрована в формате XML:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Model\Person</span><span class="p">;</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="s">&lt;&lt;&lt;</span><span class="dl">EOF</span><span class="s"></span>
+<span class="s">&lt;person&gt;</span>
+<span class="s">    &lt;name&gt;foo&lt;/name&gt;</span>
+<span class="s">    &lt;age&gt;99&lt;/age&gt;</span>
+<span class="s">    &lt;sportsperson&gt;false&lt;/sportsperson&gt;</span>
+<span class="s">&lt;/person&gt;</span>
+<span class="dl">EOF</span><span class="p">;</span>
+
+<span class="nv">$person</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">deserialize</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nx">Person</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;xml&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В этом случае, <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Serializer.html#method_deserialize" title="Symfony\Component\Serializer\Serializer::deserialize()">deserialize()</a></code></tt>
+требует трёх параметров:</p>
+<ol class="arabic simple">
+<li>Информацию, которую нужно расшифровать</li>
+<li>Имя класса, в который будет расшифрована эта информация</li>
+<li>Кодировщик, используемый для преобразования этой информации в массив</li>
+</ol>
+<p>По умолчанию, дополнительные атрибуты, которые не связываются с денормализованным
+объектом, будут проигнорированы компонентом Сереализатор. Установите ключ
+<tt class="docutils literal"><code>allow_extra_attributes</code></tt> контекста десериализации, как <tt class="docutils literal"><code>false</code></tt>, чтобы позволить
+сериализатору вызывать исключение, когда передаются дополнительные атрибуты:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$data</span> <span class="o">=</span> <span class="s">&lt;&lt;&lt;</span><span class="dl">EOF</span><span class="s"></span>
+<span class="s">&lt;person&gt;</span>
+<span class="s">    &lt;name&gt;foo&lt;/name&gt;</span>
+<span class="s">    &lt;age&gt;99&lt;/age&gt;</span>
+<span class="s">    &lt;city&gt;Paris&lt;/city&gt;</span>
+<span class="s">&lt;/person&gt;</span>
+<span class="dl">EOF</span><span class="p">;</span>
+
+<span class="c1">// это вызовет Symfony\Component\Serializer\Exception\ExtraAttributesException</span>
+<span class="c1">// так как &quot;город&quot; не являтся атрибутом класса Особа</span>
+<span class="nv">$person</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">deserialize</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="s1">&#39;App\Model\Person&#39;</span><span class="p">,</span> <span class="s1">&#39;xml&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;allow_extra_attributes&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id5">
+<h3>Десериализация в существующем объекте<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Serializer также может быть использован для обновления существующего
+объекта:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+<span class="nv">$person</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">);</span>
+<span class="nv">$person</span><span class="o">-&gt;</span><span class="na">setAge</span><span class="p">(</span><span class="mi">99</span><span class="p">);</span>
+<span class="nv">$person</span><span class="o">-&gt;</span><span class="na">setSportsperson</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="s">&lt;&lt;&lt;</span><span class="dl">EOF</span><span class="s"></span>
+<span class="s">&lt;person&gt;</span>
+<span class="s">    &lt;name&gt;foo&lt;/name&gt;</span>
+<span class="s">    &lt;age&gt;69&lt;/age&gt;</span>
+<span class="s">&lt;/person&gt;</span>
+<span class="dl">EOF</span><span class="p">;</span>
+
+<span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">deserialize</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nx">Person</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;xml&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;object_to_populate&#39;</span> <span class="o">=&gt;</span> <span class="nv">$person</span><span class="p">));</span>
+<span class="c1">// $person = App\Model\Person(name: &#39;foo&#39;, age: &#39;69&#39;, sportsperson: true)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это распространённая необходимость, при работе с ORM.</p>
+</div>
+</div>
+<div class="section" id="component-serializer-attributes-groups-ru">
+<span id="id6"></span><h2>Группы атрибутов<a class="headerlink" href="#component-serializer-attributes-groups-ru" title="Permalink to this headline">¶</a></h2>
+<p>Иногда вам захочется сериализовать разные наборы атрибутов из ваших сущностей.
+Группы являются удобным способом достижения этого.</p>
+<p>Предположите, что у вас есть следующий простой PHP объект:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">App\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyObj</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$foo</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="nv">$bar</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getBar</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">bar</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setBar</span><span class="p">(</span><span class="nv">$bar</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">bar</span> <span class="o">=</span> <span class="nv">$bar</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Определение сериализатора может быть указано используя аннотация, XML или YAML.
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Mapping/Factory/ClassMetadataFactory.html" title="Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory">ClassMetadataFactory</a></code></tt>,
+который будет использован нормализатором должен знать, какой формат использовать.</p>
+<p>Инициализируйте <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Mapping/Factory/ClassMetadataFactory.html" title="Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory">ClassMetadataFactory</a></code></tt>,
+как показано далее:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory</span><span class="p">;</span>
+<span class="c1">// Для аннотаций</span>
+<span class="k">use</span> <span class="nx">Doctrine\Common\Annotations\AnnotationReader</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader</span><span class="p">;</span>
+<span class="c1">// Для XML</span>
+<span class="c1">// используйте Symfony\Component\Serializer\Mapping\Loader\XmlFileLoader;</span>
+<span class="c1">// Для YAML</span>
+<span class="c1">// используйте Symfony\Component\Serializer\Mapping\Loader\YamlFileLoader;</span>
+
+<span class="nv">$classMetadataFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClassMetadataFactory</span><span class="p">(</span><span class="k">new</span> <span class="nx">AnnotationLoader</span><span class="p">(</span><span class="k">new</span> <span class="nx">AnnotationReader</span><span class="p">()));</span>
+<span class="c1">// Для XML</span>
+<span class="c1">// $classMetadataFactory = new ClassMetadataFactory(new XmlFileLoader(&#39;/path/to/your/definition.xml&#39;));</span>
+<span class="c1">// Для YAML</span>
+<span class="c1">// $classMetadataFactory = new ClassMetadataFactory(new YamlFileLoader(&#39;/path/to/your/definition.yaml&#39;));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p id="component-serializer-attributes-groups-annotations-ru">Далее, создайте ваше определение групп:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">App\Model</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Annotation\Groups</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyObj</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Groups({&quot;group1&quot;, &quot;group2&quot;})</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="nv">$foo</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @Groups({&quot;group3&quot;})</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getBar</span><span class="p">()</span> <span class="c1">// is* methods are also supported</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">bar</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">App\Model\MyObj</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">attributes</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">foo</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">groups</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;group1&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;group2&#39;</span><span class="p p-Indicator">]</span>
+        <span class="l l-Scalar l-Scalar-Plain">bar</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">groups</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;group3&#39;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="nt">&lt;serializer</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/serializer-mapping&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/serializer-mapping</span>
+<span class="s">        http://symfony.com/schema/dic/serializer-mapping/serializer-mapping-1.0.xsd&quot;</span>
+<span class="nt">&gt;</span>
+    <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;App\Model\MyObj&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;attribute</span> <span class="na">name=</span><span class="s">&quot;foo&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;group&gt;</span>group1<span class="nt">&lt;/group&gt;</span>
+            <span class="nt">&lt;group&gt;</span>group2<span class="nt">&lt;/group&gt;</span>
+        <span class="nt">&lt;/attribute&gt;</span>
+
+        <span class="nt">&lt;attribute</span> <span class="na">name=</span><span class="s">&quot;bar&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;group&gt;</span>group3<span class="nt">&lt;/group&gt;</span>
+        <span class="nt">&lt;/attribute&gt;</span>
+    <span class="nt">&lt;/class&gt;</span>
+<span class="nt">&lt;/serializer&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Теперь вы можете сериализовать атрибуты только в тех группах, в которых вы хотите:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Serializer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Normalizer\ObjectNormalizer</span><span class="p">;</span>
+
+<span class="nv">$obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyObj</span><span class="p">();</span>
+<span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">foo</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">;</span>
+<span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">setBar</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">);</span>
+
+<span class="nv">$normalizer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ObjectNormalizer</span><span class="p">(</span><span class="nv">$classMetadataFactory</span><span class="p">);</span>
+<span class="nv">$serializer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Serializer</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$normalizer</span><span class="p">));</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">normalize</span><span class="p">(</span><span class="nv">$obj</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;groups&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;group1&#39;</span><span class="p">)));</span>
+<span class="c1">// $data = array(&#39;foo&#39; =&gt; &#39;foo&#39;);</span>
+
+<span class="nv">$obj2</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">denormalize</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;MyObj&#39;</span><span class="p">,</span>
+    <span class="k">null</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;groups&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;group1&#39;</span><span class="p">,</span> <span class="s1">&#39;group3&#39;</span><span class="p">))</span>
+<span class="p">);</span>
+<span class="c1">// $obj2 = MyObj(foo: &#39;foo&#39;, bar: &#39;bar&#39;)</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">In order to use the annotation loader, you should have installed the
+<tt class="docutils literal"><code>doctrine/annotations</code></tt> and <tt class="docutils literal"><code>doctrine/cache</code></tt> packages with Composer.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Annotation classes aren't loaded automatically, so you must load them
+using a class loader like this:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Composer\Autoload\ClassLoader</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\Common\Annotations\AnnotationRegistry</span><span class="p">;</span>
+
+<span class="sd">/** @var ClassLoader $loader */</span>
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">require</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../vendor/autoload.php&#39;</span><span class="p">;</span>
+
+<span class="nx">AnnotationRegistry</span><span class="o">::</span><span class="na">registerLoader</span><span class="p">([</span><span class="nv">$loader</span><span class="p">,</span> <span class="s1">&#39;loadClass&#39;</span><span class="p">]);</span>
+
+<span class="k">return</span> <span class="nv">$loader</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+</div>
+<div class="section" id="ignoring-attributes-when-serializing-ru">
+<span id="id7"></span><h2>Выбор определённых атрибутов<a class="headerlink" href="#ignoring-attributes-when-serializing-ru" title="Permalink to this headline">¶</a></h2>
+<p>Также возможно сериализовать только набор определённых атрибутов:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Serializer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Normalizer\ObjectNormalizer</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$familyName</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$givenName</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$company</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">Company</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$address</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$company</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Company</span><span class="p">();</span>
+<span class="nv">$company</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s1">&#39;Les-Tilleuls.coop&#39;</span><span class="p">;</span>
+<span class="nv">$company</span><span class="o">-&gt;</span><span class="na">address</span> <span class="o">=</span> <span class="s1">&#39;Lille, France&#39;</span><span class="p">;</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">();</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">familyName</span> <span class="o">=</span> <span class="s1">&#39;Dunglas&#39;</span><span class="p">;</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">givenName</span> <span class="o">=</span> <span class="s1">&#39;Kévin&#39;</span><span class="p">;</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">company</span> <span class="o">=</span> <span class="nv">$company</span><span class="p">;</span>
+
+<span class="nv">$serializer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Serializer</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">ObjectNormalizer</span><span class="p">()));</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">normalize</span><span class="p">(</span><span class="nv">$user</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;attributes&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;familyName&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])));</span>
+<span class="c1">// $data = array(&#39;familyName&#39; =&gt; &#39;Dunglas&#39;, &#39;company&#39; =&gt; array(&#39;name&#39; =&gt; &#39;Les-Tilleuls.coop&#39;));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Доступны только атрибуты, которые не игнорируются (см. ниже).
+Если установлены какие-то группы сериализации, то могут быть использованы только
+атрибуты, разрешённые этими группами.</p>
+<p>Что касается групп, атрибуты могут быть выбраны как во время процесса сериализации, так
+и десериализации.</p>
+</div>
+<div class="section" id="id8">
+<h2>Игнорирование атрибутов<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Использование группы атрибутов вместо метода
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/AbstractNormalizer.html#method_setIgnoredAttributes" title="Symfony\Component\Serializer\Normalizer\AbstractNormalizer::setIgnoredAttributes()">setIgnoredAttributes()</a></code></tt>,
+считантся хорошей практикой.</p>
+</div></div>
+<p>Как вариант, существует способ игнорирования атрибутов из исходного объекта. Чтобы
+удалить эти атрибуты, используйте метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/AbstractNormalizer.html#method_setIgnoredAttributes" title="Symfony\Component\Serializer\Normalizer\AbstractNormalizer::setIgnoredAttributes()">setIgnoredAttributes()</a></code></tt>
+в определении нормализатора:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Serializer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Encoder\JsonEncoder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Normalizer\ObjectNormalizer</span><span class="p">;</span>
+
+<span class="nv">$normalizer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ObjectNormalizer</span><span class="p">();</span>
+<span class="nv">$normalizer</span><span class="o">-&gt;</span><span class="na">setIgnoredAttributes</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">));</span>
+<span class="nv">$encoder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">JsonEncoder</span><span class="p">();</span>
+
+<span class="nv">$serializer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Serializer</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$normalizer</span><span class="p">),</span> <span class="k">array</span><span class="p">(</span><span class="nv">$encoder</span><span class="p">));</span>
+<span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">serialize</span><span class="p">(</span><span class="nv">$person</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">);</span> <span class="c1">// Output: {&quot;name&quot;:&quot;foo&quot;,&quot;sportsperson&quot;:false}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="component-serializer-converting-property-names-when-serializing-and-deserializing-ru">
+<span id="id9"></span><h2>Преобразование имён свойств при сериализации и десериализации<a class="headerlink" href="#component-serializer-converting-property-names-when-serializing-and-deserializing-ru" title="Permalink to this headline">¶</a></h2>
+<p>Иногда сериализованные атрибуты должны быть названы отлично от свойств или
+методов геттера / сеттера PHP классов.</p>
+<p>Компонент Serializer предоставляет удобный способ для перевода илил соединения
+имён PHP поля с сериализованными именами: Система преобразования имён.</p>
+<p>Предполагая, что у вас есть следующий объект:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Company</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$address</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>И в сериализованной форме, все атрибуты должны иметь префикс <tt class="docutils literal"><code>org_</code></tt>,
+как показано далее:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;org_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Acme Inc.&quot;</span><span class="p">,</span> <span class="s2">&quot;org_address&quot;</span><span class="o">:</span> <span class="s2">&quot;123 Main Street, Big City&quot;</span><span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Пользовательский преобразователь имён может обработать такие случаи:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Serializer\NameConverter\NameConverterInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">OrgPrefixNameConverter</span> <span class="k">implements</span> <span class="nx">NameConverterInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">normalize</span><span class="p">(</span><span class="nv">$propertyName</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;org_&#39;</span><span class="o">.</span><span class="nv">$propertyName</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">denormalize</span><span class="p">(</span><span class="nv">$propertyName</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// удалить префикс &#39;org_&#39;</span>
+        <span class="k">return</span> <span class="s1">&#39;org_&#39;</span> <span class="o">===</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$propertyName</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">?</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$propertyName</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">:</span> <span class="nv">$propertyName</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Пользовательский нормализатор может быть использован, путём передачи его в качестве
+второго аргумента любого класса, расширяющего <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/AbstractNormalizer.html" title="Symfony\Component\Serializer\Normalizer\AbstractNormalizer">AbstractNormalizer</a></code></tt>,
+включая <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/GetSetMethodNormalizer.html" title="Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer">GetSetMethodNormalizer</a></code></tt>
+и <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/PropertyNormalizer.html" title="Symfony\Component\Serializer\Normalizer\PropertyNormalizer">PropertyNormalizer</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Encoder\JsonEncoder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Normalizer\ObjectNormalizer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Serializer</span><span class="p">;</span>
+
+<span class="nv">$nameConverter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OrgPrefixNameConverter</span><span class="p">();</span>
+<span class="nv">$normalizer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ObjectNormalizer</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="nv">$nameConverter</span><span class="p">);</span>
+
+<span class="nv">$serializer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Serializer</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$normalizer</span><span class="p">),</span> <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">JsonEncoder</span><span class="p">()));</span>
+
+<span class="nv">$company</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Company</span><span class="p">();</span>
+<span class="nv">$company</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s1">&#39;Acme Inc.&#39;</span><span class="p">;</span>
+<span class="nv">$company</span><span class="o">-&gt;</span><span class="na">address</span> <span class="o">=</span> <span class="s1">&#39;123 Main Street, Big City&#39;</span><span class="p">;</span>
+
+<span class="nv">$json</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">serialize</span><span class="p">(</span><span class="nv">$company</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">);</span>
+<span class="c1">// {&quot;org_name&quot;: &quot;Acme Inc.&quot;, &quot;org_address&quot;: &quot;123 Main Street, Big City&quot;}</span>
+<span class="nv">$companyCopy</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">deserialize</span><span class="p">(</span><span class="nv">$json</span><span class="p">,</span> <span class="nx">Company</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">);</span>
+<span class="c1">// Те же данные, что и $company</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="camelcase-snake-case">
+<span id="using-camelized-method-names-for-underscored-attributes"></span><h3>Из CamelCase в snake_case<a class="headerlink" href="#camelcase-snake-case" title="Permalink to this headline">¶</a></h3>
+<p>Во многих форматах распространено использование нижних подчёркиваний для разделения
+слов (также известно, как snake_case). Однако, в приложениях Symfony часто используется
+CamelCase для именования свойств (несмотря на то, что  <a class="reference external" href="https://www.php-fig.org/psr/psr-1/">стандарт PSR-1</a> не рекомендует
+никакой определённый стиль для имён свойств).</p>
+<p>Symfony предоставляет встроенный преобразователь имён, созданный для
+преобразований между стилями snake_case и CamelCased во время процессов
+сериализации и десериализации:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Normalizer\ObjectNormalizer</span><span class="p">;</span>
+
+<span class="nv">$normalizer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ObjectNormalizer</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="k">new</span> <span class="nx">CamelCaseToSnakeCaseNameConverter</span><span class="p">());</span>
+
+<span class="k">class</span> <span class="nc">Person</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$firstName</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$firstName</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">firstName</span> <span class="o">=</span> <span class="nv">$firstName</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFirstName</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">firstName</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$kevin</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">&#39;Kévin&#39;</span><span class="p">);</span>
+<span class="nv">$normalizer</span><span class="o">-&gt;</span><span class="na">normalize</span><span class="p">(</span><span class="nv">$kevin</span><span class="p">);</span>
+<span class="c1">// [&#39;first_name&#39; =&gt; &#39;Kévin&#39;];</span>
+
+<span class="nv">$anne</span> <span class="o">=</span> <span class="nv">$normalizer</span><span class="o">-&gt;</span><span class="na">denormalize</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;first_name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Anne&#39;</span><span class="p">),</span> <span class="s1">&#39;Person&#39;</span><span class="p">);</span>
+<span class="c1">// Объект Person с firstName: &#39;Anne&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>Сериализация булевых атрибутов<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>Если вы используете методы иссеров (методы, с префиксом <tt class="docutils literal"><code>is</code></tt>, вроде
+<tt class="docutils literal"><code>Acme\Person::isSportsperson()</code></tt>), компонент Serializer автоматически
+определит его и использует для сериализации связанных атрибутов.</p>
+<p><tt class="docutils literal"><code>ObjectNormalizer</code></tt> также заботится о методах, начинающихся на <tt class="docutils literal"><code>has</code></tt>, <tt class="docutils literal"><code>add</code></tt>
+и <tt class="docutils literal"><code>remove</code></tt>.</p>
+</div>
+<div class="section" id="id11">
+<h2>Использование обратных вызовов для сериализации свойств с экземплярами объектов<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>При сериализации вы можете устаналивать обратный вызов для форматирования определённого
+свойства объекта:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Acme\Person</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Encoder\JsonEncoder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Serializer</span><span class="p">;</span>
+
+<span class="nv">$encoder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">JsonEncoder</span><span class="p">();</span>
+<span class="nv">$normalizer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GetSetMethodNormalizer</span><span class="p">();</span>
+
+<span class="nv">$callback</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$dateTime</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$dateTime</span> <span class="nx">instanceof</span> <span class="nx">\DateTime</span>
+        <span class="o">?</span> <span class="nv">$dateTime</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nx">\DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">)</span>
+        <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nv">$normalizer</span><span class="o">-&gt;</span><span class="na">setCallbacks</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;createdAt&#39;</span> <span class="o">=&gt;</span> <span class="nv">$callback</span><span class="p">));</span>
+
+<span class="nv">$serializer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Serializer</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$normalizer</span><span class="p">),</span> <span class="k">array</span><span class="p">(</span><span class="nv">$encoder</span><span class="p">));</span>
+
+<span class="nv">$person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+<span class="nv">$person</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;cordoval&#39;</span><span class="p">);</span>
+<span class="nv">$person</span><span class="o">-&gt;</span><span class="na">setAge</span><span class="p">(</span><span class="mi">34</span><span class="p">);</span>
+<span class="nv">$person</span><span class="o">-&gt;</span><span class="na">setCreatedAt</span><span class="p">(</span><span class="k">new</span> <span class="nx">\DateTime</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">));</span>
+
+<span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">serialize</span><span class="p">(</span><span class="nv">$person</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">);</span>
+<span class="c1">// Вывод: {&quot;name&quot;:&quot;cordoval&quot;, &quot;age&quot;: 34, &quot;createdAt&quot;: &quot;2014-03-22T09:43:12-0500&quot;}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="component-serializer-normalizers-ru">
+<span id="id12"></span><h2>Нормализаторы<a class="headerlink" href="#component-serializer-normalizers-ru" title="Permalink to this headline">¶</a></h2>
+<p>Существует несколько доступных типов сериализаторов:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/ObjectNormalizer.html" title="Symfony\Component\Serializer\Normalizer\ObjectNormalizer">ObjectNormalizer</a></code></tt></dt>
+<dd><p class="first">Этот нормализатор использует <a class="reference internal" href="property_access.html"><em>компонент PropertyAccess</em></a>,
+чтобы читать и писать в объекте. Это означает, что он имеет доступ к свойствам
+напрямую и через геттеры, сеттеры, хасссеры, дополнители и удалители. Он
+поддерживает вызов конструктора во время процесса денормализации.</p>
+<p>Объекты нормализируются в карту имён свойств и значений (имена генерируются
+путём удаления префикса``get``, <tt class="docutils literal"><code>set</code></tt>, <tt class="docutils literal"><code>has</code></tt> или <tt class="docutils literal"><code>remove</code></tt> из имени
+метода и преобразования первой буквы в нижний регистр; например, <tt class="docutils literal"><code>getFirstName()</code></tt>
+-&gt; <tt class="docutils literal"><code>firstName</code></tt>).</p>
+<p class="last"><tt class="docutils literal"><code>ObjectNormalizer</code></tt> - это наиболее мощный нормализатор. Он конфигурируется
+по умолчанию при использовании стандартной версии Symfony со включённым
+сериализатором.</p>
+</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/GetSetMethodNormalizer.html" title="Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer">GetSetMethodNormalizer</a></code></tt></dt>
+<dd><p class="first">Этот нормализатор читает содержание класса, вызывая &quot;геттеры&quot; (публичные
+методы, начинающиеся на &quot;get&quot;). Он денормализует данные, вызвав конструктор
+и &quot;сеттеры&quot; (публичные методы, начинающиеся на &quot;set&quot;).</p>
+<p class="last">Объекты нормализируются в карту имён свойств и значений (имена генерируются
+путём удаления префикса``get`` из имени метода и преобразования первой буквы
+в нижний регистр; например, <tt class="docutils literal"><code>getFirstName()</code></tt> -&gt; <tt class="docutils literal"><code>firstName</code></tt>).</p>
+</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/PropertyNormalizer.html" title="Symfony\Component\Serializer\Normalizer\PropertyNormalizer">PropertyNormalizer</a></code></tt></dt>
+<dd><p class="first">Этот нормализатор напрямую читает и пишет публичные свойства, а также
+<strong>приватные и защищённые</strong> свойства (как из класса, так и из всех его
+родительских классов). Он поддерживает вызов конструктора во время
+процесса денормализации.</p>
+<p class="last">Объекты нормализируются в карту имён свойств значений свойства.</p>
+</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/JsonSerializableNormalizer.html" title="Symfony\Component\Serializer\Normalizer\JsonSerializableNormalizer">JsonSerializableNormalizer</a></code></tt></dt>
+<dd><p class="first">Этот нормализатор работает с классами, реализующими <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.jsonserializable.php" title="JsonSerializable">JsonSerializable</a></code></tt>.</p>
+<p>Он вызовет метод <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/jsonserializable.jsonserialize.php" title="JsonSerializable">JsonSerializable::jsonSerialize()</a></code></tt>, а потом
+ещё больше нормализует результат. Это означает, что встроенные классы
+<tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.jsonserializable.php" title="JsonSerializable">JsonSerializable</a></code></tt> также будут нормализованы.</p>
+<p>Этот нормализатор особенно полезен, когда вы хотите постепенно перейти
+с существующей базы кода, используя простую <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.json-encode.php" title="json_encode">json_encode</a></code></tt>, на
+Serializer Symfony, который позволит вам смешивать используемые нормализаторы
+для разных классов.</p>
+<p class="last">В отличие от <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.json-encode.php" title="json_encode">json_encode</a></code></tt>, могут обрабатываться циклические ссылки.</p>
+</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/DateTimeNormalizer.html" title="Symfony\Component\Serializer\Normalizer\DateTimeNormalizer">DateTimeNormalizer</a></code></tt></dt>
+<dd>Этот нормализатор преобразует объекты <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.datetimeinterface.php" title="DateTimeInterface">DateTimeInterface</a></code></tt>
+(например, <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.datetime.php" title="DateTime">DateTime</a></code></tt> и <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.datetimeimmutable.php" title="DateTimeImmutable">DateTimeImmutable</a></code></tt>) в строки.
+По умолчанию, он использует формат <a class="reference external" href="https://tools.ietf.org/html/rfc3339#section-5.8">RFC3339</a>.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/DataUriNormalizer.html" title="Symfony\Component\Serializer\Normalizer\DataUriNormalizer">DataUriNormalizer</a></code></tt></dt>
+<dd>Этот нормализатор преобразует объекты <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.splfileinfo.php" title="SplFileInfo">SplFileInfo</a></code></tt> в строку данных
+URI (<tt class="docutils literal"><code>data:...</code></tt>), чтобы файлы могли быть встроены в сериализованные данные.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/DateIntervalNormalizer.html" title="Symfony\Component\Serializer\Normalizer\DateIntervalNormalizer">DateIntervalNormalizer</a></code></tt></dt>
+<dd>Этот нормализатор преобразует объекты <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.dateinterval.php" title="DateInterval">DateInterval</a></code></tt> в строки.
+По умолчанию он использует формат <tt class="docutils literal"><code>P%yY%mM%dDT%hH%iM%sS</code></tt>.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/ConstraintViolationListNormalizer.html" title="Symfony\Component\Serializer\Normalizer\ConstraintViolationListNormalizer">ConstraintViolationListNormalizer</a></code></tt></dt>
+<dd><p class="first">Этот нормализатор преобразует объекты, которые реализуют
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Validator/ConstraintViolationListInterface.html" title="Symfony\Component\Validator\ConstraintViolationListInterface">ConstraintViolationListInterface</a></code></tt>
+в список ошибок согласно стандарту <a class="reference external" href="https://tools.ietf.org/html/rfc7807">RFC 7807</a>.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 4.1: </span><tt class="docutils literal"><code>ConstraintViolationListNormalizer</code></tt> появился в Symfony 4.1.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="component-serializer-encoders-ru">
+<span id="id13"></span><h2>Кодировщики<a class="headerlink" href="#component-serializer-encoders-ru" title="Permalink to this headline">¶</a></h2>
+<p>Кодировщики превращают <strong>массивы</strong> в <strong>форматы</strong> и наоборот. Они реализуют
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Encoder/EncoderInterface.html" title="Symfony\Component\Serializer\Encoder\EncoderInterface">EncoderInterface</a></code></tt>
+для кодирования (массив в формат) и
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Encoder/DecoderInterface.html" title="Symfony\Component\Serializer\Encoder\DecoderInterface">DecoderInterface</a></code></tt> для декодирования
+(формат в массив).</p>
+<p>Вы можете добавить новые кодировщики в экземпляр Serializer используя второй аргумент конструктора:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Serializer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Encoder\XmlEncoder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Encoder\JsonEncoder</span><span class="p">;</span>
+
+<span class="nv">$encoders</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">XmlEncoder</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">JsonEncoder</span><span class="p">());</span>
+<span class="nv">$serializer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Serializer</span><span class="p">(</span><span class="k">array</span><span class="p">(),</span> <span class="nv">$encoders</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id14">
+<h3>Встроенные кодировщики<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>Компонент Serializer предоставляет несколько встроенных кодировщиков:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Encoder/JsonEncoder.html" title="Symfony\Component\Serializer\Encoder\JsonEncoder">JsonEncoder</a></code></tt></dt>
+<dd>Этот класс зашифровывает и расшифровывает данные в <a class="reference external" href="http://www.json.org/">JSON</a>.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Encoder/XmlEncoder.html" title="Symfony\Component\Serializer\Encoder\XmlEncoder">XmlEncoder</a></code></tt></dt>
+<dd>Этот класс зашифровывает и расшифровывает данные в <a class="reference external" href="https://www.w3.org/XML/">XML</a>.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Encoder/YamlEncoder.html" title="Symfony\Component\Serializer\Encoder\YamlEncoder">YamlEncoder</a></code></tt></dt>
+<dd>Этот кодировщик зашифровывает и расшифровывает данные в <a class="reference external" href="http://yaml.org/">YAML</a>. Кодировщик требует
+<a class="reference internal" href="yaml.html"><em>компонент Yaml</em></a>.</dd>
+<dt><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Encoder/CsvEncoder.html" title="Symfony\Component\Serializer\Encoder\CsvEncoder">CsvEncoder</a></code></tt></dt>
+<dd>Этот кодировщик зашифровывает и расшифровывает данные в <a class="reference external" href="https://tools.ietf.org/html/rfc4180">CSV</a>.</dd>
+</dl>
+<p>Все эти кодировщики включены по умолчанию при использовании стандартной версии
+Symfony с включенным сериализатором.</p>
+</div>
+<div class="section" id="jsonencoder">
+<h3>Кодировщик <tt class="docutils literal"><code>JsonEncoder</code></tt><a class="headerlink" href="#jsonencoder" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code>JsonEncoder</code></tt> кодирует и декодирует в и из строк JSON основываясь на функциях PHP
+<tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.json-encode.php" title="json_encode">json_encode</a></code></tt> и <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.json-decode.php" title="json_decode">json_decode</a></code></tt>.</p>
+</div>
+<div class="section" id="csvencoder">
+<h3>Кодировщик <tt class="docutils literal"><code>CsvEncoder</code></tt><a class="headerlink" href="#csvencoder" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code>CsvEncoder</code></tt> кодирует и декодирует в и из CSV.</p>
+<p>Вы можете передать ключ контекста <tt class="docutils literal"><code>as_collection</code></tt> для того, чтобы результаты
+всегда были коллекцией.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Опция <tt class="docutils literal"><code>as_collection</code></tt> появилась в Symfony 4.1.</p>
+</div>
+</div>
+<div class="section" id="xmlencoder">
+<h3>Кодировщик <tt class="docutils literal"><code>XmlEncoder</code></tt><a class="headerlink" href="#xmlencoder" title="Permalink to this headline">¶</a></h3>
+<p>Этот кодировщик преобразует массивы в XML и наоборот.</p>
+<p>Например, возьмём объект нормализированный следующим образом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p><tt class="docutils literal"><code>XmlEncoder</code></tt> закодирует этот объект так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">xml</span> <span class="nx">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;response&gt;</span>
+<span class="x">    &lt;foo&gt;1&lt;/foo&gt;</span>
+<span class="x">    &lt;foo&gt;2&lt;/foo&gt;</span>
+<span class="x">    &lt;bar&gt;1&lt;/bar&gt;</span>
+<span class="x">&lt;/response&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Учтите, что этот кодировщик понимает ключи, начинающиеся на <tt class="docutils literal"><code>&#64;</code></tt> как аттрибуты:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$encoder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XmlEncoder</span><span class="p">();</span>
+<span class="nv">$encoder</span><span class="o">-&gt;</span><span class="na">encode</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;@bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value&#39;</span><span class="p">)));</span>
+<span class="c1">// вернёт:</span>
+<span class="c1">// &lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="c1">// &lt;response&gt;</span>
+<span class="c1">//     &lt;foo bar=&quot;value&quot; /&gt;</span>
+<span class="c1">// &lt;/response&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы можете передать ключ контекста <tt class="docutils literal"><code>as_collection</code></tt> для того, чтобы результаты
+всегда были коллекцией.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Опция <tt class="docutils literal"><code>as_collection</code></tt> появилась в Symfony 4.1.</p>
+</div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>XML комментарии по умолчанию игнорируются при декодировании содержимого, но это
+поведение может быть изменено опциональным аргументом <tt class="docutils literal"><code>$ignoredNodeTypes</code></tt>
+конструктора класса <tt class="docutils literal"><code>XmlEncoder</code></tt>.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>XML комментарии игнорируются по умолчанию с Symfony 4.1.</p>
+</div>
+</div></div>
+</div>
+<div class="section" id="yamlencoder">
+<h3>Кодировщик <tt class="docutils literal"><code>YamlEncoder</code></tt><a class="headerlink" href="#yamlencoder" title="Permalink to this headline">¶</a></h3>
+<p>Этот кодировщик требует <a class="reference internal" href="yaml.html"><em>Yaml Component</em></a> и
+преобразует в и из Yaml.</p>
+</div>
+</div>
+<div class="section" id="component-serializer-handling-circular-references-ru">
+<span id="id15"></span><h2>Работа с циклическими ссылками<a class="headerlink" href="#component-serializer-handling-circular-references-ru" title="Permalink to this headline">¶</a></h2>
+<p>Циклические ссылки распространены при работе с отношениями сущности:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Organization</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$members</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setName</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getName</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setMembers</span><span class="p">(</span><span class="k">array</span> <span class="nv">$members</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">members</span> <span class="o">=</span> <span class="nv">$members</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getMembers</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">members</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">Member</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$organization</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setName</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getName</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setOrganization</span><span class="p">(</span><span class="nx">Organization</span> <span class="nv">$organization</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">organization</span> <span class="o">=</span> <span class="nv">$organization</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getOrganization</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">organization</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Чтобы избежать бесконечных циклов,
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/GetSetMethodNormalizer.html" title="Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer">GetSetMethodNormalizer</a></code></tt> или
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/ObjectNormalizer.html" title="Symfony\Component\Serializer\Normalizer\ObjectNormalizer">ObjectNormalizer</a></code></tt>, вызоваите
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Exception/CircularReferenceException.html" title="Symfony\Component\Serializer\Exception\CircularReferenceException">CircularReferenceException</a></code></tt>,
+когда столкнётесь с таким случаем:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$member</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Member</span><span class="p">();</span>
+<span class="nv">$member</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;Kévin&#39;</span><span class="p">);</span>
+
+<span class="nv">$organization</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Organization</span><span class="p">();</span>
+<span class="nv">$organization</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;Les-Tilleuls.coop&#39;</span><span class="p">);</span>
+<span class="nv">$organization</span><span class="o">-&gt;</span><span class="na">setMembers</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$member</span><span class="p">));</span>
+
+<span class="nv">$member</span><span class="o">-&gt;</span><span class="na">setOrganization</span><span class="p">(</span><span class="nv">$organization</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">serialize</span><span class="p">(</span><span class="nv">$organization</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">);</span> <span class="c1">// Вызывает CircularReferenceException</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code>setCircularReferenceLimit()</code></tt> этого нормализатора устаналивает количество раз,
+которое он будет сериализовать один и тот же объект, до признания его цикличной ссылкой.
+Его значение по умолчанию - <tt class="docutils literal"><code>1</code></tt>.</p>
+<p>Вместо вызова исключения, цикличные ссылки также могут быть обработаны пользовательскими
+вызываемыми. Это особенно полезно при сериализации сущностей с уникальными идентификаторами:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$encoder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">JsonEncoder</span><span class="p">();</span>
+<span class="nv">$normalizer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ObjectNormalizer</span><span class="p">();</span>
+
+<span class="nv">$normalizer</span><span class="o">-&gt;</span><span class="na">setCircularReferenceHandler</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$object</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getName</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="nv">$serializer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Serializer</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$normalizer</span><span class="p">),</span> <span class="k">array</span><span class="p">(</span><span class="nv">$encoder</span><span class="p">));</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">serialize</span><span class="p">(</span><span class="nv">$org</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">));</span>
+<span class="c1">// {&quot;name&quot;:&quot;Les-Tilleuls.coop&quot;,&quot;members&quot;:[{&quot;name&quot;:&quot;K\u00e9vin&quot;, organization: &quot;Les-Tilleuls.coop&quot;}]}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id16">
+<h2>Работа с глубиной сериализации<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<p>Компонент Сериализация может определять и ограничивать глубину сериализации.
+Это особенно полезно при сериализации больших древ. Представьте следующую
+структуру данных:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">Acme</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyObj</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$foo</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @var self</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="nv">$child</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$level1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyObj</span><span class="p">();</span>
+<span class="nv">$level1</span><span class="o">-&gt;</span><span class="na">foo</span> <span class="o">=</span> <span class="s1">&#39;level1&#39;</span><span class="p">;</span>
+
+<span class="nv">$level2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyObj</span><span class="p">();</span>
+<span class="nv">$level2</span><span class="o">-&gt;</span><span class="na">foo</span> <span class="o">=</span> <span class="s1">&#39;level2&#39;</span><span class="p">;</span>
+<span class="nv">$level1</span><span class="o">-&gt;</span><span class="na">child</span> <span class="o">=</span> <span class="nv">$level2</span><span class="p">;</span>
+
+<span class="nv">$level3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyObj</span><span class="p">();</span>
+<span class="nv">$level3</span><span class="o">-&gt;</span><span class="na">foo</span> <span class="o">=</span> <span class="s1">&#39;level3&#39;</span><span class="p">;</span>
+<span class="nv">$level2</span><span class="o">-&gt;</span><span class="na">child</span> <span class="o">=</span> <span class="nv">$level3</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Serializer может быть сконфигурирован, чтобы установить максимальную глубину
+данного свойства. Здесь мы установили его, как 2 для свойства <tt class="docutils literal"><code>$child</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Annotation\MaxDepth</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nx">Acme</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyObj</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @MaxDepth(2)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="nv">$child</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Acme\MyObj</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">attributes</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">child</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">max_depth</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="nt">&lt;serializer</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/serializer-mapping&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/serializer-mapping</span>
+<span class="s">        http://symfony.com/schema/dic/serializer-mapping/serializer-mapping-1.0.xsd&quot;</span>
+<span class="nt">&gt;</span>
+    <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;Acme\MyObj&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;attribute</span> <span class="na">name=</span><span class="s">&quot;child&quot;</span> <span class="na">max-depth=</span><span class="s">&quot;2&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/class&gt;</span>
+<span class="nt">&lt;/serializer&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Загрузчик меаданных, соответствующий выбранному формату, должен быть сконфигурирован
+для того, чтобы использовать эту функцию. Это делается автоматически при использовании
+стандартной версии Symfony. При использовани компонента отдельно, см.
+<a class="reference internal" href="serializer.html#component-serializer-attributes-groups"><span>документацию групп</span></a>, чтобы узнать, как
+это сделать.</p>
+<p>Проверка производится только если ключ``enable_max_depth`` контекста сериализатора
+установлен, как <tt class="docutils literal"><code>true</code></tt>. В следующем примере, третий уровень не сериализуется, так
+как он глубже, чем максимальная сконфигурированная глубина (2):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">normalize</span><span class="p">(</span><span class="nv">$level1</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;enable_max_depth&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">));</span>
+<span class="cm">/*</span>
+<span class="cm">$result = array(</span>
+<span class="cm">    &#39;foo&#39; =&gt; &#39;level1&#39;,</span>
+<span class="cm">    &#39;child&#39; =&gt; array(</span>
+<span class="cm">            &#39;foo&#39; =&gt; &#39;level2&#39;,</span>
+<span class="cm">            &#39;child&#39; =&gt; array(</span>
+<span class="cm">                    &#39;child&#39; =&gt; null,</span>
+<span class="cm">                ),</span>
+<span class="cm">        ),</span>
+<span class="cm">);</span>
+<span class="cm">*/</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вместо выбрасывания исключения, может быть выполнена пользовательская функция при достижении
+максимальной глубины. Это особенно полезно при сериализации сущностей
+с уникальными идентификаторами:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Doctrine\Common\Annotations\AnnotationReader</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Serializer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Annotation\MaxDepth</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Normalizer\ObjectNormalizer</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Foo</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$id</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @MaxDepth(1)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="nv">$child</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$level1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Foo</span><span class="p">();</span>
+<span class="nv">$level1</span><span class="o">-&gt;</span><span class="na">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="nv">$level2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Foo</span><span class="p">();</span>
+<span class="nv">$level2</span><span class="o">-&gt;</span><span class="na">id</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nv">$level1</span><span class="o">-&gt;</span><span class="na">child</span> <span class="o">=</span> <span class="nv">$level2</span><span class="p">;</span>
+
+<span class="nv">$level3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Foo</span><span class="p">();</span>
+<span class="nv">$level3</span><span class="o">-&gt;</span><span class="na">id</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nv">$level2</span><span class="o">-&gt;</span><span class="na">child</span> <span class="o">=</span> <span class="nv">$level3</span><span class="p">;</span>
+
+<span class="nv">$classMetadataFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClassMetadataFactory</span><span class="p">(</span><span class="k">new</span> <span class="nx">AnnotationLoader</span><span class="p">(</span><span class="k">new</span> <span class="nx">AnnotationReader</span><span class="p">()));</span>
+<span class="nv">$normalizer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ObjectNormalizer</span><span class="p">(</span><span class="nv">$classMetadataFactory</span><span class="p">);</span>
+<span class="nv">$normalizer</span><span class="o">-&gt;</span><span class="na">setMaxDepthHandler</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$foo</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">&#39;/foos/&#39;</span><span class="o">.</span><span class="nv">$foo</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nv">$serializer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Serializer</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$normalizer</span><span class="p">));</span>
+
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">normalize</span><span class="p">(</span><span class="nv">$level1</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="nx">ObjectNormalizer</span><span class="o">::</span><span class="na">ENABLE_MAX_DEPTH</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">));</span>
+<span class="cm">/*</span>
+<span class="cm">$result = array(</span>
+<span class="cm">    &#39;id&#39; =&gt; 1,</span>
+<span class="cm">    &#39;child&#39; =&gt; array(</span>
+<span class="cm">        &#39;id&#39; =&gt; 2,</span>
+<span class="cm">        &#39;child&#39; =&gt; &#39;/foos/3&#39;,</span>
+<span class="cm">    ),</span>
+<span class="cm">);</span>
+<span class="cm">*/</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Метод <tt class="docutils literal"><code>setMaxDepthHandler()</code></tt> появился в Symfony 4.1.</p>
+</div>
+</div>
+<div class="section" id="id17">
+<h2>Раббота с массивами<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<p>Компонент Serializer способен также работать с массивами объектов. Сериализация
+массивов работает так же, как и сериализация одного объекта:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Acme\Person</span><span class="p">;</span>
+
+<span class="nv">$person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+<span class="nv">$person1</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="nv">$person1</span><span class="o">-&gt;</span><span class="na">setAge</span><span class="p">(</span><span class="mi">99</span><span class="p">);</span>
+<span class="nv">$person1</span><span class="o">-&gt;</span><span class="na">setSportsperson</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+
+<span class="nv">$person2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+<span class="nv">$person2</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">);</span>
+<span class="nv">$person2</span><span class="o">-&gt;</span><span class="na">setAge</span><span class="p">(</span><span class="mi">33</span><span class="p">);</span>
+<span class="nv">$person2</span><span class="o">-&gt;</span><span class="na">setSportsperson</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+<span class="nv">$persons</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$person1</span><span class="p">,</span> <span class="nv">$person2</span><span class="p">);</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">serialize</span><span class="p">(</span><span class="nv">$persons</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">);</span>
+
+<span class="c1">// $data содержит [{&quot;name&quot;:&quot;foo&quot;,&quot;age&quot;:99,&quot;sportsperson&quot;:false},{&quot;name&quot;:&quot;bar&quot;,&quot;age&quot;:33,&quot;sportsperson&quot;:true}]</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если вы хотите десериализовать такую структуру, то вам нужно добавить
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/ArrayDenormalizer.html" title="Symfony\Component\Serializer\Normalizer\ArrayDenormalizer">ArrayDenormalizer</a></code></tt>
+к набору нормализаторов. Добавив <tt class="docutils literal"><code>[]</code></tt> к типу параметра метода
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Serializer.html#method_deserialize" title="Symfony\Component\Serializer\Serializer::deserialize()">deserialize()</a></code></tt>, вы
+обозначите, что вы ожидаете массив вместо одного объекта.</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Encoder\JsonEncoder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Normalizer\ArrayDenormalizer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Serializer</span><span class="p">;</span>
+
+<span class="nv">$serializer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Serializer</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">GetSetMethodNormalizer</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">ArrayDenormalizer</span><span class="p">()),</span>
+    <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">JsonEncoder</span><span class="p">())</span>
+<span class="p">);</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span> <span class="c1">// Сериализованные данные из предыдщуего примера</span>
+<span class="nv">$persons</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">deserialize</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="s1">&#39;Acme\Person[]&#39;</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id18">
+<h2>Кодировщик <tt class="docutils literal"><code>XmlEncoder</code></tt><a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<p>Этот кодировщик преобразует массивы в XML и наоборот. Например, возьмите объект,
+нормализованный таким образом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p><tt class="docutils literal"><code>XmlEncoder</code></tt> зашифровывает этот объект следующим образом:</p>
+<div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;foo&gt;</span>1<span class="nt">&lt;/foo&gt;</span>
+    <span class="nt">&lt;foo&gt;</span>2<span class="nt">&lt;/foo&gt;</span>
+    <span class="nt">&lt;bar&gt;</span>1<span class="nt">&lt;/bar&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Ключи массива, начинающиеся с <tt class="docutils literal"><code>&#64;</code></tt>, считаются XML атрибутами:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;@bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value&#39;</span><span class="p">));</span>
+
+<span class="c1">// зашифровывается таким образом:</span>
+<span class="c1">// &lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="c1">// &lt;response&gt;</span>
+<span class="c1">//     &lt;foo bar=&quot;value&quot; /&gt;</span>
+<span class="c1">// &lt;/response&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Используйте специальный ключ <tt class="docutils literal"><code>#</code></tt>, чтобы определить данные узла:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;@bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;baz&#39;</span><span class="p">));</span>
+
+<span class="c1">// зашифровывается таким образом:</span>
+<span class="c1">// &lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="c1">// &lt;response&gt;</span>
+<span class="c1">//     &lt;foo bar=&quot;value&quot;&gt;</span>
+<span class="c1">//        baz</span>
+<span class="c1">//     &lt;/foo&gt;</span>
+<span class="c1">// &lt;/response&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id19">
+<h3>Контекст<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p>Метод <tt class="docutils literal"><code>encode()</code></tt> определяет третий необязательный параметр под названием <tt class="docutils literal"><code>context</code></tt>,
+который определяет опции конфигурации для ассоциативного массива XmlEncoder:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$xmlEncoder</span><span class="o">-&gt;</span><span class="na">encode</span><span class="p">(</span><span class="nv">$array</span><span class="p">,</span> <span class="s1">&#39;xml&#39;</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот доступные опции:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>xml_format_output</code></tt></dt>
+<dd>Если установлена, как true, форматирует сгенерированный XML с разрывами
+строчек и отступами.</dd>
+<dt><tt class="docutils literal"><code>xml_version</code></tt></dt>
+<dd>Устанавливает атрибут версии XML (по умолчанию: <tt class="docutils literal"><code>1.1</code></tt>).</dd>
+<dt><tt class="docutils literal"><code>xml_encoding</code></tt></dt>
+<dd>Устанавливает атрибут шифроваия XML (по умолчанию: <tt class="docutils literal"><code>utf-8</code></tt>).</dd>
+<dt><tt class="docutils literal"><code>xml_standalone</code></tt></dt>
+<dd>Добавляет отдельный атрибут в сгенерированном XML (по умолчанию: <tt class="docutils literal"><code>true</code></tt>).</dd>
+<dt><tt class="docutils literal"><code>xml_root_node_name</code></tt></dt>
+<dd>Устанавливает имя корневого узла (по умолчанию: <tt class="docutils literal"><code>response</code></tt>).</dd>
+<dt><tt class="docutils literal"><code>remove_empty_tags</code></tt></dt>
+<dd>Если установлена, как true, удаляет все пустые теги в сгенерированном XML.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="id20">
+<h2>Обработка аргументов конструктора<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Опция <tt class="docutils literal"><code>default_constructor_arguments</code></tt> появилась в Symfony 4.1.</p>
+</div>
+<p>Если у конструктора класса есть аргументы, что обычно случается в
+<a class="reference external" href="https://en.wikipedia.org/wiki/Value_object">Value Objects</a>, сериализатор не сможет создать объект, если пропущены какие-то
+аргументы. В данных случаях используйте контекстную опцию <tt class="docutils literal"><code>default_constructor_arguments</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Serializer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Normalizer\ObjectNormalizer</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyObj</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$foo</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$bar</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$foo</span><span class="p">,</span> <span class="nv">$bar</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">foo</span> <span class="o">=</span> <span class="nv">$foo</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">bar</span> <span class="o">=</span> <span class="nv">$bar</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$normalizer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ObjectNormalizer</span><span class="p">(</span><span class="nv">$classMetadataFactory</span><span class="p">);</span>
+<span class="nv">$serializer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Serializer</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$normalizer</span><span class="p">));</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">denormalize</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hello&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;MyObj&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;default_constructor_arguments&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;MyObj&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+    <span class="p">)</span>
+<span class="p">));</span>
+<span class="c1">// $data = new MyObj(&#39;Hello&#39;, &#39;&#39;);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id21">
+<h2>Рекурсивная денормализация и безопасность типа<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<p>Компонент Serializer может использовать
+<a class="reference internal" href="property_info.html"><em>PropertyInfo Component</em></a>, чтобы денормализовать
+сложные типы (объекты). Тип свойства класса будет предположен, используя предоставленный
+извлекатель и использован для рекурсивной денормализации внутренних данных.</p>
+<p>При использовании стандартной версии Symfony, все нормализаторы автоматически
+конфигурируются, чтобы использовать зарегистрированные извлекатели. При использовании
+копомнента самостоятельно, реализация
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyTypeExtractorInterface.html" title="Symfony\Component\PropertyInfo\PropertyTypeExtractorInterface">PropertyTypeExtractorInterface</a></code></tt> (обычно экземпляр
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/PropertyInfo/PropertyInfoExtractor.html" title="Symfony\Component\PropertyInfo\PropertyInfoExtractor">PropertyInfoExtractor</a></code></tt>) должна быть передана в
+качестве 4го параметра <tt class="docutils literal"><code>ObjectNormalizer</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Serializer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Normalizer\DateTimeNormalizer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Normalizer\ObjectNormalizer</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nx">Acme</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ObjectOuter</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$inner</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$date</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getInner</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">inner</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setInner</span><span class="p">(</span><span class="nx">ObjectInner</span> <span class="nv">$inner</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">inner</span> <span class="o">=</span> <span class="nv">$inner</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setDate</span><span class="p">(</span><span class="nx">\DateTimeInterface</span> <span class="nv">$date</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">date</span> <span class="o">=</span> <span class="nv">$date</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getDate</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">date</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">ObjectInner</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$foo</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$bar</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$normalizer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ObjectNormalizer</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ReflectionExtractor</span><span class="p">());</span>
+<span class="nv">$serializer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Serializer</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">DateTimeNormalizer</span><span class="p">(),</span> <span class="nv">$normalizer</span><span class="p">));</span>
+
+<span class="nv">$obj</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">denormalize</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;inner&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">),</span> <span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;1988/01/21&#39;</span><span class="p">),</span>
+     <span class="s1">&#39;Acme\ObjectOuter&#39;</span>
+<span class="p">);</span>
+
+<span class="nx">dump</span><span class="p">(</span><span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">getInner</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">foo</span><span class="p">);</span> <span class="c1">// &#39;foo&#39;</span>
+<span class="nx">dump</span><span class="p">(</span><span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">getInner</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">bar</span><span class="p">);</span> <span class="c1">// &#39;bar&#39;</span>
+<span class="nx">dump</span><span class="p">(</span><span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">getDate</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="s1">&#39;Y-m-d&#39;</span><span class="p">));</span> <span class="c1">// &#39;1988-01-21&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если доступен <tt class="docutils literal"><code>PropertyTypeExtractor</code></tt>, то нормализатор также проверит, чтобы
+данные для денормализации соответствовали типу свойства (даже для примитивных
+типов). Например, если предоставлена <tt class="docutils literal"><code>string</code></tt>, но тип свойства - <tt class="docutils literal"><code>int</code></tt>, будет
+вызвано <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Exception/UnexpectedValueException.html" title="Symfony\Component\Serializer\Exception\UnexpectedValueException">UnexpectedValueException</a></code></tt>.
+Принуждение типа свойства можно отключить, установив опцию контекста сериализатора
+<tt class="docutils literal"><code>ObjectNormalizer::DISABLE_TYPE_ENFORCEMENT</code></tt>, как <tt class="docutils literal"><code>true</code></tt>.</p>
+</div>
+<div class="section" id="id22">
+<h2>Сериализация интерфейсов и абстрактных классов<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<p>При работе с объектами, которые достаточно похожи или имеют общие свойства,
+вы можете использовать интерфейсы или абстрактные классы. Компонент Serializer
+позволяет вам сериализовать и десериализовать эти объекты, используя
+<em>&quot;отображение класса дискриминатора&quot;</em></p>
+<p>Дискриминатор - это поле (в сериализованной строке), используемое для дифференциации
+между возможными объектами. На практике, при использвании компонента Serializer,
+передайте реализацию <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Mapping/ClassDiscriminatorResolverInterface.html" title="Symfony\Component\Serializer\Mapping\ClassDiscriminatorResolverInterface">ClassDiscriminatorResolverInterface</a></code></tt>
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Serializer/Normalizer/ObjectNormalizer.html" title="Symfony\Component\Serializer\Normalizer\ObjectNormalizer">ObjectNormalizer</a></code></tt>.</p>
+<p>Рассмотрите приложение, которое определяет абстрактный класс <tt class="docutils literal"><code>CodeRepository</code></tt>,
+расширенный классами <tt class="docutils literal"><code>GitHubCodeRepository</code></tt> и <tt class="docutils literal"><code>BitBucketCodeRepository</code></tt>. Этот
+пример показывает, как сериализовать и десериализовать эти объекты:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Encoder\JsonEncoder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Mapping\ClassDiscriminatorMapping</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Mapping\ClassDiscriminatorFromClassMetadata</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Normalizer\ObjectNormalizer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Serializer</span><span class="p">;</span>
+
+<span class="nv">$classMetadataFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClassMetadataFactory</span><span class="p">(</span><span class="k">new</span> <span class="nx">AnnotationLoader</span><span class="p">(</span><span class="k">new</span> <span class="nx">AnnotationReader</span><span class="p">()));</span>
+<span class="nv">$discriminator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClassDiscriminatorFromClassMetadata</span><span class="p">(</span><span class="nv">$classMetadataFactory</span><span class="p">);</span>
+<span class="nv">$discriminator</span><span class="o">-&gt;</span><span class="na">addClassMapping</span><span class="p">(</span><span class="nx">CodeRepository</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ClassDiscriminatorMapping</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">&#39;github&#39;</span> <span class="o">=&gt;</span> <span class="nx">GitHubCodeRepository</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="s1">&#39;bitbucket&#39;</span> <span class="o">=&gt;</span> <span class="nx">BitBucketCodeRepository</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+<span class="p">]));</span>
+
+<span class="nv">$serializer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Serializer</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">ObjectNormalizer</span><span class="p">(</span><span class="nv">$classMetadataFactory</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="nv">$discriminator</span><span class="p">)),</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;json&#39;</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">JsonEncoder</span><span class="p">())</span>
+<span class="p">);</span>
+
+<span class="nv">$serialized</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">serialize</span><span class="p">(</span><span class="k">new</span> <span class="nx">GitHubCodeRepository</span><span class="p">());</span>
+<span class="c1">// {&quot;type&quot;: &quot;github&quot;}</span>
+
+<span class="nv">$repository</span> <span class="o">=</span> <span class="nv">$serializer</span><span class="o">-&gt;</span><span class="na">unserialize</span><span class="p">(</span><span class="nv">$serialized</span><span class="p">,</span> <span class="nx">CodeRepository</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">);</span>
+<span class="c1">// экземпляр GitHubCodeRepository</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Если фабрика метаданных класса включена, как объясняется в
+<a class="reference internal" href="serializer.html#component-serializer-attributes-groups"><span>разделе Группы атрибутов</span></a>, вы
+можете использовать эту упрощённую конфигурацию:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Serializer\Annotation\DiscriminatorMap</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @DiscriminatorMap(typeProperty=&quot;type&quot;, mapping={</span>
+<span class="sd"> *    &quot;github&quot;=&quot;App\GitHubCodeRepository&quot;,</span>
+<span class="sd"> *    &quot;bitbucket&quot;=&quot;App\BitBucketCodeRepository&quot;</span>
+<span class="sd"> * })</span>
+<span class="sd"> */</span>
+<span class="k">interface</span> <span class="nx">CodeRepository</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">App\CodeRepository</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">discriminator_map</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">type_property</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">type</span>
+        <span class="l l-Scalar l-Scalar-Plain">mapping</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">github</span><span class="p p-Indicator">:</span> <span class="s">&#39;App\GitHubCodeRepository&#39;</span>
+            <span class="l l-Scalar l-Scalar-Plain">bitbucket</span><span class="p p-Indicator">:</span> <span class="s">&#39;App\BitBucketCodeRepository&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="nt">&lt;serializer</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/serializer-mapping&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/serializer-mapping</span>
+<span class="s">        http://symfony.com/schema/dic/serializer-mapping/serializer-mapping-1.0.xsd&quot;</span>
+<span class="nt">&gt;</span>
+    <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;App\CodeRepository&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;discriminator-map</span> <span class="na">type-property=</span><span class="s">&quot;type&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;mapping</span> <span class="na">type=</span><span class="s">&quot;github&quot;</span> <span class="na">class=</span><span class="s">&quot;App\GitHubCodeRepository&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;mapping</span> <span class="na">type=</span><span class="s">&quot;bitbucket&quot;</span> <span class="na">class=</span><span class="s">&quot;App\BitBucketCodeRepository&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/discriminator-map&gt;</span>
+    <span class="nt">&lt;/class&gt;</span>
+<span class="nt">&lt;/serializer&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id23">
+<h2>Узнать больше<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..\serializer.html">How to Use the Serializer</a></li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Популярной альтернативой компоненту Serializer Symfony является сторонняя
+библиотека - <a class="reference external" href="https://github.com/schmittjoh/serializer">JMS сериализатор</a> (версии до <tt class="docutils literal"><code>v1.12.0</code></tt> были выпущены под
+лицензией Apache, поэтому несовместимэ с проектами GPLv2).</div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="security-ru.html">« Компонент Security</a>
+                <span class="separator">|</span>
+                <a href="stopwatch-ru.html">Компонент Stopwatch »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

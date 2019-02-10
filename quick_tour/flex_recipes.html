@@ -1,0 +1,519 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Flex: Составьте ваше приложение &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="quick_tour doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Flex: Составьте ваше приложение</a><ul>
+<li><a class="reference internal" href="#symfony">Symfony: Начните с микро!</a></li>
+<li><a class="reference internal" href="#id1">Рецепты и дополнительные имена Flex</a></li>
+<li><a class="reference internal" href="#twig">Twig: Отображение шаблона</a></li>
+<li><a class="reference internal" href="#id2">Профилировщик: Рай отладки</a></li>
+<li><a class="reference internal" href="#api">Богатая поддержка API</a></li>
+<li><a class="reference internal" href="#id3">Легко удаляйте рецепты</a></li>
+<li><a class="reference internal" href="#id4">Больше функций, архитектуры и скорости</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Flex: Составьте ваше приложение</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="flex">
+<h1>Flex: Составьте ваше приложение<a class="headerlink" href="#flex" title="Permalink to this headline">¶</a></h1>
+<p>После прочтения первой части этого туториала, вы решили, что Symfony стоит ещё
+10 ваших минут. Отличный выбор! В этой второй части, вы узнаете о Symfony Flex:
+потрясающем инструменте, который делает добавление новых функций таким же простым,
+как выполнение команды. Он также является причиной того, почему Symfony идеален
+для маленького микро-сервиса или огромного приложения. Интересно? Отлично!</p>
+<div class="section" id="symfony">
+<h2>Symfony: Начните с микро!<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h2>
+<p>Кроме случаев, когда вы строите чистый API (об этом позже!), вы скорее всего захотите
+отобразить HTML. Чтобы сделать это, вы будете использовать <a class="reference external" href="https://twig.symfony.com/">Twig</a>. Twig - это гибкий,
+быстрый и безопасный шаблонизатор для PHP. Он делает ваши шаблоны более читаемыми и
+компактными; он также делает их более дружественными для веб-дизайнеров.</p>
+<p>Twig уже установлен в нашем приложении? На самом деле, ещё нет! И это прекрасно!
+Когда вы начинаете новый проект Symfony, он <em>маленький</em>: только самые критично важные
+зависимости включены в ваш файл <tt class="docutils literal"><code>composer.json</code></tt>:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&quot;require&quot;: {
+    &quot;...&quot;,
+    &quot;symfony/console&quot;: &quot;^4.1&quot;,
+    &quot;symfony/flex&quot;: &quot;^1.0&quot;,
+    &quot;symfony/framework-bundle&quot;: &quot;^4.1&quot;,
+    &quot;symfony/yaml&quot;: &quot;^4.1&quot;
+}
+</pre></div>
+</td></tr></table></div></div>
+<p>Это отличает Symfony от любого другого PHP фреймворка! Вместо того, чтобы начинать
+с <em>громоздкого</em> приложения с <em>каждой</em> возможной функцией, которая может вам понадобиться,
+приложение Symfony маленькое, простое и <em>быстрое</em>. И вы полностью контролируете, что
+добавлять.</p>
+</div>
+<div class="section" id="id1">
+<h2>Рецепты и дополнительные имена Flex<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Так как же нам установить и сконфигурировать Twig? Просто выполните одну команду:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require twig
+</pre></div>
+</td></tr></table></div></div>
+<p>Две <em>очень</em> интересные вещи происходят за кулисами благодаря Symfony Flex: плагину
+Composer, который уже установлен в нашем проекте.</p>
+<p>Во-первых, <tt class="docutils literal"><code>twig</code></tt> - это не имя пакета Composer: это <em>дополнительное имя</em> Flex,
+которое указывает на <tt class="docutils literal"><code>symfony/twig-bundle</code></tt>. Flex разрешает это дополнительное
+имя для Composer.</p>
+<p>И во-вторых, Flex устанавливает <em>рецепт</em> для <tt class="docutils literal"><code>symfony/twig-bundle</code></tt>. Что такое рецепт?
+Это способ для библиотеки автоматически конфигурировать себя, добавляя и изменяя файлы.
+Благодаря рецептам, добавление функций незаметно и автоматизировано: установите пакет
+и вы закончили!</p>
+<p>Вы можете найти полный список рецептов и дополнительных имён, зайдя на <a class="reference external" href="https://symfony.sh">https://symfony.sh</a>.</p>
+<p>Что сделал этот рецепт? В дополнение к автоматическому подключению функции в
+<tt class="docutils literal"><code>config/bundles.php</code></tt>, он добавил 3 вещи:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>config/packages/twig.yaml</code></tt></dt>
+<dd>Файл конфигурации, который устаналивает Twig с разумными настройками по умолчанию.</dd>
+<dt><tt class="docutils literal"><code>config/routes/dev/twig.yaml</code></tt></dt>
+<dd>Маршрут, который помогает вам отладить ваши страницы ошибок.</dd>
+<dt><tt class="docutils literal"><code>templates/</code></tt></dt>
+<dd>Каталог, в котором будут жить файлы шаблонов. Рецепт также добавил файл
+макета <tt class="docutils literal"><code>base.html.twig</code></tt>.</dd>
+</dl>
+</div>
+<div class="section" id="twig">
+<h2>Twig: Отображение шаблона<a class="headerlink" href="#twig" title="Permalink to this headline">¶</a></h2>
+<p>Благодаря Flex, после одной команды вы можете незамедлительно начать использовать
+Twig:</p>
+<div class="literal-block"><div class="highlight-diff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span>// src/Controller/DefaultController.php
+// ...
+
+<span class="gi">+ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;</span>
+
+<span class="gd">-class DefaultController</span>
+<span class="gi">+class DefaultController extends AbstractController</span>
+ {
+     /**
+      * @Route(&quot;/hello/{name}&quot;)
+      */
+     public function index($name)
+     {
+<span class="gd">-        return new Response(&quot;Hello $name!&quot;);</span>
+<span class="gi">+        return $this-&gt;render(&#39;default/index.html.twig&#39;, [</span>
+<span class="gi">+            &#39;name&#39; =&gt; $name,</span>
+<span class="gi">+        ]);</span>
+     }
+</pre></div>
+</td></tr></table></div></div>
+<p>Расширив <tt class="docutils literal"><code>AbstractController</code></tt>, у вас теперь есть доступ к перечню методов
+сокращения и инструментов, вроде <tt class="docutils literal"><code>render()</code></tt>. Создайте новый шаблон:</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# templates/default/index.html.twig #}</span><span class="x"></span>
+<span class="x">&lt;h1&gt;Привет, </span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="x">&lt;/h1&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вот и всё! Синтаксис <tt class="docutils literal"><code>{{ name }}</code></tt> отобразит переменную <tt class="docutils literal"><code>name</code></tt>, которая передаётся
+из контроллера. Если вы новичок в Twig, то добро пожаловать! Вы узнаете больше о его
+синтаксисе и силе позже.</p>
+<p>Но, прямо сейчас. страница содержит <em>только</em> тег <tt class="docutils literal"><code>h1</code></tt>. Чтобы предоставить ему макет
+HTML, расширьте <tt class="docutils literal"><code>base.html.twig</code></tt>:</p>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# templates/default/index.html.twig #}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;base.html.twig&#39;</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;h1&gt;Привет, </span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="x">&lt;/h1&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это называется наследование шаблона: наша страница теперь наследует структуру HTML
+из <tt class="docutils literal"><code>base.html.twig</code></tt>.</p>
+</div>
+<div class="section" id="id2">
+<h2>Профилировщик: Рай отладки<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Одна из <em>самых крутых</em> функций Symfony ещё даже не установлена! Давайте это исправим:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require profiler
+</pre></div>
+</td></tr></table></div></div>
+<p>Да! Это ещё один союзник! И Flex <em>также</em> устанавливает другой рецепт, который
+автоматизирует конфигурацию Профилировщика Symfony. Какой результат? Обновите!</p>
+<p>Видите эту черную панель внизу? Это панель инструментов веб-отладки, и это
+ваш новый лучший друг. Наведя на на каждую иконку, вы можете получить информацию
+о том, какой контроллер был выполенен, инфромацию о производительности, удачи
+и неудачи кеширования и многое другое. Нажмите на любую иконку, чтобы зайти в
+<em>профилировщик</em>, где вы можете получить <em>ещё</em> более детализированные данные об
+отладке и производительности!</p>
+<p>А, и по ходу установки новых библиотек, вы будете получать больше инструментов (например
+иконку панели инструментов веб-отладки, которая отображает запросы БД).</p>
+<p>Использование профилировщика просто, так как он сконфигурировал <em>себя сам</em> благодаря
+рецепт. Что ещё мы можем установить так же легко?</p>
+</div>
+<div class="section" id="api">
+<h2>Богатая поддержка API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<p>Вы строите API? Вы можете уже с лёгкостью вернуть JSON из любого контроллера:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">/**</span>
+<span class="sd"> * @Route(&quot;/api/hello/{name}&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">apiExample</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">json</span><span class="p">([</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">,</span>
+        <span class="s1">&#39;symfony&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;rocks&#39;</span><span class="p">,</span>
+    <span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Но для <em>действительно</em> богатого API, попробуйте установить <a class="reference external" href="https://api-platform.com/">Платформу Api</a>:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require api
+</pre></div>
+</td></tr></table></div></div>
+<p>Это дополнительное имя <tt class="docutils literal"><code>api-platform/api-pack</code></tt>, которое имеет зависимости в нескольких
+других пакетах, вроде компонентов Symfony Валидатор и Безопасность, а также Doctrine ORM.
+На самом деле, Flex установил <em>5</em> рецептов!</p>
+<p>Но, как обычно, мы можем сразу же начать использовать новую библиотеку. Хотите создать
+богатый API для таблицы  <tt class="docutils literal"><code>product</code></tt>? Создайте сущность <tt class="docutils literal"><code>Product</code></tt> и дайте её аннотацию
+<tt class="docutils literal"><code>&#64;ApiResource()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Product.php</span>
+<span class="c1">// ...</span>
+
+<span class="k">use</span> <span class="nx">ApiPlatform\Core\Annotation\ApiResource</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\ORM\Mapping</span> <span class="k">as</span> <span class="nx">ORM</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @ORM\Entity()</span>
+<span class="sd"> * @ApiResource()</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Product</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Id</span>
+<span class="sd">     * @ORM\GeneratedValue(strategy=&quot;AUTO&quot;)</span>
+<span class="sd">     * @ORM\Column(type=&quot;integer&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$id</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Column(type=&quot;string&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$name</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Column(type=&quot;string&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="nv">$price</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Готово! У вас теперь есть конечные точки для перечисления, добавления, обновления
+и удаления продуктов! Не верите мне? Перечислите ваши маршруты, выполнив:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console debug:router
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>------------------------------ -------- -------------------------------------
+ Имя                            Метод    Путь
+------------------------------ -------- -------------------------------------
+ api_products_get_collection    GET      /api/products.{_format}
+ api_products_post_collection   POST     /api/products.{_format}
+ api_products_get_item          GET      /api/products/{id}.{_format}
+ api_products_put_item          PUT      /api/products/{id}.{_format}
+ api_products_delete_item       DELETE   /api/products/{id}.{_format}
+ ...
+------------------------------ -------- -------------------------------------
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id3">
+<h2>Легко удаляйте рецепты<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Всё ещё не убеждены? Не проблема: удалите библиотеку:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer remove api
+</pre></div>
+</td></tr></table></div></div>
+<p>Flex <em>удалит</em> рецепты: удаление файлов и отмена изменений для возвращения
+вашего приложения обратно в исходное состояние. Экспериментируйте без боязни.</p>
+</div>
+<div class="section" id="id4">
+<h2>Больше функций, архитектуры и скорости<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Я надеюсь, что вы так же рады по поводу Flex, как и я! Но у на всё ещё есть <em>одна</em>
+глава и она будет самой важной из всех. Я хочу показать вам, как Symfony предоставляет
+вам возможность, чтобы быстро строить функции <em>не</em> жертвуя качеством кода или производительностью.
+Всё дело в сервис контейнере, и это супер-сила Symfony. Читайте дальше о
+<a class="reference internal" href="the_architecture.html"><em>The Architecture</em></a>.</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

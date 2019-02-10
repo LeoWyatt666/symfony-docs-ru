@@ -1,0 +1,724 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Индикатор выполнения &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\..\index.html">
+
+<link rel="stylesheet" href="..\..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\..\index.html">
+                    <img src="..\..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Индикатор выполнения</a><ul>
+<li><a class="reference internal" href="#id2">Настройка индикатора выполнения</a><ul>
+<li><a class="reference internal" href="#id3">Встроенные форматы</a></li>
+<li><a class="reference internal" href="#id4">Пользовательские форматы</a></li>
+<li><a class="reference internal" href="#id5">Настройки индиактора</a></li>
+<li><a class="reference internal" href="#id6">Пользовательские заполнители</a></li>
+<li><a class="reference internal" href="#id7">Пользовательские сообщения</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#console-multiple-progress-bars">Отображение нескольких индикаторов выполнения</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\..\index.html">Документация</a></li>
+                
+                <li class="active">Индикатор выполнения</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Индикатор выполнения<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>При выполненнии более длительных команд, может быть полезно отображать
+информацию о выполнении, которая обновляется во время исполнения команды:</p>
+<img alt="../../../_images/progressbar.gif" src="..\..\..\_images\progressbar.gif">
+<p>Чтобы отобразить детали выполнения, используйте
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/ProgressBar.html" title="Symfony\Component\Console\Helper\ProgressBar">ProgressBar</a></code></tt>, передайте ему
+общее количество единиц и продвиньте выполнение во время команды:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Console\Helper\ProgressBar</span><span class="p">;</span>
+
+<span class="c1">// создаёт новый индикатор выполнения (50 единиц)</span>
+<span class="nv">$progressBar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProgressBar</span><span class="p">(</span><span class="nv">$output</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+
+<span class="c1">// запускает и отображает индикатор выполнения</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nv">$i</span><span class="o">++</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ... сделать какую-то работу</span>
+
+    <span class="c1">// продвигает индикатор выполнения на 1 едииицу</span>
+    <span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">advance</span><span class="p">();</span>
+
+    <span class="c1">// вы также можете продвинуть индикатор выполнения больше, чем на 1 единицу</span>
+    <span class="c1">// $progressBar-&gt;advance(3);</span>
+<span class="p">}</span>
+
+<span class="c1">// гарантирует, что индикатор выполнения достиг 100%</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">finish</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Вы также можете продвинуться по индикатору в другом направлении (т.е.
+сделать шаг назад), вызвав <tt class="docutils literal"><code>$progress-&gt;advance()</code></tt> с отрицательным
+значением. Например, если вы вызовете <tt class="docutils literal"><code>$progress-&gt;advance(-2)</code></tt>, то
+это уменьшит выполнение на 2 шага.</p>
+</div></div>
+<p>Вместо продвижения индикатора на количество шагов (с методом
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/ProgressBar.html#method_advance" title="Symfony\Component\Console\Helper\ProgressBar::advance()">advance()</a></code></tt>), вы
+также можете установить текущий прогресс, вызвав метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/ProgressBar.html#method_setProgress" title="Symfony\Component\Console\Helper\ProgressBar::setProgress()">setProgress()</a></code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если ваша платформа не поддерживает коды ANSI, обновления в индикаторе
+выполнения добавляются в виде новых строчек. Чтобы предотвратить перенасыщения
+вывода, соответствующе настройте
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/ProgressBar.html#method_setRedrawFrequency" title="Symfony\Component\Console\Helper\ProgressBar::setRedrawFrequency()">setRedrawFrequency()</a></code></tt>.
+По умолчанию, при использовании <tt class="docutils literal"><code>max</code></tt>, частота обновления установлена, как
+<em>10%</em> вашего <tt class="docutils literal"><code>max</code></tt>.</p>
+</div></div>
+<p>Если вы не знаете точное количество шагов в продвижении, установите резонное
+значение, а потом вызовите метод <tt class="docutils literal"><code>setMaxSteps()</code></tt>, чтобы обновить его так, как
+надо:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// начните с индикатора выполнения на 50 единиц</span>
+<span class="nv">$progressBar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProgressBar</span><span class="p">(</span><span class="nv">$output</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+
+<span class="c1">// только что было создано сложное задание; увеличьте индикатор выполнения до 200 единиц</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setMaxSteps</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Метод <tt class="docutils literal"><code>setMaxSteps()</code></tt> был представлен в Symfony 4.1.</p>
+</div>
+<p>Другим решением будет просто опусить аргумент шагов при создании экземпляра
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/ProgressBar.html" title="Symfony\Component\Console\Helper\ProgressBar">ProgressBar</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$progressBar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProgressBar</span><span class="p">(</span><span class="nv">$output</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Тогда прогресс будет отображён в виде троббера:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span># нет максимального количества шагов (отображает его, как троббер)
+    0 [&gt;---------------------------]
+    5 [-----&gt;----------------------]
+    5 [============================]
+
+# максимальное количество шагов определено
+ 0/3 [&gt;---------------------------]   0%
+ 1/3 [=========&gt;------------------]  33%
+ 3/3 [============================] 100%
+</pre></div>
+</td></tr></table></div></div>
+<p>Каждый раз по завершению задачи, не забудьте вызвать
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/ProgressBar.html#method_finish" title="Symfony\Component\Console\Helper\ProgressBar::finish()">finish()</a></code></tt>, чтобы
+гарантировать, что индикатор выполнения обновлён до 100% аавершения.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если вы хотите вывести что-то во время работы индикатора выполнения,
+вначале вызовите <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/ProgressBar.html#method_clear" title="Symfony\Component\Console\Helper\ProgressBar::clear()">clear()</a></code></tt>.
+После того, как вы закончите, вызовите
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/ProgressBar.html#method_display" title="Symfony\Component\Console\Helper\ProgressBar::display()">display()</a></code></tt>, чтобы
+отобразить индикатор выполнения снова.</p>
+</div></div>
+<div class="section" id="id2">
+<h2>Настройка индикатора выполнения<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>Встроенные форматы<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>По умолчанию, инфрмация, отображённая в индикаторе выполнения, зависит от текущего
+уровня детализации экземпляра <tt class="docutils literal"><code>OutputInterface</code></tt>:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span># OutputInterface::VERBOSITY_NORMAL (CLI без флажка детализации)
+ 0/3 [&gt;---------------------------]   0%
+ 1/3 [=========&gt;------------------]  33%
+ 3/3 [============================] 100%
+
+# OutputInterface::VERBOSITY_VERBOSE (-v)
+ 0/3 [&gt;---------------------------]   0%  1 сек
+ 1/3 [=========&gt;------------------]  33%  1 сек
+ 3/3 [============================] 100%  1 сек
+
+# OutputInterface::VERBOSITY_VERY_VERBOSE (-vv)
+ 0/3 [&gt;---------------------------]   0%  1 сек
+ 1/3 [=========&gt;------------------]  33%  1 сек
+ 3/3 [============================] 100%  1 сек
+
+# OutputInterface::VERBOSITY_DEBUG (-vvv)
+ 0/3 [&gt;---------------------------]   0%  1 сек/1 сек  1.0 MB
+ 1/3 [=========&gt;------------------]  33%  1 сек/1 сек  1.0 MB
+ 3/3 [============================] 100%  1 сек/1 сек  1.0 MB
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если вы вызовtnt команду с флажком заглушения (<tt class="docutils literal"><code>-q</code></tt>), то индикатор
+выполнения не будет отображён.</p>
+</div></div>
+<p>Вместо того, чтобы полагаться на режим детализации текущей команды, вы также
+можете форсировать формат через <tt class="docutils literal"><code>setFormat()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setFormat</span><span class="p">(</span><span class="s1">&#39;verbose&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Следующие форматы являются встроенными:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>normal</code></tt></li>
+<li><tt class="docutils literal"><code>verbose</code></tt></li>
+<li><tt class="docutils literal"><code>very_verbose</code></tt></li>
+<li><tt class="docutils literal"><code>debug</code></tt></li>
+</ul>
+<p>Если вы не установите количество шагов для вашего индикатора выполнения,
+используйте варианты <tt class="docutils literal"><code>_nomax</code></tt>:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>normal_nomax</code></tt></li>
+<li><tt class="docutils literal"><code>verbose_nomax</code></tt></li>
+<li><tt class="docutils literal"><code>very_verbose_nomax</code></tt></li>
+<li><tt class="docutils literal"><code>debug_nomax</code></tt></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>Пользовательские форматы<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Вместо использования встроенных форматов, вы также можете установить собственные:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setFormat</span><span class="p">(</span><span class="s1">&#39;%bar%&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это устанавливает формат, чтобы отображать только сам индикатор:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&gt;---------------------------
+=========&gt;------------------
+============================
+</pre></div>
+</td></tr></table></div></div>
+<p>Формат индикатора выполнения - это строка, содержащая заполнители (имя, заканчивающееся
+символом <tt class="docutils literal"><code>%</code></tt>); заполнители заменяются в зависимости от текущего прогресса индикатора.
+Вот список встроенных заполнителей:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>current</code></tt>: Текущий шаг;</li>
+<li><tt class="docutils literal"><code>max</code></tt>: Максимальное количество шагов (или 0, если максимум не определён);</li>
+<li><tt class="docutils literal"><code>bar</code></tt>: Сам индикатор;</li>
+<li><tt class="docutils literal"><code>percent</code></tt>: Процент выполнения (не доступен, если не определён максимум);</li>
+<li><tt class="docutils literal"><code>elapsed</code></tt>: Время, прошедшее с начала запуска индикатора выполнения;</li>
+<li><tt class="docutils literal"><code>remaining</code></tt>: Оставшееся время для выполнения задачи (не доступно, если не определён максимум);</li>
+<li><tt class="docutils literal"><code>estimated</code></tt>: Предполагаемое время для выполнения задачи (не доступно, если не определён максимум);</li>
+<li><tt class="docutils literal"><code>memory</code></tt>: Текущее исползование памяти;</li>
+<li><tt class="docutils literal"><code>message</code></tt>: используется для отображения произвольных сообщений в индикаторе (объсняется ниже).</li>
+</ul>
+<p>Например, вот как вы можете установить такой же формат, как и <tt class="docutils literal"><code>debug</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setFormat</span><span class="p">(</span><span class="s1">&#39; %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%/%estimated:-6s% %memory:6s%&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Заметили часть <tt class="docutils literal"><code>:6s</code></tt>, добавленную к некоторым заполнителям? Это то, как вы
+можете настроить внешний вид индикатора (форматирование и расположение). Часть
+после двоеточия (<tt class="docutils literal"><code>:</code></tt>) используется для установки формата строки <tt class="docutils literal"><code>sprintf</code></tt>.</p>
+<p>Вместо установки формата для заданного экземпляра индикатора выполнения, вы можете
+также определить глобальные форматы:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">ProgressBar</span><span class="o">::</span><span class="na">setFormatDefinition</span><span class="p">(</span><span class="s1">&#39;minimal&#39;</span><span class="p">,</span> <span class="s1">&#39;Progress: %percent%%&#39;</span><span class="p">);</span>
+
+<span class="nv">$progressBar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProgressBar</span><span class="p">(</span><span class="nv">$output</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setFormat</span><span class="p">(</span><span class="s1">&#39;minimal&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Этот код определяет новый формат <tt class="docutils literal"><code>minimal</code></tt>, который вы потом можете использовать
+для ваших индикаторов выполнения:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>Progress: 0%
+Progress: 33%
+Progress: 100%
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Почти всегда лучше переопределить встроенные форматы, чем создавать новые,
+так как это позволяет отображение разниваться автоматически, основываясь на
+флажке детализации команды.</p>
+</div></div>
+<p>При определении нового стиля, содержащего заполнители, которые доступны только
+при заданном максимальном количестве шагов, вы должны создать вариант <tt class="docutils literal"><code>_nomax</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">ProgressBar</span><span class="o">::</span><span class="na">setFormatDefinition</span><span class="p">(</span><span class="s1">&#39;minimal&#39;</span><span class="p">,</span> <span class="s1">&#39;%percent%% %remaining%&#39;</span><span class="p">);</span>
+<span class="nx">ProgressBar</span><span class="o">::</span><span class="na">setFormatDefinition</span><span class="p">(</span><span class="s1">&#39;minimal_nomax&#39;</span><span class="p">,</span> <span class="s1">&#39;%percent%%&#39;</span><span class="p">);</span>
+
+<span class="nv">$progressBar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProgressBar</span><span class="p">(</span><span class="nv">$output</span><span class="p">);</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setFormat</span><span class="p">(</span><span class="s1">&#39;minimal&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>При отображении индикатора выполнения, формат будет автоматически установлен,
+как <tt class="docutils literal"><code>minimal_nomax</code></tt>, если шкала не имеет максимального количества шагов,
+как в примере выше.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Формат может содержать любые валидные коды ANSI, а также использовfm специфический
+способ Symfony для установки цветов:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">ProgressBar</span><span class="o">::</span><span class="na">setFormatDefinition</span><span class="p">(</span>
+    <span class="s1">&#39;minimal&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;&lt;info&gt;%percent%&lt;/info&gt;\033[32m%\033[0m &lt;fg=white;bg=blue&gt;%remaining%&lt;/&gt;&#39;</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Формат может занимать больше одной строчки; это очень полезно, когда вы
+хотите отобразить больше контекстной нформации рядом с индикатором выполнения
+(см. пример в начале этой статьи).</p>
+</div></div>
+</div>
+<div class="section" id="id5">
+<h3>Настройки индиактора<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Среди заполнителей, <tt class="docutils literal"><code>bar</code></tt> немного выделяется, так как все символы, используемые
+для его отображения, могут быть настроены:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// законченная часть индикатора</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setBarCharacter</span><span class="p">(</span><span class="s1">&#39;&lt;comment&gt;=&lt;/comment&gt;&#39;</span><span class="p">);</span>
+
+<span class="c1">// незаконченная часть индикатора</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setEmptyBarCharacter</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">);</span>
+
+<span class="c1">// символ прогресса</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setProgressCharacter</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">);</span>
+
+<span class="c1">// ширина индикатора</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setBarWidth</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p>По причинам производительности, будьте осторожны, если вы устанавливаете большое
+общее количество шагов. Например, если вы итерируете большое количество объектов,
+рассмотрите установку более высокого значения частоты обновления, вызвав
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Console/Helper/ProgressBar.html#method_setRedrawFrequency" title="Symfony\Component\Console\Helper\ProgressBar::setRedrawFrequency()">setRedrawFrequency()</a></code></tt>,
+чтобы он обновился только в некоторых итерациях:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$progressBar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProgressBar</span><span class="p">(</span><span class="nv">$output</span><span class="p">,</span> <span class="mi">50000</span><span class="p">);</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="c1">// обновлять каждые 100 итераций</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setRedrawFrequency</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nv">$i</span><span class="o">++</span> <span class="o">&lt;</span> <span class="mi">50000</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ... сделать какую-то работу</span>
+
+    <span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">advance</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+</div>
+<div class="section" id="id6">
+<h3>Пользовательские заполнители<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Если вы хотите отобразить некоторую информацию, зависящую от отображения
+индикатора выполнения, недоступную в списке встроенных заполнителей, вы
+можете создать собственный. Давайте посмотрим, как вы можете создать заполнитель
+<tt class="docutils literal"><code>remaining_steps</code></tt>, отображающий количество оставшихся шагов:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">ProgressBar</span><span class="o">::</span><span class="na">setPlaceholderFormatterDefinition</span><span class="p">(</span>
+    <span class="s1">&#39;remaining_steps&#39;</span><span class="p">,</span>
+    <span class="k">function</span> <span class="p">(</span><span class="nx">ProgressBar</span> <span class="nv">$progressBar</span><span class="p">,</span> <span class="nx">OutputInterface</span> <span class="nv">$output</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">getMaxSteps</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">getProgress</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id7">
+<h3>Пользовательские сообщения<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Индикаторы выполнения определяют заполнитель под названием <tt class="docutils literal"><code>message</code></tt> для
+отображения произвольных сообщений. Однако, ни один из встроенных фрматов не
+включает в себя этот заполнитель, поэтому до отображения этих сообщений вы
+должны определить ваш собственный пользовательский формат:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">ProgressBar</span><span class="o">::</span><span class="na">setFormatDefinition</span><span class="p">(</span><span class="s1">&#39;custom&#39;</span><span class="p">,</span> <span class="s1">&#39; %current%/%max% -- %message%&#39;</span><span class="p">);</span>
+
+<span class="nv">$progressBar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProgressBar</span><span class="p">(</span><span class="nv">$output</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setFormat</span><span class="p">(</span><span class="s1">&#39;custom&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, используйте метод <tt class="docutils literal"><code>setMessage()</code></tt>, чтобы установить значение заполнителя
+<tt class="docutils literal"><code>%message%</code></tt> до отображения индикатора выполнения:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setMessage</span><span class="p">(</span><span class="s1">&#39;Start&#39;</span><span class="p">);</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+<span class="c1">// 0/100 -- Start</span>
+
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">advance</span><span class="p">();</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setMessage</span><span class="p">(</span><span class="s1">&#39;Задача в процессе выполнения...&#39;</span><span class="p">);</span>
+<span class="c1">// 1/100 -- Задача в процессе выполнения...</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Сообщения могут также быть объединены с пользовательскими заполнителями.
+В этом примере, индикатор выполнения использует заполнители <tt class="docutils literal"><code>%message%</code></tt>
+и``%filename%``:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">ProgressBar</span><span class="o">::</span><span class="na">setFormatDefinition</span><span class="p">(</span><span class="s1">&#39;custom&#39;</span><span class="p">,</span> <span class="s1">&#39; %current%/%max% -- %message% (%filename%)&#39;</span><span class="p">);</span>
+
+<span class="nv">$progressBar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProgressBar</span><span class="p">(</span><span class="nv">$output</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setFormat</span><span class="p">(</span><span class="s1">&#39;custom&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code>setMessage()</code></tt> принимает второй необязательный аргумент для установки
+значения пользовательского заполнителя:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="c1">// $files = array(&#39;client-001/invoices.xml&#39;, &#39;...&#39;);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$files</span> <span class="k">as</span> <span class="nv">$filename</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setMessage</span><span class="p">(</span><span class="s1">&#39;Импорт счетов...&#39;</span><span class="p">);</span>
+    <span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">setMessage</span><span class="p">(</span><span class="nv">$filename</span><span class="p">,</span> <span class="s1">&#39;filename&#39;</span><span class="p">);</span>
+    <span class="nv">$progressBar</span><span class="o">-&gt;</span><span class="na">advance</span><span class="p">();</span>
+    <span class="c1">// 2/100 -- Импорт счетов... (client-001/invoices.xml)</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="console-multiple-progress-bars">
+<span id="id8"></span><h2>Отображение нескольких индикаторов выполнения<a class="headerlink" href="#console-multiple-progress-bars" title="Permalink to this headline">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 4.1: </span>Функция отображения нескольких индикаторов выполнения, используя разделы
+вывода, была представлена в Symfony 4.1.</p>
+</div>
+<p>При использовании <a class="reference internal" href="..\..\..\console.html#console-output-sections"><span>Разделов вывода консоли</span></a>,
+возможно отображать несклько индикаторов выполнения одновременно и изменять
+их прогресс независимо друг от друга:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$section1</span> <span class="o">=</span> <span class="nv">$output</span><span class="o">-&gt;</span><span class="na">section</span><span class="p">();</span>
+<span class="nv">$section2</span> <span class="o">=</span> <span class="nv">$output</span><span class="o">-&gt;</span><span class="na">section</span><span class="p">();</span>
+
+<span class="nv">$progress1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProgressBar</span><span class="p">(</span><span class="nv">$section1</span><span class="p">);</span>
+<span class="nv">$progress2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProgressBar</span><span class="p">(</span><span class="nv">$section2</span><span class="p">);</span>
+
+<span class="nv">$progress1</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="nv">$progress2</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="o">++</span><span class="nv">$i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$progress1</span><span class="o">-&gt;</span><span class="na">advance</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$progress2</span><span class="o">-&gt;</span><span class="na">advance</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nb">usleep</span><span class="p">(</span><span class="mi">50000</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>После нескольких итераций вывод в терминале будет выглядеть так:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>34/100 [=========&gt;------------------]  34%
+68/100 [===================&gt;--------]  68%
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

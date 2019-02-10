@@ -1,0 +1,565 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент HttpFoundation &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="create_framework doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент HttpFoundation</a><ul>
+<li><a class="reference internal" href="#id1">ООП с компонентом HttpFoundation</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Компонент HttpFoundation</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="httpfoundation">
+<h1>Компонент HttpFoundation<a class="headerlink" href="#httpfoundation" title="Permalink to this headline">¶</a></h1>
+<p>До того, как нырять в процесс создания фреймворка, давайте вначале сделаем шаг
+назад и посмотрим на то, почему вы хотите использовать фреймворк вместо того,
+чтобы оставить ваше старое доброе PHP-приложение в том виде, в котором оно есть.
+Почему использование фреймворка - это действительно хорошая идея,даже для простейшего
+отрезка кода, и почему создание фреймворка поверх компонентов Symfony лучше, чем
+создание фреймворка с нуля.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Мы не будем говорить об очевидных и традиционных преимуществах использования
+фреймворка при работе над большими приложениями со множеством разработчиков;
+Интернет уже имеет предостаточно источников на эту тему.</p>
+</div></div>
+<p>Даже если &quot;приложение&quot;, которое мы написали в предыдущей главе, было достаточно
+простым, оно страдает от нескольких проблем:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// framework/index.php</span>
+<span class="nv">$input</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
+
+<span class="nb">printf</span><span class="p">(</span><span class="s1">&#39;Hello %s&#39;</span><span class="p">,</span> <span class="nv">$input</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Во-первых, если параметр запроса <tt class="docutils literal"><code>name</code></tt> не определён в строке запроса URL,
+вы полчите PHP-предупреждение; так что давайте исправим это:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// framework/index.php</span>
+<span class="nv">$input</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="s1">&#39;World&#39;</span><span class="p">;</span>
+
+<span class="nb">printf</span><span class="p">(</span><span class="s1">&#39;Hello %s&#39;</span><span class="p">,</span> <span class="nv">$input</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Далее, это <em>приложение не защищено</em>. Вы можете в это поверить? Даже этот
+простой отрезок PHP-кода уязвим к одной из наиболее распространённых пррблем
+безопасности в Интернете - XSS (Межсайтовый скриптинг). Вот более защищённная
+версия:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$input</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="s1">&#39;World&#39;</span><span class="p">;</span>
+
+<span class="nb">header</span><span class="p">(</span><span class="s1">&#39;Content-Type: text/html; charset=utf-8&#39;</span><span class="p">);</span>
+
+<span class="nb">printf</span><span class="p">(</span><span class="s1">&#39;Hello %s&#39;</span><span class="p">,</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$input</span><span class="p">,</span> <span class="nx">ENT_QUOTES</span><span class="p">,</span> <span class="s1">&#39;UTF-8&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Как вы могли заметить, защита вашего кода с помощью <tt class="docutils literal"><code>htmlspecialchars</code></tt> -
+громоздкая и склонная к ошибкам. Это одна из причин, почему использование
+шаблонизатора вроде <a class="reference external" href="http://twig.sensiolabs.org/">Twig</a>, где автоматическое экранирование подключается
+по умолчанию, может быть хорошей идеей (а ясное экранирование также менее
+блезненно с использованием простого фильтра <tt class="docutils literal"><code>e</code></tt>).</p>
+</div></div>
+<p>Как вы можете сами увидеть, простой код, который мы написали первым, уже не
+такой простой, если мы хотим избежать PHP предупреждений/замечаний, и сделать
+код более безопасным.</p>
+<p>Кроме безопасности, этот код даже не леготестируемый. Даже если нет особо что
+тестировать, мне кажется, что писать модульные тесты для максимально простых
+отрезков PHP-кода - ненатурально и выглядит отвратно. Вот пробный модульный тест
+PHPUnit для вышенаписанного кода:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// framework/test.php</span>
+<span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">IndexTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testHello</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Fabien&#39;</span><span class="p">;</span>
+
+        <span class="nb">ob_start</span><span class="p">();</span>
+        <span class="k">include</span> <span class="s1">&#39;index.php&#39;</span><span class="p">;</span>
+        <span class="nv">$content</span> <span class="o">=</span> <span class="nb">ob_get_clean</span><span class="p">();</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertEquals</span><span class="p">(</span><span class="s1">&#39;Hello Fabien&#39;</span><span class="p">,</span> <span class="nv">$content</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если наше приложение было бы чуточку больше, мы бы могли найти даже больше
+проблем. Если вам интересно, прочтите главу книги
+<a class="reference internal" href="..\introduction\from_flat_php_to_symfony2.html"><em>Symfony versus Flat PHP</em></a>.</p>
+</div></div>
+<p>На данный момент, если вы не убеждены, что безопасность и тестирование действительно
+две очень хороших причины, чтобы перестать писать код по-старому и принять вместо
+этого фреймворк (что бы принятие фреймворка не значило в этом контексте), то вы можете
+перестать читать эту книгу и вернуться к тому коду, над которым работали ранее.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Конечно, использование фреймворка должно дать вам больше, чем просто
+безопасность и тестируемость, но гораздо важнее помнить, что фреймворк,
+который вы выберете, должен позволять вам писать лучший код за меньшее
+время.</p>
+</div></div>
+<div class="section" id="id1">
+<h2>ООП с компонентом HttpFoundation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Написание веб-кода заключается во взаимодействии с HTTP. Так что
+фундаментальный принципы нашего фреймворка должны строиться вокруг
+<a class="reference external" href="https://tools.ietf.org/wg/httpbis/">HTTP-спецификации</a>.</p>
+<p>HTTP-спецификация описывает то, как клиент (например, браузер) взаимодействует
+с сервером (нашим приложением через веб-сервер). Диалог между клиентом и сервером
+указывается чётко определёнными <em>сообщениями</em>, запросами и ответами: <em>клиент
+отправляет запрос серверу и, основываясь на этом запросе, сервер возвращает ответ</em>.</p>
+<p>В PHP, запрос представлен глобальными переменными (<tt class="docutils literal"><code>$_GET</code></tt>, <tt class="docutils literal"><code>$_POST</code></tt>,
+<tt class="docutils literal"><code>$_FILE</code></tt>, <tt class="docutils literal"><code>$_COOKIE</code></tt>, <tt class="docutils literal"><code>$_SESSION</code></tt>...), а ответ генерируется функциями
+(<tt class="docutils literal"><code>echo</code></tt>, <tt class="docutils literal"><code>header</code></tt>, <tt class="docutils literal"><code>setcookie</code></tt>, ...).</p>
+<p>Первый шаг на пути к лучшему коду - это, наверно, использование Объекто-ориентированного
+подхода; это основная цель компонента Symfony HttpFoundation: заменить глбальные переменные
+и функции PHP по умолчанию Объектно-ориентированным слоем.</p>
+<p>Чтобы использовать этот компонент, добавьте его в качестве зависимости
+к проекту:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/http-foundation
+</pre></div>
+</td></tr></table></div></div>
+<p>Запуск этой команды также автоматически скачает компонент Symfony HttpFoundation
+и установит его в каталоге <tt class="docutils literal"><code>vendor/</code></tt>. Файлы <tt class="docutils literal"><code>composer.json</code></tt> и <tt class="docutils literal"><code>composer.lock</code></tt>
+также будут сгенерированы с содержанием нового требования.</p>
+<div class="admonition-wrapper">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Автозагрузка класса</p>
+<p class="last">При установке новой зависимости, Composer также генерирует файл
+<tt class="docutils literal"><code>vendor/autoload.php</code></tt>, который позволяет лёгкую <a class="reference external" href="https://php.net/autoload">автозагрузку</a>
+любого класса. Без автозагрузки, вам нужно будет запрашивать файл,
+где определяется класс, до того, как вы сможете его исползовать. Но
+благодаря <a class="reference external" href="https://www.php-fig.org/psr/psr-4/">PSR-4</a>, мы можем просто позволить Composer и PHP проделать
+тяжелую работу за нас.</p>
+</div></div>
+<p>Теперь, давайте перепишем наше приложение, используя классы <tt class="docutils literal"><code>Request</code></tt> и
+<tt class="docutils literal"><code>Response</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// framework/index.php</span>
+<span class="k">require_once</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+
+<span class="nv">$request</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">createFromGlobals</span><span class="p">();</span>
+
+<span class="nv">$input</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;Hello %s&#39;</span><span class="p">,</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$input</span><span class="p">,</span> <span class="nx">ENT_QUOTES</span><span class="p">,</span> <span class="s1">&#39;UTF-8&#39;</span><span class="p">)));</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code>createFromGlobals()</code></tt> создаёт объект <tt class="docutils literal"><code>Request</code></tt>, основанный на текущих
+глбальных переменных PHP.</p>
+<p>Метод <tt class="docutils literal"><code>send()</code></tt> отправляет объект <tt class="docutils literal"><code>Response</code></tt> обратно клиенту (он вначале
+вывдит HTTP-заголовки, а следом - содержимое).</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">До вызова <tt class="docutils literal"><code>send()</code></tt>, нам нужно было добавить вызов к методу <tt class="docutils literal"><code>prepare()</code></tt>
+(<tt class="docutils literal"><code>$response-&gt;prepare($request);</code></tt>), чтобы гарантироват, что наш Ответ
+соответствует HTTP-спецификации. Если бы мы вызвали страницу с методом
+<tt class="docutils literal"><code>HEAD</code></tt>, он бы удалил содержимое Ответа.</p>
+</div></div>
+<p>Главное различие с предыдущим кодом в том, что у вас есть тотальный контроль
+HTTP-сообщений. Вы можете создать любой запрос, который вы хотите, и вы отвечаете
+за отправку ответа тогда, когда считаете это нужным.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Мы ещё не ясно установили заголовок <tt class="docutils literal"><code>Content-Type</code></tt> в переписанном
+коде, так как набор символом объекта Ответ по умолчанию - <tt class="docutils literal"><code>UTF-8</code></tt>.</p>
+</div></div>
+<p>С классом <tt class="docutils literal"><code>Request</code></tt>, у вас в руках есть вся ниформация запроса, благодаря
+простому и красивому API:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// запрашиваемый URI (например, /about) минус любые параметры запроса</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getPathInfo</span><span class="p">();</span>
+
+<span class="c1">// извлеките переменные GET и POST соответственно</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;default value if bar does not exist&#39;</span><span class="p">);</span>
+
+<span class="c1">// извлеките переменные SERVER</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">server</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;HTTP_HOST&#39;</span><span class="p">);</span>
+
+<span class="c1">// извлеките экземпляр UploadedFile, идентифицированный foo</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">files</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+
+<span class="c1">// извлеките значение COOKIE</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">cookies</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;PHPSESSID&#39;</span><span class="p">);</span>
+
+<span class="c1">// извлеките HTTP-заголовок запроса с нормализвованными ключами нижнего регистра</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;content_type&#39;</span><span class="p">);</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">();</span>    <span class="c1">// GET, POST, PUT, DELETE, HEAD</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getLanguages</span><span class="p">();</span> <span class="c1">// массив языков, принятых клиентом</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы также можете сымитировать запрос:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$request</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;/index.php?name=Fabien&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>С классом <tt class="docutils literal"><code>Response</code></tt> вы можете с лёгкостью подстроить ответ:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">();</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="s1">&#39;Hello world!&#39;</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/html&#39;</span><span class="p">);</span>
+
+<span class="c1">// сконфигурируйте HTTP-заголовки кеша</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setMaxAge</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Чтобы отладить ответ, поместите его в строку; он вернёт HTTP-представление
+ответа (загловки и содержимое).</p>
+</div></div>
+<p>Последнее, но не менее важное, эти классы, как любой другой класс в коде Symfony,
+прошли <a class="reference external" href="https://symfony.com/blog/symfony2-security-audit">аудит</a> независимой компаниии на предмет проблем безопасности. А то, что
+это проект с открытым исходным кодом, также означает, что многие другие разработчики
+по всему миру прочли код и уже исправили потенциальные проблемы безопасности. Когда
+вы последний раз заказывали професииональный аудит защиты для вашего домашнего фреймворка?</p>
+<p>Даже что-то настолько простое, как получение IP-адресов клиентов может быть небезопасно:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nv">$myIp</span> <span class="o">===</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REMOTE_ADDR&#39;</span><span class="p">])</span> <span class="p">{</span>
+    <span class="c1">// клиент известен, так что дайте ему больше привелегий</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Всё отлично работает до тех пор, пока вы не добавите обратный прокси перед
+серверами производста; на этом этапе, вам нужно будет изменить ваш код, чтобы
+он работал как на машине разработки (где у вас нет прокси), таки на ваших серверах:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nv">$myIp</span> <span class="o">===</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_X_FORWARDED_FOR&#39;</span><span class="p">]</span> <span class="o">||</span> <span class="nv">$myIp</span> <span class="o">===</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REMOTE_ADDR&#39;</span><span class="p">])</span> <span class="p">{</span>
+    <span class="c1">// клиент известен, так что дайте ему больше привелегий</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Использование метода <tt class="docutils literal"><code>Request::getClientIp()</code></tt> дало бы вам правильное поведение с
+первого момента (а также охватило бы случай со сменой прокси):</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$request</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">createFromGlobals</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$myIp</span> <span class="o">===</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getClientIp</span><span class="p">())</span> <span class="p">{</span>
+    <span class="c1">// клиент известен, так что дайте ему больше привелегий</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Есть ещё дополнительное преимущество: он <em>безопасен</em> по умолчанию. Что это
+значит? Значению <tt class="docutils literal"><code>$_SERVER['HTTP_X_FORWARDED_FOR']</code></tt> нельзя доверять, так
+как оно может быть изменено конечным пользователем при отсутствии прокси. так
+что если вы исползоуете этот код в производстве без прокси, становится до
+скуки легко навредить вашей системе. Это не так с методом <tt class="docutils literal"><code>getClientIp()</code></tt>,
+так как вы должны ясно доверять вашим обратным прокси, вызвав <tt class="docutils literal"><code>setTrustedProxies()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">Request</span><span class="o">::</span><span class="na">setTrustedProxies</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;10.0.0.1&#39;</span><span class="p">));</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$myIp</span> <span class="o">===</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getClientIp</span><span class="p">())</span> <span class="p">{</span>
+    <span class="c1">// клиент известен, так что дайте ему больше привелегий</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Итак, метод <tt class="docutils literal"><code>getClientIp()</code></tt> отлично работает при любых обстоятельствах. Вы
+можете использовать его во всех ваших проектах, независимо от цели использования
+фреймворка. Если бы вы писали фреймворк с нуля, то вам нужно было бы подумать обо
+всех этих случаях самостоятельно. Почему бы не использовать технологию, которая
+уже работает?</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если вы хотите узнать больше о компоненте HttpFoundation, вы можете посмотреть
+на API <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpFoundation.html" title="Symfony\Component\HttpFoundation">HttpFoundation</a></code></tt>, или прочитать посвящённую
+ему <a class="reference internal" href="..\components\http_foundation.html"><em>документацию</em></a>.</p>
+</div></div>
+<p>Верите вы этому, или нет, но у нас есть наш первый фреймворк. Вы можете сейчас
+остановиться, если хотите. Использование только компонента Symfony HttpFoundation
+уже позволяет вам писать улучшенный и тестируемый код. Оно также позволяет вам
+писать код быстрее, так как многие рутинные проблемы уже были решены за вас.</p>
+<p>На самом деле, проекты вроде Drupal приняли компонент the HttpFoundation; если
+он подходит им, то он скорее всего подойдёт вам. Не изобретайте колесо заново.</p>
+<p>Я почти забыл сказать ещё об одном преимуществе: использование компонента
+HttpFoundation - это начало лучшего взаимодействия между всеми фреймворками
+и приложениями, использующими его (вроде <a class="reference external" href="https://symfony.com/">Symfony</a>, <a class="reference external" href="https://drupal.org/">Drupal 8</a>, <a class="reference external" href="https://www.phpbb.com/">phpBB 3</a>,
+<a class="reference external" href="https://ez.no/">ezPublish 5</a>, <a class="reference external" href="https://laravel.com/">Laravel</a>, <a class="reference external" href="https://silex.sensiolabs.org/">Silex</a> и <a class="reference external" href="https://symfony.com/components/HttpFoundation">другими</a>).</p>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

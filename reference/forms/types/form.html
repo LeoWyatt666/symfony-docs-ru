@@ -1,0 +1,864 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Поле FormType &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\..\index.html">
+
+<link rel="stylesheet" href="..\..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="reference doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\..\index.html">
+                    <img src="..\..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\..\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Поле FormType</a><ul>
+<li><a class="reference internal" href="#id1">Опции поля</a><ul>
+<li><a class="reference internal" href="#action">action</a></li>
+<li><a class="reference internal" href="#allow-extra-fields">allow_extra_fields</a></li>
+<li><a class="reference internal" href="#by-reference">by_reference</a></li>
+<li><a class="reference internal" href="#compound">compound</a></li>
+<li><a class="reference internal" href="#constraints">constraints</a></li>
+<li><a class="reference internal" href="#data">data</a></li>
+<li><a class="reference internal" href="#data-class">data_class</a></li>
+<li><a class="reference internal" href="#empty-data">empty_data</a></li>
+<li><a class="reference internal" href="#error-bubbling">error_bubbling</a></li>
+<li><a class="reference internal" href="#error-mapping">error_mapping</a></li>
+<li><a class="reference internal" href="#extra-fields-message">extra_fields_message</a></li>
+<li><a class="reference internal" href="#inherit-data">inherit_data</a></li>
+<li><a class="reference internal" href="#invalid-message">invalid_message</a></li>
+<li><a class="reference internal" href="#invalid-message-parameters">invalid_message_parameters</a></li>
+<li><a class="reference internal" href="#label-attr">label_attr</a></li>
+<li><a class="reference internal" href="#label-format">label_format</a></li>
+<li><a class="reference internal" href="#mapped">mapped</a></li>
+<li><a class="reference internal" href="#method">method</a></li>
+<li><a class="reference internal" href="#post-max-size-message">post_max_size_message</a></li>
+<li><a class="reference internal" href="#property-path">property_path</a></li>
+<li><a class="reference internal" href="#required">required</a></li>
+<li><a class="reference internal" href="#trim">trim</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">Наследуемые опции</a><ul>
+<li><a class="reference internal" href="#attr">attr</a></li>
+<li><a class="reference internal" href="#auto-initialize">auto_initialize</a></li>
+<li><a class="reference internal" href="#block-name">block_name</a></li>
+<li><a class="reference internal" href="#disabled">disabled</a></li>
+<li><a class="reference internal" href="#label">label</a></li>
+<li><a class="reference internal" href="#translation-domain">translation_domain</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\..\index.html">Документация</a></li>
+                
+                <li class="active">Поле FormType</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="formtype">
+<span id="index-0"></span><h1>Поле FormType<a class="headerlink" href="#formtype" title="Permalink to this headline">¶</a></h1>
+<p><tt class="docutils literal"><code>FormType</code></tt> предопределяет несколько опций, которые потом доступны во
+всех типах, родителями которых является <tt class="docutils literal"><code>FormType</code></tt>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%">
+<col width="84%">
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Опции</td>
+<td><ul class="first last simple">
+<li><a class="reference internal" href="#action">action</a></li>
+<li><a class="reference internal" href="#allow-extra-fields">allow_extra_fields</a></li>
+<li><a class="reference internal" href="#by-reference">by_reference</a></li>
+<li><a class="reference internal" href="#compound">compound</a></li>
+<li><a class="reference internal" href="#constraints">constraints</a></li>
+<li><a class="reference internal" href="#data">data</a></li>
+<li><a class="reference internal" href="#data-class">data_class</a></li>
+<li><a class="reference internal" href="#empty-data">empty_data</a></li>
+<li><a class="reference internal" href="#error-bubbling">error_bubbling</a></li>
+<li><a class="reference internal" href="#error-mapping">error_mapping</a></li>
+<li><a class="reference internal" href="#extra-fields-message">extra_fields_message</a></li>
+<li><a class="reference internal" href="#inherit-data">inherit_data</a></li>
+<li><a class="reference internal" href="#invalid-message">invalid_message</a></li>
+<li><a class="reference internal" href="#invalid-message-parameters">invalid_message_parameters</a></li>
+<li><a class="reference internal" href="#label-attr">label_attr</a></li>
+<li><a class="reference internal" href="#label-format">label_format</a></li>
+<li><a class="reference internal" href="#mapped">mapped</a></li>
+<li><a class="reference internal" href="#method">method</a></li>
+<li><a class="reference internal" href="#post-max-size-message">post_max_size_message</a></li>
+<li><a class="reference internal" href="#property-path">property_path</a></li>
+<li><a class="reference internal" href="#required">required</a></li>
+<li><a class="reference internal" href="#trim">trim</a></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>Наследуемые
+опции</td>
+<td><ul class="first last simple">
+<li><a class="reference internal" href="#attr">attr</a></li>
+<li><a class="reference internal" href="#auto-initialize">auto_initialize</a></li>
+<li><a class="reference internal" href="#block-name">block_name</a></li>
+<li><a class="reference internal" href="#disabled">disabled</a></li>
+<li><a class="reference internal" href="#label">label</a></li>
+<li><a class="reference internal" href="#translation-domain">translation_domain</a></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>Родитель</td>
+<td>нету</td>
+</tr>
+<tr class="row-even"><td>Класс</td>
+<td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Form/Extension/Core/Type/FormType.html" title="Symfony\Component\Form\Extension\Core\Type\FormType">FormType</a></code></tt></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>Опции поля<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="action">
+<span id="form-option-action-ru"></span><h3>action<a class="headerlink" href="#action" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: empty string</p>
+<p>This option specifies where to send the form's data on submission (usually
+a URI). Its value is rendered as the <tt class="docutils literal"><code>action</code></tt> attribute of the <tt class="docutils literal"><code>form</code></tt>
+element. An empty value is considered a same-document reference, i.e. the
+form will be submitted to the same URI that rendered the form.</p>
+</div>
+<div class="section" id="allow-extra-fields">
+<span id="form-option-allow-extra-fields-ru"></span><h3>allow_extra_fields<a class="headerlink" href="#allow-extra-fields" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>false</code></tt></p>
+<p>Обычно, если вы отправляете дополнительные поля, которые не сконфигурированы
+в вашей форме, вы получите ошибку валидации &quot;Эта форма не должна содержать
+дополнительных полей&quot;.</p>
+<p>Вы можете отключить эту ошибку валидации, включив в форме опцию <tt class="docutils literal"><code>allow_extra_fields</code></tt>.</p>
+</div>
+<div class="section" id="by-reference">
+<h3>by_reference<a class="headerlink" href="#by-reference" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>true</code></tt></p>
+<p>In most cases, if you have an <tt class="docutils literal"><code>author</code></tt> field, then you expect <tt class="docutils literal"><code>setAuthor()</code></tt>
+to be called on the underlying object. In some cases, however, <tt class="docutils literal"><code>setAuthor()</code></tt>
+may <em>not</em> be called. Setting <tt class="docutils literal"><code>by_reference</code></tt> to <tt class="docutils literal"><code>false</code></tt> ensures that the setter is
+called in all cases.</p>
+<p>To explain this further, here's a simple example:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\TextType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\EmailType</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\FormType</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$builder</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createFormBuilder</span><span class="p">(</span><span class="nv">$article</span><span class="p">);</span>
+<span class="nv">$builder</span>
+    <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span>
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="nx">FormType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;by_reference&#39;</span> <span class="o">=&gt;</span> <span class="o">?</span><span class="p">))</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nx">TextType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nx">EmailType</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>If <tt class="docutils literal"><code>by_reference</code></tt> is true, the following takes place behind the scenes
+when you call <tt class="docutils literal"><code>submit()</code></tt> (or <tt class="docutils literal"><code>handleRequest()</code></tt>) on the form:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$article</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">);</span>
+<span class="nv">$article</span><span class="o">-&gt;</span><span class="na">getAuthor</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">);</span>
+<span class="nv">$article</span><span class="o">-&gt;</span><span class="na">getAuthor</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">setEmail</span><span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Notice that <tt class="docutils literal"><code>setAuthor()</code></tt> is not called. The author is modified by reference.</p>
+<p>If you set <tt class="docutils literal"><code>by_reference</code></tt> to false, submitting looks like this:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$article</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">);</span>
+<span class="nv">$author</span> <span class="o">=</span> <span class="k">clone</span> <span class="nv">$article</span><span class="o">-&gt;</span><span class="na">getAuthor</span><span class="p">();</span>
+<span class="nv">$author</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">);</span>
+<span class="nv">$author</span><span class="o">-&gt;</span><span class="na">setEmail</span><span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">);</span>
+<span class="nv">$article</span><span class="o">-&gt;</span><span class="na">setAuthor</span><span class="p">(</span><span class="nv">$author</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>So, all that <tt class="docutils literal"><code>by_reference=false</code></tt> really does is force the framework to
+call the setter on the parent object.</p>
+<p>Similarly, if you're using the <a class="reference internal" href="collection.html"><em>CollectionType</em></a>
+field where your underlying collection data is an object (like with
+Doctrine's <tt class="docutils literal"><code>ArrayCollection</code></tt>), then <tt class="docutils literal"><code>by_reference</code></tt> must be set to <tt class="docutils literal"><code>false</code></tt>
+if you need the adder and remover (e.g. <tt class="docutils literal"><code>addAuthor()</code></tt> and <tt class="docutils literal"><code>removeAuthor()</code></tt>)
+to be called.</p>
+</div>
+<div class="section" id="compound">
+<h3>compound<a class="headerlink" href="#compound" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>true</code></tt></p>
+<p>If <tt class="docutils literal"><code>true</code></tt> this option creates the form as &quot;compound&quot;, meaning that it
+can contain children and be a parent of other forms.</p>
+<p>Most of the time you won't need to override this option.
+You might want to control for it when creating a custom form type
+with advanced rendering logic.</p>
+<p>In a view a compound form is rendered as a <tt class="docutils literal"><code>&lt;div&gt;</code></tt> container or
+a <tt class="docutils literal"><code>&lt;form&gt;</code></tt> element (the whole form is obviously a compound form).</p>
+<p>Non-compound forms are always leaves in a form tree, they cannot have children.</p>
+<p>A non-compound form is rendered as one of the html form elements: <tt class="docutils literal"><code>&lt;input&gt;</code></tt>
+(<tt class="docutils literal"><code>TextType</code></tt>, <tt class="docutils literal"><code>FileType</code></tt>, <tt class="docutils literal"><code>HiddenType</code></tt>), <tt class="docutils literal"><code>&lt;textarea&gt;</code></tt> (<tt class="docutils literal"><code>TextareaType</code></tt>)
+or <tt class="docutils literal"><code>&lt;select&gt;</code></tt> (<tt class="docutils literal"><code>ChoiceType</code></tt>).</p>
+<p>An interesting case is the <tt class="docutils literal"><code>ChoiceType</code></tt>. With <tt class="docutils literal"><code>expanded=false</code></tt> it is a non-compound form
+and is rendered as a <tt class="docutils literal"><code>&lt;select&gt;</code></tt> tag. With <tt class="docutils literal"><code>expanded=true</code></tt> the <tt class="docutils literal"><code>ChoiceType</code></tt> becomes a
+compound form and is rendered as a set of radios or checkboxes.</p>
+</div>
+<div class="section" id="constraints">
+<h3>constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>array</code></tt> or <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Validator/Constraint.html" title="Symfony\Component\Validator\Constraint">Constraint</a></code></tt> <strong>default</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>Allows you to attach one or more validation constraints to a specific field.
+For more information, see <a class="reference internal" href="..\..\..\form\without_class.html#form-option-constraints"><span>Adding Validation</span></a>.
+This option is added in the <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Form/Extension/Validator/Type/FormTypeValidatorExtension.html" title="Symfony\Component\Form\Extension\Validator\Type\FormTypeValidatorExtension">FormTypeValidatorExtension</a></code></tt>
+form extension.</p>
+</div>
+<div class="section" id="data">
+<h3>data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>mixed</code></tt> <strong>default</strong>: Defaults to field of the underlying structure.</p>
+<p>When you create a form, each field initially displays the value of the
+corresponding property of the form's domain data (e.g. if you bind an object to
+the form). If you want to override this initial value for the form or
+an individual field, you can set it in the data option:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Form\Extension\Core\Type\HiddenType</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">,</span> <span class="nx">HiddenType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;data&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">The <tt class="docutils literal"><code>data</code></tt> option <em>always</em> overrides the value taken from the domain data
+(object) when rendering. This means the object value is also overriden when
+the form edits an already persisted object, causing it to lose its
+persisted value when the form is submitted.</p>
+</div></div>
+</div>
+<div class="section" id="data-class">
+<h3>data_class<a class="headerlink" href="#data-class" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt></p>
+<p>This option is used to set the appropriate data mapper to be used by the
+form, so you can use it for any form field type which requires an object:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Entity\Media</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Form\MediaType</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;media&#39;</span><span class="p">,</span> <span class="nx">MediaType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;data_class&#39;</span> <span class="o">=&gt;</span> <span class="nx">Media</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="empty-data">
+<span id="reference-form-option-empty-data-ru"></span><h3>empty_data<a class="headerlink" href="#empty-data" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>mixed</code></tt></p>
+<p>Настоящее значение этой опции по умолчанию зависит от других опций поля:</p>
+<ul class="simple">
+<li>Если <tt class="docutils literal"><code>data_class</code></tt> установлена, а <tt class="docutils literal"><code>required</code></tt> - <tt class="docutils literal"><code>true</code></tt>, то - <tt class="docutils literal"><code>new $data_class()</code></tt>;</li>
+<li>Если <tt class="docutils literal"><code>data_class</code></tt> установлена, а <tt class="docutils literal"><code>required</code></tt> - <tt class="docutils literal"><code>false</code></tt>, то - <tt class="docutils literal"><code>null</code></tt>;</li>
+<li>Если <tt class="docutils literal"><code>data_class</code></tt> не установлена, а <tt class="docutils literal"><code>compound</code></tt> - <tt class="docutils literal"><code>true</code></tt>, то - <tt class="docutils literal"><code>array()</code></tt>
+(пустой массив);</li>
+<li>Если <tt class="docutils literal"><code>data_class</code></tt> не установлена, а <tt class="docutils literal"><code>compound</code></tt> - <tt class="docutils literal"><code>false</code></tt>, то - <tt class="docutils literal"><code>''</code></tt>
+(пустая строка).</li>
+</ul>
+<p>This option determines what value the field will <em>return</em> when the submitted
+value is empty (or missing). It does not set an initial value if none is
+provided when the form is rendered in a view.</p>
+<p>This means it helps you handling form submission with blank fields. For
+example, if you want the <tt class="docutils literal"><code>name</code></tt> field to be explicitly set to <tt class="docutils literal"><code>John Doe</code></tt>
+when no value is selected, you can do it like this:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;required&#39;</span>   <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+    <span class="s1">&#39;empty_data&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>This will still render an empty text box, but upon submission the <tt class="docutils literal"><code>John Doe</code></tt>
+value will be set. Use the <tt class="docutils literal"><code>data</code></tt> or <tt class="docutils literal"><code>placeholder</code></tt> options to show this
+initial value in the rendered form.</p>
+<p>If a form is compound, you can set <tt class="docutils literal"><code>empty_data</code></tt> as an array, object or
+closure. See the <a class="reference internal" href="..\..\..\form\use_empty_data.html"><em>How to Configure empty Data for a Form Class</em></a> article for more details about
+these options.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you want to set the <tt class="docutils literal"><code>empty_data</code></tt> option for your entire form class,
+see the <a class="reference internal" href="..\..\..\form\use_empty_data.html"><em>How to Configure empty Data for a Form Class</em></a> article.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last"><a class="reference internal" href="..\..\..\form\data_transformers.html"><em>Form data transformers</em></a> will still be
+applied to the <tt class="docutils literal"><code>empty_data</code></tt> value. This means that an empty string will
+be cast to <tt class="docutils literal"><code>null</code></tt>. Use a custom data transformer if you explicitly want
+to return the empty string.</p>
+</div></div>
+</div>
+<div class="section" id="error-bubbling">
+<span id="reference-form-option-error-bubbling"></span><h3>error_bubbling<a class="headerlink" href="#error-bubbling" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>false</code></tt> unless the form is <tt class="docutils literal"><code>compound</code></tt></p>
+<p>If <tt class="docutils literal"><code>true</code></tt>, any errors for this field will be passed to the parent field
+or form. For example, if set to <tt class="docutils literal"><code>true</code></tt> on a normal field, any errors for
+that field will be attached to the main form, not to the specific field.</p>
+</div>
+<div class="section" id="error-mapping">
+<h3>error_mapping<a class="headerlink" href="#error-mapping" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>array()</code></tt></p>
+<p>This option allows you to modify the target of a validation error.</p>
+<p>Imagine you have a custom method named <tt class="docutils literal"><code>matchingCityAndZipCode()</code></tt> that validates
+whether the city and zip code match. Unfortunately, there is no &quot;matchingCityAndZipCode&quot;
+field in your form, so all that Symfony can do is display the error on top
+of the form.</p>
+<p>With customized error mapping, you can do better: map the error to the city
+field so that it displays above it:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">configureOptions</span><span class="p">(</span><span class="nx">OptionsResolver</span> <span class="nv">$resolver</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;error_mapping&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;matchingCityAndZipCode&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;city&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Here are the rules for the left and the right side of the mapping:</p>
+<ul class="simple">
+<li>The left side contains property paths;</li>
+<li>If the violation is generated on a property or method of a class, its
+path is simply <tt class="docutils literal"><code>propertyName</code></tt>;</li>
+<li>If the violation is generated on an entry of an <tt class="docutils literal"><code>array</code></tt> or <tt class="docutils literal"><code>ArrayAccess</code></tt>
+object, the property path is <tt class="docutils literal"><code>[indexName]</code></tt>;</li>
+<li>You can construct nested property paths by concatenating them, separating
+properties by dots. For example: <tt class="docutils literal"><code>addresses[work].matchingCityAndZipCode</code></tt>;</li>
+<li>The right side contains simply the names of fields in the form.</li>
+</ul>
+<p>By default, errors for any property that is not mapped will bubble up to the
+parent form. You can use the dot (<tt class="docutils literal"><code>.</code></tt>) on the left side to map errors of all
+unmapped properties to a particular field. For instance, to map all these
+errors to the <tt class="docutils literal"><code>city</code></tt> field, use:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;error_mapping&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;.&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;city&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="extra-fields-message">
+<h3>extra_fields_message<a class="headerlink" href="#extra-fields-message" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>This form should not contain extra fields.</code></tt></p>
+<p>This is the validation error message that's used if the submitted form data
+contains one or more fields that are not part of the form definition. The
+placeholder <tt class="docutils literal"><code>{{ extra_fields }}</code></tt> can be used to display a comma separated
+list of the submitted extra field names.</p>
+</div>
+<div class="section" id="inherit-data">
+<h3>inherit_data<a class="headerlink" href="#inherit-data" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>false</code></tt></p>
+<p>This option determines if the form will inherit data from its parent form.
+This can be useful if you have a set of fields that are duplicated across
+multiple forms. See <a class="reference internal" href="..\..\..\form\inherit_data_option.html"><em>How to Reduce Code Duplication with &quot;inherit_data&quot;</em></a>.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">When a field has the <tt class="docutils literal"><code>inherit_data</code></tt> option set, it uses the data of
+the parent form as is. This means that
+<a class="reference internal" href="..\..\..\form\data_transformers.html"><em>Data Transformers</em></a> won't be
+applied to that field.</p>
+</div></div>
+</div>
+<div class="section" id="invalid-message">
+<h3>invalid_message<a class="headerlink" href="#invalid-message" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>This value is not valid</code></tt></p>
+<p>This is the validation error message that's used if the data entered into
+this field doesn't make sense (i.e. fails validation).</p>
+<p>This might happen, for example, if the user enters a nonsense string into
+a <a class="reference internal" href="time.html"><em>TimeType</em></a> field that cannot be converted
+into a real time or if the user enters a string (e.g. <tt class="docutils literal"><code>apple</code></tt>) into a
+number field.</p>
+<p>Normal (business logic) validation (such as when setting a minimum length
+for a field) should be set using validation messages with your validation
+rules (<a class="reference internal" href="..\..\..\validation.html#validation-constraint-configuration"><span>reference</span></a>).</p>
+</div>
+<div class="section" id="invalid-message-parameters">
+<h3>invalid_message_parameters<a class="headerlink" href="#invalid-message-parameters" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>array()</code></tt></p>
+<p>When setting the <tt class="docutils literal"><code>invalid_message</code></tt> option, you may need to
+include some variables in the string. This can be done by adding placeholders
+to that option and including the variables in this option:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;some_field&#39;</span><span class="p">,</span> <span class="nx">SomeFormType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// ...</span>
+    <span class="s1">&#39;invalid_message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;You entered an invalid value, it should include %num% letters&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;invalid_message_parameters&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;%num%&#39;</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="label-attr">
+<h3>label_attr<a class="headerlink" href="#label-attr" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>array()</code></tt></p>
+<p>Sets the HTML attributes for the <tt class="docutils literal"><code>&lt;label&gt;</code></tt> element, which will be used
+when rendering the label for the field. It's an associative array with HTML
+attribute as a key. This attributes can also be directly set inside the
+template:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_label</span><span class="o">(</span><span class="nv">form.name</span><span class="o">,</span> <span class="s1">&#39;Your name&#39;</span><span class="o">,</span> <span class="o">{</span>
+       <span class="s1">&#39;label_attr&#39;</span><span class="o">:</span> <span class="o">{</span><span class="s1">&#39;class&#39;</span><span class="o">:</span> <span class="s1">&#39;CUSTOM_LABEL_CLASS&#39;</span><span class="o">}</span>
+<span class="o">})</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span>
+    <span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Your name&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;label_attr&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;CUSTOM_LABEL_CLASS&#39;</span><span class="p">))</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="label-format">
+<h3>label_format<a class="headerlink" href="#label-format" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>Configures the string used as the label of the field, in case the <tt class="docutils literal"><code>label</code></tt>
+option was not set. This is useful when using
+<a class="reference internal" href="../../../components/translation/usage-ru.html#translation-real-vs-keyword-messages"><span>keyword translation messages</span></a>.</p>
+<p>If you're using keyword translation messages as labels, you often end up having
+multiple keyword messages for the same label (e.g. <tt class="docutils literal"><code>profile_address_street</code></tt>,
+<tt class="docutils literal"><code>invoice_address_street</code></tt>). This is because the label is build for each &quot;path&quot;
+to a field. To avoid duplicated keyword messages, you can configure the label
+format to a static value, like:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$profileFormBuilder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;address&#39;</span><span class="p">,</span> <span class="nx">AddressType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;label_format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;form.address.%name%&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="nv">$invoiceFormBuilder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;invoice&#39;</span><span class="p">,</span> <span class="nx">AddressType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;label_format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;form.address.%name%&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>This option is inherited by the child types. With the code above, the label of
+the <tt class="docutils literal"><code>street</code></tt> field of both forms will use the <tt class="docutils literal"><code>form.address.street</code></tt> keyword
+message.</p>
+<p>Two variables are available in the label format:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>%id%</code></tt></dt>
+<dd>A unique identifier for the field, consisting of the complete path to the
+field and the field name (e.g. <tt class="docutils literal"><code>profile_address_street</code></tt>);</dd>
+<dt><tt class="docutils literal"><code>%name%</code></tt></dt>
+<dd>The field name (e.g. <tt class="docutils literal"><code>street</code></tt>).</dd>
+</dl>
+<p>The default value (<tt class="docutils literal"><code>null</code></tt>) results in a
+<a class="reference internal" href="..\..\twig_reference.html#reference-twig-humanize-filter"><span>&quot;humanized&quot; version</span></a> of the field name.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">The <tt class="docutils literal"><code>label_format</code></tt> option is evaluated in the form theme. Make sure to
+update your templates in case you
+<a class="reference internal" href="..\..\..\form\form_customization.html"><em>customized form theming</em></a>.</p>
+</div></div>
+</div>
+<div class="section" id="mapped">
+<span id="reference-form-option-mapped-ru"></span><h3>mapped<a class="headerlink" href="#mapped" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>boolean</code></tt>  <strong>default</strong>: <tt class="docutils literal"><code>true</code></tt></p>
+<p>If you wish the field to be ignored when reading or writing to the object,
+you can set the <tt class="docutils literal"><code>mapped</code></tt> option to <tt class="docutils literal"><code>false</code></tt>.</p>
+</div>
+<div class="section" id="method">
+<span id="form-option-method-ru"></span><h3>method<a class="headerlink" href="#method" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>POST</code></tt></p>
+<p>This option specifies the HTTP method used to submit the form's data. Its
+value is rendered as the <tt class="docutils literal"><code>method</code></tt> attribute of the <tt class="docutils literal"><code>form</code></tt> element and
+is used to decide whether to process the form submission in the
+<tt class="docutils literal"><code>handleRequest()</code></tt> method after submission. Possible values are:</p>
+<ul class="simple">
+<li>POST</li>
+<li>GET</li>
+<li>PUT</li>
+<li>DELETE</li>
+<li>PATCH</li>
+</ul>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">When the method is PUT, PATCH, or DELETE, Symfony will automatically
+render a <tt class="docutils literal"><code>_method</code></tt> hidden field in your form. This is used to &quot;fake&quot;
+these HTTP methods, as they're not supported on standard browsers. This can
+be useful when using <a class="reference internal" href="..\..\..\routing\requirements.html#routing-method-requirement"><span>method routing requirements</span></a>.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">The PATCH method allows submitting partial data. In other words, if
+the submitted form data is missing certain fields, those will be ignored
+and the default values (if any) will be used. With all other HTTP methods,
+if the submitted form data is missing some fields, those fields are
+set to <tt class="docutils literal"><code>null</code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="post-max-size-message">
+<h3>post_max_size_message<a class="headerlink" href="#post-max-size-message" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>The uploaded file was too large. Please try to upload a smaller file.</code></tt></p>
+<p>This is the validation error message that's used if submitted POST form
+data exceeds <tt class="docutils literal"><code>php.ini</code></tt>'s <tt class="docutils literal"><code>post_max_size</code></tt> directive. The <tt class="docutils literal"><code>{{ max }}</code></tt>
+placeholder can be used to display the allowed size.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Validating the <tt class="docutils literal"><code>post_max_size</code></tt> only happens on the root form.</p>
+</div></div>
+</div>
+<div class="section" id="property-path">
+<span id="reference-form-option-property-path-ru"></span><h3>property_path<a class="headerlink" href="#property-path" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>PropertyPathInterface|string|null</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>Fields display a property value of the form's domain object by default.
+When the form is submitted, the submitted value is written back into the
+object.</p>
+<p>If you want to override the property that a field reads from and writes
+to, you can set the <tt class="docutils literal"><code>property_path</code></tt> option. Its default value (<tt class="docutils literal"><code>null</code></tt>)
+will use the field's name as the property.</p>
+</div>
+<div class="section" id="required">
+<span id="reference-form-option-required-ru"></span><h3>required<a class="headerlink" href="#required" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>true</code></tt></p>
+<p>If true, an <a class="reference external" href="http://diveintohtml5.info/forms.html">HTML5 required attribute</a> will be rendered. The corresponding
+<tt class="docutils literal"><code>label</code></tt> will also render with a <tt class="docutils literal"><code>required</code></tt> class.</p>
+<p>This is superficial and independent from validation. At best, if you let
+Symfony guess your field type, then the value of this option will be guessed
+from your validation information.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">The required option also affects how empty data for each field is
+handled. For more details, see the <a class="reference internal" href="#empty-data">empty_data</a> option.</p>
+</div></div>
+</div>
+<div class="section" id="trim">
+<h3>trim<a class="headerlink" href="#trim" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>true</code></tt></p>
+<p>If true, the whitespace of the submitted string value will be stripped
+via the <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.trim.php" title="trim">trim</a></code></tt> function when the data is bound. This guarantees
+that if a value is submitted with extra whitespace, it will be removed before
+the value is merged back onto the underlying object.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Наследуемые опции<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Следующие опции определены в классе
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Form/Extension/Core/Type/BaseType.html" title="Symfony\Component\Form\Extension\Core\Type\BaseType">BaseType</a></code></tt>. Класс
+<tt class="docutils literal"><code>BaseType</code></tt> - это родительский класс и для типа <tt class="docutils literal"><code>form</code></tt>, и для
+<a class="reference internal" href="button.html"><em>ButtonType</em></a>, но это не часть дерева типа
+формы (т.е. не может быть использован в качетсве типа формы сам по себе).</p>
+<div class="section" id="attr">
+<h3>attr<a class="headerlink" href="#attr" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>array()</code></tt></p>
+<p>If you want to add extra attributes to an HTML field representation
+you can use the <tt class="docutils literal"><code>attr</code></tt> option. It's an associative array with HTML attributes
+as keys. This can be useful when you need to set a custom class for some widget:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">,</span> <span class="nx">TextareaType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;attr&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;tinymce&#39;</span><span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="auto-initialize">
+<h3>auto_initialize<a class="headerlink" href="#auto-initialize" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>boolean</code></tt>  <strong>default</strong>: <tt class="docutils literal"><code>true</code></tt></p>
+<p>An internal option: sets whether the form should be initialized automatically.
+For all fields, this option should only be <tt class="docutils literal"><code>true</code></tt> for root forms. You
+won't need to change this option and probably won't need to worry about
+it.</p>
+</div>
+<div class="section" id="block-name">
+<h3>block_name<a class="headerlink" href="#block-name" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: the form's name (see <a class="reference internal" href="../../../form/form_customization-ru.html#form-customization-sidebar"><span>Knowing which
+block to customize</span></a>)</p>
+<p>Allows you to override the block name used to render the form type.
+Useful for example if you have multiple instances of the same form and you
+need to personalize the rendering of the forms individually.</p>
+</div>
+<div class="section" id="disabled">
+<h3>disabled<a class="headerlink" href="#disabled" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>boolean</code></tt>  <strong>default</strong>: <tt class="docutils literal"><code>false</code></tt></p>
+<p>If you don't want a user to modify the value of a field, you can set the
+disabled option to true. Any submitted value will be ignored.</p>
+</div>
+<div class="section" id="label">
+<h3>label<a class="headerlink" href="#label" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>default</strong>: The label is &quot;guessed&quot; from the field name</p>
+<p>Sets the label that will be used when rendering the field. Setting to false
+will suppress the label. The label can also be directly set inside the template:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_label</span><span class="o">(</span><span class="nv">form.name</span><span class="o">,</span> <span class="s1">&#39;Your name&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span>
+    <span class="nv">$form</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Your name&#39;</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="translation-domain">
+<h3>translation_domain<a class="headerlink" href="#translation-domain" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt>, <tt class="docutils literal"><code>null</code></tt> or <tt class="docutils literal"><code>false</code></tt>  <strong>default</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>This is the translation domain that will be used for any label or option
+that is rendered for this field. Use <tt class="docutils literal"><code>null</code></tt> to reuse the translation domain
+of the parent form (or the default domain of the translator for the root
+form). Use <tt class="docutils literal"><code>false</code></tt> to disable translations.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

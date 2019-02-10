@@ -1,0 +1,500 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент Templating &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="Компонент Translation" href="translation-ru.html">
+    <link rel="prev" title="Компонент Stopwatch" href="stopwatch-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент Templating</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#id2">Использование</a></li>
+<li><a class="reference internal" href="#view">Переменная <tt class="docutils literal"><code>$view</code></tt></a></li>
+<li><a class="reference internal" href="#id3">Включение шаблонов</a></li>
+<li><a class="reference internal" href="#id4">Глобальные переменные</a></li>
+<li><a class="reference internal" href="#id5">Экранирование вывода</a></li>
+<li><a class="reference internal" href="#id6">Помощники</a><ul>
+<li><a class="reference internal" href="#id7">Пользовательские помощники</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">Создание ползовательского двигателя</a></li>
+<li><a class="reference internal" href="#id9">Использование нескольких двигателей</a></li>
+<li><a class="reference internal" href="#id10">Узнать больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент Templating</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="templating">
+<span id="index-0"></span><h1>Компонент Templating<a class="headerlink" href="#templating" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Компонент Templating предоставляет все инструменты, необходимые для
+востроения любой системы шаблонов.</p>
+<p>Он предоставляет инфраструктуру для загрузки файлов шаблона и опционального
+мониторинга на предмет изменений. Он также предоставляет конкретную реализацию
+шаблонзатора, используя PHP с дополнительными инструментами для экранизации и
+разделения шаблонов на блоки и разметки.</p>
+</div></blockquote>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/templating
+</pre></div>
+</td></tr></table></div></div>
+<p>Также вы можете клонировать репозиторий <a class="reference external" href="https://github.com/symfony/templating">https://github.com/symfony/templating</a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+</div>
+<div class="section" id="id2">
+<h2>Использование<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Эта статья объясняет как использовать функции Templating как независимого
+компонента в любом приложении PHP. Прочитайте статью <a class="reference internal" href="..\templating.html"><em>Creating and Using Templates</em></a>
+для понимания как использовать его в приложениях Symfony.</div></div>
+<p>Класс <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/PhpEngine.html" title="Symfony\Component\Templating\PhpEngine">PhpEngine</a></code></tt> является входной точкой компонента.
+Ему необходим анализатор имени шаблона
+(<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/TemplateNameParserInterface.html" title="Symfony\Component\Templating\TemplateNameParserInterface">TemplateNameParserInterface</a></code></tt>) для преобразования
+имения шаблона в ссылку шаблона
+(<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/TemplateReferenceInterface.html" title="Symfony\Component\Templating\TemplateReferenceInterface">TemplateReferenceInterface</a></code></tt>). Ему также необходим
+загрузчик шаблонов (<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/Loader/LoaderInterface.html" title="Symfony\Component\Templating\Loader\LoaderInterface">LoaderInterface</a></code></tt>),
+который использует ссылку шаблона для поиска и загрузки шаблона:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Templating\PhpEngine</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Templating\TemplateNameParser</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Templating\Loader\FilesystemLoader</span><span class="p">;</span>
+
+<span class="nv">$filesystemLoader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FilesystemLoader</span><span class="p">(</span><span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/views/%name%&#39;</span><span class="p">);</span>
+
+<span class="nv">$templating</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PhpEngine</span><span class="p">(</span><span class="k">new</span> <span class="nx">TemplateNameParser</span><span class="p">(),</span> <span class="nv">$filesystemLoader</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$templating</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;hello.php&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;firstname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Fabien&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- views/hello.php --&gt;</span>
+Привет, <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$firstname</span> <span class="cp">?&gt;</span>!
+</pre></div>
+</td></tr></table></div></div>
+<p>Метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/PhpEngine.html#method_render" title="Symfony\Component\Templating\PhpEngine::render()">render()</a></code></tt> анализирует
+файл <tt class="docutils literal"><code>views/hello.php</code></tt> и возвращает текст вывода. Второй аргумент <tt class="docutils literal"><code>render</code></tt>
+- это массив переменных для исползования в шаблоне. В этом примере, результат
+будет <tt class="docutils literal"><code>Привет, Фабиен!</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Шаблоны будут кешированы в памяти движка. Это означает, что если вы
+отображаете один и тот же шаблон несколько раз в одном запросе, он
+будет загружен из файловой системы единожды.</p>
+</div></div>
+</div>
+<div class="section" id="view">
+<h2>Переменная <tt class="docutils literal"><code>$view</code></tt><a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h2>
+<p>Во всех шаблонах, проанализированных <tt class="docutils literal"><code>PhpEngine</code></tt>, вы получаете доступ к загадочной
+переменной под названием <tt class="docutils literal"><code>$view</code></tt>. Эта переменная содержит текущий экземпляр <tt class="docutils literal"><code>PhpEngine</code></tt>.
+Это означает, что вы получаете доступ к куче методов, которые облегчают вам жизнь.</p>
+</div>
+<div class="section" id="id3">
+<h2>Включение шаблонов<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Наилучшим способом поделиться частью кода шаблона будет создать шаблон, который
+может быть включен в другие шаблоны. Так как переменная <tt class="docutils literal"><code>$view</code></tt> - это экземпляр
+<tt class="docutils literal"><code>PhpEngine</code></tt>, то вы можете использовать метод <tt class="docutils literal"><code>render()</code></tt> (который был использован
+для отображения шаблона изначально) внутри шаблона, чтобы отобразить другой шаблон:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="nv">$names</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;Fabien&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$names</span> <span class="k">as</span> <span class="nv">$name</span><span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;hello.php&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;firstname&#39;</span> <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">&lt;?php</span> <span class="k">endforeach</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id4">
+<h2>Глобальные переменные<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Иногда вам может понадобиться установить переменные, которые будут доступны
+во всех отображенных двигателем шаблонах (например, переменная <tt class="docutils literal"><code>$app</code></tt> при
+использовании фреймворка Symfony). Такие переменные можно установить, используя
+метод <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/PhpEngine.html#method_addGlobal" title="Symfony\Component\Templating\PhpEngine::addGlobal()">addGlobal()</a></code></tt>  и доступ
+к ним можно получить в шаблоне, как и к обычным переменным:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$templating</span><span class="o">-&gt;</span><span class="na">addGlobal</span><span class="p">(</span><span class="s1">&#39;ga_tracking&#39;</span><span class="p">,</span> <span class="s1">&#39;UA-xxxxx-x&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В шаблоне:</p>
+<div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Трекинг-код google: <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$ga_tracking</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Глобальные переменные не могут быть названы <tt class="docutils literal"><code>this</code></tt> или <tt class="docutils literal"><code>view</code></tt>, так как они
+уже используются в двигателе PHP.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Глобальные переменные можно переопределить локальной переменной в шаблоне с
+таким же именем.</p>
+</div></div>
+</div>
+<div class="section" id="id5">
+<h2>Экранирование вывода<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Когда вы отображаете переменные, вам наверное стоит экранировать их, чтобы код
+HTML или JavaScript не выписывался с вашей страницы. Это предотвратит, например,
+XSS-атаки. Чтобы сделать это, используйте метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/PhpEngine.html#method_escape" title="Symfony\Component\Templating\PhpEngine::escape()">escape()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">escape</span><span class="p">(</span><span class="nv">$firstname</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p>По умолчанию, метод <tt class="docutils literal"><code>escape()</code></tt> предполагает, что переменная выводится в контексте
+HTML. Второй аргумент позволяет вам изменять контекст. Например, чтобы вывести что-то
+в JavaScript, используйте контекст <tt class="docutils literal"><code>js</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">escape</span><span class="p">(</span><span class="nv">$var</span><span class="p">,</span> <span class="s1">&#39;js&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Компонент поставляется с экранизаторами HTML и JS. Вы можете зарегистрировать
+ваш собственный экранизатор, используя метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/PhpEngine.html#method_setEscaper" title="Symfony\Component\Templating\PhpEngine::setEscaper()">setEscaper()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$templating</span><span class="o">-&gt;</span><span class="na">setEscaper</span><span class="p">(</span><span class="s1">&#39;css&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ... all CSS escaping</span>
+
+    <span class="k">return</span> <span class="nv">$escapedValue</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id6">
+<h2>Помощники<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Компонент Templating может быть легко расширен с помощью помощников. Помощники - это
+PHP объекты, которые предоставляют поезные в контексте шаблона функции. Компонент имеет
+один встроенный помощник:</p>
+<ul class="simple">
+<li><a class="reference internal" href="templating\slotshelper.html"><em>Slots Helper</em></a></li>
+</ul>
+<p>Перед тем, как вы сможете использовать эти помощники, вам нужно зарегистрировать
+их, используя <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/PhpEngine.html#method_set" title="Symfony\Component\Templating\PhpEngine::set()">set()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Templating\Helper\SlotsHelper</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="nv">$templating</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="k">new</span> <span class="nx">SlotsHelper</span><span class="p">());</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id7">
+<h3>Пользовательские помощники<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Вы можете создать ваших собственных помощников, создав класс, реализующий
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/Helper/HelperInterface.html" title="Symfony\Component\Templating\Helper\HelperInterface">HelperInterface</a></code></tt>. Однако,
+в большинстве случаев вы будете расширять
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/Helper/Helper.html" title="Symfony\Component\Templating\Helper\Helper">Helper</a></code></tt>.</p>
+<p><tt class="docutils literal"><code>Helper</code></tt> имеет один обязательный метод:
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/Helper/HelperInterface.html#method_getName" title="Symfony\Component\Templating\Helper\HelperInterface::getName()">getName()</a></code></tt>.
+Это имя, которое используется для получения помощника из объекта <tt class="docutils literal"><code>$view</code></tt>.</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>Создание ползовательского двигателя<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>Кроме предоставления шаблонизатора PHP, вы можете также создать ваш собственный
+двигатель, используя компонент Templating. Чтобы сделать это, создайте новый
+касс, реализующий <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/EngineInterface.html" title="Symfony\Component\Templating\EngineInterface">EngineInterface</a></code></tt>. Это
+требует 3 методов:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/EngineInterface.html#method_render" title="Symfony\Component\Templating\EngineInterface::render()">render($name, array $parameters = array())</a></code></tt>
+- Отображает шаблон</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/EngineInterface.html#method_exists" title="Symfony\Component\Templating\EngineInterface::exists()">exists($name)</a></code></tt>
+- Проверяет, существует ли шаблон</li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/EngineInterface.html#method_supports" title="Symfony\Component\Templating\EngineInterface::supports()">supports($name)</a></code></tt>
+- Проверяет, может ли данный шаблон быть обработан этим двигателем.</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>Использование нескольких двигателей<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>Возможно использовать несколько двигателей одновременно, используя класс
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/DelegatingEngine.html" title="Symfony\Component\Templating\DelegatingEngine">DelegatingEngine</a></code></tt>. Этот класс берёт
+список двигателей и действует так же, как обычный шаблонизатор. Единственная
+разница - он делегирует вызовы одному из других двигателей. Чтобы выбрать, какой
+ипользовать для шаблона, используется метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Templating/EngineInterface.html#method_supports" title="Symfony\Component\Templating\EngineInterface::supports()">EngineInterface::supports()</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Acme\Templating\CustomEngine</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Templating\PhpEngine</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Templating\DelegatingEngine</span><span class="p">;</span>
+
+<span class="nv">$templating</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DelegatingEngine</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="k">new</span> <span class="nx">PhpEngine</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nx">CustomEngine</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id10">
+<h2>Узнать больше<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="templating\slotshelper.html">Slots Helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templating/slotshelper-ru.html">Помощник ячеек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\templating.html">Creating and Using Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\templating\PHP.html">How to Use PHP instead of Twig for Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templating/PHP-ru.html">Как использовать PHP для шаблонов вместо Twig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\templating\app_variable.html">How to Access the User, Request, Session &amp; more in Twig via the <tt class="docutils literal"><code>app</code></tt> Variable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templating/app_variable-ru.html">Как получить доступ к пользователю, запросу, сессии и др. в Twig через переменную <tt class="docutils literal"><code>app</code></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\templating\debug.html">How to Dump Debug Information in Twig Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templating/debug-ru.html">Как сбросить информацию об отладке в шаблонах Twig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\templating\embedding_controllers.html">How to Embed Controllers in a Template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templating/embedding_controllers-ru.html">Как встраивать контроллеры в шаблон</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\templating\escaping.html">How to Escape Output in Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templating/escaping-ru.html">Как экранировать вывод в шаблонах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\templating\formats.html">How to Work with Different Output Formats in Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templating/formats-ru.html">Как работать с разными форматами вывода в шаблонах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\templating\global_variables.html">How to Inject Variables into all Templates (i.e. global Variables)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templating/global_variables-ru.html">Как внедрять переменные во все шаблоны (т.е. глобальные переменные)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\templating\hinclude.html">How to Embed Asynchronous Content with hinclude.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templating/hinclude-ru.html">Как встроить асинхронное содержание с помощью hinclude.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\templating\inheritance.html">How to Organize Your Twig Templates Using Inheritance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templating/inheritance-ru.html">Как упорядочить ваши шаблоны Twig, используя наследование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\templating\namespaced_paths.html">How to Use and Register Namespaced Twig Paths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templating/namespaced_paths-ru.html">Как использовать и регистрировать пути Twig с пространством имён</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templating/overriding-ru.html">Как переопределять шаблоны из сторонних пакетов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\templating\render_without_controller.html">How to Render a Template without a custom Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templating/render_without_controller-ru.html">Как отобразить шаблон без пользовательского контроллера</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\templating\syntax.html">How to Check the Syntax of Your Twig Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templating/syntax-ru.html">Как проверить синтаксис ваших шаблонов Twig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\templating\twig_extension.html">How to Write a custom Twig Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templating/twig_extension-ru.html">Как написать пользовательское расширение Twig</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="stopwatch-ru.html">« Компонент Stopwatch</a>
+                <span class="separator">|</span>
+                <a href="translation-ru.html">Компонент Translation »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

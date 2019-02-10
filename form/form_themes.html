@@ -1,0 +1,631 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как работать с темами формы &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Forms" href="..\forms.html">
+    <link rel="next" title="How to Reduce Code Duplication with &#34;inherit_data&#34;" href="inherit_data_option.html">
+    <link rel="prev" title="How to Work with Form Themes" href="form_themes.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="form doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как работать с темами формы</a><ul>
+<li><a class="reference internal" href="#form-template-blocks-ru">Именование фрагментов шаблона</a></li>
+<li><a class="reference internal" href="#index-2">Наследование фрагментов шаблона</a></li>
+<li><a class="reference internal" href="#forms-theming-global-ru">Глобальные темы</a><ul>
+<li><a class="reference internal" href="#twig">Twig</a></li>
+<li><a class="reference internal" href="#php">PHP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\forms.html">Forms</a></li>
+                
+                <li class="active">Как работать с темами формы</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как работать с темами формы<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Каждая частьформы отображается и может быть настроена. Вы вольны изменять то,
+как отображается каждая &quot;строка&quot; формы, разметку, используемую для отображения
+ошибок или даже то, как должен быть отображён тег <tt class="docutils literal"><code>textarea</code></tt>. Нет ничего запрещённого,
+и разные настройки могут быть использованы в разных местах.</p>
+<p>Symfony использует шаблоны, чтобы отобразить каждую часть формы, такие как
+теги <tt class="docutils literal"><code>label</code></tt>, <tt class="docutils literal"><code>input</code></tt>, сообщения об ошибках и всё остальное.</p>
+<p>В Twig, каждый &quot;фрагмент&quot; формы представлен блоком Twig. Чтобы настроить любую
+часть того, как отображается форма, вам просто нужно переопределить соответствующий
+блок.</p>
+<p>В PHP, каждый &quot;фрагмент&quot; формы отображается через индивидуальный файл шаблона.
+Чтобы настроить любую часть отображения формы, вам просто нужно переопределить
+существующий шаблон, создав новый.</p>
+<p>Чтобы понять, как это работает, настройте фрагмент <tt class="docutils literal"><code>form_row</code></tt> и добавьте
+атрибут класса к элементу <tt class="docutils literal"><code>div</code></tt>, который окружает каждую строку. Чтобы
+сделать это, создайте новый файл щаблона, который будет хранить новую разметку:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# templates/form/fields.html.twig #}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">form_row</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">spaceless</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form_row&quot;</span><span class="p">&gt;</span>
+        <span class="cp">{{</span> <span class="nv">form_label</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span>
+        <span class="cp">{{</span> <span class="nv">form_errors</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span>
+        <span class="cp">{{</span> <span class="nv">form_widget</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="cp">{%</span> <span class="k">endspaceless</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="nv">form_row</span> <span class="cp">%}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- src/Resources/form_row.html.php --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form_row&quot;</span><span class="p">&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">label</span><span class="p">(</span><span class="nv">$form</span><span class="p">,</span> <span class="nv">$label</span><span class="p">)</span> <span class="cp">?&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">(</span><span class="nv">$form</span><span class="p">)</span> <span class="cp">?&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">widget</span><span class="p">(</span><span class="nv">$form</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">)</span> <span class="cp">?&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Фрагмент формы <tt class="docutils literal"><code>form_row</code></tt> используется при отображении большинства полей через
+функцию <tt class="docutils literal"><code>form_row()</code></tt>. Чтобы сообщить компоненту формы, что нужно использовать
+новый фрагмент <tt class="docutils literal"><code>form_row</code></tt>, определённый выше, добавьте следующее сверху шаблона,
+отображающего форму:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Twig</em><div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">{# templates/default/new.html.twig #}</span>
+<span class="cp">{%</span> <span class="k">form_theme</span> <span class="nv">form</span> <span class="s1">&#39;form/fields.html.twig&#39;</span> <span class="cp">%}</span>
+
+<span class="c">{# или, если вы хотите использовать несколько тем #}</span>
+<span class="cp">{%</span> <span class="k">form_theme</span> <span class="nv">form</span> <span class="s1">&#39;form/fields.html.twig&#39;</span> <span class="s1">&#39;form/fields2.html.twig&#39;</span> <span class="cp">%}</span>
+
+<span class="c">{# ... render the form #}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-html+php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- templates/default/new.html.php --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">setTheme</span><span class="p">(</span><span class="nv">$form</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">))</span> <span class="cp">?&gt;</span>
+
+<span class="c">&lt;!-- или, если вы хотите использовать несколько тем --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">setTheme</span><span class="p">(</span><span class="nv">$form</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">,</span> <span class="s1">&#39;form2&#39;</span><span class="p">))</span> <span class="cp">?&gt;</span>
+
+<span class="c">&lt;!-- ... render the form --&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Тег <tt class="docutils literal"><code>form_theme</code></tt> (в Twig) &quot;импортирует&quot; фрагменты, определённые в данном
+шаблоне и использует их при отображении формы. Другими словами, когда позже
+в этом шаблоне будет вызвана функция <tt class="docutils literal"><code>form_row()</code></tt>, она будет использовать
+блок <tt class="docutils literal"><code>form_row</code></tt> из вашей пользовательской темы (вместо блока <tt class="docutils literal"><code>form_row</code></tt>
+по умолчанию, который поставляется в Symfony).</p>
+<p>Ваша пользовательская тема не должна переопределять все блоки. При отображении блока,
+который не переопределяется в вашей пользовательской теме, механизм тем будет использовать
+глобальную тему в качестве отката (определённую на уровне пакетов).</p>
+<p>Если предоставлены несколько пользовательских тем, будет вестись их поиск в определённом
+порядке перед тем, как использовать глобальную тему в качестве резерва.</p>
+<p>Чтобы настроить любую часть формы, вам просто нужно переопределить соответствующий
+фрагмент. Понимание того, какой именно блок или файл нужно переопределить является
+темой следующего раздела.</p>
+<p>Для более подробной дискуссии, смотрите <a class="reference internal" href="form_customization.html"><em>How to Customize Form Rendering</em></a>.</p>
+<div class="section" id="form-template-blocks-ru">
+<span id="index-1"></span><span id="id2"></span><h2>Именование фрагментов шаблона<a class="headerlink" href="#form-template-blocks-ru" title="Permalink to this headline">¶</a></h2>
+<p>В Symfony, каждая часть отображённой формы - HTML-элементы формы, ошибки,
+ярлыки и т.д. - определяются в базовой теме, которая является коллекцией
+блоков в Twig и коллекцией файлов шаблонов в PHP.</p>
+<p>В Twig, каждый необходимый блок определён в единственном файле шаблона (например,
+<a class="reference external" href="https://github.com/symfony/symfony/blob/master/src/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig">form_div_layout.html.twig</a>), который живет внутри <a class="reference external" href="https://github.com/symfony/symfony/tree/master/src/Symfony/Bridge/Twig">Моста Twig</a>. Внутри этого
+файла, вы можете увидеть каждый необходимый для отображения формы блок и каждый
+тип поля по умолчанию.</p>
+<p>В PHP, фрагменты - это индивидуальные файлы шаблонов. По умолчанию, они находятся
+в каталоге <tt class="docutils literal"><code>Resources/views/Form</code></tt> FrameworkBundle (<a class="reference external" href="https://github.com/symfony/symfony/tree/master/src/Symfony/Bundle/FrameworkBundle/Resources/views/Form">посмотреть на GitHub</a>).</p>
+<p>Каждое имя фрагмента следует одной базовой схеме и разделяется на две части,
+разделённые одним символом нижнего подчёркивания (<tt class="docutils literal"><code>_</code></tt>). Вот несколько примеров:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>form_row</code></tt> - используется <tt class="docutils literal"><code>form_row()</code></tt> для отображения большинства полей;</li>
+<li><tt class="docutils literal"><code>textarea_widget</code></tt> - используется <tt class="docutils literal"><code>form_widget()</code></tt> для отображения типа поля``textarea``;</li>
+<li><tt class="docutils literal"><code>form_errors</code></tt> - используется <tt class="docutils literal"><code>form_errors()</code></tt> для отображения ошибок поля;</li>
+</ul>
+<p>Каждый фрагмент следует одной базовой схеме: <tt class="docutils literal"><code>type_part</code></tt>. Часть <tt class="docutils literal"><code>type</code></tt> соответствует
+<em>типу</em> отображаемого поля (например, <tt class="docutils literal"><code>textarea</code></tt>, <tt class="docutils literal"><code>checkbox</code></tt>, <tt class="docutils literal"><code>date</code></tt>, и т.д.), а часть
+<tt class="docutils literal"><code>part</code></tt> - тому, <em>что</em> отображается (например, <tt class="docutils literal"><code>label</code></tt>, <tt class="docutils literal"><code>widget</code></tt>, <tt class="docutils literal"><code>errors</code></tt>, и т.д.).
+По умолчанию, существует 4 возможных <em>части</em> формы, которые можно отобразить:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%">
+<col width="27%">
+<col width="60%">
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="docutils literal"><code>label</code></tt></td>
+<td colspan="2">(например, <tt class="docutils literal"><code>form_label()</code></tt>)    | отображает ярлык поля</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>widget</code></tt></td>
+<td colspan="2">(например, <tt class="docutils literal"><code>form_widget()</code></tt>)   | отображает HTML-представление поля</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>errors</code></tt></td>
+<td colspan="2">(например, <tt class="docutils literal"><code>form_errors()</code></tt>)   | отображает ошибки поля</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>row</code></tt></td>
+<td colspan="2">(например, <tt class="docutils literal"><code>form_row()</code></tt>)      | отображает всю строку поля (ярлык, виджет и ошибки</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">На самом деле есть ещё 2 другие <em>части</em> - <tt class="docutils literal"><code>rows</code></tt> и <tt class="docutils literal"><code>rest</code></tt> - но
+вам очень редко, либо вообще никогда, не понадобится переопределять их.</p>
+</div></div>
+<p>Зная тип поля (например, <tt class="docutils literal"><code>textarea</code></tt>) и то, какую часть вы хотите настроить
+(например, <tt class="docutils literal"><code>widget</code></tt>), вы можете построить имя фрагмента, которое нужно
+переопределить (например, <tt class="docutils literal"><code>textarea_widget</code></tt>).</p>
+</div>
+<div class="section" id="index-2">
+<span id="id3"></span><h2>Наследование фрагментов шаблона<a class="headerlink" href="#index-2" title="Permalink to this headline">¶</a></h2>
+<p>В некоторых случаях, фрагмент, который вы хотите настроить, будет отсутствовать.
+Например, не существует фрагмента <tt class="docutils literal"><code>textarea_errors</code></tt> в темах, предоставленных
+Symfony по умолчанию. Так как же отображаются ошибки для текстового поля?</p>
+<p>Ответ: через фрагмент <tt class="docutils literal"><code>form_errors</code></tt>. Когда Symfony отображает ошибки для типа
+текстового поля, она в первую очередь ищет фрагмент <tt class="docutils literal"><code>textarea_errors</code></tt> до того,
+как использовать резеврный фрагмент <tt class="docutils literal"><code>form_errors</code></tt>. Каждый тип поля имеет <em>родительский</em>
+тип (родительский тип <tt class="docutils literal"><code>textarea</code></tt> - <tt class="docutils literal"><code>text</code></tt>, а его родитель - <tt class="docutils literal"><code>form</code></tt>), и
+Symfony использует фрагмент для родительского типа, если базовый фрагмент не существует.</p>
+<p>Итак, чтобы переопределить ошибки <em>только</em> для полей <tt class="docutils literal"><code>textarea</code></tt>, скопируйте
+фрагмент <tt class="docutils literal"><code>form_errors</code></tt>, переименуйте его на <tt class="docutils literal"><code>textarea_errors</code></tt> и настройте его.
+Чтобы переопределить отображение ошибки по умолчанию для <em>всех</em> полей, скопируйте
+и настройте фрагмент <tt class="docutils literal"><code>form_errors</code></tt> напрямую.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">&quot;Родительский&quot; тип каждого типа поля доступен в
+<a class="reference internal" href="..\reference\forms\types.html"><em>справочнике типов полей</em></a>.</p>
+</div></div>
+</div>
+<div class="section" id="forms-theming-global-ru">
+<span id="index-3"></span><span id="id4"></span><h2>Глобальные темы<a class="headerlink" href="#forms-theming-global-ru" title="Permalink to this headline">¶</a></h2>
+<p>В примере выше, вы использовали помощник <tt class="docutils literal"><code>form_theme</code></tt> (в Twig), чтобы
+&quot;импортировать&quot; пользовательские фрагменты формы <em>только</em> в эту форму. Вы
+также можете сказать Symfony испортировать пользовательские формы по всему
+вашему проекту.</p>
+<div class="section" id="twig">
+<span id="forms-theming-twig-ru"></span><h3>Twig<a class="headerlink" href="#twig" title="Permalink to this headline">¶</a></h3>
+<p>Чтобы автоматически включить настроенные блоки из шаблона <tt class="docutils literal"><code>fields.html.twig</code></tt>,
+созданного ранее во <em>все</em> шаблоны, измените ваш файл конфигурации приложения:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/twig.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">twig</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">form_themes</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="s">&#39;form/fields.html.twig&#39;</span>
+    <span class="c1"># ...</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/twig.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:twig=</span><span class="s">&quot;http://symfony.com/schema/dic/twig&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/twig http://symfony.com/schema/dic/twig/twig-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;twig:config&gt;</span>
+        <span class="nt">&lt;twig:theme&gt;</span>form/fields.html.twig<span class="nt">&lt;/twig:theme&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;/twig:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/twig.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;twig&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;form_themes&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;form/fields.html.twig&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="c1">// ...</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Любые блоки внутри шаблона <tt class="docutils literal"><code>fields.html.twig</code></tt> теперь используются глобально,
+чтобы определить вывод формы.</p>
+<div class="admonition-wrapper">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Настройка вывода формы в единственном файле в Twig</p>
+<p>В Twig, вы также можете настроить блок формы прямо внутри шаблона, где
+требуется пользовательская настройка:</p>
+<div class="literal-block"><div class="highlight-html+twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;base.html.twig&#39;</span> <span class="cp">%}</span>
+
+<span class="c">{# имппортирует &quot;_self&quot; в качестве темы формы #}</span>
+<span class="cp">{%</span> <span class="k">form_theme</span> <span class="nv">form</span> <span class="nv">_self</span> <span class="cp">%}</span>
+
+<span class="c">{# настроить фрагмент формы #}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">form_row</span> <span class="cp">%}</span>
+    <span class="c">{# вывод строки пользователького поля #}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="nv">form_row</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+    <span class="c">{# ... #}</span>
+
+    <span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">form.task</span><span class="o">)</span> <span class="cp">}}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Тег <tt class="docutils literal"><code>{% form_theme form _self %}</code></tt> позволяет блокам формы быть настроенными
+прямо внутри шаблона, который будет использовать эти настройки. Используйте
+этот метод, чтобы быстро настроить вывод формы, который будет нужен только в
+одном шаблоне.</p>
+<div class="last admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Функция <tt class="docutils literal"><code>{% form_theme form _self %}</code></tt> будет работать <em>только</em>, если ваш
+шаблон расширяет другой. Если ваш шаблон этого не делает, вы должны направить
+<tt class="docutils literal"><code>form_theme</code></tt> на отдельный шаблон.</p>
+</div></div>
+</div></div>
+</div>
+<div class="section" id="php">
+<h3>PHP<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h3>
+<p>Чтобы автоматически включать настроенные шаблоны из каталога <tt class="docutils literal"><code>templates/form</code></tt>,
+созданного ранее во <em>все</em> щаблоны, измените ваш файл конфигурации приложения:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/packages/framework.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">framework</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">templating</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">form</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">resources</span><span class="p p-Indicator">:</span>
+                <span class="p p-Indicator">-</span> <span class="s">&#39;form&#39;</span>
+<span class="c1"># ...</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/packages/framework.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xmlns:framework=</span><span class="s">&quot;http://symfony.com/schema/dic/symfony&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd</span>
+<span class="s">        http://symfony.com/schema/dic/symfony http://symfony.com/schema/dic/symfony/symfony-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;framework:config&gt;</span>
+        <span class="nt">&lt;framework:templating&gt;</span>
+            <span class="nt">&lt;framework:form&gt;</span>
+                <span class="nt">&lt;framework:resource&gt;</span>form<span class="nt">&lt;/framework:resource&gt;</span>
+            <span class="nt">&lt;/framework:form&gt;</span>
+        <span class="nt">&lt;/framework:templating&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;/framework:config&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// config/packages/framework.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">loadFromExtension</span><span class="p">(</span><span class="s1">&#39;framework&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;templating&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;form&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;resources&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;form&#39;</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+    <span class="c1">// ...</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Любые фрагменты внутри каталога <tt class="docutils literal"><code>templates/form</code></tt> теперь используются
+глобально, чтобы определить вывод формы.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="form_themes.html">« How to Work with Form Themes</a>
+                <span class="separator">|</span>
+                <a href="inherit_data_option.html">How to Reduce Code Duplication with &#34;inherit_data&#34; »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

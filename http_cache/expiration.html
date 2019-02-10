@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Окочание действия HTTP-кеша &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="HTTP Cache" href="..\http_cache.html">
+    <link rel="next" title="Caching Pages that Contain CSRF Protected Forms" href="form_csrf_caching.html">
+    <link rel="prev" title="HTTP Cache Expiration" href="expiration.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="http_cache doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Окочание действия HTTP-кеша</a><ul>
+<li><a class="reference internal" href="#cache-control">Окончание действия с заголовком <tt class="docutils literal"><code>Cache-Control</code></tt></a></li>
+<li><a class="reference internal" href="#expires">Окончание действия с заголовком <tt class="docutils literal"><code>Expires</code></tt></a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\http_cache.html">HTTP Cache</a></li>
+                
+                <li class="active">Окочание действия HTTP-кеша</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="http">
+<span id="index-0"></span><h1>Окочание действия HTTP-кеша<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://tools.ietf.org/html/rfc2616#section-13.2">Модель окончания действия</a> - наиболее действенная и прямолинейная из двух кеширующих
+моделей, и должна быть использована во всех возможных случаях. Когда ответ кешируется
+со сроком окончания действия, кеш возвращает его напрямую, не обращаясь к приложению до
+того, как истечёт действие кешированного ответа.</p>
+<p>Модель окончания действия можно создать используя один из двух практически
+идентичных HTTP-заголовков: <tt class="docutils literal"><code>Expires</code></tt> или <tt class="docutils literal"><code>Cache-Control</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Окончание действия и валидация</p>
+<p>Конечно же, вы можете использовать и сроки окончания действия и валидацию в
+одном <tt class="docutils literal"><code>Response</code></tt>. Так как окончание действия выигрывает у валидации, вы можете
+с лёгкостью получить выгоду из обеих вещей. Другими словами, используя и валидацию,
+и окончание действия, вы можете проинструктировать кеш обслуживать кешированное
+содержание, при этом проводя проверки с некоторым интервалом (окончание действия),
+чтобы убедиться, что содержимое всё ещё валидно.</p>
+<div class="last admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Вы также можете определить кеширующие HTTP-заголовки для окончания действия и
+валидации, используя аннотации. Смотрите <a class="reference external" href="https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/cache.html">документацию FrameworkExtraBundle</a>.</p>
+</div></div>
+</div></div>
+<div class="section" id="cache-control">
+<span id="index-1"></span><h2>Окончание действия с заголовком <tt class="docutils literal"><code>Cache-Control</code></tt><a class="headerlink" href="#cache-control" title="Permalink to this headline">¶</a></h2>
+<p>В большинстве случаев вы будете использовать заголовок <tt class="docutils literal"><code>Cache-Control</code></tt>.
+Вспомните, что заголовок <tt class="docutils literal"><code>Cache-Control</code></tt> используется для указания многих
+разных кеш директив:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// устанавливает количество секунд, после которых ответ</span>
+<span class="c1">// больше не должен считаться свежим общими кешами</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setSharedMaxAge</span><span class="p">(</span><span class="mi">600</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Заголовок <tt class="docutils literal"><code>Cache-Control</code></tt> примет следующий формаи (он может иметь
+дополнительные директивы):</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>Cache-Control: public, s-maxage=600
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="expires">
+<span id="index-2"></span><h2>Окончание действия с заголовком <tt class="docutils literal"><code>Expires</code></tt><a class="headerlink" href="#expires" title="Permalink to this headline">¶</a></h2>
+<p>Альтернативой заголовку <tt class="docutils literal"><code>Cache-Control</code></tt> является <tt class="docutils literal"><code>Expires</code></tt>. В них нет преимуществ
+и недостатков: они просто представляют собой разные способы установки кеширования окончания
+действия в вашем ответе.</p>
+<p>По обозначению HTTP-спецификации, &quot;Поле заголовка``Expires`` предоставляет дату/время,
+после которых ответ считается просроченным.&quot; Заголовок <tt class="docutils literal"><code>Expires</code></tt> может быть установлен
+с помощью метода <tt class="docutils literal"><code>setExpires()</code></tt> <tt class="docutils literal"><code>Response</code></tt>. Он берёт экземпляр <tt class="docutils literal"><code>DateTime</code></tt> в качестве
+аргумента:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$date</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">();</span>
+<span class="nv">$date</span><span class="o">-&gt;</span><span class="na">modify</span><span class="p">(</span><span class="s1">&#39;+600 seconds&#39;</span><span class="p">);</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setExpires</span><span class="p">(</span><span class="nv">$date</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>В результате, HTTP-заголовок будет выглядеть так:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>Expires: Thu, 01 Mar 2011 16:00:00 GMT
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Метод <tt class="docutils literal"><code>setExpires()</code></tt> автоматически конвертирует дату во
+временной пояс GMT, как того требует спецификация.</p>
+</div></div>
+<p>Отметьте, что в HTTP-версиях до 1.1, первоначальный сервер не был обязан отправлять
+заголовок <tt class="docutils literal"><code>Date</code></tt>. Следовательно, кешу (например, браузеру) может быть необходимо
+положиться на локальные часы, чтоб оценить заголовок <tt class="docutils literal"><code>Expires</code></tt>, что делает расчёт
+жизненного цикла уязвимым к рассхинхронизации часов. Ещё одно ограничение заголовка
+<tt class="docutils literal"><code>Expires</code></tt> заключается в том, что &quot;Серверы HTTP/1.1 не должны отправлять даты
+<tt class="docutils literal"><code>Expires</code></tt> далее, чем на один год в будущем.&quot;</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Согласно <a class="reference external" href="https://tools.ietf.org/html/rfc7234#section-4.2.1">RFC 7234 - Caching</a>, значение заголовка <tt class="docutils literal"><code>Expires</code></tt> игнорируется,
+когда определена директива <tt class="docutils literal"><code>s-maxage</code></tt> или <tt class="docutils literal"><code>max-age</code></tt> заголовка <tt class="docutils literal"><code>Cache-Control</code></tt>.</p>
+</div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="expiration.html">« HTTP Cache Expiration</a>
+                <span class="separator">|</span>
+                <a href="form_csrf_caching.html">Caching Pages that Contain CSRF Protected Forms »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

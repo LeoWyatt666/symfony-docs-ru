@@ -1,0 +1,647 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>UniqueEntity &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/" type="text/css">
+    <link rel="stylesheet" href="..\..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\..\index.html">
+
+<link rel="stylesheet" href="..\..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="reference doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\..\index.html">
+                    <img src="..\..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">UniqueEntity</a><ul>
+<li><a class="reference internal" href="#id1">Базовое применение</a></li>
+<li><a class="reference internal" href="#id2">Опции</a><ul>
+<li><a class="reference internal" href="#fields">fields</a></li>
+<li><a class="reference internal" href="#message">message</a></li>
+<li><a class="reference internal" href="#em">em</a></li>
+<li><a class="reference internal" href="#repositorymethod">repositoryMethod</a></li>
+<li><a class="reference internal" href="#entityclass">entityClass</a></li>
+<li><a class="reference internal" href="#errorpath">errorPath</a></li>
+<li><a class="reference internal" href="#ignorenull">ignoreNull</a></li>
+<li><a class="reference internal" href="#payload">payload</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\..\index.html">Документация</a></li>
+                
+                <li class="active">UniqueEntity</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="uniqueentity">
+<h1>UniqueEntity<a class="headerlink" href="#uniqueentity" title="Permalink to this headline">¶</a></h1>
+<p>Валидирует, что конкретное поле (или поля) в сущности Doctrine является (являются)
+уникальным(и). Это часто используется, например, чтобы предотвратить регистрацию
+нового пользователя с использованием уже существующего в системе электронного адреса.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%">
+<col width="84%">
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Применяется к</td>
+<td><a class="reference internal" href="..\..\validation.html#validation-class-target"><span>классу</span></a></td>
+</tr>
+<tr class="row-even"><td>Опции</td>
+<td><ul class="first last simple">
+<li><a class="reference internal" href="#fields">fields</a></li>
+<li><a class="reference internal" href="#message">message</a></li>
+<li><a class="reference internal" href="#em">em</a></li>
+<li><a class="reference internal" href="#repositorymethod">repositoryMethod</a></li>
+<li><a class="reference internal" href="#entityclass">entityClass</a></li>
+<li><a class="reference internal" href="#errorpath">errorPath</a></li>
+<li><a class="reference internal" href="#ignorenull">ignoreNull</a></li>
+<li><a class="reference internal" href="#payload">payload</a></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>Класс</td>
+<td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bridge/Doctrine/Validator/Constraints/UniqueEntity.html" title="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity">UniqueEntity</a></code></tt></td>
+</tr>
+<tr class="row-even"><td>Валидатор</td>
+<td><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bridge/Doctrine/Validator/Constraints/UniqueEntityValidator.html" title="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator">UniqueEntityValidator</a></code></tt></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>Базовое применение<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Представьте, что у вас есть сущность <tt class="docutils literal"><code>User</code></tt>, которая имеет
+поле <tt class="docutils literal"><code>email</code></tt>. Вы можете использовать ограничение <tt class="docutils literal"><code>UniqueEntity</code></tt>, чтобы гарантировать,
+что поле <tt class="docutils literal"><code>email</code></tt> остаётся уникальным между всеми ограничениями в вашей таблице
+пользователей:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Author.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\ORM\Mapping</span> <span class="k">as</span> <span class="nx">ORM</span><span class="p">;</span>
+
+<span class="c1">// НЕ ЗАБУДЬТЕ использовать это утверждение!!!</span>
+<span class="k">use</span> <span class="nx">Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @ORM\Entity</span>
+<span class="sd"> * @UniqueEntity(&quot;email&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Author</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @var string $email</span>
+<span class="sd">     *</span>
+<span class="sd">     * @ORM\Column(name=&quot;email&quot;, type=&quot;string&quot;, length=255, unique=true)</span>
+<span class="sd">     * @Assert\Email()</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$email</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/validator/validation.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">App\Entity\Author</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">constraints</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">email</span>
+    <span class="l l-Scalar l-Scalar-Plain">properties</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">email</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Email</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/validator/validation.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;constraint-mapping</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;App\Entity\Author&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;fields&quot;</span><span class="nt">&gt;</span>email<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;/constraint&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;email&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Email&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/class&gt;</span>
+<span class="nt">&lt;/constraint-mapping&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Author.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Constraints</span> <span class="k">as</span> <span class="nx">Assert</span><span class="p">;</span>
+
+<span class="c1">// НЕ ЗАБУДЬТЕ использовать это утверждение!!!</span>
+<span class="k">use</span> <span class="nx">Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Author</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">loadValidatorMetadata</span><span class="p">(</span><span class="nx">ClassMetadata</span> <span class="nv">$metadata</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$metadata</span><span class="o">-&gt;</span><span class="na">addConstraint</span><span class="p">(</span><span class="k">new</span> <span class="nx">UniqueEntity</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;fields&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span>
+        <span class="p">)));</span>
+
+        <span class="nv">$metadata</span><span class="o">-&gt;</span><span class="na">addPropertyConstraint</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Assert\Email</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Опции<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fields">
+<h3>fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> | <tt class="docutils literal"><code>string</code></tt> [<a class="reference internal" href="..\..\validation.html#validation-default-option"><span>опция по умолчанию</span></a>]</p>
+<p>Эта обязательная опция является полем (или списком полей), в котором данная
+сущность должна быть уникальной. Например, если вы указали оба поля <tt class="docutils literal"><code>email</code></tt>
+и <tt class="docutils literal"><code>name</code></tt> в одном ограничении <tt class="docutils literal"><code>UniqueEntity</code></tt>, то оно будет требовать, чтобы
+значение комбинации было уникальным (например, два пользователя могут иметь
+одинаковый электронный адрес, если имена у них разные).</p>
+<p>Если вам нужно требовать, чтобы два поля были уникальны индивидуально (например,
+уникальный <tt class="docutils literal"><code>email</code></tt> <em>и</em> уникальный <tt class="docutils literal"><code>username</code></tt>), то вы используете две записи
+<tt class="docutils literal"><code>UniqueEntity</code></tt>, каждую с одним полем.</p>
+</div>
+<div class="section" id="message">
+<h3>message<a class="headerlink" href="#message" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>Это значение уже используется.</code></tt></p>
+<p>Сообщение, отображаемое, когда ограничение неудачно. Это сообщение всегда привязано
+к первому полю, вызывающему нарушение, даже при использовании нескольких полей в
+ограничении.</p>
+<p>Сообщения могут включать в себя заполнитель <tt class="docutils literal"><code>{{ value }}</code></tt>, чтобы отображать строчное
+представление невалидной записи. Если запись не определяет метод <tt class="docutils literal"><code>__toString()</code></tt>, то
+будет использовано следующее общее значение: <em>&quot;Объект класса __CLASS__ идентифицируется &lt;comma separated IDs&gt;&quot;</em></p>
+</div>
+<div class="section" id="em">
+<h3>em<a class="headerlink" href="#em" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></p>
+<p>Имя менеджера сущностей, используемого для создания запроса для определения
+уникальности. Если оно пустое, то правильный менеджер сущностей будетопределён
+для этого класса. По этой причине, эту опцию наверное лучше не использовать.</p>
+</div>
+<div class="section" id="repositorymethod">
+<h3>repositoryMethod<a class="headerlink" href="#repositorymethod" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>findBy()</code></tt></p>
+<p>Имя метода хранилища, используемого для создания запроса для определения
+уникальности. Если оно пустое, то будет использован метод <tt class="docutils literal"><code>findBy()</code></tt>.
+Этот метод должен возвращать вычисляемый результат.</p>
+</div>
+<div class="section" id="entityclass">
+<h3>entityClass<a class="headerlink" href="#entityclass" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></p>
+<p>По умолчанию, запрос, выполняемый для гарантирования униикальности использования
+хранилища текущим экземпляром класса. Однако, в некоторых случаях, например, при
+использовании маршрутов наследия Doctrine, вам нужно выполнить запрос в другом
+хранилище. Используйте эту опцию, чтобы определить полное имя класса (FQCN) сущности
+Doctrine, связанной с хранилищем, которое вы хотите использовать.</p>
+</div>
+<div class="section" id="errorpath">
+<h3>errorPath<a class="headerlink" href="#errorpath" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: Имя первого поля в <a class="reference internal" href="#fields">fields</a></p>
+<p>Если сущность нарушает ограничение, то сообщение об ошибке привязано к
+первому полю в <a class="reference internal" href="#fields">fields</a>. Если существует больше одного поля, вы можете
+захотеть связать сообщение об ошибке с другим полем.</p>
+<p>Рассмотрите этот пример:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Annotations</em><div class="literal-block"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Service.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Doctrine\ORM\Mapping</span> <span class="k">as</span> <span class="nx">ORM</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @ORM\Entity</span>
+<span class="sd"> * @UniqueEntity(</span>
+<span class="sd"> *     fields={&quot;host&quot;, &quot;port&quot;},</span>
+<span class="sd"> *     errorPath=&quot;port&quot;,</span>
+<span class="sd"> *     message=&quot;Этот порт уже используется на данном хосте.&quot;</span>
+<span class="sd"> * )</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Service</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\ManyToOne(targetEntity=&quot;Host&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="nv">$host</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Column(type=&quot;integer&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="nv">$port</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config/validator/validation.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">App\Entity\Service</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">constraints</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">fields</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">host</span><span class="p p-Indicator">,</span> <span class="nv">port</span><span class="p p-Indicator">]</span>
+            <span class="l l-Scalar l-Scalar-Plain">errorPath</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">port</span>
+            <span class="l l-Scalar l-Scalar-Plain">message</span><span class="p p-Indicator">:</span> <span class="s">&#39;Этот</span><span class="nv"> </span><span class="s">порт</span><span class="nv"> </span><span class="s">уже</span><span class="nv"> </span><span class="s">используется</span><span class="nv"> </span><span class="s">на</span><span class="nv"> </span><span class="s">данном</span><span class="nv"> </span><span class="s">хосте.&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- config/validator/validation.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;constraint-mapping</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;App\Entity\Service&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;fields&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;value&gt;</span>host<span class="nt">&lt;/value&gt;</span>
+                <span class="nt">&lt;value&gt;</span>port<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;errorPath&quot;</span><span class="nt">&gt;</span>port<span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;message&quot;</span><span class="nt">&gt;</span>Этот порт уже используется на данном хосте.<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;/constraint&gt;</span>
+    <span class="nt">&lt;/class&gt;</span>
+
+<span class="nt">&lt;/constraint-mapping&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Entity/Service.php</span>
+<span class="k">namespace</span> <span class="nx">App\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\Validator\Mapping\ClassMetadata</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Service</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$host</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$port</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">loadValidatorMetadata</span><span class="p">(</span><span class="nx">ClassMetadata</span> <span class="nv">$metadata</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$metadata</span><span class="o">-&gt;</span><span class="na">addConstraint</span><span class="p">(</span><span class="k">new</span> <span class="nx">UniqueEntity</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;fields&#39;</span>    <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;errorPath&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;port&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;message&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;Этот порт уже используется на данном хосте.&#39;</span><span class="p">,</span>
+        <span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Теперь, сообщение будет привязано к полю <tt class="docutils literal"><code>port</code></tt> с этой конфигурацией.</p>
+</div>
+<div class="section" id="ignorenull">
+<h3>ignoreNull<a class="headerlink" href="#ignorenull" title="Permalink to this headline">¶</a></h3>
+<p><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>true</code></tt></p>
+<p>Если эта опция установлена, как <tt class="docutils literal"><code>true</code></tt>, то ограничение позволит нескольким
+сущностям иметь в поле значение <tt class="docutils literal"><code>null</code></tt>, а валидация будет успешной. Если установлена,
+как <tt class="docutils literal"><code>false</code></tt>, то позволено только одно значение <tt class="docutils literal"><code>null</code></tt> - если вторая сущность
+также имеет значение <tt class="docutils literal"><code>null</code></tt>, валидация будет неудачной.</p>
+</div>
+<div class="section" id="payload">
+<h3>payload<a class="headerlink" href="#payload" title="Permalink to this headline">¶</a></h3>
+<p><strong>type</strong>: <tt class="docutils literal"><code>mixed</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>null</code></tt></p>
+<p>This option can be used to attach arbitrary domain-specific data to a constraint.
+The configured payload is not used by the Validator component, but its processing
+is completely up to you.</p>
+<p>For example, you may want to use
+<a class="reference internal" href="..\..\validation\severity.html"><em>several error levels</em></a> to present failed
+constraints differently in the front-end depending on the severity of the
+error.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Создание проекта &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="best_practices doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Создание проекта</a><ul>
+<li><a class="reference internal" href="#symfony">Установка Symfony</a></li>
+<li><a class="reference internal" href="#windows-systems-ru">Создание приложения блога</a></li>
+<li><a class="reference internal" href="#id3">Структурирование приложения</a><ul>
+<li><a class="reference internal" href="#id4">Пакеты приложения</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Создание проекта</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>Создание проекта<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="symfony">
+<h2>Установка Symfony<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Используйте Composer И Symfony Flex, чтобы создавать и управлять проектами
+Symfony.</p>
+</div></div>
+<p><a class="reference external" href="https://getcomposer.org/">Composer</a> - это менеджер пакетов, используемый современными PHP приложениями для
+управления их зависимостями. <a class="reference external" href="https://github.com/symfony/flex">Symfony Flex</a> - это плагин Composer, созданный для
+автоматизации некоторых наиболее распространённых задач, выполняемых в приложениях
+Symfony. Использования Flex необязательно, но рекомендовано, так как он значительно
+улучшает вашу продуктивность.</p>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Используйте Symfony Skeleton, чтобы создавать новые проекты, основанные
+на Symfony.</p>
+</div></div>
+<p><a class="reference external" href="https://github.com/symfony/skeleton">Symfony Skeleton</a> - это минимальный пустой проект Symfony, на котором вы можете
+основывать ваши проекты. В отличие от предыдущих версий Symfony, этот скелет устанавливает
+абсолютное минимальное количество зависимостей для создания полностью рабочего проекта
+Symfony. Прочтите статью <a class="reference internal" href="..\setup.html"><em>Installing &amp; Setting up the Symfony Framework</em></a>, чтобы узнать больше об установке Symfony.</p>
+</div>
+<div class="section" id="windows-systems-ru">
+<span id="linux-and-mac-os-x-systems-ru"></span><span id="id2"></span><h2>Создание приложения блога<a class="headerlink" href="#windows-systems-ru" title="Permalink to this headline">¶</a></h2>
+<p>В вашей консоли команд, найдите каталог, где у вас есть разрешение создавать
+файлы и выполнять следующие команды:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> projects/
+<span class="gp">$</span> composer create-project symfony/skeleton blog
+</pre></div>
+</td></tr></table></div></div>
+<p>Эта команда создаёт новый каталог под названием <tt class="docutils literal"><code>blog</code></tt>, который содержит новый
+свежий проект, основанный на наиболее новой стабильной доступной версии Symfony.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Технические требования для запуска Symfony просты. Если вы хотите проверить,
+соответствует ли ваша система этим требованиям, прочтите <a class="reference internal" href="..\reference\requirements.html"><em>Requirements for Running Symfony</em></a>.</p>
+</div></div>
+</div>
+<div class="section" id="id3">
+<h2>Структурирование приложения<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>После создания приложения, войдите в каталог <tt class="docutils literal"><code>blog/</code></tt>, и вы увидите перечень
+файлов и каталогов, созданных автоматически:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span>blog/
+├─ bin/
+│  └─ console
+├─ config/
+└─ public/
+│  └─ index.php
+├─ src/
+│  └─ Kernel.php
+├─ var/
+│  ├─ cache/
+│  └─ log/
+└─ vendor/
+</pre></div>
+</td></tr></table></div></div>
+<p>Эта иерархия файлов и каталогов является соглашением, предложенным Symfony для
+структурирования ваших приложений. Рекомендуется оставить такую структуру, так
+как она простая в навигации и большинство имён каталогов не требуют разъяснений,
+но вы можете <a class="reference internal" href="..\configuration\override_dir_structure.html"><em>переопределить расположение любого каталога Symfony</em></a>:</p>
+<div class="section" id="id4">
+<h3>Пакеты приложения<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Когда была выпущена Symfony 2.0, большинство разработчиков естественно приняли
+способ symfony 1.x для разделения приложений на логические модули. Поэтому многие
+приложения Symfony использовали пакеты, чтобы делить свой код на логические функции:
+UserBundle, ProductBundle, InvoiceBundle, и т.д.</p>
+<p>Но пакет <em>должен</em> быть чем-то, что может быть использовано повторно в качестве
+отдельной части ПО. Если UserBundle не может быть использован <em>&quot;сам по себе&quot;</em> в
+других приложениях Symfony, то он не должен быть собственным пакетом. Более того,
+если InvoiceBundle зависит от ProductBundle, то преимущества в содержании двух
+отдельных пакетов нет.</p>
+<div class="admonition-best-practice admonition best-practice">
+<p class="first admonition-title">Best Practice</p>
+<p class="last">Не создавайте пакетов для организации логики вашего приложения.</p>
+</div></div>
+<p>Приложения Symfony всё ещё могут использовать сторонние пакеты (установленные
+в <tt class="docutils literal"><code>vendor/</code></tt>) для добавления функций, но для организации вашего кода вам стоит
+использовать пространства имён PHP вместо пакетов.</p>
+<hr class="docutils">
+<p>Далее: <a class="reference internal" href="configuration.html"><em>Configuration</em></a></p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    
+
+
+
+  </body>
+</body></html>

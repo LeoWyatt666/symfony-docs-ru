@@ -1,0 +1,509 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как использовать Varnish для ускорения моего сайта &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="HTTP Cache" href="..\http_cache.html">
+    <link rel="next" title="Logging with Monolog" href="..\logging.html">
+    <link rel="prev" title="How to Use Varnish to Speed up my Website" href="varnish.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="http_cache doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как использовать Varnish для ускорения моего сайта</a><ul>
+<li><a class="reference internal" href="#symfony">Заставляем Symfony доверять обратному прокси</a></li>
+<li><a class="reference internal" href="#x-forwarded">Маршрутизация и заголовки X-FORWARDED</a></li>
+<li><a class="reference internal" href="#cookie">Cookie и кеширование</a></li>
+<li><a class="reference internal" href="#id1">Гарантия последовательного поведения кеширования</a></li>
+<li><a class="reference internal" href="#edge-side-includes-esi">Активация включений крайней стороны (Edge Side Includes (ESI))</a></li>
+<li><a class="reference internal" href="#index-2">Инвалидация кеширования</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\http_cache.html">HTTP Cache</a></li>
+                
+                <li class="active">Как использовать Varnish для ускорения моего сайта</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="varnish">
+<span id="index-0"></span><h1>Как использовать Varnish для ускорения моего сайта<a class="headerlink" href="#varnish" title="Permalink to this headline">¶</a></h1>
+<p>Так как кеш Symfony использует стандартные HTTP кеш заголовки, <a class="reference internal" href="..\http_cache.html#symfony-gateway-cache"><span>Symfony Reverse Proxy</span></a>
+может быть с лёгкостью заменён любым другим обратным прокси. <a class="reference external" href="https://www.varnish-cache.org">Varnish</a> - это мощный открытый
+HTTP-акселератор, способный быстро обслуживать кешированное содержание, включая поддержку
+<a class="reference internal" href="esi.html"><em>Edge Side Includes</em></a>.</p>
+<div class="section" id="symfony">
+<span id="index-1"></span><h2>Заставляем Symfony доверять обратному прокси<a class="headerlink" href="#symfony" title="Permalink to this headline">¶</a></h2>
+<p>Varnish автоматически пересылает IP как <tt class="docutils literal"><code>X-Forwarded-For</code></tt> и оставляет загловок
+<tt class="docutils literal"><code>X-Forwarded-Proto</code></tt> в запросе. Если вы не сконфигурируете Varnish как доверенный
+прокси, то Symfony будет видеть все запросы, как исходящие от незащищённых HTTP
+соединений хоста Varnish, а не от реального клиента.</p>
+<p>Не забудьте вызвать метод <a class="reference internal" href="..\deployment\proxies.html#request-set-trusted-proxies"><span>Request::setTrustedProxies()</span></a>
+в вашем фронт-контроллере, чтобы Varnish выглядел как доверенный прокси и были
+использованы заголовки <a class="reference internal" href="varnish.html#varnish-x-forwarded-headers"><span>X-Forwarded-*</span></a>.</p>
+</div>
+<div class="section" id="x-forwarded">
+<span id="varnish-x-forwarded-headers-ru"></span><h2>Маршрутизация и заголовки X-FORWARDED<a class="headerlink" href="#x-forwarded" title="Permalink to this headline">¶</a></h2>
+<p>Чтобы убедиться в том, что маршрутизатор Symfony правильно генерирует URL с
+Varnish, должен присутствовать заголовок <tt class="docutils literal"><code>X-Forwarded-Port</code></tt>, чтобы Symfony
+использовала правильный номер порта.</p>
+<p>Этот номер порта соответствует тому, что использует ваша установка для извлечения
+внешних связей (<tt class="docutils literal"><code>80</code></tt> - значение по умолчанию для HTTP-соединений). Если приложение
+также принимает HTTP-соединения, то может быть ещё один прокси (так как Varnish сам
+не делает HTTPS) в порту HTTPS по умолчанию 443, который обрабатывает завершение SSL
+и переселыает запросы как HTTP-запросы в Varnish с заголовком <tt class="docutils literal"><code>X-Forwarded-Proto</code></tt>.
+В этом случае, вам нужно добавить следующий отрезок конфигурации:</p>
+<div class="literal-block"><div class="highlight-varnish4"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">sub</span> <span class="n">vcl_recv</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">Proto</span> <span class="o">==</span> <span class="s">&quot;https&quot;</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="n">set</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">Port</span> <span class="o">=</span> <span class="s">&quot;443&quot;</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">set</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">Port</span> <span class="o">=</span> <span class="s">&quot;80&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="cookie">
+<h2>Cookie и кеширование<a class="headerlink" href="#cookie" title="Permalink to this headline">¶</a></h2>
+<p>По умолчанию, здравый кеширующий прокси, не кеширует ничего, если запрос отправлен
+с <a class="reference internal" href="..\http_cache.html#http-cache-introduction"><span>cookie или базовым заголовком аутентификации</span></a>.
+Это потому, что содержимое страницы должно зависеть от значения cookie или заголовка
+аутентификации.</p>
+<p>Если вы точно знаете, что выходной буфер никогда не использовает сессии или
+базовую аутентификацию, сделайте так, чтобы Varnish удалил соответствующий
+загловок из запросов, чтобы предотвратить клиентов от обхода кеширования. На
+практике, вам понадобятся сессии как минимум для некоторых частей сайта, например,
+при использовании форм с <a class="reference internal" href="..\security\csrf.html"><em>CSRF-защитой</em></a>. В этой
+ситуации, убедитесь, что вы <a class="reference internal" href="..\session\avoid_session_start.html"><em>начинаете сессию только тогда, когда это действительно нужно</em></a>
+и очищаете сессию, когда она уже не нужна. Как вариант, вы можете рассмотреть
+<a class="reference internal" href="form_csrf_caching.html"><em>Caching Pages that Contain CSRF Protected Forms</em></a>.</p>
+<p>Cookie, созданные в JavaScript и использованные только в входном буфере (фронт-енде),
+например, при использовании Google Analytics, тем не менее отправляются серверу. Эти
+cookie неважны для выходного буфера и не должны влиять на решение кешироваия. Сконфигурируйте
+ваш кеш Varnish, чтобы он <a class="reference external" href="https://www.varnish-cache.org/trac/wiki/VCLExampleRemovingSomeCookies">очищал заголовок cookie</a>. Вам стоит оставить cookie сессии,
+если он есть, и избавиться от всех остальных, чтобы страницы кешировались, если активной
+сессии нет. Если вы изменяли конфигурацию PHP по умолчанию, то ваш cookie сессии имеет имя
+<tt class="docutils literal"><code>PHPSESSID</code></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Varnish 4</em><div class="literal-block"><div class="highlight-varnish4"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">sub</span> <span class="n">vcl_recv</span> <span class="p">{</span>
+    <span class="c1">// Удалить все cookie, кроме ID сессии.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">set</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span> <span class="o">=</span> <span class="s">&quot;;&quot;</span> <span class="o">+</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span><span class="p">;</span>
+        <span class="n">set</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span> <span class="o">=</span> <span class="n">regsuball</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span><span class="p">,</span> <span class="s">&quot;; +&quot;</span><span class="p">,</span> <span class="s">&quot;;&quot;</span><span class="p">);</span>
+        <span class="n">set</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span> <span class="o">=</span> <span class="n">regsuball</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span><span class="p">,</span> <span class="s">&quot;;(PHPSESSID)=&quot;</span><span class="p">,</span> <span class="s">&quot;; </span><span class="se">\1</span><span class="s">=&quot;</span><span class="p">);</span>
+        <span class="n">set</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span> <span class="o">=</span> <span class="n">regsuball</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span><span class="p">,</span> <span class="s">&quot;;[^ ][^;]*&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+        <span class="n">set</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span> <span class="o">=</span> <span class="n">regsuball</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span><span class="p">,</span> <span class="s">&quot;^[; ]+|[; ]+$&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Если cookie больше нет, удалите заголовок для кеширования страницы.</span>
+            <span class="n">unset</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>Varnish 3</em><div class="literal-block"><div class="highlight-varnish3"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">sub</span> <span class="n">vcl_recv</span> <span class="p">{</span>
+    <span class="c1">// Удалить все cookie, кроме ID сессии.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">set</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span> <span class="o">=</span> <span class="s">&quot;;&quot;</span> <span class="o">+</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span><span class="p">;</span>
+        <span class="n">set</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span> <span class="o">=</span> <span class="n">regsuball</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span><span class="p">,</span> <span class="s">&quot;; +&quot;</span><span class="p">,</span> <span class="s">&quot;;&quot;</span><span class="p">);</span>
+        <span class="n">set</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span> <span class="o">=</span> <span class="n">regsuball</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span><span class="p">,</span> <span class="s">&quot;;(PHPSESSID)=&quot;</span><span class="p">,</span> <span class="s">&quot;; </span><span class="se">\1</span><span class="s">=&quot;</span><span class="p">);</span>
+        <span class="n">set</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span> <span class="o">=</span> <span class="n">regsuball</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span><span class="p">,</span> <span class="s">&quot;;[^ ][^;]*&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+        <span class="n">set</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span> <span class="o">=</span> <span class="n">regsuball</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span><span class="p">,</span> <span class="s">&quot;^[; ]+|[; ]+$&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Если cookie больше нет, удалите заголовок для кеширования страницы.</span>
+            <span class="n">remove</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cookie</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если содержимое не отличается для каждого пользователя, но зависит от ролей
+пользователя, то решением будет разделять кеширование по группам. Эта схема
+реализуется и объясняется <a class="reference external" href="http://foshttpcachebundle.readthedocs.org/">FOSHttpCacheBundle</a> под названием <a class="reference external" href="http://foshttpcachebundle.readthedocs.org/en/latest/features/user-context.html">Контекст пользователя</a>.</p>
+</div></div>
+</div>
+<div class="section" id="id1">
+<h2>Гарантия последовательного поведения кеширования<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Varnish использует заголовки кеша, отправленные вашим приложением,
+чтобы определить, как кешировать содержимое. Однако, версии Varnish до 4
+не уважали <tt class="docutils literal"><code>Cache-Control: no-cache</code></tt>, <tt class="docutils literal"><code>no-store</code></tt> и <tt class="docutils literal"><code>private</code></tt>. Чтобы
+гарантировать последовательное поведение, используйте следуюзую конфигурацию,
+если вы всё ещё используете Varnish 3:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Varnish 3</em><div class="literal-block"><div class="highlight-varnish3"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">sub</span> <span class="n">vcl_fetch</span> <span class="p">{</span>
+    <span class="cm">/* По умолчанию, Varnish3 игнорирует Cache-Control: no-cache и private</span>
+<span class="cm">       https://www.varnish-cache.org/docs/3.0/tutorial/increasing_your_hitrate.html#cache-control</span>
+<span class="cm">     */</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">beresp</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cache</span><span class="o">-</span><span class="n">Control</span> <span class="o">~</span> <span class="s">&quot;private&quot;</span> <span class="o">||</span>
+        <span class="n">beresp</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cache</span><span class="o">-</span><span class="n">Control</span> <span class="o">~</span> <span class="s">&quot;no-cache&quot;</span> <span class="o">||</span>
+        <span class="n">beresp</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Cache</span><span class="o">-</span><span class="n">Control</span> <span class="o">~</span> <span class="s">&quot;no-store&quot;</span>
+    <span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">hit_for_pass</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Вы можете увидеть поведение Varnish по умолчанию в форме VCL-файла:
+<a class="reference external" href="https://github.com/varnish/Varnish-Cache/blob/3.0/bin/varnishd/default.vcl">default.vcl</a> для Varnish 3, <a class="reference external" href="https://github.com/varnish/Varnish-Cache/blob/4.1/bin/varnishd/builtin.vcl">builtin.vcl</a> для Varnish 4.</p>
+</div></div>
+</div>
+<div class="section" id="edge-side-includes-esi">
+<h2>Активация включений крайней стороны (Edge Side Includes (ESI))<a class="headerlink" href="#edge-side-includes-esi" title="Permalink to this headline">¶</a></h2>
+<p>Как объясняется в <a class="reference internal" href="esi.html"><em>статье об ESI</em></a>, Symfony определяет,
+общается она с обратным прокси, понимающим ESI, или нет. Когда вы используете
+обратный прокси Symfony, вам не нужно ничего делать. Но чтобы заставить Varnish
+разрешать ESI-теги вместо Symfony, вам нужна некоторая конфигурация в Varnish.
+Symfony использует заголовок <tt class="docutils literal"><code>Surrogate-Capability</code></tt> из <a class="reference external" href="http://www.w3.org/TR/edge-arch">Edge Architecture</a>,
+описанный Akamai.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Varnish поддерживает только атрибут <tt class="docutils literal"><code>src</code></tt> для ESI-тегов (атрибуты <tt class="docutils literal"><code>onerror</code></tt>
+и <tt class="docutils literal"><code>alt</code></tt> игнорируются).</p>
+</div></div>
+<p>Для начала, сконфигурируйте Varnish так, чтобы он афишировал свою поддержку
+ESI путём добавления заголовка <tt class="docutils literal"><code>Surrogate-Capability</code></tt> в запросы, пересылаемые
+приложению выходного буфера:</p>
+<div class="literal-block"><div class="highlight-varnish4"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">sub</span> <span class="n">vcl_recv</span> <span class="p">{</span>
+    <span class="c1">// Добавить заголовок Surrogate-Capability, чтобы афишировать поддержку ESI.</span>
+    <span class="n">set</span> <span class="n">req</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Surrogate</span><span class="o">-</span><span class="n">Capability</span> <span class="o">=</span> <span class="s">&quot;abc=ESI/1.0&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Часть заголовка <tt class="docutils literal"><code>abc</code></tt> неважна, кроме случаев, если у вас множество
+&quot;сурогатов&quot;, которые должны афишировать свои возможности. Смотрите
+<a class="reference external" href="http://www.w3.org/TR/edge-arch">Заголовок Surrogate-Capability</a>, чтобы узнать детали.</p>
+</div></div>
+<p>Далее, оптимизируйте Varnish так, чтобы он анализировал содержимое
+ответа только тогда, когда в нём есть хотя бы один ESI-тег, проверяя
+заголовок <tt class="docutils literal"><code>Surrogate-Control</code></tt>, который Symfony добавляет автоматически:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>Varnish 4</em><div class="literal-block"><div class="highlight-varnish4"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">sub</span> <span class="n">vcl_backend_response</span> <span class="p">{</span>
+    <span class="c1">// Проверить подтверждение ESI и удалить заголовок Surrogate-Control</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">beresp</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Surrogate</span><span class="o">-</span><span class="n">Control</span> <span class="o">~</span> <span class="s">&quot;ESI/1.0&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">unset</span> <span class="n">beresp</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Surrogate</span><span class="o">-</span><span class="n">Control</span><span class="p">;</span>
+        <span class="n">set</span> <span class="n">beresp</span><span class="p">.</span><span class="n">do_esi</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>Varnish 3</em><div class="literal-block"><div class="highlight-varnish3"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">sub</span> <span class="n">vcl_fetch</span> <span class="p">{</span>
+    <span class="c1">// Проверить подтверждение ESI и удалить заголовок Surrogate-Control</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">beresp</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Surrogate</span><span class="o">-</span><span class="n">Control</span> <span class="o">~</span> <span class="s">&quot;ESI/1.0&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">unset</span> <span class="n">beresp</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">Surrogate</span><span class="o">-</span><span class="n">Control</span><span class="p">;</span>
+        <span class="n">set</span> <span class="n">beresp</span><span class="p">.</span><span class="n">do_esi</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Если вы последовали совету о гарантировании последовательного
+поведеия кеширования, то эти VCL-функции уже существуют. Просто
+добавьте код к концу функции, они не будут мешать друг другу.</p>
+</div></div>
+</div>
+<div class="section" id="index-2">
+<span id="id2"></span><h2>Инвалидация кеширования<a class="headerlink" href="#index-2" title="Permalink to this headline">¶</a></h2>
+<p>Если вы хотите кешировать содержимое, которое часто меняется, и всё
+равно отправлять пользователям наиболее свежую версию, то вам нужно
+инвалидировать это содержимое. В то время, как <a class="reference internal" href="#id2">инвалидация кеширования</a>
+позволяет вам извлекать содержимое из вашего прокси до того, как истечёт
+срок действия, она добавляет сложности вашей установке кеширования.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p><a class="reference external" href="http://foshttpcachebundle.readthedocs.org/">FOSHttpCacheBundle</a> открытого доступа избавляет от головной боли с
+инвалидацией, помогая вам организовать вашу установку кеширования и
+инвалидации.</p>
+<p class="last">Документация <a class="reference external" href="http://foshttpcachebundle.readthedocs.org/">FOSHttpCacheBundle</a> разъясняет, как сконфигурировать
+Varnish и другие обратные прокси для инвалидации кеширования.</p>
+</div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="varnish.html">« How to Use Varnish to Speed up my Website</a>
+                <span class="separator">|</span>
+                <a href="..\logging.html">Logging with Monolog »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

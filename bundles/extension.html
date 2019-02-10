@@ -1,0 +1,414 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как загружать конфигурацию сервиса внутри пакета &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="bundles doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как загружать конфигурацию сервиса внутри пакета</a><ul>
+<li><a class="reference internal" href="#id2">Создание класса расширения</a><ul>
+<li><a class="reference internal" href="#id3">Ручная регистрация класса расширения</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#load">Использование метода <tt class="docutils literal"><code>load()</code></tt></a><ul>
+<li><a class="reference internal" href="#id4">Использование конфигурации для изменения сервисов</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">Добавление классов для компиляции</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Как загружать конфигурацию сервиса внутри пакета</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как загружать конфигурацию сервиса внутри пакета<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Сервисы, созданные пакетами, не определяются в основном файле
+<tt class="docutils literal"><code>config/services.yaml</code></tt>, используемом приложением, а определяются
+в самих пакетах. Эта статья объясняет, как создавать и загружать такие
+файлы сервисов пакета.</p>
+<div class="section" id="id2">
+<h2>Создание класса расширения<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Для того, чтобы загружать конфигурацию сервисов, вам нужно создать Расширение
+внедрения зависимости (ВЗ) для вашего пакета. По умолчанию, класс Расширения
+должен следовать таким соглашениям (но позже вы узнаете, как их пропускать,
+если это необходимо):</p>
+<ul class="simple">
+<li>Оно должно жить в пространстве имён <tt class="docutils literal"><code>DependencyInjection</code></tt> пакета;</li>
+<li>Оно должно реализовывать <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DependencyInjection/Extension/ExtensionInterface.html" title="Symfony\Component\DependencyInjection\Extension\ExtensionInterface">ExtensionInterface</a></code></tt>,
+что обычно достигается путём расширения класса <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DependencyInjection/Extension/Extension.html" title="Symfony\Component\DependencyInjection\Extension\Extension">Extension</a></code></tt> ;</li>
+<li>Имя равняется имени пакета с суффиксом <tt class="docutils literal"><code>Bundle</code></tt>, заменённым на <tt class="docutils literal"><code>Extension</code></tt>
+(например класс расширения AcmeBundle будет называться <tt class="docutils literal"><code>AcmeExtension</code></tt>, а
+AcmeHelloBundle - <tt class="docutils literal"><code>AcmeHelloExtension</code></tt>).</li>
+</ul>
+<p>Вот как должно выглядеть расширение AcmeHelloBundle:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/Acme/HelloBundle/DependencyInjection/AcmeHelloExtension.php</span>
+<span class="k">namespace</span> <span class="nx">Acme\HelloBundle\DependencyInjection</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\DependencyInjection\Extension</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerBuilder</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AcmeHelloExtension</span> <span class="k">extends</span> <span class="nx">Extension</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="k">array</span> <span class="nv">$configs</span><span class="p">,</span> <span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ... позднее вы будете загружать здесь файлы</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="section" id="id3">
+<h3>Ручная регистрация класса расширения<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Если не следовать соглашениям, вам нужно будет вручную регистрировать ваше
+расширение. Чтобы сделать это, вам нужно переопределить метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/HttpKernel/Bundle/Bundle.html#method_build" title="Symfony\Component\HttpKernel\Bundle\Bundle::build()">Bundle::getContainerExtension()</a></code></tt>,
+чтобы он возвращал экземпляр расширения:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Acme\HelloBundle\DependencyInjection\UnconventionalExtensionClass</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AcmeHelloBundle</span> <span class="k">extends</span> <span class="nx">Bundle</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getContainerExtension</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">UnconventionalExtensionClass</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Кроме того, если новое имя класса Расширения не следует соглашениям об именовании,
+вам также нужно переопределить метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DependencyInjection/Extension/Extension.html#method_getAlias" title="Symfony\Component\DependencyInjection\Extension\Extension::getAlias()">Extension::getAlias()</a></code></tt>,
+чтобы он возвращал правильное дополнительное имя ВЗ. Дополнительное имя ВЗ - это
+имя, используемое для ссылки на пакет в контейнере (например, в файлах <tt class="docutils literal"><code>config/packages/</code></tt>).
+По умолчанию, это делается путём удаления суффикса <tt class="docutils literal"><code>Extension</code></tt> и преобразованя имени
+класса на нижние подчёркивания (например, дополнительное имя ВЗ <tt class="docutils literal"><code>AcmeHelloExtension</code></tt>
+- это <tt class="docutils literal"><code>acme_hello</code></tt>).</p>
+</div>
+</div>
+<div class="section" id="load">
+<h2>Использование метода <tt class="docutils literal"><code>load()</code></tt><a class="headerlink" href="#load" title="Permalink to this headline">¶</a></h2>
+<p>В методе <tt class="docutils literal"><code>load()</code></tt>, все сервисы и параметры относятся к загружаемому расширению.
+Этот метод получает не настоящий экземпляр контейнера, а копию. Контейнер имеет
+только параметры из настоящего контейнера. После загрузки сервисов и параметром,
+копия будет соединена с настоящим контейнером, чтобы убедитьс, что все сервисы и
+параметры также добавлены в него.</p>
+<p>В методе <tt class="docutils literal"><code>load()</code></tt>, вы можете использовать PHP-код для регистрации определений
+сервиса, но чаще вы будете помещать эти определения в файл конфигурации (используя
+форматы YAML, XML или PHP).</p>
+<p>Например, предположите, что у вас есть файл по имени <tt class="docutils literal"><code>services.xml</code></tt> в
+каталоге <tt class="docutils literal"><code>Resources/config/</code></tt> вашего пакета, ваш метод <tt class="docutils literal"><code>load()</code></tt> выглядит так:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Loader\XmlFileLoader</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Config\FileLocator</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="k">array</span> <span class="nv">$configs</span><span class="p">,</span> <span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XmlFileLoader</span><span class="p">(</span>
+        <span class="nv">$container</span><span class="p">,</span>
+        <span class="k">new</span> <span class="nx">FileLocator</span><span class="p">(</span><span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../Resources/config&#39;</span><span class="p">)</span>
+    <span class="p">);</span>
+    <span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;services.xml&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Другие доступные загрузчики - <tt class="docutils literal"><code>YamlFileLoader</code></tt> и <tt class="docutils literal"><code>PhpFileLoader</code></tt>.</p>
+<div class="section" id="id4">
+<h3>Использование конфигурации для изменения сервисов<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Расширение также является классом, которое занимается конфигурацией для
+этого конкретного пакета (например, конфигурация в <tt class="docutils literal"><code>config/packages/&lt;bundle_alias&gt;.yaml</code></tt>).
+Чтобы прочитать больше об этом, см. статью &quot;<a class="reference internal" href="configuration.html"><em>How to Create Friendly Configuration for a Bundle</em></a>&quot; article.</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Добавление классов для компиляции<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Пакеты могут намекать Symfony о том, какие из их классов содержат аннотации,
+чтобы они были скомпилированы при генерировании кеша приложения для улучшения
+общей производительности. Определите список классов с аннотациями для компиляции
+в методе <tt class="docutils literal"><code>addAnnotatedClassesToCompile()</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Manager\UserManager</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Utils\Slugger</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="k">array</span> <span class="nv">$configs</span><span class="p">,</span> <span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">addAnnotatedClassesToCompile</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="c1">// you can define the fully qualified class names...</span>
+        <span class="s1">&#39;App\\Controller\\DefaultController&#39;</span><span class="p">,</span>
+        <span class="c1">// ... but glob patterns are also supported:</span>
+        <span class="s1">&#39;**Bundle\\Controller\\&#39;</span><span class="p">,</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если какой-то класс расширяется из других классов, все его родители автоматически
+включаются в список классов для компиляции.</p>
+</div></div>
+<p>Схемы трансформируются в настоящие пространства имён классов, используя карту классов,
+сегенерированную Composer. Следовательно, до использования этих схем, вы должны
+сгенерировать полную карту классов, выполняющую команду Composer <tt class="docutils literal"><code>dump-autoload</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Эта техника не может быть использована, когда классы для компиляции используют
+константы <tt class="docutils literal"><code>__DIR__</code></tt> или <tt class="docutils literal"><code>__FILE__</code></tt>, так как их значения будут изменяться
+при загрузке этих классов из файла <tt class="docutils literal"><code>classes.php</code></tt>.</p>
+</div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

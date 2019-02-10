@@ -1,0 +1,844 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Как работат с тегами сервисов &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Service Container" href="..\service_container.html">
+    <link rel="next" title="Testing" href="..\testing.html">
+    <link rel="prev" title="How to Work with Service Tags" href="tags.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="service_container doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Как работат с тегами сервисов</a><ul>
+<li><a class="reference internal" href="#id2">Автоконфигурация тегов</a></li>
+<li><a class="reference internal" href="#id3">Создание пользовательских тегов</a><ul>
+<li><a class="reference internal" href="#id4">Определеите сервисы с пользовательским тегом</a></li>
+<li><a class="reference internal" href="#service-container-compiler-pass-tags-ru">Создайте пропуск компилятора</a></li>
+<li><a class="reference internal" href="#id6">Зарегистрируйте пропуск в контейнере</a></li>
+<li><a class="reference internal" href="#id7">Добавление дополнительных атрибутов в тег</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\service_container.html">Service Container</a></li>
+                
+                <li class="active">Как работат с тегами сервисов</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>Как работат с тегами сервисов<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h1>
+<p>Так же, как запись блога в сети может быть тегирован такими тегами, как &quot;Symfony&quot;
+или &quot;PHP&quot;, сервисы, сконфигурированные в вашем контейнере тоже могут быть тегированы.
+В сервис-контейнере тег подразумевает, что сервис должен быть использован для какой-то
+конкретной цели. Возьмём следующий пример:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># app/config/services.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Twig\AppExtension</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">public</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">twig.extension</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/config/services.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Twig\AppExtension&quot;</span> <span class="na">public=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;twig.extension&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/config/services.php</span>
+<span class="k">use</span> <span class="nx">AppBundle\Twig\AppExtension</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;app.twig_extension&#39;</span><span class="p">,</span> <span class="nx">AppExtension</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setPublic</span><span class="p">(</span><span class="k">false</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;twig.extension&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Тег <tt class="docutils literal"><code>twig.extension</code></tt> - это специальный тег, который TwigBundle использует
+во время конфигурации. Назначив сервису этот тег <tt class="docutils literal"><code>twig.extension</code></tt>, пакет
+знает, что сервис <tt class="docutils literal"><code>AppExtension::class</code></tt> должен быть зарегистрирован в Twig
+как расширение Twig. Другими словами, Twig находит все сервисы, тегированные
+<tt class="docutils literal"><code>twig.extension</code></tt> и автоматически регистрирует их как расширения.</p>
+<p>Потом теги становятся способом сообщить Symfony или другим стороним пакетам.
+что ваш сервис должен быть зарегистрирован или как-то особенно использован
+пакетом.</p>
+<p>Чтобы получить список всех доступных в базовом фреймворке Symfony тегов, смотрите
+<a class="reference internal" href="..\reference\dic_tags.html"><em>Built-in Symfony Service Tags</em></a>. Каждый из них имеет своё влияние на ваш сервис и многие
+теги требуют дополнительных аргументов (кроме простого параметра <tt class="docutils literal"><code>name</code></tt>).</p>
+<p><strong>Для большинства пользователей - это всё, что вам нужно знать</strong>. Если вы хотите
+углубиться в изучение того, как создать ваши собственные пользовательские теги,
+то продолжайте читать.</p>
+<div class="section" id="id2">
+<h2>Автоконфигурация тегов<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Начиная с Symfony 3.3, если вы включите <a class="reference internal" href="..\service_container.html#services-autoconfigure"><span>автоконфигурацию</span></a>,
+то некоторые теги применяются для вас самостоятельно. Это применимо к тегу <tt class="docutils literal"><code>twig.extension</code></tt>:
+контейнер видит, что ваш класс раширяет <tt class="docutils literal"><code>Twig_Extension</code></tt> (или, точнее, что он реализует
+<tt class="docutils literal"><code>Twig_ExtensionInterface</code></tt>) и добавляет тег за вас.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Чтобы применить тег ко всем вашим автоматически сконфигурированным сервисам,
+расширяющим класс или интерфейс, вызовите метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/DependencyInjection/ContainerBuilder.html#method_registerForAutoconfiguration" title="Symfony\Component\DependencyInjection\ContainerBuilder::registerForAutoconfiguration()">registerForAutoconfiguration()</a></code></tt>
+в <a class="reference internal" href="..\bundles\extension.html"><em>extension</em></a> или из вашего ядра:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// app/AppKernel.php</span>
+<span class="k">class</span> <span class="nc">AppKernel</span> <span class="k">extends</span> <span class="nx">Kernel</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">build</span><span class="p">(</span><span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$container</span><span class="o">-&gt;</span><span class="na">registerForAutoconfiguration</span><span class="p">(</span><span class="nx">CustomInterface</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;app.custom_tag&#39;</span><span class="p">)</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+</div>
+<div class="section" id="id3">
+<h2>Создание пользовательских тегов<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Теги сами по себе не изменяют функциональность ваших сервисов каким-либо
+образом. Но если вы захотите, вы можете попросить у строителя контейнера
+список всех сервисов, которые были тегированы каким-то конкретным тегом.
+Это полезно в пропусках компилятора, где вы можете найти эти сервисы и
+использовать либо изменять их каким-либо образом.</p>
+<p>Например, если вы используете Swift Mailer, то вы можете представить, что вы
+хотите реализовать &quot;транспортную цепочку&quot;, которая является коллекцией классов,
+реализующих <tt class="docutils literal"><code>\Swift_Transport</code></tt>. Используя цепочку, вы захотите, чтобы Swift
+Mailer попробовал несколько способов передачи сообщения, пока один из них не
+сработает.</p>
+<p>Для начала, определите класс <tt class="docutils literal"><code>TransportChain</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/Mail/TransportChain.php</span>
+<span class="k">namespace</span> <span class="nx">AppBundle\Mail</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">TransportChain</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$transports</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">transports</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">addTransport</span><span class="p">(</span><span class="nx">\Swift_Transport</span> <span class="nv">$transport</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">transports</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$transport</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Потом, определите цепочку как сервис:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">AppBundle\Mail\TransportChain</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;AppBundle\Mail\TransportChain&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">AppBundle\Mail\TransportChain</span><span class="p">;</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">autowire</span><span class="p">(</span><span class="nx">TransportChain</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>Определеите сервисы с пользовательским тегом<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Теперь вы можете захотеть, чтобы несколько из классов <tt class="docutils literal"><code>\Swift_Transport</code></tt>
+были инстанциированы и добавлены в цепочку автоматически, используя метод
+<tt class="docutils literal"><code>addTransport()</code></tt>. Например, вы можете добавить следующие транспорты как
+сервисы:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Swift_SmtpTransport</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;%mailer_host%&#39;</span><span class="p p-Indicator">]</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">app.mail_transport</span><span class="p p-Indicator">]</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">Swift_SendmailTransport</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">app.mail_transport</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;Swift_SmtpTransport&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;argument&gt;</span>%mailer_host%<span class="nt">&lt;/argument&gt;</span>
+
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;app.mail_transport&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">class=</span><span class="s">&quot;\Swift_SendmailTransport&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;app.mail_transport&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">\Swift_SmtpTransport</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addArgument</span><span class="p">(</span><span class="s1">&#39;%mailer_host%&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;app.mail_transport&#39;</span><span class="p">);</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">\Swift_SendmailTransport</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;app.mail_transport&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Заметьте, что каждому сервису был предоставлен тег под названием <tt class="docutils literal"><code>app.mail_transport</code></tt>.
+Это пользовательский тег, который вы будете использовать в вашем пропуске компилятора.
+Пропуск компилятора - это то, что придаёт этому тегу какой-то &quot;смысл&quot;.</p>
+</div>
+<div class="section" id="service-container-compiler-pass-tags-ru">
+<span id="id5"></span><h3>Создайте пропуск компилятора<a class="headerlink" href="#service-container-compiler-pass-tags-ru" title="Permalink to this headline">¶</a></h3>
+<p>Теперь вы можете использовать <a class="reference internal" href="..\components\dependency_injection\compilation.html#components-di-separate-compiler-passes"><span>пропуск компилятора</span></a>,
+чтобы запросить у контейнера любые сервисы с тегом <tt class="docutils literal"><code>app.mail_transport</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/DependencyInjection/Compiler/MailTransportPass.php</span>
+<span class="k">namespace</span> <span class="nx">AppBundle\DependencyInjection\Compiler</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerBuilder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Reference</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AppBundle\Mail\TransportChain</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MailTransportPass</span> <span class="k">implements</span> <span class="nx">CompilerPassInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">process</span><span class="p">(</span><span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// всегда вначале проверяйте, определён ли первичный сервис</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$container</span><span class="o">-&gt;</span><span class="na">has</span><span class="p">(</span><span class="nx">TransportChain</span><span class="o">::</span><span class="na">class</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$definition</span> <span class="o">=</span> <span class="nv">$container</span><span class="o">-&gt;</span><span class="na">findDefinition</span><span class="p">(</span><span class="nx">TransportChain</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+        <span class="c1">// найти все ID сервисов с тегом app.mail_transport tag</span>
+        <span class="nv">$taggedServices</span> <span class="o">=</span> <span class="nv">$container</span><span class="o">-&gt;</span><span class="na">findTaggedServiceIds</span><span class="p">(</span><span class="s1">&#39;app.mail_transport&#39;</span><span class="p">);</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$taggedServices</span> <span class="k">as</span> <span class="nv">$id</span> <span class="o">=&gt;</span> <span class="nv">$tags</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// добавьте транспортный сервис в сервис ChainTransport</span>
+            <span class="nv">$definition</span><span class="o">-&gt;</span><span class="na">addMethodCall</span><span class="p">(</span><span class="s1">&#39;addTransport&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="nv">$id</span><span class="p">)));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id6">
+<h3>Зарегистрируйте пропуск в контейнере<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Для того, чтобы запустить пропуск компилятора, когда контейнер будет скомпилирован,
+вам нужно добавить пропуск в контейнер в методе <tt class="docutils literal"><code>build()</code></tt> вашего пакета:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// src/AppBundle/AppBundle.php</span>
+
+<span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerBuilder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AppBundle\DependencyInjection\Compiler\MailTransportPass</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AppBundle</span> <span class="k">extends</span> <span class="nx">Bundle</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">build</span><span class="p">(</span><span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$container</span><span class="o">-&gt;</span><span class="na">addCompilerPass</span><span class="p">(</span><span class="k">new</span> <span class="nx">MailTransportPass</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">При реализации <tt class="docutils literal"><code>CompilerPassInterface</code></tt> в расширении сервиса, вам не
+нужно регистрировать его. Смотрите <a class="reference internal" href="..\components\dependency_injection\compilation.html#components-di-compiler-pass"><span>документацию компонентов</span></a>,
+чтобы узнать больше информации.</p>
+</div></div>
+</div>
+<div class="section" id="id7">
+<h3>Добавление дополнительных атрибутов в тег<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Иногда вам будет нужна дополнительная информацию о каждом сервисе, который
+был тегирован вашим тегом. Например, вы можете захотеть добавить дополнительное
+имя каждому члену транспортной цепочки.</p>
+<p>Для начала, измените класс <tt class="docutils literal"><code>TransportChain</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TransportChain</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$transports</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">transports</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">addTransport</span><span class="p">(</span><span class="nx">\Swift_Transport</span> <span class="nv">$transport</span><span class="p">,</span> <span class="nv">$alias</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">transports</span><span class="p">[</span><span class="nv">$alias</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$transport</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getTransport</span><span class="p">(</span><span class="nv">$alias</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">array_key_exists</span><span class="p">(</span><span class="nv">$alias</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">transports</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">transports</span><span class="p">[</span><span class="nv">$alias</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Как вы видите, когда вызывается <tt class="docutils literal"><code>addTransport()</code></tt>, требуется не только объект
+<tt class="docutils literal"><code>Swift_Transport</code></tt>, но также дополнительное имя строки для этого транспорта.
+Тогда как вы можете разрешить каждому тегированному транспортному сервису также
+снабжать дополнительное имя?</p>
+<p>Чтобы ответить на этот вопрос, измените объявление сервиса:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Swift_SmtpTransport</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;%mailer_host%&#39;</span><span class="p p-Indicator">]</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">app.mail_transport</span><span class="p p-Indicator">,</span> <span class="nv">alias</span><span class="p p-Indicator">:</span> <span class="nv">smtp</span> <span class="p p-Indicator">}</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">Swift_SendmailTransport</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">app.mail_transport</span><span class="p p-Indicator">,</span> <span class="nv">alias</span><span class="p p-Indicator">:</span> <span class="nv">sendmail</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services</span>
+<span class="s">        http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;Swift_SmtpTransport&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;argument&gt;</span>%mailer_host%<span class="nt">&lt;/argument&gt;</span>
+
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;app.mail_transport&quot;</span> <span class="na">alias=</span><span class="s">&quot;smtp&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;Swift_SendmailTransport&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;app.mail_transport&quot;</span> <span class="na">alias=</span><span class="s">&quot;sendmail&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">\Swift_SmtpTransport</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addArgument</span><span class="p">(</span><span class="s1">&#39;%mailer_host%&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;app.mail_transport&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;alias&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;foo&#39;</span><span class="p">));</span>
+
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="nx">\Swift_SendmailTransport</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addTag</span><span class="p">(</span><span class="s1">&#39;app.mail_transport&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;alias&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>В формате YAML, вы можете представить тег в качестве простой строки, если
+вам не нужно указывать дополнительные атрибуты. Следующие определения являются
+эквивалентными.</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+
+    <span class="c1"># синтаксис Compact</span>
+    <span class="l l-Scalar l-Scalar-Plain">Swift_SendmailTransport</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">class</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">\Swift_SendmailTransport</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">app.mail_transport</span><span class="p p-Indicator">]</span>
+
+    <span class="c1"># синтаксиси Verbose</span>
+    <span class="l l-Scalar l-Scalar-Plain">Swift_SendmailTransport</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">class</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">\Swift_SendmailTransport</span>
+        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span> <span class="nv">name</span><span class="p p-Indicator">:</span> <span class="nv">app.mail_transport</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 3.3: </span>Поддержка компактных нотаций тега в формате YAML была представлена в
+Symfony 3.3.</p>
+</div>
+</div></div>
+<p>Отметьте, что вы добавили общий ключ <tt class="docutils literal"><code>alias</code></tt> к тегу. Чтобы действительно
+использовать его, обновите компилятор:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerBuilder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Reference</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">TransportCompilerPass</span> <span class="k">implements</span> <span class="nx">CompilerPassInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">process</span><span class="p">(</span><span class="nx">ContainerBuilder</span> <span class="nv">$container</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$taggedServices</span> <span class="k">as</span> <span class="nv">$id</span> <span class="o">=&gt;</span> <span class="nv">$tags</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="c1">// сервис может иметь один и тот же тег дважды</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="nv">$tags</span> <span class="k">as</span> <span class="nv">$attributes</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$definition</span><span class="o">-&gt;</span><span class="na">addMethodCall</span><span class="p">(</span><span class="s1">&#39;addTransport&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                    <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="nv">$id</span><span class="p">),</span>
+                    <span class="nv">$attributes</span><span class="p">[</span><span class="s2">&quot;alias&quot;</span><span class="p">]</span>
+                <span class="p">));</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Двойной цикл может быть запутанным. Это потому, что сервис может иметь
+больше одного тега. Вы тегируете сервис дважды или более с помощью тега
+<tt class="docutils literal"><code>app.mail_transport</code></tt>. Второй цикл foreach повторяет набор тегов
+<tt class="docutils literal"><code>app.mail_transport</code></tt> для текущего сервиса и даёт вам атрибуты.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="tags.html">« How to Work with Service Tags</a>
+                <span class="separator">|</span>
+                <a href="..\testing.html">Testing »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

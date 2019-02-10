@@ -1,0 +1,952 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Расширения Symfony Twig &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments-1.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index-2.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="reference doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index-49.html">
+                    <img src="..\..\..\_images\header-logo-1.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support-1.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index-2.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index-1.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index-1.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index-1.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="index-1.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex-1.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index-1.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Расширения Symfony Twig</a><ul>
+<li><a class="reference internal" href="#reference-twig-functions-ru">Функции</a><ul>
+<li><a class="reference internal" href="#render">render</a></li>
+<li><a class="reference internal" href="#render-esi">render_esi</a></li>
+<li><a class="reference internal" href="#controller">controller</a></li>
+<li><a class="reference internal" href="#asset">asset</a></li>
+<li><a class="reference internal" href="#asset-version">asset_version</a></li>
+<li><a class="reference internal" href="#form">form</a></li>
+<li><a class="reference internal" href="#form-start">form_start</a></li>
+<li><a class="reference internal" href="#form-end">form_end</a></li>
+<li><a class="reference internal" href="#form-widget">form_widget</a></li>
+<li><a class="reference internal" href="#form-errors">form_errors</a></li>
+<li><a class="reference internal" href="#form-label">form_label</a></li>
+<li><a class="reference internal" href="#form-row">form_row</a></li>
+<li><a class="reference internal" href="#form-rest">form_rest</a></li>
+<li><a class="reference internal" href="#csrf-token">csrf_token</a></li>
+<li><a class="reference internal" href="#is-granted">is_granted</a></li>
+<li><a class="reference internal" href="#logout-path">logout_path</a></li>
+<li><a class="reference internal" href="#logout-url">logout_url</a></li>
+<li><a class="reference internal" href="#path">path</a></li>
+<li><a class="reference internal" href="#url">url</a></li>
+<li><a class="reference internal" href="#absolute-url">absolute_url</a></li>
+<li><a class="reference internal" href="#relative-path">relative_path</a></li>
+<li><a class="reference internal" href="#expression">expression</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reference-twig-filters-ru">Фильтры</a><ul>
+<li><a class="reference internal" href="#humanize">humanize</a></li>
+<li><a class="reference internal" href="#trans">trans</a></li>
+<li><a class="reference internal" href="#transchoice">transchoice</a></li>
+<li><a class="reference internal" href="#yaml-encode">yaml_encode</a></li>
+<li><a class="reference internal" href="#yaml-dump">yaml_dump</a></li>
+<li><a class="reference internal" href="#abbr-class">abbr_class</a></li>
+<li><a class="reference internal" href="#abbr-method">abbr_method</a></li>
+<li><a class="reference internal" href="#format-args">format_args</a></li>
+<li><a class="reference internal" href="#format-args-as-text">format_args_as_text</a></li>
+<li><a class="reference internal" href="#file-excerpt">file_excerpt</a></li>
+<li><a class="reference internal" href="#format-file">format_file</a></li>
+<li><a class="reference internal" href="#format-file-from-text">format_file_from_text</a></li>
+<li><a class="reference internal" href="#file-link">file_link</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reference-twig-tags-ru">Теги</a><ul>
+<li><a class="reference internal" href="#form-theme">form_theme</a></li>
+<li><a class="reference internal" href="#id5">trans</a></li>
+<li><a class="reference internal" href="#id6">transchoice</a></li>
+<li><a class="reference internal" href="#trans-default-domain">trans_default_domain</a></li>
+<li><a class="reference internal" href="#stopwatch">stopwatch</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reference-twig-tests-ru">Тесты</a><ul>
+<li><a class="reference internal" href="#selectedchoice">selectedchoice</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">Глобальные переменные</a><ul>
+<li><a class="reference internal" href="#app">app</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini-1.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index-2.html">Документация</a></li>
+                
+                <li class="active">Расширения Symfony Twig</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="symfony-twig">
+<span id="symfony2-twig-extensions-ru"></span><span id="index-0"></span><h1>Расширения Symfony Twig<a class="headerlink" href="#symfony-twig" title="Permalink to this headline">¶</a></h1>
+<p>Twig - это щаблонизатор по умолчанию в Symfony. Сам по себе он уже содержит много
+встроенных функций, фильтров, тегов и тестов. Вы можете узнать больше о них из
+<a class="reference external" href="http://twig.sensiolabs.org/documentation#reference">Справочника Twig</a>.</p>
+<p>Фреймворк Symfony добавляет немало дополнительных <a class="reference internal" href="twig_reference-1.html#reference-twig-functions"><span>функций</span></a>,
+<a class="reference internal" href="twig_reference-1.html#reference-twig-filters"><span>фильтров</span></a>, <a class="reference internal" href="twig_reference-1.html#reference-twig-tags"><span>тегов</span></a>
+и <a class="reference internal" href="twig_reference-1.html#reference-twig-tests"><span>тестов</span></a>, чтобы незметно для пользователя интегрировать
+разнообразные компоненты Symfony в шаблоны Twig. Следующие разделы описывают эти
+дополнительные функции.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Технически, большинство расширений живут в <a class="reference external" href="https://github.com/symfony/symfony/tree/master/src/Symfony/Bridge/Twig/Extension">Twig Bridge</a>. Этот код может
+дать вам некоторые идеи для времени, когда вам нужно будет писать собственное
+расширение Twig, как описано в <a class="reference internal" href="..\templating\twig_extension-1.html"><em>How to Write a custom Twig Extension</em></a>.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Этот справочник охватывает только расширения Twig, предоставленные фреймворком
+Symfony. Вы скорее всего также используете какие-то другие пакеты, и они
+могут поставляться с собственными расширениями, не описанными тут.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last"><a class="reference external" href="https://github.com/twigphp/Twig-extensions">Хранилище расширений Twig</a> содержит некоторые дополнительные расширения
+Twig, которые не принадлежат ядру Twig, так что вам стоит посмотреть на
+<a class="reference external" href="http://twig-extensions.readthedocs.io/en/latest/">Документацию расширений Twig</a>.</p>
+</div></div>
+<div class="section" id="reference-twig-functions-ru">
+<span id="id1"></span><h2>Функции<a class="headerlink" href="#reference-twig-functions-ru" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="render">
+<span id="reference-twig-function-render-ru"></span><h3>render<a class="headerlink" href="#render" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">render</span><span class="o">(</span><span class="nv">uri</span><span class="o">,</span> <span class="nv">options</span> <span class="o">=</span> <span class="o">[])</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>uri</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> | <tt class="docutils literal"><code>ControllerReference</code></tt></dd>
+<dt><tt class="docutils literal"><code>options</code></tt> <em>(optional)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+</dl>
+<p>Отображает фрагмент для заданного контроллера (используя функцию <a class="reference internal" href="#controller">controller</a>)
+или URI. Чтобы узнать больше, см. <a class="reference internal" href="..\templating\embedding_controllers-1.html"><em>How to Embed Controllers in a Template</em></a>.</p>
+<p>Стратегия отображения может быть указана в ключе опций <tt class="docutils literal"><code>strategy</code></tt>.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">URI может быть сгенерирован другими функциями, например, <a class="reference internal" href="#path">path</a> и <a class="reference internal" href="#url">url</a>.</p>
+</div></div>
+</div>
+<div class="section" id="render-esi">
+<span id="reference-twig-function-render-esi-ru"></span><h3>render_esi<a class="headerlink" href="#render-esi" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">render_esi</span><span class="o">(</span><span class="nv">uri</span><span class="o">,</span> <span class="nv">options</span> <span class="o">=</span> <span class="o">[])</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>uri</code></tt></dt>
+<dd><strong>type</strong>: <tt class="docutils literal"><code>string</code></tt> | <tt class="docutils literal"><code>ControllerReference</code></tt></dd>
+<dt><tt class="docutils literal"><code>options</code></tt> <em>(optional)</em></dt>
+<dd><strong>type</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>default</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+</dl>
+<p>Генерирует ESI-тег по возможности, или вместо этого откатывается до
+поведения функции <a class="reference internal" href="#render">render</a>. Чтобы узнать больше, см. <a class="reference internal" href="..\templating\embedding_controllers-1.html"><em>How to Embed Controllers in a Template</em></a>.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">URI может быть сгенерирован другими функциями, например, <a class="reference internal" href="#path">path</a> и <a class="reference internal" href="#url">url</a>.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Функция <tt class="docutils literal"><code>render_esi()</code></tt> - это пример шорткат функций <tt class="docutils literal"><code>render</code></tt>. Она автоматически
+устанваливает стратегию, основываясь на том, что задано в имени функции, например,
+<tt class="docutils literal"><code>render_hinclude()</code></tt> будет использовать стратегию hinclude.js. Это работает для всех
+функций <tt class="docutils literal"><code>render_*()</code></tt>.</p>
+</div></div>
+</div>
+<div class="section" id="controller">
+<h3>controller<a class="headerlink" href="#controller" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">controller</span><span class="o">(</span><span class="nv">controller</span><span class="o">,</span> <span class="nv">attributes</span> <span class="o">=</span> <span class="o">[],</span> <span class="nv">query</span> <span class="o">=</span> <span class="o">[])</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>controller</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+<dt><tt class="docutils literal"><code>attributes</code></tt> <em>(необябазтельно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+<dt><tt class="docutils literal"><code>query</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+</dl>
+<p>Возвращает экземпляр <tt class="docutils literal"><code>ControllerReference</code></tt> для использования с функциями
+вроде <a class="reference internal" href="twig_reference-1.html#reference-twig-function-render"><span>render()</span></a> и
+<a class="reference internal" href="twig_reference-1.html#reference-twig-function-render-esi"><span>render_esi()</span></a>.</p>
+</div>
+<div class="section" id="asset">
+<h3>asset<a class="headerlink" href="#asset" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="nv">path</span><span class="o">,</span> <span class="nv">packageName</span> <span class="o">=</span> <span class="kp">null</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>path</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+<dt><tt class="docutils literal"><code>packageName</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> | <tt class="docutils literal"><code>null</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></dd>
+</dl>
+<p>Возвращаеь публчный путь к <tt class="docutils literal"><code>path</code></tt>, который берёт во внимание базовый набор
+путей пакета и путь URL. Больше информации в <a class="reference internal" href="..\templating-1.html#templating-assets"><span>Linking to Assets</span></a>. Symfony
+предоставляет различные реализации отключения кеша через опции конфигурации
+<a class="reference internal" href="configuration\framework-1.html#reference-framework-assets-version"><span>version</span></a>, +:ref:<cite>reference-assets-version-strategy</cite>,
+и <a class="reference internal" href="configuration\framework-1.html#reference-assets-json-manifest-path"><span>json_manifest_path</span></a>.</p>
+</div>
+<div class="section" id="asset-version">
+<h3>asset_version<a class="headerlink" href="#asset-version" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">asset_version</span><span class="o">(</span><span class="nv">packageName</span> <span class="o">=</span> <span class="kp">null</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>packageName</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> | <tt class="docutils literal"><code>null</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></dd>
+</dl>
+<p>Возвращает текущую версию пакета, больше информации в <a class="reference internal" href="..\templating-1.html#templating-assets"><span>Linking to Assets</span></a>.</p>
+</div>
+<div class="section" id="form">
+<h3>form<a class="headerlink" href="#form" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form</span><span class="o">(</span><span class="nv">view</span><span class="o">,</span> <span class="nv">variables</span> <span class="o">=</span> <span class="o">[])</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>view</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>FormView</code></tt></dd>
+<dt><tt class="docutils literal"><code>variables</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+</dl>
+<p>Отображает HTML полной формы, больше информации в
+<a class="reference internal" href="forms\twig_reference-1.html#reference-forms-twig-form"><span>справочнике форм Twig</span></a>.</p>
+</div>
+<div class="section" id="form-start">
+<h3>form_start<a class="headerlink" href="#form-start" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_start</span><span class="o">(</span><span class="nv">view</span><span class="o">,</span> <span class="nv">variables</span> <span class="o">=</span> <span class="o">[])</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>view</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>FormView</code></tt></dd>
+<dt><tt class="docutils literal"><code>variables</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+</dl>
+<p>Отображает стартовый HTML-тег формы, больше информации в
+<a class="reference internal" href="forms\twig_reference-1.html#reference-forms-twig-start"><span>справочнике форм Twig</span></a>.</p>
+</div>
+<div class="section" id="form-end">
+<h3>form_end<a class="headerlink" href="#form-end" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_end</span><span class="o">(</span><span class="nv">view</span><span class="o">,</span> <span class="nv">variables</span> <span class="o">=</span> <span class="o">[])</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>view</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>FormView</code></tt></dd>
+<dt><tt class="docutils literal"><code>variables</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+</dl>
+<p>Отображает конечный HTML-тег формы вместе со всеми полями, которые ещё не
+были отображены, больше информации в <a class="reference internal" href="forms\twig_reference-1.html#reference-forms-twig-end"><span>справочнике форм Twig</span></a>.</p>
+</div>
+<div class="section" id="form-widget">
+<h3>form_widget<a class="headerlink" href="#form-widget" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_widget</span><span class="o">(</span><span class="nv">view</span><span class="o">,</span> <span class="nv">variables</span> <span class="o">=</span> <span class="o">[])</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>view</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>FormView</code></tt></dd>
+<dt><tt class="docutils literal"><code>variables</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+</dl>
+<p>Отображает полную форму или определённый HTML-виджет поле, больше информации
+в <a class="reference internal" href="forms\twig_reference-1.html#reference-forms-twig-widget"><span>справочнике форм Twig</span></a>.</p>
+</div>
+<div class="section" id="form-errors">
+<h3>form_errors<a class="headerlink" href="#form-errors" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_errors</span><span class="o">(</span><span class="nv">view</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>view</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>FormView</code></tt></dd>
+</dl>
+<p>Отображает все ошибки заданного поля или глобальные ошибки, больше информации
+в <a class="reference internal" href="forms\twig_reference-1.html#reference-forms-twig-errors"><span>справочнике форм Twig</span></a>.</p>
+</div>
+<div class="section" id="form-label">
+<h3>form_label<a class="headerlink" href="#form-label" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_label</span><span class="o">(</span><span class="nv">view</span><span class="o">,</span> <span class="nv">label</span> <span class="o">=</span> <span class="kp">null</span><span class="o">,</span> <span class="nv">variables</span> <span class="o">=</span> <span class="o">[])</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>view</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>FormView</code></tt></dd>
+<dt><tt class="docutils literal"><code>label</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></dd>
+<dt><tt class="docutils literal"><code>variables</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+</dl>
+<p>Отображает ярлык заданного поля, больше информации в
+<a class="reference internal" href="forms\twig_reference-1.html#reference-forms-twig-label"><span>справочнике форм Twig</span></a>.</p>
+</div>
+<div class="section" id="form-row">
+<h3>form_row<a class="headerlink" href="#form-row" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_row</span><span class="o">(</span><span class="nv">view</span><span class="o">,</span> <span class="nv">variables</span> <span class="o">=</span> <span class="o">[])</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>view</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>FormView</code></tt></dd>
+<dt><tt class="docutils literal"><code>variables</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+</dl>
+<p>Отображает строку (ярлык поля, ошибки и виджет) заданного поля, больше информации
+в <a class="reference internal" href="forms\twig_reference-1.html#reference-forms-twig-row"><span>справочнике форм Twig</span></a>.</p>
+</div>
+<div class="section" id="form-rest">
+<h3>form_rest<a class="headerlink" href="#form-rest" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">form_rest</span><span class="o">(</span><span class="nv">view</span><span class="o">,</span> <span class="nv">variables</span> <span class="o">=</span> <span class="o">[])</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>view</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>FormView</code></tt></dd>
+<dt><tt class="docutils literal"><code>variables</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+</dl>
+<p>Отображает все поля, которые ещё не были отображены, больше информации в
+<a class="reference internal" href="forms\twig_reference-1.html#reference-forms-twig-rest"><span>справочнике форм Twig</span></a>.</p>
+</div>
+<div class="section" id="csrf-token">
+<h3>csrf_token<a class="headerlink" href="#csrf-token" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">csrf_token</span><span class="o">(</span><span class="nv">intention</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>intention</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+</dl>
+<p>Отображает CSRF-токен. Используйте эту функцию, если вы хотите CSRF-защиту,
+не создавая формы.</p>
+</div>
+<div class="section" id="is-granted">
+<h3>is_granted<a class="headerlink" href="#is-granted" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">is_granted</span><span class="o">(</span><span class="nv">role</span><span class="o">,</span> <span class="nv">object</span> <span class="o">=</span> <span class="kp">null</span><span class="o">,</span> <span class="nv">field</span> <span class="o">=</span> <span class="kp">null</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>role</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+<dt><tt class="docutils literal"><code>object</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>object</code></tt></dd>
+<dt><tt class="docutils literal"><code>field</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+</dl>
+<p>Возвращает <tt class="docutils literal"><code>true</code></tt>, если текущий пользователь имеет обязательную роль. Как вариант,
+объеётможет быть вставлен для использоваия избирателем. Больше информации можно найти
+в <a class="reference internal" href="..\security-1.html#security-template"><span>Access Control in Templates</span></a>.</p>
+</div>
+<div class="section" id="logout-path">
+<h3>logout_path<a class="headerlink" href="#logout-path" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">logout_path</span><span class="o">(</span><span class="nv">key</span> <span class="o">=</span> <span class="kp">null</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>key</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+</dl>
+<p>Генерирует относительный URL выхода из системы для заданного брандмауэра. Если
+не предоставлен ключ, то URL генерируется для текущего брандмауэра, в системе
+которого находится пользователь.</p>
+</div>
+<div class="section" id="logout-url">
+<h3>logout_url<a class="headerlink" href="#logout-url" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">logout_url</span><span class="o">(</span><span class="nv">key</span> <span class="o">=</span> <span class="kp">null</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>key</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+</dl>
+<p>Приравнивается к функции <a class="reference internal" href="#logout-path">logout_path</a>, но генерирует абсолютный URL, вместо
+относительного.</p>
+</div>
+<div class="section" id="path">
+<h3>path<a class="headerlink" href="#path" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="nv">name</span><span class="o">,</span> <span class="nv">parameters</span> <span class="o">=</span> <span class="o">[],</span> <span class="nv">relative</span> <span class="o">=</span> <span class="kp">false</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>name</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+<dt><tt class="docutils literal"><code>parameters</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+<dt><tt class="docutils literal"><code>relative</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>false</code></tt></dd>
+</dl>
+<p>Возвращает относительный URL (без схемы и хоста) для заданного маршрута. Если
+<tt class="docutils literal"><code>relative</code></tt> подключен, то он создаст путь, относительного текушего пути. Больше
+информации в <a class="reference internal" href="..\templating-1.html#templating-pages"><span>Linking to Pages</span></a>.</p>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Прочтите <a class="reference internal" href="..\routing-1.html"><em>Routing</em></a>, чтобы узнать больше о компоненте Маршрутизации.</div></div>
+</div>
+<div class="section" id="url">
+<h3>url<a class="headerlink" href="#url" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">url</span><span class="o">(</span><span class="nv">name</span><span class="o">,</span> <span class="nv">parameters</span> <span class="o">=</span> <span class="o">[],</span> <span class="nv">schemeRelative</span> <span class="o">=</span> <span class="kp">false</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>name</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+<dt><tt class="docutils literal"><code>parameters</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+<dt><tt class="docutils literal"><code>schemeRelative</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>false</code></tt></dd>
+</dl>
+<p>Возвращает абсолютный URL (со схемой и хостом) для заданного маршрута. Если
+<tt class="docutils literal"><code>schemeRelative</code></tt> подключен, то он создаст URL относительно схемы. Больше
+информации в <a class="reference internal" href="..\templating-1.html#templating-pages"><span>Linking to Pages</span></a>.</p>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Прочтите <a class="reference internal" href="..\routing-1.html"><em>Routing</em></a>, чтобы узнать больше о компоненте Маршрутизации.</div></div>
+</div>
+<div class="section" id="absolute-url">
+<h3>absolute_url<a class="headerlink" href="#absolute-url" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-jinja"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">absolute_url</span><span class="o">(</span><span class="nv">path</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>path</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+</dl>
+<p>Возвращает абсолютный URL из переданного относительного пути. Например,
+представьте, что вы на следующей странице вашего приложения:
+<tt class="docutils literal"><code>http://example.com/products/hover-board</code></tt>.</p>
+<div class="literal-block"><div class="highlight-jinja"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">absolute_url</span><span class="o">(</span><span class="s1">&#39;/human.txt&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="c">{# http://example.com/human.txt #}</span><span class="x"></span>
+
+<span class="cp">{{</span> <span class="nv">absolute_url</span><span class="o">(</span><span class="s1">&#39;products_icon.png&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="c">{# http://example.com/products/products_icon.png #}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="relative-path">
+<h3>relative_path<a class="headerlink" href="#relative-path" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-jinja"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">relative_path</span><span class="o">(</span><span class="nv">path</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>path</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+</dl>
+<p>Возвращает относительный путь из переданного абсолютного URL. Например,
+представьте, что на следующей странице вашего приложения:
+<tt class="docutils literal"><code>http://example.com/products/hover-board</code></tt>.</p>
+<div class="literal-block"><div class="highlight-jinja"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">relative_path</span><span class="o">(</span><span class="s1">&#39;http://example.com/human.txt&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="c">{# ../human.txt #}</span><span class="x"></span>
+
+<span class="cp">{{</span> <span class="nv">relative_path</span><span class="o">(</span><span class="s1">&#39;http://example.com/products/products_icon.png&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="c">{# products_icon.png #}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="expression">
+<h3>expression<a class="headerlink" href="#expression" title="Permalink to this headline">¶</a></h3>
+<p>Создаёт <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/ExpressionLanguage/Expression.html" title="Symfony\Component\ExpressionLanguage\Expression">Expression</a></code></tt> в
+Twig. См. &quot;<a class="reference internal" href="..\security-1.html#security-template-expression"><span>Template Expressions</span></a>&quot;.</p>
+</div>
+</div>
+<div class="section" id="reference-twig-filters-ru">
+<span id="id2"></span><h2>Фильтры<a class="headerlink" href="#reference-twig-filters-ru" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="humanize">
+<span id="reference-twig-humanize-filter-ru"></span><h3>humanize<a class="headerlink" href="#humanize" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">text</span><span class="o">|</span><span class="nf">humanize</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>text</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+</dl>
+<p>Превращает техническое имя в читаемое человеком (т.е. заменяет нижние подчёркивания
+пробелами, или трансформирует текст camelCase, вроде <tt class="docutils literal"><code>helloWorld</code></tt> в <tt class="docutils literal"><code>hello world</code></tt>,
+а потом прописывает заглавные буквы в строке).</p>
+</div>
+<div class="section" id="trans">
+<h3>trans<a class="headerlink" href="#trans" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">message</span><span class="o">|</span><span class="nf">trans</span><span class="o">(</span><span class="nv">arguments</span> <span class="o">=</span> <span class="o">[],</span> <span class="nv">domain</span> <span class="o">=</span> <span class="kp">null</span><span class="o">,</span> <span class="nv">locale</span> <span class="o">=</span> <span class="kp">null</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>message</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+<dt><tt class="docutils literal"><code>arguments</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+<dt><tt class="docutils literal"><code>domain</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></dd>
+<dt><tt class="docutils literal"><code>locale</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></dd>
+</dl>
+<p>Переводит текст на текущий язык. Больше информации в
+<a class="reference internal" href="..\translation-1.html#translation-filters"><span>Фильтрах переводов</span></a>.</p>
+</div>
+<div class="section" id="transchoice">
+<h3>transchoice<a class="headerlink" href="#transchoice" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">message</span><span class="o">|</span><span class="nf">transchoice</span><span class="o">(</span><span class="nv">count</span><span class="o">,</span> <span class="nv">arguments</span> <span class="o">=</span> <span class="o">[],</span> <span class="nv">domain</span> <span class="o">=</span> <span class="kp">null</span><span class="o">,</span> <span class="nv">locale</span> <span class="o">=</span> <span class="kp">null</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>message</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+<dt><tt class="docutils literal"><code>count</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>integer</code></tt></dd>
+<dt><tt class="docutils literal"><code>arguments</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+<dt><tt class="docutils literal"><code>domain</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></dd>
+<dt><tt class="docutils literal"><code>locale</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></dd>
+</dl>
+<p>Переводит текст с поддержкой плюрализации. Больше информации в
+<a class="reference internal" href="..\translation-1.html#translation-filters"><span>Фильтрах переводов</span></a>.</p>
+</div>
+<div class="section" id="yaml-encode">
+<h3>yaml_encode<a class="headerlink" href="#yaml-encode" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">input</span><span class="o">|</span><span class="nf">yaml_encode</span><span class="o">(</span><span class="nv">inline</span> <span class="o">=</span> <span class="m">0</span><span class="o">,</span> <span class="nv">dumpObjects</span> <span class="o">=</span> <span class="kp">false</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>input</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>mixed</code></tt></dd>
+<dt><tt class="docutils literal"><code>inline</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>integer</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>0</code></tt></dd>
+<dt><tt class="docutils literal"><code>dumpObjects</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>false</code></tt></dd>
+</dl>
+<p>Превращает ввод в синтаксис YAML. См. <a class="reference internal" href="..\components\yaml-1.html#components-yaml-dump"><span>Writing YAML Files</span></a>, чтобы
+узнать больше информации.</p>
+</div>
+<div class="section" id="yaml-dump">
+<h3>yaml_dump<a class="headerlink" href="#yaml-dump" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">value</span><span class="o">|</span><span class="nf">yaml_dump</span><span class="o">(</span><span class="nv">inline</span> <span class="o">=</span> <span class="m">0</span><span class="o">,</span> <span class="nv">dumpObjects</span> <span class="o">=</span> <span class="kp">false</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>value</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>mixed</code></tt></dd>
+<dt><tt class="docutils literal"><code>inline</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>integer</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>0</code></tt></dd>
+<dt><tt class="docutils literal"><code>dumpObjects</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>boolean</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>false</code></tt></dd>
+</dl>
+<p>Делает то же самое, что и <a class="reference external" href="yaml_encode">yaml_encode()</a>, но включает вывод
+тип.</p>
+</div>
+<div class="section" id="abbr-class">
+<h3>abbr_class<a class="headerlink" href="#abbr-class" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">class</span><span class="o">|</span><span class="nf">abbr_class</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>class</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+</dl>
+<p>Генерирует элемент <tt class="docutils literal"><code>&lt;abbr&gt;</code></tt> с коротким именем PHP-класса (FQCN будет отображён
+в оперативной подсказке, когда пользователь наведёт курсор на элемент).</p>
+</div>
+<div class="section" id="abbr-method">
+<h3>abbr_method<a class="headerlink" href="#abbr-method" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">method</span><span class="o">|</span><span class="nf">abbr_method</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>method</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+</dl>
+<p>Генерирует элемент <tt class="docutils literal"><code>&lt;abbr&gt;</code></tt>, используя синтаксис <tt class="docutils literal"><code>FQCN::method()</code></tt>. Если
+<tt class="docutils literal"><code>method</code></tt> - <tt class="docutils literal"><code>Closure</code></tt>, то <tt class="docutils literal"><code>Closure``будет использован вместо этого,а если
+``method</code></tt> не имеет имени класс, то он отображается в виде функции (<tt class="docutils literal"><code>method()</code></tt>).</p>
+</div>
+<div class="section" id="format-args">
+<h3>format_args<a class="headerlink" href="#format-args" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">args</span><span class="o">|</span><span class="nf">format_args</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>args</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt></dd>
+</dl>
+<p>Генерирует строку с аргументами и их типами (в рамках элементов <tt class="docutils literal"><code>&lt;em&gt;</code></tt>).</p>
+</div>
+<div class="section" id="format-args-as-text">
+<h3>format_args_as_text<a class="headerlink" href="#format-args-as-text" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">args</span><span class="o">|</span><span class="nf">format_args_as_text</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>args</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt></dd>
+</dl>
+<p>Приравнивается к фильтру <a class="reference internal" href="#format-args">format_args</a>, но без использования HTML-тегов.</p>
+</div>
+<div class="section" id="file-excerpt">
+<h3>file_excerpt<a class="headerlink" href="#file-excerpt" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">file</span><span class="o">|</span><span class="nf">file_excerpt</span><span class="o">(</span><span class="nv">line</span><span class="o">,</span> <span class="nv">srcContext</span> <span class="o">=</span> <span class="m">3</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>file</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+<dt><tt class="docutils literal"><code>line</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>integer</code></tt></dd>
+</dl>
+<p><tt class="docutils literal"><code>srcContext</code></tt> <em>(необязательно)</em></p>
+<p>Генерирует выборку файла кода вокруг заданного числа <tt class="docutils literal"><code>line</code></tt>. Аргумент
+<tt class="docutils literal"><code>srcContext</code></tt> определяет итоговое количество строчек для отображения вокруг
+заданного числа строчки (используйте <tt class="docutils literal"><code>-1</code></tt>,чтобы отобразить весь файл).</p>
+</div>
+<div class="section" id="format-file">
+<h3>format_file<a class="headerlink" href="#format-file" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">file</span><span class="o">|</span><span class="nf">format_file</span><span class="o">(</span><span class="nv">line</span><span class="o">,</span> <span class="nv">text</span> <span class="o">=</span> <span class="kp">null</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>file</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+<dt><tt class="docutils literal"><code>line</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>integer</code></tt></dd>
+<dt><tt class="docutils literal"><code>text</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></dd>
+</dl>
+<p>Генерирует путь файла внутри элемента <tt class="docutils literal"><code>&lt;a&gt;</code></tt>. Если пусть находится внутри
+корневого каталога ядра, то путь корневого каталога ядра заменяется на
+<tt class="docutils literal"><code>kernel.root_dir</code></tt> (отображая полный путь в оперативной подсказке при наведении
+курсора).</p>
+</div>
+<div class="section" id="format-file-from-text">
+<h3>format_file_from_text<a class="headerlink" href="#format-file-from-text" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">text</span><span class="o">|</span><span class="nf">format_file_from_text</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>text</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+</dl>
+<p>Использует <a class="reference internal" href="#format-file">format_file</a>, чтобы улусшить вывод ошибок PHP по умолчанию.</p>
+</div>
+<div class="section" id="file-link">
+<h3>file_link<a class="headerlink" href="#file-link" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">file</span><span class="o">|</span><span class="nf">file_link</span><span class="o">(</span><span class="nv">line</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>file</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+<dt><tt class="docutils literal"><code>line</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>integer</code></tt></dd>
+</dl>
+<p>Генерирует ссылку на предоставленный файл и на номер строки,
+используя предварительно сконфигурированную схему.</p>
+</div>
+</div>
+<div class="section" id="reference-twig-tags-ru">
+<span id="id4"></span><h2>Теги<a class="headerlink" href="#reference-twig-tags-ru" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="form-theme">
+<h3>form_theme<a class="headerlink" href="#form-theme" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">form_theme</span> <span class="nv">form</span> <span class="nv">resources</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>form</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>FormView</code></tt></dd>
+<dt><tt class="docutils literal"><code>resources</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> | <tt class="docutils literal"><code>string</code></tt></dd>
+</dl>
+<p>Устанавливает источники так, чтобы переопределять тему формы для заданного экземпляра
+просмотра формы. Вы можете использовать <tt class="docutils literal"><code>_self</code></tt> в качестве источников, чтобы установить
+его в качестве текущего источника. Больше информации в <a class="reference internal" href="..\form\form_customization-1.html"><em>How to Customize Form Rendering</em></a>.</p>
+</div>
+<div class="section" id="id5">
+<h3>trans<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">trans</span> <span class="nv">with</span> <span class="nv">vars</span> <span class="nv">from</span> <span class="nv">domain</span> <span class="nv">into</span> <span class="nv">locale</span> <span class="cp">%}{%</span> <span class="k">endtrans</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>vars</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+<dt><tt class="docutils literal"><code>domain</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+<dt><tt class="docutils literal"><code>locale</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+</dl>
+<p>Отображает перевод содержимого. Больше информации в <a class="reference internal" href="..\translation-1.html#translation-tags"><span>Twig Templates</span></a>.</p>
+</div>
+<div class="section" id="id6">
+<h3>transchoice<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">transchoice</span> <span class="nv">count</span> <span class="nv">with</span> <span class="nv">vars</span> <span class="nv">from</span> <span class="nv">domain</span> <span class="nv">into</span> <span class="nv">locale</span> <span class="cp">%}{%</span> <span class="k">endtranschoice</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>count</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>integer</code></tt></dd>
+<dt><tt class="docutils literal"><code>vars</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>array</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>[]</code></tt></dd>
+<dt><tt class="docutils literal"><code>domain</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></dd>
+<dt><tt class="docutils literal"><code>locale</code></tt> <em>(необязательно)</em></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt> <strong>по умолчанию</strong>: <tt class="docutils literal"><code>null</code></tt></dd>
+</dl>
+<p>Отображает перевод содержимого с поддержкой плюрализации, больше информации
+в <a class="reference internal" href="..\translation-1.html#translation-tags"><span>Twig Templates</span></a>.</p>
+</div>
+<div class="section" id="trans-default-domain">
+<h3>trans_default_domain<a class="headerlink" href="#trans-default-domain" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">trans_default_domain</span> <span class="nv">domain</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>domain</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+</dl>
+<p>Устанавливает домен по умолчанию в текущем щаблоне.</p>
+</div>
+<div class="section" id="stopwatch">
+<h3>stopwatch<a class="headerlink" href="#stopwatch" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-jinja"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">stopwatch</span> <span class="s1">&#39;name&#39;</span> <span class="cp">%}</span><span class="x">...</span><span class="cp">{%</span> <span class="k">endstopwatch</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Засечёт время прогона кода внутри себя и отобразит это во временной шкале
+WebProfilerBundle.</p>
+</div>
+</div>
+<div class="section" id="reference-twig-tests-ru">
+<span id="id7"></span><h2>Тесты<a class="headerlink" href="#reference-twig-tests-ru" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="selectedchoice">
+<h3>selectedchoice<a class="headerlink" href="#selectedchoice" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-twig"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">choice</span> <span class="k">is</span> <span class="nf">selectedchoice</span><span class="o">(</span><span class="nv">selectedValue</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div></div>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>choice</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>ChoiceView</code></tt></dd>
+<dt><tt class="docutils literal"><code>selectedValue</code></tt></dt>
+<dd><strong>тип</strong>: <tt class="docutils literal"><code>string</code></tt></dd>
+</dl>
+<p>Проверяет, был ли <tt class="docutils literal"><code>selectedValue</code></tt> проверен на предоставленное поле выбора.
+Использоваие этого теста является наиболее эффективным.</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>Глобальные переменные<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="app">
+<span id="reference-twig-global-app-ru"></span><h3>app<a class="headerlink" href="#app" title="Permalink to this headline">¶</a></h3>
+<p>Переменная <tt class="docutils literal"><code>app</code></tt> доступна везде и предоставляет вам доступ ко многим
+часто необходимым объектам и значениям. Яляется экземпляром
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Bundle/FrameworkBundle/Templating/GlobalVariables.html" title="Symfony\Bundle\FrameworkBundle\Templating\GlobalVariables">GlobalVariables</a></code></tt>.</p>
+<p>Доступные атрибуты:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>app.user</code></tt>, PHP-объект, представляющий текущего пользователя;</li>
+<li><tt class="docutils literal"><code>app.request</code></tt>, объект :class:<tt class="docutils literal"><code>Symfony\\Component\\HttpFoundation\\Request</code></tt>;</li>
+<li><tt class="docutils literal"><code>app.session</code></tt>, объект :class:<tt class="docutils literal"><code>Symfony\\Component\\HttpFoundation\\Session\\Session</code></tt>;</li>
+<li><tt class="docutils literal"><code>app.environment</code></tt>, строка с именем окружения выполнения;</li>
+<li><tt class="docutils literal"><code>app.debug</code></tt>, булево значение, сообщающее, включен ли в приложении режим отладки;</li>
+<li><tt class="docutils literal"><code>app.token</code></tt>, объект <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Security/Core/Authentication/Token/TokenInterface.html" title="Symfony\Component\Security\Core\Authentication\Token\TokenInterface">TokenInterface</a></code></tt>,
+представляющий токен безопасности</li>
+<li><tt class="docutils literal"><code>app.flashes</code></tt>, возвращает флеш-сообщения из сессии</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

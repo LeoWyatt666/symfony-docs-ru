@@ -1,0 +1,531 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Ввод консоли (аргументы и опции) &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="Console Commands" href="..\console.html">
+    <link rel="next" title="How to Make Commands Lazily Loaded" href="lazy_commands.html">
+    <link rel="prev" title="Console Input (Arguments &amp; Options)" href="input.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="console doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Ввод консоли (аргументы и опции)</a><ul>
+<li><a class="reference internal" href="#id2">Использование аргументов команд</a></li>
+<li><a class="reference internal" href="#id3">Использование опций команд</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="..\console.html">Console Commands</a></li>
+                
+                <li class="active">Ввод консоли (аргументы и опции)</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="id1">
+<h1>Ввод консоли (аргументы и опции)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Наиболее интересной частью команд являются аргументы и опции, которые вы можете
+сделать доступными. Эти аргументы и опции позволяют вам передавать динамическую
+информацию из терминала в команду.</p>
+<div class="section" id="id2">
+<h2>Использование аргументов команд<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Аргументы - это строки, разделённые пробелами, которые идут после самого
+имени команды. Они упорядочены и могут быть обязательными или необязательными.
+Например, чтобы добавить необязательный аргумент <tt class="docutils literal"><code>last_name</code></tt> в команду и сделать
+аргумент <tt class="docutils literal"><code>name</code></tt> обязательным:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Console\Input\InputArgument</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">GreetCommand</span> <span class="k">extends</span> <span class="nx">Command</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configure</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span>
+            <span class="c1">// ...</span>
+            <span class="o">-&gt;</span><span class="na">addArgument</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nx">InputArgument</span><span class="o">::</span><span class="na">REQUIRED</span><span class="p">,</span> <span class="s1">&#39;Who do you want to greet?&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">addArgument</span><span class="p">(</span><span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="nx">InputArgument</span><span class="o">::</span><span class="na">OPTIONAL</span><span class="p">,</span> <span class="s1">&#39;Your last name?&#39;</span><span class="p">)</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь у вас есть доступ к аргументу <tt class="docutils literal"><code>last_name</code></tt> в вашей команде:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">GreetCommand</span> <span class="k">extends</span> <span class="nx">Command</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nx">InputInterface</span> <span class="nv">$input</span><span class="p">,</span> <span class="nx">OutputInterface</span> <span class="nv">$output</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$text</span> <span class="o">=</span> <span class="s1">&#39;Hi &#39;</span><span class="o">.</span><span class="nv">$input</span><span class="o">-&gt;</span><span class="na">getArgument</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+
+        <span class="nv">$lastName</span> <span class="o">=</span> <span class="nv">$input</span><span class="o">-&gt;</span><span class="na">getArgument</span><span class="p">(</span><span class="s1">&#39;last_name&#39;</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$lastName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$text</span> <span class="o">.=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="nv">$lastName</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$output</span><span class="o">-&gt;</span><span class="na">writeln</span><span class="p">(</span><span class="nv">$text</span><span class="o">.</span><span class="s1">&#39;!&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь команда может быть использована любым из следующих способов:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console app:greet Fabien
+<span class="go">Привет, Фабиен!</span>
+
+<span class="gp">$</span> php bin/console app:greet Fabien Potencier
+<span class="go">Привет, Фабиен Потенсье!</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Также возможно позволить аргументу использовать список значений (представьте,
+что вы хотите поздороваться со всеми вашими друзьями). Только последний аргумент
+может быть списком:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$this</span>
+    <span class="c1">// ...</span>
+    <span class="o">-&gt;</span><span class="na">addArgument</span><span class="p">(</span>
+        <span class="s1">&#39;names&#39;</span><span class="p">,</span>
+        <span class="nx">InputArgument</span><span class="o">::</span><span class="na">IS_ARRAY</span><span class="p">,</span>
+        <span class="s1">&#39;С кем вы хотите поздороваться (разделите несколько имён пробелом)?&#39;</span>
+    <span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Чтобы использовать это, просто укажите столько имён, сколько хотите:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> php bin/console app:greet Fabien Ryan Bernhard
+</pre></div>
+</td></tr></table></div></div>
+<p>Вы можете получить доступ к аргументу <tt class="docutils literal"><code>names</code></tt>, как к массиву:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$names</span> <span class="o">=</span> <span class="nv">$input</span><span class="o">-&gt;</span><span class="na">getArgument</span><span class="p">(</span><span class="s1">&#39;names&#39;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$names</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$text</span> <span class="o">.=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="nb">implode</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">,</span> <span class="nv">$names</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Существует три варианта аргументов, которые вы можете использовать:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>InputArgument::REQUIRED</code></tt></dt>
+<dd>Аргумент обязателен. Команда не будет выполнена, если этого аргумента
+нет;</dd>
+<dt><tt class="docutils literal"><code>InputArgument::OPTIONAL</code></tt></dt>
+<dd>Аргумент необязателен и поэтому может быть опущен. Это поведение аргументов
+по уполчанию;</dd>
+<dt><tt class="docutils literal"><code>InputArgument::IS_ARRAY</code></tt></dt>
+<dd>Аргумент может содержать любое количество значений. По этой причине, он
+может быть использован в конце списка аргументов.</dd>
+</dl>
+<p>Вы можете комбинировать <tt class="docutils literal"><code>IS_ARRAY</code></tt> с <tt class="docutils literal"><code>REQUIRED</code></tt> и <tt class="docutils literal"><code>OPTIONAL</code></tt> таким образом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$this</span>
+    <span class="c1">// ...</span>
+    <span class="o">-&gt;</span><span class="na">addArgument</span><span class="p">(</span>
+        <span class="s1">&#39;names&#39;</span><span class="p">,</span>
+        <span class="nx">InputArgument</span><span class="o">::</span><span class="na">IS_ARRAY</span> <span class="o">|</span> <span class="nx">InputArgument</span><span class="o">::</span><span class="na">REQUIRED</span><span class="p">,</span>
+        <span class="s1">&#39;С кем вы хотите поздороваться (разделите несколько имён пробелом)?&#39;</span>
+    <span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id3">
+<h2>Использование опций команд<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>В отличие от аргументов, опции не упорядочены (то есть вы можете указывать их
+в любом порядке) и указываются с двумя дефисами (например, <tt class="docutils literal"><code>--yell</code></tt>). Опции
+<em>всегда</em> необязательны, и могут быть настроены так, чтобы принимать значение
+(например, <tt class="docutils literal"><code>--dir=src</code></tt>) или просто как булев флажок без значения (например,
+<tt class="docutils literal"><code>--yell</code></tt>).</p>
+<p>К примеру, добавьте новую опцию к команде, которая может быть использована
+для указания того, сколько раз подряд должно быть напечатано сообщение:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Console\Input\InputOption</span><span class="p">;</span>
+
+<span class="nv">$this</span>
+    <span class="c1">// ...</span>
+    <span class="o">-&gt;</span><span class="na">addOption</span><span class="p">(</span>
+        <span class="s1">&#39;iterations&#39;</span><span class="p">,</span>
+        <span class="k">null</span><span class="p">,</span>
+        <span class="nx">InputOption</span><span class="o">::</span><span class="na">VALUE_REQUIRED</span><span class="p">,</span>
+        <span class="s1">&#39;Сколько раз должно быть напечатано сообщение?&#39;</span><span class="p">,</span>
+        <span class="mi">1</span>
+    <span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Далее, используйте это в команде, чтобы напечатать сообщение несколько
+раз:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$input</span><span class="o">-&gt;</span><span class="na">getOption</span><span class="p">(</span><span class="s1">&#39;iterations&#39;</span><span class="p">);</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$output</span><span class="o">-&gt;</span><span class="na">writeln</span><span class="p">(</span><span class="nv">$text</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Теперь, когда вы выполняете команду, вы можете по желанию указать флажок
+<tt class="docutils literal"><code>--iterations</code></tt>:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># итерация не предоставлена (--iterations), используется значение по умолчанию (1)</span>
+<span class="gp">$</span> php bin/console app:greet Fabien
+<span class="go">Привет, Фабиен!</span>
+
+<span class="gp">$</span> php bin/console app:greet Fabien --iterations<span class="o">=</span><span class="m">5</span>
+<span class="go">Привет, Фабиен</span>
+<span class="go">Привет, Фабиен</span>
+<span class="go">Привет, Фабиен</span>
+<span class="go">Привет, Фабиен</span>
+<span class="go">Привет, Фабиен</span>
+<span class="go">Привет, Фабиен</span>
+
+<span class="c1"># порядок опций неважен</span>
+<span class="gp">$</span> php bin/console app:greet Fabien --iterations<span class="o">=</span><span class="m">5</span> --yell
+<span class="gp">$</span> php bin/console app:greet Fabien --yell --iterations<span class="o">=</span><span class="m">5</span>
+<span class="gp">$</span> php bin/console app:greet --yell --iterations<span class="o">=</span><span class="m">5</span> Fabien
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>Вы также можете объявить шорткат из одной буквы, который вы можете вызвать
+с помощью одного дефиса, например, <tt class="docutils literal"><code>-i</code></tt>:</p>
+<div class="literal-block"><div class="last highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$this</span>
+    <span class="c1">// ...</span>
+    <span class="o">-&gt;</span><span class="na">addOption</span><span class="p">(</span>
+        <span class="s1">&#39;iterations&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;i&#39;</span><span class="p">,</span>
+        <span class="nx">InputOption</span><span class="o">::</span><span class="na">VALUE_REQUIRED</span><span class="p">,</span>
+        <span class="s1">&#39;Сколько раз должно быть напечатано сообщение?&#39;</span><span class="p">,</span>
+        <span class="mi">1</span>
+    <span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<p>Существует четыре варианта опций, которые вы можете использовать:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><code>InputOption::VALUE_IS_ARRAY</code></tt></dt>
+<dd>Эта опция принимает несколько значений (например, <tt class="docutils literal"><code>--dir=/foo --dir=/bar</code></tt>);</dd>
+<dt><tt class="docutils literal"><code>InputOption::VALUE_NONE</code></tt></dt>
+<dd>Не принимает ввод для этой опции (например, <tt class="docutils literal"><code>--yell</code></tt>). Это поведение аргументов
+по уполчанию;</dd>
+<dt><tt class="docutils literal"><code>InputOption::VALUE_REQUIRED</code></tt></dt>
+<dd>Это значение обязательно (например, <tt class="docutils literal"><code>--iterations=5</code></tt>), но сама опция всё
+ещё необязательна;</dd>
+<dt><tt class="docutils literal"><code>InputOption::VALUE_OPTIONAL</code></tt></dt>
+<dd>Эта опция может иметь или не иметь значения (например, <tt class="docutils literal"><code>--yell</code></tt> или
+<tt class="docutils literal"><code>--yell=loud</code></tt>).</dd>
+</dl>
+<p>Вы можете комбинировать <tt class="docutils literal"><code>VALUE_IS_ARRAY</code></tt> с <tt class="docutils literal"><code>VALUE_REQUIRED</code></tt> или
+<tt class="docutils literal"><code>VALUE_OPTIONAL</code></tt> таким образом:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$this</span>
+    <span class="c1">// ...</span>
+    <span class="o">-&gt;</span><span class="na">addOption</span><span class="p">(</span>
+        <span class="s1">&#39;colors&#39;</span><span class="p">,</span>
+        <span class="k">null</span><span class="p">,</span>
+        <span class="nx">InputOption</span><span class="o">::</span><span class="na">VALUE_REQUIRED</span> <span class="o">|</span> <span class="nx">InputOption</span><span class="o">::</span><span class="na">VALUE_IS_ARRAY</span><span class="p">,</span>
+        <span class="s1">&#39;Какие цвета вам нравятся?&#39;</span><span class="p">,</span>
+        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    <span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">Ничто не запрещает вам создать команду с опцией, которая необязательно
+принимает значение. Однако, не существует способа определить, когда опция
+была использована без значения (<tt class="docutils literal"><code>command --language</code></tt>) или когда она не была
+использована вообще (<tt class="docutils literal"><code>command</code></tt>). В обоих случаях, полученное для опции
+значение будет <tt class="docutils literal"><code>null</code></tt>.</p>
+</div></div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="input.html">« Console Input (Arguments &amp; Options)</a>
+                <span class="separator">|</span>
+                <a href="lazy_commands.html">How to Make Commands Lazily Loaded »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

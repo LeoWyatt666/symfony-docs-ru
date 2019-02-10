@@ -1,0 +1,562 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент Внедрения зависимости (DependencyInjection) &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="create_framework doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="..\components\index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент Внедрения зависимости (DependencyInjection)</a></li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li class="active">Компонент Внедрения зависимости (DependencyInjection)</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="dependencyinjection">
+<h1>Компонент Внедрения зависимости (DependencyInjection)<a class="headerlink" href="#dependencyinjection" title="Permalink to this headline">¶</a></h1>
+<p>В предыдущей главе мы очистили класс <tt class="docutils literal"><code>Simplex\Framework</code></tt>, расширив класс
+<tt class="docutils literal"><code>HttpKernel</code></tt> из эпонимного компонента. Увидем этот пустой класс, вам может
+захотеть переместить в него часть кода из фронт контроллера:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// example.com/src/Simplex/Framework.php</span>
+<span class="k">namespace</span> <span class="nx">Simplex</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\EventDispatcher\EventDispatcher</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Framework</span> <span class="k">extends</span> <span class="nx">HttpKernel\HttpKernel</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$routes</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$context</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Routing\RequestContext</span><span class="p">();</span>
+        <span class="nv">$matcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Routing\Matcher\UrlMatcher</span><span class="p">(</span><span class="nv">$routes</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
+        <span class="nv">$requestStack</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RequestStack</span><span class="p">();</span>
+
+        <span class="nv">$controllerResolver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpKernel\Controller\ControllerResolver</span><span class="p">();</span>
+        <span class="nv">$argumentResolver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpKernel\Controller\ArgumentResolver</span><span class="p">();</span>
+
+        <span class="nv">$dispatcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EventDispatcher</span><span class="p">();</span>
+        <span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">addSubscriber</span><span class="p">(</span><span class="k">new</span> <span class="nx">HttpKernel\EventListener\RouterListener</span><span class="p">(</span><span class="nv">$matcher</span><span class="p">,</span> <span class="nv">$requestStack</span><span class="p">));</span>
+        <span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">addSubscriber</span><span class="p">(</span><span class="k">new</span> <span class="nx">HttpKernel\EventListener\ResponseListener</span><span class="p">(</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">));</span>
+
+        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$dispatcher</span><span class="p">,</span> <span class="nv">$controllerResolver</span><span class="p">,</span> <span class="nv">$requestStack</span><span class="p">,</span> <span class="nv">$argumentResolver</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Код фронт контроллера станет более лаконичным:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// example.com/web/front.php</span>
+<span class="k">require_once</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../vendor/autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+
+<span class="nv">$request</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">createFromGlobals</span><span class="p">();</span>
+<span class="nv">$routes</span> <span class="o">=</span> <span class="k">include</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../src/app.php&#39;</span><span class="p">;</span>
+
+<span class="nv">$framework</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Simplex\Framework</span><span class="p">(</span><span class="nv">$routes</span><span class="p">);</span>
+
+<span class="nv">$framework</span><span class="o">-&gt;</span><span class="na">handle</span><span class="p">(</span><span class="nv">$request</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Наличие лаконичного фронт контроллера позволяет вам иметь несколько фронт контроллеров
+в одном приложении. Почему это будет полезно? Чтобы позволить наличие разных конфигураций
+для окружений разработки и производста, к примеру. В окружении разработки вы можете
+захотеть включить отчёт об ошибках, и отображение ошибок в браузере, чтобы облегчить отладку:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">ini_set</span><span class="p">(</span><span class="s1">&#39;display_errors&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">error_reporting</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>... но вы точно не захотите ту же конфигурацию в окружении производства. Наличие
+двух разных фронт контроллеров даёт вам возможность иметь немного разную конфигурацию
+для каждого из них.</p>
+<p>Так что перемещение кода из фронт контроллера в класс фреймворка делает его
+более конфигурируемым, но в то же время вызывает множество проблем:</p>
+<ul class="simple">
+<li>Мы больше не можем регистрировать пользовательские слушатели, так как
+диспетчер недоступен вне класса фреймворка (простым обходным путём может
+быть добавление метода <tt class="docutils literal"><code>Framework::getEventDispatcher()</code></tt>);</li>
+<li>Мы потеряли гибкость, которую имели раньше, вы больше не можете изменить
+реализацию <tt class="docutils literal"><code>UrlMatcher</code></tt> или <tt class="docutils literal"><code>ControllerResolver</code></tt>;</li>
+<li>Связано с предыдущим пунктом, мы не может больше с лёгкостью тестировать
+наш фреймворк, так как невозможно макетировать внутренние объекты;</li>
+<li>Мы больше не можем изменить набор символов, переданный <tt class="docutils literal"><code>ResponseListener</code></tt>
+(обходным путём может быть передача его в качестве аргумента конструктора).</li>
+</ul>
+<p>Предыдущий код не выявлял таких же проблем, так как мы использовали внедрение
+зависимости; все зависимости наших объектов были внедрены в их конструкторы
+(например, диспетчеры событий были внедрены в фреймворк, чтобы у нас был полный
+контроль его создания и конфигурации).</p>
+<p>Значит ли это, что мы должны сделать выбор между гибкостью, настройкой, лёгкостью
+тестирования и не копировать и вставлять один и тот же код в каждый фронт контроллер
+приложения? Как вы можете ожидать, решение сушествует. Мы можем решить все эти проблемы,
+а также некоторые другие, используя контейнер внедрения зависимостей Symfony:</p>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/dependency-injection
+</pre></div>
+</td></tr></table></div></div>
+<p>Создайте новый файл в качестве хоста конфигурации контейнера внедрения зависимости:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// example.com/src/container.php</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Reference</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Routing</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\EventDispatcher</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Simplex\Framework</span><span class="p">;</span>
+
+<span class="nv">$sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DependencyInjection\ContainerBuilder</span><span class="p">();</span>
+<span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;context&#39;</span><span class="p">,</span> <span class="nx">Routing\RequestContext</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;matcher&#39;</span><span class="p">,</span> <span class="nx">Routing\Matcher\UrlMatcher</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArguments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$routes</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;context&#39;</span><span class="p">)))</span>
+<span class="p">;</span>
+<span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;request_stack&#39;</span><span class="p">,</span> <span class="nx">HttpFoundation\RequestStack</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;controller_resolver&#39;</span><span class="p">,</span> <span class="nx">HttpKernel\Controller\ControllerResolver</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;argument_resolver&#39;</span><span class="p">,</span> <span class="nx">HttpKernel\Controller\ArgumentResolver</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+<span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;listener.router&#39;</span><span class="p">,</span> <span class="nx">HttpKernel\EventListener\RouterListener</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArguments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;matcher&#39;</span><span class="p">),</span> <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;request_stack&#39;</span><span class="p">)))</span>
+<span class="p">;</span>
+<span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;listener.response&#39;</span><span class="p">,</span> <span class="nx">HttpKernel\EventListener\ResponseListener</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArguments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">))</span>
+<span class="p">;</span>
+<span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;listener.exception&#39;</span><span class="p">,</span> <span class="nx">HttpKernel\EventListener\ExceptionListener</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArguments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;Calendar\Controller\ErrorController::exceptionAction&#39;</span><span class="p">))</span>
+<span class="p">;</span>
+<span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;dispatcher&#39;</span><span class="p">,</span> <span class="nx">EventDispatcher\EventDispatcher</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addMethodCall</span><span class="p">(</span><span class="s1">&#39;addSubscriber&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;listener.router&#39;</span><span class="p">)))</span>
+    <span class="o">-&gt;</span><span class="na">addMethodCall</span><span class="p">(</span><span class="s1">&#39;addSubscriber&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;listener.response&#39;</span><span class="p">)))</span>
+    <span class="o">-&gt;</span><span class="na">addMethodCall</span><span class="p">(</span><span class="s1">&#39;addSubscriber&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;listener.exception&#39;</span><span class="p">)))</span>
+<span class="p">;</span>
+<span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;framework&#39;</span><span class="p">,</span> <span class="nx">Framework</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArguments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;dispatcher&#39;</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;controller_resolver&#39;</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;request_stack&#39;</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;argument_resolver&#39;</span><span class="p">),</span>
+    <span class="p">))</span>
+<span class="p">;</span>
+
+<span class="k">return</span> <span class="nv">$sc</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Цель этого файла - сконфигурировать ваши объекты и их зависимости. Во время
+этого шага конфигурации ничего не инстанциируется. Это просто статическое
+описание объектов, которыми вам нужно управлять и того, как их создать. Объекты
+будут созданы по запросу, когда вы получите доступ к ним из контейнера или
+когда они понадобятся контейнеру для создания других объектов.</p>
+<p>Например, чтобы создать слушатель маршрутизатора, мы говорим Symfony, что его
+класс имени - <tt class="docutils literal"><code>Symfony\Component\HttpKernel\EventListener\RouterListener</code></tt> и
+что его конструктор берёт объект сопоставителя (<tt class="docutils literal"><code>new Reference('matcher')</code></tt>).
+Как вы можете увидеть, на каждый объект ссылаются по имени, строкой, которая
+уникально идентифицирует каждый объект. Это имя позволяет нам получить объект и
+сослаться на него в других определениях объектов.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">По умолчанию, каждый раз, когда вы получаете объект из контейнера, он
+возвращает точно тот же экземпляр. Это потому, что контейнер управляет
+вашими &quot;глобальными&quot; объектами.</p>
+</div></div>
+<p>Теперь фронт контроллер заключается только в монтировании всего вместе:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// example.com/web/front.php</span>
+<span class="k">require_once</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../vendor/autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+
+<span class="nv">$routes</span> <span class="o">=</span> <span class="k">include</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../src/app.php&#39;</span><span class="p">;</span>
+<span class="nv">$sc</span> <span class="o">=</span> <span class="k">include</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../src/container.php&#39;</span><span class="p">;</span>
+
+<span class="nv">$request</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">createFromGlobals</span><span class="p">();</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;framework&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">handle</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Так как все объекты теперь создаются в контейнере внедрения зависимости, код
+фреймворка должен быть предыдущей простой версией:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// example.com/src/Simplex/Framework.php</span>
+<span class="k">namespace</span> <span class="nx">Simplex</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\HttpKernel</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Framework</span> <span class="k">extends</span> <span class="nx">HttpKernel</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Если вы хотите лёгкую альтернативудля вашего контейнера, рассмотрите <a class="reference external" href="https://github.com/silexphp/Pimple">Pimple</a>,
+простой контейнер внедрения зависимости, состоящий из примерно 60 строк PHP-кода.</p>
+</div></div>
+<p>Теперь, вот как вы можете зарегистрировать пользовательский слушатель в фронт контроллере:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Simplex\StringResponseListener</span><span class="p">;</span>
+
+<span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;listener.string_response&#39;</span><span class="p">,</span> <span class="nx">StringResposeListener</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">getDefinition</span><span class="p">(</span><span class="s1">&#39;dispatcher&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addMethodCall</span><span class="p">(</span><span class="s1">&#39;addSubscriber&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;listener.string_response&#39;</span><span class="p">)))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Кроме описания ваших объектов, контейнер внедрения зависимости также может быть
+сконфигурирован через параметры. Давайте создадим такой, который будет определять,
+находимся ли мы в режиме отладки:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">&#39;debug&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">getParameter</span><span class="p">(</span><span class="s1">&#39;debug&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Эти параметры могут быть использованы при указании определений объектов. Давайте
+сделаем набор символов конфигурируемым:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;listener.response&#39;</span><span class="p">,</span> <span class="nx">HttpKernel\EventListener\ResponseListener</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArguments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;%charset%&#39;</span><span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>После этого изменения, вы должны установить набор символов до использования объекта
+слушателя запросов:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">&#39;charset&#39;</span><span class="p">,</span> <span class="s1">&#39;UTF-8&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Вместо того, чтобы полагаться на соглашение о том, что маршруты определяются
+переменными <tt class="docutils literal"><code>$routes</code></tt>, давайте снова используем параметр:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+<span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;matcher&#39;</span><span class="p">,</span> <span class="nx">Routing\Matcher\UrlMatcher</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setArguments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;%routes%&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Reference</span><span class="p">(</span><span class="s1">&#39;context&#39;</span><span class="p">)))</span>
+<span class="p">;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>И связанной переменой в фронт контроллере:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$sc</span><span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">&#39;routes&#39;</span><span class="p">,</span> <span class="k">include</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../src/app.php&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Понятно, что мы едва коснулись того, что вы можете сделать с контейнером: от
+имён классов в качестве параметров, до переопределени существующих определений
+объектов; от поддержки общих сервисов до сброса контейнера в простой PHP-класс
+и многое другое. Контейнер внедрения зависимости очень мощный и может уравлть
+любым видом PHP-класса.</p>
+<p>Не кричите на меня, если вы не хотите использовать котейнер внедрения зависимостей
+в вашем фреймворке. Если вам он не нравится - не используйте. Это ваш фреймворк, а
+не мой.</p>
+<p>Это (уже) последняя глава этой книги о создании фреймворка над компонентами
+Symfony. Я знаю, чо большинство тем не были раскрыты детально, но надеюсь, что
+дал вам достаточно информации, чтобы начать самостоятельно и лучше понимать то,
+как работает фреймворк Symfony внутренне.</p>
+<p>Если вы хотите узнать больше, прочтите исходный код микро-фреймворка
+<a class="reference external" href="http://silex.sensiolabs.org/">Silex</a>, в особенности его класс <a class="reference external" href="https://github.com/silexphp/Silex/blob/master/src/Silex/Application.php">Application</a>.</p>
+<p>Повеселитесь!</p>
+</div>
+
+
+            </div>
+
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>

@@ -1,0 +1,693 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Компонент Intl &mdash; Symfony Framework Documentation  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/" type="text/css">
+    <link rel="stylesheet" href="..\_static\pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <link rel="top" title="Symfony Framework Documentation  documentation" href="..\index.html">
+    <link rel="up" title="The Components" href="index.html">
+    <link rel="next" title="Компонент Ldap" href="ldap-ru.html">
+    <link rel="prev" title="Формат YAML" href="yaml/yaml_format-ru.html">
+
+<link rel="stylesheet" href="..\_assets\app.css?v=8d6d457a0820d7c245bddae16bfd4c75">
+<script src="..\_assets\manifest.js?v=d41d8cd98f00b204e980"></script>
+<script src="..\_assets\app.js?v=900984040c7cb4dca514"></script>
+<style>
+    .header__top .container {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header__top .header__logo {
+        float: left;
+    }
+    .header__top .header__support {
+        float: right;
+    }
+
+    .highlight .k, .highlight .gh, .highlight .gp,
+    .highlight .gu, .highlight .kc, .highlight .kd,
+    .highlight .kn, .highlight .kr, .highlight .nc,
+    .highlight .nd, .highlight .ni, .highlight .nl,
+    .highlight .nn, .highlight .nt, .highlight .ow,
+    .highlight .se { font-weight: normal; }
+
+    .highlight .c, .highlight .cm, .highlight .c1,
+    .highlight .sd, .highlight .si { font-style: normal; }
+
+    .doc { background: none; }
+    #demo-warning {
+        border: 3px dashed #c00;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    #demo-warning h4 { font-size: 1.7em;font-weight: bold; }
+    #demo-warning p { margin-bottom: 0; }
+</style>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-107764519-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-107764519-1');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '250281335689441');
+    fbq('track', 'PageView');
+</script>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=250281335689441&ev=PageView&noscript=1">
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-279161-8p6Jv"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><img src="https://vk.com/rtrg?p=VK-RTRG-279161-8p6Jv" style="position:fixed; left:-999px;" alt="">
+
+
+  </head>
+  <body role="document">
+
+<body class="components doc_article doc">
+
+<header>
+    <section class="header__top">
+        <div class="container">
+            <div class="header__logo">
+                <a href="..\..\..\index.html">
+                    <img src="..\..\..\_images\header-logo.svg" alt="Symfony.com.ua logo">
+                </a>
+            </div>
+            <div class="header__support hidden-xs">
+                <a href="http://playtini.ua/" title="Компания Playtini">
+                    <img height="69" src="..\..\..\_images\support.png" alt="Symfony is a SensioLabs product">
+                </a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container"><div id="page-content">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
+            <div id="sidebar-content"><div class="submenu">
+    
+    
+    <ul class="list_submenu list-unstyled">
+    
+        <li class="first">
+            <a href="..\index.html">Главная</a>
+        </li>
+    
+        <li>
+            <a href="index.html">Компоненты</a>
+        </li>
+    
+        <li>
+            <a href="..\best_practices\index.html">Лучшие практики</a>
+        </li>
+    
+        <li>
+            <a href="..\quick_tour\index.html">Быстрый старт</a>
+        </li>
+    
+        <li>
+            <a href="..\reference\index.html">Справочник</a>
+        </li>
+    
+        <li>
+            <a href="..\genindex.html">Индекс</a>
+        </li>
+    
+        <li>
+            <a href="..\contributing\index.html">Участие</a>
+        </li>
+    
+    </ul>
+</div>
+
+                <div class="toc"> 
+    <h4>Содержание</h4>
+    <div class="toc-content">
+        <ul>
+<li><a class="reference internal" href="#">Компонент Intl</a><ul>
+<li><a class="reference internal" href="#id1">Установка</a></li>
+<li><a class="reference internal" href="#id2">Написание и чтение пакетов источников</a><ul>
+<li><a class="reference internal" href="#textbundlewriter">TextBundleWriter</a></li>
+<li><a class="reference internal" href="#phpbundlewriter">PhpBundleWriter</a></li>
+<li><a class="reference internal" href="#binarybundlereader">BinaryBundleReader</a></li>
+<li><a class="reference internal" href="#phpbundlereader">PhpBundleReader</a></li>
+<li><a class="reference internal" href="#bufferedbundlereader">BufferedBundleReader</a></li>
+<li><a class="reference internal" href="#structuredbundlereader">StructuredBundleReader</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#icu">Доступ к данным ICU</a><ul>
+<li><a class="reference internal" href="#id3">Язык и названия скриптов</a></li>
+<li><a class="reference internal" href="#id4">Названия стран</a></li>
+<li><a class="reference internal" href="#id5">Локали</a></li>
+<li><a class="reference internal" href="#id6">Валюты</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7">Узнайте больше</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+                
+            </div>
+
+            <div class="ads m-b-30">
+                <h2>Вакансии Playtini</h2>
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/php-dev">
+                            Middle+ PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div><b>Playtini</b> активно поддерживает и развивает свои продукты, и профессионализм команды. И на данный момент в поиске специалиста на позицию <b>«Middle+ PHP Developer/Symfony»,</b> который улучшит качество внутренних сервисов компании и увеличит их количество.</div>
+                </div>
+                <!--
+                <div class="ad m-b-15">
+                    <h3>
+                        <a href="http://playtini.ua/careers/symfony-senior">
+                            Senior PHP Developer/Symfony
+                        </a>
+                    </h3>
+                    <div>We are looking for strong, experienced <b>Senior PHP Developer/Symfony.</b> We expect him/her to participate in improving and extending a system built using microservice architecture by means of modern technologies.</div>
+                </div>
+                -->
+                <div class="ad">
+                    <h3><a href="http://playtini.ua/careers">
+                        Остальные вакансии компании
+                        <img src="..\..\..\_images\logo-playtini.png" alt="Playtini">
+                    </a></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="col-sm-9">
+            <ol class="breadcrumb">
+                
+                <li><a href="..\index.html">Документация</a></li>
+                
+                <li><a href="index.html">The Components</a></li>
+                
+                <li class="active">Компонент Intl</li>
+            </ol>
+
+            <div class="page">
+                
+  <div class="section" id="intl">
+<span id="index-0"></span><h1>Компонент Intl<a class="headerlink" href="#intl" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Заменяющий PHP слой для C <a class="reference external" href="https://php.net/manual/en/book.intl.php">расширения intl</a>, который также предоставляет
+доступ к локализации данных <a class="reference external" href="http://site.icu-project.org/">библиотеки ICU</a>.</div></blockquote>
+<div class="admonition-wrapper">
+<div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+<p class="last">Заменяющий слой ограничен локалью &quot;en&quot;. Если вы хотите использовать другие
+локали, вам стоит <a class="reference external" href="httpa://php.net/manual/en/intl.setup.php">установить расширение intl</a>.</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="seealso"></div><div class="admonition admonition-seealso">Эта статья объясняет как использовать функции Intl как независимого
+компонента в любом приложении PHP. Прочитайте статью <a class="reference internal" href="..\translation.html"><em>Translations</em></a>
+для понимания как делать интернационализацию и управлять пользовательскими
+локалями в приложениях Symfony.</div></div>
+<div class="section" id="id1">
+<h2>Установка<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block"><div class="highlight-terminal"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> composer require symfony/intl
+</pre></div>
+</td></tr></table></div></div>
+<p>Также вы можете клонировать репозиторий <a class="reference external" href="https://github.com/symfony/intl">https://github.com/symfony/intl</a>.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you install this component outside of a Symfony application, you must
+require the <tt class="docutils literal"><code>vendor/autoload.php</code></tt> file in your code to enable the class
+autoloading mechanism provided by Composer. Read
+<a class="reference internal" href="using_components.html"><em>this article</em></a> for more details.</p>
+</div></div>
+<p>Если вы установите компонент через Composer, то следующие классы и функции рашсирения
+intl будут предоставлены автоматически, если расширение intl не загружено:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.collator.php" title="Collator">Collator</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.intldateformatter.php" title="IntlDateFormatter">IntlDateFormatter</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.locale.php" title="Locale">Locale</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.numberformatter.php" title="NumberFormatter">NumberFormatter</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.intl-error-name.php" title="intl_error_name">intl_error_name</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.intl-is-failure.php" title="intl_is_failure">intl_is_failure</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.intl-get-error-code.php" title="intl_get_error_code">intl_get_error_code</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/function.intl-get-error-message.php" title="intl_get_error_message">intl_get_error_message</a></code></tt></li>
+</ul>
+<p>Когда расширение intl недоступно, для замены intl классов используются следующие
+классы:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/Collator/Collator.html" title="Symfony\Component\Intl\Collator\Collator">Collator</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/DateFormatter/IntlDateFormatter.html" title="Symfony\Component\Intl\DateFormatter\IntlDateFormatter">IntlDateFormatter</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/Locale/Locale.html" title="Symfony\Component\Intl\Locale\Locale">Locale</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/NumberFormatter/NumberFormatter.html" title="Symfony\Component\Intl\NumberFormatter\NumberFormatter">NumberFormatter</a></code></tt></li>
+<li><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/Globals/IntlGlobals.html" title="Symfony\Component\Intl\Globals\IntlGlobals">IntlGlobals</a></code></tt></li>
+</ul>
+<p>Composer автоматически демонстрирует эти классы в глобальном пространстве имён.</p>
+</div>
+<div class="section" id="id2">
+<h2>Написание и чтение пакетов источников<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Класс <tt class="docutils literal"><code><a class="reference external" href="http://php.net/manual/en/class.resourcebundle.php" title="ResourceBundle">ResourceBundle</a></code></tt> на данный момент не поддерживается этим
+компонентом. Вместо этого, он включает в себя набор читателей и писателей
+для чтения и написания массивов (или массивоподобных объектов) из / в файлы
+пакета источников. Поддерживаются следующие классы:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#textbundlewriter">TextBundleWriter</a></li>
+<li><a class="reference internal" href="#phpbundlewriter">PhpBundleWriter</a></li>
+<li><a class="reference internal" href="#binarybundlereader">BinaryBundleReader</a></li>
+<li><a class="reference internal" href="#phpbundlereader">PhpBundleReader</a></li>
+<li><a class="reference internal" href="#bufferedbundlereader">BufferedBundleReader</a></li>
+<li><a class="reference internal" href="#structuredbundlereader">StructuredBundleReader</a></li>
+</ul>
+<p>Продолжайте читать, если вам интересно, как использовать эти классы. В противном
+случае - пропустите этот раздел и перейдите к <a class="reference internal" href="#icu">Доступ к данным ICU</a>.</p>
+<div class="section" id="textbundlewriter">
+<h3>TextBundleWriter<a class="headerlink" href="#textbundlewriter" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/ResourceBundle/Writer/TextBundleWriter.html" title="Symfony\Component\Intl\ResourceBundle\Writer\TextBundleWriter">TextBundleWriter</a></code></tt> пишет
+массив или массивоподобный объект в простой текстовый пакет источников. Итоговый
+.txt файл может быть преобразован в бинарный .res файл с помощью класса
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/ResourceBundle/Compiler/BundleCompiler.html" title="Symfony\Component\Intl\ResourceBundle\Compiler\BundleCompiler">BundleCompiler</a></code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Intl\ResourceBundle\Writer\TextBundleWriter</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Intl\ResourceBundle\Compiler\BundleCompiler</span><span class="p">;</span>
+
+<span class="nv">$writer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TextBundleWriter</span><span class="p">();</span>
+<span class="nv">$writer</span><span class="o">-&gt;</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;/path/to/bundle&#39;</span><span class="p">,</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;Data&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;entry1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;entry2&#39;</span><span class="p">,</span>
+        <span class="c1">// ...</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+
+<span class="nv">$compiler</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BundleCompiler</span><span class="p">();</span>
+<span class="nv">$compiler</span><span class="o">-&gt;</span><span class="na">compile</span><span class="p">(</span><span class="s1">&#39;/path/to/bundle&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/binary/bundle&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Команда &quot;genrb&quot; должна быть доступной, чтобы
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/ResourceBundle/Compiler/BundleCompiler.html" title="Symfony\Component\Intl\ResourceBundle\Compiler\BundleCompiler">BundleCompiler</a></code></tt>
+работал. Если команда расположена в нестандартном месте, вы можете передать
+её путь конструктору <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/ResourceBundle/Compiler/BundleCompiler.html" title="Symfony\Component\Intl\ResourceBundle\Compiler\BundleCompiler">BundleCompiler</a></code></tt>.</p>
+</div>
+<div class="section" id="phpbundlewriter">
+<h3>PhpBundleWriter<a class="headerlink" href="#phpbundlewriter" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/ResourceBundle/Writer/PhpBundleWriter.html" title="Symfony\Component\Intl\ResourceBundle\Writer\PhpBundleWriter">PhpBundleWriter</a></code></tt> пишет
+массив или массивоподобный объект в пакет источников .php:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Intl\ResourceBundle\Writer\PhpBundleWriter</span><span class="p">;</span>
+
+<span class="nv">$writer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PhpBundleWriter</span><span class="p">();</span>
+<span class="nv">$writer</span><span class="o">-&gt;</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;/path/to/bundle&#39;</span><span class="p">,</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;Data&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;entry1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;entry2&#39;</span><span class="p">,</span>
+        <span class="c1">// ...</span>
+    <span class="p">),</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="binarybundlereader">
+<h3>BinaryBundleReader<a class="headerlink" href="#binarybundlereader" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/ResourceBundle/Reader/BinaryBundleReader.html" title="Symfony\Component\Intl\ResourceBundle\Reader\BinaryBundleReader">BinaryBundleReader</a></code></tt>
+читает бинарные файлы пакета источников и возвращает массив или массивоподобный
+объект. Этот класс на данный момент работает только с установленным <a class="reference external" href="https://php.net/manual/en/book.intl.php">расширением intl</a>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Intl\ResourceBundle\Reader\BinaryBundleReader</span><span class="p">;</span>
+
+<span class="nv">$reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BinaryBundleReader</span><span class="p">();</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$reader</span><span class="o">-&gt;</span><span class="na">read</span><span class="p">(</span><span class="s1">&#39;/path/to/bundle&#39;</span><span class="p">,</span> <span class="s1">&#39;en&#39;</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;Data&#39;</span><span class="p">][</span><span class="s1">&#39;entry1&#39;</span><span class="p">]);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="phpbundlereader">
+<h3>PhpBundleReader<a class="headerlink" href="#phpbundlereader" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/ResourceBundle/Reader/PhpBundleReader.html" title="Symfony\Component\Intl\ResourceBundle\Reader\PhpBundleReader">PhpBundleReader</a></code></tt>
+читает пакеты источников из файлов .php и возвращает массив или массивоподобный
+объект:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Intl\ResourceBundle\Reader\PhpBundleReader</span><span class="p">;</span>
+
+<span class="nv">$reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PhpBundleReader</span><span class="p">();</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$reader</span><span class="o">-&gt;</span><span class="na">read</span><span class="p">(</span><span class="s1">&#39;/path/to/bundle&#39;</span><span class="p">,</span> <span class="s1">&#39;en&#39;</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;Data&#39;</span><span class="p">][</span><span class="s1">&#39;entry1&#39;</span><span class="p">]);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="bufferedbundlereader">
+<h3>BufferedBundleReader<a class="headerlink" href="#bufferedbundlereader" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/ResourceBundle/Reader/BufferedBundleReader.html" title="Symfony\Component\Intl\ResourceBundle\Reader\BufferedBundleReader">BufferedBundleReader</a></code></tt>
+выступает оболочкой другого читателя, но держит последние N прочтений в буфере,
+где N - размер буфера, переданный конструктору:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Intl\ResourceBundle\Reader\BinaryBundleReader</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Intl\ResourceBundle\Reader\BufferedBundleReader</span><span class="p">;</span>
+
+<span class="nv">$reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BufferedBundleReader</span><span class="p">(</span><span class="k">new</span> <span class="nx">BinaryBundleReader</span><span class="p">(),</span> <span class="mi">10</span><span class="p">);</span>
+
+<span class="c1">// на самом деле читает файл</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$reader</span><span class="o">-&gt;</span><span class="na">read</span><span class="p">(</span><span class="s1">&#39;/path/to/bundle&#39;</span><span class="p">,</span> <span class="s1">&#39;en&#39;</span><span class="p">);</span>
+
+<span class="c1">// возвращает данные из буфера</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$reader</span><span class="o">-&gt;</span><span class="na">read</span><span class="p">(</span><span class="s1">&#39;/path/to/bundle&#39;</span><span class="p">,</span> <span class="s1">&#39;en&#39;</span><span class="p">);</span>
+
+<span class="c1">// на самом деле читает файл</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$reader</span><span class="o">-&gt;</span><span class="na">read</span><span class="p">(</span><span class="s1">&#39;/path/to/bundle&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="structuredbundlereader">
+<h3>StructuredBundleReader<a class="headerlink" href="#structuredbundlereader" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/ResourceBundle/Reader/StructuredBundleReader.html" title="Symfony\Component\Intl\ResourceBundle\Reader\StructuredBundleReader">StructuredBundleReader</a></code></tt>
+выступает оболочкой другого читателя и предлагает метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/ResourceBundle/Reader/StructuredBundleReaderInterface.html#method_readEntry" title="Symfony\Component\Intl\ResourceBundle\Reader\StructuredBundleReaderInterface::readEntry()">readEntry()</a></code></tt>
+для чтения записи пакета источников, без опасений о том, установлены ли ключи
+массива. Если путь не может быть разрешён, возвращается <tt class="docutils literal"><code>null</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Intl\ResourceBundle\Reader\BinaryBundleReader</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Intl\ResourceBundle\Reader\StructuredBundleReader</span><span class="p">;</span>
+
+<span class="nv">$reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">StructuredBundleReader</span><span class="p">(</span><span class="k">new</span> <span class="nx">BinaryBundleReader</span><span class="p">());</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$reader</span><span class="o">-&gt;</span><span class="na">read</span><span class="p">(</span><span class="s1">&#39;/path/to/bundle&#39;</span><span class="p">,</span> <span class="s1">&#39;en&#39;</span><span class="p">);</span>
+
+<span class="c1">// производит ошибку, если ключ &quot;Data&quot; не существует</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;Data&#39;</span><span class="p">][</span><span class="s1">&#39;entry1&#39;</span><span class="p">]);</span>
+
+<span class="c1">// возвращает &quot;null&quot;, если ключ &quot;Data&quot; не существует</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$reader</span><span class="o">-&gt;</span><span class="na">readEntry</span><span class="p">(</span><span class="s1">&#39;/path/to/bundle&#39;</span><span class="p">,</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">,</span> <span class="s1">&#39;entry1&#39;</span><span class="p">)));</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Кроме того, метод
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/ResourceBundle/Reader/StructuredBundleReaderInterface.html#method_readEntry" title="Symfony\Component\Intl\ResourceBundle\Reader\StructuredBundleReaderInterface::readEntry()">readEntry()</a></code></tt>
+разрещает резервные локали. Например, резервная локаль &quot;en_GB&quot; - &quot;en&quot;. Для
+однозначных записей (строк, чисел и др.), запись будет считана из резервной
+локали, если она не можетбыть найдена в более конкретной локали. Для многозначных
+записей (массивов), значения более конкретной и резервной локали будут объединены.
+Для того, чтобы подавить это поведение, последний параметр <tt class="docutils literal"><code>$fallback</code></tt> может быть
+установлен, как <tt class="docutils literal"><code>false</code></tt>:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">var_dump</span><span class="p">(</span><span class="nv">$reader</span><span class="o">-&gt;</span><span class="na">readEntry</span><span class="p">(</span>
+    <span class="s1">&#39;/path/to/bundle&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;en&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">,</span> <span class="s1">&#39;entry1&#39;</span><span class="p">),</span>
+    <span class="k">false</span>
+<span class="p">));</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="icu">
+<h2>Доступ к данным ICU<a class="headerlink" href="#icu" title="Permalink to this headline">¶</a></h2>
+<p>Данные ICU расположены в нескольких &quot;пакетах источников&quot;. Вы можете получить
+доступ к PHP-обёртке этих пакетов через статичный класс
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/Intl.html" title="Symfony\Component\Intl\Intl">Intl</a></code></tt>. На данный момент поддерживаются следующие
+данные:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id3">Язык и названия скриптов</a></li>
+<li><a class="reference internal" href="#id4">Названия стран</a></li>
+<li><a class="reference internal" href="#id5">Локали</a></li>
+<li><a class="reference internal" href="#id6">Валюты</a></li>
+</ul>
+<div class="section" id="id3">
+<h3>Язык и названия скриптов<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Переводы языков и названий скриптов можно найти в пакете языков:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Intl\Intl</span><span class="p">;</span>
+
+<span class="nx">\Locale</span><span class="o">::</span><span class="na">setDefault</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">);</span>
+
+<span class="nv">$languages</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getLanguageBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLanguageNames</span><span class="p">();</span>
+<span class="c1">// =&gt; array(&#39;ab&#39; =&gt; &#39;Абхазский&#39;, ...)</span>
+
+<span class="nv">$language</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getLanguageBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLanguageName</span><span class="p">(</span><span class="s1">&#39;de&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;Немецкий&#39;</span>
+
+<span class="nv">$language</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getLanguageBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLanguageName</span><span class="p">(</span><span class="s1">&#39;de&#39;</span><span class="p">,</span> <span class="s1">&#39;AT&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;Австрийский немецкий&#39;</span>
+
+<span class="nv">$scripts</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getLanguageBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getScriptNames</span><span class="p">();</span>
+<span class="c1">// =&gt; array(&#39;Араб&#39; =&gt; &#39;Арабский&#39;, ...)</span>
+
+<span class="nv">$script</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getLanguageBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getScriptName</span><span class="p">(</span><span class="s1">&#39;Hans&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;Упрощённый&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Все методы принимают локаль перевода в качестве последнего необязательного
+параметра, который по умолчанию имеет значение текущей локали:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$languages</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getLanguageBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLanguageNames</span><span class="p">(</span><span class="s1">&#39;de&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; array(&#39;ab&#39; =&gt; &#39;Абхахский&#39;, ...)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id4">
+<h3>Названия стран<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Переводы названий стран можно найти в пакете регионов:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Intl\Intl</span><span class="p">;</span>
+
+<span class="nx">\Locale</span><span class="o">::</span><span class="na">setDefault</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">);</span>
+
+<span class="nv">$countries</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getRegionBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getCountryNames</span><span class="p">();</span>
+<span class="c1">// =&gt; array(&#39;AF&#39; =&gt; &#39;Афганистан&#39;, ...)</span>
+
+<span class="nv">$country</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getRegionBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getCountryName</span><span class="p">(</span><span class="s1">&#39;GB&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;Великобритания&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Все методы принимают локаль перевода в качестве последнего необязательного
+параметра, который по умолчанию имеет значение текущей локали:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$countries</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getRegionBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getCountryNames</span><span class="p">(</span><span class="s1">&#39;de&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; array(&#39;AF&#39; =&gt; &#39;Афганистан&#39;, ...)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id5">
+<h3>Локали<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Переводы названий локалей можно найти в пакете локалей:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Intl\Intl</span><span class="p">;</span>
+
+<span class="nx">\Locale</span><span class="o">::</span><span class="na">setDefault</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">);</span>
+
+<span class="nv">$locales</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getLocaleBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLocaleNames</span><span class="p">();</span>
+<span class="c1">// =&gt; array(&#39;af&#39; =&gt; &#39;Африкаанс&#39;, ...)</span>
+
+<span class="nv">$locale</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getLocaleBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLocaleName</span><span class="p">(</span><span class="s1">&#39;zh_Hans_MO&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;Китайский (Упрощённый, Макау Китай)&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Все методы принимают локаль перевода в качестве последнего необязательного
+параметра, который по умолчанию имеет значение текущей локали:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$locales</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getLocaleBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLocaleNames</span><span class="p">(</span><span class="s1">&#39;de&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; array(&#39;af&#39; =&gt; &#39;Африкаанс&#39;, ...)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="id6">
+<h3>Валюты<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Переводы названий валют и другой информации, связанной с валютами, можно найти
+в пакете валют:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Symfony\Component\Intl\Intl</span><span class="p">;</span>
+
+<span class="nx">\Locale</span><span class="o">::</span><span class="na">setDefault</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">);</span>
+
+<span class="nv">$currencies</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getCurrencyBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getCurrencyNames</span><span class="p">();</span>
+<span class="c1">// =&gt; array(&#39;AFN&#39; =&gt; &#39;Афганские афгани&#39;, ...)</span>
+
+<span class="nv">$currency</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getCurrencyBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getCurrencyName</span><span class="p">(</span><span class="s1">&#39;INR&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;Индийские рупии&#39;</span>
+
+<span class="nv">$symbol</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getCurrencyBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getCurrencySymbol</span><span class="p">(</span><span class="s1">&#39;INR&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;₹&#39;</span>
+
+<span class="nv">$fractionDigits</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getCurrencyBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getFractionDigits</span><span class="p">(</span><span class="s1">&#39;INR&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; 2</span>
+
+<span class="nv">$roundingIncrement</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getCurrencyBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getRoundingIncrement</span><span class="p">(</span><span class="s1">&#39;INR&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; 0</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Все методы (кроме
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/ResourceBundle/CurrencyBundleInterface.html#method_getFractionDigits" title="Symfony\Component\Intl\ResourceBundle\CurrencyBundleInterface::getFractionDigits()">getFractionDigits()</a></code></tt>
+и
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/master/Symfony/Component/Intl/ResourceBundle/CurrencyBundleInterface.html#method_getRoundingIncrement" title="Symfony\Component\Intl\ResourceBundle\CurrencyBundleInterface::getRoundingIncrement()">getRoundingIncrement()</a></code></tt>)
+принимают локаль перевода в качестве последнего необязательного
+параметра, который по умолчанию имеет значение текущей локали:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$currencies</span> <span class="o">=</span> <span class="nx">Intl</span><span class="o">::</span><span class="na">getCurrencyBundle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getCurrencyNames</span><span class="p">(</span><span class="s1">&#39;de&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; array(&#39;AFN&#39; =&gt; &#39;Афганские афгани&#39;, ...)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Это всё, что вам нужно знать на сейчас. Приятного написания кода!</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>Узнайте больше<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..\reference\forms\types\country.html">CountryType Field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\reference\forms\types\currency.html">CurrencyType Field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\reference\forms\types\language.html">LanguageType Field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="..\reference\forms\types\locale.html">LocaleType Field</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+
+            
+            <div class="navigation">
+                <a href="yaml/yaml_format-ru.html">« Формат YAML</a>
+                <span class="separator">|</span>
+                <a href="ldap-ru.html">Компонент Ldap »</a>
+            </div>
+            
+
+            <div id="license">
+                <p>Эта документация является переводом <a href="http://symfony.com/doc/current/index.html">официальной документации Symfony</a> и предоставляется по свободной лицензии <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ru">CC BY-SA 3.0</a>.</p>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+  </body>
+</body></html>
